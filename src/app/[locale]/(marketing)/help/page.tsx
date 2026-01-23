@@ -1,23 +1,12 @@
+import { HelpSearch } from '@/components/help/help-search';
 import Container from '@/components/layout/container';
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from '@/components/ui/accordion';
-import { Button } from '@/components/ui/button';
 import { LocaleLink } from '@/i18n/navigation';
 import { constructMetadata } from '@/lib/metadata';
 import {
   BookOpenIcon,
-  CreditCardIcon,
   ExternalLinkIcon,
   HelpCircleIcon,
-  ImageIcon,
   MailIcon,
-  MessageCircleIcon,
-  SearchIcon,
-  ShieldIcon,
 } from 'lucide-react';
 import type { Metadata } from 'next';
 import type { Locale } from 'next-intl';
@@ -40,22 +29,6 @@ export async function generateMetadata({
   });
 }
 
-// FAQ categories with icons
-const categories = [
-  { id: 'getting-started', icon: BookOpenIcon },
-  { id: 'creating-videos', icon: ImageIcon },
-  { id: 'billing', icon: CreditCardIcon },
-  { id: 'account', icon: ShieldIcon },
-];
-
-// FAQ items per category
-const faqItems: Record<string, string[]> = {
-  'getting-started': ['q1', 'q2', 'q3'],
-  'creating-videos': ['q1', 'q2', 'q3', 'q4'],
-  billing: ['q1', 'q2', 'q3'],
-  account: ['q1', 'q2', 'q3'],
-};
-
 export default async function HelpPage() {
   const t = await getTranslations('HelpPage');
 
@@ -76,64 +49,8 @@ export default async function HelpPage() {
           </p>
         </div>
 
-        {/* Search Box (Visual only - could be connected to search functionality) */}
-        <div className="relative mb-12">
-          <SearchIcon className="absolute left-4 top-1/2 -translate-y-1/2 size-5 text-muted-foreground" />
-          <input
-            type="text"
-            placeholder={t('searchPlaceholder')}
-            className="w-full h-14 pl-12 pr-4 rounded-xl border bg-card text-lg focus:outline-none focus:ring-2 focus:ring-primary/50"
-          />
-        </div>
-
-        {/* Quick Links */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16">
-          {categories.map((category) => {
-            const Icon = category.icon;
-            return (
-              <a
-                key={category.id}
-                href={`#${category.id}`}
-                className="flex flex-col items-center p-6 rounded-xl border bg-card hover:border-primary/50 hover:shadow-md transition-all text-center"
-              >
-                <Icon className="size-8 text-primary mb-3" />
-                <span className="font-medium">
-                  {t(`categories.${category.id}` as never)}
-                </span>
-              </a>
-            );
-          })}
-        </div>
-
-        {/* FAQ Sections */}
-        <div className="space-y-12">
-          {categories.map((category) => {
-            const Icon = category.icon;
-            return (
-              <section key={category.id} id={category.id}>
-                <div className="flex items-center gap-3 mb-6">
-                  <Icon className="size-6 text-primary" />
-                  <h2 className="text-2xl font-bold">
-                    {t(`categories.${category.id}` as never)}
-                  </h2>
-                </div>
-
-                <Accordion type="single" collapsible className="w-full">
-                  {faqItems[category.id].map((qId) => (
-                    <AccordionItem key={qId} value={`${category.id}-${qId}`}>
-                      <AccordionTrigger className="text-left">
-                        {t(`faqs.${category.id}.${qId}.question` as never)}
-                      </AccordionTrigger>
-                      <AccordionContent className="text-muted-foreground">
-                        {t(`faqs.${category.id}.${qId}.answer` as never)}
-                      </AccordionContent>
-                    </AccordionItem>
-                  ))}
-                </Accordion>
-              </section>
-            );
-          })}
-        </div>
+        {/* Search and FAQ Content */}
+        <HelpSearch />
 
         {/* Contact Support Section */}
         <div className="mt-20 p-8 rounded-2xl bg-muted/50 border">

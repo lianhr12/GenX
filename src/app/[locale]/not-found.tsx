@@ -1,14 +1,7 @@
 import { Logo } from '@/components/layout/logo';
 import { Button } from '@/components/ui/button';
 import { LocaleLink } from '@/i18n/navigation';
-import {
-  BookOpen,
-  Home,
-  ImageIcon,
-  Mail,
-  Search,
-  Video,
-} from 'lucide-react';
+import { BookOpen, Home, ImageIcon, Mail, Search, Video } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 
 // Popular links to help users find what they're looking for
@@ -52,7 +45,9 @@ export default function NotFound() {
         <Logo className="mx-auto size-16 mb-8" />
 
         {/* Error Code */}
-        <h1 className="text-8xl font-bold text-primary/20 mb-4">{t('title')}</h1>
+        <h1 className="text-8xl font-bold text-primary/20 mb-4">
+          {t('title')}
+        </h1>
 
         {/* Message */}
         <h2 className="text-2xl font-semibold mb-4">{t('headline')}</h2>

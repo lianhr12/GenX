@@ -33,7 +33,9 @@ export function VideoSchema({
 
   // Convert relative URLs to absolute
   const absoluteThumbnail = Array.isArray(thumbnailUrl)
-    ? thumbnailUrl.map((url) => (url.startsWith('http') ? url : `${baseUrl}${url}`))
+    ? thumbnailUrl.map((url) =>
+        url.startsWith('http') ? url : `${baseUrl}${url}`
+      )
     : thumbnailUrl.startsWith('http')
       ? thumbnailUrl
       : `${baseUrl}${thumbnailUrl}`;
@@ -52,7 +54,9 @@ export function VideoSchema({
         : `${baseUrl}${contentUrl}`,
     }),
     ...(embedUrl && {
-      embedUrl: embedUrl.startsWith('http') ? embedUrl : `${baseUrl}${embedUrl}`,
+      embedUrl: embedUrl.startsWith('http')
+        ? embedUrl
+        : `${baseUrl}${embedUrl}`,
     }),
     publisher: {
       '@type': 'Organization',

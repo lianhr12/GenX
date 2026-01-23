@@ -1300,6 +1300,9 @@
     "title": "How Can We Help?",
     "description": "Find answers to common questions or contact our support team",
     "searchPlaceholder": "Search for help...",
+    "searchResults": "Found {count, plural, =1 {# result} other {# results}}",
+    "noResults": "No results found. Try a different search term.",
+    "clearSearch": "Clear search",
     "categories": {
       "getting-started": "Getting Started",
       "creating-videos": "Creating Videos",
@@ -1670,7 +1673,9 @@
       "badge": "Pricing",
       "headline": "Simple, Transparent Pricing",
       "popular": "Most Popular",
+      "bestValue": "Best Value",
       "perMonth": "/month",
+      "oneTime": "one-time",
       "yearlyOption": "or ${price}/year (save {discount}%)",
       "plans": {
         "free": {
@@ -1691,6 +1696,15 @@
           "feature3": "No watermark",
           "feature4": "Commercial license",
           "cta": "Go Pro"
+        },
+        "lifetime": {
+          "name": "Lifetime",
+          "description": "Pay once, create forever",
+          "feature1": "All Pro features",
+          "feature2": "Lifetime updates",
+          "feature3": "Priority support",
+          "feature4": "1000 monthly credits",
+          "cta": "Get Lifetime"
         }
       },
       "paymentNote": "Secure payment via Stripe",
@@ -1807,7 +1821,9 @@
       "totalCredits": "Total Credits:",
       "credits": "{count} Credits",
       "generateVideo": "Generate Video",
-      "generating": "Generating..."
+      "generating": "Generating...",
+      "loginToGenerate": "Sign In to Generate",
+      "loginHint": "Sign in to save your creations and unlock more features"
     },
     "result": {
       "emptyTitle": "Your creation will appear here",
@@ -1839,6 +1855,89 @@
       "generateFailed": "Failed to generate video",
       "noTrackingId": "Video generation started but no tracking ID returned.",
       "generationFailed": "Video generation failed"
+    }
+  },
+  "UserDashboard": {
+    "stats": {
+      "credits": "Credit Balance",
+      "creditsHint": "Used for AI video generation",
+      "buyCredits": "Get More Credits",
+      "videosCreated": "Videos Created",
+      "allTime": "All time",
+      "inProgress": "in progress"
+    },
+    "quickStart": {
+      "title": "Ready to Create?",
+      "createVideo": "Create New Video"
+    },
+    "quickActions": {
+      "title": "Quick Actions",
+      "image-to-video": "Image to Video",
+      "text-to-video": "Text to Video",
+      "reference-to-video": "Reference Video",
+      "image": "AI Image"
+    },
+    "recentCreations": {
+      "title": "Recent Creations",
+      "viewAll": "View All",
+      "empty": {
+        "title": "No Videos Yet",
+        "description": "Start creating your first art video with AI",
+        "cta": "Create First Video"
+      },
+      "status": {
+        "generating": "Generating",
+        "pending": "Pending",
+        "failed": "Failed"
+      }
+    }
+  },
+  "Onboarding": {
+    "welcome": {
+      "title": "Welcome to GenX, {name}!",
+      "defaultName": "Creator",
+      "description": "You're just 3 simple steps away from creating your first stunning art video.",
+      "steps": {
+        "upload": {
+          "title": "Upload Your Photo",
+          "description": "Any photo works - portraits, landscapes, products"
+        },
+        "style": {
+          "title": "Choose Art Style",
+          "description": "5 unique styles: Cyberpunk, Watercolor, Oil Painting, Anime, Fluid Art"
+        },
+        "generate": {
+          "title": "Generate & Download",
+          "description": "AI creates your art video in about 30 seconds"
+        }
+      },
+      "freeCredits": "You have 50 free credits to start creating!",
+      "startButton": "Start Creating",
+      "skipButton": "I'll explore on my own"
+    },
+    "toolGuide": {
+      "steps": {
+        "upload": {
+          "title": "Upload Your Image",
+          "description": "Click here or drag & drop an image. JPG, PNG, and WEBP formats are supported."
+        },
+        "style": {
+          "title": "Select an Art Style",
+          "description": "Choose from 5 unique styles. Each gives your video a completely different artistic look."
+        },
+        "prompt": {
+          "title": "Add a Prompt (Optional)",
+          "description": "Describe what you want to see. The AI will use this to guide the video creation."
+        },
+        "generate": {
+          "title": "Generate Your Video",
+          "description": "Click here to start! Generation takes about 30 seconds. You can leave and come back."
+        }
+      },
+      "prev": "Back",
+      "next": "Next",
+      "skip": "Skip tour",
+      "done": "Got it!"
     }
   }
 }

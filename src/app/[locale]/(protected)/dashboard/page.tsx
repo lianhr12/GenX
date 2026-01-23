@@ -1,23 +1,32 @@
-import { ChartAreaInteractive } from '@/components/dashboard/chart-area-interactive';
 import { DashboardHeader } from '@/components/dashboard/dashboard-header';
-import { DataTable } from '@/components/dashboard/data-table';
-import { SectionCards } from '@/components/dashboard/section-cards';
-import { useTranslations } from 'next-intl';
-
-import data from './data.json';
+import { UserDashboard } from '@/components/dashboard/user-dashboard';
+import { getUserCredits } from '@/credits/credits';
+import { auth } from '@/lib/auth';
+import { getTranslations } from 'next-intl/server';
+import { headers } from 'next/headers';
 
 /**
  * Dashboard page
  *
- * NOTICE: This is a demo page for the dashboard, no real data is used,
- * we will show real data in the future
+ * Shows user's credits, recent creations, and quick actions
  */
-export default function DashboardPage() {
-  const t = useTranslations();
+export default async function DashboardPage() {
+  const t = await getTranslations('Dashboard');
+
+  // Get session from headers
+  const session = await auth.api.getSession({
+    headers: await headers(),
+  });
+
+  // Get user credits if logged in
+  let userCredits = 0;
+  if (session?.user?.id) {
+    userCredits = await getUserCredits(session.user.id);
+  }
 
   const breadcrumbs = [
     {
-      label: t('Dashboard.dashboard.title'),
+      label: t('dashboard.title'),
       isCurrentPage: true,
     },
   ];
@@ -27,14 +36,8 @@ export default function DashboardPage() {
       <DashboardHeader breadcrumbs={breadcrumbs} />
 
       <div className="flex flex-1 flex-col">
-        <div className="@container/main flex flex-1 flex-col gap-2">
-          <div className="flex flex-col gap-4 py-4 md:gap-6 md:py-6">
-            <SectionCards />
-            <div className="px-4 lg:px-6">
-              <ChartAreaInteractive />
-            </div>
-            <DataTable data={data} />
-          </div>
+        <div className="@container/main flex flex-1 flex-col">
+          <UserDashboard initialCredits={userCredits} />
         </div>
       </div>
     </>

@@ -11,7 +11,10 @@ import {
 import { LocaleLink } from '@/i18n/navigation';
 import { Home } from 'lucide-react';
 import { Fragment } from 'react';
-import { BreadcrumbSchema, type BreadcrumbItem as BreadcrumbSchemaItem } from './json-ld';
+import {
+  BreadcrumbSchema,
+  type BreadcrumbItem as BreadcrumbSchemaItem,
+} from './json-ld';
 
 export interface BreadcrumbNavItem {
   label: string;
@@ -29,7 +32,10 @@ interface PageBreadcrumbProps {
  * Renders both visual breadcrumb navigation and JSON-LD structured data
  * Use this component on marketing pages to improve SEO and UX
  */
-export function PageBreadcrumb({ items, homeLabel = 'Home' }: PageBreadcrumbProps) {
+export function PageBreadcrumb({
+  items,
+  homeLabel = 'Home',
+}: PageBreadcrumbProps) {
   // Build schema items including home
   const schemaItems: BreadcrumbSchemaItem[] = [
     { name: homeLabel, url: '/' },

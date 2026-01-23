@@ -1,5 +1,6 @@
 'use client';
 
+import { ToolGuide } from '@/components/onboarding';
 import { applyArtStyleToPrompt } from '@/config/art-styles';
 import type { Video } from '@/db';
 import { useLocaleRouter } from '@/i18n/navigation';
@@ -177,6 +178,9 @@ export function ToolPageLayout({
 
   return (
     <div className="min-h-screen bg-zinc-950">
+      {/* Tool Guide for new users */}
+      <ToolGuide isLoggedIn={isLoggedIn} toolType={toolType} />
+
       {/* Main Content - Three column layout */}
       <div className="flex h-[calc(100vh-64px)]">
         {/* Left: Generator Panel */}
@@ -184,6 +188,7 @@ export function ToolPageLayout({
           <GeneratorPanel
             toolType={toolType}
             isLoading={isGenerating}
+            isLoggedIn={isLoggedIn}
             onSubmit={handleSubmit}
           />
         </div>

@@ -50,6 +50,7 @@ function SectionLabel({ children, required }: SectionLabelProps) {
 interface GeneratorPanelProps {
   toolType: 'image-to-video' | 'text-to-video' | 'reference-to-video';
   isLoading?: boolean;
+  isLoggedIn?: boolean;
   onSubmit?: (data: GeneratorData) => void;
 }
 
@@ -68,6 +69,7 @@ export interface GeneratorData {
 export function GeneratorPanel({
   toolType,
   isLoading = false,
+  isLoggedIn = false,
   onSubmit,
 }: GeneratorPanelProps) {
   const t = useTranslations('ToolPage.generator');
@@ -448,6 +450,11 @@ export function GeneratorPanel({
                 <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
                 {t('generating')}
               </>
+            ) : !isLoggedIn ? (
+              <>
+                <Sparkles className="w-4 h-4" />
+                {t('loginToGenerate')}
+              </>
             ) : (
               <>
                 <Sparkles className="w-4 h-4" />
@@ -455,6 +462,13 @@ export function GeneratorPanel({
               </>
             )}
           </button>
+
+          {/* Login hint for guests */}
+          {!isLoggedIn && (
+            <p className="text-xs text-zinc-500 text-center">
+              {t('loginHint')}
+            </p>
+          )}
         </div>
       </div>
     </div>

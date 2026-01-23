@@ -1,5 +1,5 @@
-import { constructMetadata } from '@/lib/metadata';
 import { HomePageSchemas } from '@/components/seo';
+import { constructMetadata } from '@/lib/metadata';
 import type { Metadata } from 'next';
 import type { Locale } from 'next-intl';
 import { getTranslations } from 'next-intl/server';

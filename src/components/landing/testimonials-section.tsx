@@ -78,7 +78,9 @@ function TestimonialCard({ testimonial, index }: TestimonialCardProps) {
           />
         </div>
         <div>
-          <p className="font-medium">{t(`items.${testimonial.id}.name` as never)}</p>
+          <p className="font-medium">
+            {t(`items.${testimonial.id}.name` as never)}
+          </p>
           <p className="text-sm text-muted-foreground">
             {t(`items.${testimonial.id}.role` as never)}
           </p>

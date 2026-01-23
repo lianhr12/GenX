@@ -1,6 +1,7 @@
 'use client';
 
 import { PostHogProvider } from '@/analytics/posthog-analytics';
+import { OnboardingProvider } from '@/components/onboarding';
 import { GoogleOneTapProvider } from '@/components/providers/google-one-tap-provider';
 import { QueryProvider } from '@/components/providers/query-provider';
 import { TooltipProvider } from '@/components/ui/tooltip';
@@ -64,7 +65,9 @@ export function Providers({ children, locale }: ProvidersProps) {
         >
           <RootProvider theme={theme} i18n={{ locale, locales, translations }}>
             <TooltipProvider>
-              <GoogleOneTapProvider>{children}</GoogleOneTapProvider>
+              <GoogleOneTapProvider>
+                <OnboardingProvider>{children}</OnboardingProvider>
+              </GoogleOneTapProvider>
             </TooltipProvider>
           </RootProvider>
         </ThemeProvider>
