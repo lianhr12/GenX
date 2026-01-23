@@ -11,6 +11,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from '@/components/ui/carousel';
+import Image from 'next/image';
 
 // Demo testimonials - names/roles are fetched from i18n
 const testimonials = [
@@ -66,15 +67,14 @@ function TestimonialCard({ testimonial, index }: TestimonialCardProps) {
 
       {/* Author */}
       <div className="mt-6 flex items-center gap-3">
-        <div className="h-10 w-10 overflow-hidden rounded-full bg-muted">
-          <img
+        <div className="relative h-10 w-10 overflow-hidden rounded-full bg-muted">
+          <Image
             src={testimonial.avatar}
             alt={t(`items.${testimonial.id}.name`)}
-            className="h-full w-full object-cover"
-            onError={(e) => {
-              // Fallback to initials
-              (e.target as HTMLImageElement).style.display = 'none';
-            }}
+            fill
+            sizes="40px"
+            className="object-cover"
+            loading="lazy"
           />
         </div>
         <div>

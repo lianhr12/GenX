@@ -28,10 +28,19 @@ const nextConfig: NextConfig = {
     // https://nextjs.org/docs/app/api-reference/components/image#unoptimized
     // vercel has limits on image optimization, 1000 images per month
     unoptimized: process.env.DISABLE_IMAGE_OPTIMIZATION === 'true',
+    // Enable modern image formats for better compression
+    formats: ['image/avif', 'image/webp'],
+    // Optimized device sizes for responsive images
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     remotePatterns: [
       {
         protocol: 'https',
         hostname: 'cdn.mksaas.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'cdn.genx.art',
       },
       {
         protocol: 'https',
@@ -62,6 +71,15 @@ const nextConfig: NextConfig = {
         hostname: 'service.firecrawl.dev',
       },
     ],
+  },
+
+  // Enable compression for better performance
+  compress: true,
+
+  // Experimental features for better performance
+  experimental: {
+    // Optimize specific package imports to reduce bundle size
+    optimizePackageImports: ['lucide-react', 'motion', '@tabler/icons-react'],
   },
   async rewrites() {
     return [

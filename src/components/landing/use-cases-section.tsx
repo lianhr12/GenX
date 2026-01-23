@@ -137,11 +137,14 @@ export function UseCasesSection() {
                 className="relative overflow-hidden rounded-2xl border bg-background shadow-xl"
               >
                 {/* Video/Image */}
-                <div className="aspect-video">
-                  <img
+                <div className="relative aspect-video">
+                  <Image
                     src={currentCase.image}
                     alt={t(`cases.${currentCase.id}.title`)}
-                    className="h-full w-full object-cover"
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    className="object-cover"
+                    loading="lazy"
                   />
                   {/* Play Overlay */}
                   <div className="absolute inset-0 flex items-center justify-center bg-black/20">
