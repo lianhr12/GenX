@@ -1,5 +1,5 @@
-import { redirect } from 'next/navigation';
 import type { Locale } from 'next-intl';
+import { redirect } from 'next/navigation';
 
 /**
  * Video page - redirects to text-to-video

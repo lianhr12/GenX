@@ -19,7 +19,11 @@ export interface PageSEOConfig {
 
 export interface GeneratorConfig {
   // Generation mode
-  mode: 'text-to-video' | 'image-to-video' | 'reference-to-video' | 'image-to-image';
+  mode:
+    | 'text-to-video'
+    | 'image-to-video'
+    | 'reference-to-video'
+    | 'image-to-image';
 
   // UI mode
   uiMode: 'full' | 'compact';

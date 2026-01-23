@@ -5,8 +5,8 @@
  * Grid-based selector for choosing art styles
  */
 
+import { type ArtStyle, artStyles } from '@/config/art-styles';
 import { cn } from '@/lib/utils';
-import { artStyles, type ArtStyle } from '@/config/art-styles';
 import { useTranslations } from 'next-intl';
 
 // Map style id to translation key

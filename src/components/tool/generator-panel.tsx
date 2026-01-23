@@ -5,26 +5,29 @@
  * Tool page generator panel with dark theme design
  */
 
-import { useState, useCallback, useMemo, useRef } from 'react';
-import { cn } from '@/lib/utils';
-import { getAvailableModels, calculateModelCredits } from '@/config/video-credits';
-import {
-  ChevronDown,
-  X,
-  Sparkles,
-  Image as ImageIcon,
-  Wand2,
-} from 'lucide-react';
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuTrigger,
-  DropdownMenuSeparator,
   DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { ArtStyleSelector } from './art-style-selector';
+import {
+  calculateModelCredits,
+  getAvailableModels,
+} from '@/config/video-credits';
+import { cn } from '@/lib/utils';
+import {
+  ChevronDown,
+  Image as ImageIcon,
+  Sparkles,
+  Wand2,
+  X,
+} from 'lucide-react';
 import { useTranslations } from 'next-intl';
+import { useCallback, useMemo, useRef, useState } from 'react';
+import { ArtStyleSelector } from './art-style-selector';
 
 // ============================================================================
 // Types
@@ -166,7 +169,8 @@ export function GeneratorPanel({
     return tTitles('aiGenerator');
   };
 
-  const showImageUpload = toolType === 'image-to-video' || toolType === 'reference-to-video';
+  const showImageUpload =
+    toolType === 'image-to-video' || toolType === 'reference-to-video';
 
   return (
     <div className="h-full flex flex-col rounded-xl overflow-hidden">
@@ -226,7 +230,9 @@ export function GeneratorPanel({
                     </div>
                     <div className="text-xs text-zinc-500 mt-1 ml-5">
                       {model.provider} •{' '}
-                      {model.supportImageToVideo ? t('highQuality') : t('standard')}
+                      {model.supportImageToVideo
+                        ? t('highQuality')
+                        : t('standard')}
                     </div>
                   </DropdownMenuItem>
                 ))}
@@ -274,7 +280,9 @@ export function GeneratorPanel({
                   <div className="w-12 h-12 rounded-full flex items-center justify-center bg-zinc-800 group-hover:bg-zinc-700 transition-colors">
                     <ImageIcon className="w-6 h-6 text-zinc-500 group-hover:text-purple-400" />
                   </div>
-                  <p className="text-sm text-zinc-400 mt-3">{t('uploadImage')}</p>
+                  <p className="text-sm text-zinc-400 mt-3">
+                    {t('uploadImage')}
+                  </p>
                   <p className="text-xs text-zinc-600 mt-1">
                     {t('uploadHint')}
                   </p>

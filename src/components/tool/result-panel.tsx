@@ -1,14 +1,20 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import { Play, Download, RefreshCw, Sparkles, Loader2 } from 'lucide-react';
-import { cn } from '@/lib/utils';
-import type { Video } from '@/db';
 import { artStyles } from '@/config/art-styles';
+import type { Video } from '@/db';
+import { cn } from '@/lib/utils';
+import { Download, Loader2, Play, RefreshCw, Sparkles } from 'lucide-react';
 import { useTranslations } from 'next-intl';
+import { useEffect, useState } from 'react';
 
 // Style IDs for showcase (excluding default)
-const styleShowcaseIds = ['cyberpunk', 'watercolor', 'oil-painting', 'anime', 'fluid-art'];
+const styleShowcaseIds = [
+  'cyberpunk',
+  'watercolor',
+  'oil-painting',
+  'anime',
+  'fluid-art',
+];
 
 // Map style id to translation key
 const styleIdToKey: Record<string, string> = {
@@ -80,7 +86,9 @@ export function ResultPanel({
 
             {/* Style card */}
             <div className="relative bg-zinc-900/80 border border-zinc-700 rounded-2xl p-8 backdrop-blur-sm">
-              <div className="text-5xl mb-4 animate-bounce">{activeStyle.icon}</div>
+              <div className="text-5xl mb-4 animate-bounce">
+                {activeStyle.icon}
+              </div>
               <h4 className="text-lg font-semibold text-white mb-1">
                 {tStyles(`${activeStyle.translationKey}.name`)}
               </h4>
@@ -156,9 +164,7 @@ export function ResultPanel({
           <h3 className="text-lg font-semibold text-white mb-2">
             {t('generatingTitle')}
           </h3>
-          <p className="text-zinc-400 text-sm">
-            {t('generatingDescription')}
-          </p>
+          <p className="text-zinc-400 text-sm">{t('generatingDescription')}</p>
           {generatingProgress > 0 && (
             <div className="mt-4">
               <div className="w-48 h-2 mx-auto bg-zinc-800 rounded-full overflow-hidden">
@@ -167,7 +173,9 @@ export function ResultPanel({
                   style={{ width: `${generatingProgress}%` }}
                 />
               </div>
-              <p className="text-xs text-zinc-500 mt-2">{generatingProgress}%</p>
+              <p className="text-xs text-zinc-500 mt-2">
+                {generatingProgress}%
+              </p>
             </div>
           )}
         </div>
@@ -227,7 +235,9 @@ export function ResultPanel({
         {currentVideo && (
           <div className="space-y-3">
             <div className="flex items-center gap-2 text-sm text-zinc-400">
-              <span>{t('model')}: {currentVideo?.model || t('notAvailable')}</span>
+              <span>
+                {t('model')}: {currentVideo?.model || t('notAvailable')}
+              </span>
               <span>•</span>
               <span>{currentVideo?.duration || 0}s</span>
               {currentVideo?.aspectRatio && (

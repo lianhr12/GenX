@@ -183,7 +183,9 @@ export class S3Provider implements StorageProvider {
       // Download the file
       const response = await fetch(sourceUrl);
       if (!response.ok) {
-        throw new UploadError(`Failed to download file: ${response.statusText}`);
+        throw new UploadError(
+          `Failed to download file: ${response.statusText}`
+        );
       }
 
       const buffer = Buffer.from(await response.arrayBuffer());
@@ -193,7 +195,9 @@ export class S3Provider implements StorageProvider {
       const uploadResponse = await s3.putObject(key, buffer, contentType);
 
       if (!uploadResponse.ok) {
-        throw new UploadError(`Failed to upload file: ${uploadResponse.statusText}`);
+        throw new UploadError(
+          `Failed to upload file: ${uploadResponse.statusText}`
+        );
       }
 
       // Generate the URL

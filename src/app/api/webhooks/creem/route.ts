@@ -61,5 +61,7 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
   }
 
   // Fallback for other providers (shouldn't happen for this route)
-  return new Response('Invalid provider', { status: 400 }) as unknown as NextResponse;
+  return new Response('Invalid provider', {
+    status: 400,
+  }) as unknown as NextResponse;
 }

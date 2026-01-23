@@ -2,10 +2,10 @@ import { randomUUID } from 'crypto';
 
 import {
   Checkout,
-  Portal,
-  Webhook,
   type FlatCheckoutCompleted,
   type FlatSubscriptionEvent,
+  Portal,
+  Webhook,
   type WebhookOptions,
 } from '@creem_io/nextjs';
 import { createCreem } from 'creem_io';
@@ -15,11 +15,8 @@ import type { NextRequest } from 'next/server';
 import { websiteConfig } from '@/config/website';
 import {
   addCredits,
-  addCreditsInTransaction,
   addLifetimeMonthlyCredits,
-  addLifetimeMonthlyCreditsInTransaction,
   addSubscriptionCredits,
-  addSubscriptionCreditsInTransaction,
 } from '@/credits/credits';
 import { getCreditPackageById } from '@/credits/server';
 import { CREDIT_TRANSACTION_TYPE } from '@/credits/types';
@@ -34,8 +31,8 @@ import {
   type CreateCreditCheckoutParams,
   type CreatePortalParams,
   type PaymentProvider,
-  type PaymentStatus,
   PaymentScenes,
+  type PaymentStatus,
   PaymentTypes,
   type PlanInterval,
   PlanIntervals,
@@ -43,7 +40,9 @@ import {
   type Subscription,
   type getSubscriptionsParams,
 } from '../types';
+import { CreemError, CreemErrorType } from './creem-types';
 import {
+  type DbTransaction,
   checkSubscriptionWebhookIdempotency,
   executeWithTransaction,
   getValidatedCreemConfig,
@@ -52,9 +51,7 @@ import {
   validateCreditPurchaseMetadata,
   validateSubscriptionMetadata,
   validateWebhookMetadata,
-  type DbTransaction,
 } from './creem-utils';
-import { CreemError, CreemErrorType } from './creem-types';
 
 /**
  * Creem payment provider implementation using @creem_io/nextjs SDK
@@ -233,9 +230,13 @@ export class CreemProvider implements PaymentProvider {
     try {
       const plan = findPlanByPlanId(planId);
       if (!plan) {
-        throw CreemError.validationError(`Plan with ID ${planId} not found`, undefined, {
-          planId,
-        });
+        throw CreemError.validationError(
+          `Plan with ID ${planId} not found`,
+          undefined,
+          {
+            planId,
+          }
+        );
       }
 
       const price = findPriceInPlan(planId, priceId);
@@ -270,9 +271,13 @@ export class CreemProvider implements PaymentProvider {
       });
 
       if (!checkout.checkoutUrl) {
-        throw CreemError.validationError('Creem checkout URL not returned', undefined, {
-          checkoutId: checkout.id,
-        });
+        throw CreemError.validationError(
+          'Creem checkout URL not returned',
+          undefined,
+          {
+            checkoutId: checkout.id,
+          }
+        );
       }
 
       return {
@@ -281,7 +286,11 @@ export class CreemProvider implements PaymentProvider {
       };
     } catch (error: unknown) {
       if (error instanceof CreemError) {
-        logCreem('error', 'Creem create checkout error', error.getFullDetails());
+        logCreem(
+          'error',
+          'Creem create checkout error',
+          error.getFullDetails()
+        );
         throw error;
       }
 
@@ -310,7 +319,11 @@ export class CreemProvider implements PaymentProvider {
         );
       }
 
-      logCreem('error', 'Creem create checkout error', creemError.getFullDetails());
+      logCreem(
+        'error',
+        'Creem create checkout error',
+        creemError.getFullDetails()
+      );
       throw creemError;
     }
   }
@@ -358,10 +371,14 @@ export class CreemProvider implements PaymentProvider {
       });
 
       if (!checkout.checkoutUrl) {
-        throw CreemError.validationError('Creem checkout URL not returned', undefined, {
-          checkoutId: checkout.id,
-          packageId,
-        });
+        throw CreemError.validationError(
+          'Creem checkout URL not returned',
+          undefined,
+          {
+            checkoutId: checkout.id,
+            packageId,
+          }
+        );
       }
 
       return {
@@ -370,7 +387,11 @@ export class CreemProvider implements PaymentProvider {
       };
     } catch (error) {
       if (error instanceof CreemError) {
-        logCreem('error', 'Creem create credit checkout error', error.getFullDetails());
+        logCreem(
+          'error',
+          'Creem create credit checkout error',
+          error.getFullDetails()
+        );
         throw error;
       }
 
@@ -399,7 +420,11 @@ export class CreemProvider implements PaymentProvider {
         );
       }
 
-      logCreem('error', 'Creem create credit checkout error', creemError.getFullDetails());
+      logCreem(
+        'error',
+        'Creem create credit checkout error',
+        creemError.getFullDetails()
+      );
       throw creemError;
     }
   }
@@ -438,7 +463,11 @@ export class CreemProvider implements PaymentProvider {
       };
     } catch (error) {
       if (error instanceof CreemError) {
-        logCreem('error', 'Creem create customer portal error', error.getFullDetails());
+        logCreem(
+          'error',
+          'Creem create customer portal error',
+          error.getFullDetails()
+        );
         throw error;
       }
 
@@ -487,7 +516,11 @@ export class CreemProvider implements PaymentProvider {
         );
       }
 
-      logCreem('error', 'Creem create customer portal error', creemError.getFullDetails());
+      logCreem(
+        'error',
+        'Creem create customer portal error',
+        creemError.getFullDetails()
+      );
       throw creemError;
     }
   }
@@ -540,9 +573,13 @@ export class CreemProvider implements PaymentProvider {
     payload: string,
     signature: string
   ): Promise<void> {
-    logCreem('warn', 'handleWebhookEvent is deprecated, use getWebhookHandler() instead', {
-      signatureProvided: !!signature,
-    });
+    logCreem(
+      'warn',
+      'handleWebhookEvent is deprecated, use getWebhookHandler() instead',
+      {
+        signatureProvided: !!signature,
+      }
+    );
 
     const request = new Request('http://localhost/api/webhooks/creem', {
       method: 'POST',
@@ -570,7 +607,9 @@ export class CreemProvider implements PaymentProvider {
   /**
    * Handle checkout.completed event
    */
-  private async onCheckoutCompleted(data: FlatCheckoutCompleted): Promise<void> {
+  private async onCheckoutCompleted(
+    data: FlatCheckoutCompleted
+  ): Promise<void> {
     const checkoutId = data.order?.id || data.webhookId;
     const customerId = data.customer?.id;
     const rawMetadata = data.metadata;
@@ -584,11 +623,15 @@ export class CreemProvider implements PaymentProvider {
     const validatedMetadata = validateWebhookMetadata(rawMetadata);
 
     if (!validatedMetadata) {
-      logCreem('error', 'Invalid metadata in checkout.completed event - missing required userId', {
-        eventType: 'checkout.completed',
-        checkoutId,
-        rawMetadata,
-      });
+      logCreem(
+        'error',
+        'Invalid metadata in checkout.completed event - missing required userId',
+        {
+          eventType: 'checkout.completed',
+          checkoutId,
+          rawMetadata,
+        }
+      );
       return;
     }
 
@@ -741,16 +784,16 @@ export class CreemProvider implements PaymentProvider {
         userId,
         customerId: customerId.substring(0, 8) + '...',
       });
+    });
 
-      // Allocate credits within the same transaction
-      await addCreditsInTransaction(tx, {
-        userId,
-        amount: Number.parseInt(credits),
-        type: CREDIT_TRANSACTION_TYPE.PURCHASE_PACKAGE,
-        description: `+${credits} credits for package ${packageId} ($${amount.toLocaleString()})`,
-        paymentId: checkoutId,
-        expireDays: creditPackage.expireDays,
-      });
+    // Allocate credits outside of transaction (GenX uses non-transactional credit operations)
+    await addCredits({
+      userId,
+      amount: Number.parseInt(credits),
+      type: CREDIT_TRANSACTION_TYPE.PURCHASE_PACKAGE,
+      description: `+${credits} credits for package ${packageId} ($${amount.toLocaleString()})`,
+      paymentId: checkoutId,
+      expireDays: creditPackage.expireDays,
     });
 
     logCreem('info', 'Credit purchase completed', {
@@ -838,16 +881,16 @@ export class CreemProvider implements PaymentProvider {
         userId,
         customerId: customerId.substring(0, 8) + '...',
       });
-
-      // Allocate lifetime monthly credits within the same transaction
-      if (websiteConfig.credits?.enableCredits) {
-        await addLifetimeMonthlyCreditsInTransaction(tx, userId, priceId);
-        logCreem('info', 'Added lifetime monthly credits for user', {
-          userId,
-          priceId,
-        });
-      }
     });
+
+    // Allocate lifetime monthly credits outside of transaction
+    if (websiteConfig.credits?.enableCredits) {
+      await addLifetimeMonthlyCredits(userId, priceId);
+      logCreem('info', 'Added lifetime monthly credits for user', {
+        userId,
+        priceId,
+      });
+    }
 
     logCreem('info', 'One-time payment completed', {
       userId,
@@ -994,16 +1037,16 @@ export class CreemProvider implements PaymentProvider {
           userId,
           customerId: customerId.substring(0, 8) + '...',
         });
-
-        // Allocate subscription credits within the same transaction
-        if (websiteConfig.credits?.enableCredits) {
-          await addSubscriptionCreditsInTransaction(tx, userId, priceId);
-          logCreem('info', 'Added subscription credits for user', {
-            userId,
-            priceId,
-          });
-        }
       });
+
+      // Allocate subscription credits outside of transaction
+      if (websiteConfig.credits?.enableCredits) {
+        await addSubscriptionCredits(userId, priceId);
+        logCreem('info', 'Added subscription credits for user', {
+          userId,
+          priceId,
+        });
+      }
 
       logCreem('info', 'Subscription activated', {
         subscriptionId,
@@ -1039,7 +1082,10 @@ export class CreemProvider implements PaymentProvider {
     customerId: string,
     userId: string,
     amount: number,
-    eventType: 'subscription_active' | 'subscription_renewal' | 'onetime_payment'
+    eventType:
+      | 'subscription_active'
+      | 'subscription_renewal'
+      | 'onetime_payment'
   ): Promise<void> {
     try {
       await sendNotification(transactionId, customerId, userId, amount);
@@ -1051,15 +1097,19 @@ export class CreemProvider implements PaymentProvider {
         amount,
       });
     } catch (error) {
-      logCreem('error', 'Failed to send notification, continuing without notification', {
-        eventType,
-        transactionId,
-        customerId: customerId.substring(0, 8) + '...',
-        userId,
-        amount,
-        error: error instanceof Error ? error.message : String(error),
-        stack: error instanceof Error ? error.stack : undefined,
-      });
+      logCreem(
+        'error',
+        'Failed to send notification, continuing without notification',
+        {
+          eventType,
+          transactionId,
+          customerId: customerId.substring(0, 8) + '...',
+          userId,
+          amount,
+          error: error instanceof Error ? error.message : String(error),
+          stack: error instanceof Error ? error.stack : undefined,
+        }
+      );
     }
   }
 
@@ -1117,10 +1167,14 @@ export class CreemProvider implements PaymentProvider {
       );
 
       if (idempotencyResult.isProcessed) {
-        logCreem('info', 'Subscription.paid webhook already processed, skipping', {
-          subscriptionId,
-          webhookId,
-        });
+        logCreem(
+          'info',
+          'Subscription.paid webhook already processed, skipping',
+          {
+            subscriptionId,
+            webhookId,
+          }
+        );
         return;
       }
 
@@ -1187,20 +1241,19 @@ export class CreemProvider implements PaymentProvider {
           paymentId: result[0].id,
           isRenewal,
         });
-
-        // Allocate renewal credits within the same transaction
-        if (isRenewal && websiteConfig.credits?.enableCredits) {
-          await addSubscriptionCreditsInTransaction(
-            tx,
-            currentPayment.userId,
-            currentPayment.priceId
-          );
-          logCreem('info', 'Added subscription renewal credits for user', {
-            userId: currentPayment.userId,
-            priceId: currentPayment.priceId,
-          });
-        }
       });
+
+      // Allocate renewal credits outside of transaction
+      if (isRenewal && websiteConfig.credits?.enableCredits) {
+        await addSubscriptionCredits(
+          currentPayment.userId,
+          currentPayment.priceId
+        );
+        logCreem('info', 'Added subscription renewal credits for user', {
+          userId: currentPayment.userId,
+          priceId: currentPayment.priceId,
+        });
+      }
 
       // Send notification for renewals
       if (isRenewal) {

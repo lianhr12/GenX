@@ -30,7 +30,8 @@ export class KieProvider implements AIVideoProvider {
         model: 'sora-2-text-to-video',
         input: {
           prompt: params.prompt,
-          aspect_ratio: params.aspectRatio === '9:16' ? 'portrait' : 'landscape',
+          aspect_ratio:
+            params.aspectRatio === '9:16' ? 'portrait' : 'landscape',
           n_frames: String(params.duration || 10),
           size: params.quality || 'high',
           remove_watermark: params.removeWatermark ?? true,

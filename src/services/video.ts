@@ -8,14 +8,18 @@
  * - Video storage and credit settlement
  */
 
-import { nanoid } from 'nanoid';
-import { and, desc, eq, lt } from 'drizzle-orm';
-import { getDb, videos, creditHolds, VideoStatus, type Video } from '@/db';
-import { getStorage } from '@/storage';
-import { getModelConfig, calculateModelCredits } from '@/config/video-credits';
-import { getProvider, type ProviderType, type VideoTaskResponse } from '@/ai/video';
+import {
+  type ProviderType,
+  type VideoTaskResponse,
+  getProvider,
+} from '@/ai/video';
 import { generateSignedCallbackUrl } from '@/ai/video/utils/callback-signature';
-import { freezeCredits, settleCredits, releaseCredits } from '@/credits/server';
+import { calculateModelCredits, getModelConfig } from '@/config/video-credits';
+import { freezeCredits, releaseCredits, settleCredits } from '@/credits/server';
+import { type Video, VideoStatus, creditHolds, getDb, videos } from '@/db';
+import { getStorage } from '@/storage';
+import { and, desc, eq, lt } from 'drizzle-orm';
+import { nanoid } from 'nanoid';
 
 // ============================================================================
 // Types
@@ -439,7 +443,10 @@ export class VideoService {
 
     if (options?.status) {
       conditions.push(
-        eq(videos.status, options.status as (typeof VideoStatus)[keyof typeof VideoStatus])
+        eq(
+          videos.status,
+          options.status as (typeof VideoStatus)[keyof typeof VideoStatus]
+        )
       );
     }
 

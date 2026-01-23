@@ -1,7 +1,7 @@
 'use client';
 
-import { useEffect, useState, useCallback } from 'react';
 import type { Video } from '@/db';
+import { useCallback, useEffect, useState } from 'react';
 import { ResultPanel } from './result-panel';
 
 interface ResultPanelWrapperProps {

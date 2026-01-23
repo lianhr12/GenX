@@ -1,16 +1,16 @@
-import { constructMetadata } from '@/lib/metadata';
 import Container from '@/components/layout/container';
-import { LocaleLink } from '@/i18n/navigation';
 import { Button } from '@/components/ui/button';
+import { LocaleLink } from '@/i18n/navigation';
+import { constructMetadata } from '@/lib/metadata';
 import {
-  CodeIcon,
-  KeyIcon,
-  ZapIcon,
-  ShieldCheckIcon,
   BookOpenIcon,
+  CheckCircleIcon,
+  CodeIcon,
   CopyIcon,
   ExternalLinkIcon,
-  CheckCircleIcon,
+  KeyIcon,
+  ShieldCheckIcon,
+  ZapIcon,
 } from 'lucide-react';
 import type { Metadata } from 'next';
 import type { Locale } from 'next-intl';
@@ -120,7 +120,9 @@ export default async function APIDocsPage() {
           <h2 className="text-2xl font-bold mb-6">{t('quickStart.title')}</h2>
           <div className="rounded-xl border bg-card overflow-hidden">
             <div className="p-4 border-b bg-muted/50 flex items-center justify-between">
-              <span className="text-sm font-medium">{t('quickStart.example')}</span>
+              <span className="text-sm font-medium">
+                {t('quickStart.example')}
+              </span>
               <Button variant="ghost" size="sm" className="gap-2">
                 <CopyIcon className="size-4" />
                 {t('quickStart.copy')}
@@ -128,7 +130,7 @@ export default async function APIDocsPage() {
             </div>
             <pre className="p-4 overflow-x-auto text-sm">
               <code className="text-muted-foreground">
-{`curl -X POST https://api.genx.art/v1/videos/create \\
+                {`curl -X POST https://api.genx.art/v1/videos/create \\
   -H "Authorization: Bearer YOUR_API_KEY" \\
   -H "Content-Type: application/json" \\
   -d '{
@@ -194,10 +196,15 @@ export default async function APIDocsPage() {
           <h2 className="text-2xl font-bold mb-6">{t('rateLimits.title')}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="p-6 rounded-xl border bg-card">
-              <h3 className="font-semibold mb-4">{t('rateLimits.free.title')}</h3>
+              <h3 className="font-semibold mb-4">
+                {t('rateLimits.free.title')}
+              </h3>
               <ul className="space-y-2">
                 {['limit1', 'limit2', 'limit3'].map((limit) => (
-                  <li key={limit} className="flex items-center gap-2 text-sm text-muted-foreground">
+                  <li
+                    key={limit}
+                    className="flex items-center gap-2 text-sm text-muted-foreground"
+                  >
                     <CheckCircleIcon className="size-4 text-primary flex-shrink-0" />
                     {t(`rateLimits.free.${limit}`)}
                   </li>
@@ -213,7 +220,10 @@ export default async function APIDocsPage() {
               </div>
               <ul className="space-y-2">
                 {['limit1', 'limit2', 'limit3'].map((limit) => (
-                  <li key={limit} className="flex items-center gap-2 text-sm text-muted-foreground">
+                  <li
+                    key={limit}
+                    className="flex items-center gap-2 text-sm text-muted-foreground"
+                  >
                     <CheckCircleIcon className="size-4 text-primary flex-shrink-0" />
                     {t(`rateLimits.pro.${limit}`)}
                   </li>

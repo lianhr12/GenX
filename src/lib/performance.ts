@@ -56,7 +56,9 @@ export function reportWebVitalsToAnalytics(metric: Metric) {
     gtag('event', metric.name, {
       event_category: 'Web Vitals',
       event_label: metric.id,
-      value: Math.round(metric.name === 'CLS' ? metric.value * 1000 : metric.value),
+      value: Math.round(
+        metric.name === 'CLS' ? metric.value * 1000 : metric.value
+      ),
       non_interaction: true,
     });
   }
@@ -88,7 +90,9 @@ export async function initWebVitals(onReport?: ReportHandler) {
   if (typeof window === 'undefined') return;
 
   try {
-    const { onCLS, onFCP, onFID, onINP, onLCP, onTTFB } = await import('web-vitals');
+    const { onCLS, onFCP, onFID, onINP, onLCP, onTTFB } = await import(
+      'web-vitals'
+    );
 
     const handler: ReportHandler = (metric) => {
       // Log to console in development
@@ -152,7 +156,11 @@ export function measureMark(name: string) {
  * measureBetween('video-load-time', 'video-start', 'video-ready');
  * ```
  */
-export function measureBetween(name: string, startMark: string, endMark: string) {
+export function measureBetween(
+  name: string,
+  startMark: string,
+  endMark: string
+) {
   if (typeof window === 'undefined' || !window.performance) return;
 
   try {
@@ -164,7 +172,10 @@ export function measureBetween(name: string, startMark: string, endMark: string)
       console.log(`[Performance] ${name}: ${entry.duration.toFixed(2)}ms`);
     }
   } catch (error) {
-    console.warn(`Failed to measure between ${startMark} and ${endMark}:`, error);
+    console.warn(
+      `Failed to measure between ${startMark} and ${endMark}:`,
+      error
+    );
   }
 }
 
@@ -172,7 +183,10 @@ export function measureBetween(name: string, startMark: string, endMark: string)
  * Get the LCP element and its load time.
  * Useful for debugging LCP issues.
  */
-export function getLCPInfo(): Promise<{ element: Element | null; time: number } | null> {
+export function getLCPInfo(): Promise<{
+  element: Element | null;
+  time: number;
+} | null> {
   return new Promise((resolve) => {
     if (typeof window === 'undefined' || !('PerformanceObserver' in window)) {
       resolve(null);
@@ -193,7 +207,10 @@ export function getLCPInfo(): Promise<{ element: Element | null; time: number } 
       observer.disconnect();
 
       if (lcpEntry) {
-        const entry = lcpEntry as PerformanceEntry & { element?: Element; startTime: number };
+        const entry = lcpEntry as PerformanceEntry & {
+          element?: Element;
+          startTime: number;
+        };
         resolve({
           element: entry.element || null,
           time: entry.startTime,
@@ -223,12 +240,18 @@ export async function debugLCP() {
 
       if (info.element instanceof HTMLImageElement) {
         console.log('Image Source:', info.element.src);
-        console.log('Natural Size:', `${info.element.naturalWidth}x${info.element.naturalHeight}`);
+        console.log(
+          'Natural Size:',
+          `${info.element.naturalWidth}x${info.element.naturalHeight}`
+        );
       }
 
       if (info.element instanceof HTMLVideoElement) {
         console.log('Video Source:', info.element.currentSrc);
-        console.log('Video Size:', `${info.element.videoWidth}x${info.element.videoHeight}`);
+        console.log(
+          'Video Size:',
+          `${info.element.videoWidth}x${info.element.videoHeight}`
+        );
       }
     }
 

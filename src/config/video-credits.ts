@@ -140,7 +140,11 @@ export function calculateModelCredits(
   const config = getModelConfig(modelId);
   if (!config) return 0;
 
-  const { base, perExtraSecond = 0, highQualityMultiplier = 1 } = config.creditCost;
+  const {
+    base,
+    perExtraSecond = 0,
+    highQualityMultiplier = 1,
+  } = config.creditCost;
   const baseDuration = 10; // Base duration for credit calculation
   const extraSeconds = Math.max(0, params.duration - baseDuration);
 

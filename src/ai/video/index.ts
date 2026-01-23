@@ -3,9 +3,9 @@
  * Unified access to multiple AI video generation providers
  */
 
-import type { AIVideoProvider, ProviderType } from './types';
 import { EvolinkProvider } from './providers/evolink';
 import { KieProvider } from './providers/kie';
+import type { AIVideoProvider, ProviderType } from './types';
 
 export type { ProviderType } from './types';
 

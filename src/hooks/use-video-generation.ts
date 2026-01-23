@@ -1,7 +1,7 @@
 'use client';
 
-import { useState, useCallback, useEffect, useRef } from 'react';
 import type { Video } from '@/db';
+import { useCallback, useEffect, useRef, useState } from 'react';
 
 interface UseVideoGenerationOptions {
   onComplete?: (video: Video) => void;
@@ -100,7 +100,9 @@ export function useVideoGeneration(options: UseVideoGenerationOptions = {}) {
 
   // Generate video
   const generate = useCallback(
-    async (params: GenerateVideoParams): Promise<{ videoUuid: string } | null> => {
+    async (
+      params: GenerateVideoParams
+    ): Promise<{ videoUuid: string } | null> => {
       setIsGenerating(true);
       setError(null);
       setCurrentVideo(null);

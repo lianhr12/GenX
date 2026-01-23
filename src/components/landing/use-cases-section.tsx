@@ -4,11 +4,17 @@ import { AnimatedGroup } from '@/components/tailark/motion/animated-group';
 import { Button } from '@/components/ui/button';
 import { LocaleLink } from '@/i18n/navigation';
 import { cn } from '@/lib/utils';
-import { Smartphone, ShoppingBag, Palette, BookOpen, ArrowRight } from 'lucide-react';
+import {
+  ArrowRight,
+  BookOpen,
+  Palette,
+  ShoppingBag,
+  Smartphone,
+} from 'lucide-react';
+import { AnimatePresence, motion } from 'motion/react';
 import { useTranslations } from 'next-intl';
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
 import Image from 'next/image';
+import { useState } from 'react';
 
 const useCases = [
   {
@@ -75,7 +81,7 @@ export function UseCasesSection() {
               {useCases.map((useCase) => {
                 const CaseIcon = useCase.icon;
                 const isActive = activeCase === useCase.id;
-                
+
                 return (
                   <button
                     key={useCase.id}
@@ -89,32 +95,48 @@ export function UseCasesSection() {
                     )}
                   >
                     <div className="flex items-start gap-4">
-                      <div className={cn(
-                        'flex h-12 w-12 shrink-0 items-center justify-center rounded-xl transition-colors',
-                        isActive ? useCase.bgColor : 'bg-muted'
-                      )}>
-                        <CaseIcon className={cn(
-                          'h-6 w-6 transition-colors',
-                          isActive ? 'text-primary' : 'text-muted-foreground'
-                        )} />
+                      <div
+                        className={cn(
+                          'flex h-12 w-12 shrink-0 items-center justify-center rounded-xl transition-colors',
+                          isActive ? useCase.bgColor : 'bg-muted'
+                        )}
+                      >
+                        <CaseIcon
+                          className={cn(
+                            'h-6 w-6 transition-colors',
+                            isActive ? 'text-primary' : 'text-muted-foreground'
+                          )}
+                        />
                       </div>
                       <div className="flex-1">
                         <div className="flex items-center justify-between">
-                          <h3 className={cn(
-                            'font-semibold transition-colors',
-                            isActive ? 'text-foreground' : 'text-muted-foreground'
-                          )}>
+                          <h3
+                            className={cn(
+                              'font-semibold transition-colors',
+                              isActive
+                                ? 'text-foreground'
+                                : 'text-muted-foreground'
+                            )}
+                          >
                             {t(`cases.${useCase.id}.title`)}
                           </h3>
-                          <ArrowRight className={cn(
-                            'h-4 w-4 transition-all',
-                            isActive ? 'translate-x-0 opacity-100 text-primary' : '-translate-x-2 opacity-0'
-                          )} />
+                          <ArrowRight
+                            className={cn(
+                              'h-4 w-4 transition-all',
+                              isActive
+                                ? 'translate-x-0 opacity-100 text-primary'
+                                : '-translate-x-2 opacity-0'
+                            )}
+                          />
                         </div>
-                        <p className={cn(
-                          'mt-1 text-sm transition-colors',
-                          isActive ? 'text-muted-foreground' : 'text-muted-foreground/70'
-                        )}>
+                        <p
+                          className={cn(
+                            'mt-1 text-sm transition-colors',
+                            isActive
+                              ? 'text-muted-foreground'
+                              : 'text-muted-foreground/70'
+                          )}
+                        >
                           {t(`cases.${useCase.id}.description`)}
                         </p>
                       </div>
@@ -157,12 +179,21 @@ export function UseCasesSection() {
                 {/* Info Panel */}
                 <div className="p-6">
                   <div className="flex items-center gap-3">
-                    <div className={cn('flex h-10 w-10 items-center justify-center rounded-lg', currentCase.bgColor)}>
+                    <div
+                      className={cn(
+                        'flex h-10 w-10 items-center justify-center rounded-lg',
+                        currentCase.bgColor
+                      )}
+                    >
                       <Icon className="h-5 w-5 text-primary" />
                     </div>
                     <div>
-                      <h4 className="font-semibold">{t(`cases.${currentCase.id}.title`)}</h4>
-                      <p className="text-sm text-muted-foreground">{t(`cases.${currentCase.id}.example`)}</p>
+                      <h4 className="font-semibold">
+                        {t(`cases.${currentCase.id}.title`)}
+                      </h4>
+                      <p className="text-sm text-muted-foreground">
+                        {t(`cases.${currentCase.id}.example`)}
+                      </p>
                     </div>
                   </div>
 

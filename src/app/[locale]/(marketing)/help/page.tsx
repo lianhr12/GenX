@@ -1,23 +1,23 @@
-import { constructMetadata } from '@/lib/metadata';
 import Container from '@/components/layout/container';
-import { LocaleLink } from '@/i18n/navigation';
-import { Button } from '@/components/ui/button';
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion';
+import { Button } from '@/components/ui/button';
+import { LocaleLink } from '@/i18n/navigation';
+import { constructMetadata } from '@/lib/metadata';
 import {
-  HelpCircleIcon,
-  SearchIcon,
   BookOpenIcon,
   CreditCardIcon,
-  ImageIcon,
-  ShieldIcon,
-  MessageCircleIcon,
-  MailIcon,
   ExternalLinkIcon,
+  HelpCircleIcon,
+  ImageIcon,
+  MailIcon,
+  MessageCircleIcon,
+  SearchIcon,
+  ShieldIcon,
 } from 'lucide-react';
 import type { Metadata } from 'next';
 import type { Locale } from 'next-intl';
@@ -97,7 +97,9 @@ export default async function HelpPage() {
                 className="flex flex-col items-center p-6 rounded-xl border bg-card hover:border-primary/50 hover:shadow-md transition-all text-center"
               >
                 <Icon className="size-8 text-primary mb-3" />
-                <span className="font-medium">{t(`categories.${category.id}`)}</span>
+                <span className="font-medium">
+                  {t(`categories.${category.id}`)}
+                </span>
               </a>
             );
           })}
@@ -147,7 +149,9 @@ export default async function HelpPage() {
                 <MailIcon className="size-6 text-primary" />
               </div>
               <div>
-                <h3 className="font-semibold mb-1">{t('contact.email.title')}</h3>
+                <h3 className="font-semibold mb-1">
+                  {t('contact.email.title')}
+                </h3>
                 <p className="text-muted-foreground text-sm mb-2">
                   {t('contact.email.description')}
                 </p>
@@ -166,7 +170,9 @@ export default async function HelpPage() {
                 <BookOpenIcon className="size-6 text-primary" />
               </div>
               <div>
-                <h3 className="font-semibold mb-1">{t('contact.docs.title')}</h3>
+                <h3 className="font-semibold mb-1">
+                  {t('contact.docs.title')}
+                </h3>
                 <p className="text-muted-foreground text-sm mb-2">
                   {t('contact.docs.description')}
                 </p>

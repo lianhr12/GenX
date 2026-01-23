@@ -1,15 +1,15 @@
 'use client';
 
+import { NumberTicker } from '@/components/magicui/number-ticker';
 import { AnimatedGroup } from '@/components/tailark/motion/animated-group';
 import { TextEffect } from '@/components/tailark/motion/text-effect';
 import { Button } from '@/components/ui/button';
-import { NumberTicker } from '@/components/magicui/number-ticker';
 import { LocaleLink } from '@/i18n/navigation';
-import { Upload, Play, Sparkles } from 'lucide-react';
-import { useTranslations } from 'next-intl';
-import { useEffect, useState, useRef, useCallback } from 'react';
 import { cn } from '@/lib/utils';
+import { Play, Sparkles, Upload } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 import Image from 'next/image';
+import { useCallback, useEffect, useRef, useState } from 'react';
 
 const transitionVariants = {
   item: {
@@ -78,18 +78,21 @@ export function HeroSection() {
   const nextVideo = artStyleVideos[nextVideoIndex];
 
   // Handle video transition
-  const handleVideoChange = useCallback((newIndex: number) => {
-    if (newIndex === currentVideoIndex || isTransitioning) return;
-    
-    setIsTransitioning(true);
-    setIsVideoLoaded(false);
-    
-    // Small delay for fade-out effect
-    setTimeout(() => {
-      setCurrentVideoIndex(newIndex);
-      setIsTransitioning(false);
-    }, 300);
-  }, [currentVideoIndex, isTransitioning]);
+  const handleVideoChange = useCallback(
+    (newIndex: number) => {
+      if (newIndex === currentVideoIndex || isTransitioning) return;
+
+      setIsTransitioning(true);
+      setIsVideoLoaded(false);
+
+      // Small delay for fade-out effect
+      setTimeout(() => {
+        setCurrentVideoIndex(newIndex);
+        setIsTransitioning(false);
+      }, 300);
+    },
+    [currentVideoIndex, isTransitioning]
+  );
 
   // Rotate through videos every 5 seconds
   useEffect(() => {
@@ -126,7 +129,7 @@ export function HeroSection() {
       <div className="absolute inset-0 z-0">
         {/* Gradient Overlay for readability */}
         <div className="absolute inset-0 z-10 bg-gradient-to-b from-background/80 via-background/60 to-background" />
-        
+
         {/* Poster Image as fallback and LCP optimization */}
         <div className="absolute inset-0 overflow-hidden">
           <Image
@@ -141,7 +144,7 @@ export function HeroSection() {
             )}
           />
         </div>
-        
+
         {/* Video Background - Only render current video */}
         <div className="absolute inset-0 overflow-hidden">
           <video
@@ -264,8 +267,8 @@ export function HeroSection() {
                 <NumberTicker
                   value={12847}
                   className="font-semibold text-foreground"
-                />
-                {' '}{t('socialProof')}
+                />{' '}
+                {t('socialProof')}
               </span>
             </div>
           </AnimatedGroup>
@@ -308,7 +311,9 @@ export function HeroSection() {
       {/* Scroll Indicator */}
       <div className="absolute bottom-8 left-1/2 z-20 -translate-x-1/2">
         <div className="flex flex-col items-center gap-2 text-muted-foreground">
-          <span className="text-xs uppercase tracking-widest">{t('scrollHint')}</span>
+          <span className="text-xs uppercase tracking-widest">
+            {t('scrollHint')}
+          </span>
           <div className="h-8 w-5 rounded-full border-2 border-muted-foreground/30 p-1">
             <div className="h-2 w-1.5 animate-bounce rounded-full bg-primary" />
           </div>

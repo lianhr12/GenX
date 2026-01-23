@@ -2,9 +2,9 @@
 
 import { AnimatedGroup } from '@/components/tailark/motion/animated-group';
 import { cn } from '@/lib/utils';
-import { Palette, Zap, Gift, Globe, Check } from 'lucide-react';
-import { useTranslations } from 'next-intl';
+import { Check, Gift, Globe, Palette, Zap } from 'lucide-react';
 import { motion } from 'motion/react';
+import { useTranslations } from 'next-intl';
 
 const features = [
   {
@@ -69,7 +69,10 @@ export function WhyGenXSection() {
 
         {/* Features Grid */}
         <div className="mt-16">
-          <AnimatedGroup preset="scale" className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <AnimatedGroup
+            preset="scale"
+            className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4"
+          >
             {features.map((feature) => {
               const Icon = feature.icon;
               return (
@@ -82,16 +85,20 @@ export function WhyGenXSection() {
                   whileHover={{ y: -4, scale: 1.02 }}
                 >
                   {/* Glow Effect */}
-                  <div className={cn(
-                    'absolute -inset-px -z-10 rounded-2xl opacity-0 blur-xl transition-opacity group-hover:opacity-50',
-                    feature.glowColor
-                  )} />
+                  <div
+                    className={cn(
+                      'absolute -inset-px -z-10 rounded-2xl opacity-0 blur-xl transition-opacity group-hover:opacity-50',
+                      feature.glowColor
+                    )}
+                  />
 
                   {/* Icon */}
-                  <div className={cn(
-                    'flex h-14 w-14 items-center justify-center rounded-xl',
-                    feature.bgColor
-                  )}>
+                  <div
+                    className={cn(
+                      'flex h-14 w-14 items-center justify-center rounded-xl',
+                      feature.bgColor
+                    )}
+                  >
                     <Icon className="h-7 w-7 text-primary" />
                   </div>
 
@@ -110,14 +117,19 @@ export function WhyGenXSection() {
 
         {/* Trust Badges */}
         <div className="mt-16">
-          <AnimatedGroup preset="fade" className="flex flex-wrap items-center justify-center gap-6">
+          <AnimatedGroup
+            preset="fade"
+            className="flex flex-wrap items-center justify-center gap-6"
+          >
             {trustBadges.map((badge) => (
               <div
                 key={badge.id}
                 className="flex items-center gap-2 rounded-full border bg-background px-4 py-2 text-sm"
               >
                 <Check className="h-4 w-4 text-green-500" />
-                <span className="text-muted-foreground">{t(`trust.${badge.id}`)}</span>
+                <span className="text-muted-foreground">
+                  {t(`trust.${badge.id}`)}
+                </span>
               </div>
             ))}
           </AnimatedGroup>

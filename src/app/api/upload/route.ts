@@ -3,9 +3,9 @@
  * POST /api/upload - Upload a file to storage
  */
 
-import { NextRequest, NextResponse } from 'next/server';
 import { requireSession, unauthorizedResponse } from '@/lib/require-session';
 import { uploadFile } from '@/storage';
+import { type NextRequest, NextResponse } from 'next/server';
 
 export async function POST(request: NextRequest) {
   try {

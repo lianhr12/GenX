@@ -4,9 +4,9 @@ import { AnimatedGroup } from '@/components/tailark/motion/animated-group';
 import { Button } from '@/components/ui/button';
 import { LocaleLink } from '@/i18n/navigation';
 import { cn } from '@/lib/utils';
-import { Check, X, CreditCard } from 'lucide-react';
-import { useTranslations } from 'next-intl';
+import { Check, CreditCard, X } from 'lucide-react';
 import { motion } from 'motion/react';
+import { useTranslations } from 'next-intl';
 
 const plans = [
   {
@@ -47,7 +47,10 @@ export function PricingPreviewSection() {
 
         {/* Pricing Cards */}
         <div className="mt-16 grid gap-8 md:grid-cols-2">
-          <AnimatedGroup preset="scale" className="grid gap-8 md:grid-cols-2 md:col-span-2">
+          <AnimatedGroup
+            preset="scale"
+            className="grid gap-8 md:grid-cols-2 md:col-span-2"
+          >
             {plans.map((plan) => (
               <motion.div
                 key={plan.id}
@@ -68,7 +71,9 @@ export function PricingPreviewSection() {
 
                 {/* Plan Header */}
                 <div>
-                  <h3 className="text-xl font-semibold">{t(`plans.${plan.id}.name`)}</h3>
+                  <h3 className="text-xl font-semibold">
+                    {t(`plans.${plan.id}.name`)}
+                  </h3>
                   <p className="mt-2 text-sm text-muted-foreground">
                     {t(`plans.${plan.id}.description`)}
                   </p>
@@ -79,25 +84,34 @@ export function PricingPreviewSection() {
                   <div className="flex items-baseline gap-1">
                     <span className="text-4xl font-bold">${plan.price}</span>
                     {plan.price > 0 && (
-                      <span className="text-muted-foreground">{t('perMonth')}</span>
+                      <span className="text-muted-foreground">
+                        {t('perMonth')}
+                      </span>
                     )}
                   </div>
                   {plan.yearlyPrice && (
                     <p className="mt-1 text-sm text-muted-foreground">
-                      {t('yearlyOption', { price: plan.yearlyPrice, discount: 17 })}
+                      {t('yearlyOption', {
+                        price: plan.yearlyPrice,
+                        discount: 17,
+                      })}
                     </p>
                   )}
                 </div>
 
                 {/* Features */}
                 <div className="mt-6 space-y-3">
-                  {['feature1', 'feature2', 'feature3', 'feature4'].map((feature) => (
-                    <div key={feature} className="flex items-center gap-3">
-                      <Check className="h-4 w-4 text-green-500" />
-                      <span className="text-sm">{t(`plans.${plan.id}.${feature}`)}</span>
-                    </div>
-                  ))}
-                  
+                  {['feature1', 'feature2', 'feature3', 'feature4'].map(
+                    (feature) => (
+                      <div key={feature} className="flex items-center gap-3">
+                        <Check className="h-4 w-4 text-green-500" />
+                        <span className="text-sm">
+                          {t(`plans.${plan.id}.${feature}`)}
+                        </span>
+                      </div>
+                    )
+                  )}
+
                   {/* Limitations for free plan */}
                   {plan.id === 'free' && (
                     <div className="flex items-center gap-3 text-muted-foreground">
@@ -113,11 +127,17 @@ export function PricingPreviewSection() {
                     asChild
                     className={cn(
                       'w-full',
-                      plan.popular ? '' : 'bg-muted text-foreground hover:bg-muted/80'
+                      plan.popular
+                        ? ''
+                        : 'bg-muted text-foreground hover:bg-muted/80'
                     )}
                     variant={plan.popular ? 'default' : 'secondary'}
                   >
-                    <LocaleLink href={plan.popular ? '/pricing' : '/create/image-to-video'}>
+                    <LocaleLink
+                      href={
+                        plan.popular ? '/pricing' : '/create/image-to-video'
+                      }
+                    >
                       {t(`plans.${plan.id}.cta`)}
                     </LocaleLink>
                   </Button>
@@ -135,10 +155,26 @@ export function PricingPreviewSection() {
               <span>{t('paymentNote')}</span>
             </div>
             <div className="mt-4 flex items-center justify-center gap-4">
-              <img src="/images/payment/visa.svg" alt="Visa" className="h-8 opacity-50" />
-              <img src="/images/payment/mastercard.svg" alt="Mastercard" className="h-8 opacity-50" />
-              <img src="/images/payment/paypal.svg" alt="PayPal" className="h-8 opacity-50" />
-              <img src="/images/payment/stripe.svg" alt="Stripe" className="h-8 opacity-50" />
+              <img
+                src="/images/payment/visa.svg"
+                alt="Visa"
+                className="h-8 opacity-50"
+              />
+              <img
+                src="/images/payment/mastercard.svg"
+                alt="Mastercard"
+                className="h-8 opacity-50"
+              />
+              <img
+                src="/images/payment/paypal.svg"
+                alt="PayPal"
+                className="h-8 opacity-50"
+              />
+              <img
+                src="/images/payment/stripe.svg"
+                alt="Stripe"
+                className="h-8 opacity-50"
+              />
             </div>
           </AnimatedGroup>
         </div>
@@ -146,9 +182,7 @@ export function PricingPreviewSection() {
         {/* See Full Pricing */}
         <div className="mt-8 text-center">
           <Button asChild variant="link">
-            <LocaleLink href="/pricing">
-              {t('seeFullPricing')} →
-            </LocaleLink>
+            <LocaleLink href="/pricing">{t('seeFullPricing')} →</LocaleLink>
           </Button>
         </div>
       </div>

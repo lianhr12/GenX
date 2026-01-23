@@ -5,7 +5,8 @@
 
 import crypto from 'crypto';
 
-const CALLBACK_SECRET = process.env.AI_CALLBACK_SECRET || 'default-secret-change-me';
+const CALLBACK_SECRET =
+  process.env.AI_CALLBACK_SECRET || 'default-secret-change-me';
 const SIGNATURE_EXPIRY_SECONDS = 3600; // 1 hour
 
 /**
@@ -35,7 +36,7 @@ export function verifyCallbackSignature(
   signature: string
 ): { valid: boolean; error?: string } {
   // Check timestamp expiry
-  const ts = parseInt(timestamp, 10);
+  const ts = Number.parseInt(timestamp, 10);
   const now = Math.floor(Date.now() / 1000);
 
   if (isNaN(ts)) {

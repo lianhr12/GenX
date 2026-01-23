@@ -3,8 +3,11 @@
  * GET /api/v1/config/models - Get available video models
  */
 
+import {
+  getAvailableModels,
+  getImageToVideoModels,
+} from '@/config/video-credits';
 import { NextResponse } from 'next/server';
-import { getAvailableModels, getImageToVideoModels } from '@/config/video-credits';
 
 export async function GET() {
   try {

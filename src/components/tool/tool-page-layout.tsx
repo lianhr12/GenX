@@ -1,13 +1,13 @@
 'use client';
 
-import { useState, useCallback, useEffect } from 'react';
-import { useLocaleRouter } from '@/i18n/navigation';
-import { GeneratorPanel, type GeneratorData } from './generator-panel';
-import { ResultPanelWrapper } from './result-panel-wrapper';
-import { HistoryPanel } from './history-panel';
-import type { Video } from '@/db';
 import { applyArtStyleToPrompt } from '@/config/art-styles';
+import type { Video } from '@/db';
+import { useLocaleRouter } from '@/i18n/navigation';
 import { useTranslations } from 'next-intl';
+import { useCallback, useEffect, useState } from 'react';
+import { type GeneratorData, GeneratorPanel } from './generator-panel';
+import { HistoryPanel } from './history-panel';
+import { ResultPanelWrapper } from './result-panel-wrapper';
 
 interface ToolPageLayoutProps {
   toolType: 'image-to-video' | 'text-to-video' | 'reference-to-video';
@@ -141,25 +141,33 @@ export function ToolPageLayout({
         setCurrentVideoUuid(videoUuid);
       } catch (err) {
         setIsGenerating(false);
-        setError(err instanceof Error ? err.message : tErrors('generateFailed'));
+        setError(
+          err instanceof Error ? err.message : tErrors('generateFailed')
+        );
       }
     },
     [isLoggedIn, userCredits, router, tErrors]
   );
 
-  const handleVideoComplete = useCallback((video: Video) => {
-    setIsGenerating(false);
-    setCurrentVideo(video);
-    setCurrentVideoUuid(null);
-    // Refresh history to include the new video
-    fetchHistory();
-  }, [fetchHistory]);
+  const handleVideoComplete = useCallback(
+    (video: Video) => {
+      setIsGenerating(false);
+      setCurrentVideo(video);
+      setCurrentVideoUuid(null);
+      // Refresh history to include the new video
+      fetchHistory();
+    },
+    [fetchHistory]
+  );
 
-  const handleGenerationFailed = useCallback((errorMsg?: string) => {
-    setIsGenerating(false);
-    setError(errorMsg || tErrors('generationFailed'));
-    setCurrentVideoUuid(null);
-  }, [tErrors]);
+  const handleGenerationFailed = useCallback(
+    (errorMsg?: string) => {
+      setIsGenerating(false);
+      setError(errorMsg || tErrors('generationFailed'));
+      setCurrentVideoUuid(null);
+    },
+    [tErrors]
+  );
 
   const handleRegenerate = useCallback(() => {
     setCurrentVideo(null);

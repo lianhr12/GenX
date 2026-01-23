@@ -4,9 +4,9 @@ import { AnimatedGroup } from '@/components/tailark/motion/animated-group';
 import { Button } from '@/components/ui/button';
 import { LocaleLink } from '@/i18n/navigation';
 import { cn } from '@/lib/utils';
-import { Upload, Palette, Download, ArrowRight } from 'lucide-react';
-import { useTranslations } from 'next-intl';
+import { ArrowRight, Download, Palette, Upload } from 'lucide-react';
 import { motion } from 'motion/react';
+import { useTranslations } from 'next-intl';
 
 const steps = [
   {
@@ -55,10 +55,7 @@ export function HowItWorksSection() {
 
         {/* Steps */}
         <div className="mt-20">
-          <AnimatedGroup
-            preset="scale"
-            className="grid gap-8 md:grid-cols-3"
-          >
+          <AnimatedGroup preset="scale" className="grid gap-8 md:grid-cols-3">
             {steps.map((step, index) => {
               const Icon = step.icon;
               return (
@@ -77,19 +74,23 @@ export function HowItWorksSection() {
                   >
                     {/* Step Number */}
                     <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                      <div className={cn(
-                        'flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br text-sm font-bold text-white',
-                        step.gradientColor
-                      )}>
+                      <div
+                        className={cn(
+                          'flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br text-sm font-bold text-white',
+                          step.gradientColor
+                        )}
+                      >
                         {index + 1}
                       </div>
                     </div>
 
                     {/* Icon */}
-                    <div className={cn(
-                      'mx-auto flex h-20 w-20 items-center justify-center rounded-2xl',
-                      step.bgColor
-                    )}>
+                    <div
+                      className={cn(
+                        'mx-auto flex h-20 w-20 items-center justify-center rounded-2xl',
+                        step.bgColor
+                      )}
+                    >
                       <Icon className={cn('h-10 w-10', step.iconColor)} />
                     </div>
 
@@ -117,9 +118,7 @@ export function HowItWorksSection() {
         {/* Bottom Content */}
         <div className="mt-16 text-center">
           <AnimatedGroup preset="fade">
-            <p className="text-lg text-muted-foreground">
-              {t('bottomText')}
-            </p>
+            <p className="text-lg text-muted-foreground">{t('bottomText')}</p>
             <div className="mt-6">
               <Button asChild size="lg" className="rounded-xl px-8">
                 <LocaleLink href="/create/image-to-video">

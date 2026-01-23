@@ -1,8 +1,8 @@
-import { constructMetadata } from '@/lib/metadata';
-import { getToolPageConfig } from '@/config/tool-pages';
-import { auth } from '@/lib/auth';
-import { getUserCredits } from '@/credits/credits';
 import { ToolPageLayout } from '@/components/tool';
+import { getToolPageConfig } from '@/config/tool-pages';
+import { getUserCredits } from '@/credits/credits';
+import { auth } from '@/lib/auth';
+import { constructMetadata } from '@/lib/metadata';
 import type { Metadata } from 'next';
 import type { Locale } from 'next-intl';
 import { getTranslations } from 'next-intl/server';

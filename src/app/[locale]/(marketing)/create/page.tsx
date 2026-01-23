@@ -1,13 +1,13 @@
-import { constructMetadata } from '@/lib/metadata';
 import Container from '@/components/layout/container';
-import { LocaleLink } from '@/i18n/navigation';
 import { Button } from '@/components/ui/button';
+import { LocaleLink } from '@/i18n/navigation';
+import { constructMetadata } from '@/lib/metadata';
 import {
+  ArrowRightIcon,
   FilmIcon,
   ImageIcon,
   SparklesIcon,
   VideoIcon,
-  ArrowRightIcon,
 } from 'lucide-react';
 import type { Metadata } from 'next';
 import type { Locale } from 'next-intl';

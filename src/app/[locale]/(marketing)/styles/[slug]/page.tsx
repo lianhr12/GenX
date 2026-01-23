@@ -1,11 +1,11 @@
-import { constructMetadata } from '@/lib/metadata';
-import { LocaleLink } from '@/i18n/navigation';
 import { Button } from '@/components/ui/button';
+import { LocaleLink } from '@/i18n/navigation';
+import { constructMetadata } from '@/lib/metadata';
 import {
   ArrowLeftIcon,
-  SparklesIcon,
-  PlayCircleIcon,
   CheckCircleIcon,
+  PlayCircleIcon,
+  SparklesIcon,
 } from 'lucide-react';
 import type { Metadata } from 'next';
 import type { Locale } from 'next-intl';
@@ -165,7 +165,9 @@ export default async function StyleDetailPage({
               <div key={feature} className="flex items-start gap-3">
                 <CheckCircleIcon className="size-5 text-primary mt-0.5 flex-shrink-0" />
                 <div>
-                  <span className="font-medium">{t(`features.${feature}`)}: </span>
+                  <span className="font-medium">
+                    {t(`features.${feature}`)}:{' '}
+                  </span>
                   <span className="text-muted-foreground">
                     {t(`styles.${slug}.${feature}`)}
                   </span>

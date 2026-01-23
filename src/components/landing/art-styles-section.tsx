@@ -4,11 +4,11 @@ import { AnimatedGroup } from '@/components/tailark/motion/animated-group';
 import { Button } from '@/components/ui/button';
 import { LocaleLink } from '@/i18n/navigation';
 import { cn } from '@/lib/utils';
-import { Sparkles, Zap, Brush, Film, Palette } from 'lucide-react';
-import { useTranslations } from 'next-intl';
-import { useState, useRef } from 'react';
+import { Brush, Film, Palette, Sparkles, Zap } from 'lucide-react';
 import { motion } from 'motion/react';
+import { useTranslations } from 'next-intl';
 import Image from 'next/image';
+import { useRef, useState } from 'react';
 
 const artStyles = [
   {
@@ -69,7 +69,7 @@ const artStyles = [
 ];
 
 interface StyleCardProps {
-  style: typeof artStyles[0];
+  style: (typeof artStyles)[0];
   isActive: boolean;
   onHover: () => void;
   onLeave: () => void;
@@ -119,7 +119,7 @@ function StyleCard({ style, isActive, onHover, onLeave }: StyleCardProps) {
           )}
           loading="lazy"
         />
-        
+
         {/* Video (shown on hover) - loaded lazily */}
         <video
           ref={videoRef}
@@ -133,7 +133,10 @@ function StyleCard({ style, isActive, onHover, onLeave }: StyleCardProps) {
             isActive ? 'opacity-100' : 'opacity-0'
           )}
         >
-          <source src={style.video.replace('.mp4', '.webm')} type="video/webm" />
+          <source
+            src={style.video.replace('.mp4', '.webm')}
+            type="video/webm"
+          />
           <source src={style.video} type="video/mp4" />
         </video>
 
@@ -141,18 +144,24 @@ function StyleCard({ style, isActive, onHover, onLeave }: StyleCardProps) {
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
 
         {/* Style Badge */}
-        <div className={cn(
-          'absolute left-4 top-4 flex items-center gap-2 rounded-full px-3 py-1.5 backdrop-blur-md',
-          style.bgColor
-        )}>
+        <div
+          className={cn(
+            'absolute left-4 top-4 flex items-center gap-2 rounded-full px-3 py-1.5 backdrop-blur-md',
+            style.bgColor
+          )}
+        >
           <Icon className={cn('h-4 w-4', style.iconColor)} />
-          <span className="text-xs font-medium">{t(`styles.${style.id}.title`)}</span>
+          <span className="text-xs font-medium">
+            {t(`styles.${style.id}.title`)}
+          </span>
         </div>
       </div>
 
       {/* Content */}
       <div className="p-5">
-        <h3 className="text-lg font-semibold">{t(`styles.${style.id}.title`)}</h3>
+        <h3 className="text-lg font-semibold">
+          {t(`styles.${style.id}.title`)}
+        </h3>
         <p className="mt-2 text-sm text-muted-foreground line-clamp-2">
           {t(`styles.${style.id}.description`)}
         </p>
@@ -230,9 +239,7 @@ export function ArtStylesSection() {
         <div className="mt-12 text-center">
           <AnimatedGroup preset="fade">
             <Button asChild variant="outline" size="lg" className="rounded-xl">
-              <LocaleLink href="/styles">
-                {t('exploreAll')}
-              </LocaleLink>
+              <LocaleLink href="/styles">{t('exploreAll')}</LocaleLink>
             </Button>
           </AnimatedGroup>
         </div>

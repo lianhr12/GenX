@@ -7,7 +7,7 @@ export function HeroSkeleton() {
     <section className="relative min-h-screen animate-pulse overflow-hidden">
       {/* Background placeholder */}
       <div className="absolute inset-0 bg-muted" />
-      
+
       {/* Gradient overlay */}
       <div className="absolute inset-0 z-10 bg-gradient-to-b from-background/80 via-background/60 to-background" />
 
@@ -16,7 +16,7 @@ export function HeroSkeleton() {
         <div className="mx-auto max-w-5xl text-center">
           {/* Headline skeleton */}
           <div className="mx-auto h-16 w-[600px] max-w-full rounded-lg bg-muted-foreground/20" />
-          
+
           {/* Subheadline skeleton */}
           <div className="mx-auto mt-6 h-8 w-[500px] max-w-full rounded bg-muted-foreground/10" />
           <div className="mx-auto mt-2 h-6 w-[400px] max-w-full rounded bg-muted-foreground/10" />

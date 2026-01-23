@@ -3,9 +3,9 @@
 import { AnimatedGroup } from '@/components/tailark/motion/animated-group';
 import { Button } from '@/components/ui/button';
 import { LocaleLink } from '@/i18n/navigation';
-import { Sparkles, Check } from 'lucide-react';
-import { useTranslations } from 'next-intl';
+import { Check, Sparkles } from 'lucide-react';
 import { motion } from 'motion/react';
+import { useTranslations } from 'next-intl';
 
 const trustBadges = [
   { id: 'noSignup' },
@@ -23,7 +23,7 @@ export function FinalCTASection() {
       <div className="absolute inset-0 -z-10">
         {/* Gradient Background */}
         <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background to-purple-500/10" />
-        
+
         {/* Animated Gradient Orbs */}
         <motion.div
           className="absolute left-1/4 top-1/4 h-[400px] w-[400px] rounded-full bg-primary/20 blur-[100px]"
@@ -85,10 +85,7 @@ export function FinalCTASection() {
           }}
           className="mt-10"
         >
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.98 }}
-          >
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
             <Button
               asChild
               size="lg"

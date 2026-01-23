@@ -11,7 +11,7 @@ import { subscribe } from '@/newsletter';
 import { type User, betterAuth } from 'better-auth';
 import { emailHarmony } from 'better-auth-harmony';
 import { drizzleAdapter } from 'better-auth/adapters/drizzle';
-import { admin } from 'better-auth/plugins';
+import { admin, oneTap } from 'better-auth/plugins';
 import { parse as parseCookies } from 'cookie';
 import type { Locale } from 'next-intl';
 import { getAllPricePlans } from './price-plan';
@@ -144,6 +144,9 @@ export const auth = betterAuth({
       // e.g., user signed up with johndoe@googlemail.com can't login with johndoe+abc@gmail.com
       allowNormalizedSignin: false,
     }),
+    // https://www.better-auth.com/docs/plugins/one-tap
+    // Google One Tap authentication
+    oneTap(),
   ],
   onAPIError: {
     // https://www.better-auth.com/docs/reference/options#onapierror

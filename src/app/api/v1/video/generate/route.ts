@@ -3,10 +3,10 @@
  * POST /api/v1/video/generate
  */
 
-import { NextRequest, NextResponse } from 'next/server';
-import { z } from 'zod';
 import { requireSession, unauthorizedResponse } from '@/lib/require-session';
 import { videoService } from '@/services/video';
+import { type NextRequest, NextResponse } from 'next/server';
+import { z } from 'zod';
 
 const generateSchema = z.object({
   prompt: z.string().min(1).max(5000),

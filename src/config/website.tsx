@@ -45,6 +45,7 @@ export const websiteConfig: WebsiteConfig = {
     enableGoogleLogin: true,
     enableGithubLogin: true,
     enableCredentialLogin: true,
+    enableGoogleOneTap: true,
   },
   i18n: {
     defaultLocale: 'en',
@@ -179,7 +180,8 @@ export const websiteConfig: WebsiteConfig = {
         expireDays: 30,
         price: {
           priceId: process.env.NEXT_PUBLIC_STRIPE_PRICE_CREDITS_STANDARD!,
-          creemProductId: process.env.NEXT_PUBLIC_CREEM_PRODUCT_CREDITS_STANDARD,
+          creemProductId:
+            process.env.NEXT_PUBLIC_CREEM_PRODUCT_CREDITS_STANDARD,
           amount: 1490,
           currency: 'USD',
           allowPromotionCode: true,
@@ -205,7 +207,8 @@ export const websiteConfig: WebsiteConfig = {
         expireDays: 30,
         price: {
           priceId: process.env.NEXT_PUBLIC_STRIPE_PRICE_CREDITS_ENTERPRISE!,
-          creemProductId: process.env.NEXT_PUBLIC_CREEM_PRODUCT_CREDITS_ENTERPRISE,
+          creemProductId:
+            process.env.NEXT_PUBLIC_CREEM_PRODUCT_CREDITS_ENTERPRISE,
           amount: 6990,
           currency: 'USD',
           allowPromotionCode: true,

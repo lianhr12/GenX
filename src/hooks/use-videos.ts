@@ -1,7 +1,7 @@
 'use client';
 
-import { useState, useCallback, useEffect } from 'react';
 import type { Video } from '@/db';
+import { useCallback, useEffect, useState } from 'react';
 
 interface UseVideosOptions {
   initialLimit?: number;
@@ -50,7 +50,8 @@ export function useVideos(options: UseVideosOptions = {}) {
         setNextCursor(data.nextCursor || null);
         setHasMore(!!data.nextCursor);
       } catch (err) {
-        const errMsg = err instanceof Error ? err.message : 'Failed to fetch videos';
+        const errMsg =
+          err instanceof Error ? err.message : 'Failed to fetch videos';
         setError(errMsg);
       } finally {
         setIsLoading(false);

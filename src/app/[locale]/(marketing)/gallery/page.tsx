@@ -1,12 +1,12 @@
-import { constructMetadata } from '@/lib/metadata';
 import Container from '@/components/layout/container';
-import { LocaleLink } from '@/i18n/navigation';
 import { Button } from '@/components/ui/button';
+import { LocaleLink } from '@/i18n/navigation';
+import { constructMetadata } from '@/lib/metadata';
 import {
-  GalleryHorizontalEndIcon,
   FilterIcon,
-  PlayCircleIcon,
+  GalleryHorizontalEndIcon,
   HeartIcon,
+  PlayCircleIcon,
   SparklesIcon,
 } from 'lucide-react';
 import type { Metadata } from 'next';

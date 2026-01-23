@@ -98,6 +98,7 @@ export interface AuthConfig {
   enableGoogleLogin?: boolean;       // Whether to enable google login
   enableGithubLogin?: boolean;       // Whether to enable github login
   enableCredentialLogin?: boolean;   // Whether to enable email/password login
+  enableGoogleOneTap?: boolean;      // Whether to enable Google One Tap login
 }
 
 /**

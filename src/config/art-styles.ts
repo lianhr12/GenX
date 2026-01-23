@@ -25,35 +25,40 @@ export const artStyles: ArtStyle[] = [
     name: 'Cyberpunk',
     icon: '🌃',
     description: 'Neon future',
-    promptSuffix: ', cyberpunk style, neon lights, futuristic city, digital rain, glowing effects',
+    promptSuffix:
+      ', cyberpunk style, neon lights, futuristic city, digital rain, glowing effects',
   },
   {
     id: 'watercolor',
     name: 'Watercolor',
     icon: '🎨',
     description: 'Poetic flow',
-    promptSuffix: ', watercolor painting style, soft brush strokes, colors bleeding and mixing, dreamy atmosphere',
+    promptSuffix:
+      ', watercolor painting style, soft brush strokes, colors bleeding and mixing, dreamy atmosphere',
   },
   {
     id: 'oil-painting',
     name: 'Oil Painting',
     icon: '🖼️',
     description: 'Timeless classic',
-    promptSuffix: ', oil painting style, visible brush strokes, classical art lighting, renaissance mood',
+    promptSuffix:
+      ', oil painting style, visible brush strokes, classical art lighting, renaissance mood',
   },
   {
     id: 'anime',
     name: 'Anime',
     icon: '🎌',
     description: 'Anime portal',
-    promptSuffix: ', anime style, studio ghibli inspired, vibrant colors, flowing hair, soft lens flare',
+    promptSuffix:
+      ', anime style, studio ghibli inspired, vibrant colors, flowing hair, soft lens flare',
   },
   {
     id: 'fluid-art',
     name: 'Fluid Art',
     icon: '🌊',
     description: 'Dancing colors',
-    promptSuffix: ', fluid art style, colors swirling like liquid marble, organic flowing patterns, mesmerizing motion',
+    promptSuffix:
+      ', fluid art style, colors swirling like liquid marble, organic flowing patterns, mesmerizing motion',
   },
 ];
 

@@ -1,6 +1,7 @@
 'use client';
 
 import { PostHogProvider } from '@/analytics/posthog-analytics';
+import { GoogleOneTapProvider } from '@/components/providers/google-one-tap-provider';
 import { QueryProvider } from '@/components/providers/query-provider';
 import { TooltipProvider } from '@/components/ui/tooltip';
 import { websiteConfig } from '@/config/website';
@@ -25,6 +26,7 @@ interface ProvidersProps {
  * - ThemeProvider: Provides the theme to the app.
  * - RootProvider: Provides the root provider for Fumadocs UI.
  * - TooltipProvider: Provides the tooltip to the app.
+ * - GoogleOneTapProvider: Triggers Google One Tap login for unauthenticated users.
  */
 export function Providers({ children, locale }: ProvidersProps) {
   const theme = useTheme();
@@ -61,7 +63,9 @@ export function Providers({ children, locale }: ProvidersProps) {
           disableTransitionOnChange
         >
           <RootProvider theme={theme} i18n={{ locale, locales, translations }}>
-            <TooltipProvider>{children}</TooltipProvider>
+            <TooltipProvider>
+              <GoogleOneTapProvider>{children}</GoogleOneTapProvider>
+            </TooltipProvider>
           </RootProvider>
         </ThemeProvider>
       </QueryProvider>

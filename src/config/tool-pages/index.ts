@@ -4,13 +4,23 @@
  * Provides unified config access interface with route-based lookup
  */
 
-import type { ToolPageConfig, ToolLandingConfig, GeneratorConfig, PageSEOConfig } from './types';
 import { imageToVideoConfig } from './image-to-video.config';
-import { textToVideoConfig } from './text-to-video.config';
 import { referenceToVideoConfig } from './reference-to-video.config';
+import { textToVideoConfig } from './text-to-video.config';
+import type {
+  GeneratorConfig,
+  PageSEOConfig,
+  ToolLandingConfig,
+  ToolPageConfig,
+} from './types';
 
 // Export types
-export type { ToolPageConfig, ToolLandingConfig, GeneratorConfig, PageSEOConfig } from './types';
+export type {
+  ToolPageConfig,
+  ToolLandingConfig,
+  GeneratorConfig,
+  PageSEOConfig,
+} from './types';
 
 // Export configs
 export { imageToVideoConfig } from './image-to-video.config';

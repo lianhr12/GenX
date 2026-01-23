@@ -1,7 +1,7 @@
-import { constructMetadata } from '@/lib/metadata';
-import { LocaleLink } from '@/i18n/navigation';
 import { Button } from '@/components/ui/button';
-import { PaletteIcon, ArrowRightIcon, PlayCircleIcon } from 'lucide-react';
+import { LocaleLink } from '@/i18n/navigation';
+import { constructMetadata } from '@/lib/metadata';
+import { ArrowRightIcon, PaletteIcon, PlayCircleIcon } from 'lucide-react';
 import type { Metadata } from 'next';
 import type { Locale } from 'next-intl';
 import { getTranslations } from 'next-intl/server';
@@ -121,7 +121,9 @@ export default async function StylesPage() {
         <div className="inline-flex flex-col sm:flex-row items-center gap-4 p-6 rounded-2xl bg-muted/50 border">
           <div className="text-center sm:text-left">
             <h3 className="font-semibold mb-1">{t('cta.title')}</h3>
-            <p className="text-muted-foreground text-sm">{t('cta.description')}</p>
+            <p className="text-muted-foreground text-sm">
+              {t('cta.description')}
+            </p>
           </div>
           <Button asChild size="lg" className="whitespace-nowrap">
             <LocaleLink href="/create/image-to-video">

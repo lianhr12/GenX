@@ -3,9 +3,9 @@
  * GET /api/v1/video/list
  */
 
-import { NextRequest, NextResponse } from 'next/server';
 import { requireSession, unauthorizedResponse } from '@/lib/require-session';
 import { videoService } from '@/services/video';
+import { type NextRequest, NextResponse } from 'next/server';
 
 export async function GET(request: NextRequest) {
   try {
@@ -15,7 +15,7 @@ export async function GET(request: NextRequest) {
     }
 
     const { searchParams } = new URL(request.url);
-    const limit = parseInt(searchParams.get('limit') || '20', 10);
+    const limit = Number.parseInt(searchParams.get('limit') || '20', 10);
     const cursor = searchParams.get('cursor') || undefined;
     const status = searchParams.get('status') || undefined;
 

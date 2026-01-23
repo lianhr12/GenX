@@ -4,9 +4,9 @@
  * DELETE /api/v1/video/[uuid] - Delete video
  */
 
-import { NextRequest, NextResponse } from 'next/server';
 import { requireSession, unauthorizedResponse } from '@/lib/require-session';
 import { videoService } from '@/services/video';
+import { type NextRequest, NextResponse } from 'next/server';
 
 export async function GET(
   request: NextRequest,

@@ -5,12 +5,12 @@ import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogTitle } from '@/components/ui/dialog';
 import { LocaleLink } from '@/i18n/navigation';
 import { cn } from '@/lib/utils';
-import { Play, Heart, X } from 'lucide-react';
-import { useTranslations } from 'next-intl';
-import { useState } from 'react';
-import { motion } from 'motion/react';
 import * as VisuallyHidden from '@radix-ui/react-visually-hidden';
+import { Heart, Play, X } from 'lucide-react';
+import { motion } from 'motion/react';
+import { useTranslations } from 'next-intl';
 import Image from 'next/image';
+import { useState } from 'react';
 
 // Demo gallery items - prompts are fetched from i18n
 const galleryItems = [
@@ -68,7 +68,7 @@ const styleFilters = [
 ];
 
 interface GalleryItemProps {
-  item: typeof galleryItems[0];
+  item: (typeof galleryItems)[0];
   onClick: () => void;
 }
 
@@ -95,10 +95,12 @@ function GalleryItem({ item, onClick }: GalleryItemProps) {
       />
 
       {/* Hover Overlay */}
-      <div className={cn(
-        'absolute inset-0 flex flex-col justify-between bg-gradient-to-t from-black/80 via-black/20 to-transparent p-4 transition-opacity duration-300',
-        isHovered ? 'opacity-100' : 'opacity-0'
-      )}>
+      <div
+        className={cn(
+          'absolute inset-0 flex flex-col justify-between bg-gradient-to-t from-black/80 via-black/20 to-transparent p-4 transition-opacity duration-300',
+          isHovered ? 'opacity-100' : 'opacity-0'
+        )}
+      >
         {/* Play Button */}
         <div className="flex flex-1 items-center justify-center">
           <div className="flex h-14 w-14 items-center justify-center rounded-full bg-white/20 backdrop-blur-sm transition-transform group-hover:scale-110">
@@ -125,7 +127,7 @@ function GalleryItem({ item, onClick }: GalleryItemProps) {
 }
 
 interface GalleryModalProps {
-  item: typeof galleryItems[0] | null;
+  item: (typeof galleryItems)[0] | null;
   isOpen: boolean;
   onClose: () => void;
 }
@@ -139,7 +141,9 @@ function GalleryModal({ item, isOpen, onClose }: GalleryModalProps) {
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="max-w-4xl border-none bg-transparent p-0 shadow-none">
         <VisuallyHidden.Root>
-          <DialogTitle>{t('videoTitle', { style: t(`styles.${item.style}`) })}</DialogTitle>
+          <DialogTitle>
+            {t('videoTitle', { style: t(`styles.${item.style}`) })}
+          </DialogTitle>
         </VisuallyHidden.Root>
         <div className="relative overflow-hidden rounded-2xl bg-background">
           {/* Close Button */}
@@ -173,10 +177,14 @@ function GalleryModal({ item, isOpen, onClose }: GalleryModalProps) {
                 <span className="text-sm">{item.likes}</span>
               </div>
             </div>
-            
+
             <div className="mt-4">
-              <p className="text-sm text-muted-foreground">{t('promptLabel')}</p>
-              <p className="mt-1 text-foreground">{t(`items.${item.id}.prompt`)}</p>
+              <p className="text-sm text-muted-foreground">
+                {t('promptLabel')}
+              </p>
+              <p className="mt-1 text-foreground">
+                {t(`items.${item.id}.prompt`)}
+              </p>
             </div>
 
             <div className="mt-6">
@@ -196,11 +204,14 @@ function GalleryModal({ item, isOpen, onClose }: GalleryModalProps) {
 export function GallerySection() {
   const t = useTranslations('Landing.gallery');
   const [activeFilter, setActiveFilter] = useState('all');
-  const [selectedItem, setSelectedItem] = useState<typeof galleryItems[0] | null>(null);
+  const [selectedItem, setSelectedItem] = useState<
+    (typeof galleryItems)[0] | null
+  >(null);
 
-  const filteredItems = activeFilter === 'all'
-    ? galleryItems
-    : galleryItems.filter((item) => item.style === activeFilter);
+  const filteredItems =
+    activeFilter === 'all'
+      ? galleryItems
+      : galleryItems.filter((item) => item.style === activeFilter);
 
   return (
     <section id="gallery" className="relative py-24 lg:py-32">
@@ -227,7 +238,10 @@ export function GallerySection() {
 
         {/* Filters */}
         <div className="mt-12 flex flex-wrap items-center justify-center gap-2">
-          <AnimatedGroup preset="scale" className="flex flex-wrap items-center justify-center gap-2">
+          <AnimatedGroup
+            preset="scale"
+            className="flex flex-wrap items-center justify-center gap-2"
+          >
             {styleFilters.map((filter) => (
               <button
                 key={filter.id}
@@ -265,7 +279,10 @@ export function GallerySection() {
 
         {/* Load More & CTA */}
         <div className="mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row">
-          <AnimatedGroup preset="fade" className="flex flex-col items-center justify-center gap-4 sm:flex-row">
+          <AnimatedGroup
+            preset="fade"
+            className="flex flex-col items-center justify-center gap-4 sm:flex-row"
+          >
             <Button variant="outline" size="lg" className="rounded-xl">
               {t('loadMore')}
             </Button>

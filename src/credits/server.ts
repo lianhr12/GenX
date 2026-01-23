@@ -4,9 +4,38 @@
  */
 
 import { randomUUID } from 'crypto';
+import { websiteConfig } from '@/config/website';
+import {
+  CreditHoldStatus,
+  creditHolds,
+  creditTransaction,
+  getDb,
+  userCredit,
+} from '@/db';
 import { and, asc, eq, gt, isNull, or, sql } from 'drizzle-orm';
-import { getDb, creditHolds, creditTransaction, userCredit, CreditHoldStatus } from '@/db';
+import type { CreditPackage } from './types';
 import { CREDIT_TRANSACTION_TYPE } from './types';
+
+// ============================================================================
+// Credit Package Utilities
+// ============================================================================
+
+/**
+ * Get all credit packages (server-side, without translations)
+ * @returns All credit packages
+ */
+export function getAllCreditPackages(): CreditPackage[] {
+  return Object.values(websiteConfig.credits.packages);
+}
+
+/**
+ * Get credit package by id (server-side, without translations)
+ * @param id - Credit package id
+ * @returns Credit package or undefined if not found
+ */
+export function getCreditPackageById(id: string): CreditPackage | undefined {
+  return websiteConfig.credits.packages[id];
+}
 
 // ============================================================================
 // Types

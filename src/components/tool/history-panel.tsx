@@ -5,20 +5,20 @@
  * Displays recent video creations in a collapsible sidebar
  */
 
+import type { Video } from '@/db';
+import { LocaleLink } from '@/i18n/navigation';
 import { cn } from '@/lib/utils';
 import { formatDistanceToNow } from 'date-fns';
 import { enUS, zhCN } from 'date-fns/locale';
 import {
-  History,
-  ChevronRight,
   ChevronLeft,
-  Play,
+  ChevronRight,
   ExternalLink,
+  History,
   Loader2,
+  Play,
 } from 'lucide-react';
-import type { Video } from '@/db';
-import { LocaleLink } from '@/i18n/navigation';
-import { useTranslations, useLocale } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 
 // Map locale to date-fns locale
 const dateLocales: Record<string, Locale> = {
@@ -110,16 +110,18 @@ export function HistoryPanel({
                 </p>
               </div>
             ) : (
-              completedVideos.slice(0, 10).map((video) => (
-                <VideoHistoryCard
-                  key={video.uuid}
-                  video={video}
-                  isSelected={currentVideoId === video.uuid}
-                  onClick={() => onSelectVideo(video)}
-                  dateLocale={dateLocale}
-                  untitledText={t('untitled')}
-                />
-              ))
+              completedVideos
+                .slice(0, 10)
+                .map((video) => (
+                  <VideoHistoryCard
+                    key={video.uuid}
+                    video={video}
+                    isSelected={currentVideoId === video.uuid}
+                    onClick={() => onSelectVideo(video)}
+                    dateLocale={dateLocale}
+                    untitledText={t('untitled')}
+                  />
+                ))
             )}
           </div>
 

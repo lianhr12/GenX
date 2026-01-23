@@ -4,7 +4,7 @@ import { AnimatedGroup } from '@/components/tailark/motion/animated-group';
 import { Button } from '@/components/ui/button';
 import { LocaleLink } from '@/i18n/navigation';
 import { cn } from '@/lib/utils';
-import { X, Check, Sparkles } from 'lucide-react';
+import { Check, Sparkles, X } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 
 const transitionVariants = {
@@ -25,11 +25,7 @@ const transitionVariants = {
   },
 };
 
-const painPoints = [
-  { id: 'learning' },
-  { id: 'cost' },
-  { id: 'generic' },
-];
+const painPoints = [{ id: 'learning' }, { id: 'cost' }, { id: 'generic' }];
 
 export function PainPointsSection() {
   const t = useTranslations('Landing.painPoints');

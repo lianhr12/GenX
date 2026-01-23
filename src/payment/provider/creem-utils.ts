@@ -15,10 +15,10 @@ import type * as schema from '@/db/schema';
 
 import type { PaymentStatus } from '../types';
 import {
-  type CreemWebhookMetadata,
   CreemError,
   CreemErrorType,
   CreemSubscriptionStatus,
+  type CreemWebhookMetadata,
 } from './creem-types';
 
 /**
@@ -503,7 +503,10 @@ export async function markWebhookAsProcessed(
 ): Promise<void> {
   // Note: This is a placeholder. The actual implementation would require
   // adding a webhookId column to the payment table.
-  logCreem('debug', 'Webhook marked as processed', { subscriptionId, webhookId });
+  logCreem('debug', 'Webhook marked as processed', {
+    subscriptionId,
+    webhookId,
+  });
 }
 
 // ============================================================================
@@ -524,7 +527,7 @@ export async function executeWithTransaction<T>(
 
   try {
     const result = await db.transaction(async (tx) => {
-      return await fn(tx as DbTransaction);
+      return await fn(tx as unknown as DbTransaction);
     });
 
     logCreem('info', `Transaction completed: ${operationName}`);

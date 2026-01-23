@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState, useCallback } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 
 interface UseLazyVideoOptions {
   /**
@@ -84,7 +84,9 @@ interface UseLazyVideoReturn {
  * );
  * ```
  */
-export function useLazyVideo(options: UseLazyVideoOptions = {}): UseLazyVideoReturn {
+export function useLazyVideo(
+  options: UseLazyVideoOptions = {}
+): UseLazyVideoReturn {
   const {
     threshold = 0.1,
     rootMargin = '200px',
@@ -265,7 +267,11 @@ export function useLazyVideoList(
             const next = new Set(prev);
             if (entry.isIntersecting) {
               // Add this index and buffer indices
-              for (let i = Math.max(0, index - buffer); i <= Math.min(totalCount - 1, index + buffer); i++) {
+              for (
+                let i = Math.max(0, index - buffer);
+                i <= Math.min(totalCount - 1, index + buffer);
+                i++
+              ) {
                 next.add(i);
               }
             }
@@ -284,13 +290,19 @@ export function useLazyVideoList(
     };
   }, [totalCount, buffer, rootMargin]);
 
-  const setRef = useCallback((index: number) => (el: HTMLDivElement | null) => {
-    containerRefs.current[index] = el;
-  }, []);
+  const setRef = useCallback(
+    (index: number) => (el: HTMLDivElement | null) => {
+      containerRefs.current[index] = el;
+    },
+    []
+  );
 
   return {
     visibleIndices,
     setRef,
-    isVisible: useCallback((index: number) => visibleIndices.has(index), [visibleIndices]),
+    isVisible: useCallback(
+      (index: number) => visibleIndices.has(index),
+      [visibleIndices]
+    ),
   };
 }

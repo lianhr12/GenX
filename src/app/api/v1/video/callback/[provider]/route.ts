@@ -3,10 +3,10 @@
  * POST /api/v1/video/callback/[provider] - AI provider webhook
  */
 
-import { NextRequest, NextResponse } from 'next/server';
-import { videoService } from '@/services/video';
-import { type ProviderType } from '@/ai/video';
+import type { ProviderType } from '@/ai/video';
 import { verifyCallbackSignature } from '@/ai/video/utils/callback-signature';
+import { videoService } from '@/services/video';
+import { type NextRequest, NextResponse } from 'next/server';
 
 export async function POST(
   request: NextRequest,
@@ -36,9 +36,15 @@ export async function POST(
       );
     }
 
-    const verification = verifyCallbackSignature(videoUuid, timestamp, signature);
+    const verification = verifyCallbackSignature(
+      videoUuid,
+      timestamp,
+      signature
+    );
     if (!verification.valid) {
-      console.error(`Callback signature verification failed: ${verification.error}`);
+      console.error(
+        `Callback signature verification failed: ${verification.error}`
+      );
       return NextResponse.json(
         { error: verification.error || 'Invalid signature' },
         { status: 401 }
