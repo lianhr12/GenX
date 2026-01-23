@@ -90,10 +90,10 @@ export function ResultPanel({
                 {activeStyle.icon}
               </div>
               <h4 className="text-lg font-semibold text-white mb-1">
-                {tStyles(`${activeStyle.translationKey}.name`)}
+                {tStyles(`${activeStyle.translationKey}.name` as never)}
               </h4>
               <p className="text-sm text-zinc-400">
-                {tStyles(`${activeStyle.translationKey}.description`)}
+                {tStyles(`${activeStyle.translationKey}.description` as never)}
               </p>
 
               {/* Style dots indicator */}

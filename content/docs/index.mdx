@@ -1,278 +1,105 @@
 ---
 title: Quick Start
-description: Getting Started with Fumadocs
-icon: Album
+description: Get started with GenX.art - Create stunning AI-powered artistic videos in minutes
+icon: Rocket
 ---
 
-## Introduction
+## Welcome to GenX
 
-Fumadocs <span className='text-fd-muted-foreground text-sm'>(Foo-ma docs)</span> is a **documentation framework** based on Next.js, designed to be fast, flexible,
-and composes seamlessly into Next.js App Router.
+GenX.art is an AI-powered artistic video creation platform that transforms your ideas into stunning visual content. This guide will help you get started quickly.
 
-Fumadocs has different parts:
+<Callout title="Every Frame is Art">
+  Our mission is to make professional video creation accessible to everyone.
+</Callout>
+
+## What You Can Create
 
 <Cards>
 
-<Card icon={<CpuIcon className="text-purple-300" />} title='Fumadocs Core'>
-
-Handles most of the logic, including document search, content source adapters, and Markdown extensions.
-
+<Card icon={<ImageIcon className="text-purple-300" />} title='Image to Video' href="/docs/features/image-to-video">
+Transform your static images into dynamic, artistic videos with AI-powered animation.
 </Card>
 
-<Card icon={<PanelsTopLeft className="text-blue-300" />} title='Fumadocs UI'>
-
-The default theme of Fumadocs offers a beautiful look for documentation sites and interactive components.
-
+<Card icon={<Type className="text-blue-300" />} title='Text to Video' href="/docs/features/text-to-video">
+Describe your vision in words and let AI generate stunning video content.
 </Card>
 
-<Card icon={<Database />} title='Content Source'>
-
-The source of your content, can be a CMS or local data layers like [Content Collections](https://www.content-collections.dev) and [Fumadocs MDX](/docs/mdx), the official content source.
-
-</Card>
-
-<Card icon={<Terminal />} title='Fumadocs CLI'>
-
-A command line tool to install UI components and automate things, useful for customizing layouts.
-
+<Card icon={<Video className="text-green-300" />} title='Reference Video' href="/docs/features/reference-video">
+Use existing videos as style guides for consistent content creation.
 </Card>
 
 </Cards>
 
-<Callout title="Want to learn more?">
-  Read our in-depth [What is Fumadocs](/docs/what-is-fumadocs) introduction.
-</Callout>
+## Quick Start in 4 Steps
 
-### Terminology
+<Steps>
 
-**Markdown/MDX:** Markdown is a markup language for creating formatted text. Fumadocs supports Markdown and MDX (superset of Markdown) out-of-the-box.
+### Create Your Account
 
-Although not required, some basic knowledge of Next.js App Router would be useful for further customisations.
+Sign up at [GenX.art](https://genx.art) to get started. New users receive **50 free credits** immediately.
 
-## Automatic Installation
+### Choose Your Creation Method
 
-A minimum version of Node.js 18 required, note that Node.js 23.1 might have problems with Next.js production build.
+Select from Image to Video, Text to Video, or Reference Video based on your needs.
 
-<Tabs groupId='package-manager' persist items={['npm', 'pnpm', 'yarn', 'bun']}>
+### Select an Art Style
 
-```bash tab="npm"
-npm create fumadocs-app
-```
+Choose from 5 stunning styles:
+- **Cyberpunk** - Neon-lit futuristic aesthetics
+- **Watercolor** - Soft, flowing artistic effects
+- **Oil Painting** - Rich, textured classical feel
+- **Anime** - Japanese animation style
+- **Fluid Art** - Mesmerizing liquid motion effects
 
-```bash tab="pnpm"
-pnpm create fumadocs-app
-```
+### Generate and Download
 
-```bash tab="yarn"
-yarn create fumadocs-app
-```
+Click generate, wait 15-60 seconds, and download your masterpiece in 1080p quality.
 
-```bash tab="bun"
-bun create fumadocs-app
-```
+</Steps>
 
-</Tabs>
+## Art Styles Overview
 
-It will ask you the framework and content source to use, a new fumadocs app should be initialized. Now you can start hacking!
+| Style | Best For | Mood |
+|-------|----------|------|
+| Cyberpunk | Tech, gaming, music | Futuristic, energetic |
+| Watercolor | Nature, romance, calm | Soft, dreamy |
+| Oil Painting | Portraits, dramatic | Classical, premium |
+| Anime | Characters, stories | Dynamic, expressive |
+| Fluid Art | Abstract, meditation | Hypnotic, flowing |
 
-<Callout title='From Existing Codebase?'>
+Learn more about each style in our [Art Styles Guide](/docs/art-styles).
 
-    You can follow the [Manual Installation](/docs/manual-installation) guide to get started.
+## Credit System
 
-</Callout>
+GenX uses a credit system for video generation:
 
-### Enjoy!
+| Video Duration | Credits Used |
+|---------------|--------------|
+| 3-5 seconds | 5 credits |
+| 6-15 seconds | 10 credits |
+| 16-30 seconds | 20 credits |
 
-Create your first MDX file in the docs folder.
+New users start with 50 free credits. Learn more about [Credits](/docs/account/credits) and [Pricing](/docs/account/pricing).
 
-```mdx title="content/docs/index.mdx"
----
-title: Hello World
----
-
-## Yo what's up
-```
-
-Run the app in development mode and see http://localhost:3000/docs.
-
-```mdx
-npm run dev
-```
-
-## Explore
-
-In the project, you can see:
-
-- `lib/source.ts`: Code for content source adapter, [`loader()`](/docs/headless/source-api) provides an interface to interact with your content source, and assigns URL to your pages.
-- `app/layout.config.tsx`: Shared options for layouts, optional but preferred to keep.
-
-| Route                     | Description                                            |
-| ------------------------- | ------------------------------------------------------ |
-| `app/(home)`              | The route group for your landing page and other pages. |
-| `app/docs`                | The documentation layout and pages.                    |
-| `app/api/search/route.ts` | The Route Handler for search.                          |
-
-### Writing Content
-
-For authoring docs, make sure to read:
+## Next Steps
 
 <Cards>
-  <Card href="/docs/markdown" title="Markdown">
-    Fumadocs has some additional features for authoring content too.
+  <Card href="/docs/what-is-genx" title="What is GenX?">
+    Learn about our mission and capabilities
   </Card>
-  <Card href="/docs/navigation" title="Navigation">
-    Learn how to customise navigation links/sidebar items.
+  <Card href="/docs/features" title="Features Guide">
+    Detailed guides for each creation method
+  </Card>
+  <Card href="/docs/art-styles" title="Art Styles">
+    Explore all five artistic styles
+  </Card>
+  <Card href="/docs/faq" title="FAQ">
+    Common questions answered
   </Card>
 </Cards>
 
-### Content Source
+## Need Help?
 
-Content source handles all your content, like compiling Markdown files and validating frontmatter.
-
-<Tabs items={['Fumadocs MDX', 'Custom Source']}>
-
-    <Tab value='Fumadocs MDX'>
-
-        Read the [Introduction](/docs/mdx) to learn how it handles your content.
-
-        A `source.config.ts` config file has been included, you can customise different options like frontmatter schema.
-
-    </Tab>
-
-    <Tab value='Custom Source'>
-
-        Fumadocs is not Markdown-exclusive. For other sources like Sanity, you can build a [custom content source](/docs/headless/custom-source).
-
-    </Tab>
-
-</Tabs>
-
-### Customise UI
-
-See [Customisation Guide](/docs/customisation).
-
-## FAQ
-
-Some common questions you may encounter.
-
-<Accordions>
-    <Accordion id='fix-monorepo-styling' title="How to fix stylings not being applied in Monorepo?">
-
-Sometimes, `fumadocs-ui` is not installed in the workspace of your Tailwind CSS configuration file. (e.g. a monorepo setup).
-
-You have to ensure the `fumadocs-ui` package is scanned by Tailwind CSS, and give a correct relative path to `@source`.
-
-For example, add `../../` to point to the `node_modules` folder in root workspace.
-
-        ```css
-        @import 'tailwindcss';
-        @import 'fumadocs-ui/css/neutral.css';
-        @import 'fumadocs-ui/css/preset.css';
-
-        /* [!code --] */
-        @source '../node_modules/fumadocs-ui/dist/**/*.js';
-        /* [!code ++] */
-        @source '../../../node_modules/fumadocs-ui/dist/**/*.js';
-        ```
-
-    </Accordion>
-    <Accordion id='change-base-url' title="How to change the base route of /docs?">
-
-You can change the base route of docs (e.g. from `/docs/page` to `/info/page`).
-Since Fumadocs uses Next.js App Router, you can simply rename the route:
-
-<Files>
-  <Folder name="app/docs" defaultOpen className="opacity-50" disabled>
-    <File name="layout.tsx" />
-  </Folder>
-  <Folder name="app/info" defaultOpen>
-    <File name="layout.tsx" />
-  </Folder>
-</Files>
-
-And tell Fumadocs to use the new route in `source.ts`:
-
-```ts title="lib/source.ts"
-import { loader } from 'fumadocs-core/source';
-
-export const source = loader({
-  baseUrl: '/info',
-  // other options
-});
-```
-
-    </Accordion>
-    <Accordion id='dynamic-route' title="It uses Dynamic Route, will it be poor in performance?">
-
-Next.js turns dynamic route into static routes when `generateStaticParams` is configured.
-Hence, it is as fast as static pages.
-
-You can enable Static Exports on Next.js to get a static build output. (Notice that Route Handler doesn't work with static export, you have to configure static search)
-
-    </Accordion>
-    <Accordion id='custom-layout-docs-page' title='How to create a page in /docs without docs layout?'>
-
-Same as managing layouts in Next.js App Router, remove the original MDX file from content directory (`/content/docs`).
-This ensures duplicated pages will not cause errors.
-
-Now, You can add the page to another route group, which isn't a descendant of docs layout.
-
-For example, under your `app` folder:
-
-<Files>
-  <File name="(home)/docs/page.tsx" />
-  <Folder name="docs">
-    <File name="layout.tsx" />
-    <File name="[[...slug]]/page.tsx" />
-  </Folder>
-</Files>
-
-will replace the `/docs` page with your `page.tsx`.
-
-    </Accordion>
-
-    <Accordion id='multi-versions' title="How to implement docs with multi-version?">
-        Use a separate deployment for each version.
-
-        On Vercel, this can be done by creating another branch for a specific version on your GitHub repository.
-        To link to the sites of other versions, use the Links API or a custom navigation component.
-    </Accordion>
-
-    <Accordion id='multi-docs' title="How to implement multi-docs?">
-        We recommend to use [Sidebar Tabs](/docs/navigation/sidebar#sidebar-tabs).
-    </Accordion>
-
-</Accordions>
-
-## Video Tutorials
-
-<YoutubeVideo url="https://www.youtube.com/embed/BPnK-YbISHQ?si=TH_tI3e4MCgMHzGr" />
-
-## Learn More
-
-New to here? Don't worry, we are welcome for your questions.
-
-If you find anything confusing, please give your feedback on [Github Discussion](https://github.com/fuma-nama/fumadocs/discussions)!
-
-<Cards>
-  <Card
-    href="/docs/static-export"
-    title="Configure Static Export"
-    description="Learn how to enable static export on your docs"
-  />
-  <Card
-    href="/docs/search"
-    title="Customise Search"
-    description="Learn how to customise document search"
-  />
-  <Card
-    href="/docs/theme"
-    title="Theming"
-    description="Add themes to Fumadocs UI"
-  />
-  <Card
-    href="/docs/components"
-    title="Components"
-    description="See all available components to enhance your docs"
-  />
-</Cards>
+- Check our [FAQ](/docs/faq) for common questions
+- Visit our [Help Center](/help) for support
+- Contact us at support@genx.art

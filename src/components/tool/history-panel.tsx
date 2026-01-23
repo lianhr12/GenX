@@ -9,6 +9,7 @@ import type { Video } from '@/db';
 import { LocaleLink } from '@/i18n/navigation';
 import { cn } from '@/lib/utils';
 import { formatDistanceToNow } from 'date-fns';
+import type { Locale } from 'date-fns';
 import { enUS, zhCN } from 'date-fns/locale';
 import {
   ChevronLeft,

@@ -1,253 +1,105 @@
 ---
-title: 快速入门
-description: Fumadocs 入门指南
-icon: Album
+title: 快速开始
+description: 开始使用 GenX.art - 在几分钟内创建令人惊叹的 AI 艺术视频
+icon: Rocket
 ---
 
-## 简介
+## 欢迎使用 GenX
 
-Fumadocs <span className='text-fd-muted-foreground text-sm'>(Foo-ma docs)</span> 是一个基于 Next.js 的**文档框架**，设计为快速、灵活，
-并无缝集成到 Next.js App Router 中。
+GenX.art 是一个 AI 驱动的艺术视频创作平台，可以将你的想法转化为令人惊叹的视觉内容。本指南将帮助你快速入门。
 
-Fumadocs 由不同部分组成：
+<Callout title="每一帧都是艺术">
+  我们的使命是让每个人都能轻松创作专业视频。
+</Callout>
+
+## 你可以创作什么
 
 <Cards>
 
-<Card icon={<CpuIcon className="text-purple-300" />} title='Fumadocs Core'>
-
-处理大部分逻辑，包括文档搜索、内容源适配器和 Markdown 扩展。
-
+<Card icon={<ImageIcon className="text-purple-300" />} title='图生视频' href="/docs/features/image-to-video">
+使用 AI 驱动的动画将静态图片转换为动态的艺术视频。
 </Card>
 
-<Card icon={<PanelsTopLeft className="text-blue-300" />} title='Fumadocs UI'>
-
-Fumadocs 的默认主题为文档站点提供了美观的外观和交互式组件。
-
+<Card icon={<Type className="text-blue-300" />} title='文生视频' href="/docs/features/text-to-video">
+用文字描述你的愿景，让 AI 生成精美的视频内容。
 </Card>
 
-<Card icon={<Database />} title='Content Source'>
-
-您内容的来源，可以是 CMS 或本地数据层，如 [Content Collections](https://www.content-collections.dev) 和 [Fumadocs MDX](/docs/mdx)，即官方内容源。
-
-</Card>
-
-<Card icon={<Terminal />} title='Fumadocs CLI'>
-
-一个命令行工具，用于安装 UI 组件和自动化操作，对于自定义布局非常有用。
-
+<Card icon={<Video className="text-green-300" />} title='参考视频' href="/docs/features/reference-video">
+使用现有视频作为风格指南，创建一致的内容。
 </Card>
 
 </Cards>
 
-<Callout title="想了解更多？">
-  阅读我们深入的 [什么是 Fumadocs](/docs/what-is-fumadocs) 介绍。
-</Callout>
+## 四步快速入门
 
-### 术语
+<Steps>
 
-**Markdown/MDX:** Markdown 是一种用于创建格式化文本的标记语言。Fumadocs 默认支持 Markdown 和 MDX（Markdown 的超集）。
+### 创建账户
 
-虽然不是必需的，但对 Next.js App Router 的基本了解对于进一步的自定义会很有帮助。
+在 [GenX.art](https://genx.art) 注册以开始使用。新用户将立即获得 **50 个免费积分**。
 
-## 自动安装
+### 选择创作方式
 
-需要 Node.js 18 或更高版本，请注意 Node.js 23.1 可能在 Next.js 生产构建中存在问题。
+根据需求选择图生视频、文生视频或参考视频。
 
-<Tabs groupId='package-manager' persist items={['npm', 'pnpm', 'yarn', 'bun']}>
+### 选择艺术风格
 
-```bash tab="npm"
-npm create fumadocs-app
-```
+从 5 种令人惊叹的风格中选择：
+- **赛博朋克** - 霓虹灯照亮的未来主义美学
+- **水彩画** - 柔和、流动的艺术效果
+- **油画** - 丰富、有质感的古典风格
+- **动漫** - 日本动画风格
+- **流体艺术** - 令人着迷的液体运动效果
 
-```bash tab="pnpm"
-pnpm create fumadocs-app
-```
+### 生成并下载
 
-```bash tab="yarn"
-yarn create fumadocs-app
-```
+点击生成，等待 15-60 秒，然后以 1080p 高清质量下载你的杰作。
 
-```bash tab="bun"
-bun create fumadocs-app
-```
+</Steps>
 
-</Tabs>
+## 艺术风格概览
 
-它会询问您要使用的框架和内容源，随后将初始化一个新的 fumadocs 应用程序。现在您可以开始动手了！
+| 风格 | 最适合 | 氛围 |
+|-----|--------|-----|
+| 赛博朋克 | 科技、游戏、音乐 | 未来感、充满活力 |
+| 水彩画 | 自然、浪漫、平静 | 柔和、梦幻 |
+| 油画 | 人像、戏剧性 | 古典、高端 |
+| 动漫 | 角色、故事 | 动感、富有表现力 |
+| 流体艺术 | 抽象、冥想 | 催眠、流动 |
 
-<Callout title='从现有代码库开始？'>
+在我们的[艺术风格指南](/docs/art-styles)中了解每种风格的更多信息。
 
-    您可以按照 [手动安装](/docs/manual-installation) 指南开始。
+## 积分系统
 
-</Callout>
+GenX 使用积分系统进行视频生成：
 
-### 尽情使用！
+| 视频时长 | 使用积分 |
+|---------|---------|
+| 3-5 秒 | 5 积分 |
+| 6-15 秒 | 10 积分 |
+| 16-30 秒 | 20 积分 |
 
-在 docs 文件夹中创建您的第一个 MDX 文件。
+新用户起始获得 50 个免费积分。了解更多关于[积分](/docs/account/credits)和[定价](/docs/account/pricing)的信息。
 
-```mdx title="content/docs/index.mdx"
----
-title: Hello World
----
-
-## Yo what's up
-```
-
-在开发模式下运行应用程序并查看 http://localhost:3000/docs。
-
-```mdx
-npm run dev
-```
-
-## 探索
-
-在项目中，您可以看到：
-
-- `lib/source.ts`：内容源适配器的代码，[`loader()`](/docs/headless/source-api) 提供了与内容源交互的接口，并为您的页面分配 URL。
-- `app/layout.config.tsx`：布局的共享选项，可选但建议保留。
-
-| 路由                      | 描述                                   |
-| ------------------------- | -------------------------------------- |
-| `app/(home)`              | 您的登陆页面和其他页面的路由组。      |
-| `app/docs`                | 文档布局和页面。                       |
-| `app/api/search/route.ts` | 搜索的路由处理器。                     |
-
-### 编写内容
-
-对于编写文档，请务必阅读：
+## 下一步
 
 <Cards>
-  <Card href="/docs/markdown" title="Markdown">
-    Fumadocs 还有一些额外的内容创作功能。
+  <Card href="/docs/what-is-genx" title="什么是 GenX？">
+    了解我们的使命和能力
   </Card>
-  <Card href="/docs/navigation" title="Navigation">
-    了解如何自定义导航链接/侧边栏项目。
+  <Card href="/docs/features" title="功能指南">
+    每种创作方式的详细指南
+  </Card>
+  <Card href="/docs/art-styles" title="艺术风格">
+    探索全部五种艺术风格
+  </Card>
+  <Card href="/docs/faq" title="常见问题">
+    解答常见问题
   </Card>
 </Cards>
 
-### 内容源
+## 需要帮助？
 
-内容源处理您的所有内容，例如编译 Markdown 文件和验证前言。
-
-<Tabs items={['Fumadocs MDX', 'Custom Source']}>
-
-    <Tab value='Fumadocs MDX'>
-
-        阅读 [介绍](/docs/mdx) 了解它如何处理您的内容。
-
-        项目中已包含 `source.config.ts` 配置文件，您可以自定义不同的选项，如前言模式。
-
-    </Tab>
-
-    <Tab value='Custom Source'>
-
-        Fumadocs 不仅限于 Markdown。对于其他源（如 Sanity），您可以构建 [自定义内容源](/docs/headless/custom-source)。
-
-    </Tab>
-
-</Tabs>
-
-### 自定义 UI
-
-请参阅 [自定义指南](/docs/customisation)。
-
-## 常见问题
-
-您可能遇到的一些常见问题。
-
-<Accordions>
-    <Accordion id='fix-monorepo-styling' title="如何修复 Monorepo 中样式不应用的问题？">
-
-有时，`fumadocs-ui` 没有安装在您的 Tailwind CSS 配置文件的工作区中（例如，在 monorepo 设置中）。
-
-您必须确保 Tailwind CSS 扫描 `fumadocs-ui` 包，并为 `@source` 提供正确的相对路径。
-
-例如，添加 `../../` 指向根工作区中的 `node_modules` 文件夹。
-
-        ```css
-        @import 'tailwindcss';
-        @import 'fumadocs-ui/css/neutral.css';
-        @import 'fumadocs-ui/css/preset.css';
-
-        /* [!code --] */
-        @source '../node_modules/fumadocs-ui/dist/**/*.js';
-        /* [!code ++] */
-        @source '../../../node_modules/fumadocs-ui/dist/**/*.js';
-        ```
-
-    </Accordion>
-    <Accordion id='change-base-url' title="如何更改 /docs 的基本路由？">
-
-您可以更改文档的基本路由（例如，从 `/docs/page` 更改为 `/info/page`）。
-由于 Fumadocs 使用 Next.js App Router，您可以简单地重命名路由：
-
-<Files>
-  <Folder name="app/docs" defaultOpen className="opacity-50" disabled>
-    <File name="layout.tsx" />
-  </Folder>
-  <Folder name="app/info" defaultOpen>
-    <File name="layout.tsx" />
-  </Folder>
-</Files>
-
-并在 `source.ts` 中告诉 Fumadocs 使用新的路由：
-
-```ts title="lib/source.ts"
-import { loader } from 'fumadocs-core/source';
-
-export const source = loader({
-  baseUrl: '/info',
-  // other options
-});
-```
-
-    </Accordion>
-    <Accordion id='dynamic-route' title="它使用动态路由，性能会很差吗？">
-
-当配置了 `generateStaticParams` 时，Next.js 会将动态路由转换为静态路由。
-因此，它与静态页面一样快。
-
-您可以在 Next.js 上启用静态导出，获得静态构建输出。（请注意，路由处理器不适用于静态导出，您必须配置静态搜索）
-
-    </Accordion>
-    <Accordion id='custom-layout-docs-page' title='如何在 /docs 中创建没有文档布局的页面？'>
-
-与在 Next.js App Router 中管理布局相同，从内容目录（`/content/docs`）中删除原始 MDX 文件。
-这确保重复的页面不会导致错误。
-
-现在，您可以将页面添加到另一个路由组，该组不是文档布局的后代。
-
-例如，在您的 `app` 文件夹下：
-
-<Files>
-  <File name="(home)/docs/page.tsx" />
-  <Folder name="docs">
-    <File name="layout.tsx" />
-    <File name="[[...slug]]/page.tsx" />
-  </Folder>
-</Files>
-
-将用您的 `page.tsx` 替换 `/docs` 页面。
-
-    </Accordion>
-
-    <Accordion id='multi-versions' title="如何实现多版本文档？">
-        为每个版本使用单独的部署。
-
-        在 Vercel 上，可以通过在 GitHub 存储库中为特定版本创建另一个分支来实现。
-        要链接到其他版本的站点，请使用 Links API 或自定义导航组件。
-    </Accordion>
-
-    <Accordion id='multi-docs' title="如何实现多文档？">
-        我们建议使用 [侧边栏标签](/docs/navigation/sidebar#sidebar-tabs)。
-    </Accordion>
-
-</Accordions>
-
-## 视频教程
-
-<YoutubeVideo url="https://www.youtube.com/embed/BPnK-YbISHQ?si=TH_tI3e4MCgMHzGr" />
-
-## 了解更多
-
-刚来这里？别担心，我们欢迎您的问题。
+- 查看我们的[常见问题](/docs/faq)
+- 访问我们的[帮助中心](/help)获取支持
+- 联系我们：support@genx.art
