@@ -40,12 +40,30 @@ export enum Routes {
   // payment processing
   Payment = '/payment',
 
-  // AI routes
-  AIText = '/ai/text',
-  AIImage = '/ai/image',
-  AIChat = '/ai/chat',
-  AIVideo = '/ai/video',
-  AIAudio = '/ai/audio',
+  // Create routes (AI tools)
+  CreateText = '/create/text',
+  CreateImage = '/create/image',
+  CreateChat = '/create/chat',
+  CreateVideo = '/create/video',
+  CreateAudio = '/create/audio',
+  CreateImageToVideo = '/create/image-to-video',
+  CreateTextToVideo = '/create/text-to-video',
+  CreateReferenceToVideo = '/create/reference-to-video',
+
+  // Style pages
+  Styles = '/styles',
+  StyleCyberpunk = '/styles/cyberpunk',
+  StyleWatercolor = '/styles/watercolor',
+  StyleOilPainting = '/styles/oil-painting',
+  StyleAnime = '/styles/anime',
+  StyleFluidArt = '/styles/fluid-art',
+
+  // Gallery
+  Gallery = '/gallery',
+
+  // Help & API
+  Help = '/help',
+  APIDocs = '/api-docs',
 
   // block routes
   MagicuiBlocks = '/magicui',

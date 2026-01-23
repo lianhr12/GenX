@@ -28,6 +28,16 @@ export function useFooterLinks(): NestedMenuItem[] {
           external: false,
         },
         {
+          title: t('product.items.styles'),
+          href: Routes.Styles,
+          external: false,
+        },
+        {
+          title: t('product.items.gallery'),
+          href: Routes.Gallery,
+          external: false,
+        },
+        {
           title: t('product.items.pricing'),
           href: Routes.Pricing,
           external: false,
@@ -60,6 +70,16 @@ export function useFooterLinks(): NestedMenuItem[] {
               },
             ]
           : []),
+        {
+          title: t('resources.items.help'),
+          href: Routes.Help,
+          external: false,
+        },
+        {
+          title: t('resources.items.api'),
+          href: Routes.APIDocs,
+          external: false,
+        },
         {
           title: t('resources.items.changelog'),
           href: Routes.Changelog,

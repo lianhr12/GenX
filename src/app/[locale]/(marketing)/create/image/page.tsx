@@ -19,7 +19,7 @@ export async function generateMetadata({
     title: pt('title') + ' | ' + t('title'),
     description: pt('description'),
     locale,
-    pathname: '/ai/image',
+    pathname: '/create/image',
   });
 }
 

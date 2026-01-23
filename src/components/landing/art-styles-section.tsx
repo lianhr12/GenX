@@ -171,7 +171,7 @@ function StyleCard({ style, isActive, onHover, onLeave }: StyleCardProps) {
             'text-white hover:text-white'
           )}
         >
-          <LocaleLink href={`/ai/image-to-video?style=${style.id}`}>
+          <LocaleLink href={`/create/image-to-video?style=${style.id}`}>
             {t('createWith')}
           </LocaleLink>
         </Button>

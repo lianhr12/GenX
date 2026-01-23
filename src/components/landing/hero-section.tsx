@@ -224,7 +224,7 @@ export function HeroSection() {
                 size="lg"
                 className="rounded-xl px-8 text-base font-semibold"
               >
-                <LocaleLink href="/ai/image-to-video">
+                <LocaleLink href="/create/image-to-video">
                   <Upload className="mr-2 h-5 w-5" />
                   {t('cta.primary')}
                 </LocaleLink>

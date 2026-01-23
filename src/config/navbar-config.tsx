@@ -80,44 +80,40 @@ export function useNavbarLinks(): NestedMenuItem[] {
         ]
       : []),
     {
-      title: t('ai.title'),
+      title: t('create.title'),
       items: [
         {
-          title: t('ai.items.text.title'),
-          description: t('ai.items.text.description'),
+          title: t('create.items.imageToVideo.title'),
+          description: t('create.items.imageToVideo.description'),
+          icon: <FilmIcon className="size-4 shrink-0" />,
+          href: Routes.CreateImageToVideo,
+          external: false,
+        },
+        {
+          title: t('create.items.textToVideo.title'),
+          description: t('create.items.textToVideo.description'),
           icon: <SquarePenIcon className="size-4 shrink-0" />,
-          href: Routes.AIText,
+          href: Routes.CreateTextToVideo,
           external: false,
         },
         {
-          title: t('ai.items.image.title'),
-          description: t('ai.items.image.description'),
+          title: t('create.items.image.title'),
+          description: t('create.items.image.description'),
           icon: <ImageIcon className="size-4 shrink-0" />,
-          href: Routes.AIImage,
+          href: Routes.CreateImage,
           external: false,
         },
-        {
-          title: t('ai.items.chat.title'),
-          description: t('ai.items.chat.description'),
-          icon: <MessageCircleIcon className="size-4 shrink-0" />,
-          href: Routes.AIChat,
-          external: false,
-        },
-        // {
-        //   title: t('ai.items.video.title'),
-        //   description: t('ai.items.video.description'),
-        //   icon: <FilmIcon className="size-4 shrink-0" />,
-        //   href: Routes.AIVideo,
-        //   external: false,
-        // },
-        // {
-        //   title: t('ai.items.audio.title'),
-        //   description: t('ai.items.audio.description'),
-        //   icon: <AudioLinesIcon className="size-4 shrink-0" />,
-        //   href: Routes.AIAudio,
-        //   external: false,
-        // },
       ],
+    },
+    {
+      title: t('styles.title'),
+      href: Routes.Styles,
+      external: false,
+    },
+    {
+      title: t('gallery.title'),
+      href: Routes.Gallery,
+      external: false,
     },
     {
       title: t('pages.title'),

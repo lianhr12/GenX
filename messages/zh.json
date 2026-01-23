@@ -333,30 +333,28 @@
       "docs": {
         "title": "文档"
       },
-      "ai": {
-        "title": "AI 工具",
+      "create": {
+        "title": "创作",
         "items": {
-          "text": {
-            "title": "AI 文本",
-            "description": "展示如何使用 AI 生成精彩文本"
+          "imageToVideo": {
+            "title": "图片转视频",
+            "description": "将照片转化为精美的艺术视频"
+          },
+          "textToVideo": {
+            "title": "文字转视频",
+            "description": "通过文字描述生成视频"
           },
           "image": {
             "title": "AI 图像",
-            "description": "展示如何使用 AI 生成精美图像"
-          },
-          "chat": {
-            "title": "AI 聊天",
-            "description": "展示如何使用 AI 与客户聊天"
-          },
-          "video": {
-            "title": "AI 视频",
-            "description": "展示如何使用 AI 生成惊人视频"
-          },
-          "audio": {
-            "title": "AI 音频",
-            "description": "展示如何使用 AI 生成动听音频"
+            "description": "使用 AI 生成精美图像"
           }
         }
+      },
+      "styles": {
+        "title": "风格库"
+      },
+      "gallery": {
+        "title": "画廊"
       },
       "pages": {
         "title": "内置页面",
@@ -461,6 +459,8 @@
         "title": "产品",
         "items": {
           "features": "功能",
+          "styles": "艺术风格",
+          "gallery": "画廊",
           "pricing": "价格",
           "faq": "常见问题"
         }
@@ -470,6 +470,8 @@
         "items": {
           "blog": "博客",
           "docs": "文档",
+          "help": "帮助中心",
+          "api": "API",
           "changelog": "更新日志",
           "roadmap": "路线图"
         }
@@ -1093,6 +1095,338 @@
   "AIImagePage": {
     "title": "AI 图片",
     "description": "MkSaaS 让您在几天内轻松构建您的 AI SaaS，简单且毫不费力"
+  },
+  "CreatePage": {
+    "badge": "AI 创作工具",
+    "title": "创造精彩内容",
+    "description": "使用我们的 AI 驱动创作工具，将您的想法转化为精美的视觉内容",
+    "popular": "最受欢迎",
+    "tools": {
+      "image-to-video": {
+        "title": "图片转视频",
+        "description": "将照片转化为具有 5 种独特风格的电影级艺术视频",
+        "feature1": "5 种艺术风格",
+        "feature2": "30 秒生成",
+        "feature3": "高清画质",
+        "feature4": "无需技能"
+      },
+      "text-to-video": {
+        "title": "文字转视频",
+        "description": "描述您的愿景，让 AI 从文字创建精美视频",
+        "feature1": "自然语言",
+        "feature2": "多种风格",
+        "feature3": "快速生成",
+        "feature4": "商业可用"
+      },
+      "reference-to-video": {
+        "title": "参考图转视频",
+        "description": "使用参考图像指导 AI 创建您理想的视频",
+        "feature1": "风格迁移",
+        "feature2": "精确控制",
+        "feature3": "高保真度",
+        "feature4": "定制结果"
+      },
+      "image": {
+        "title": "AI 图像生成",
+        "description": "使用先进的 AI 模型从文字提示生成精美图像",
+        "feature1": "多种模型",
+        "feature2": "高分辨率",
+        "feature3": "风格选项",
+        "feature4": "快速出图"
+      }
+    },
+    "bottomText": "想找特定的艺术风格？",
+    "exploreStyles": "探索所有风格"
+  },
+  "StylesPage": {
+    "badge": "艺术风格库",
+    "title": "选择您的艺术语言",
+    "description": "5 种独特的艺术风格，每一种都经过精心调校，让您的作品脱颖而出",
+    "viewStyle": "查看风格",
+    "backToStyles": "返回风格库",
+    "createWithStyle": "使用此风格创作",
+    "viewExamples": "查看示例",
+    "previewComingSoon": "视频预览即将推出",
+    "useCasesTitle": "适用场景",
+    "otherStyles": "探索其他风格",
+    "features": {
+      "bestFor": "最适合",
+      "mood": "氛围",
+      "technique": "技术特点"
+    },
+    "cta": {
+      "title": "准备好创作了吗？",
+      "description": "使用任意风格开始创作精美艺术视频",
+      "button": "免费开始创作"
+    },
+    "styles": {
+      "cyberpunk": {
+        "title": "赛博朋克",
+        "description": "闪烁的霓虹灯、飞行汽车、数字雨穿越赛博世界",
+        "headline": "进入霓虹未来",
+        "longDescription": "将您的照片转化为令人惊叹的赛博朋克世界，拥有闪烁的霓虹灯、全息效果和未来主义城市景观。非常适合创造那种高科技、反乌托邦的美学风格。",
+        "bestFor": "科技内容、科幻预告片、游戏视频",
+        "mood": "未来感、前卫、电感",
+        "technique": "霓虹光晕、数字故障效果、雨滴叠加",
+        "useCase1": {
+          "title": "游戏内容",
+          "description": "为游戏频道创建引人注目的缩略图和片头"
+        },
+        "useCase2": {
+          "title": "音乐视频",
+          "description": "非常适合电子音乐和合成波音乐的可视化"
+        },
+        "useCase3": {
+          "title": "品牌内容",
+          "description": "科技公司和初创企业寻求未来感视觉效果"
+        }
+      },
+      "watercolor": {
+        "title": "水彩",
+        "description": "色彩在纸上晕染，如同一首可以看见的诗",
+        "headline": "绘制您的故事",
+        "longDescription": "观看您的图像转化为美丽的水彩画，带有柔和的晕染色彩和细腻的笔触。创造出梦幻般的艺术氛围，非常适合情感故事讲述。",
+        "bestFor": "治愈内容、情感表达、自然视频",
+        "mood": "梦幻、柔和、诗意",
+        "technique": "色彩晕染、柔和边缘、纸张纹理",
+        "useCase1": {
+          "title": "旅行内容",
+          "description": "将旅行照片转化为艺术明信片"
+        },
+        "useCase2": {
+          "title": "婚礼视频",
+          "description": "创建浪漫、梦幻的婚礼精彩集锦"
+        },
+        "useCase3": {
+          "title": "冥想内容",
+          "description": "为健康和正念应用提供平静的视觉效果"
+        }
+      },
+      "oil-painting": {
+        "title": "油画",
+        "description": "每一笔都承载温度，将照片变成收藏级艺术品",
+        "headline": "永恒的经典艺术",
+        "longDescription": "将您的照片转化为经典油画，具有可见的笔触、丰富的纹理和温暖的光线，让人联想到文艺复兴大师的作品。非常适合创建高端、博物馆级别的内容。",
+        "bestFor": "高端展示、艺术品、人像",
+        "mood": "经典、温暖、优雅",
+        "technique": "厚涂笔触、金色光线、画布纹理",
+        "useCase1": {
+          "title": "人像视频",
+          "description": "将家庭照片变成永恒的艺术品"
+        },
+        "useCase2": {
+          "title": "奢侈品牌",
+          "description": "具有经典优雅的高端产品展示"
+        },
+        "useCase3": {
+          "title": "艺术教育",
+          "description": "展示经典绘画技法和风格"
+        }
+      },
+      "anime": {
+        "title": "动漫",
+        "description": "走进动漫世界，成为自己故事的主角",
+        "headline": "您的动漫变身",
+        "longDescription": "变身为动漫角色，拥有鲜艳的色彩、富有表现力的眼睛以及樱花和镜头光晕等动态效果。灵感来自吉卜力工作室和现代动漫美学。",
+        "bestFor": "动漫内容、年轻观众、角色创作",
+        "mood": "鲜艳、富有表现力、动态",
+        "technique": "赛璐珞着色、樱花花瓣、柔和镜头光晕",
+        "useCase1": {
+          "title": "社交媒体",
+          "description": "创建病毒式传播的动漫风格头像和内容"
+        },
+        "useCase2": {
+          "title": "同人作品",
+          "description": "将自己变身到喜欢的动漫世界"
+        },
+        "useCase3": {
+          "title": "故事讲述",
+          "description": "用动漫美学创建动画叙事"
+        }
+      },
+      "fluid-art": {
+        "title": "流体艺术",
+        "description": "色彩在运动中碰撞融合，每一帧都是独特的抽象艺术",
+        "headline": "色彩的舞蹈",
+        "longDescription": "体验迷人的流体动力学，色彩像液态大理石一样旋转、融合和流动。创造出催眠般的独特抽象视觉效果，非常适合创意背景。",
+        "bestFor": "创意视频、背景、抽象艺术",
+        "mood": "迷人、抽象、艺术感",
+        "technique": "液体流动、色彩混合、大理石效果",
+        "useCase1": {
+          "title": "音乐视觉",
+          "description": "为音乐视频和直播创建催眠般的背景"
+        },
+        "useCase2": {
+          "title": "艺术装置",
+          "description": "为数字显示屏生成独特的抽象艺术"
+        },
+        "useCase3": {
+          "title": "放松内容",
+          "description": "为冥想应用提供平静、迷人的视觉效果"
+        }
+      }
+    }
+  },
+  "GalleryPage": {
+    "badge": "创作者画廊",
+    "title": "看看创作者们在做什么",
+    "description": "来自世界各地创作者使用 GenX 制作的艺术视频。点击任何作品查看使用的风格和提示词。",
+    "loadMore": "加载更多",
+    "filters": {
+      "all": "全部",
+      "cyberpunk": "赛博朋克",
+      "watercolor": "水彩",
+      "oil-painting": "油画",
+      "anime": "动漫",
+      "fluid-art": "流体艺术"
+    },
+    "cta": {
+      "title": "准备好创作自己的作品了吗？",
+      "description": "加入数千名创作者，使用 GenX 制作精美的艺术视频",
+      "button": "免费开始创作"
+    }
+  },
+  "HelpPage": {
+    "badge": "帮助中心",
+    "title": "我们能帮您什么？",
+    "description": "查找常见问题的答案或联系我们的支持团队",
+    "searchPlaceholder": "搜索帮助...",
+    "categories": {
+      "getting-started": "入门指南",
+      "creating-videos": "创建视频",
+      "billing": "账单与套餐",
+      "account": "账户与安全"
+    },
+    "faqs": {
+      "getting-started": {
+        "q1": {
+          "question": "什么是 GenX.art？",
+          "answer": "GenX.art 是一个 AI 驱动的平台，可以将您的照片转化为精美的艺术视频。只需上传照片，从 5 种独特的艺术风格（赛博朋克、水彩、油画、动漫或流体艺术）中选择，约 30 秒即可获得美丽的视频。"
+        },
+        "q2": {
+          "question": "使用 GenX 需要技术技能吗？",
+          "answer": "完全不需要！GenX 设计得非常易于使用。如果您能上传照片并点击按钮，就能创建艺术视频。无需视频编辑、AI 知识或设计技能。"
+        },
+        "q3": {
+          "question": "支持什么图片格式？",
+          "answer": "我们支持 JPG 和 PNG 图片格式，最大文件大小为 10MB。为获得最佳效果，我们建议使用主体清晰的高分辨率图片。"
+        }
+      },
+      "creating-videos": {
+        "q1": {
+          "question": "生成视频需要多长时间？",
+          "answer": "大多数视频在 15-45 秒内生成，具体取决于所选风格和当前服务器负载。创建视频时您会看到实时进度指示器。"
+        },
+        "q2": {
+          "question": "可以导出什么视频分辨率？",
+          "answer": "免费用户可以下载 720p 视频。Pro 订阅用户可以获得无水印的完整 1080p 高清质量。"
+        },
+        "q3": {
+          "question": "可以自定义艺术风格参数吗？",
+          "answer": "目前，我们的风格已经过预调以获得最佳效果。我们正在为 Pro 用户开发高级自定义选项，将在未来更新中推出。"
+        },
+        "q4": {
+          "question": "我可以创建多少个视频？",
+          "answer": "免费用户每天最多可以创建 3 个视频。Pro 订阅用户可以享受无限视频创建和优先处理。"
+        }
+      },
+      "billing": {
+        "q1": {
+          "question": "GenX 是免费的吗？",
+          "answer": "是的！我们提供免费套餐，让您每天可以创建 3 个视频，所有艺术风格都可用。视频为 720p，带有小水印。如需无限创建和高清质量，请查看我们的 Pro 套餐。"
+        },
+        "q2": {
+          "question": "你们接受什么付款方式？",
+          "answer": "我们通过安全的支付处理商 Stripe 接受所有主要信用卡（Visa、Mastercard、American Express）和 PayPal。"
+        },
+        "q3": {
+          "question": "我可以随时取消订阅吗？",
+          "answer": "当然可以！您可以随时从账户设置中取消 Pro 订阅。在账单周期结束前，您将继续拥有 Pro 访问权限。"
+        }
+      },
+      "account": {
+        "q1": {
+          "question": "如何重置密码？",
+          "answer": "在登录页面点击"忘记密码"并输入您的电子邮件。我们会向您发送一个安全链接来重置密码。"
+        },
+        "q2": {
+          "question": "我的数据安全吗？",
+          "answer": "是的！我们使用行业标准的加密和安全实践。您的图片会被安全处理，我们不会与第三方分享您的数据。详情请参阅我们的隐私政策。"
+        },
+        "q3": {
+          "question": "我可以删除我的账户吗？",
+          "answer": "可以，您可以从账户设置中请求删除账户。这将永久删除您的所有数据，包括创建的视频。"
+        }
+      }
+    },
+    "contact": {
+      "title": "还需要帮助？",
+      "description": "我们的支持团队随时为您提供帮助",
+      "email": {
+        "title": "邮件支持",
+        "description": "24 小时内回复"
+      },
+      "docs": {
+        "title": "文档中心",
+        "description": "详细的指南和教程",
+        "link": "浏览文档"
+      }
+    }
+  },
+  "APIDocsPage": {
+    "badge": "API 文档",
+    "title": "使用 GenX API 构建",
+    "description": "通过我们强大的 REST API 将艺术视频生成功能集成到您的应用程序中",
+    "viewFullDocs": "查看完整文档",
+    "getApiKey": "获取 API 密钥",
+    "features": {
+      "simple": {
+        "title": "简单集成",
+        "description": "RESTful API，端点清晰，文档全面"
+      },
+      "secure": {
+        "title": "安全可靠",
+        "description": "API 密钥认证，HTTPS 加密，99.9% 正常运行时间"
+      },
+      "scalable": {
+        "title": "可扩展",
+        "description": "从原型到生产，我们的 API 随您的需求扩展"
+      }
+    },
+    "quickStart": {
+      "title": "快速开始",
+      "example": "使用 cURL 创建视频",
+      "copy": "复制"
+    },
+    "endpoints": {
+      "title": "API 端点"
+    },
+    "auth": {
+      "title": "身份验证",
+      "subtitle": "API 密钥验证",
+      "description": "所有 API 请求都需要有效的 API 密钥。在每个请求的 Authorization 头中包含您的密钥。"
+    },
+    "rateLimits": {
+      "title": "速率限制",
+      "free": {
+        "title": "免费版",
+        "limit1": "每天 100 次 API 调用",
+        "limit2": "3 个并发请求",
+        "limit3": "720p 输出质量"
+      },
+      "pro": {
+        "title": "专业版",
+        "badge": "推荐",
+        "limit1": "每天 10,000 次 API 调用",
+        "limit2": "20 个并发请求",
+        "limit3": "1080p 高清输出质量"
+      }
+    },
+    "cta": {
+      "title": "准备好集成了吗？",
+      "description": "查看我们的完整文档，获取详细指南、代码示例和 SDK 参考",
+      "button": "查看完整文档"
+    }
   },
   "AIChatPage": {
     "title": "AI 聊天",

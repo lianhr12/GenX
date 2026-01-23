@@ -181,7 +181,7 @@ function GalleryModal({ item, isOpen, onClose }: GalleryModalProps) {
 
             <div className="mt-6">
               <Button asChild className="w-full sm:w-auto">
-                <LocaleLink href="/ai/image-to-video">
+                <LocaleLink href="/create/image-to-video">
                   {t('createSimilar')}
                 </LocaleLink>
               </Button>
@@ -270,7 +270,7 @@ export function GallerySection() {
               {t('loadMore')}
             </Button>
             <Button asChild size="lg" className="rounded-xl">
-              <LocaleLink href="/ai/image-to-video">
+              <LocaleLink href="/create/image-to-video">
                 {t('createOwn')}
               </LocaleLink>
             </Button>

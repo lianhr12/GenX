@@ -117,7 +117,7 @@ export function PricingPreviewSection() {
                     )}
                     variant={plan.popular ? 'default' : 'secondary'}
                   >
-                    <LocaleLink href={plan.popular ? '/pricing' : '/ai/image-to-video'}>
+                    <LocaleLink href={plan.popular ? '/pricing' : '/create/image-to-video'}>
                       {t(`plans.${plan.id}.cta`)}
                     </LocaleLink>
                   </Button>

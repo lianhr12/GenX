@@ -168,7 +168,7 @@ export function UseCasesSection() {
 
                   <div className="mt-6">
                     <Button asChild className="w-full">
-                      <LocaleLink href="/ai/image-to-video">
+                      <LocaleLink href="/create/image-to-video">
                         {t('cta')}
                       </LocaleLink>
                     </Button>

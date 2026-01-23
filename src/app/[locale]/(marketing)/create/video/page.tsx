@@ -10,5 +10,5 @@ export default async function AIVideoPage({
   params: Promise<{ locale: Locale }>;
 }) {
   const { locale } = await params;
-  redirect(`/${locale}/ai/text-to-video`);
+  redirect(`/${locale}/create/text-to-video`);
 }

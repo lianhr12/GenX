@@ -333,30 +333,28 @@
       "docs": {
         "title": "Docs"
       },
-      "ai": {
-        "title": "AI Tools",
+      "create": {
+        "title": "Create",
         "items": {
-          "text": {
-            "title": "AI Text",
-            "description": "Show how to use AI to write stunning text"
+          "imageToVideo": {
+            "title": "Image to Video",
+            "description": "Transform your photos into stunning art videos"
+          },
+          "textToVideo": {
+            "title": "Text to Video",
+            "description": "Generate videos from text descriptions"
           },
           "image": {
             "title": "AI Image",
-            "description": "Show how to use AI to generate beautiful images"
-          },
-          "chat": {
-            "title": "AI Chat",
-            "description": "Show how to use AI to chat with your customers"
-          },
-          "video": {
-            "title": "AI Video",
-            "description": "Show how to use AI to generate amazing videos"
-          },
-          "audio": {
-            "title": "AI Audio",
-            "description": "Show how to use AI to generate wonderful audio"
+            "description": "Generate beautiful images with AI"
           }
         }
+      },
+      "styles": {
+        "title": "Styles"
+      },
+      "gallery": {
+        "title": "Gallery"
       },
       "pages": {
         "title": "Pages",
@@ -461,6 +459,8 @@
         "title": "Product",
         "items": {
           "features": "Features",
+          "styles": "Art Styles",
+          "gallery": "Gallery",
           "pricing": "Pricing",
           "faq": "FAQ"
         }
@@ -470,6 +470,8 @@
         "items": {
           "blog": "Blog",
           "docs": "Documentation",
+          "help": "Help Center",
+          "api": "API",
           "changelog": "Changelog",
           "roadmap": "Roadmap"
         }
@@ -1093,6 +1095,338 @@
   "AIImagePage": {
     "title": "AI Image",
     "description": "MkSaaS lets you make AI SaaS in days, simply and effortlessly"
+  },
+  "CreatePage": {
+    "badge": "AI Creation Tools",
+    "title": "Create Something Amazing",
+    "description": "Transform your ideas into stunning visual content with our AI-powered creation tools",
+    "popular": "Most Popular",
+    "tools": {
+      "image-to-video": {
+        "title": "Image to Video",
+        "description": "Transform your photos into cinematic art videos with 5 unique styles",
+        "feature1": "5 Art Styles",
+        "feature2": "30s Generation",
+        "feature3": "HD Quality",
+        "feature4": "No Skills Needed"
+      },
+      "text-to-video": {
+        "title": "Text to Video",
+        "description": "Describe your vision and let AI create stunning videos from text",
+        "feature1": "Natural Language",
+        "feature2": "Multiple Styles",
+        "feature3": "Fast Generation",
+        "feature4": "Commercial Use"
+      },
+      "reference-to-video": {
+        "title": "Reference to Video",
+        "description": "Use reference images to guide AI in creating your perfect video",
+        "feature1": "Style Transfer",
+        "feature2": "Precise Control",
+        "feature3": "High Fidelity",
+        "feature4": "Custom Results"
+      },
+      "image": {
+        "title": "AI Image Generation",
+        "description": "Generate beautiful images from text prompts with advanced AI models",
+        "feature1": "Multiple Models",
+        "feature2": "High Resolution",
+        "feature3": "Style Options",
+        "feature4": "Fast Results"
+      }
+    },
+    "bottomText": "Looking for a specific art style?",
+    "exploreStyles": "Explore All Styles"
+  },
+  "StylesPage": {
+    "badge": "Art Style Library",
+    "title": "Choose Your Art Language",
+    "description": "5 unique art styles, each carefully tuned to make your work stand out from the crowd",
+    "viewStyle": "View Style",
+    "backToStyles": "Back to Styles",
+    "createWithStyle": "Create with This Style",
+    "viewExamples": "View Examples",
+    "previewComingSoon": "Video preview coming soon",
+    "useCasesTitle": "Perfect For",
+    "otherStyles": "Explore Other Styles",
+    "features": {
+      "bestFor": "Best For",
+      "mood": "Mood",
+      "technique": "Technique"
+    },
+    "cta": {
+      "title": "Ready to create?",
+      "description": "Start creating stunning art videos with any style",
+      "button": "Start Creating Free"
+    },
+    "styles": {
+      "cyberpunk": {
+        "title": "Cyberpunk",
+        "description": "Flickering neon lights, flying cars, digital rain falling through a cyber world",
+        "headline": "Enter the Neon Future",
+        "longDescription": "Transform your photos into a stunning cyberpunk world with flickering neon lights, holographic effects, and futuristic cityscapes. Perfect for creating that high-tech, dystopian aesthetic.",
+        "bestFor": "Tech content, sci-fi trailers, gaming videos",
+        "mood": "Futuristic, edgy, electric",
+        "technique": "Neon glow, digital glitch effects, rain overlays",
+        "useCase1": {
+          "title": "Gaming Content",
+          "description": "Create eye-catching thumbnails and intros for gaming channels"
+        },
+        "useCase2": {
+          "title": "Music Videos",
+          "description": "Perfect for electronic and synthwave music visualizations"
+        },
+        "useCase3": {
+          "title": "Brand Content",
+          "description": "Tech companies and startups looking for futuristic visuals"
+        }
+      },
+      "watercolor": {
+        "title": "Watercolor",
+        "description": "Colors bleeding on paper, like a poem you can see",
+        "headline": "Paint Your Story",
+        "longDescription": "Watch your images transform into beautiful watercolor paintings with soft, bleeding colors and delicate brush strokes. Creates a dreamy, artistic atmosphere perfect for emotional storytelling.",
+        "bestFor": "Healing content, emotional expression, nature videos",
+        "mood": "Dreamy, soft, poetic",
+        "technique": "Color bleeding, soft edges, paper texture",
+        "useCase1": {
+          "title": "Travel Content",
+          "description": "Transform travel photos into artistic postcards"
+        },
+        "useCase2": {
+          "title": "Wedding Videos",
+          "description": "Create romantic, dreamy wedding highlights"
+        },
+        "useCase3": {
+          "title": "Meditation Content",
+          "description": "Calming visuals for wellness and mindfulness"
+        }
+      },
+      "oil-painting": {
+        "title": "Oil Painting",
+        "description": "Every brushstroke carries warmth, turning photos into collectible art",
+        "headline": "Timeless Classic Art",
+        "longDescription": "Transform your photos into classic oil paintings with visible brush strokes, rich textures, and warm lighting reminiscent of Renaissance masters. Perfect for creating premium, gallery-worthy content.",
+        "bestFor": "Premium showcases, fine art, portraits",
+        "mood": "Classic, warm, sophisticated",
+        "technique": "Impasto strokes, golden lighting, canvas texture",
+        "useCase1": {
+          "title": "Portrait Videos",
+          "description": "Turn family photos into timeless art pieces"
+        },
+        "useCase2": {
+          "title": "Luxury Brands",
+          "description": "Premium product showcases with classic elegance"
+        },
+        "useCase3": {
+          "title": "Art Education",
+          "description": "Demonstrate classic painting techniques and styles"
+        }
+      },
+      "anime": {
+        "title": "Anime",
+        "description": "Step into the anime world, become the hero of your own story",
+        "headline": "Your Anime Transformation",
+        "longDescription": "Transform into an anime character with vibrant colors, expressive eyes, and dynamic effects like cherry blossoms and lens flares. Inspired by Studio Ghibli and modern anime aesthetics.",
+        "bestFor": "Anime content, young audiences, character creation",
+        "mood": "Vibrant, expressive, dynamic",
+        "technique": "Cell shading, sakura petals, soft lens flares",
+        "useCase1": {
+          "title": "Social Media",
+          "description": "Create viral anime-style profile pictures and content"
+        },
+        "useCase2": {
+          "title": "Fan Art",
+          "description": "Transform yourself into your favorite anime universe"
+        },
+        "useCase3": {
+          "title": "Storytelling",
+          "description": "Create animated narratives with anime aesthetics"
+        }
+      },
+      "fluid-art": {
+        "title": "Fluid Art",
+        "description": "Colors collide and merge in motion, every frame is unique abstract art",
+        "headline": "Dancing Colors in Motion",
+        "longDescription": "Experience mesmerizing fluid dynamics as colors swirl, merge, and flow like liquid marble. Creates hypnotic, abstract visuals that are completely unique and perfect for creative backgrounds.",
+        "bestFor": "Creative videos, backgrounds, abstract art",
+        "mood": "Mesmerizing, abstract, artistic",
+        "technique": "Liquid flow, color mixing, marble effects",
+        "useCase1": {
+          "title": "Music Visuals",
+          "description": "Create hypnotic backgrounds for music videos and streams"
+        },
+        "useCase2": {
+          "title": "Art Installations",
+          "description": "Generate unique abstract art for digital displays"
+        },
+        "useCase3": {
+          "title": "Relaxation Content",
+          "description": "Calming, mesmerizing visuals for meditation apps"
+        }
+      }
+    }
+  },
+  "GalleryPage": {
+    "badge": "Creator Gallery",
+    "title": "See What Creators Are Making",
+    "description": "Art videos from creators around the world using GenX. Click any work to see the style and prompt used.",
+    "loadMore": "Load More",
+    "filters": {
+      "all": "All",
+      "cyberpunk": "Cyberpunk",
+      "watercolor": "Watercolor",
+      "oil-painting": "Oil Painting",
+      "anime": "Anime",
+      "fluid-art": "Fluid Art"
+    },
+    "cta": {
+      "title": "Ready to Create Your Own?",
+      "description": "Join thousands of creators making stunning art videos with GenX",
+      "button": "Start Creating Free"
+    }
+  },
+  "HelpPage": {
+    "badge": "Help Center",
+    "title": "How Can We Help?",
+    "description": "Find answers to common questions or contact our support team",
+    "searchPlaceholder": "Search for help...",
+    "categories": {
+      "getting-started": "Getting Started",
+      "creating-videos": "Creating Videos",
+      "billing": "Billing & Plans",
+      "account": "Account & Security"
+    },
+    "faqs": {
+      "getting-started": {
+        "q1": {
+          "question": "What is GenX.art?",
+          "answer": "GenX.art is an AI-powered platform that transforms your photos into stunning art videos. Simply upload a photo, choose from 5 unique art styles (Cyberpunk, Watercolor, Oil Painting, Anime, or Fluid Art), and get a beautiful video in about 30 seconds."
+        },
+        "q2": {
+          "question": "Do I need any technical skills to use GenX?",
+          "answer": "Not at all! GenX is designed to be extremely user-friendly. If you can upload a photo and click a button, you can create art videos. No video editing, AI knowledge, or design skills required."
+        },
+        "q3": {
+          "question": "What image formats are supported?",
+          "answer": "We support JPG and PNG image formats, with a maximum file size of 10MB. For best results, we recommend using high-resolution images with clear subjects."
+        }
+      },
+      "creating-videos": {
+        "q1": {
+          "question": "How long does it take to generate a video?",
+          "answer": "Most videos are generated in 15-45 seconds, depending on the style selected and current server load. You'll see a real-time progress indicator while your video is being created."
+        },
+        "q2": {
+          "question": "What video resolution can I export?",
+          "answer": "Free users can download 720p videos. Pro subscribers get access to full 1080p HD quality without watermarks."
+        },
+        "q3": {
+          "question": "Can I customize the art style parameters?",
+          "answer": "Currently, our styles are pre-tuned for optimal results. We're working on advanced customization options for Pro users in future updates."
+        },
+        "q4": {
+          "question": "How many videos can I create?",
+          "answer": "Free users can create up to 3 videos per day. Pro subscribers enjoy unlimited video creation with priority processing."
+        }
+      },
+      "billing": {
+        "q1": {
+          "question": "Is GenX free to use?",
+          "answer": "Yes! We offer a free tier that lets you create 3 videos per day with all art styles available. Videos are 720p with a small watermark. For unlimited creation and HD quality, check out our Pro plan."
+        },
+        "q2": {
+          "question": "What payment methods do you accept?",
+          "answer": "We accept all major credit cards (Visa, Mastercard, American Express) and PayPal through our secure payment processor, Stripe."
+        },
+        "q3": {
+          "question": "Can I cancel my subscription anytime?",
+          "answer": "Absolutely! You can cancel your Pro subscription at any time from your account settings. You'll continue to have Pro access until the end of your billing period."
+        }
+      },
+      "account": {
+        "q1": {
+          "question": "How do I reset my password?",
+          "answer": "Click 'Forgot Password' on the login page and enter your email. We'll send you a secure link to reset your password."
+        },
+        "q2": {
+          "question": "Is my data safe?",
+          "answer": "Yes! We use industry-standard encryption and security practices. Your images are processed securely and we don't share your data with third parties. See our Privacy Policy for details."
+        },
+        "q3": {
+          "question": "Can I delete my account?",
+          "answer": "Yes, you can request account deletion from your account settings. This will permanently delete all your data including created videos."
+        }
+      }
+    },
+    "contact": {
+      "title": "Still Need Help?",
+      "description": "Our support team is here to help you",
+      "email": {
+        "title": "Email Support",
+        "description": "Get a response within 24 hours"
+      },
+      "docs": {
+        "title": "Documentation",
+        "description": "Detailed guides and tutorials",
+        "link": "Browse Docs"
+      }
+    }
+  },
+  "APIDocsPage": {
+    "badge": "API Documentation",
+    "title": "Build with GenX API",
+    "description": "Integrate art video generation into your applications with our powerful REST API",
+    "viewFullDocs": "View Full Documentation",
+    "getApiKey": "Get API Key",
+    "features": {
+      "simple": {
+        "title": "Simple Integration",
+        "description": "RESTful API with clear endpoints and comprehensive documentation"
+      },
+      "secure": {
+        "title": "Secure & Reliable",
+        "description": "API key authentication with HTTPS encryption and 99.9% uptime"
+      },
+      "scalable": {
+        "title": "Scalable",
+        "description": "From prototype to production, our API scales with your needs"
+      }
+    },
+    "quickStart": {
+      "title": "Quick Start",
+      "example": "Create a video with cURL",
+      "copy": "Copy"
+    },
+    "endpoints": {
+      "title": "API Endpoints"
+    },
+    "auth": {
+      "title": "Authentication",
+      "subtitle": "API Key Authentication",
+      "description": "All API requests require a valid API key. Include your key in the Authorization header of every request."
+    },
+    "rateLimits": {
+      "title": "Rate Limits",
+      "free": {
+        "title": "Free Tier",
+        "limit1": "100 API calls per day",
+        "limit2": "3 concurrent requests",
+        "limit3": "720p output quality"
+      },
+      "pro": {
+        "title": "Pro Tier",
+        "badge": "Recommended",
+        "limit1": "10,000 API calls per day",
+        "limit2": "20 concurrent requests",
+        "limit3": "1080p HD output quality"
+      }
+    },
+    "cta": {
+      "title": "Ready to Integrate?",
+      "description": "Check out our full documentation for detailed guides, code examples, and SDK references",
+      "button": "View Full Documentation"
+    }
   },
   "AIChatPage": {
     "title": "AI Chat",

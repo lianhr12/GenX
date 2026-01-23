@@ -8,7 +8,7 @@ import type { Locale } from 'next-intl';
 import { getTranslations } from 'next-intl/server';
 import { headers } from 'next/headers';
 
-const config = getToolPageConfig('reference-to-video');
+const config = getToolPageConfig('image-to-video');
 
 export async function generateMetadata({
   params,
@@ -22,12 +22,12 @@ export async function generateMetadata({
     title: config.seo.title + ' | ' + t('title'),
     description: config.seo.description,
     locale,
-    pathname: '/ai/reference-to-video',
+    pathname: '/create/image-to-video',
     keywords: config.seo.keywords,
   });
 }
 
-export default async function ReferenceToVideoPage() {
+export default async function ImageToVideoPage() {
   // Get session from headers
   const session = await auth.api.getSession({
     headers: await headers(),
@@ -41,7 +41,7 @@ export default async function ReferenceToVideoPage() {
 
   return (
     <ToolPageLayout
-      toolType="reference-to-video"
+      toolType="image-to-video"
       isLoggedIn={!!session?.user}
       userCredits={userCredits}
     />

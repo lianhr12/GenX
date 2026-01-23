@@ -122,7 +122,7 @@ export function HowItWorksSection() {
             </p>
             <div className="mt-6">
               <Button asChild size="lg" className="rounded-xl px-8">
-                <LocaleLink href="/ai/image-to-video">
+                <LocaleLink href="/create/image-to-video">
                   {t('cta')}
                 </LocaleLink>
               </Button>
