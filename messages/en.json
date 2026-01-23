@@ -1,8 +1,8 @@
 {
   "Metadata": {
-    "name": "MkSaaS Demo",
-    "title": "MkSaaS - The Best AI SaaS Boilerplate",
-    "description": "MkSaaS is the best AI SaaS boilerplate. Make AI SaaS in days, simply and effortlessly"
+    "name": "GenX.art",
+    "title": "GenX.art - AI Art Video Generator | Photo to Cinematic Art in 30 Seconds",
+    "description": "Upload a photo, pick an art style, get a stunning art video in 30 seconds. 5 unique styles: Cyberpunk, Watercolor, Oil Painting, Anime, Fluid Art. Free to use, no skills needed."
   },
   "Common": {
     "premium": "Premium",
@@ -1105,5 +1105,305 @@
   "AIAudioPage": {
     "title": "AI Audio",
     "description": "MkSaaS lets you make AI SaaS in days, simply and effortlessly"
+  },
+  "Landing": {
+    "hero": {
+      "headline": "Every Frame is Art",
+      "subheadline": "Upload a photo, pick an art style, get a stunning art video in 30 seconds. No skills needed. No expensive software.",
+      "cta": {
+        "primary": "Upload Photo",
+        "secondary": "See What's Possible"
+      },
+      "socialProof": "art videos created",
+      "scrollHint": "Scroll to explore",
+      "switchStyle": "Switch to {style} style"
+    },
+    "painPoints": {
+      "headline": "You Have Stories to Tell, But Tools Hold You Back",
+      "items": {
+        "learning": {
+          "title": "Learning Premiere or After Effects takes months",
+          "description": "Complex software with steep learning curves keeps your creative ideas trapped."
+        },
+        "cost": {
+          "title": "Hiring a professional team costs thousands",
+          "description": "Quality video production is expensive and out of reach for most creators."
+        },
+        "generic": {
+          "title": "Template videos look generic and have no soul",
+          "description": "Stock templates make your content blend in with everyone else's."
+        }
+      },
+      "solution": {
+        "title": "GenX Changes Everything",
+        "description": "All you need is a photo and an idea. AI transforms ordinary into art, everyday into cinematic.",
+        "benefit1": "No learning curve required",
+        "benefit2": "Professional quality results",
+        "benefit3": "Unique artistic styles"
+      },
+      "cta": "Try It Free in 30 Seconds"
+    },
+    "artStyles": {
+      "badge": "5 Unique Styles",
+      "headline": "Choose Your Art Language",
+      "subheadline": "5 unique art styles, each carefully tuned, to make your work stand out from the crowd.",
+      "styles": {
+        "cyberpunk": {
+          "title": "Cyberpunk",
+          "description": "Flickering neon lights, flying cars, digital rain falling through a cyber world",
+          "bestFor": "Best for: Tech content, cool trailers"
+        },
+        "watercolor": {
+          "title": "Watercolor",
+          "description": "Colors bleeding on paper, like a poem you can see",
+          "bestFor": "Best for: Healing content, emotional expression"
+        },
+        "oilPainting": {
+          "title": "Oil Painting",
+          "description": "Every brushstroke carries warmth, turning photos into collectible art",
+          "bestFor": "Best for: Premium showcases, fine art"
+        },
+        "anime": {
+          "title": "Anime",
+          "description": "Step into the anime world, become the hero of your own story",
+          "bestFor": "Best for: Anime content, young audiences"
+        },
+        "fluidArt": {
+          "title": "Fluid Art",
+          "description": "Colors collide and merge in motion, every frame is unique abstract art",
+          "bestFor": "Best for: Creative videos, backgrounds"
+        }
+      },
+      "createWith": "Create with This Style",
+      "exploreAll": "Explore All Styles"
+    },
+    "howItWorks": {
+      "badge": "Simple Process",
+      "headline": "Photo to Art in 3 Simple Steps",
+      "subheadline": "No tutorials needed. Your creativity, GenX delivers.",
+      "steps": {
+        "upload": {
+          "title": "Upload Your Photo",
+          "description": "Drag & drop your image or click to browse",
+          "details": "Supports JPG/PNG, max 10MB"
+        },
+        "style": {
+          "title": "Pick an Art Style",
+          "description": "Choose from 5 unique artistic styles",
+          "details": "Hover to preview each style"
+        },
+        "download": {
+          "title": "Wait for Magic",
+          "description": "AI creates your art video in 30 seconds",
+          "details": "Download HD video instantly"
+        }
+      },
+      "bottomText": "That's it. No learning curve. No tutorials needed.",
+      "cta": "Try It Now - Free"
+    },
+    "gallery": {
+      "badge": "Creator Gallery",
+      "headline": "See What Creators Are Making",
+      "subheadline": "Art videos from creators around the world using GenX. Click any work to see the style and prompt used.",
+      "styles": {
+        "all": "All",
+        "cyberpunk": "Cyberpunk",
+        "watercolor": "Watercolor",
+        "oilPainting": "Oil Painting",
+        "anime": "Anime",
+        "fluidArt": "Fluid Art"
+      },
+      "videoTitle": "{style} Video",
+      "promptLabel": "Prompt used:",
+      "createSimilar": "Create Similar",
+      "loadMore": "Load More",
+      "createOwn": "Create Your Own",
+      "items": {
+        "1": {
+          "prompt": "A neon-lit city street at night, rain falling through holographic advertisements"
+        },
+        "2": {
+          "prompt": "A serene mountain lake at sunset with soft watercolor effects"
+        },
+        "3": {
+          "prompt": "A classic portrait in the style of Rembrandt with warm golden lighting"
+        },
+        "4": {
+          "prompt": "Cherry blossom petals falling in a Japanese garden, anime style"
+        },
+        "5": {
+          "prompt": "Abstract colors swirling like liquid marble, mesmerizing flow"
+        },
+        "6": {
+          "prompt": "Flying cars passing through a futuristic cityscape with glitch effects"
+        }
+      }
+    },
+    "useCases": {
+      "badge": "Use Cases",
+      "headline": "Creators Use GenX For",
+      "cases": {
+        "social": {
+          "title": "Social Media",
+          "description": "Stand out on TikTok, Instagram, YouTube. Same content, different visual impact.",
+          "example": "Viral video machine for creators"
+        },
+        "product": {
+          "title": "Product Demos",
+          "description": "Static product shots are boring. Make them flow in artistic styles.",
+          "example": "Bring your products to life"
+        },
+        "art": {
+          "title": "Art Creation",
+          "description": "No art skills needed. Express your artistic ideas with AI.",
+          "example": "Everyone's an artist now"
+        },
+        "content": {
+          "title": "Content Creation",
+          "description": "Tutorials, vlogs, stories—every frame keeps viewers watching longer.",
+          "example": "Stories deserve better visuals"
+        }
+      },
+      "cta": "Start Creating"
+    },
+    "whyGenx": {
+      "badge": "Why GenX",
+      "headline": "Why Creators Choose GenX",
+      "features": {
+        "quality": {
+          "title": "Art-Quality Output",
+          "description": "Not just filters—real style transfer technology. Every frame is crafted by AI."
+        },
+        "speed": {
+          "title": "30-Second Fast",
+          "description": "Cloud-optimized processing delivers your art video in under 30 seconds."
+        },
+        "free": {
+          "title": "Free to Start",
+          "description": "3 free creates daily. Enough to try and fall in love."
+        },
+        "anywhere": {
+          "title": "Works Anywhere",
+          "description": "No downloads needed. Browser-based on any device, anytime, anywhere."
+        }
+      },
+      "trust": {
+        "noSignup": "No signup required to try",
+        "noCard": "No credit card needed",
+        "noWatermark": "No hidden watermarks (Pro)"
+      }
+    },
+    "testimonials": {
+      "badge": "Testimonials",
+      "headline": "What Creators Say",
+      "items": {
+        "1": {
+          "name": "Sarah Chen",
+          "role": "TikTok Creator",
+          "content": "Finally don't need to learn After Effects! Upload a photo, get a video. My colleagues keep asking what software I use."
+        },
+        "2": {
+          "name": "Mike Johnson",
+          "role": "Indie Developer",
+          "content": "First time I felt like I could actually make artistic videos. So cool!"
+        },
+        "3": {
+          "name": "Emma Davis",
+          "role": "Marketing Manager",
+          "content": "Cut our product video costs by 80% and the results are even better."
+        },
+        "4": {
+          "name": "Alex Kim",
+          "role": "Content Creator",
+          "content": "The anime style is incredible. My TikTok engagement went through the roof!"
+        }
+      },
+      "trustBadges": {
+        "g2": {
+          "label": "G2",
+          "rating": "4.9/5"
+        },
+        "productHunt": "Product Hunt #1"
+      }
+    },
+    "pricing": {
+      "badge": "Pricing",
+      "headline": "Simple, Transparent Pricing",
+      "popular": "Most Popular",
+      "perMonth": "/month",
+      "yearlyOption": "or ${price}/year (save {discount}%)",
+      "plans": {
+        "free": {
+          "name": "Free",
+          "description": "Perfect for trying out GenX",
+          "feature1": "3 creates per day",
+          "feature2": "All 5 art styles",
+          "feature3": "720p resolution",
+          "feature4": "Personal use license",
+          "limit": "GenX watermark included",
+          "cta": "Start Free"
+        },
+        "pro": {
+          "name": "Pro",
+          "description": "For serious creators",
+          "feature1": "Unlimited creates",
+          "feature2": "1080p HD resolution",
+          "feature3": "No watermark",
+          "feature4": "Commercial license",
+          "cta": "Go Pro"
+        }
+      },
+      "paymentNote": "Secure payment via Stripe",
+      "seeFullPricing": "See Full Pricing Comparison"
+    },
+    "faq": {
+      "badge": "FAQ",
+      "headline": "Frequently Asked Questions",
+      "items": {
+        "free": {
+          "question": "Is GenX free to use?",
+          "answer": "Yes! Guests can create 3 videos per day for free. Registered users get more daily creates. Need more? Check out our Pro plan for unlimited access."
+        },
+        "skills": {
+          "question": "Do I need technical skills?",
+          "answer": "Not at all! If you can upload a photo and click a button, you can use GenX. We've wrapped complex AI into a simple interface that anyone can use."
+        },
+        "commercial": {
+          "question": "Can I use videos commercially?",
+          "answer": "Free tier videos are for personal use only. Pro users get full commercial license for business projects, social media marketing, client work, and more."
+        },
+        "watermark": {
+          "question": "Do videos have watermarks?",
+          "answer": "Free tier videos include a small GenX watermark. Pro users can download completely watermark-free HD videos."
+        },
+        "formats": {
+          "question": "What image formats are supported?",
+          "answer": "We support JPG and PNG formats, up to 10MB per image. Higher resolution original images give better results in your art videos."
+        },
+        "time": {
+          "question": "How long does generation take?",
+          "answer": "Usually 15-45 seconds, depending on video length and server load. You'll see real-time progress on screen while your video is being created."
+        },
+        "data": {
+          "question": "Where is my data stored? (GDPR)",
+          "answer": "Your data is stored on secure AWS servers in the US and EU. We're GDPR compliant—you can request data deletion anytime. See our Privacy Policy for details."
+        },
+        "payment": {
+          "question": "What payment methods do you accept?",
+          "answer": "We accept Visa, Mastercard, American Express, and PayPal via Stripe. All payments are secure and encrypted."
+        }
+      }
+    },
+    "finalCta": {
+      "headline": "Ready to Create Your First Art Video?",
+      "subheadline": "In 30 seconds, you'll have a stunning art video",
+      "cta": "Start Creating Free",
+      "trust": {
+        "noSignup": "No signup required",
+        "noCard": "No credit card",
+        "thirtySeconds": "Done in 30 seconds",
+        "instantDownload": "Download instantly"
+      }
+    }
   }
 }

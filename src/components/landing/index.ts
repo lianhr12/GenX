@@ -1,0 +1,11 @@
+export { HeroSection } from './hero-section';
+export { PainPointsSection } from './pain-points-section';
+export { ArtStylesSection } from './art-styles-section';
+export { HowItWorksSection } from './how-it-works-section';
+export { GallerySection } from './gallery-section';
+export { UseCasesSection } from './use-cases-section';
+export { WhyGenXSection } from './why-genx-section';
+export { TestimonialsSection } from './testimonials-section';
+export { PricingPreviewSection } from './pricing-preview-section';
+export { FAQSection } from './faq-section';
+export { FinalCTASection } from './final-cta-section';

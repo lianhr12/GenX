@@ -1,8 +1,8 @@
 {
   "Metadata": {
-    "name": "MkSaaS Demo",
-    "title": "MkSaaS - 最好的 AI SaaS 模板",
-    "description": "MkSaaS 是构建 AI SaaS 的最佳模板，使用 MkSaaS 可以在几天内轻松构建您的 AI SaaS，简单且毫不费力。"
+    "name": "GenX.art",
+    "title": "GenX.art - AI 艺术视频生成器 | 30秒将照片转为电影级艺术",
+    "description": "上传照片，选择艺术风格，30秒获得令人惊艳的艺术视频。5种独特风格：赛博朋克、水彩、油画、动漫、流体艺术。免费使用，无需技能。"
   },
   "Common": {
     "premium": "付费文章",
@@ -1105,5 +1105,305 @@
   "AIAudioPage": {
     "title": "AI 音频",
     "description": "MkSaaS 让您在几天内轻松构建您的 AI SaaS，简单且毫不费力"
+  },
+  "Landing": {
+    "hero": {
+      "headline": "每一帧都是艺术",
+      "subheadline": "上传照片，选择艺术风格，30秒获得令人惊艳的艺术视频。无需技能，无需昂贵软件。",
+      "cta": {
+        "primary": "上传照片",
+        "secondary": "看看能做什么"
+      },
+      "socialProof": "艺术视频已创建",
+      "scrollHint": "向下滚动探索",
+      "switchStyle": "切换到 {style} 风格"
+    },
+    "painPoints": {
+      "headline": "你有故事要讲述，但工具却成了阻碍",
+      "items": {
+        "learning": {
+          "title": "学习 Premiere 或 After Effects 需要数月时间",
+          "description": "复杂的软件和陡峭的学习曲线让你的创意无法释放。"
+        },
+        "cost": {
+          "title": "雇佣专业团队需要花费数千美元",
+          "description": "高质量的视频制作昂贵且大多数创作者负担不起。"
+        },
+        "generic": {
+          "title": "模板视频千篇一律，毫无灵魂",
+          "description": "素材模板让你的内容与其他人的混为一体。"
+        }
+      },
+      "solution": {
+        "title": "GenX 改变一切",
+        "description": "你只需要一张照片和一个想法。AI 将平凡变为艺术，将日常变为电影感。",
+        "benefit1": "无需学习曲线",
+        "benefit2": "专业品质效果",
+        "benefit3": "独特艺术风格"
+      },
+      "cta": "30秒免费体验"
+    },
+    "artStyles": {
+      "badge": "5种独特风格",
+      "headline": "选择你的艺术语言",
+      "subheadline": "5种独特的艺术风格，每一种都经过精心调校，让你的作品脱颖而出。",
+      "styles": {
+        "cyberpunk": {
+          "title": "赛博朋克",
+          "description": "闪烁的霓虹灯，飞行的汽车，数字雨水穿过赛博世界",
+          "bestFor": "适合：科技内容、酷炫预告片"
+        },
+        "watercolor": {
+          "title": "水彩",
+          "description": "色彩在纸上晕染，如同一首可见的诗",
+          "bestFor": "适合：治愈系内容、情感表达"
+        },
+        "oilPainting": {
+          "title": "油画",
+          "description": "每一笔都带着温度，将照片变成可收藏的艺术品",
+          "bestFor": "适合：高端展示、艺术创作"
+        },
+        "anime": {
+          "title": "动漫",
+          "description": "走进动漫世界，成为自己故事的主角",
+          "bestFor": "适合：动漫内容、年轻受众"
+        },
+        "fluidArt": {
+          "title": "流体艺术",
+          "description": "色彩在运动中碰撞融合，每一帧都是独一无二的抽象艺术",
+          "bestFor": "适合：创意视频、背景素材"
+        }
+      },
+      "createWith": "使用此风格创作",
+      "exploreAll": "探索所有风格"
+    },
+    "howItWorks": {
+      "badge": "简单流程",
+      "headline": "3步将照片变成艺术",
+      "subheadline": "无需教程。你的创意，GenX 来实现。",
+      "steps": {
+        "upload": {
+          "title": "上传照片",
+          "description": "拖放图片或点击浏览",
+          "details": "支持 JPG/PNG，最大 10MB"
+        },
+        "style": {
+          "title": "选择艺术风格",
+          "description": "从5种独特风格中选择",
+          "details": "悬停预览每种风格"
+        },
+        "download": {
+          "title": "等待魔法发生",
+          "description": "AI 在30秒内创建艺术视频",
+          "details": "即时下载高清视频"
+        }
+      },
+      "bottomText": "就这么简单。无需学习曲线，无需教程。",
+      "cta": "立即免费试用"
+    },
+    "gallery": {
+      "badge": "创作者画廊",
+      "headline": "看看创作者们在做什么",
+      "subheadline": "来自世界各地使用 GenX 的创作者的艺术视频。点击任意作品查看风格和提示词。",
+      "styles": {
+        "all": "全部",
+        "cyberpunk": "赛博朋克",
+        "watercolor": "水彩",
+        "oilPainting": "油画",
+        "anime": "动漫",
+        "fluidArt": "流体艺术"
+      },
+      "videoTitle": "{style} 视频",
+      "promptLabel": "使用的提示词：",
+      "createSimilar": "创作类似作品",
+      "loadMore": "加载更多",
+      "createOwn": "创作你自己的",
+      "items": {
+        "1": {
+          "prompt": "夜晚的霓虹城市街道，雨水穿过全息广告牌"
+        },
+        "2": {
+          "prompt": "日落时分的宁静山间湖泊，柔和的水彩效果"
+        },
+        "3": {
+          "prompt": "伦勃朗风格的古典肖像，温暖的金色光线"
+        },
+        "4": {
+          "prompt": "樱花花瓣飘落在日式花园中，动漫风格"
+        },
+        "5": {
+          "prompt": "抽象色彩如液态大理石般旋转，令人着迷的流动"
+        },
+        "6": {
+          "prompt": "飞行汽车穿越未来城市景观，带有故障效果"
+        }
+      }
+    },
+    "useCases": {
+      "badge": "使用场景",
+      "headline": "创作者用 GenX 做什么",
+      "cases": {
+        "social": {
+          "title": "社交媒体",
+          "description": "在 TikTok、Instagram、YouTube 上脱颖而出。同样的内容，不同的视觉冲击。",
+          "example": "创作者的病毒视频机器"
+        },
+        "product": {
+          "title": "产品演示",
+          "description": "静态产品图太无聊了。让它们以艺术风格流动起来。",
+          "example": "让你的产品活起来"
+        },
+        "art": {
+          "title": "艺术创作",
+          "description": "无需艺术技能。用 AI 表达你的艺术想法。",
+          "example": "现在人人都是艺术家"
+        },
+        "content": {
+          "title": "内容创作",
+          "description": "教程、Vlog、故事——每一帧都让观众看得更久。",
+          "example": "故事值得更好的视觉呈现"
+        }
+      },
+      "cta": "开始创作"
+    },
+    "whyGenx": {
+      "badge": "为什么选择 GenX",
+      "headline": "创作者为什么选择 GenX",
+      "features": {
+        "quality": {
+          "title": "艺术级品质",
+          "description": "不只是滤镜——真正的风格迁移技术。每一帧都由 AI 精心打造。"
+        },
+        "speed": {
+          "title": "30秒极速",
+          "description": "云端优化处理，30秒内交付你的艺术视频。"
+        },
+        "free": {
+          "title": "免费开始",
+          "description": "每天3次免费创作。足够你尝试并爱上它。"
+        },
+        "anywhere": {
+          "title": "随处可用",
+          "description": "无需下载。基于浏览器，任何设备，随时随地。"
+        }
+      },
+      "trust": {
+        "noSignup": "无需注册即可试用",
+        "noCard": "无需信用卡",
+        "noWatermark": "无隐藏水印（Pro）"
+      }
+    },
+    "testimonials": {
+      "badge": "用户评价",
+      "headline": "创作者们怎么说",
+      "items": {
+        "1": {
+          "name": "陈小雨",
+          "role": "TikTok 创作者",
+          "content": "终于不用学 After Effects 了！上传照片就能出视频。同事们一直问我用的是什么软件。"
+        },
+        "2": {
+          "name": "Mike Johnson",
+          "role": "独立开发者",
+          "content": "第一次觉得我真的可以做出艺术视频。太酷了！"
+        },
+        "3": {
+          "name": "Emma Davis",
+          "role": "市场经理",
+          "content": "产品视频成本降低了80%，效果反而更好了。"
+        },
+        "4": {
+          "name": "Alex Kim",
+          "role": "内容创作者",
+          "content": "动漫风格太惊艳了。我的 TikTok 互动量直接起飞！"
+        }
+      },
+      "trustBadges": {
+        "g2": {
+          "label": "G2",
+          "rating": "4.9/5"
+        },
+        "productHunt": "Product Hunt #1"
+      }
+    },
+    "pricing": {
+      "badge": "价格",
+      "headline": "简单透明的定价",
+      "popular": "最受欢迎",
+      "perMonth": "/月",
+      "yearlyOption": "或 ${price}/年（节省 {discount}%）",
+      "plans": {
+        "free": {
+          "name": "免费版",
+          "description": "完美适合体验 GenX",
+          "feature1": "每天3次创作",
+          "feature2": "全部5种艺术风格",
+          "feature3": "720p 分辨率",
+          "feature4": "个人使用许可",
+          "limit": "包含 GenX 水印",
+          "cta": "免费开始"
+        },
+        "pro": {
+          "name": "专业版",
+          "description": "适合认真的创作者",
+          "feature1": "无限创作",
+          "feature2": "1080p 高清分辨率",
+          "feature3": "无水印",
+          "feature4": "商业许可",
+          "cta": "升级专业版"
+        }
+      },
+      "paymentNote": "通过 Stripe 安全支付",
+      "seeFullPricing": "查看完整价格对比"
+    },
+    "faq": {
+      "badge": "常见问题",
+      "headline": "常见问题解答",
+      "items": {
+        "free": {
+          "question": "GenX 免费使用吗？",
+          "answer": "是的！访客每天可以免费创建3个视频。注册用户获得更多每日创作次数。需要更多？查看我们的专业版获得无限访问。"
+        },
+        "skills": {
+          "question": "我需要技术技能吗？",
+          "answer": "完全不需要！如果你能上传照片并点击按钮，你就能使用 GenX。我们将复杂的 AI 包装成任何人都能使用的简单界面。"
+        },
+        "commercial": {
+          "question": "我可以商业使用视频吗？",
+          "answer": "免费版视频仅供个人使用。专业版用户获得完整的商业许可，可用于商业项目、社交媒体营销、客户工作等。"
+        },
+        "watermark": {
+          "question": "视频有水印吗？",
+          "answer": "免费版视频包含小型 GenX 水印。专业版用户可以下载完全无水印的高清视频。"
+        },
+        "formats": {
+          "question": "支持什么图片格式？",
+          "answer": "我们支持 JPG 和 PNG 格式，每张图片最大 10MB。更高分辨率的原始图片在艺术视频中效果更好。"
+        },
+        "time": {
+          "question": "生成需要多长时间？",
+          "answer": "通常15-45秒，取决于视频长度和服务器负载。创建过程中你会在屏幕上看到实时进度。"
+        },
+        "data": {
+          "question": "我的数据存储在哪里？（GDPR）",
+          "answer": "你的数据存储在美国和欧盟的安全 AWS 服务器上。我们符合 GDPR 规定——你可以随时请求删除数据。详情请查看我们的隐私政策。"
+        },
+        "payment": {
+          "question": "你们接受什么支付方式？",
+          "answer": "我们通过 Stripe 接受 Visa、Mastercard、American Express 和 PayPal。所有支付都是安全加密的。"
+        }
+      }
+    },
+    "finalCta": {
+      "headline": "准备好创作你的第一个艺术视频了吗？",
+      "subheadline": "30秒后，你将拥有一个令人惊艳的艺术视频",
+      "cta": "免费开始创作",
+      "trust": {
+        "noSignup": "无需注册",
+        "noCard": "无需信用卡",
+        "thirtySeconds": "30秒完成",
+        "instantDownload": "即时下载"
+      }
+    }
   }
 }

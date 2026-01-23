@@ -1,17 +1,17 @@
-import CallToActionSection from '@/components/blocks/calltoaction/calltoaction';
-import FaqSection from '@/components/blocks/faqs/faqs';
-import FeaturesSection from '@/components/blocks/features/features';
-import Features2Section from '@/components/blocks/features/features2';
-import Features3Section from '@/components/blocks/features/features3';
-import HeroSection from '@/components/blocks/hero/hero';
-import IntegrationSection from '@/components/blocks/integration/integration';
-import Integration2Section from '@/components/blocks/integration/integration2';
-import LogoCloud from '@/components/blocks/logo-cloud/logo-cloud';
-import PricingSection from '@/components/blocks/pricing/pricing';
-import StatsSection from '@/components/blocks/stats/stats';
-import TestimonialsSection from '@/components/blocks/testimonials/testimonials';
+import {
+  HeroSection,
+  PainPointsSection,
+  ArtStylesSection,
+  HowItWorksSection,
+  GallerySection,
+  UseCasesSection,
+  WhyGenXSection,
+  TestimonialsSection,
+  PricingPreviewSection,
+  FAQSection,
+  FinalCTASection,
+} from '@/components/landing';
 import CrispChat from '@/components/layout/crisp-chat';
-import { NewsletterCard } from '@/components/newsletter/newsletter-card';
 import { constructMetadata } from '@/lib/metadata';
 import type { Metadata } from 'next';
 import type { Locale } from 'next-intl';
@@ -41,39 +41,43 @@ interface HomePageProps {
 }
 
 export default async function HomePage(props: HomePageProps) {
-  const params = await props.params;
-  const { locale } = params;
-  const t = await getTranslations('HomePage');
-
   return (
     <>
       <div className="flex flex-col">
+        {/* Hero - Primary conversion entry */}
         <HeroSection />
 
-        <LogoCloud />
+        {/* Pain Points + Solution - Build emotional connection */}
+        <PainPointsSection />
 
-        <StatsSection />
+        {/* 5 Art Styles - Core differentiation */}
+        <ArtStylesSection />
 
-        <IntegrationSection />
+        {/* How It Works - Remove tech fear */}
+        <HowItWorksSection />
 
-        <FeaturesSection />
+        {/* Creator Gallery - Social proof + inspire creativity */}
+        <GallerySection />
 
-        <Features2Section />
+        {/* Use Cases - Help users imagine possibilities */}
+        <UseCasesSection />
 
-        <Features3Section />
+        {/* Why GenX - Trust building */}
+        <WhyGenXSection />
 
-        <Integration2Section />
-
-        <PricingSection />
-
-        <FaqSection />
-
-        <CallToActionSection />
-
+        {/* Testimonials - Real user social proof */}
         <TestimonialsSection />
 
-        <NewsletterCard />
+        {/* Pricing Preview - Transparent pricing */}
+        <PricingPreviewSection />
 
+        {/* FAQ - Remove concerns + SEO */}
+        <FAQSection />
+
+        {/* Final CTA - Conversion closure */}
+        <FinalCTASection />
+
+        {/* Chat Support */}
         <CrispChat />
       </div>
     </>
