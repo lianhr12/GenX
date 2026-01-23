@@ -1410,5 +1410,92 @@
         "instantDownload": "即时下载"
       }
     }
+  },
+  "ToolPage": {
+    "titles": {
+      "imageToVideo": "图生视频",
+      "textToVideo": "文生视频",
+      "referenceToVideo": "参考视频",
+      "aiGenerator": "AI 生成器"
+    },
+    "artStyles": {
+      "label": "艺术风格",
+      "default": {
+        "name": "默认",
+        "description": "AI 自动风格"
+      },
+      "cyberpunk": {
+        "name": "赛博朋克",
+        "description": "霓虹未来"
+      },
+      "watercolor": {
+        "name": "水彩画",
+        "description": "诗意流动"
+      },
+      "oilPainting": {
+        "name": "油画",
+        "description": "经典永恒"
+      },
+      "anime": {
+        "name": "动漫",
+        "description": "二次元入口"
+      },
+      "fluidArt": {
+        "name": "流体艺术",
+        "description": "色彩舞动"
+      }
+    },
+    "generator": {
+      "model": "模型",
+      "videoModels": "视频模型",
+      "selectModel": "选择模型",
+      "highQuality": "高质量",
+      "standard": "标准",
+      "imageSource": "图片来源",
+      "referenceVideo": "参考视频",
+      "uploadImage": "上传图片",
+      "uploadHint": "JPG, PNG, WEBP • 最大 10MB",
+      "prompt": "提示词",
+      "enhance": "优化",
+      "promptPlaceholder": "描述你想创建的视频...",
+      "aspectRatio": "宽高比",
+      "videoLength": "视频时长",
+      "resolution": "分辨率",
+      "totalCredits": "总计积分：",
+      "credits": "{count} 积分",
+      "generateVideo": "生成视频",
+      "generating": "生成中..."
+    },
+    "result": {
+      "emptyTitle": "你的作品将在这里显示",
+      "emptyDescription": "选择艺术风格，描述你的视频，让 AI 将你的想象转化为惊艳的动态艺术。",
+      "featureStyles": "5 种艺术风格",
+      "featureHD": "高清画质",
+      "featureSpeed": "30秒生成",
+      "generatingTitle": "正在生成你的视频...",
+      "generatingDescription": "这可能需要 2-5 分钟。你可以离开此页面，稍后再回来查看。",
+      "failedTitle": "生成失败",
+      "failedDescription": "出了点问题，请重试。",
+      "tryAgain": "重试",
+      "download": "下载",
+      "regenerate": "重新生成",
+      "model": "模型",
+      "notAvailable": "暂无"
+    },
+    "history": {
+      "title": "最近作品",
+      "noVideos": "暂无视频",
+      "noVideosHint": "你的作品将显示在这里",
+      "viewAll": "在仪表盘查看全部",
+      "untitled": "无标题视频"
+    },
+    "errors": {
+      "insufficientCredits": "积分不足，请购买更多积分后继续。",
+      "uploadFailed": "上传图片失败，请重试。",
+      "uploadNoUrl": "图片上传成功但未返回链接。",
+      "generateFailed": "视频生成失败",
+      "noTrackingId": "视频生成已开始但未返回跟踪 ID。",
+      "generationFailed": "视频生成失败"
+    }
   }
 }

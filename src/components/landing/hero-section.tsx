@@ -7,8 +7,9 @@ import { NumberTicker } from '@/components/magicui/number-ticker';
 import { LocaleLink } from '@/i18n/navigation';
 import { Upload, Play, Sparkles } from 'lucide-react';
 import { useTranslations } from 'next-intl';
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef, useCallback } from 'react';
 import { cn } from '@/lib/utils';
+import Image from 'next/image';
 
 const transitionVariants = {
   item: {
@@ -31,30 +32,36 @@ const transitionVariants = {
 };
 
 // Art style video samples for background
+// Using WebM as primary format for better compression, with MP4 fallback
 const artStyleVideos = [
   {
     id: 'cyberpunk',
-    src: '/videos/demo/cyberpunk.mp4',
+    webm: '/videos/demo/cyberpunk.webm',
+    mp4: '/videos/demo/cyberpunk.mp4',
     poster: '/images/demo/cyberpunk-poster.jpg',
   },
   {
     id: 'watercolor',
-    src: '/videos/demo/watercolor.mp4',
+    webm: '/videos/demo/watercolor.webm',
+    mp4: '/videos/demo/watercolor.mp4',
     poster: '/images/demo/watercolor-poster.jpg',
   },
   {
     id: 'oil-painting',
-    src: '/videos/demo/oil-painting.mp4',
+    webm: '/videos/demo/oil-painting.webm',
+    mp4: '/videos/demo/oil-painting.mp4',
     poster: '/images/demo/oil-painting-poster.jpg',
   },
   {
     id: 'anime',
-    src: '/videos/demo/anime.mp4',
+    webm: '/videos/demo/anime.webm',
+    mp4: '/videos/demo/anime.mp4',
     poster: '/images/demo/anime-poster.jpg',
   },
   {
     id: 'fluid-art',
-    src: '/videos/demo/fluid-art.mp4',
+    webm: '/videos/demo/fluid-art.webm',
+    mp4: '/videos/demo/fluid-art.mp4',
     poster: '/images/demo/fluid-art-poster.jpg',
   },
 ];
@@ -62,14 +69,51 @@ const artStyleVideos = [
 export function HeroSection() {
   const t = useTranslations('Landing.hero');
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
+  const [isVideoLoaded, setIsVideoLoaded] = useState(false);
+  const [isTransitioning, setIsTransitioning] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
+
+  const currentVideo = artStyleVideos[currentVideoIndex];
+  const nextVideoIndex = (currentVideoIndex + 1) % artStyleVideos.length;
+  const nextVideo = artStyleVideos[nextVideoIndex];
+
+  // Handle video transition
+  const handleVideoChange = useCallback((newIndex: number) => {
+    if (newIndex === currentVideoIndex || isTransitioning) return;
+    
+    setIsTransitioning(true);
+    setIsVideoLoaded(false);
+    
+    // Small delay for fade-out effect
+    setTimeout(() => {
+      setCurrentVideoIndex(newIndex);
+      setIsTransitioning(false);
+    }, 300);
+  }, [currentVideoIndex, isTransitioning]);
 
   // Rotate through videos every 5 seconds
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentVideoIndex((prev) => (prev + 1) % artStyleVideos.length);
+      handleVideoChange((currentVideoIndex + 1) % artStyleVideos.length);
     }, 5000);
     return () => clearInterval(interval);
+  }, [currentVideoIndex, handleVideoChange]);
+
+  // Preload next video
+  useEffect(() => {
+    const link = document.createElement('link');
+    link.rel = 'preload';
+    link.as = 'video';
+    link.href = nextVideo.mp4;
+    document.head.appendChild(link);
+
+    return () => {
+      document.head.removeChild(link);
+    };
+  }, [nextVideo.mp4]);
+
+  const handleVideoCanPlay = useCallback(() => {
+    setIsVideoLoaded(true);
   }, []);
 
   const scrollToGallery = () => {
@@ -83,24 +127,43 @@ export function HeroSection() {
         {/* Gradient Overlay for readability */}
         <div className="absolute inset-0 z-10 bg-gradient-to-b from-background/80 via-background/60 to-background" />
         
-        {/* Video Background with Art Style Loop */}
+        {/* Poster Image as fallback and LCP optimization */}
         <div className="absolute inset-0 overflow-hidden">
-          {artStyleVideos.map((video, index) => (
-            <video
-              key={video.id}
-              ref={index === currentVideoIndex ? videoRef : null}
-              className={cn(
-                'absolute inset-0 h-full w-full object-cover transition-opacity duration-1000',
-                index === currentVideoIndex ? 'opacity-100' : 'opacity-0'
-              )}
-              src={video.src}
-              poster={video.poster}
-              autoPlay
-              muted
-              loop
-              playsInline
-            />
-          ))}
+          <Image
+            src={currentVideo.poster}
+            alt="Hero background"
+            fill
+            priority
+            sizes="100vw"
+            className={cn(
+              'object-cover transition-opacity duration-500',
+              isVideoLoaded ? 'opacity-0' : 'opacity-100'
+            )}
+          />
+        </div>
+        
+        {/* Video Background - Only render current video */}
+        <div className="absolute inset-0 overflow-hidden">
+          <video
+            key={currentVideo.id}
+            ref={videoRef}
+            className={cn(
+              'absolute inset-0 h-full w-full object-cover transition-opacity duration-500',
+              isVideoLoaded && !isTransitioning ? 'opacity-100' : 'opacity-0'
+            )}
+            poster={currentVideo.poster}
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            onCanPlayThrough={handleVideoCanPlay}
+          >
+            {/* WebM for better compression (Chrome, Firefox, Edge) */}
+            <source src={currentVideo.webm} type="video/webm" />
+            {/* MP4 fallback (Safari, older browsers) */}
+            <source src={currentVideo.mp4} type="video/mp4" />
+          </video>
         </div>
 
         {/* Animated Gradient Decorations */}
@@ -226,12 +289,14 @@ export function HeroSection() {
               <button
                 key={video.id}
                 type="button"
-                onClick={() => setCurrentVideoIndex(index)}
+                onClick={() => handleVideoChange(index)}
+                disabled={isTransitioning}
                 className={cn(
                   'h-2 w-2 rounded-full transition-all duration-300',
                   index === currentVideoIndex
                     ? 'w-8 bg-primary'
-                    : 'bg-muted-foreground/30 hover:bg-muted-foreground/50'
+                    : 'bg-muted-foreground/30 hover:bg-muted-foreground/50',
+                  isTransitioning && 'cursor-not-allowed opacity-50'
                 )}
                 aria-label={t('switchStyle', { style: video.id })}
               />

@@ -1410,5 +1410,92 @@
         "instantDownload": "Download instantly"
       }
     }
+  },
+  "ToolPage": {
+    "titles": {
+      "imageToVideo": "IMAGE TO VIDEO",
+      "textToVideo": "TEXT TO VIDEO",
+      "referenceToVideo": "REFERENCE TO VIDEO",
+      "aiGenerator": "AI GENERATOR"
+    },
+    "artStyles": {
+      "label": "ART STYLE",
+      "default": {
+        "name": "Default",
+        "description": "AI auto style"
+      },
+      "cyberpunk": {
+        "name": "Cyberpunk",
+        "description": "Neon future"
+      },
+      "watercolor": {
+        "name": "Watercolor",
+        "description": "Poetic flow"
+      },
+      "oilPainting": {
+        "name": "Oil Painting",
+        "description": "Timeless classic"
+      },
+      "anime": {
+        "name": "Anime",
+        "description": "Anime portal"
+      },
+      "fluidArt": {
+        "name": "Fluid Art",
+        "description": "Dancing colors"
+      }
+    },
+    "generator": {
+      "model": "MODEL",
+      "videoModels": "Video Models",
+      "selectModel": "Select Model",
+      "highQuality": "High Quality",
+      "standard": "Standard",
+      "imageSource": "IMAGE SOURCE",
+      "referenceVideo": "REFERENCE VIDEO",
+      "uploadImage": "Upload image",
+      "uploadHint": "JPG, PNG, WEBP • Max 10MB",
+      "prompt": "PROMPT",
+      "enhance": "Enhance",
+      "promptPlaceholder": "Describe the video you want to create...",
+      "aspectRatio": "ASPECT RATIO",
+      "videoLength": "VIDEO LENGTH",
+      "resolution": "RESOLUTION",
+      "totalCredits": "Total Credits:",
+      "credits": "{count} Credits",
+      "generateVideo": "Generate Video",
+      "generating": "Generating..."
+    },
+    "result": {
+      "emptyTitle": "Your creation will appear here",
+      "emptyDescription": "Choose an art style, describe your video, and let AI transform your vision into stunning motion art.",
+      "featureStyles": "5 Art Styles",
+      "featureHD": "HD Quality",
+      "featureSpeed": "30s Generation",
+      "generatingTitle": "Generating your video...",
+      "generatingDescription": "This may take 2-5 minutes. You can leave this page and come back later.",
+      "failedTitle": "Generation Failed",
+      "failedDescription": "Something went wrong. Please try again.",
+      "tryAgain": "Try Again",
+      "download": "Download",
+      "regenerate": "Regenerate",
+      "model": "Model",
+      "notAvailable": "N/A"
+    },
+    "history": {
+      "title": "Recent Creations",
+      "noVideos": "No videos yet",
+      "noVideosHint": "Your creations will appear here",
+      "viewAll": "View All in Dashboard",
+      "untitled": "Untitled video"
+    },
+    "errors": {
+      "insufficientCredits": "Insufficient credits. Please purchase more credits to continue.",
+      "uploadFailed": "Failed to upload image. Please try again.",
+      "uploadNoUrl": "Image upload succeeded but no URL returned.",
+      "generateFailed": "Failed to generate video",
+      "noTrackingId": "Video generation started but no tracking ID returned.",
+      "generationFailed": "Video generation failed"
+    }
   }
 }

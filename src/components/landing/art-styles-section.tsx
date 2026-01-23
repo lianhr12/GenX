@@ -8,6 +8,7 @@ import { Sparkles, Zap, Brush, Film, Palette } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { useState, useRef } from 'react';
 import { motion } from 'motion/react';
+import Image from 'next/image';
 
 const artStyles = [
   {
@@ -106,29 +107,35 @@ function StyleCard({ style, isActive, onHover, onLeave }: StyleCardProps) {
     >
       {/* Video/Image Container */}
       <div className="relative aspect-video overflow-hidden">
-        {/* Poster Image */}
-        <img
+        {/* Poster Image - Using Next.js Image for optimization */}
+        <Image
           src={style.poster}
           alt={t(`styles.${style.id}.title`)}
+          fill
+          sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1280px) 33vw, 20vw"
           className={cn(
-            'absolute inset-0 h-full w-full object-cover transition-opacity duration-500',
+            'object-cover transition-opacity duration-500',
             isActive ? 'opacity-0' : 'opacity-100'
           )}
+          loading="lazy"
         />
         
-        {/* Video (shown on hover) */}
+        {/* Video (shown on hover) - loaded lazily */}
         <video
           ref={videoRef}
-          src={style.video}
           poster={style.poster}
           muted
           loop
           playsInline
+          preload="none"
           className={cn(
             'absolute inset-0 h-full w-full object-cover transition-opacity duration-500',
             isActive ? 'opacity-100' : 'opacity-0'
           )}
-        />
+        >
+          <source src={style.video.replace('.mp4', '.webm')} type="video/webm" />
+          <source src={style.video} type="video/mp4" />
+        </video>
 
         {/* Gradient Overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />

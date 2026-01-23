@@ -7,6 +7,7 @@ import { ResultPanelWrapper } from './result-panel-wrapper';
 import { HistoryPanel } from './history-panel';
 import type { Video } from '@/db';
 import { applyArtStyleToPrompt } from '@/config/art-styles';
+import { useTranslations } from 'next-intl';
 
 interface ToolPageLayoutProps {
   toolType: 'image-to-video' | 'text-to-video' | 'reference-to-video';
@@ -20,6 +21,7 @@ export function ToolPageLayout({
   userCredits = 0,
 }: ToolPageLayoutProps) {
   const router = useLocaleRouter();
+  const tErrors = useTranslations('ToolPage.errors');
   const [isGenerating, setIsGenerating] = useState(false);
   const [currentVideo, setCurrentVideo] = useState<Video | null>(null);
   const [currentVideoUuid, setCurrentVideoUuid] = useState<string | null>(null);
@@ -73,7 +75,7 @@ export function ToolPageLayout({
       }
 
       if (data.estimatedCredits > userCredits) {
-        setError('Insufficient credits. Please purchase more credits to continue.');
+        setError(tErrors('insufficientCredits'));
         return;
       }
 
@@ -95,14 +97,14 @@ export function ToolPageLayout({
           });
 
           if (!uploadResponse.ok) {
-            throw new Error('Failed to upload image. Please try again.');
+            throw new Error(tErrors('uploadFailed'));
           }
 
           const uploadResult = await uploadResponse.json();
           imageUrl = uploadResult.url;
 
           if (!imageUrl) {
-            throw new Error('Image upload succeeded but no URL returned.');
+            throw new Error(tErrors('uploadNoUrl'));
           }
         }
 
@@ -128,21 +130,21 @@ export function ToolPageLayout({
 
         if (!response.ok) {
           const errorData = await response.json();
-          throw new Error(errorData.error || 'Failed to generate video');
+          throw new Error(errorData.error || tErrors('generateFailed'));
         }
 
         const result = await response.json();
         const videoUuid = result?.data?.videoUuid;
         if (!videoUuid) {
-          throw new Error('Video generation started but no tracking ID returned.');
+          throw new Error(tErrors('noTrackingId'));
         }
         setCurrentVideoUuid(videoUuid);
       } catch (err) {
         setIsGenerating(false);
-        setError(err instanceof Error ? err.message : 'Failed to generate video');
+        setError(err instanceof Error ? err.message : tErrors('generateFailed'));
       }
     },
-    [isLoggedIn, userCredits, router]
+    [isLoggedIn, userCredits, router, tErrors]
   );
 
   const handleVideoComplete = useCallback((video: Video) => {
@@ -155,9 +157,9 @@ export function ToolPageLayout({
 
   const handleGenerationFailed = useCallback((errorMsg?: string) => {
     setIsGenerating(false);
-    setError(errorMsg || 'Video generation failed');
+    setError(errorMsg || tErrors('generationFailed'));
     setCurrentVideoUuid(null);
-  }, []);
+  }, [tErrors]);
 
   const handleRegenerate = useCallback(() => {
     setCurrentVideo(null);

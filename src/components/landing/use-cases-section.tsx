@@ -8,6 +8,7 @@ import { Smartphone, ShoppingBag, Palette, BookOpen, ArrowRight } from 'lucide-r
 import { useTranslations } from 'next-intl';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
+import Image from 'next/image';
 
 const useCases = [
   {

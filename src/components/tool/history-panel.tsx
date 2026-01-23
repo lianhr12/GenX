@@ -7,6 +7,7 @@
 
 import { cn } from '@/lib/utils';
 import { formatDistanceToNow } from 'date-fns';
+import { enUS, zhCN } from 'date-fns/locale';
 import {
   History,
   ChevronRight,
@@ -17,6 +18,13 @@ import {
 } from 'lucide-react';
 import type { Video } from '@/db';
 import { LocaleLink } from '@/i18n/navigation';
+import { useTranslations, useLocale } from 'next-intl';
+
+// Map locale to date-fns locale
+const dateLocales: Record<string, Locale> = {
+  en: enUS,
+  zh: zhCN,
+};
 
 interface HistoryPanelProps {
   isExpanded: boolean;
@@ -37,6 +45,10 @@ export function HistoryPanel({
   currentVideoId,
   className,
 }: HistoryPanelProps) {
+  const t = useTranslations('ToolPage.history');
+  const locale = useLocale();
+  const dateLocale = dateLocales[locale] || enUS;
+
   // Filter to show only completed videos
   const completedVideos = videos.filter(
     (v) => v.status === 'COMPLETED' && v.videoUrl
@@ -63,7 +75,7 @@ export function HistoryPanel({
             <div className="flex items-center gap-2">
               <History className="w-4 h-4 text-zinc-400" />
               <span className="text-sm text-zinc-300 font-medium">
-                Recent Creations
+                {t('title')}
               </span>
             </div>
             <ChevronRight className="w-4 h-4 text-zinc-500" />
@@ -92,9 +104,9 @@ export function HistoryPanel({
             ) : completedVideos.length === 0 ? (
               <div className="text-center py-8">
                 <History className="w-8 h-8 text-zinc-600 mx-auto mb-2" />
-                <p className="text-sm text-zinc-500">No videos yet</p>
+                <p className="text-sm text-zinc-500">{t('noVideos')}</p>
                 <p className="text-xs text-zinc-600 mt-1">
-                  Your creations will appear here
+                  {t('noVideosHint')}
                 </p>
               </div>
             ) : (
@@ -104,6 +116,8 @@ export function HistoryPanel({
                   video={video}
                   isSelected={currentVideoId === video.uuid}
                   onClick={() => onSelectVideo(video)}
+                  dateLocale={dateLocale}
+                  untitledText={t('untitled')}
                 />
               ))
             )}
@@ -116,7 +130,7 @@ export function HistoryPanel({
                 href="/dashboard"
                 className="flex items-center justify-center gap-2 text-sm text-zinc-400 hover:text-purple-400 transition-colors"
               >
-                <span>View All in Dashboard</span>
+                <span>{t('viewAll')}</span>
                 <ExternalLink className="w-3 h-3" />
               </LocaleLink>
             </div>
@@ -131,11 +145,22 @@ interface VideoHistoryCardProps {
   video: Video;
   isSelected: boolean;
   onClick: () => void;
+  dateLocale: Locale;
+  untitledText: string;
 }
 
-function VideoHistoryCard({ video, isSelected, onClick }: VideoHistoryCardProps) {
+function VideoHistoryCard({
+  video,
+  isSelected,
+  onClick,
+  dateLocale,
+  untitledText,
+}: VideoHistoryCardProps) {
   const timeAgo = video.createdAt
-    ? formatDistanceToNow(new Date(video.createdAt), { addSuffix: true })
+    ? formatDistanceToNow(new Date(video.createdAt), {
+        addSuffix: true,
+        locale: dateLocale,
+      })
     : '';
 
   return (
@@ -179,7 +204,7 @@ function VideoHistoryCard({ video, isSelected, onClick }: VideoHistoryCardProps)
       {/* Info */}
       <div className="p-2">
         <p className="text-xs text-zinc-300 line-clamp-2 leading-relaxed">
-          {video.prompt || 'Untitled video'}
+          {video.prompt || untitledText}
         </p>
         <div className="flex items-center gap-1.5 mt-1.5 text-[10px] text-zinc-500">
           {video.aspectRatio && <span>{video.aspectRatio}</span>}

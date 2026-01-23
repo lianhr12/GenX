@@ -5,14 +5,19 @@ import { Play, Download, RefreshCw, Sparkles, Loader2 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import type { Video } from '@/db';
 import { artStyles } from '@/config/art-styles';
+import { useTranslations } from 'next-intl';
 
-// Sample style showcase for empty state
-const styleShowcase = artStyles.slice(1).map((style) => ({
-  id: style.id,
-  name: style.name,
-  icon: style.icon,
-  description: style.description,
-}));
+// Style IDs for showcase (excluding default)
+const styleShowcaseIds = ['cyberpunk', 'watercolor', 'oil-painting', 'anime', 'fluid-art'];
+
+// Map style id to translation key
+const styleIdToKey: Record<string, string> = {
+  cyberpunk: 'cyberpunk',
+  watercolor: 'watercolor',
+  'oil-painting': 'oilPainting',
+  anime: 'anime',
+  'fluid-art': 'fluidArt',
+};
 
 interface ResultPanelProps {
   currentVideo?: Video | null;
@@ -27,8 +32,20 @@ export function ResultPanel({
   generatingProgress = 0,
   onRegenerate,
 }: ResultPanelProps) {
+  const t = useTranslations('ToolPage.result');
+  const tStyles = useTranslations('ToolPage.artStyles');
   const [videoSrc, setVideoSrc] = useState<string | null>(null);
   const [activeStyleIndex, setActiveStyleIndex] = useState(0);
+
+  // Get style showcase with icons from config
+  const styleShowcase = styleShowcaseIds.map((id) => {
+    const style = artStyles.find((s) => s.id === id);
+    return {
+      id,
+      icon: style?.icon || '✨',
+      translationKey: styleIdToKey[id],
+    };
+  });
 
   useEffect(() => {
     // Clear videoSrc when video changes or is null
@@ -47,7 +64,7 @@ export function ResultPanel({
       }, 3000);
       return () => clearInterval(interval);
     }
-  }, [isGenerating, currentVideo]);
+  }, [isGenerating, currentVideo, styleShowcase.length]);
 
   // Empty state with style showcase
   if (!isGenerating && !currentVideo) {
@@ -65,9 +82,11 @@ export function ResultPanel({
             <div className="relative bg-zinc-900/80 border border-zinc-700 rounded-2xl p-8 backdrop-blur-sm">
               <div className="text-5xl mb-4 animate-bounce">{activeStyle.icon}</div>
               <h4 className="text-lg font-semibold text-white mb-1">
-                {activeStyle.name}
+                {tStyles(`${activeStyle.translationKey}.name`)}
               </h4>
-              <p className="text-sm text-zinc-400">{activeStyle.description}</p>
+              <p className="text-sm text-zinc-400">
+                {tStyles(`${activeStyle.translationKey}.description`)}
+              </p>
 
               {/* Style dots indicator */}
               <div className="flex items-center justify-center gap-2 mt-6">
@@ -91,27 +110,27 @@ export function ResultPanel({
           <div className="flex items-center justify-center gap-2 mb-3">
             <Sparkles className="h-5 w-5 text-purple-400" />
             <h3 className="text-xl font-semibold text-white">
-              Your creation will appear here
+              {t('emptyTitle')}
             </h3>
           </div>
 
           <p className="text-zinc-400 text-sm mb-6 max-w-sm mx-auto">
-            Choose an art style, describe your video, and let AI transform your vision into stunning motion art.
+            {t('emptyDescription')}
           </p>
 
           {/* Feature highlights */}
           <div className="flex items-center justify-center gap-6 text-xs text-zinc-500">
             <span className="flex items-center gap-1.5">
               <div className="w-1.5 h-1.5 rounded-full bg-green-500" />
-              5 Art Styles
+              {t('featureStyles')}
             </span>
             <span className="flex items-center gap-1.5">
               <div className="w-1.5 h-1.5 rounded-full bg-blue-500" />
-              HD Quality
+              {t('featureHD')}
             </span>
             <span className="flex items-center gap-1.5">
               <div className="w-1.5 h-1.5 rounded-full bg-yellow-500" />
-              30s Generation
+              {t('featureSpeed')}
             </span>
           </div>
         </div>
@@ -135,11 +154,10 @@ export function ResultPanel({
             <Loader2 className="w-6 h-6 text-purple-400 animate-spin" />
           </div>
           <h3 className="text-lg font-semibold text-white mb-2">
-            Generating your video...
+            {t('generatingTitle')}
           </h3>
           <p className="text-zinc-400 text-sm">
-            This may take 2-5 minutes. You can leave this page and come back
-            later.
+            {t('generatingDescription')}
           </p>
           {generatingProgress > 0 && (
             <div className="mt-4">
@@ -166,10 +184,10 @@ export function ResultPanel({
             <span className="text-2xl">😢</span>
           </div>
           <h3 className="text-lg font-semibold text-white mb-2">
-            Generation Failed
+            {t('failedTitle')}
           </h3>
           <p className="text-zinc-400 text-sm mb-4">
-            {currentVideo.errorMessage || 'Something went wrong. Please try again.'}
+            {currentVideo.errorMessage || t('failedDescription')}
           </p>
           {onRegenerate && (
             <button
@@ -177,7 +195,7 @@ export function ResultPanel({
               className="flex items-center gap-2 px-4 py-2 mx-auto rounded-lg text-sm font-medium bg-purple-600 hover:bg-purple-700 text-white transition-all"
             >
               <RefreshCw className="h-4 w-4" />
-              Try Again
+              {t('tryAgain')}
             </button>
           )}
         </div>
@@ -209,7 +227,7 @@ export function ResultPanel({
         {currentVideo && (
           <div className="space-y-3">
             <div className="flex items-center gap-2 text-sm text-zinc-400">
-              <span>Model: {currentVideo?.model || 'N/A'}</span>
+              <span>{t('model')}: {currentVideo?.model || t('notAvailable')}</span>
               <span>•</span>
               <span>{currentVideo?.duration || 0}s</span>
               {currentVideo?.aspectRatio && (
@@ -233,12 +251,12 @@ export function ResultPanel({
                   className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all bg-purple-600 text-white hover:bg-purple-700"
                 >
                   <Download className="h-4 w-4" />
-                  Download
+                  {t('download')}
                 </a>
               ) : (
                 <span className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium bg-zinc-800 text-zinc-500 cursor-not-allowed">
                   <Download className="h-4 w-4" />
-                  Download
+                  {t('download')}
                 </span>
               )}
 
@@ -248,7 +266,7 @@ export function ResultPanel({
                   className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium border border-zinc-700 text-zinc-300 hover:bg-zinc-800 transition-all"
                 >
                   <RefreshCw className="h-4 w-4" />
-                  Regenerate
+                  {t('regenerate')}
                 </button>
               )}
             </div>

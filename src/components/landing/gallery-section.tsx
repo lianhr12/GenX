@@ -10,6 +10,7 @@ import { useTranslations } from 'next-intl';
 import { useState } from 'react';
 import { motion } from 'motion/react';
 import * as VisuallyHidden from '@radix-ui/react-visually-hidden';
+import Image from 'next/image';
 
 // Demo gallery items - prompts are fetched from i18n
 const galleryItems = [
@@ -83,11 +84,14 @@ function GalleryItem({ item, onClick }: GalleryItemProps) {
       onClick={onClick}
       whileHover={{ scale: 1.02 }}
     >
-      {/* Thumbnail */}
-      <img
+      {/* Thumbnail - Using Next.js Image for optimization */}
+      <Image
         src={item.thumbnail}
         alt={t(`items.${item.id}.prompt`)}
-        className="h-full w-full object-cover"
+        fill
+        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+        className="object-cover"
+        loading="lazy"
       />
 
       {/* Hover Overlay */}
