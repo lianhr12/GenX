@@ -76,10 +76,10 @@ export function PainPointsSection() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-foreground line-through decoration-destructive/50">
-                      {t(`items.${point.id}.title`)}
+                      {t(`items.${point.id}.title` as never)}
                     </h3>
                     <p className="mt-1 text-sm text-muted-foreground">
-                      {t(`items.${point.id}.description`)}
+                      {t(`items.${point.id}.description` as never)}
                     </p>
                   </div>
                 </div>
@@ -133,7 +133,7 @@ export function PainPointsSection() {
                         <Check className="h-4 w-4 text-primary" />
                       </div>
                       <span className="text-sm font-medium">
-                        {t(`solution.${benefit}`)}
+                        {t(`solution.${benefit}` as never)}
                       </span>
                     </div>
                   ))}

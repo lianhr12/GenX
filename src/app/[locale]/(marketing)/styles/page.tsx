@@ -102,10 +102,10 @@ export default async function StylesPage() {
             {/* Content Overlay */}
             <div className="absolute inset-0 flex flex-col justify-end p-6 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
               <h2 className="text-2xl font-bold text-white mb-2">
-                {t(`styles.${style.id}.title`)}
+                {t(`styles.${style.id}.title` as never)}
               </h2>
               <p className="text-white/80 text-sm mb-4 line-clamp-2">
-                {t(`styles.${style.id}.description`)}
+                {t(`styles.${style.id}.description` as never)}
               </p>
               <div className="flex items-center gap-2 text-white/60 text-sm group-hover:text-white transition-colors">
                 <span>{t('viewStyle')}</span>

@@ -87,7 +87,7 @@ function GalleryItem({ item, onClick }: GalleryItemProps) {
       {/* Thumbnail - Using Next.js Image for optimization */}
       <Image
         src={item.thumbnail}
-        alt={t(`items.${item.id}.prompt`)}
+        alt={t(`items.${item.id}.prompt` as never)}
         fill
         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
         className="object-cover"
@@ -112,7 +112,7 @@ function GalleryItem({ item, onClick }: GalleryItemProps) {
         <div className="space-y-2">
           {/* Style Badge */}
           <span className="inline-block rounded-full bg-white/20 px-3 py-1 text-xs font-medium text-white backdrop-blur-sm">
-            {t(`styles.${item.style}`)}
+            {t(`styles.${item.style}` as never)}
           </span>
 
           {/* Likes */}
@@ -142,7 +142,7 @@ function GalleryModal({ item, isOpen, onClose }: GalleryModalProps) {
       <DialogContent className="max-w-4xl border-none bg-transparent p-0 shadow-none">
         <VisuallyHidden.Root>
           <DialogTitle>
-            {t('videoTitle', { style: t(`styles.${item.style}`) })}
+            {t('videoTitle', { style: t(`styles.${item.style}` as never) })}
           </DialogTitle>
         </VisuallyHidden.Root>
         <div className="relative overflow-hidden rounded-2xl bg-background">
@@ -170,7 +170,7 @@ function GalleryModal({ item, isOpen, onClose }: GalleryModalProps) {
           <div className="p-6">
             <div className="flex items-center gap-3">
               <span className="rounded-full bg-primary/10 px-3 py-1 text-sm font-medium text-primary">
-                {t(`styles.${item.style}`)}
+                {t(`styles.${item.style}` as never)}
               </span>
               <div className="flex items-center gap-1 text-muted-foreground">
                 <Heart className="h-4 w-4" />
@@ -183,7 +183,7 @@ function GalleryModal({ item, isOpen, onClose }: GalleryModalProps) {
                 {t('promptLabel')}
               </p>
               <p className="mt-1 text-foreground">
-                {t(`items.${item.id}.prompt`)}
+                {t(`items.${item.id}.prompt` as never)}
               </p>
             </div>
 
@@ -255,7 +255,7 @@ export function GallerySection() {
                 )}
               >
                 {filter.emoji && <span className="mr-1.5">{filter.emoji}</span>}
-                {t(`styles.${filter.id}`)}
+                {t(`styles.${filter.id}` as never)}
               </button>
             ))}
           </AnimatedGroup>

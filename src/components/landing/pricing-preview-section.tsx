@@ -72,10 +72,10 @@ export function PricingPreviewSection() {
                 {/* Plan Header */}
                 <div>
                   <h3 className="text-xl font-semibold">
-                    {t(`plans.${plan.id}.name`)}
+                    {t(`plans.${plan.id}.name` as never)}
                   </h3>
                   <p className="mt-2 text-sm text-muted-foreground">
-                    {t(`plans.${plan.id}.description`)}
+                    {t(`plans.${plan.id}.description` as never)}
                   </p>
                 </div>
 
@@ -106,7 +106,7 @@ export function PricingPreviewSection() {
                       <div key={feature} className="flex items-center gap-3">
                         <Check className="h-4 w-4 text-green-500" />
                         <span className="text-sm">
-                          {t(`plans.${plan.id}.${feature}`)}
+                          {t(`plans.${plan.id}.${feature}` as never)}
                         </span>
                       </div>
                     )
@@ -138,7 +138,7 @@ export function PricingPreviewSection() {
                         plan.popular ? '/pricing' : '/create/image-to-video'
                       }
                     >
-                      {t(`plans.${plan.id}.cta`)}
+                      {t(`plans.${plan.id}.cta` as never)}
                     </LocaleLink>
                   </Button>
                 </div>

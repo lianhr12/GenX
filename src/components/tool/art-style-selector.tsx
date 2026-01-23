@@ -87,7 +87,7 @@ function ArtStyleCard({
 
       {/* Name */}
       <span className="text-xs font-medium truncate w-full">
-        {t(`${translationKey}.name`)}
+        {t(`${translationKey}.name` as never)}
       </span>
 
       {/* Selected indicator */}

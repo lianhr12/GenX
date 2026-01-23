@@ -56,10 +56,10 @@ export function FAQSection() {
                   className="border-b border-dashed last:border-0"
                 >
                   <AccordionTrigger className="py-5 text-left text-base font-medium hover:no-underline">
-                    {t(`items.${item.id}.question`)}
+                    {t(`items.${item.id}.question` as never)}
                   </AccordionTrigger>
                   <AccordionContent className="pb-5 text-muted-foreground">
-                    {t(`items.${item.id}.answer`)}
+                    {t(`items.${item.id}.answer` as never)}
                   </AccordionContent>
                 </AccordionItem>
               ))}

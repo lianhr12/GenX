@@ -118,7 +118,7 @@ export function UseCasesSection() {
                                 : 'text-muted-foreground'
                             )}
                           >
-                            {t(`cases.${useCase.id}.title`)}
+                            {t(`cases.${useCase.id}.title` as never)}
                           </h3>
                           <ArrowRight
                             className={cn(
@@ -137,7 +137,7 @@ export function UseCasesSection() {
                               : 'text-muted-foreground/70'
                           )}
                         >
-                          {t(`cases.${useCase.id}.description`)}
+                          {t(`cases.${useCase.id}.description` as never)}
                         </p>
                       </div>
                     </div>
@@ -162,7 +162,7 @@ export function UseCasesSection() {
                 <div className="relative aspect-video">
                   <Image
                     src={currentCase.image}
-                    alt={t(`cases.${currentCase.id}.title`)}
+                    alt={t(`cases.${currentCase.id}.title` as never)}
                     fill
                     sizes="(max-width: 1024px) 100vw, 50vw"
                     className="object-cover"
@@ -189,10 +189,10 @@ export function UseCasesSection() {
                     </div>
                     <div>
                       <h4 className="font-semibold">
-                        {t(`cases.${currentCase.id}.title`)}
+                        {t(`cases.${currentCase.id}.title` as never)}
                       </h4>
                       <p className="text-sm text-muted-foreground">
-                        {t(`cases.${currentCase.id}.example`)}
+                        {t(`cases.${currentCase.id}.example` as never)}
                       </p>
                     </div>
                   </div>

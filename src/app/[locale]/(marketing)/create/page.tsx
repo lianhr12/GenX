@@ -110,7 +110,7 @@ export default async function CreatePage() {
                   <div className="flex-1">
                     <div className="flex items-center gap-3 mb-2">
                       <h2 className="text-2xl font-semibold">
-                        {t(`tools.${tool.id}.title`)}
+                        {t(`tools.${tool.id}.title` as never)}
                       </h2>
                       {tool.featured && (
                         <span className="px-2 py-1 text-xs font-medium bg-primary text-primary-foreground rounded-full">
@@ -119,7 +119,7 @@ export default async function CreatePage() {
                       )}
                     </div>
                     <p className="text-muted-foreground text-lg">
-                      {t(`tools.${tool.id}.description`)}
+                      {t(`tools.${tool.id}.description` as never)}
                     </p>
                   </div>
 
@@ -145,7 +145,7 @@ export default async function CreatePage() {
                           className="flex items-center gap-2 text-sm text-muted-foreground"
                         >
                           <div className="w-1.5 h-1.5 rounded-full bg-primary" />
-                          {t(`tools.${tool.id}.${feature}`)}
+                          {t(`tools.${tool.id}.${feature}` as never)}
                         </div>
                       )
                     )}

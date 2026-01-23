@@ -62,7 +62,7 @@ function TestimonialCard({ testimonial, index }: TestimonialCardProps) {
 
       {/* Content */}
       <p className="mt-4 text-muted-foreground">
-        "{t(`items.${testimonial.id}.content`)}"
+        "{t(`items.${testimonial.id}.content` as never)}"
       </p>
 
       {/* Author */}
@@ -70,7 +70,7 @@ function TestimonialCard({ testimonial, index }: TestimonialCardProps) {
         <div className="relative h-10 w-10 overflow-hidden rounded-full bg-muted">
           <Image
             src={testimonial.avatar}
-            alt={t(`items.${testimonial.id}.name`)}
+            alt={t(`items.${testimonial.id}.name` as never)}
             fill
             sizes="40px"
             className="object-cover"
@@ -78,9 +78,9 @@ function TestimonialCard({ testimonial, index }: TestimonialCardProps) {
           />
         </div>
         <div>
-          <p className="font-medium">{t(`items.${testimonial.id}.name`)}</p>
+          <p className="font-medium">{t(`items.${testimonial.id}.name` as never)}</p>
           <p className="text-sm text-muted-foreground">
-            {t(`items.${testimonial.id}.role`)}
+            {t(`items.${testimonial.id}.role` as never)}
           </p>
         </div>
       </div>

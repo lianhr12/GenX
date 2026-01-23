@@ -110,7 +110,7 @@ function StyleCard({ style, isActive, onHover, onLeave }: StyleCardProps) {
         {/* Poster Image - Using Next.js Image for optimization */}
         <Image
           src={style.poster}
-          alt={t(`styles.${style.id}.title`)}
+          alt={t(`styles.${style.id}.title` as never)}
           fill
           sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1280px) 33vw, 20vw"
           className={cn(
@@ -152,7 +152,7 @@ function StyleCard({ style, isActive, onHover, onLeave }: StyleCardProps) {
         >
           <Icon className={cn('h-4 w-4', style.iconColor)} />
           <span className="text-xs font-medium">
-            {t(`styles.${style.id}.title`)}
+            {t(`styles.${style.id}.title` as never)}
           </span>
         </div>
       </div>
@@ -160,13 +160,13 @@ function StyleCard({ style, isActive, onHover, onLeave }: StyleCardProps) {
       {/* Content */}
       <div className="p-5">
         <h3 className="text-lg font-semibold">
-          {t(`styles.${style.id}.title`)}
+          {t(`styles.${style.id}.title` as never)}
         </h3>
         <p className="mt-2 text-sm text-muted-foreground line-clamp-2">
-          {t(`styles.${style.id}.description`)}
+          {t(`styles.${style.id}.description` as never)}
         </p>
         <p className="mt-2 text-xs text-muted-foreground/70">
-          {t(`styles.${style.id}.bestFor`)}
+          {t(`styles.${style.id}.bestFor` as never)}
         </p>
 
         {/* CTA */}

@@ -19,7 +19,6 @@ import { Resend } from 'resend';
  * https://resend.com/docs/dashboard/audiences/contacts
  * https://resend.com/docs/dashboard/topics/introduction
  * https://resend.com/docs/dashboard/segments/migrating-from-audiences-to-segments
- * https://mksaas.com/docs/newsletter
  */
 export class ResendNewsletterProvider implements NewsletterProvider {
   private resend: Resend;

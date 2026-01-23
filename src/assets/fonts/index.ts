@@ -6,10 +6,7 @@ import {
 } from 'next/font/google';
 
 /**
- * 1. Fonts Documentation
- * https://mksaas.com/docs/fonts
- *
- * 2. This file shows how to customize the font by using local font or google font
+ * This file shows how to customize the font by using local font or google font
  *
  * [1] use local font
  *

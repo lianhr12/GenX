@@ -3,9 +3,6 @@ import type { WebsiteConfig } from '@/types';
 
 /**
  * website config, without translations
- *
- * docs:
- * https://mksaas.com/docs/config/website
  */
 export const websiteConfig: WebsiteConfig = {
   ui: {

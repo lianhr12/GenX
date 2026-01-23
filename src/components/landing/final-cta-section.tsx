@@ -111,7 +111,7 @@ export function FinalCTASection() {
                 className="flex items-center gap-2 text-sm text-muted-foreground"
               >
                 <Check className="h-4 w-4 text-green-500" />
-                <span>{t(`trust.${badge.id}`)}</span>
+                <span>{t(`trust.${badge.id}` as never)}</span>
               </div>
             ))}
           </AnimatedGroup>

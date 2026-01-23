@@ -104,10 +104,10 @@ export function WhyGenXSection() {
 
                   {/* Content */}
                   <h3 className="mt-5 text-lg font-semibold">
-                    {t(`features.${feature.id}.title`)}
+                    {t(`features.${feature.id}.title` as never)}
                   </h3>
                   <p className="mt-2 text-sm text-muted-foreground">
-                    {t(`features.${feature.id}.description`)}
+                    {t(`features.${feature.id}.description` as never)}
                   </p>
                 </motion.div>
               );
@@ -128,7 +128,7 @@ export function WhyGenXSection() {
               >
                 <Check className="h-4 w-4 text-green-500" />
                 <span className="text-muted-foreground">
-                  {t(`trust.${badge.id}`)}
+                  {t(`trust.${badge.id}` as never)}
                 </span>
               </div>
             ))}

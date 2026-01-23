@@ -96,16 +96,16 @@ export function HowItWorksSection() {
 
                     {/* Content */}
                     <h3 className="mt-6 text-xl font-semibold">
-                      {t(`steps.${step.id}.title`)}
+                      {t(`steps.${step.id}.title` as never)}
                     </h3>
                     <p className="mt-3 text-sm text-muted-foreground">
-                      {t(`steps.${step.id}.description`)}
+                      {t(`steps.${step.id}.description` as never)}
                     </p>
 
                     {/* Details */}
                     <div className="mt-4 rounded-lg bg-muted/50 p-3">
                       <p className="text-xs text-muted-foreground">
-                        {t(`steps.${step.id}.details`)}
+                        {t(`steps.${step.id}.details` as never)}
                       </p>
                     </div>
                   </motion.div>

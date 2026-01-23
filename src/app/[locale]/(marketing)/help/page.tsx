@@ -98,7 +98,7 @@ export default async function HelpPage() {
               >
                 <Icon className="size-8 text-primary mb-3" />
                 <span className="font-medium">
-                  {t(`categories.${category.id}`)}
+                  {t(`categories.${category.id}` as never)}
                 </span>
               </a>
             );
@@ -114,7 +114,7 @@ export default async function HelpPage() {
                 <div className="flex items-center gap-3 mb-6">
                   <Icon className="size-6 text-primary" />
                   <h2 className="text-2xl font-bold">
-                    {t(`categories.${category.id}`)}
+                    {t(`categories.${category.id}` as never)}
                   </h2>
                 </div>
 
@@ -122,10 +122,10 @@ export default async function HelpPage() {
                   {faqItems[category.id].map((qId) => (
                     <AccordionItem key={qId} value={`${category.id}-${qId}`}>
                       <AccordionTrigger className="text-left">
-                        {t(`faqs.${category.id}.${qId}.question`)}
+                        {t(`faqs.${category.id}.${qId}.question` as never)}
                       </AccordionTrigger>
                       <AccordionContent className="text-muted-foreground">
-                        {t(`faqs.${category.id}.${qId}.answer`)}
+                        {t(`faqs.${category.id}.${qId}.answer` as never)}
                       </AccordionContent>
                     </AccordionItem>
                   ))}

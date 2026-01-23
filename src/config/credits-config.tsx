@@ -11,9 +11,6 @@ import { websiteConfig } from './website';
  * If you need to get the credit packages in server components, use getAllCreditPackages instead.
  * Use this function when showing the credit packages to the user.
  *
- * docs:
- * https://mksaas.com/docs/config/credits
- *
  * @returns The credit packages with translated content
  */
 export function useCreditPackages(): Record<string, CreditPackage> {

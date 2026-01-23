@@ -96,7 +96,7 @@ export default async function GalleryPage() {
               className="rounded-full"
             >
               {filter.icon && <span className="mr-1">{filter.icon}</span>}
-              {t(`filters.${filter.id}`)}
+              {t(`filters.${filter.id}` as never)}
             </Button>
           ))}
         </div>
@@ -121,7 +121,7 @@ export default async function GalleryPage() {
               {/* Info Bar */}
               <div className="p-3 flex items-center justify-between">
                 <span className="text-xs font-medium px-2 py-1 rounded-full bg-muted">
-                  {t(`filters.${item.style}`)}
+                  {t(`filters.${item.style}` as never)}
                 </span>
                 <div className="flex items-center gap-1 text-muted-foreground text-sm">
                   <HeartIcon className="size-3.5" />

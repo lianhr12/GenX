@@ -102,8 +102,8 @@ export async function generateMetadata({
   const t = await getTranslations({ locale, namespace: 'Metadata' });
   const st = await getTranslations({ locale, namespace: 'StylesPage' });
 
-  const styleTitle = st(`styles.${slug}.title`);
-  const styleDesc = st(`styles.${slug}.description`);
+  const styleTitle = st(`styles.${slug}.title` as never);
+  const styleDesc = st(`styles.${slug}.description` as never);
 
   return constructMetadata({
     title: `${styleTitle} Style - AI Art Video | ${t('title')}`,
@@ -148,15 +148,15 @@ export default async function StyleDetailPage({
             className={`inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r ${config.gradient} text-white text-sm font-medium mb-6 w-fit`}
           >
             <SparklesIcon className="size-4" />
-            {t(`styles.${slug}.title`)}
+            {t(`styles.${slug}.title` as never)}
           </div>
 
           <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">
-            {t(`styles.${slug}.headline`)}
+            {t(`styles.${slug}.headline` as never)}
           </h1>
 
           <p className="text-xl text-muted-foreground mb-8">
-            {t(`styles.${slug}.longDescription`)}
+            {t(`styles.${slug}.longDescription` as never)}
           </p>
 
           {/* Features */}
@@ -166,10 +166,10 @@ export default async function StyleDetailPage({
                 <CheckCircleIcon className="size-5 text-primary mt-0.5 flex-shrink-0" />
                 <div>
                   <span className="font-medium">
-                    {t(`features.${feature}`)}:{' '}
+                    {t(`features.${feature}` as never)}:{' '}
                   </span>
                   <span className="text-muted-foreground">
-                    {t(`styles.${slug}.${feature}`)}
+                    {t(`styles.${slug}.${feature}` as never)}
                   </span>
                 </div>
               </div>
@@ -219,10 +219,10 @@ export default async function StyleDetailPage({
               className="p-6 rounded-xl border bg-card hover:shadow-md transition-shadow"
             >
               <h3 className="font-semibold mb-2">
-                {t(`styles.${slug}.${useCase}.title`)}
+                {t(`styles.${slug}.${useCase}.title` as never)}
               </h3>
               <p className="text-muted-foreground text-sm">
-                {t(`styles.${slug}.${useCase}.description`)}
+                {t(`styles.${slug}.${useCase}.description` as never)}
               </p>
             </div>
           ))}
@@ -247,7 +247,7 @@ export default async function StyleDetailPage({
                     className={`w-full aspect-video rounded-lg ${otherConfig.bgColor} mb-3 group-hover:opacity-80 transition-opacity`}
                   />
                   <h3 className="font-medium text-sm">
-                    {t(`styles.${otherSlug}.title`)}
+                    {t(`styles.${otherSlug}.title` as never)}
                   </h3>
                 </LocaleLink>
               );
