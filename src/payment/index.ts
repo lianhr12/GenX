@@ -1,4 +1,6 @@
 import { websiteConfig } from '@/config/website';
+
+import { CreemProvider } from './provider/creem';
 import { StripeProvider } from './provider/stripe';
 import type {
   CheckoutResult,
@@ -7,6 +9,8 @@ import type {
   CreatePortalParams,
   PaymentProvider,
   PortalResult,
+  Subscription,
+  getSubscriptionsParams,
 } from './types';
 
 /**
@@ -32,12 +36,14 @@ export const getPaymentProvider = (): PaymentProvider => {
  */
 export const initializePaymentProvider = (): PaymentProvider => {
   if (!paymentProvider) {
-    if (websiteConfig.payment.provider === 'stripe') {
+    const provider = websiteConfig.payment.provider;
+
+    if (provider === 'stripe') {
       paymentProvider = new StripeProvider();
+    } else if (provider === 'creem') {
+      paymentProvider = new CreemProvider();
     } else {
-      throw new Error(
-        `Unsupported payment provider: ${websiteConfig.payment.provider}`
-      );
+      throw new Error(`Unsupported payment provider: ${provider}`);
     }
   }
   return paymentProvider;
@@ -90,4 +96,19 @@ export const handleWebhookEvent = async (
 ): Promise<void> => {
   const provider = getPaymentProvider();
   await provider.handleWebhookEvent(payload, signature);
+};
+
+/**
+ * List customer subscriptions
+ * @param params Parameters for listing customer subscriptions
+ * @returns Array of subscriptions
+ */
+export const getSubscriptions = async (
+  params: getSubscriptionsParams
+): Promise<Subscription[]> => {
+  const provider = getPaymentProvider();
+  if ('getSubscriptions' in provider) {
+    return (provider as any).getSubscriptions(params);
+  }
+  return [];
 };

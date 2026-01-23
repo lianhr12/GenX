@@ -53,6 +53,7 @@ export type PaymentStatus =
 export interface Price {
   type: PaymentType;                 // Type of payment (subscription or one_time)
   priceId: string;                   // Stripe price ID (not product id)
+  creemProductId?: string;           // Creem product ID for Creem payment provider
   amount: number;                    // Price amount in currency units (dollars, euros, etc.)
   currency: string;                  // Currency code (e.g., USD)
   interval?: PlanInterval;           // Billing interval for recurring payments

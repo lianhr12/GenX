@@ -105,6 +105,7 @@ export const websiteConfig: WebsiteConfig = {
           {
             type: PaymentTypes.SUBSCRIPTION,
             priceId: process.env.NEXT_PUBLIC_STRIPE_PRICE_PRO_MONTHLY!,
+            creemProductId: process.env.NEXT_PUBLIC_CREEM_PRODUCT_PRO_MONTHLY,
             amount: 990,
             currency: 'USD',
             interval: PlanIntervals.MONTH,
@@ -112,6 +113,7 @@ export const websiteConfig: WebsiteConfig = {
           {
             type: PaymentTypes.SUBSCRIPTION,
             priceId: process.env.NEXT_PUBLIC_STRIPE_PRICE_PRO_YEARLY!,
+            creemProductId: process.env.NEXT_PUBLIC_CREEM_PRODUCT_PRO_YEARLY,
             amount: 9900,
             currency: 'USD',
             interval: PlanIntervals.YEAR,
@@ -132,6 +134,7 @@ export const websiteConfig: WebsiteConfig = {
           {
             type: PaymentTypes.ONE_TIME,
             priceId: process.env.NEXT_PUBLIC_STRIPE_PRICE_LIFETIME!,
+            creemProductId: process.env.NEXT_PUBLIC_CREEM_PRODUCT_LIFETIME,
             amount: 19900,
             currency: 'USD',
             allowPromotionCode: true,
@@ -163,6 +166,7 @@ export const websiteConfig: WebsiteConfig = {
         expireDays: 30,
         price: {
           priceId: process.env.NEXT_PUBLIC_STRIPE_PRICE_CREDITS_BASIC!,
+          creemProductId: process.env.NEXT_PUBLIC_CREEM_PRODUCT_CREDITS_BASIC,
           amount: 990,
           currency: 'USD',
           allowPromotionCode: true,
@@ -175,6 +179,7 @@ export const websiteConfig: WebsiteConfig = {
         expireDays: 30,
         price: {
           priceId: process.env.NEXT_PUBLIC_STRIPE_PRICE_CREDITS_STANDARD!,
+          creemProductId: process.env.NEXT_PUBLIC_CREEM_PRODUCT_CREDITS_STANDARD,
           amount: 1490,
           currency: 'USD',
           allowPromotionCode: true,
@@ -187,6 +192,7 @@ export const websiteConfig: WebsiteConfig = {
         expireDays: 30,
         price: {
           priceId: process.env.NEXT_PUBLIC_STRIPE_PRICE_CREDITS_PREMIUM!,
+          creemProductId: process.env.NEXT_PUBLIC_CREEM_PRODUCT_CREDITS_PREMIUM,
           amount: 3990,
           currency: 'USD',
           allowPromotionCode: true,
@@ -199,6 +205,7 @@ export const websiteConfig: WebsiteConfig = {
         expireDays: 30,
         price: {
           priceId: process.env.NEXT_PUBLIC_STRIPE_PRICE_CREDITS_ENTERPRISE!,
+          creemProductId: process.env.NEXT_PUBLIC_CREEM_PRODUCT_CREDITS_ENTERPRISE,
           amount: 6990,
           currency: 'USD',
           allowPromotionCode: true,

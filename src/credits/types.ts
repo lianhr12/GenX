@@ -16,6 +16,7 @@ export enum CREDIT_TRANSACTION_TYPE {
  */
 export interface CreditPackagePrice {
   priceId: string;                   // Stripe price ID (not product id)
+  creemProductId?: string;           // Creem product ID for Creem payment provider
   amount: number;                    // Price amount in currency units (dollars, euros, etc.)
   currency: string;                  // Currency code (e.g., USD)
   allowPromotionCode?: boolean;      // Whether to allow promotion code for this price
