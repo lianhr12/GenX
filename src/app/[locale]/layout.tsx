@@ -57,12 +57,6 @@ export default async function LocaleLayout({
           crossOrigin="anonymous"
         />
         <link rel="dns-prefetch" href="https://cdn.genx.art" />
-        <link
-          rel="preconnect"
-          href="https://cdn.mksaas.com"
-          crossOrigin="anonymous"
-        />
-        <link rel="dns-prefetch" href="https://cdn.mksaas.com" />
 
         {/* Preload critical Hero poster image for LCP optimization */}
         <link

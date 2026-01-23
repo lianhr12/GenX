@@ -102,10 +102,8 @@ const FinalCTASection = dynamic(
   { ssr: true }
 );
 
-// Crisp Chat - no SSR needed, load last
-const CrispChat = dynamic(() => import('@/components/layout/crisp-chat'), {
-  ssr: false,
-});
+// Crisp Chat - Client Component, import directly (ssr: false not allowed in Server Components)
+import CrispChat from '@/components/layout/crisp-chat';
 
 /**
  * https://next-intl.dev/docs/environments/actions-metadata-route-handlers#metadata-api

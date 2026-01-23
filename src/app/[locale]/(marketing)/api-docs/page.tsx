@@ -57,15 +57,27 @@ const endpoints = [
   },
 ];
 
-// Features
-const features = [
-  { id: 'simple', icon: ZapIcon },
-  { id: 'secure', icon: ShieldCheckIcon },
-  { id: 'scalable', icon: CodeIcon },
-];
-
 export default async function APIDocsPage() {
   const t = await getTranslations('APIDocsPage');
+
+  // Features with translated content
+  const features = [
+    {
+      icon: ZapIcon,
+      title: t('features.simple.title'),
+      description: t('features.simple.description'),
+    },
+    {
+      icon: ShieldCheckIcon,
+      title: t('features.secure.title'),
+      description: t('features.secure.description'),
+    },
+    {
+      icon: CodeIcon,
+      title: t('features.scalable.title'),
+      description: t('features.scalable.description'),
+    },
+  ];
 
   return (
     <Container className="py-16 px-4">
@@ -94,21 +106,19 @@ export default async function APIDocsPage() {
 
         {/* Features */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
-          {features.map((feature) => {
+          {features.map((feature, index) => {
             const Icon = feature.icon;
             return (
               <div
-                key={feature.id}
+                key={index}
                 className="p-6 rounded-xl border bg-card text-center"
               >
                 <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary/10 mb-4">
                   <Icon className="size-6 text-primary" />
                 </div>
-                <h3 className="font-semibold mb-2">
-                  {t(`features.${feature.id}.title`)}
-                </h3>
+                <h3 className="font-semibold mb-2">{feature.title}</h3>
                 <p className="text-muted-foreground text-sm">
-                  {t(`features.${feature.id}.description`)}
+                  {feature.description}
                 </p>
               </div>
             );
@@ -200,15 +210,18 @@ export default async function APIDocsPage() {
                 {t('rateLimits.free.title')}
               </h3>
               <ul className="space-y-2">
-                {['limit1', 'limit2', 'limit3'].map((limit) => (
-                  <li
-                    key={limit}
-                    className="flex items-center gap-2 text-sm text-muted-foreground"
-                  >
-                    <CheckCircleIcon className="size-4 text-primary flex-shrink-0" />
-                    {t(`rateLimits.free.${limit}`)}
-                  </li>
-                ))}
+                <li className="flex items-center gap-2 text-sm text-muted-foreground">
+                  <CheckCircleIcon className="size-4 text-primary flex-shrink-0" />
+                  {t('rateLimits.free.limit1')}
+                </li>
+                <li className="flex items-center gap-2 text-sm text-muted-foreground">
+                  <CheckCircleIcon className="size-4 text-primary flex-shrink-0" />
+                  {t('rateLimits.free.limit2')}
+                </li>
+                <li className="flex items-center gap-2 text-sm text-muted-foreground">
+                  <CheckCircleIcon className="size-4 text-primary flex-shrink-0" />
+                  {t('rateLimits.free.limit3')}
+                </li>
               </ul>
             </div>
             <div className="p-6 rounded-xl border bg-card border-primary/50">
@@ -219,15 +232,18 @@ export default async function APIDocsPage() {
                 </span>
               </div>
               <ul className="space-y-2">
-                {['limit1', 'limit2', 'limit3'].map((limit) => (
-                  <li
-                    key={limit}
-                    className="flex items-center gap-2 text-sm text-muted-foreground"
-                  >
-                    <CheckCircleIcon className="size-4 text-primary flex-shrink-0" />
-                    {t(`rateLimits.pro.${limit}`)}
-                  </li>
-                ))}
+                <li className="flex items-center gap-2 text-sm text-muted-foreground">
+                  <CheckCircleIcon className="size-4 text-primary flex-shrink-0" />
+                  {t('rateLimits.pro.limit1')}
+                </li>
+                <li className="flex items-center gap-2 text-sm text-muted-foreground">
+                  <CheckCircleIcon className="size-4 text-primary flex-shrink-0" />
+                  {t('rateLimits.pro.limit2')}
+                </li>
+                <li className="flex items-center gap-2 text-sm text-muted-foreground">
+                  <CheckCircleIcon className="size-4 text-primary flex-shrink-0" />
+                  {t('rateLimits.pro.limit3')}
+                </li>
               </ul>
             </div>
           </div>
