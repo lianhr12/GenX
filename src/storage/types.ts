@@ -54,6 +54,15 @@ export interface UploadFileResult {
 }
 
 /**
+ * Download and upload parameters
+ */
+export interface DownloadAndUploadParams {
+  sourceUrl: string;
+  key: string;
+  contentType: string;
+}
+
+/**
  * Storage provider interface
  */
 export interface StorageProvider {
@@ -71,4 +80,9 @@ export interface StorageProvider {
    * Get the provider's name
    */
   getProviderName(): string;
+
+  /**
+   * Download from URL and upload to storage
+   */
+  downloadAndUpload(params: DownloadAndUploadParams): Promise<UploadFileResult>;
 }

@@ -16,6 +16,9 @@ export async function getDb() {
   return db;
 }
 
+// Re-export schema tables and types
+export * from './schema';
+
 /**
  * Connect to Neon Database
  * https://orm.drizzle.team/docs/tutorials/drizzle-with-neon

@@ -1,4 +1,4 @@
-import { boolean, integer, pgTable, text, timestamp, index } from "drizzle-orm/pg-core";
+import { boolean, integer, jsonb, pgTable, serial, text, timestamp, index, uniqueIndex } from "drizzle-orm/pg-core";
 
 export const user = pgTable("user", {
 	id: text("id").primaryKey(),
@@ -124,3 +124,93 @@ export const creditTransaction = pgTable("credit_transaction", {
 	creditTransactionUserIdIdx: index("credit_transaction_user_id_idx").on(table.userId),
 	creditTransactionTypeIdx: index("credit_transaction_type_idx").on(table.type),
 }));
+
+// ============================================================================
+// Video Generation Tables
+// ============================================================================
+
+/**
+ * Video generation records table
+ * Stores all video generation tasks and their results
+ */
+export const videos = pgTable("videos", {
+	id: serial("id").primaryKey(),
+	uuid: text("uuid").notNull().unique(),
+	userId: text("user_id").notNull().references(() => user.id, { onDelete: 'cascade' }),
+	prompt: text("prompt").notNull(),
+	model: text("model").notNull(),
+	parameters: jsonb("parameters"),
+	status: text("status").default("PENDING").notNull(), // PENDING, GENERATING, UPLOADING, COMPLETED, FAILED
+	provider: text("provider"),
+	externalTaskId: text("external_task_id"),
+	errorMessage: text("error_message"),
+	startImageUrl: text("start_image_url"),
+	originalVideoUrl: text("original_video_url"),
+	videoUrl: text("video_url"),
+	thumbnailUrl: text("thumbnail_url"),
+	duration: integer("duration"),
+	resolution: text("resolution"),
+	aspectRatio: text("aspect_ratio"),
+	fileSize: integer("file_size"),
+	creditsUsed: integer("credits_used").default(0).notNull(),
+	createdAt: timestamp("created_at").defaultNow().notNull(),
+	updatedAt: timestamp("updated_at").defaultNow().notNull(),
+	completedAt: timestamp("completed_at"),
+	generationTime: integer("generation_time"),
+	isDeleted: boolean("is_deleted").default(false).notNull(),
+}, (table) => ({
+	videosUserIdIdx: index("videos_user_id_idx").on(table.userId),
+	videosStatusIdx: index("videos_status_idx").on(table.status),
+	videosCreatedAtIdx: index("videos_created_at_idx").on(table.createdAt),
+	videosUuidIdx: uniqueIndex("videos_uuid_idx").on(table.uuid),
+}));
+
+/**
+ * Credit holds table for freeze-settle-release pattern
+ * Tracks credits frozen during video generation
+ */
+export const creditHolds = pgTable("credit_holds", {
+	id: serial("id").primaryKey(),
+	userId: text("user_id").notNull().references(() => user.id, { onDelete: 'cascade' }),
+	videoUuid: text("video_uuid").notNull().unique(),
+	credits: integer("credits").notNull(),
+	status: text("status").default("HOLDING").notNull(), // HOLDING, SETTLED, RELEASED
+	packageAllocation: jsonb("package_allocation").notNull(), // Array of { packageId, credits }
+	createdAt: timestamp("created_at").defaultNow().notNull(),
+	settledAt: timestamp("settled_at"),
+}, (table) => ({
+	creditHoldsUserIdIdx: index("credit_holds_user_id_idx").on(table.userId),
+	creditHoldsStatusIdx: index("credit_holds_status_idx").on(table.status),
+	creditHoldsVideoUuidIdx: uniqueIndex("credit_holds_video_uuid_idx").on(table.videoUuid),
+}));
+
+// ============================================================================
+// Type Exports
+// ============================================================================
+
+export type User = typeof user.$inferSelect;
+export type Session = typeof session.$inferSelect;
+export type Account = typeof account.$inferSelect;
+export type Payment = typeof payment.$inferSelect;
+export type UserCredit = typeof userCredit.$inferSelect;
+export type CreditTransaction = typeof creditTransaction.$inferSelect;
+export type Video = typeof videos.$inferSelect;
+export type CreditHold = typeof creditHolds.$inferSelect;
+
+// Video status enum values
+export const VideoStatus = {
+	PENDING: "PENDING",
+	GENERATING: "GENERATING",
+	UPLOADING: "UPLOADING",
+	COMPLETED: "COMPLETED",
+	FAILED: "FAILED",
+} as const;
+export type VideoStatus = (typeof VideoStatus)[keyof typeof VideoStatus];
+
+// Credit hold status enum values
+export const CreditHoldStatus = {
+	HOLDING: "HOLDING",
+	SETTLED: "SETTLED",
+	RELEASED: "RELEASED",
+} as const;
+export type CreditHoldStatus = (typeof CreditHoldStatus)[keyof typeof CreditHoldStatus];

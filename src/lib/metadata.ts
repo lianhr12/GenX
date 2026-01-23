@@ -16,6 +16,7 @@ export function constructMetadata({
   noIndex = false,
   locale,
   pathname,
+  keywords,
 }: {
   title?: string;
   description?: string;
@@ -23,6 +24,7 @@ export function constructMetadata({
   noIndex?: boolean;
   locale?: Locale;
   pathname?: string;
+  keywords?: string[];
 } = {}): Metadata {
   title = title || defaultMessages.Metadata.title;
   description = description || defaultMessages.Metadata.description;
@@ -49,6 +51,7 @@ export function constructMetadata({
     title,
     description,
     alternates,
+    ...(keywords && keywords.length > 0 && { keywords }),
     openGraph: {
       type: 'website',
       locale: locale ? getCurrentHreflang(locale).replace('-', '_') : 'en_US',

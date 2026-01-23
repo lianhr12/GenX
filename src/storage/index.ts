@@ -26,6 +26,11 @@ export const getStorageProvider = (): StorageProvider => {
 };
 
 /**
+ * Alias for getStorageProvider (for VideoFly compatibility)
+ */
+export const getStorage = getStorageProvider;
+
+/**
  * Initialize the storage provider
  * @returns initialized storage provider
  */

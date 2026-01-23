@@ -3,6 +3,7 @@ import { s3mini } from 's3mini';
 import { storageConfig } from '../config/storage-config';
 import {
   ConfigurationError,
+  type DownloadAndUploadParams,
   type StorageConfig,
   StorageError,
   type StorageProvider,
@@ -167,6 +168,57 @@ export class S3Provider implements StorageProvider {
           : 'Unknown error occurred during file deletion';
       console.error('deleteFile, error', message);
       throw new StorageError(message);
+    }
+  }
+
+  /**
+   * Download from URL and upload to S3
+   */
+  public async downloadAndUpload(
+    params: DownloadAndUploadParams
+  ): Promise<UploadFileResult> {
+    try {
+      const { sourceUrl, key, contentType } = params;
+
+      // Download the file
+      const response = await fetch(sourceUrl);
+      if (!response.ok) {
+        throw new UploadError(`Failed to download file: ${response.statusText}`);
+      }
+
+      const buffer = Buffer.from(await response.arrayBuffer());
+
+      // Upload to S3
+      const s3 = this.getS3Client();
+      const uploadResponse = await s3.putObject(key, buffer, contentType);
+
+      if (!uploadResponse.ok) {
+        throw new UploadError(`Failed to upload file: ${uploadResponse.statusText}`);
+      }
+
+      // Generate the URL
+      const { publicUrl } = this.config;
+      let url: string;
+
+      if (publicUrl) {
+        url = `${publicUrl.replace(/\/$/, '')}/${key}`;
+      } else {
+        const baseUrl = this.config.endpoint?.replace(/\/$/, '') || '';
+        url = `${baseUrl}/${key}`;
+      }
+
+      return { url, key };
+    } catch (error) {
+      if (error instanceof ConfigurationError) {
+        throw error;
+      }
+
+      const message =
+        error instanceof Error
+          ? error.message
+          : 'Unknown error occurred during download and upload';
+      console.error('downloadAndUpload, error', message);
+      throw new UploadError(message);
     }
   }
 }
