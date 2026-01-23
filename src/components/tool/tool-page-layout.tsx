@@ -1,11 +1,12 @@
 'use client';
 
-import { useState, useCallback } from 'react';
-import { useRouter } from 'next/navigation';
+import { useState, useCallback, useEffect } from 'react';
+import { useLocaleRouter } from '@/i18n/navigation';
 import { GeneratorPanel, type GeneratorData } from './generator-panel';
 import { ResultPanelWrapper } from './result-panel-wrapper';
+import { HistoryPanel } from './history-panel';
 import type { Video } from '@/db';
-import { uploadFile } from '@/storage';
+import { applyArtStyleToPrompt } from '@/config/art-styles';
 
 interface ToolPageLayoutProps {
   toolType: 'image-to-video' | 'text-to-video' | 'reference-to-video';
@@ -18,17 +19,56 @@ export function ToolPageLayout({
   isLoggedIn = false,
   userCredits = 0,
 }: ToolPageLayoutProps) {
-  const router = useRouter();
+  const router = useLocaleRouter();
   const [isGenerating, setIsGenerating] = useState(false);
   const [currentVideo, setCurrentVideo] = useState<Video | null>(null);
   const [currentVideoUuid, setCurrentVideoUuid] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
 
+  // History panel state
+  const [isHistoryExpanded, setIsHistoryExpanded] = useState(true);
+  const [historyVideos, setHistoryVideos] = useState<Video[]>([]);
+  const [isLoadingHistory, setIsLoadingHistory] = useState(false);
+
+  // Fetch user's video history
+  const fetchHistory = useCallback(async () => {
+    if (!isLoggedIn) return;
+
+    setIsLoadingHistory(true);
+    try {
+      const response = await fetch('/api/v1/video/list?limit=10');
+      if (response.ok) {
+        const result = await response.json();
+        // API returns { success: true, data: { videos, total, hasMore } }
+        if (result.success && result.data) {
+          setHistoryVideos(result.data.videos || []);
+        }
+      }
+    } catch (err) {
+      console.error('Failed to fetch video history:', err);
+    } finally {
+      setIsLoadingHistory(false);
+    }
+  }, [isLoggedIn]);
+
+  // Load history on mount and when login status changes
+  useEffect(() => {
+    fetchHistory();
+  }, [fetchHistory]);
+
+  // Handle selecting a video from history
+  const handleSelectHistoryVideo = useCallback((video: Video) => {
+    setCurrentVideo(video);
+    setCurrentVideoUuid(null);
+    setError(null);
+    setIsGenerating(false);
+  }, []);
+
   const handleSubmit = useCallback(
     async (data: GeneratorData) => {
       if (!isLoggedIn) {
-        // Redirect to sign in
-        router.push('/sign-in');
+        // Redirect to login page
+        router.push('/auth/login');
         return;
       }
 
@@ -54,23 +94,35 @@ export function ToolPageLayout({
             body: formData,
           });
 
-          if (uploadResponse.ok) {
-            const uploadResult = await uploadResponse.json();
-            imageUrl = uploadResult.url;
+          if (!uploadResponse.ok) {
+            throw new Error('Failed to upload image. Please try again.');
+          }
+
+          const uploadResult = await uploadResponse.json();
+          imageUrl = uploadResult.url;
+
+          if (!imageUrl) {
+            throw new Error('Image upload succeeded but no URL returned.');
           }
         }
+
+        // Apply art style to prompt if provided
+        const finalPrompt = data.artStyle
+          ? applyArtStyleToPrompt(data.prompt, data.artStyle)
+          : data.prompt;
 
         // Generate video
         const response = await fetch('/api/v1/video/generate', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
-            prompt: data.prompt,
+            prompt: finalPrompt,
             model: data.model,
             duration: data.duration,
             aspectRatio: data.aspectRatio,
             quality: data.quality,
             imageUrl,
+            artStyle: data.artStyle,
           }),
         });
 
@@ -80,7 +132,11 @@ export function ToolPageLayout({
         }
 
         const result = await response.json();
-        setCurrentVideoUuid(result.data.videoUuid);
+        const videoUuid = result?.data?.videoUuid;
+        if (!videoUuid) {
+          throw new Error('Video generation started but no tracking ID returned.');
+        }
+        setCurrentVideoUuid(videoUuid);
       } catch (err) {
         setIsGenerating(false);
         setError(err instanceof Error ? err.message : 'Failed to generate video');
@@ -93,7 +149,9 @@ export function ToolPageLayout({
     setIsGenerating(false);
     setCurrentVideo(video);
     setCurrentVideoUuid(null);
-  }, []);
+    // Refresh history to include the new video
+    fetchHistory();
+  }, [fetchHistory]);
 
   const handleGenerationFailed = useCallback((errorMsg?: string) => {
     setIsGenerating(false);
@@ -109,10 +167,10 @@ export function ToolPageLayout({
 
   return (
     <div className="min-h-screen bg-zinc-950">
-      {/* Main Content */}
+      {/* Main Content - Three column layout */}
       <div className="flex h-[calc(100vh-64px)]">
-        {/* Generator Panel */}
-        <div className="w-[400px] shrink-0 p-4 overflow-hidden">
+        {/* Left: Generator Panel */}
+        <div className="w-[360px] shrink-0 p-4 overflow-hidden">
           <GeneratorPanel
             toolType={toolType}
             isLoading={isGenerating}
@@ -120,7 +178,7 @@ export function ToolPageLayout({
           />
         </div>
 
-        {/* Result Panel */}
+        {/* Center: Result Panel */}
         <div className="flex-1 p-4 overflow-hidden">
           <div className="h-full rounded-xl bg-[#1A1A1A] border border-zinc-800 overflow-hidden">
             {/* Error Display */}
@@ -141,6 +199,18 @@ export function ToolPageLayout({
             />
           </div>
         </div>
+
+        {/* Right: History Panel (only show when logged in) */}
+        {isLoggedIn && (
+          <HistoryPanel
+            isExpanded={isHistoryExpanded}
+            onToggle={() => setIsHistoryExpanded(!isHistoryExpanded)}
+            videos={historyVideos}
+            isLoading={isLoadingHistory}
+            onSelectVideo={handleSelectHistoryVideo}
+            currentVideoId={currentVideo?.uuid}
+          />
+        )}
       </div>
     </div>
   );

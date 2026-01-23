@@ -7,14 +7,13 @@
 
 import { useState, useCallback, useMemo, useRef } from 'react';
 import { cn } from '@/lib/utils';
-import { getAvailableModels, getImageToVideoModels, calculateModelCredits } from '@/config/video-credits';
+import { getAvailableModels, calculateModelCredits } from '@/config/video-credits';
 import {
   ChevronDown,
   X,
   Sparkles,
   Image as ImageIcon,
   Wand2,
-  Plus,
 } from 'lucide-react';
 import {
   DropdownMenu,
@@ -24,6 +23,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuLabel,
 } from '@/components/ui/dropdown-menu';
+import { ArtStyleSelector } from './art-style-selector';
 
 // ============================================================================
 // Types
@@ -58,6 +58,7 @@ export interface GeneratorData {
   quality?: string;
   imageFile?: File;
   estimatedCredits: number;
+  artStyle?: string;
 }
 
 export function GeneratorPanel({
@@ -71,6 +72,7 @@ export function GeneratorPanel({
   const [duration, setDuration] = useState(10);
   const [aspectRatio, setAspectRatio] = useState('16:9');
   const [quality, setQuality] = useState('standard');
+  const [artStyle, setArtStyle] = useState('default');
   const [imageFile, setImageFile] = useState<File | null>(null);
   const [imagePreview, setImagePreview] = useState<string | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -108,6 +110,7 @@ export function GeneratorPanel({
       quality: currentModel?.qualities?.includes(quality) ? quality : undefined,
       imageFile: imageFile || undefined,
       estimatedCredits,
+      artStyle: artStyle !== 'default' ? artStyle : undefined,
     };
 
     onSubmit?.(data);
@@ -117,6 +120,7 @@ export function GeneratorPanel({
     duration,
     aspectRatio,
     quality,
+    artStyle,
     imageFile,
     estimatedCredits,
     isLoading,
@@ -145,7 +149,10 @@ export function GeneratorPanel({
     }
   };
 
-  const canSubmit = prompt.trim().length > 0 && !isLoading;
+  // Validate submission requirements
+  const requiresImage = toolType === 'image-to-video';
+  const hasRequiredImage = !requiresImage || imageFile !== null;
+  const canSubmit = prompt.trim().length > 0 && !isLoading && hasRequiredImage;
 
   // Get page title
   const getPageTitle = () => {
@@ -271,6 +278,16 @@ export function GeneratorPanel({
               )}
             </div>
           )}
+
+          {/* Art Style Selection */}
+          <div>
+            <SectionLabel>ART STYLE</SectionLabel>
+            <ArtStyleSelector
+              value={artStyle}
+              onChange={setArtStyle}
+              disabled={isLoading}
+            />
+          </div>
 
           {/* Prompt Section */}
           <div>
