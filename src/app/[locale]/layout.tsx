@@ -8,6 +8,7 @@ import {
 import AffonsoScript from '@/components/affiliate/affonso';
 import PromotekitScript from '@/components/affiliate/promotekit';
 import { TailwindIndicator } from '@/components/layout/tailwind-indicator';
+import { OrganizationSchema } from '@/components/seo';
 import { routing } from '@/i18n/routing';
 import { cn } from '@/lib/utils';
 import { type Locale, NextIntlClientProvider, hasLocale } from 'next-intl';
@@ -65,6 +66,9 @@ export default async function LocaleLayout({
           href="/images/demo/cyberpunk-poster.jpg"
           fetchPriority="high"
         />
+
+        {/* JSON-LD Structured Data - Organization Schema (site-wide) */}
+        <OrganizationSchema />
 
         <AffonsoScript />
         <PromotekitScript />

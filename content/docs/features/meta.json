@@ -1,0 +1,10 @@
+{
+  "title": "Features",
+  "icon": "Zap",
+  "pages": [
+    "index",
+    "image-to-video",
+    "text-to-video",
+    "reference-video"
+  ]
+}

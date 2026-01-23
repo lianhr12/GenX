@@ -4,6 +4,7 @@ import { getMDXComponents } from '@/components/docs/mdx-components';
 import { NewsletterCard } from '@/components/newsletter/newsletter-card';
 import { PremiumBadge } from '@/components/premium/premium-badge';
 import { PremiumGuard } from '@/components/premium/premium-guard';
+import { ArticleSchema, PageBreadcrumb } from '@/components/seo';
 import { websiteConfig } from '@/config/website';
 import { LocaleLink } from '@/i18n/navigation';
 import { formatDate } from '@/lib/formatter';
@@ -109,26 +110,46 @@ export default async function BlogPostPage(props: BlogPostPageProps) {
   const relatedPosts = await getRelatedPosts(post);
 
   return (
-    <div className="flex flex-col gap-8">
-      {/* content section */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        {/* left column (blog post content) */}
-        <div className="lg:col-span-2 flex flex-col">
-          {/* Basic information */}
-          <div className="space-y-8">
-            {/* blog post image */}
-            <div className="group overflow-hidden relative aspect-16/9 rounded-lg transition-all border">
-              {image && (
-                <Image
-                  src={image}
-                  alt={title || 'image for blog post'}
-                  title={title || 'image for blog post'}
-                  loading="eager"
-                  fill
-                  className="object-cover"
-                />
-              )}
-            </div>
+    <>
+      {/* JSON-LD Article Schema for SEO */}
+      <ArticleSchema
+        title={title}
+        description={description ?? ''}
+        image={image}
+        datePublished={new Date(date).toISOString()}
+        authorName={blogAuthor?.data.name || author}
+        url={`/blog/${slug.join('/')}`}
+        keywords={categories}
+      />
+
+      {/* Breadcrumb Navigation */}
+      <PageBreadcrumb
+        items={[
+          { label: t('title'), href: '/blog' },
+          { label: title },
+        ]}
+      />
+
+      <div className="flex flex-col gap-8">
+        {/* content section */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          {/* left column (blog post content) */}
+          <div className="lg:col-span-2 flex flex-col">
+            {/* Basic information */}
+            <div className="space-y-8">
+              {/* blog post image */}
+              <div className="group overflow-hidden relative aspect-16/9 rounded-lg transition-all border">
+                {image && (
+                  <Image
+                    src={image}
+                    alt={title || 'image for blog post'}
+                    title={title || 'image for blog post'}
+                    loading="eager"
+                    fill
+                    className="object-cover"
+                  />
+                )}
+              </div>
 
             {/* blog post date and premium badge */}
             <div className="flex items-center justify-between gap-2">
@@ -221,24 +242,25 @@ export default async function BlogPostPage(props: BlogPostPageProps) {
         </div>
       </div>
 
-      {/* Footer section shows related posts */}
-      {relatedPosts && relatedPosts.length > 0 && (
-        <div className="flex flex-col gap-8 mt-8">
-          <div className="flex items-center gap-2">
-            <FileTextIcon className="size-4 text-primary" />
-            <h2 className="text-lg tracking-wider font-semibold text-primary">
-              {t('morePosts')}
-            </h2>
+        {/* Footer section shows related posts */}
+        {relatedPosts && relatedPosts.length > 0 && (
+          <div className="flex flex-col gap-8 mt-8">
+            <div className="flex items-center gap-2">
+              <FileTextIcon className="size-4 text-primary" />
+              <h2 className="text-lg tracking-wider font-semibold text-primary">
+                {t('morePosts')}
+              </h2>
+            </div>
+
+            <BlogGrid posts={relatedPosts} locale={locale} />
           </div>
+        )}
 
-          <BlogGrid posts={relatedPosts} locale={locale} />
+        {/* newsletter */}
+        <div className="flex items-center justify-start my-8">
+          <NewsletterCard />
         </div>
-      )}
-
-      {/* newsletter */}
-      <div className="flex items-center justify-start my-8">
-        <NewsletterCard />
       </div>
-    </div>
+    </>
   );
 }

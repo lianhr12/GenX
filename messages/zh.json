@@ -133,8 +133,17 @@
   },
   "NotFoundPage": {
     "title": "404",
-    "message": "抱歉，您正在寻找的页面不存在",
-    "backToHome": "返回首页"
+    "headline": "页面未找到",
+    "message": "抱歉，您正在寻找的页面不存在或已被移动。",
+    "backToHome": "返回首页",
+    "searchHelp": "获取帮助",
+    "popularPages": "热门页面",
+    "links": {
+      "imageToVideo": "图片转视频",
+      "gallery": "作品展示",
+      "docs": "使用文档",
+      "contact": "联系我们"
+    }
   },
   "ErrorPage": {
     "title": "哎呀！出错了！",

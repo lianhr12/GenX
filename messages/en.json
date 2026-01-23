@@ -133,8 +133,17 @@
   },
   "NotFoundPage": {
     "title": "404",
-    "message": "Sorry, the page you are looking for does not exist.",
-    "backToHome": "Back to home"
+    "headline": "Page Not Found",
+    "message": "Sorry, the page you are looking for does not exist or has been moved.",
+    "backToHome": "Back to Home",
+    "searchHelp": "Get Help",
+    "popularPages": "Popular Pages",
+    "links": {
+      "imageToVideo": "Image to Video",
+      "gallery": "Gallery",
+      "docs": "Documentation",
+      "contact": "Contact Us"
+    }
   },
   "ErrorPage": {
     "title": "Oops! Something went wrong!",

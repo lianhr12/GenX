@@ -91,6 +91,33 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+
+  // Security and SEO-related HTTP headers
+  // https://nextjs.org/docs/app/api-reference/config/next-config-js/headers
+  async headers() {
+    return [
+      {
+        source: '/:path*',
+        headers: [
+          // Enable DNS prefetching for external resources
+          { key: 'X-DNS-Prefetch-Control', value: 'on' },
+          // Prevent MIME type sniffing
+          { key: 'X-Content-Type-Options', value: 'nosniff' },
+          // Control referrer information sent with requests
+          { key: 'Referrer-Policy', value: 'origin-when-cross-origin' },
+          // Prevent clickjacking attacks
+          { key: 'X-Frame-Options', value: 'SAMEORIGIN' },
+          // Enable XSS filter in older browsers
+          { key: 'X-XSS-Protection', value: '1; mode=block' },
+          // Permissions Policy (formerly Feature-Policy)
+          {
+            key: 'Permissions-Policy',
+            value: 'camera=(), microphone=(), geolocation=()',
+          },
+        ],
+      },
+    ];
+  },
 };
 
 /**

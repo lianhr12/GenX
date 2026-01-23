@@ -1,4 +1,5 @@
 import { constructMetadata } from '@/lib/metadata';
+import { HomePageSchemas } from '@/components/seo';
 import type { Metadata } from 'next';
 import type { Locale } from 'next-intl';
 import { getTranslations } from 'next-intl/server';
@@ -131,6 +132,9 @@ interface HomePageProps {
 export default async function HomePage(props: HomePageProps) {
   return (
     <>
+      {/* JSON-LD Structured Data for Homepage */}
+      <HomePageSchemas />
+
       <div className="flex flex-col">
         {/* Hero - Primary conversion entry */}
         <HeroSection />

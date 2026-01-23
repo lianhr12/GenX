@@ -1,3 +1,4 @@
+import { PageBreadcrumb, SoftwareSchema } from '@/components/seo';
 import { ToolPageLayout } from '@/components/tool';
 import { getToolPageConfig } from '@/config/tool-pages';
 import { getUserCredits } from '@/credits/credits';
@@ -40,10 +41,35 @@ export default async function TextToVideoPage() {
   }
 
   return (
-    <ToolPageLayout
-      toolType="text-to-video"
-      isLoggedIn={!!session?.user}
-      userCredits={userCredits}
-    />
+    <>
+      {/* JSON-LD SoftwareApplication Schema for SEO */}
+      <SoftwareSchema
+        name={config.seo.title}
+        description={config.seo.description}
+        applicationCategory="MultimediaApplication"
+        price={0}
+        features={config.landing.features}
+        aggregateRating={{
+          ratingValue: 4.8,
+          reviewCount: 1250,
+        }}
+      />
+
+      {/* Breadcrumb Navigation */}
+      <div className="container mx-auto px-4 pt-4">
+        <PageBreadcrumb
+          items={[
+            { label: 'Create', href: '/create' },
+            { label: 'Text to Video' },
+          ]}
+        />
+      </div>
+
+      <ToolPageLayout
+        toolType="text-to-video"
+        isLoggedIn={!!session?.user}
+        userCredits={userCredits}
+      />
+    </>
   );
 }

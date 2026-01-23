@@ -1,25 +1,19 @@
 {
-  "title": "Framework",
-  "description": "The docs framework",
-  "icon": "Building2",
+  "title": "文档",
+  "description": "GenX.art 文档",
+  "icon": "Book",
   "root": true,
   "pages": [
-    "---介绍---",
+    "---入门指南---",
     "index",
-    "what-is-fumadocs",
-    "comparisons",
-    "---设置---",
-    "manual-installation",
-    "static-export",
-    "---写作---",
-    "markdown",
-    "internationalization",
-    "---UI---",
-    "customisation",
-    "theme",
-    "search",
-    "components",
-    "mdx",
-    "layouts"
+    "what-is-genx",
+    "---功能---",
+    "features",
+    "---艺术风格---",
+    "art-styles",
+    "---账户---",
+    "account",
+    "---帮助---",
+    "faq"
   ]
 }

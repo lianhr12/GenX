@@ -1,0 +1,9 @@
+{
+  "title": "账户",
+  "icon": "User",
+  "pages": [
+    "pricing",
+    "credits",
+    "subscription"
+  ]
+}

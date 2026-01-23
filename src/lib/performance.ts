@@ -90,9 +90,8 @@ export async function initWebVitals(onReport?: ReportHandler) {
   if (typeof window === 'undefined') return;
 
   try {
-    const { onCLS, onFCP, onFID, onINP, onLCP, onTTFB } = await import(
-      'web-vitals'
-    );
+    // Note: onFID was removed in web-vitals 5.x (FID deprecated in favor of INP)
+    const { onCLS, onFCP, onINP, onLCP, onTTFB } = await import('web-vitals');
 
     const handler: ReportHandler = (metric) => {
       // Log to console in development
@@ -111,7 +110,6 @@ export async function initWebVitals(onReport?: ReportHandler) {
 
     onCLS(handler);
     onFCP(handler);
-    onFID(handler);
     onINP(handler);
     onLCP(handler);
     onTTFB(handler);

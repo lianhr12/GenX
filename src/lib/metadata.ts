@@ -66,7 +66,9 @@ export function constructMetadata({
       title,
       description,
       images: [ogImageUrl.toString()],
-      site: getBaseUrl(),
+      // Twitter handle should be in @username format, not URL
+      site: '@genxart',
+      creator: '@genxart',
     },
     icons: {
       icon: '/favicon.ico',

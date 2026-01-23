@@ -6,7 +6,15 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: '*',
       allow: '/',
-      disallow: ['/api/*', '/_next/*', '/settings/*', '/dashboard/*'],
+      disallow: [
+        '/api/*', // API routes
+        '/_next/*', // Next.js internal routes
+        '/settings/*', // User settings
+        '/dashboard/*', // User dashboard
+        '/auth/*', // Authentication pages (login, register, etc.)
+        '/admin/*', // Admin panel
+        '/payment/*', // Payment processing
+      ],
     },
     sitemap: `${getBaseUrl()}/sitemap.xml`,
   };

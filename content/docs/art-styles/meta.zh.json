@@ -1,0 +1,12 @@
+{
+  "title": "艺术风格",
+  "icon": "Palette",
+  "pages": [
+    "index",
+    "cyberpunk",
+    "watercolor",
+    "oil-painting",
+    "anime",
+    "fluid-art"
+  ]
+}

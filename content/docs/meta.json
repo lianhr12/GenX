@@ -1,25 +1,19 @@
 {
-  "title": "Framework",
-  "description": "The docs framework",
-  "icon": "Building2",
+  "title": "Documentation",
+  "description": "GenX.art Documentation",
+  "icon": "Book",
   "root": true,
   "pages": [
-    "---Introduction---",
+    "---Getting Started---",
     "index",
-    "what-is-fumadocs",
-    "comparisons",
-    "---Setup---",
-    "manual-installation",
-    "static-export",
-    "---Writing---",
-    "markdown",
-    "internationalization",
-    "---UI---",
-    "customisation",
-    "theme",
-    "search",
-    "components",
-    "mdx",
-    "layouts"
+    "what-is-genx",
+    "---Features---",
+    "features",
+    "---Art Styles---",
+    "art-styles",
+    "---Account---",
+    "account",
+    "---Help---",
+    "faq"
   ]
 }

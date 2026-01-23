@@ -24,6 +24,16 @@ const staticRoutes = [
   '/cookie',
   '/auth/login',
   '/auth/register',
+  // Tool pages - important for SEO
+  '/create/image-to-video',
+  '/create/text-to-video',
+  '/create/reference-to-video',
+  // Gallery and showcase pages
+  '/gallery',
+  '/styles',
+  // Help and support
+  '/help',
+  // Blog and docs (conditional)
   ...(websiteConfig.blog.enable ? ['/blog'] : []),
   ...(websiteConfig.docs.enable ? ['/docs'] : []),
 ];
