@@ -142,13 +142,13 @@
     "backToHome": "返回首页"
   },
   "AboutPage": {
-    "title": "关于我们",
-    "description": "MkSaaS 是一个使用最先进的技术栈构建的 AI SaaS 模板，它可以帮助你更快更好地构建你的 SaaS。如果你有任何问题，欢迎联系我。",
-    "authorName": "MkSaaS",
-    "authorBio": "最好的 AI SaaS 模板",
-    "introduction": "👋 你好，这里是 MkSaaS，一个使用最先进的技术栈构建的 AI SaaS 模板，它可以帮助你更快更好地构建你的 SaaS。如果你有任何问题，欢迎联系我。",
-    "talkWithMe": "联系我",
-    "followMe": "关注我"
+    "title": "关于 GenX.art",
+    "description": "GenX.art 是一个 AI 驱动的艺术视频创作平台，能在几秒内将你的照片转化为令人惊艳的电影级艺术作品。",
+    "authorName": "GenX.art",
+    "authorBio": "AI 艺术视频平台",
+    "introduction": "GenX.art 赋能创作者将普通照片转化为非凡的艺术视频。利用先进的 AI 技术，我们让专业品质的视频创作人人可及。我们的使命是让创意表达民主化——因为每一帧都值得成为艺术。",
+    "talkWithMe": "联系我们",
+    "followMe": "关注我们"
   },
   "ChangelogPage": {
     "title": "更新日志",
@@ -296,7 +296,7 @@
     "previousPage": "上一页",
     "nextPage": "下一页",
     "chooseLanguage": "选择语言",
-    "title": "MkSaaS文档",
+    "title": "GenX.art 文档",
     "homepage": "首页",
     "PageActions": {
       "copyMarkdown": "复制 Markdown",
@@ -456,7 +456,7 @@
       }
     },
     "footer": {
-      "tagline": "使用 MkSaaS 在几天内轻松构建您的 AI SaaS",
+      "tagline": "每一帧都是艺术 - 将照片转化为令人惊艳的艺术视频",
       "product": {
         "title": "产品",
         "items": {
@@ -932,11 +932,11 @@
         },
         "item-4": {
           "question": "你们的退款政策是什么？",
-          "answer": "是的，我们提供30天的退款保证。"
+          "answer": "我们为月付/年付订阅提供7天退款保证，终身计划提供14天退款保证。联系 support@genx.art 申请退款。"
         },
         "item-5": {
           "question": "找不到您想问的问题？",
-          "answer": "请联系我们的客户支持团队，邮箱地址：support@mksaas.com"
+          "answer": "请联系我们的客户支持团队，邮箱地址：support@genx.art"
         }
       }
     },
@@ -1319,11 +1319,8 @@
         }
       },
       "trustBadges": {
-        "g2": {
-          "label": "G2",
-          "rating": "4.9/5"
-        },
-        "productHunt": "Product Hunt #1"
+        "comingSoon": "评价即将推出",
+        "securePayment": "通过 Stripe 安全支付"
       }
     },
     "pricing": {
@@ -1391,6 +1388,14 @@
         "payment": {
           "question": "你们接受什么支付方式？",
           "answer": "我们通过 Stripe 接受 Visa、Mastercard、American Express 和 PayPal。所有支付都是安全加密的。"
+        },
+        "refund": {
+          "question": "你们的退款政策是什么？",
+          "answer": "我们为专业版订阅提供7天退款保证，终身计划提供14天退款保证。只需在保证期内联系 support@genx.art，我们将在3个工作日内处理您的退款。"
+        },
+        "cancel": {
+          "question": "如何取消订阅？",
+          "answer": "您可以通过账户仪表板或联系 support@genx.art 随时取消。您的访问权限将持续到计费周期结束，之后不会再收费。"
         }
       }
     },

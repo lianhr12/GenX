@@ -142,13 +142,13 @@
     "backToHome": "Back to home"
   },
   "AboutPage": {
-    "title": "About",
-    "description": "This is MkSaaS, an AI SaaS template built with modern technologies, helping you build your SaaS faster and better.",
-    "authorName": "MkSaaS",
-    "authorBio": "AI SaaS Boilerplate",
-    "introduction": "👋 Hi there! This is MkSaaS, an AI SaaS template built with modern technologies, helping you build your SaaS faster and better. If you have any questions, welcome to contact me.",
-    "talkWithMe": "Talk with me",
-    "followMe": "Follow me on X"
+    "title": "About GenX.art",
+    "description": "GenX.art is an AI-powered art video creation platform that transforms your photos into stunning cinematic art in seconds.",
+    "authorName": "GenX.art",
+    "authorBio": "AI Art Video Platform",
+    "introduction": "GenX.art empowers creators to transform ordinary photos into extraordinary art videos. Using advanced AI technology, we make professional-quality video creation accessible to everyone. Our mission is to democratize creative expression—because every frame deserves to be art.",
+    "talkWithMe": "Contact Us",
+    "followMe": "Follow us on X"
   },
   "ChangelogPage": {
     "title": "Changelog",
@@ -296,7 +296,7 @@
     "previousPage": "Previous",
     "nextPage": "Next",
     "chooseLanguage": "Select language",
-    "title": "MkSaaS Docs",
+    "title": "GenX.art Docs",
     "homepage": "Homepage",
     "PageActions": {
       "copyMarkdown": "Copy Markdown",
@@ -456,7 +456,7 @@
       }
     },
     "footer": {
-      "tagline": "Make AI SaaS in days, simply and effortlessly",
+      "tagline": "Every Frame is Art - Transform photos into stunning art videos",
       "product": {
         "title": "Product",
         "items": {
@@ -932,11 +932,11 @@
         },
         "item-4": {
           "question": "What is the refund policy?",
-          "answer": "We offer a 30-day money-back guarantee if you are not happy with our product."
+          "answer": "We offer a 7-day money-back guarantee for monthly/yearly subscriptions and 14 days for lifetime plans. Contact support@genx.art to request a refund."
         },
         "item-5": {
           "question": "Can't find what you're looking for?",
-          "answer": "Please contact our customer support team at support@mksaas.com"
+          "answer": "Please contact our customer support team at support@genx.art"
         }
       }
     },
@@ -1319,11 +1319,8 @@
         }
       },
       "trustBadges": {
-        "g2": {
-          "label": "G2",
-          "rating": "4.9/5"
-        },
-        "productHunt": "Product Hunt #1"
+        "comingSoon": "Reviews coming soon",
+        "securePayment": "Secure payments via Stripe"
       }
     },
     "pricing": {
@@ -1391,6 +1388,14 @@
         "payment": {
           "question": "What payment methods do you accept?",
           "answer": "We accept Visa, Mastercard, American Express, and PayPal via Stripe. All payments are secure and encrypted."
+        },
+        "refund": {
+          "question": "What is your refund policy?",
+          "answer": "We offer a 7-day money-back guarantee for Pro subscriptions and 14 days for Lifetime plans. Simply contact support@genx.art within the guarantee period and we'll process your refund within 3 business days."
+        },
+        "cancel": {
+          "question": "How do I cancel my subscription?",
+          "answer": "You can cancel anytime through your account dashboard or by contacting support@genx.art. Your access continues until the end of your billing period, and you won't be charged again."
         }
       }
     },

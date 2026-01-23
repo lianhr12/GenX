@@ -18,6 +18,8 @@ const faqItems = [
   { id: 'time' },
   { id: 'data' },
   { id: 'payment' },
+  { id: 'refund' },
+  { id: 'cancel' },
 ];
 
 export function FAQSection() {
