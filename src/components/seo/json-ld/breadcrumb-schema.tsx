@@ -34,7 +34,7 @@ export function BreadcrumbSchema({ items }: BreadcrumbSchemaProps) {
     })),
   };
 
-  return <JsonLdScript data={schema} />;
+  return <JsonLdScript data={schema as unknown as Record<string, unknown>} />;
 }
 
 export type { BreadcrumbItem };

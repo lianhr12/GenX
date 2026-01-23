@@ -73,5 +73,5 @@ export function SoftwareSchema({
     }),
   };
 
-  return <JsonLdScript data={schema} />;
+  return <JsonLdScript data={schema as unknown as Record<string, unknown>} />;
 }

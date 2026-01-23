@@ -17,7 +17,13 @@ interface Metric {
   delta: number;
   id: string;
   entries: PerformanceEntry[];
-  navigationType: 'navigate' | 'reload' | 'back-forward' | 'prerender';
+  navigationType:
+    | 'navigate'
+    | 'reload'
+    | 'back-forward'
+    | 'prerender'
+    | 'back-forward-cache'
+    | 'restore';
 }
 
 type ReportHandler = (metric: Metric) => void;

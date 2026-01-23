@@ -64,5 +64,5 @@ export function VideoSchema({
     },
   };
 
-  return <JsonLdScript data={schema} />;
+  return <JsonLdScript data={schema as unknown as Record<string, unknown>} />;
 }
