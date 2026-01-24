@@ -1,0 +1,11 @@
+---
+trigger: model_decision
+description: Best practices for using Vercel AI SDK
+globs: *.tsx,*.ts
+---
+
+- Use the `createClient` function to initialize your OpenAI client.
+- Implement proper error handling and rate limiting for API requests.
+- Utilize streaming responses for better user experience in long-running tasks.
+- Leverage the `ai` package for easy integration with React components.
+- Follow OpenAI's guidelines for responsible AI usage and data privacy
