@@ -27,6 +27,9 @@ export const subscribeNewsletterAction = actionClient
         };
       }
 
+      // Add delay to avoid Resend rate limit (2 requests per second)
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+
       // Send a welcome email to the user
       const locale = await getLocale();
       await sendEmail({
