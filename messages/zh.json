@@ -365,43 +365,6 @@
       "gallery": {
         "title": "画廊"
       },
-      "pages": {
-        "title": "内置页面",
-        "items": {
-          "about": {
-            "title": "关于我们",
-            "description": "了解更多关于我们的公司、使命和价值观"
-          },
-          "contact": {
-            "title": "联系我们",
-            "description": "与我们的团队联系，以获取支持或咨询"
-          },
-          "waitlist": {
-            "title": "邮件列表",
-            "description": "加入我们的邮件列表，获取最新消息和更新"
-          },
-          "changelog": {
-            "title": "更新日志",
-            "description": "查看我们产品的更新历史，查看最新动态"
-          },
-          "roadmap": {
-            "title": "路线图",
-            "description": "探索我们的未来计划和即将推出的功能"
-          },
-          "cookiePolicy": {
-            "title": "Cookie 政策",
-            "description": "关于我们如何在网站上使用 Cookie 的信息"
-          },
-          "privacyPolicy": {
-            "title": "隐私政策",
-            "description": "关于我们将如何保护和处理您在网站上的数据"
-          },
-          "termsOfService": {
-            "title": "服务条款",
-            "description": "关于您与我们公司之间的法律协议和条款"
-          }
-        }
-      },
       "blocks": {
         "title": "内置组件",
         "items": {

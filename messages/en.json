@@ -365,43 +365,6 @@
       "gallery": {
         "title": "Gallery"
       },
-      "pages": {
-        "title": "Pages",
-        "items": {
-          "about": {
-            "title": "About",
-            "description": "Learn more about our company, mission, and values"
-          },
-          "contact": {
-            "title": "Contact",
-            "description": "Get in touch with our team for support or inquiries"
-          },
-          "waitlist": {
-            "title": "Waitlist",
-            "description": "Join our waitlist for latest news and updates"
-          },
-          "changelog": {
-            "title": "Changelog",
-            "description": "See the latest updates to our products"
-          },
-          "roadmap": {
-            "title": "Roadmap",
-            "description": "Explore our future plans and upcoming features"
-          },
-          "cookiePolicy": {
-            "title": "Cookie Policy",
-            "description": "How we use the cookies on our website"
-          },
-          "privacyPolicy": {
-            "title": "Privacy Policy",
-            "description": "How we protect and handle your data"
-          },
-          "termsOfService": {
-            "title": "Terms of Service",
-            "description": "The legal agreement between you and our company"
-          }
-        }
-      },
       "blocks": {
         "title": "Blocks",
         "items": {
