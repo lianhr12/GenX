@@ -1,6 +1,7 @@
 'use client';
 
 import { DividerWithText } from '@/components/auth/divider-with-text';
+import { FacebookIcon } from '@/components/icons/facebook';
 import { GitHubIcon } from '@/components/icons/github';
 import { GoogleIcon } from '@/components/icons/google';
 import { Button } from '@/components/ui/button';
@@ -27,7 +28,8 @@ export const SocialLoginButton = ({
 }: SocialLoginButtonProps) => {
   if (
     !websiteConfig.auth.enableGoogleLogin &&
-    !websiteConfig.auth.enableGithubLogin
+    !websiteConfig.auth.enableGithubLogin &&
+    !websiteConfig.auth.enableFacebookLogin
   ) {
     return null;
   }
@@ -39,10 +41,12 @@ export const SocialLoginButton = ({
   const locale = useLocale();
   const defaultCallbackUrl = getUrlWithLocale(DEFAULT_LOGIN_REDIRECT, locale);
   const callbackUrl = propCallbackUrl || paramCallbackUrl || defaultCallbackUrl;
-  const [isLoading, setIsLoading] = useState<'google' | 'github' | null>(null);
+  const [isLoading, setIsLoading] = useState<
+    'google' | 'github' | 'facebook' | null
+  >(null);
   console.log('social login button, callbackUrl', callbackUrl);
 
-  const onClick = async (provider: 'google' | 'github') => {
+  const onClick = async (provider: 'google' | 'github' | 'facebook') => {
     await authClient.signIn.social(
       {
         /**
@@ -107,6 +111,22 @@ export const SocialLoginButton = ({
             <GoogleIcon className="size-4 mr-2" />
           )}
           <span>{t('signInWithGoogle')}</span>
+        </Button>
+      )}
+      {websiteConfig.auth.enableFacebookLogin && (
+        <Button
+          size="lg"
+          className="w-full cursor-pointer"
+          variant="outline"
+          onClick={() => onClick('facebook')}
+          disabled={isLoading === 'facebook'}
+        >
+          {isLoading === 'facebook' ? (
+            <Loader2Icon className="mr-2 size-4 animate-spin" />
+          ) : (
+            <FacebookIcon className="size-4 mr-2" />
+          )}
+          <span>{t('signInWithFacebook')}</span>
         </Button>
       )}
       {websiteConfig.auth.enableGithubLogin && (

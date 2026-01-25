@@ -213,6 +213,7 @@
       "forgotPassword": "忘记密码？",
       "signInWithGoogle": "使用 Google 登录",
       "signInWithGitHub": "使用 GitHub 登录",
+      "signInWithFacebook": "使用 Facebook 登录",
       "showPassword": "显示密码",
       "hidePassword": "隐藏密码",
       "or": "或以社媒账号登录",
