@@ -59,82 +59,82 @@ export function PricingPreviewSection() {
                 )}
                 whileHover={{ y: -4 }}
               >
-                  {/* Popular Badge */}
-                  {plan.popular && (
-                    <div className="absolute -right-10 top-5 rotate-45 bg-primary px-10 py-1 text-xs font-medium text-primary-foreground">
-                      {t('popular')}
-                    </div>
+                {/* Popular Badge */}
+                {plan.popular && (
+                  <div className="absolute -right-10 top-5 rotate-45 bg-primary px-10 py-1 text-xs font-medium text-primary-foreground">
+                    {t('popular')}
+                  </div>
+                )}
+
+                {/* Plan Header */}
+                <div>
+                  <h3 className="text-lg font-semibold">
+                    {t(`plans.${plan.id}.name` as never)}
+                  </h3>
+                  <p className="mt-1 text-sm text-muted-foreground line-clamp-2">
+                    {t(`plans.${plan.id}.description` as never)}
+                  </p>
+                </div>
+
+                {/* Price */}
+                <div className="mt-4">
+                  <div className="flex items-baseline gap-1">
+                    <span className="text-3xl font-bold">${plan.price}</span>
+                    {plan.price > 0 && (
+                      <span className="text-sm text-muted-foreground">
+                        {t('perMonth')}
+                      </span>
+                    )}
+                  </div>
+                  {'yearlyPrice' in plan && plan.yearlyPrice && (
+                    <p className="mt-1 text-xs text-muted-foreground">
+                      {t('yearlyOption', {
+                        price: plan.yearlyPrice,
+                        discount: 17,
+                      })}
+                    </p>
+                  )}
+                </div>
+
+                {/* Features */}
+                <div className="mt-4 space-y-2">
+                  {['feature1', 'feature2', 'feature3', 'feature4'].map(
+                    (feature) => (
+                      <div key={feature} className="flex items-center gap-2">
+                        <Check className="h-4 w-4 text-green-500 shrink-0" />
+                        <span className="text-sm">
+                          {t(`plans.${plan.id}.${feature}` as never)}
+                        </span>
+                      </div>
+                    )
                   )}
 
-                  {/* Plan Header */}
-                  <div>
-                    <h3 className="text-lg font-semibold">
-                      {t(`plans.${plan.id}.name` as never)}
-                    </h3>
-                    <p className="mt-1 text-sm text-muted-foreground line-clamp-2">
-                      {t(`plans.${plan.id}.description` as never)}
-                    </p>
-                  </div>
-
-                  {/* Price */}
-                  <div className="mt-4">
-                    <div className="flex items-baseline gap-1">
-                      <span className="text-3xl font-bold">${plan.price}</span>
-                      {plan.price > 0 && (
-                        <span className="text-sm text-muted-foreground">
-                          {t('perMonth')}
-                        </span>
-                      )}
+                  {/* Limitations for free plan */}
+                  {plan.id === 'free' && (
+                    <div className="flex items-center gap-2 text-muted-foreground">
+                      <X className="h-4 w-4 shrink-0" />
+                      <span className="text-sm">{t('plans.free.limit')}</span>
                     </div>
-                    {'yearlyPrice' in plan && plan.yearlyPrice && (
-                      <p className="mt-1 text-xs text-muted-foreground">
-                        {t('yearlyOption', {
-                          price: plan.yearlyPrice,
-                          discount: 17,
-                        })}
-                      </p>
-                    )}
-                  </div>
+                  )}
+                </div>
 
-                  {/* Features */}
-                  <div className="mt-4 space-y-2">
-                    {['feature1', 'feature2', 'feature3', 'feature4'].map(
-                      (feature) => (
-                        <div key={feature} className="flex items-center gap-2">
-                          <Check className="h-4 w-4 text-green-500 shrink-0" />
-                          <span className="text-sm">
-                            {t(`plans.${plan.id}.${feature}` as never)}
-                          </span>
-                        </div>
-                      )
+                {/* CTA */}
+                <div className="mt-6">
+                  <Button
+                    asChild
+                    className={cn(
+                      'w-full',
+                      plan.popular
+                        ? ''
+                        : 'bg-muted text-foreground hover:bg-muted/80'
                     )}
-
-                    {/* Limitations for free plan */}
-                    {plan.id === 'free' && (
-                      <div className="flex items-center gap-2 text-muted-foreground">
-                        <X className="h-4 w-4 shrink-0" />
-                        <span className="text-sm">{t('plans.free.limit')}</span>
-                      </div>
-                    )}
-                  </div>
-
-                  {/* CTA */}
-                  <div className="mt-6">
-                    <Button
-                      asChild
-                      className={cn(
-                        'w-full',
-                        plan.popular
-                          ? ''
-                          : 'bg-muted text-foreground hover:bg-muted/80'
-                      )}
-                      variant={plan.popular ? 'default' : 'secondary'}
-                    >
-                      <LocaleLink href="/pricing">
-                        {t(`plans.${plan.id}.cta` as never)}
-                      </LocaleLink>
-                    </Button>
-                  </div>
+                    variant={plan.popular ? 'default' : 'secondary'}
+                  >
+                    <LocaleLink href="/pricing">
+                      {t(`plans.${plan.id}.cta` as never)}
+                    </LocaleLink>
+                  </Button>
+                </div>
               </motion.div>
             ))}
           </AnimatedGroup>

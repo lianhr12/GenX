@@ -485,3 +485,7 @@ The `PaymentCard` component uses `usePaymentCompletion` hook to:
 - Display loading, success, failed, or timeout states
 - Automatically redirect to callback URL on success
 - Invalidate relevant React Query cache
+
+## 积分管理
+
+有关手动给用户账户添加积分的详细信息，请参阅[管理脚本文档](./ADMIN.md#给用户账户添加积分)。
