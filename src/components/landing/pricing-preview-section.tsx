@@ -20,12 +20,6 @@ const plans = [
     yearlyPrice: 99,
     popular: true,
   },
-  {
-    id: 'lifetime',
-    price: 199,
-    isLifetime: true,
-    popular: false,
-  },
 ];
 
 export function PricingPreviewSection() {
@@ -53,33 +47,22 @@ export function PricingPreviewSection() {
 
         {/* Pricing Cards */}
         <div className="mt-16">
-          <AnimatedGroup preset="scale" className="grid gap-6 md:grid-cols-3">
-            {plans.map((plan) => {
-              const isLifetime = 'isLifetime' in plan && plan.isLifetime;
-              return (
-                <motion.div
-                  key={plan.id}
-                  className={cn(
-                    'relative overflow-hidden rounded-2xl border p-6',
-                    plan.popular
-                      ? 'border-primary/30 bg-gradient-to-br from-primary/5 via-background to-purple-500/5 shadow-xl'
-                      : isLifetime
-                        ? 'border-amber-500/30 bg-gradient-to-br from-amber-500/5 via-background to-orange-500/5'
-                        : 'border-border bg-background'
-                  )}
-                  whileHover={{ y: -4 }}
-                >
+          <AnimatedGroup preset="scale" className="grid gap-6 md:grid-cols-2">
+            {plans.map((plan) => (
+              <motion.div
+                key={plan.id}
+                className={cn(
+                  'relative overflow-hidden rounded-2xl border p-6',
+                  plan.popular
+                    ? 'border-primary/30 bg-gradient-to-br from-primary/5 via-background to-purple-500/5 shadow-xl'
+                    : 'border-border bg-background'
+                )}
+                whileHover={{ y: -4 }}
+              >
                   {/* Popular Badge */}
                   {plan.popular && (
                     <div className="absolute -right-10 top-5 rotate-45 bg-primary px-10 py-1 text-xs font-medium text-primary-foreground">
                       {t('popular')}
-                    </div>
-                  )}
-
-                  {/* Lifetime Badge */}
-                  {isLifetime && (
-                    <div className="absolute -right-10 top-5 rotate-45 bg-amber-500 px-10 py-1 text-xs font-medium text-white">
-                      {t('bestValue')}
                     </div>
                   )}
 
@@ -97,14 +80,9 @@ export function PricingPreviewSection() {
                   <div className="mt-4">
                     <div className="flex items-baseline gap-1">
                       <span className="text-3xl font-bold">${plan.price}</span>
-                      {plan.price > 0 && !isLifetime && (
+                      {plan.price > 0 && (
                         <span className="text-sm text-muted-foreground">
                           {t('perMonth')}
-                        </span>
-                      )}
-                      {isLifetime && (
-                        <span className="text-sm text-muted-foreground">
-                          {t('oneTime')}
                         </span>
                       )}
                     </div>
@@ -146,26 +124,19 @@ export function PricingPreviewSection() {
                       asChild
                       className={cn(
                         'w-full',
-                        plan.popular || isLifetime
+                        plan.popular
                           ? ''
                           : 'bg-muted text-foreground hover:bg-muted/80'
                       )}
-                      variant={
-                        plan.popular
-                          ? 'default'
-                          : isLifetime
-                            ? 'default'
-                            : 'secondary'
-                      }
+                      variant={plan.popular ? 'default' : 'secondary'}
                     >
                       <LocaleLink href="/pricing">
                         {t(`plans.${plan.id}.cta` as never)}
                       </LocaleLink>
                     </Button>
                   </div>
-                </motion.div>
-              );
-            })}
+              </motion.div>
+            ))}
           </AnimatedGroup>
         </div>
 

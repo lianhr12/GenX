@@ -6,7 +6,6 @@ import type { User } from '@/lib/auth-types';
 import { findPlanByPriceId, getAllPricePlans } from '@/lib/price-plan';
 import { userActionClient } from '@/lib/safe-action';
 import {
-  PaymentScenes,
   type PaymentStatus,
   PaymentTypes,
   type PlanInterval,
@@ -21,7 +20,7 @@ const schema = z.object({
 });
 
 /**
- * Get user's current plan with subscription and lifetime status
+ * Get user's current plan with subscription status
  */
 export const getCurrentPlanAction = userActionClient
   .schema(schema)
@@ -35,10 +34,6 @@ export const getCurrentPlanAction = userActionClient
       const db = await getDb();
       const plans = getAllPricePlans();
       const freePlan = plans.find((plan) => plan.isFree && !plan.disabled);
-      const lifetimePlanIds = plans
-        .filter((plan) => plan.isLifetime)
-        .map((plan) => plan.id);
-
       // Single optimized query to get all relevant payments
       const payments = await db
         .select({
@@ -62,12 +57,6 @@ export const getCurrentPlanAction = userActionClient
             eq(payment.paid, true),
             eq(payment.userId, userId),
             or(
-              // Check for completed lifetime payments
-              and(
-                eq(payment.type, PaymentTypes.ONE_TIME),
-                eq(payment.scene, PaymentScenes.LIFETIME),
-                eq(payment.status, 'completed')
-              ),
               // Check for active or trialing subscriptions
               and(
                 eq(payment.type, PaymentTypes.SUBSCRIPTION),
@@ -83,30 +72,11 @@ export const getCurrentPlanAction = userActionClient
       );
 
       // Analyze payments to determine current plan
-      let userLifetimePlan: PricePlan | null = null;
       let activeSubscription: Subscription | null = null;
 
       for (const paymentRecord of payments) {
-        // Check for lifetime plan first (higher priority)
+        // Check for active subscription
         if (
-          paymentRecord.type === PaymentTypes.ONE_TIME &&
-          paymentRecord.scene === PaymentScenes.LIFETIME &&
-          paymentRecord.status === 'completed' &&
-          !userLifetimePlan // Only take the first (most recent) lifetime plan
-        ) {
-          const pricePlan = findPlanByPriceId(paymentRecord.priceId);
-          if (pricePlan && lifetimePlanIds.includes(pricePlan.id)) {
-            userLifetimePlan = pricePlan;
-            console.log(
-              'Check current plan, found lifetime plan:',
-              pricePlan.id
-            );
-          }
-        }
-
-        // Check for active subscription (only if no lifetime plan found)
-        if (
-          !userLifetimePlan &&
           paymentRecord.type === PaymentTypes.SUBSCRIPTION &&
           (paymentRecord.status === 'active' ||
             paymentRecord.status === 'trialing') &&
@@ -131,18 +101,6 @@ export const getCurrentPlanAction = userActionClient
             activeSubscription.id
           );
         }
-      }
-
-      // Return results based on priority: lifetime > subscription > free
-      if (userLifetimePlan) {
-        console.log('Check current plan, user is lifetime member');
-        return {
-          success: true,
-          data: {
-            currentPlan: userLifetimePlan,
-            subscription: null,
-          },
-        };
       }
 
       if (activeSubscription) {

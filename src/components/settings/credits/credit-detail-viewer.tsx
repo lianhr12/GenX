@@ -16,7 +16,6 @@ import {
   BanknoteIcon,
   ClockIcon,
   CoinsIcon,
-  GemIcon,
   GiftIcon,
   HandCoinsIcon,
   ShoppingCartIcon,
@@ -63,8 +62,6 @@ export function CreditDetailViewer({ transaction }: CreditDetailViewerProps) {
         return <ClockIcon className="h-5 w-5" />;
       case CREDIT_TRANSACTION_TYPE.SUBSCRIPTION_RENEWAL:
         return <BanknoteIcon className="h-5 w-5" />;
-      case CREDIT_TRANSACTION_TYPE.LIFETIME_MONTHLY:
-        return <GemIcon className="h-5 w-5" />;
       default:
         return null;
     }
@@ -85,8 +82,6 @@ export function CreditDetailViewer({ transaction }: CreditDetailViewerProps) {
         return t('types.EXPIRE');
       case CREDIT_TRANSACTION_TYPE.SUBSCRIPTION_RENEWAL:
         return t('types.SUBSCRIPTION_RENEWAL');
-      case CREDIT_TRANSACTION_TYPE.LIFETIME_MONTHLY:
-        return t('types.LIFETIME_MONTHLY');
       default:
         return type;
     }

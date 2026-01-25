@@ -90,7 +90,6 @@ export const websiteConfig: WebsiteConfig = {
         id: 'free',
         prices: [],
         isFree: true,
-        isLifetime: false,
         credits: {
           enable: true,
           amount: 50,
@@ -118,31 +117,10 @@ export const websiteConfig: WebsiteConfig = {
           },
         ],
         isFree: false,
-        isLifetime: false,
         popular: true,
         credits: {
           enable: true,
-          amount: 1000,
-          expireDays: 30,
-        },
-      },
-      lifetime: {
-        id: 'lifetime',
-        prices: [
-          {
-            type: PaymentTypes.ONE_TIME,
-            priceId: process.env.NEXT_PUBLIC_STRIPE_PRICE_LIFETIME!,
-            creemProductId: process.env.NEXT_PUBLIC_CREEM_PRODUCT_LIFETIME,
-            amount: 19900,
-            currency: 'USD',
-            allowPromotionCode: true,
-          },
-        ],
-        isFree: false,
-        isLifetime: true,
-        credits: {
-          enable: true,
-          amount: 1000,
+          amount: 660,
           expireDays: 30,
         },
       },
@@ -160,7 +138,7 @@ export const websiteConfig: WebsiteConfig = {
       basic: {
         id: 'basic',
         popular: false,
-        amount: 100,
+        amount: 660,
         expireDays: 30,
         price: {
           priceId: process.env.NEXT_PUBLIC_STRIPE_PRICE_CREDITS_BASIC!,
@@ -173,13 +151,13 @@ export const websiteConfig: WebsiteConfig = {
       standard: {
         id: 'standard',
         popular: true,
-        amount: 200,
+        amount: 1000,
         expireDays: 30,
         price: {
           priceId: process.env.NEXT_PUBLIC_STRIPE_PRICE_CREDITS_STANDARD!,
           creemProductId:
             process.env.NEXT_PUBLIC_CREEM_PRODUCT_CREDITS_STANDARD,
-          amount: 1490,
+          amount: 1500,
           currency: 'USD',
           allowPromotionCode: true,
         },
@@ -187,7 +165,7 @@ export const websiteConfig: WebsiteConfig = {
       premium: {
         id: 'premium',
         popular: false,
-        amount: 500,
+        amount: 2660,
         expireDays: 30,
         price: {
           priceId: process.env.NEXT_PUBLIC_STRIPE_PRICE_CREDITS_PREMIUM!,
@@ -200,7 +178,7 @@ export const websiteConfig: WebsiteConfig = {
       enterprise: {
         id: 'enterprise',
         popular: false,
-        amount: 1000,
+        amount: 4660,
         expireDays: 30,
         price: {
           priceId: process.env.NEXT_PUBLIC_STRIPE_PRICE_CREDITS_ENTERPRISE!,

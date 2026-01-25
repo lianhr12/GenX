@@ -50,8 +50,7 @@ export function PremiumGuard({
 
   // Determine if user has premium access
   const hasPremiumAccess =
-    paymentData?.currentPlan &&
-    (!paymentData.currentPlan.isFree || paymentData.currentPlan.isLifetime);
+    paymentData?.currentPlan && !paymentData.currentPlan.isFree;
 
   // If server-side check has already determined access, use that
   if (canAccess !== undefined) {

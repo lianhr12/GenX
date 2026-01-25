@@ -42,9 +42,7 @@ export async function distributeCreditsToAllUsers() {
         // Active subscriptions
         and(eq(payment.status, 'active'), eq(payment.paid, true)),
         // Trial subscriptions
-        and(eq(payment.status, 'trialing'), eq(payment.paid, true)),
-        // Completed lifetime payments
-        and(eq(payment.status, 'completed'), eq(payment.paid, true))
+        and(eq(payment.status, 'trialing'), eq(payment.paid, true))
       )
     )
     .as('latest_payment');
@@ -77,27 +75,20 @@ export async function distributeCreditsToAllUsers() {
 
   // Separate users by their plan type for batch processing
   const freeUserIds: string[] = [];
-  const lifetimeUsers: Array<{ userId: string; priceId: string }> = [];
   const yearlyUsers: Array<{ userId: string; priceId: string }> = [];
 
   usersWithPayments.forEach((userRecord) => {
-    // Check if user has valid payment (active subscription or completed lifetime payment)
+    // Check if user has valid payment (active or trialing subscription)
     if (
       userRecord.priceId &&
       userRecord.paymentPaid &&
       userRecord.paymentStatus &&
       (userRecord.paymentStatus === 'active' ||
-        userRecord.paymentStatus === 'trialing' ||
-        userRecord.paymentStatus === 'completed')
+        userRecord.paymentStatus === 'trialing')
     ) {
       // User has valid payment - check what type
       const pricePlan = findPlanByPriceId(userRecord.priceId);
-      if (pricePlan?.isLifetime && pricePlan?.credits?.enable) {
-        lifetimeUsers.push({
-          userId: userRecord.userId,
-          priceId: userRecord.priceId,
-        });
-      } else if (!pricePlan?.isFree && pricePlan?.credits?.enable) {
+      if (!pricePlan?.isFree && pricePlan?.credits?.enable) {
         // Check if this is a yearly subscription that needs monthly credits
         const yearlyPrice = pricePlan?.prices?.find(
           (p) =>
@@ -119,7 +110,7 @@ export async function distributeCreditsToAllUsers() {
   });
 
   console.log(
-    `distribute credits, lifetime users: ${lifetimeUsers.length}, free users: ${freeUserIds.length}, yearly users: ${yearlyUsers.length}`
+    `distribute credits, free users: ${freeUserIds.length}, yearly users: ${yearlyUsers.length}`
   );
 
   const batchSize = 100;
@@ -142,28 +133,6 @@ export async function distributeCreditsToAllUsers() {
     if (freeUserIds.length > 1000) {
       console.log(
         `free credits progress: ${Math.min(i + batchSize, freeUserIds.length)}/${freeUserIds.length}`
-      );
-    }
-  }
-
-  // Process lifetime users in batches
-  for (let i = 0; i < lifetimeUsers.length; i += batchSize) {
-    const batch = lifetimeUsers.slice(i, i + batchSize);
-    try {
-      await batchAddLifetimeMonthlyCredits(batch);
-      processedCount += batch.length;
-    } catch (error) {
-      console.error(
-        `batchAddLifetimeMonthlyCredits error for batch ${i / batchSize + 1}:`,
-        error
-      );
-      errorCount += batch.length;
-    }
-
-    // Log progress for large datasets
-    if (lifetimeUsers.length > 1000) {
-      console.log(
-        `lifetime credits progress: ${Math.min(i + batchSize, lifetimeUsers.length)}/${lifetimeUsers.length}`
       );
     }
   }
@@ -316,153 +285,6 @@ export async function batchAddMonthlyFreeCredits(userIds: string[]) {
 
   console.log(
     `batchAddMonthlyFreeCredits, ${credits} credits for ${processedCount} users, date: ${now.getFullYear()}-${now.getMonth() + 1}`
-  );
-}
-
-/**
- * Batch add lifetime monthly credits to multiple users
- * @param users - Array of user objects with userId and priceId
- */
-export async function batchAddLifetimeMonthlyCredits(
-  users: Array<{ userId: string; priceId: string }>
-) {
-  if (users.length === 0) {
-    console.log('batchAddLifetimeMonthlyCredits, no users to add credits');
-    return;
-  }
-
-  const db = await getDb();
-  const now = new Date();
-
-  // Group users by their priceId to handle different lifetime plans
-  const usersByPriceId = new Map<string, string[]>();
-  users.forEach((user) => {
-    if (!usersByPriceId.has(user.priceId)) {
-      usersByPriceId.set(user.priceId, []);
-    }
-    usersByPriceId.get(user.priceId)!.push(user.userId);
-  });
-
-  let totalProcessedCount = 0;
-
-  // Process each priceId group separately
-  for (const [priceId, userIdsForPrice] of usersByPriceId) {
-    const pricePlan = findPlanByPriceId(priceId);
-    if (
-      !pricePlan ||
-      !pricePlan.isLifetime ||
-      // pricePlan.disabled ||
-      !pricePlan.credits?.enable ||
-      !pricePlan.credits?.amount
-    ) {
-      console.log(
-        `batchAddLifetimeMonthlyCredits, invalid plan for priceId: ${priceId}`
-      );
-      continue;
-    }
-
-    const credits = pricePlan.credits.amount;
-    const expireDays = pricePlan.credits.expireDays;
-
-    // Use transaction for data consistency
-    let processedCount = 0;
-    await db.transaction(async (tx) => {
-      // Get all user credit records in one query
-      const userCredits = await tx
-        .select({
-          userId: userCredit.userId,
-          currentCredits: userCredit.currentCredits,
-        })
-        .from(userCredit)
-        .where(inArray(userCredit.userId, userIdsForPrice));
-
-      // Create a map for quick lookup
-      const userCreditMap = new Map(
-        userCredits.map((record) => [record.userId, record])
-      );
-
-      // Check which users can receive credits based on transaction history
-      const eligibleUserIds: string[] = [];
-      for (const userId of userIdsForPrice) {
-        const canAdd = await canAddCreditsByType(
-          userId,
-          CREDIT_TRANSACTION_TYPE.LIFETIME_MONTHLY
-        );
-        if (canAdd) {
-          eligibleUserIds.push(userId);
-        }
-      }
-
-      if (eligibleUserIds.length === 0) {
-        console.log(
-          `batchAddLifetimeMonthlyCredits, no eligible users for priceId: ${priceId}`
-        );
-        return;
-      }
-
-      processedCount = eligibleUserIds.length;
-      const expirationDate = expireDays ? addDays(now, expireDays) : undefined;
-
-      // Batch insert credit transactions
-      const transactions = eligibleUserIds.map((userId: string) => ({
-        id: randomUUID(),
-        userId,
-        type: CREDIT_TRANSACTION_TYPE.LIFETIME_MONTHLY,
-        amount: credits,
-        remainingAmount: credits,
-        description: `Lifetime monthly credits: ${credits} for ${now.getFullYear()}-${now.getMonth() + 1}`,
-        expirationDate,
-        createdAt: now,
-        updatedAt: now,
-      }));
-
-      await tx.insert(creditTransaction).values(transactions);
-
-      // Prepare user credit updates
-      const existingUserIds = eligibleUserIds.filter((userId: string) =>
-        userCreditMap.has(userId)
-      );
-      const newUserIds = eligibleUserIds.filter(
-        (userId: string) => !userCreditMap.has(userId)
-      );
-
-      // Insert new user credit records
-      if (newUserIds.length > 0) {
-        const newRecords = newUserIds.map((userId: string) => ({
-          id: randomUUID(),
-          userId,
-          currentCredits: credits,
-          createdAt: now,
-          updatedAt: now,
-        }));
-        await tx.insert(userCredit).values(newRecords);
-      }
-
-      // Update existing user credit records
-      if (existingUserIds.length > 0) {
-        // Update each user individually to add credits to their existing balance
-        for (const userId of existingUserIds) {
-          const currentRecord = userCreditMap.get(userId);
-          const newBalance = (currentRecord?.currentCredits || 0) + credits;
-          await tx
-            .update(userCredit)
-            .set({
-              currentCredits: newBalance,
-              updatedAt: now,
-            })
-            .where(eq(userCredit.userId, userId));
-        }
-      }
-    });
-
-    totalProcessedCount += processedCount;
-    console.log(
-      `batchAddLifetimeMonthlyCredits, ${credits} credits for ${processedCount} users with priceId ${priceId}, date: ${now.getFullYear()}-${now.getMonth() + 1}`
-    );
-  }
-
-  console.log(
-    `batchAddLifetimeMonthlyCredits, total processed: ${totalProcessedCount} users`
   );
 }
 

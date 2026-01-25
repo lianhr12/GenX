@@ -19,8 +19,7 @@ export function PremiumContent({ children }: PremiumContentProps) {
 
   // Determine if user has premium access
   const hasPremiumAccess =
-    paymentData?.currentPlan &&
-    (paymentData.currentPlan.isLifetime || !paymentData.currentPlan.isFree);
+    paymentData?.currentPlan && !paymentData.currentPlan.isFree;
 
   // Only show content if user has premium access
   // This is a client-side fallback - main security is handled server-side

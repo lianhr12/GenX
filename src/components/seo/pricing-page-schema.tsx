@@ -25,12 +25,6 @@ export function PricingPageSchema() {
       price: 990, // $9.90/month in cents
       currency: 'USD',
     },
-    {
-      name: t('lifetime.name'),
-      description: t('lifetime.description'),
-      price: 19900, // $199 in cents
-      currency: 'USD',
-    },
   ];
 
   return (

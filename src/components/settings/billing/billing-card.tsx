@@ -46,14 +46,12 @@ export default function BillingCard() {
 
   const currentPlan = paymentData?.currentPlan;
   const subscription = paymentData?.subscription;
-  const isLifetimeMember = currentPlan?.isLifetime || false;
 
   console.log('=== BillingCard Debug Info ===', {
     mounted,
     userId: currentUser?.id,
     isLoadingSession,
     isLoadingPayment,
-    isLifetimeMember,
     hasPaymentData: !!paymentData,
     hasCurrentPlan: !!currentPlan,
     hasSubscription: !!subscription,
@@ -208,13 +206,6 @@ export default function BillingCard() {
           </div>
         )}
 
-        {/* Lifetime plan message */}
-        {isLifetimeMember && (
-          <div className="text-sm text-muted-foreground">
-            {t('lifetimeMessage')}
-          </div>
-        )}
-
         {/* Subscription plan message */}
         {subscription && (
           <div className="text-sm text-muted-foreground space-y-2">
@@ -244,13 +235,6 @@ export default function BillingCard() {
           <Button variant="default" className="cursor-pointer" asChild>
             <LocaleLink href={Routes.Pricing}>{t('upgradePlan')}</LocaleLink>
           </Button>
-        )}
-
-        {/* user is lifetime member, show manage billing button */}
-        {isLifetimeMember && currentUser && (
-          <CustomerPortalButton userId={currentUser.id} className="">
-            {t('manageBilling')}
-          </CustomerPortalButton>
         )}
 
         {/* user has subscription, show manage subscription button */}

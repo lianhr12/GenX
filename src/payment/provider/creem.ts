@@ -13,11 +13,7 @@ import { desc, eq } from 'drizzle-orm';
 import type { NextRequest } from 'next/server';
 
 import { websiteConfig } from '@/config/website';
-import {
-  addCredits,
-  addLifetimeMonthlyCredits,
-  addSubscriptionCredits,
-} from '@/credits/credits';
+import { addCredits, addSubscriptionCredits } from '@/credits/credits';
 import { getCreditPackageById } from '@/credits/server';
 import { CREDIT_TRANSACTION_TYPE } from '@/credits/types';
 import { getDb } from '@/db';
@@ -685,13 +681,12 @@ export class CreemProvider implements PaymentProvider {
           creditValidation.metadata
         );
       } else {
-        await this.handleOnetimePayment(
-          data,
+        logCreem('warn', 'Unsupported checkout metadata type', {
+          eventType: 'checkout.completed',
           checkoutId,
-          customerId,
-          userId,
-          validatedMetadata
-        );
+          type: validatedMetadata.type,
+        });
+        return;
       }
     } catch (error) {
       logCreem('error', 'onCheckoutCompleted error', {
@@ -802,110 +797,6 @@ export class CreemProvider implements PaymentProvider {
       packageId,
       paymentId,
     });
-  }
-
-  /**
-   * Handle one-time payment (e.g., lifetime plan)
-   */
-  private async handleOnetimePayment(
-    data: FlatCheckoutCompleted,
-    checkoutId: string,
-    customerId: string,
-    userId: string,
-    metadata: import('./creem-types').CreemWebhookMetadata
-  ): Promise<void> {
-    logCreem('info', 'Handle Creem one-time payment', {
-      checkoutId,
-      userId,
-      customerId,
-    });
-
-    const priceId = metadata.priceId;
-    if (!priceId) {
-      logCreem('error', 'No priceId found in validated metadata', {
-        checkoutId,
-        userId,
-      });
-      return;
-    }
-
-    const paymentId = randomUUID();
-    const amount = data.product?.price ? data.product.price / 100 : 0;
-
-    await executeWithTransaction('onetime_payment', async (tx) => {
-      const now = new Date();
-
-      // Insert payment record with scene = LIFETIME
-      const result = await tx
-        .insert(payment)
-        .values({
-          id: paymentId,
-          priceId: priceId,
-          type: PaymentTypes.ONE_TIME,
-          scene: PaymentScenes.LIFETIME,
-          userId: userId,
-          customerId: customerId,
-          sessionId: checkoutId,
-          status: 'completed',
-          paid: true,
-          periodStart: now,
-          createdAt: now,
-          updatedAt: now,
-        })
-        .returning({ id: payment.id });
-
-      if (result.length === 0) {
-        throw new Error('Failed to create one-time payment record');
-      }
-
-      logCreem('info', 'Created payment record in transaction', {
-        operation: 'insert',
-        table: 'payment',
-        paymentId: result[0].id,
-        type: PaymentTypes.ONE_TIME,
-        scene: PaymentScenes.LIFETIME,
-        userId,
-        sessionId: checkoutId,
-      });
-
-      // Update user's customerId
-      await tx
-        .update(user)
-        .set({
-          customerId: customerId,
-          updatedAt: now,
-        })
-        .where(eq(user.id, userId));
-
-      logCreem('info', 'Updated user with customerId', {
-        userId,
-        customerId: customerId.substring(0, 8) + '...',
-      });
-    });
-
-    // Allocate lifetime monthly credits outside of transaction
-    if (websiteConfig.credits?.enableCredits) {
-      await addLifetimeMonthlyCredits(userId, priceId);
-      logCreem('info', 'Added lifetime monthly credits for user', {
-        userId,
-        priceId,
-      });
-    }
-
-    logCreem('info', 'One-time payment completed', {
-      userId,
-      priceId,
-      paymentId,
-    });
-
-    // Send notification outside of transaction (non-critical)
-    await this.sendNotificationSafely(
-      checkoutId,
-      customerId,
-      userId,
-      amount,
-      'onetime_payment'
-    );
   }
 
   /**

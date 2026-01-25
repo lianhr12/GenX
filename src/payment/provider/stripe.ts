@@ -1,10 +1,6 @@
 import { randomUUID } from 'crypto';
 import { websiteConfig } from '@/config/website';
-import {
-  addCredits,
-  addLifetimeMonthlyCredits,
-  addSubscriptionCredits,
-} from '@/credits/credits';
+import { addCredits, addSubscriptionCredits } from '@/credits/credits';
 import { getCreditPackageById } from '@/credits/server';
 import { CREDIT_TRANSACTION_TYPE } from '@/credits/types';
 import { getDb } from '@/db';
@@ -15,7 +11,6 @@ import {
   PAYMENT_RECORD_RETRY_DELAY,
 } from '@/lib/constants';
 import { findPlanByPlanId, findPriceInPlan } from '@/lib/price-plan';
-import { sendNotification } from '@/notification/notification';
 import { desc, eq } from 'drizzle-orm';
 import { Stripe } from 'stripe';
 import {
@@ -774,8 +769,8 @@ export class StripeProvider implements PaymentProvider {
           // Process credit purchase
           await this.processCreditPurchase(invoice, paymentRecord, metadata);
         } else {
-          // Process lifetime plan purchase
-          await this.processLifetimePlanPurchase(invoice, paymentRecord);
+          console.warn('<< Unsupported one-time payment type:', metadata.type);
+          return;
         }
       }
     } catch (error) {
@@ -826,38 +821,6 @@ export class StripeProvider implements PaymentProvider {
     });
 
     console.log('<< Process credit purchase success');
-  }
-
-  /**
-   * Process lifetime plan purchase
-   * @param invoice Stripe invoice
-   * @param paymentRecord Payment record
-   */
-  private async processLifetimePlanPurchase(
-    invoice: Stripe.Invoice,
-    paymentRecord: Payment
-  ): Promise<void> {
-    console.log('>> Process lifetime plan purchase');
-
-    // Add lifetime credits if enabled
-    if (websiteConfig.credits?.enableCredits) {
-      await addLifetimeMonthlyCredits(
-        paymentRecord.userId,
-        paymentRecord.priceId
-      );
-      console.log('Added lifetime credits for user:', paymentRecord.userId);
-    }
-
-    // Send notification
-    const amount = invoice.amount_paid ? invoice.amount_paid / 100 : 0;
-    await sendNotification(
-      invoice.id,
-      paymentRecord.customerId,
-      paymentRecord.userId,
-      amount
-    );
-
-    console.log('<< Process lifetime plan purchase success');
   }
 
   /**
@@ -1106,11 +1069,7 @@ export class StripeProvider implements PaymentProvider {
     console.log('createOneTimePaymentRecord, invoiceId:', invoiceId);
 
     // Determine payment scene based on metadata
-    const metadata = session.metadata || {};
-    const isCreditPurchase = metadata.type === 'credit_purchase';
-    const scene = isCreditPurchase
-      ? PaymentScenes.CREDIT
-      : PaymentScenes.LIFETIME;
+    const scene = PaymentScenes.CREDIT;
 
     // Create one-time payment record with proper status and paid=false
     const db = await getDb();

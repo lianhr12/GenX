@@ -10,7 +10,7 @@ export const paymentKeys = {
     [...paymentKeys.all, 'currentPlan', userId] as const,
 };
 
-// Hook to get current plan with subscription and lifetime status
+// Hook to get current plan with subscription status
 export function useCurrentPlan(userId: string | undefined) {
   return useQuery({
     queryKey: paymentKeys.currentPlan(userId || ''),

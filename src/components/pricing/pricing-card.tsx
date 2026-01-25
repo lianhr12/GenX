@@ -187,7 +187,7 @@ export function PricingCard({
               metadata={metadata}
               className="mt-4 w-full cursor-pointer"
             >
-              {plan.isLifetime ? t('getLifetimeAccess') : t('getStarted')}
+              {t('getStarted')}
             </CheckoutButton>
           ) : (
             <LoginWrapper mode="modal" asChild callbackUrl={currentPath}>

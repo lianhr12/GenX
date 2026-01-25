@@ -58,7 +58,6 @@
       "currentPlan": "当前方案",
       "yourCurrentPlan": "您的当前方案",
       "getStartedForFree": "开始免费使用",
-      "getLifetimeAccess": "开启终身会员",
       "getStarted": "开始免费试用",
       "notAvailable": "不可用",
       "daysTrial": "{days} 天试用期"
@@ -80,13 +79,12 @@
       },
       "limits": {
         "limit-1": "不支持自定义域名",
-        "limit-2": "不支持自定义品牌",
-        "limit-3": "不支持终身更新"
+        "limit-2": "不支持自定义品牌"
       }
     },
     "pro": {
       "name": "专业版",
-      "description": "专业人士的高级功能",
+      "description": "更强大的功能",
       "features": {
         "feature-1": "无限项目",
         "feature-2": "10GB存储空间",
@@ -95,21 +93,7 @@
         "feature-5": "自定义域名"
       },
       "limits": {
-        "limit-1": "不支持自定义品牌",
-        "limit-2": "不支持终身更新"
-      }
-    },
-    "lifetime": {
-      "name": "终身版",
-      "description": "一次性付款获得所有高级功能",
-      "features": {
-        "feature-1": "所有专业版功能",
-        "feature-2": "100GB存储空间",
-        "feature-3": "专属支持",
-        "feature-4": "企业级安全",
-        "feature-5": "高级集成",
-        "feature-6": "自定义品牌",
-        "feature-7": "终身更新"
+        "limit-1": "不支持自定义品牌"
       }
     }
   },
@@ -560,8 +544,7 @@
         "status": {
           "active": "已激活",
           "trial": "试用中",
-          "free": "免费版",
-          "lifetime": "终身版"
+          "free": "免费版"
         },
         "interval": {
           "month": "月",
@@ -582,7 +565,6 @@
         "periodEndDate": "周期结束日期：",
         "trialEnds": "试用结束日期：",
         "freePlanMessage": "您当前使用的是功能有限的免费方案",
-        "lifetimeMessage": "您拥有所有高级功能的终身使用权限",
         "manageSubscription": "管理订阅和账单",
         "manageBilling": "管理账单",
         "upgradePlan": "升级方案",
@@ -669,8 +651,7 @@
             "PURCHASE": "购买积分",
             "USAGE": "使用积分",
             "EXPIRE": "过期积分",
-            "SUBSCRIPTION_RENEWAL": "订阅月度积分",
-            "LIFETIME_MONTHLY": "终身月度积分"
+            "SUBSCRIPTION_RENEWAL": "订阅月度积分"
           },
           "detailViewer": {
             "title": "积分交易详情",
@@ -906,7 +887,7 @@
         },
         "item-4": {
           "question": "你们的退款政策是什么？",
-          "answer": "我们为月付/年付订阅提供7天退款保证，终身计划提供14天退款保证。联系 support@genx.art 申请退款。"
+          "answer": "我们为月付/年付订阅提供7天退款保证：月付在当月扣费后7天内可退款，年付在年费扣费后7天内可退款。联系 support@genx.art 申请退款。"
         },
         "item-5": {
           "question": "找不到您想问的问题？",
@@ -1659,15 +1640,6 @@
           "feature3": "无水印",
           "feature4": "商业许可",
           "cta": "升级专业版"
-        },
-        "lifetime": {
-          "name": "终身版",
-          "description": "一次付款，终身创作",
-          "feature1": "所有专业版功能",
-          "feature2": "终身更新",
-          "feature3": "优先支持",
-          "feature4": "每月1000积分",
-          "cta": "获取终身版"
         }
       },
       "paymentNote": "通过 Stripe 安全支付",
@@ -1711,7 +1683,7 @@
         },
         "refund": {
           "question": "你们的退款政策是什么？",
-          "answer": "我们为专业版订阅提供7天退款保证，终身计划提供14天退款保证。只需在保证期内联系 support@genx.art，我们将在3个工作日内处理您的退款。"
+          "answer": "我们为专业版订阅提供7天退款保证：月付在当月扣费后7天内可退款，年付在年费扣费后7天内可退款。只需在保证期内联系 support@genx.art，我们将在3个工作日内处理您的退款。"
         },
         "cancel": {
           "question": "如何取消订阅？",

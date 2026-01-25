@@ -21,12 +21,11 @@ export enum PaymentTypes {
 }
 
 /**
- * Payment scene (lifetime, credit, subscription)
+ * Payment scene (credit, subscription)
  */
-export type PaymentScene = PaymentScenes.LIFETIME | PaymentScenes.CREDIT | PaymentScenes.SUBSCRIPTION;
+export type PaymentScene = PaymentScenes.CREDIT | PaymentScenes.SUBSCRIPTION;
 
 export enum PaymentScenes {
-  LIFETIME = 'lifetime',      // Lifetime plan purchase
   CREDIT = 'credit',          // Credit package purchase
   SUBSCRIPTION = 'subscription', // Regular subscription
 }
@@ -90,7 +89,6 @@ export interface PricePlan {
   limits?: string[];                 // List of limits for this plan
   prices: Price[];                   // Available prices for this plan
   isFree: boolean;                   // Whether this is a free plan
-  isLifetime: boolean;               // Whether this is a lifetime plan
   popular?: boolean;                 // Whether to mark this plan as popular in UI
   disabled?: boolean;                // Whether to disable this plan in UI
   credits?: Credits;                 // Credits configuration for this plan

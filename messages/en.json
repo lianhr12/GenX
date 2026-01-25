@@ -58,7 +58,6 @@
       "currentPlan": "Current Plan",
       "yourCurrentPlan": "Your Current Plan",
       "getStartedForFree": "Get Started For Free",
-      "getLifetimeAccess": "Get Lifetime Access",
       "getStarted": "Get Started",
       "notAvailable": "Not Available",
       "daysTrial": "{days}-day free trial"
@@ -81,7 +80,7 @@
       "limits": {
         "limit-1": "Custom domains",
         "limit-2": "Custom branding",
-        "limit-3": "Lifetime updates"
+        "limit-3": "Continuous updates"
       }
     },
     "pro": {
@@ -96,20 +95,7 @@
       },
       "limits": {
         "limit-1": "Custom branding",
-        "limit-2": "Lifetime updates"
-      }
-    },
-    "lifetime": {
-      "name": "Lifetime",
-      "description": "Premium features with one-time payment",
-      "features": {
-        "feature-1": "All Pro features",
-        "feature-2": "100 GB storage",
-        "feature-3": "Dedicated support",
-        "feature-4": "Enterprise-grade security",
-        "feature-5": "Advanced integrations",
-        "feature-6": "Custom branding",
-        "feature-7": "Lifetime updates"
+        "limit-2": "Continuous updates"
       }
     }
   },
@@ -560,8 +546,7 @@
         "status": {
           "active": "Active",
           "trial": "Trial",
-          "free": "Free",
-          "lifetime": "Lifetime"
+          "free": "Free"
         },
         "interval": {
           "month": "month",
@@ -582,7 +567,6 @@
         "periodEndDate": "Period end date:",
         "trialEnds": "Trial ends:",
         "freePlanMessage": "You are currently on the free plan with limited features",
-        "lifetimeMessage": "You have lifetime access to all premium features",
         "manageSubscription": "Manage Subscription and Billing",
         "manageBilling": "Manage Billing",
         "upgradePlan": "Upgrade Plan",
@@ -669,8 +653,7 @@
             "PURCHASE": "Purchased Credits",
             "USAGE": "Consumed Credits",
             "EXPIRE": "Expired Credits",
-            "SUBSCRIPTION_RENEWAL": "Subscription Renewal",
-            "LIFETIME_MONTHLY": "Lifetime Monthly"
+            "SUBSCRIPTION_RENEWAL": "Subscription Renewal"
           },
           "detailViewer": {
             "title": "Credit Transaction Detail",
@@ -906,7 +889,7 @@
         },
         "item-4": {
           "question": "What is the refund policy?",
-          "answer": "We offer a 7-day money-back guarantee for monthly/yearly subscriptions and 14 days for lifetime plans. Contact support@genx.art to request a refund."
+          "answer": "We offer a 7-day money-back guarantee for monthly subscriptions (within 7 days of the monthly charge) and yearly subscriptions (within 7 days of the annual charge). Contact support@genx.art to request a refund."
         },
         "item-5": {
           "question": "Can't find what you're looking for?",
@@ -1659,15 +1642,6 @@
           "feature3": "No watermark",
           "feature4": "Commercial license",
           "cta": "Go Pro"
-        },
-        "lifetime": {
-          "name": "Lifetime",
-          "description": "Pay once, create forever",
-          "feature1": "All Pro features",
-          "feature2": "Lifetime updates",
-          "feature3": "Priority support",
-          "feature4": "1000 monthly credits",
-          "cta": "Get Lifetime"
         }
       },
       "paymentNote": "Secure payment via Stripe",
@@ -1711,7 +1685,7 @@
         },
         "refund": {
           "question": "What is your refund policy?",
-          "answer": "We offer a 7-day money-back guarantee for Pro subscriptions and 14 days for Lifetime plans. Simply contact support@genx.art within the guarantee period and we'll process your refund within 3 business days."
+          "answer": "We offer a 7-day money-back guarantee for Pro subscriptions: monthly plans are eligible within 7 days of the monthly charge, and yearly plans within 7 days of the annual charge. Simply contact support@genx.art within the guarantee period and we'll process your refund within 3 business days."
         },
         "cancel": {
           "question": "How do I cancel my subscription?",
