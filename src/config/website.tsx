@@ -41,7 +41,7 @@ export const websiteConfig: WebsiteConfig = {
   auth: {
     enableGoogleLogin: true,
     enableGithubLogin: true,
-    enableFacebookLogin: true,
+    enableFacebookLogin: false, // Temporarily disabled
     enableCredentialLogin: true,
     enableGoogleOneTap: true,
   },

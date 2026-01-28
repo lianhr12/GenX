@@ -27,6 +27,7 @@ export const authClient = createAuthClient({
       promptOptions: {
         baseDelay: 1000, // Base delay for retry in ms
         maxAttempts: 3, // Max retry attempts before giving up
+        fedCM: false, // Disable FedCM to fix "response_type" missing error
       },
     }),
   ],
