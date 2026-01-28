@@ -40,9 +40,9 @@ interface SectionLabelProps {
 
 function SectionLabel({ children, required }: SectionLabelProps) {
   return (
-    <label className="text-xs text-zinc-400 font-medium uppercase tracking-wide mb-2 block">
+    <label className="text-xs text-muted-foreground font-medium uppercase tracking-wide mb-2 block">
       {children}
-      {required && <span className="text-red-400 ml-1">*</span>}
+      {required && <span className="text-destructive ml-1">*</span>}
     </label>
   );
 }
@@ -176,11 +176,11 @@ export function GeneratorPanel({
 
   return (
     <div className="h-full flex flex-col rounded-xl overflow-hidden">
-      {/* Main Card - Dark Theme */}
-      <div className="flex-1 flex flex-col rounded-xl bg-[#1A1A1A] border border-zinc-800 overflow-hidden">
+      {/* Main Card */}
+      <div className="flex-1 flex flex-col rounded-xl bg-card border border-border overflow-hidden">
         {/* Header Bar */}
-        <div className="px-5 py-3 bg-zinc-900/50 border-b border-zinc-800 shrink-0">
-          <h2 className="text-sm text-zinc-400 font-medium uppercase tracking-wide">
+        <div className="px-5 py-3 bg-muted/50 border-b border-border shrink-0">
+          <h2 className="text-sm text-muted-foreground font-medium uppercase tracking-wide">
             {getPageTitle()}
           </h2>
         </div>
@@ -193,29 +193,29 @@ export function GeneratorPanel({
             <DropdownMenu>
               <DropdownMenuTrigger
                 disabled={isLoading}
-                className="w-full flex items-center justify-between px-4 py-3 rounded-lg bg-zinc-900 hover:bg-zinc-800 transition-colors"
+                className="w-full flex items-center justify-between px-4 py-3 rounded-lg bg-muted hover:bg-muted/80 transition-colors"
               >
                 <div className="flex items-center gap-3">
-                  <div className="w-2 h-2 rounded-full bg-purple-500" />
-                  <span className="text-white font-medium">
+                  <div className="w-2 h-2 rounded-full bg-primary" />
+                  <span className="text-foreground font-medium">
                     {currentModel?.name || t('selectModel')}
                   </span>
                 </div>
-                <ChevronDown className="w-4 h-4 text-zinc-500" />
+                <ChevronDown className="w-4 h-4 text-muted-foreground" />
               </DropdownMenuTrigger>
               <DropdownMenuContent
                 align="start"
-                className="bg-[#1A1A1A] border-zinc-800 w-[300px] max-h-[320px] overflow-y-auto"
+                className="bg-card border-border w-[300px] max-h-[320px] overflow-y-auto"
               >
-                <DropdownMenuLabel className="text-zinc-400 text-xs uppercase tracking-wide">
+                <DropdownMenuLabel className="text-muted-foreground text-xs uppercase tracking-wide">
                   {t('videoModels')}
                 </DropdownMenuLabel>
-                <DropdownMenuSeparator className="bg-zinc-800" />
+                <DropdownMenuSeparator className="bg-border" />
                 {availableModels.map((model) => (
                   <DropdownMenuItem
                     key={model.id}
                     onClick={() => setSelectedModel(model.id)}
-                    className="text-white hover:bg-zinc-800 py-3"
+                    className="text-foreground hover:bg-muted py-3"
                   >
                     <div className="flex items-center justify-between w-full">
                       <div className="flex items-center gap-3">
@@ -223,14 +223,14 @@ export function GeneratorPanel({
                           className={cn(
                             'w-2 h-2 rounded-full',
                             selectedModel === model.id
-                              ? 'bg-purple-500'
-                              : 'bg-zinc-600'
+                              ? 'bg-primary'
+                              : 'bg-muted-foreground/50'
                           )}
                         />
                         <span className="font-medium">{model.name}</span>
                       </div>
                     </div>
-                    <div className="text-xs text-zinc-500 mt-1 ml-5">
+                    <div className="text-xs text-muted-foreground mt-1 ml-5">
                       {model.provider} •{' '}
                       {model.supportImageToVideo
                         ? t('highQuality')
@@ -259,7 +259,7 @@ export function GeneratorPanel({
                 disabled={isLoading}
               />
               {imagePreview ? (
-                <div className="relative group aspect-video rounded-lg overflow-hidden border-2 border-zinc-700">
+                <div className="relative group aspect-video rounded-lg overflow-hidden border-2 border-border">
                   <img
                     src={imagePreview}
                     alt="Preview"
@@ -268,24 +268,24 @@ export function GeneratorPanel({
                   <button
                     type="button"
                     onClick={handleRemoveImage}
-                    className="absolute top-2 right-2 p-1.5 rounded-full bg-zinc-700 hover:bg-zinc-600 opacity-0 group-hover:opacity-100 transition-opacity"
+                    className="absolute top-2 right-2 p-1.5 rounded-full bg-muted hover:bg-muted/80 opacity-0 group-hover:opacity-100 transition-opacity"
                   >
-                    <X className="w-3.5 h-3.5 text-white" />
+                    <X className="w-3.5 h-3.5 text-foreground" />
                   </button>
                 </div>
               ) : (
                 <button
                   type="button"
                   onClick={() => fileInputRef.current?.click()}
-                  className="flex flex-col items-center justify-center w-full aspect-video rounded-lg border-2 border-dashed border-zinc-700 hover:border-purple-500/50 cursor-pointer transition-colors group"
+                  className="flex flex-col items-center justify-center w-full aspect-video rounded-lg border-2 border-dashed border-border hover:border-primary/50 cursor-pointer transition-colors group"
                 >
-                  <div className="w-12 h-12 rounded-full flex items-center justify-center bg-zinc-800 group-hover:bg-zinc-700 transition-colors">
-                    <ImageIcon className="w-6 h-6 text-zinc-500 group-hover:text-purple-400" />
+                  <div className="w-12 h-12 rounded-full flex items-center justify-center bg-muted group-hover:bg-muted/80 transition-colors">
+                    <ImageIcon className="w-6 h-6 text-muted-foreground group-hover:text-primary" />
                   </div>
-                  <p className="text-sm text-zinc-400 mt-3">
+                  <p className="text-sm text-muted-foreground mt-3">
                     {t('uploadImage')}
                   </p>
-                  <p className="text-xs text-zinc-600 mt-1">
+                  <p className="text-xs text-muted-foreground/70 mt-1">
                     {t('uploadHint')}
                   </p>
                 </button>
@@ -307,7 +307,7 @@ export function GeneratorPanel({
           <div>
             <div className="flex items-center justify-between mb-2">
               <SectionLabel>{t('prompt')}</SectionLabel>
-              <button className="flex items-center gap-2 text-xs text-zinc-500 hover:text-zinc-400 transition-colors">
+              <button className="flex items-center gap-2 text-xs text-muted-foreground hover:text-foreground transition-colors">
                 <Wand2 className="w-3 h-3" />
                 <span>{t('enhance')}</span>
               </button>
@@ -317,7 +317,7 @@ export function GeneratorPanel({
               onChange={(e) => setPrompt(e.target.value)}
               placeholder={t('promptPlaceholder')}
               disabled={isLoading}
-              className="w-full min-h-[100px] max-h-[200px] px-4 py-3 rounded-lg bg-zinc-900 border border-zinc-700 text-white placeholder:text-zinc-600 resize-none focus:outline-none focus:border-purple-500 transition-colors text-sm leading-relaxed"
+              className="w-full min-h-[100px] max-h-[200px] px-4 py-3 rounded-lg bg-muted border border-border text-foreground placeholder:text-muted-foreground/50 resize-none focus:outline-none focus:border-primary transition-colors text-sm leading-relaxed"
               rows={4}
               maxLength={2000}
             />
@@ -339,8 +339,8 @@ export function GeneratorPanel({
                       className={cn(
                         'flex-1 px-4 py-3 rounded-lg text-sm font-medium transition-all',
                         aspectRatio === ar
-                          ? 'bg-purple-600/20 text-purple-400 border-2 border-purple-500'
-                          : 'bg-zinc-900 text-zinc-400 border-2 border-zinc-800 hover:border-zinc-700'
+                          ? 'bg-primary/20 text-primary border-2 border-primary'
+                          : 'bg-muted text-muted-foreground border-2 border-border hover:border-muted-foreground/50'
                       )}
                     >
                       <div className="flex flex-col items-center gap-2">
@@ -348,8 +348,8 @@ export function GeneratorPanel({
                           className={cn(
                             'border-2 rounded-sm',
                             aspectRatio === ar
-                              ? 'border-purple-400'
-                              : 'border-zinc-600',
+                              ? 'border-primary'
+                              : 'border-muted-foreground/50',
                             ar === '16:9' && 'w-8 h-4',
                             ar === '9:16' && 'w-4 h-8',
                             ar === '1:1' && 'w-6 h-6',
@@ -380,8 +380,8 @@ export function GeneratorPanel({
                         className={cn(
                           'flex-1 px-3 py-2.5 rounded-lg text-sm font-medium transition-all',
                           duration === d
-                            ? 'bg-purple-600 text-white'
-                            : 'bg-zinc-900 text-zinc-400 hover:bg-zinc-800'
+                            ? 'bg-primary text-primary-foreground'
+                            : 'bg-muted text-muted-foreground hover:bg-muted/80'
                         )}
                       >
                         {d}s
@@ -404,8 +404,8 @@ export function GeneratorPanel({
                         className={cn(
                           'flex-1 px-3 py-2.5 rounded-lg text-sm font-medium transition-all capitalize',
                           quality === q
-                            ? 'bg-purple-600 text-white'
-                            : 'bg-zinc-900 text-zinc-400 hover:bg-zinc-800'
+                            ? 'bg-primary text-primary-foreground'
+                            : 'bg-muted text-muted-foreground hover:bg-muted/80'
                         )}
                       >
                         {q}
@@ -419,15 +419,15 @@ export function GeneratorPanel({
         </div>
 
         {/* Bottom Section - Credits + Generate Button */}
-        <div className="px-5 py-4 bg-zinc-900/50 border-t border-zinc-800 space-y-4 shrink-0">
+        <div className="px-5 py-4 bg-muted/50 border-t border-border space-y-4 shrink-0">
           {/* Credits Display */}
           <div className="flex items-center justify-between">
-            <span className="text-xs text-zinc-500 font-medium uppercase tracking-wide">
+            <span className="text-xs text-muted-foreground font-medium uppercase tracking-wide">
               {t('totalCredits')}
             </span>
             <div className="flex items-center gap-2">
-              <div className="w-1.5 h-1.5 rounded-full bg-yellow-500" />
-              <span className="text-white font-medium">
+              <div className="w-1.5 h-1.5 rounded-full bg-accent-foreground" />
+              <span className="text-foreground font-medium">
                 {t('credits', { count: estimatedCredits })}
               </span>
             </div>
@@ -441,13 +441,13 @@ export function GeneratorPanel({
             className={cn(
               'w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl text-sm font-semibold transition-all',
               canSubmit
-                ? 'bg-purple-600 hover:bg-purple-700 text-white'
-                : 'bg-zinc-800 text-zinc-600 cursor-not-allowed'
+                ? 'bg-primary hover:bg-primary/90 text-primary-foreground'
+                : 'bg-muted text-muted-foreground cursor-not-allowed'
             )}
           >
             {isLoading ? (
               <>
-                <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                <div className="w-4 h-4 border-2 border-primary-foreground/30 border-t-primary-foreground rounded-full animate-spin" />
                 {t('generating')}
               </>
             ) : !isLoggedIn ? (
@@ -465,7 +465,7 @@ export function GeneratorPanel({
 
           {/* Login hint for guests */}
           {!isLoggedIn && (
-            <p className="text-xs text-zinc-500 text-center">
+            <p className="text-xs text-muted-foreground text-center">
               {t('loginHint')}
             </p>
           )}

@@ -188,16 +188,19 @@ function MainMobileMenu({ userLoggedIn, onLinkClicked }: MainMobileMenuProps) {
         {/* main menu */}
         <ul className="w-full px-4">
           {menuLinks?.map((item) => {
+            // Use exact match or path prefix with trailing slash to avoid false positives
             const isActive = item.href
               ? item.href === '/'
                 ? localePathname === '/'
-                : localePathname.startsWith(item.href)
+                : localePathname === item.href ||
+                  localePathname.startsWith(item.href + '/')
               : item.items?.some(
                   (subItem) =>
                     subItem.href &&
                     (subItem.href === '/'
                       ? localePathname === '/'
-                      : localePathname.startsWith(subItem.href))
+                      : localePathname === subItem.href ||
+                        localePathname.startsWith(subItem.href + '/'))
                 );
 
             return (
@@ -236,9 +239,11 @@ function MainMobileMenu({ userLoggedIn, onLinkClicked }: MainMobileMenuProps) {
                     <CollapsibleContent className="pl-2">
                       <ul className="mt-2 space-y-2 pl-0">
                         {item.items.map((subItem) => {
+                          // Use exact match or path prefix with trailing slash
                           const isSubItemActive =
                             subItem.href &&
-                            localePathname.startsWith(subItem.href);
+                            (localePathname === subItem.href ||
+                              localePathname.startsWith(subItem.href + '/'));
 
                           return (
                             <li key={subItem.title}>

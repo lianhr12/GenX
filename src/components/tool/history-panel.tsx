@@ -58,7 +58,7 @@ export function HistoryPanel({
   return (
     <div
       className={cn(
-        'flex flex-col bg-[#1A1A1A] border-l border-zinc-800 transition-all duration-300',
+        'flex flex-col bg-card border-l border-border transition-all duration-300',
         isExpanded ? 'w-[280px]' : 'w-[48px]',
         className
       )}
@@ -67,25 +67,25 @@ export function HistoryPanel({
       <button
         onClick={onToggle}
         className={cn(
-          'flex items-center gap-2 px-3 py-3 border-b border-zinc-800 hover:bg-zinc-800/50 transition-colors',
+          'flex items-center gap-2 px-3 py-3 border-b border-border hover:bg-muted/50 transition-colors',
           isExpanded ? 'justify-between' : 'justify-center'
         )}
       >
         {isExpanded ? (
           <>
             <div className="flex items-center gap-2">
-              <History className="w-4 h-4 text-zinc-400" />
-              <span className="text-sm text-zinc-300 font-medium">
+              <History className="w-4 h-4 text-muted-foreground" />
+              <span className="text-sm text-foreground font-medium">
                 {t('title')}
               </span>
             </div>
-            <ChevronRight className="w-4 h-4 text-zinc-500" />
+            <ChevronRight className="w-4 h-4 text-muted-foreground" />
           </>
         ) : (
           <div className="relative">
-            <ChevronLeft className="w-4 h-4 text-zinc-400" />
+            <ChevronLeft className="w-4 h-4 text-muted-foreground" />
             {completedVideos.length > 0 && (
-              <span className="absolute -top-1 -right-1 w-4 h-4 text-[10px] font-bold bg-purple-600 text-white rounded-full flex items-center justify-center">
+              <span className="absolute -top-1 -right-1 w-4 h-4 text-[10px] font-bold bg-primary text-primary-foreground rounded-full flex items-center justify-center">
                 {completedVideos.length > 9 ? '9+' : completedVideos.length}
               </span>
             )}
@@ -100,13 +100,13 @@ export function HistoryPanel({
           <div className="flex-1 overflow-y-auto custom-scrollbar p-2 space-y-2">
             {isLoading ? (
               <div className="flex items-center justify-center py-8">
-                <Loader2 className="w-5 h-5 text-zinc-500 animate-spin" />
+                <Loader2 className="w-5 h-5 text-muted-foreground animate-spin" />
               </div>
             ) : completedVideos.length === 0 ? (
               <div className="text-center py-8">
-                <History className="w-8 h-8 text-zinc-600 mx-auto mb-2" />
-                <p className="text-sm text-zinc-500">{t('noVideos')}</p>
-                <p className="text-xs text-zinc-600 mt-1">
+                <History className="w-8 h-8 text-muted-foreground/50 mx-auto mb-2" />
+                <p className="text-sm text-muted-foreground">{t('noVideos')}</p>
+                <p className="text-xs text-muted-foreground/70 mt-1">
                   {t('noVideosHint')}
                 </p>
               </div>
@@ -128,10 +128,10 @@ export function HistoryPanel({
 
           {/* View All Link */}
           {completedVideos.length > 0 && (
-            <div className="p-3 border-t border-zinc-800">
+            <div className="p-3 border-t border-border">
               <LocaleLink
                 href="/dashboard"
-                className="flex items-center justify-center gap-2 text-sm text-zinc-400 hover:text-purple-400 transition-colors"
+                className="flex items-center justify-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
               >
                 <span>{t('viewAll')}</span>
                 <ExternalLink className="w-3 h-3" />
@@ -173,12 +173,12 @@ function VideoHistoryCard({
         'w-full text-left rounded-lg overflow-hidden transition-all group',
         'border-2',
         isSelected
-          ? 'border-purple-500 bg-purple-600/10'
-          : 'border-zinc-800 bg-zinc-900 hover:border-zinc-700 hover:bg-zinc-800/50'
+          ? 'border-primary bg-primary/10'
+          : 'border-border bg-muted hover:border-muted-foreground/50 hover:bg-muted/80'
       )}
     >
       {/* Thumbnail */}
-      <div className="relative aspect-video bg-zinc-800">
+      <div className="relative aspect-video bg-muted">
         {video.thumbnailUrl ? (
           <img
             src={video.thumbnailUrl}
@@ -187,7 +187,7 @@ function VideoHistoryCard({
           />
         ) : (
           <div className="w-full h-full flex items-center justify-center">
-            <Play className="w-6 h-6 text-zinc-600" />
+            <Play className="w-6 h-6 text-muted-foreground/50" />
           </div>
         )}
 
@@ -206,10 +206,10 @@ function VideoHistoryCard({
 
       {/* Info */}
       <div className="p-2">
-        <p className="text-xs text-zinc-300 line-clamp-2 leading-relaxed">
+        <p className="text-xs text-foreground line-clamp-2 leading-relaxed">
           {video.prompt || untitledText}
         </p>
-        <div className="flex items-center gap-1.5 mt-1.5 text-[10px] text-zinc-500">
+        <div className="flex items-center gap-1.5 mt-1.5 text-[10px] text-muted-foreground">
           {video.aspectRatio && <span>{video.aspectRatio}</span>}
           {video.aspectRatio && timeAgo && <span>•</span>}
           {timeAgo && <span>{timeAgo}</span>}

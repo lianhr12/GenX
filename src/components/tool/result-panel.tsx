@@ -82,17 +82,17 @@ export function ResultPanel({
           {/* Style showcase animation */}
           <div className="relative mb-8">
             {/* Background glow */}
-            <div className="absolute inset-0 bg-purple-500/10 rounded-2xl blur-3xl" />
+            <div className="absolute inset-0 bg-primary/10 rounded-2xl blur-3xl" />
 
             {/* Style card */}
-            <div className="relative bg-zinc-900/80 border border-zinc-700 rounded-2xl p-8 backdrop-blur-sm">
+            <div className="relative bg-muted/80 border border-border rounded-2xl p-8 backdrop-blur-sm">
               <div className="text-5xl mb-4 animate-bounce">
                 {activeStyle.icon}
               </div>
-              <h4 className="text-lg font-semibold text-white mb-1">
+              <h4 className="text-lg font-semibold text-foreground mb-1">
                 {tStyles(`${activeStyle.translationKey}.name` as never)}
               </h4>
-              <p className="text-sm text-zinc-400">
+              <p className="text-sm text-muted-foreground">
                 {tStyles(`${activeStyle.translationKey}.description` as never)}
               </p>
 
@@ -105,8 +105,8 @@ export function ResultPanel({
                     className={cn(
                       'w-2 h-2 rounded-full transition-all',
                       index === activeStyleIndex
-                        ? 'bg-purple-500 w-4'
-                        : 'bg-zinc-600 hover:bg-zinc-500'
+                        ? 'bg-primary w-4'
+                        : 'bg-muted-foreground/50 hover:bg-muted-foreground'
                     )}
                   />
                 ))}
@@ -116,18 +116,18 @@ export function ResultPanel({
 
           {/* Main text */}
           <div className="flex items-center justify-center gap-2 mb-3">
-            <Sparkles className="h-5 w-5 text-purple-400" />
-            <h3 className="text-xl font-semibold text-white">
+            <Sparkles className="h-5 w-5 text-primary" />
+            <h3 className="text-xl font-semibold text-foreground">
               {t('emptyTitle')}
             </h3>
           </div>
 
-          <p className="text-zinc-400 text-sm mb-6 max-w-sm mx-auto">
+          <p className="text-muted-foreground text-sm mb-6 max-w-sm mx-auto">
             {t('emptyDescription')}
           </p>
 
           {/* Feature highlights */}
-          <div className="flex items-center justify-center gap-6 text-xs text-zinc-500">
+          <div className="flex items-center justify-center gap-6 text-xs text-muted-foreground">
             <span className="flex items-center gap-1.5">
               <div className="w-1.5 h-1.5 rounded-full bg-green-500" />
               {t('featureStyles')}
@@ -137,7 +137,7 @@ export function ResultPanel({
               {t('featureHD')}
             </span>
             <span className="flex items-center gap-1.5">
-              <div className="w-1.5 h-1.5 rounded-full bg-yellow-500" />
+              <div className="w-1.5 h-1.5 rounded-full bg-accent-foreground" />
               {t('featureSpeed')}
             </span>
           </div>
@@ -151,29 +151,29 @@ export function ResultPanel({
     return (
       <div className="h-full flex items-center justify-center p-6">
         <div className="text-center max-w-md">
-          <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-zinc-800 flex items-center justify-center relative">
-            <div className="absolute inset-0 rounded-full border-4 border-purple-500/20" />
+          <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-muted flex items-center justify-center relative">
+            <div className="absolute inset-0 rounded-full border-4 border-primary/20" />
             <div
-              className="absolute inset-0 rounded-full border-4 border-purple-500 border-t-transparent animate-spin"
+              className="absolute inset-0 rounded-full border-4 border-primary border-t-transparent animate-spin"
               style={{
                 transform: `rotate(${generatingProgress * 3.6}deg)`,
               }}
             />
-            <Loader2 className="w-6 h-6 text-purple-400 animate-spin" />
+            <Loader2 className="w-6 h-6 text-primary animate-spin" />
           </div>
-          <h3 className="text-lg font-semibold text-white mb-2">
+          <h3 className="text-lg font-semibold text-foreground mb-2">
             {t('generatingTitle')}
           </h3>
-          <p className="text-zinc-400 text-sm">{t('generatingDescription')}</p>
+          <p className="text-muted-foreground text-sm">{t('generatingDescription')}</p>
           {generatingProgress > 0 && (
             <div className="mt-4">
-              <div className="w-48 h-2 mx-auto bg-zinc-800 rounded-full overflow-hidden">
+              <div className="w-48 h-2 mx-auto bg-muted rounded-full overflow-hidden">
                 <div
-                  className="h-full bg-purple-500 transition-all duration-300"
+                  className="h-full bg-primary transition-all duration-300"
                   style={{ width: `${generatingProgress}%` }}
                 />
               </div>
-              <p className="text-xs text-zinc-500 mt-2">
+              <p className="text-xs text-muted-foreground mt-2">
                 {generatingProgress}%
               </p>
             </div>
@@ -188,19 +188,19 @@ export function ResultPanel({
     return (
       <div className="h-full flex items-center justify-center p-6">
         <div className="text-center max-w-md">
-          <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-red-500/10 flex items-center justify-center">
+          <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-destructive/10 flex items-center justify-center">
             <span className="text-2xl">😢</span>
           </div>
-          <h3 className="text-lg font-semibold text-white mb-2">
+          <h3 className="text-lg font-semibold text-foreground mb-2">
             {t('failedTitle')}
           </h3>
-          <p className="text-zinc-400 text-sm mb-4">
+          <p className="text-muted-foreground text-sm mb-4">
             {currentVideo.errorMessage || t('failedDescription')}
           </p>
           {onRegenerate && (
             <button
               onClick={onRegenerate}
-              className="flex items-center gap-2 px-4 py-2 mx-auto rounded-lg text-sm font-medium bg-purple-600 hover:bg-purple-700 text-white transition-all"
+              className="flex items-center gap-2 px-4 py-2 mx-auto rounded-lg text-sm font-medium bg-primary hover:bg-primary/90 text-primary-foreground transition-all"
             >
               <RefreshCw className="h-4 w-4" />
               {t('tryAgain')}
@@ -226,7 +226,7 @@ export function ResultPanel({
             />
           ) : (
             <div className="w-full h-full flex items-center justify-center">
-              <Play className="h-12 w-12 text-zinc-500" />
+              <Play className="h-12 w-12 text-muted-foreground" />
             </div>
           )}
         </div>
@@ -234,7 +234,7 @@ export function ResultPanel({
         {/* Video Info */}
         {currentVideo && (
           <div className="space-y-3">
-            <div className="flex items-center gap-2 text-sm text-zinc-400">
+            <div className="flex items-center gap-2 text-sm text-muted-foreground">
               <span>
                 {t('model')}: {currentVideo?.model || t('notAvailable')}
               </span>
@@ -248,7 +248,7 @@ export function ResultPanel({
               )}
             </div>
 
-            <p className="text-sm text-zinc-300 line-clamp-2">
+            <p className="text-sm text-foreground line-clamp-2">
               &ldquo;{currentVideo?.prompt || ''}&rdquo;
             </p>
 
@@ -258,13 +258,13 @@ export function ResultPanel({
                 <a
                   href={videoSrc}
                   download
-                  className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all bg-purple-600 text-white hover:bg-purple-700"
+                  className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all bg-primary text-primary-foreground hover:bg-primary/90"
                 >
                   <Download className="h-4 w-4" />
                   {t('download')}
                 </a>
               ) : (
-                <span className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium bg-zinc-800 text-zinc-500 cursor-not-allowed">
+                <span className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium bg-muted text-muted-foreground cursor-not-allowed">
                   <Download className="h-4 w-4" />
                   {t('download')}
                 </span>
@@ -273,7 +273,7 @@ export function ResultPanel({
               {onRegenerate && (
                 <button
                   onClick={onRegenerate}
-                  className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium border border-zinc-700 text-zinc-300 hover:bg-zinc-800 transition-all"
+                  className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium border border-border text-foreground hover:bg-muted transition-all"
                 >
                   <RefreshCw className="h-4 w-4" />
                   {t('regenerate')}

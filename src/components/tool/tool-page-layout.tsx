@@ -177,7 +177,7 @@ export function ToolPageLayout({
   }, []);
 
   return (
-    <div className="min-h-screen bg-zinc-950">
+    <div className="min-h-screen bg-background">
       {/* Tool Guide for new users */}
       <ToolGuide isLoggedIn={isLoggedIn} toolType={toolType} />
 
@@ -195,7 +195,7 @@ export function ToolPageLayout({
 
         {/* Center: Result Panel */}
         <div className="flex-1 p-4 overflow-hidden">
-          <div className="h-full rounded-xl bg-[#1A1A1A] border border-zinc-800 overflow-hidden">
+          <div className="h-full rounded-xl bg-card border border-border overflow-hidden">
             {/* Error Display */}
             {error && (
               <div className="m-4 p-4 rounded-lg bg-red-500/10 border border-red-500/20">

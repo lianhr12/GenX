@@ -77,8 +77,8 @@ function ArtStyleCard({
         'relative flex flex-col items-center justify-center p-3 rounded-lg transition-all',
         'border-2 text-center',
         isSelected
-          ? 'bg-purple-600/20 border-purple-500 text-purple-400'
-          : 'bg-zinc-900 border-zinc-800 text-zinc-400 hover:border-zinc-700 hover:bg-zinc-800',
+          ? 'bg-primary/20 border-primary text-primary'
+          : 'bg-muted border-border text-muted-foreground hover:border-muted-foreground/50 hover:bg-muted/80',
         disabled && 'opacity-50 cursor-not-allowed'
       )}
     >
@@ -92,7 +92,7 @@ function ArtStyleCard({
 
       {/* Selected indicator */}
       {isSelected && (
-        <div className="absolute top-1 right-1 w-2 h-2 rounded-full bg-purple-500" />
+        <div className="absolute top-1 right-1 w-2 h-2 rounded-full bg-primary" />
       )}
     </button>
   );

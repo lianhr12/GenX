@@ -120,9 +120,12 @@ export function Navbar({ scroll }: NavBarProps) {
                       <NavigationMenuContent>
                         <ul className="grid w-[400px] gap-4 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
                           {item.items?.map((subItem, subIndex) => {
+                            // Use exact match or path prefix with trailing slash to avoid false positives
+                            // e.g., /create/image should not match /create/image-to-video
                             const isSubItemActive =
                               subItem.href &&
-                              localePathname.startsWith(subItem.href);
+                              (localePathname === subItem.href ||
+                                localePathname.startsWith(subItem.href + '/'));
                             return (
                               <li key={subIndex}>
                                 <NavigationMenuLink asChild>
