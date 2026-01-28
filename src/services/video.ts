@@ -10,6 +10,7 @@
 
 import {
   type ProviderType,
+  type VideoGenerationParams,
   type VideoTaskResponse,
   getProvider,
 } from '@/ai/video';
@@ -25,14 +26,9 @@ import { nanoid } from 'nanoid';
 // Types
 // ============================================================================
 
-export interface GenerateVideoParams {
+export interface GenerateVideoParams extends VideoGenerationParams {
   userId: string;
-  prompt: string;
-  model: string;
   duration: number;
-  aspectRatio?: string;
-  quality?: string;
-  imageUrl?: string;
 }
 
 export interface VideoGenerationResult {
@@ -148,10 +144,11 @@ export class VideoService {
 
     try {
       const result = await provider.createTask({
+        model: params.model,
         prompt: params.prompt,
         duration: params.duration,
-        aspectRatio: params.aspectRatio as '16:9' | '9:16' | '1:1',
-        quality: params.quality as 'standard' | 'high',
+        aspectRatio: params.aspectRatio,
+        quality: params.quality,
         imageUrl: params.imageUrl,
         callbackUrl,
       });

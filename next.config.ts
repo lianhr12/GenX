@@ -40,7 +40,7 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: 'https',
-        hostname: 'cdn.genx.art',
+        hostname: 'asset.genx.art',
       },
       {
         protocol: 'https',

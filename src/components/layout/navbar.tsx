@@ -43,10 +43,12 @@ const customNavigationMenuTriggerStyle = cn(
 
 export function Navbar({ scroll }: NavBarProps) {
   const t = useTranslations();
-  const scrolled = useScroll(50);
   const menuLinks = useNavbarLinks();
   const localePathname = useLocalePathname();
+  const isHome = localePathname === Routes.Root;
   const [mounted, setMounted] = useState(false);
+  const [scrollThreshold, setScrollThreshold] = useState(50);
+  const scrolled = useScroll(scrollThreshold);
   const { data: session, isPending } = authClient.useSession();
   const currentUser = session?.user;
   // console.log(`Navbar, user:`, user);
@@ -55,14 +57,31 @@ export function Navbar({ scroll }: NavBarProps) {
     setMounted(true);
   }, []);
 
+  useEffect(() => {
+    if (!isHome) {
+      setScrollThreshold(50);
+      return;
+    }
+
+    const updateThreshold = () => {
+      const nextThreshold = Math.max(window.innerHeight - 80, 50);
+      setScrollThreshold(nextThreshold);
+    };
+
+    updateThreshold();
+    window.addEventListener('resize', updateThreshold);
+    return () => window.removeEventListener('resize', updateThreshold);
+  }, [localePathname]);
+
   return (
     <section
       className={cn(
-        'sticky inset-x-0 top-0 z-40 py-4 transition-all duration-300',
+        'inset-x-0 top-0 z-40 py-4 transition-all duration-300',
+        isHome ? 'fixed' : 'sticky',
         scroll
           ? scrolled
-            ? 'bg-muted/50 backdrop-blur-md border-b supports-backdrop-filter:bg-muted/50'
-            : 'bg-transparent'
+            ? 'bg-background/70 backdrop-blur-lg border-b border-border/40 supports-backdrop-filter:bg-background/60'
+            : 'bg-transparent border-b border-transparent backdrop-blur-0'
           : 'border-b bg-muted/50'
       )}
     >

@@ -15,6 +15,19 @@ export class KieProvider implements AIVideoProvider {
   private apiKey: string;
   private baseUrl = 'https://api.kie.ai/api/v1';
 
+  private mapAspectRatio(value?: VideoGenerationParams['aspectRatio']) {
+    if (!value) return 'landscape';
+    if (value === '9:16' || value === '3:4') return 'portrait';
+    return 'landscape';
+  }
+
+  private mapQuality(value?: VideoGenerationParams['quality']) {
+    if (!value) return 'high';
+    if (value === 'standard') return 'high';
+    if (value === '480P') return 'low';
+    return 'high';
+  }
+
   constructor(apiKey: string) {
     this.apiKey = apiKey;
   }
@@ -27,13 +40,12 @@ export class KieProvider implements AIVideoProvider {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        model: 'sora-2-text-to-video',
+        model: params.model,
         input: {
           prompt: params.prompt,
-          aspect_ratio:
-            params.aspectRatio === '9:16' ? 'portrait' : 'landscape',
+          aspect_ratio: this.mapAspectRatio(params.aspectRatio),
           n_frames: String(params.duration || 10),
-          size: params.quality || 'high',
+          size: this.mapQuality(params.quality),
           remove_watermark: params.removeWatermark ?? true,
         },
         callBackUrl: params.callbackUrl,

@@ -3,17 +3,29 @@
  * POST /api/v1/video/generate
  */
 
+import { getAvailableModels } from '@/config/video-credits';
 import { requireSession, unauthorizedResponse } from '@/lib/require-session';
 import { videoService } from '@/services/video';
 import { type NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
 
+const availableModels = getAvailableModels();
+const aspectRatioOptions = Array.from(
+  new Set(availableModels.flatMap((model) => model.aspectRatios))
+);
+const qualityOptions = Array.from(
+  new Set(availableModels.flatMap((model) => model.qualities ?? []))
+);
+const allQualityOptions = Array.from(
+  new Set([...qualityOptions, 'standard', 'high'])
+);
+
 const generateSchema = z.object({
   prompt: z.string().min(1).max(5000),
   model: z.string().min(1),
   duration: z.number().min(1).max(30),
-  aspectRatio: z.enum(['16:9', '9:16', '1:1']).optional(),
-  quality: z.enum(['standard', 'high']).optional(),
+  aspectRatio: z.enum(aspectRatioOptions as [string, ...string[]]).optional(),
+  quality: z.enum(allQualityOptions as [string, ...string[]]).optional(),
   imageUrl: z.string().url().optional(),
 });
 

@@ -5,10 +5,11 @@
 
 // Unified video generation parameters
 export interface VideoGenerationParams {
+  model: string;
   prompt: string;
-  aspectRatio?: '16:9' | '9:16' | '1:1';
+  aspectRatio?: '16:9' | '9:16' | '1:1' | '4:3' | '3:4' | '21:9';
   duration?: number;
-  quality?: 'standard' | 'high';
+  quality?: 'standard' | 'high' | '480P' | '720P' | '1080P';
   imageUrl?: string;
   removeWatermark?: boolean;
   callbackUrl?: string;

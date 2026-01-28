@@ -32,37 +32,32 @@ const transitionVariants = {
 };
 
 // Art style video samples for background
-// Using WebM as primary format for better compression, with MP4 fallback
+// 统一使用 Cloudflare R2 的 MP4 视频
 const artStyleVideos = [
   {
     id: 'cyberpunk',
-    webm: '/videos/demo/cyberpunk.webm',
-    mp4: '/videos/demo/cyberpunk.mp4',
-    poster: '/images/demo/cyberpunk-poster.jpg',
+    mp4: 'https://asset.genx.art/home/video/_04d086227554f06685353417a38f9e89_70fadb6e-314e-4494-857a-6004a7bbb6aa.mp4',
+    poster: 'https://asset.genx.art/home/video/_04d086227554f06685353417a38f9e89_70fadb6e-314e-4494-857a-6004a7bbb6aa_01.png',
   },
   {
     id: 'watercolor',
-    webm: '/videos/demo/watercolor.webm',
-    mp4: '/videos/demo/watercolor.mp4',
-    poster: '/images/demo/watercolor-poster.jpg',
+    mp4: 'https://asset.genx.art/home/video/_89a6fc273b0d504687862aa2999382aa_39c5be85-1261-4792-9d4d-aa27363043e4.mp4',
+    poster: 'https://asset.genx.art/home/video/_89a6fc273b0d504687862aa2999382aa_39c5be85-1261-4792-9d4d-aa27363043e4_01.png',
   },
   {
     id: 'oil-painting',
-    webm: '/videos/demo/oil-painting.webm',
-    mp4: '/videos/demo/oil-painting.mp4',
-    poster: '/images/demo/oil-painting-poster.jpg',
+    mp4: 'https://asset.genx.art/home/video/_ddf6d58cce8fe6f57c3ee514db06da23_e475bcb5-91dc-4180-8862-bcd5089de28f.mp4',
+    poster: 'https://asset.genx.art/home/video/_ddf6d58cce8fe6f57c3ee514db06da23_e475bcb5-91dc-4180-8862-bcd5089de28f_01.png',
   },
   {
     id: 'anime',
-    webm: '/videos/demo/anime.webm',
-    mp4: '/videos/demo/anime.mp4',
-    poster: '/images/demo/anime-poster.jpg',
+    mp4: 'https://asset.genx.art/home/video/_4bc4c70ea2304da776542666be0df089_5eefa457-e760-4ac8-9665-babec92bea0e.mp4',
+    poster: 'https://asset.genx.art/home/video/_4bc4c70ea2304da776542666be0df089_5eefa457-e760-4ac8-9665-babec92bea0e_01.png',
   },
   {
     id: 'fluid-art',
-    webm: '/videos/demo/fluid-art.webm',
-    mp4: '/videos/demo/fluid-art.mp4',
-    poster: '/images/demo/fluid-art-poster.jpg',
+    mp4: 'https://asset.genx.art/home/video/_b3e26e0f6f3d6ce75e88fc50ae986c59_cf27cf03-03d9-46f4-9448-0fa2b9507984.mp4',
+    poster: 'https://asset.genx.art/home/video/_b3e26e0f6f3d6ce75e88fc50ae986c59_cf27cf03-03d9-46f4-9448-0fa2b9507984_01.png',
   },
 ];
 
@@ -104,6 +99,8 @@ export function HeroSection() {
 
   // Preload next video
   useEffect(() => {
+    if (nextVideo.mp4 === currentVideo.mp4) return;
+
     const link = document.createElement('link');
     link.rel = 'preload';
     link.as = 'video';
@@ -113,7 +110,7 @@ export function HeroSection() {
     return () => {
       document.head.removeChild(link);
     };
-  }, [nextVideo.mp4]);
+  }, [currentVideo.mp4, nextVideo.mp4]);
 
   const handleVideoCanPlay = useCallback(() => {
     setIsVideoLoaded(true);
@@ -128,7 +125,7 @@ export function HeroSection() {
       {/* Video Background */}
       <div className="absolute inset-0 z-0">
         {/* Gradient Overlay for readability */}
-        <div className="absolute inset-0 z-10 bg-gradient-to-b from-background/80 via-background/60 to-background" />
+        <div className="absolute inset-0 z-10 bg-gradient-to-b from-transparent via-background/50 to-background" />
 
         {/* Poster Image as fallback and LCP optimization */}
         <div className="absolute inset-0 overflow-hidden">
@@ -159,12 +156,10 @@ export function HeroSection() {
             muted
             loop
             playsInline
-            preload="auto"
+            preload="metadata"
             onCanPlayThrough={handleVideoCanPlay}
           >
-            {/* WebM for better compression (Chrome, Firefox, Edge) */}
-            <source src={currentVideo.webm} type="video/webm" />
-            {/* MP4 fallback (Safari, older browsers) */}
+            {/* MP4 source (Cloudflare R2) */}
             <source src={currentVideo.mp4} type="video/mp4" />
           </video>
         </div>
