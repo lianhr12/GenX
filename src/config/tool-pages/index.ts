@@ -4,6 +4,7 @@
  * Provides unified config access interface with route-based lookup
  */
 
+import { imageConfig } from './image.config';
 import { imageToVideoConfig } from './image-to-video.config';
 import { referenceToVideoConfig } from './reference-to-video.config';
 import { textToVideoConfig } from './text-to-video.config';
@@ -23,6 +24,7 @@ export type {
 } from './types';
 
 // Export configs
+export { imageConfig } from './image.config';
 export { imageToVideoConfig } from './image-to-video.config';
 export { textToVideoConfig } from './text-to-video.config';
 export { referenceToVideoConfig } from './reference-to-video.config';
@@ -32,6 +34,7 @@ export { referenceToVideoConfig } from './reference-to-video.config';
 // ============================================================================
 
 const toolPageConfigs = {
+  image: imageConfig,
   'image-to-video': imageToVideoConfig,
   'text-to-video': textToVideoConfig,
   'reference-to-video': referenceToVideoConfig,

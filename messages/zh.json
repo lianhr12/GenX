@@ -1709,7 +1709,8 @@
       "imageToVideo": "图生视频",
       "textToVideo": "文生视频",
       "referenceToVideo": "参考视频",
-      "aiGenerator": "AI 生成器"
+      "aiGenerator": "AI 生成器",
+      "aiImageGenerator": "AI 图片生成"
     },
     "artStyles": {
       "label": "艺术风格",
@@ -1741,6 +1742,7 @@
     "generator": {
       "model": "模型",
       "videoModels": "视频模型",
+      "imageModels": "图片模型",
       "selectModel": "选择模型",
       "highQuality": "高质量",
       "standard": "标准",
@@ -1754,9 +1756,12 @@
       "aspectRatio": "宽高比",
       "videoLength": "视频时长",
       "resolution": "分辨率",
+      "quality": "画质",
+      "numberOfImages": "图片数量",
       "totalCredits": "总计积分：",
       "credits": "{count} 积分",
       "generateVideo": "生成视频",
+      "generateImage": "生成图片",
       "generating": "生成中...",
       "loginToGenerate": "登录后生成",
       "loginHint": "登录以保存您的作品并解锁更多功能"
@@ -1775,7 +1780,19 @@
       "download": "下载",
       "regenerate": "重新生成",
       "model": "模型",
-      "notAvailable": "暂无"
+      "notAvailable": "暂无",
+      "imageEmptyTitle": "AI 图片生成",
+      "imageEmptyDescription": "描述你的想法，让 AI 为你创建精美图片。",
+      "readyToCreate": "准备创作",
+      "imageReadyDescription": "在左侧面板输入提示词，点击生成按钮创建图片。",
+      "featureMultiModel": "多模型",
+      "featureHighRes": "高分辨率",
+      "featureFast": "快速生成",
+      "generatingImages": "正在生成图片...",
+      "generatingImagesDescription": "通常需要 10-30 秒。",
+      "generatedImages": "生成的图片",
+      "clearAll": "清除全部",
+      "preview": "预览"
     },
     "history": {
       "title": "最近作品",

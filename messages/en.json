@@ -1711,7 +1711,8 @@
       "imageToVideo": "IMAGE TO VIDEO",
       "textToVideo": "TEXT TO VIDEO",
       "referenceToVideo": "REFERENCE TO VIDEO",
-      "aiGenerator": "AI GENERATOR"
+      "aiGenerator": "AI GENERATOR",
+      "aiImageGenerator": "AI IMAGE GENERATOR"
     },
     "artStyles": {
       "label": "ART STYLE",
@@ -1743,6 +1744,7 @@
     "generator": {
       "model": "MODEL",
       "videoModels": "Video Models",
+      "imageModels": "Image Models",
       "selectModel": "Select Model",
       "highQuality": "High Quality",
       "standard": "Standard",
@@ -1756,9 +1758,12 @@
       "aspectRatio": "ASPECT RATIO",
       "videoLength": "VIDEO LENGTH",
       "resolution": "RESOLUTION",
+      "quality": "QUALITY",
+      "numberOfImages": "NUMBER OF IMAGES",
       "totalCredits": "Total Credits:",
       "credits": "{count} Credits",
       "generateVideo": "Generate Video",
+      "generateImage": "Generate Image",
       "generating": "Generating...",
       "loginToGenerate": "Sign In to Generate",
       "loginHint": "Sign in to save your creations and unlock more features"
@@ -1777,7 +1782,19 @@
       "download": "Download",
       "regenerate": "Regenerate",
       "model": "Model",
-      "notAvailable": "N/A"
+      "notAvailable": "N/A",
+      "imageEmptyTitle": "AI Image Generator",
+      "imageEmptyDescription": "Describe your vision and let AI create stunning images for you.",
+      "readyToCreate": "Ready to Create",
+      "imageReadyDescription": "Enter a prompt on the left panel and click Generate to create your image.",
+      "featureMultiModel": "Multi-Model",
+      "featureHighRes": "High Resolution",
+      "featureFast": "Fast Generation",
+      "generatingImages": "Generating your images...",
+      "generatingImagesDescription": "This usually takes 10-30 seconds.",
+      "generatedImages": "Generated Images",
+      "clearAll": "Clear All",
+      "preview": "Preview"
     },
     "history": {
       "title": "Recent Creations",
