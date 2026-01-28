@@ -53,11 +53,14 @@ export interface ImageGeneratorData {
   estimatedCredits: number;
 }
 
-// Simple credit calculation for images
+// Credit calculation for Evolink image models
 const IMAGE_CREDITS: Record<string, number> = {
-  'dall-e-3': 10,
-  'flux-1-1-pro': 8,
-  'stable-diffusion-3': 5,
+  'gpt-image-1.5': 8,
+  'gpt-image-1.5-lite': 4,
+  'seedream-4.5': 6,
+  'seedream-4.0': 5,
+  'nanobanana-pro': 10,
+  'wan2.5': 5,
   default: 5,
 };
 

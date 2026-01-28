@@ -27,14 +27,20 @@ export const imageConfig: ToolPageConfig = {
     uiMode: 'compact',
 
     defaults: {
-      model: 'dall-e-3',
+      model: 'gpt-image-1.5',
       aspectRatio: '1:1',
       outputNumber: 1,
     },
 
     models: {
-      available: ['dall-e-3', 'flux-1-1-pro', 'stable-diffusion-3'],
-      default: 'dall-e-3',
+      available: [
+        'gpt-image-1.5',
+        'gpt-image-1.5-lite',
+        'seedream-4.5',
+        'nanobanana-pro',
+        'wan2.5',
+      ],
+      default: 'gpt-image-1.5',
     },
 
     features: {
