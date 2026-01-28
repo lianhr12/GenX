@@ -4,6 +4,22 @@ import {
 } from '@/ai/image/providers/evolink';
 import { requireSession, unauthorizedResponse } from '@/lib/require-session';
 import { type NextRequest, NextResponse } from 'next/server';
+import { z } from 'zod';
+
+// Constants for input validation
+const MAX_PROMPT_LENGTH = 2000;
+const MAX_IMAGES_PER_REQUEST = 4;
+const MIN_IMAGES_PER_REQUEST = 1;
+
+// Zod schema for request validation
+const generateImageSchema = z.object({
+  prompt: z.string().min(1, 'Prompt is required').max(MAX_PROMPT_LENGTH, `Prompt must be ${MAX_PROMPT_LENGTH} characters or less`),
+  model: z.string().optional(),
+  aspectRatio: z.enum(['1:1', '16:9', '9:16', '4:3', '3:4']).optional(),
+  quality: z.enum(['auto', 'high', 'medium', 'low']).optional(),
+  numberOfImages: z.number().min(MIN_IMAGES_PER_REQUEST).max(MAX_IMAGES_PER_REQUEST).optional(),
+  imageUrls: z.array(z.string().url()).max(5).optional(),
+});
 
 // Supported models and their mappings based on Evolink API documentation
 const MODEL_CONFIGS: Record<
@@ -49,15 +65,6 @@ const ASPECT_RATIO_TO_SIZE: Record<string, string> = {
   '3:4': '768x1024',
 };
 
-interface GenerateImageRequest {
-  prompt: string;
-  model?: string;
-  aspectRatio?: string;
-  quality?: string;
-  numberOfImages?: number;
-  imageUrls?: string[];
-}
-
 export async function POST(req: NextRequest) {
   // Protected API route: validate session
   const session = await requireSession(req);
@@ -66,16 +73,22 @@ export async function POST(req: NextRequest) {
   }
 
   try {
-    const body = (await req.json()) as GenerateImageRequest;
-    const { prompt, model, aspectRatio, quality, numberOfImages, imageUrls } =
-      body;
-
-    if (!prompt) {
+    const body = await req.json();
+    
+    // Validate input with Zod
+    const parseResult = generateImageSchema.safeParse(body);
+    if (!parseResult.success) {
       return NextResponse.json(
-        { success: false, error: 'Prompt is required' },
+        { 
+          success: false, 
+          error: 'Invalid request parameters',
+          details: parseResult.error.issues 
+        },
         { status: 400 }
       );
     }
+
+    const { prompt, model, aspectRatio, quality, numberOfImages, imageUrls } = parseResult.data;
 
     // Get model config
     const modelKey = model || 'gpt-image-1.5';
@@ -100,6 +113,9 @@ export async function POST(req: NextRequest) {
     const provider = getEvolinkImageProvider();
     const taskResponse = await provider.createTask(params);
 
+    // Log task creation for audit
+    console.log(`[Image Generation] Task created: taskId=${taskResponse.taskId}, userId=${session.user.id}, model=${params.model}`);
+
     // If task is already completed (unlikely but possible), return images
     if (taskResponse.status === 'completed' && taskResponse.imageUrls) {
       return NextResponse.json({
@@ -122,7 +138,7 @@ export async function POST(req: NextRequest) {
       },
     });
   } catch (error) {
-    console.error('Image generation error:', error);
+    console.error(`[Image Generation] Error for userId=${session?.user?.id}:`, error);
     return NextResponse.json(
       {
         success: false,

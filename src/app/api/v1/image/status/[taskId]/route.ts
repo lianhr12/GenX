@@ -2,6 +2,9 @@ import { getEvolinkImageProvider } from '@/ai/image/providers/evolink';
 import { requireSession, unauthorizedResponse } from '@/lib/require-session';
 import { type NextRequest, NextResponse } from 'next/server';
 
+// Validate task ID format to prevent injection attacks
+const VALID_TASK_ID_PATTERN = /^[a-zA-Z0-9_-]{10,100}$/;
+
 interface RouteParams {
   params: Promise<{ taskId: string }>;
 }
@@ -23,9 +26,20 @@ export async function GET(req: NextRequest, { params }: RouteParams) {
       );
     }
 
+    // Validate task ID format
+    if (!VALID_TASK_ID_PATTERN.test(taskId)) {
+      return NextResponse.json(
+        { success: false, error: 'Invalid task ID format' },
+        { status: 400 }
+      );
+    }
+
     // Get provider and check task status
     const provider = getEvolinkImageProvider();
     const taskResponse = await provider.getTaskStatus(taskId);
+
+    // Log status check for audit
+    console.log(`[Image Status] Check: taskId=${taskId}, userId=${session.user.id}, status=${taskResponse.status}`);
 
     // Return task status
     return NextResponse.json({
@@ -39,7 +53,7 @@ export async function GET(req: NextRequest, { params }: RouteParams) {
       },
     });
   } catch (error) {
-    console.error('Image status check error:', error);
+    console.error(`[Image Status] Error for userId=${session?.user?.id}, taskId=unknown:`, error);
     return NextResponse.json(
       {
         success: false,
