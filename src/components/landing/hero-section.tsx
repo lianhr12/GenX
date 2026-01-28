@@ -8,7 +8,6 @@ import { LocaleLink } from '@/i18n/navigation';
 import { cn } from '@/lib/utils';
 import { Play, Sparkles, Upload } from 'lucide-react';
 import { useTranslations } from 'next-intl';
-import Image from 'next/image';
 import { useCallback, useEffect, useRef, useState } from 'react';
 
 const transitionVariants = {
@@ -64,13 +63,34 @@ const artStyleVideos = [
 export function HeroSection() {
   const t = useTranslations('Landing.hero');
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
+  const [displayedVideoIndex, setDisplayedVideoIndex] = useState(0);
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const [loadedPosters, setLoadedPosters] = useState<Set<string>>(new Set());
   const videoRef = useRef<HTMLVideoElement>(null);
 
   const currentVideo = artStyleVideos[currentVideoIndex];
+  const displayedVideo = artStyleVideos[displayedVideoIndex];
   const nextVideoIndex = (currentVideoIndex + 1) % artStyleVideos.length;
   const nextVideo = artStyleVideos[nextVideoIndex];
+
+  // Preload all poster images on mount
+  useEffect(() => {
+    artStyleVideos.forEach((video) => {
+      const img = new window.Image();
+      img.onload = () => {
+        setLoadedPosters((prev) => new Set(prev).add(video.poster));
+      };
+      img.src = video.poster;
+    });
+  }, []);
+
+  // Update displayed video index only when poster is ready
+  useEffect(() => {
+    if (loadedPosters.has(currentVideo.poster)) {
+      setDisplayedVideoIndex(currentVideoIndex);
+    }
+  }, [currentVideoIndex, currentVideo.poster, loadedPosters]);
 
   // Handle video transition
   const handleVideoChange = useCallback(
@@ -127,19 +147,21 @@ export function HeroSection() {
         {/* Gradient Overlay for readability */}
         <div className="absolute inset-0 z-10 bg-gradient-to-b from-transparent via-background/50 to-background" />
 
-        {/* Poster Image as fallback and LCP optimization */}
+        {/* Poster Image as fallback - use native img to avoid Next.js private IP restrictions */}
         <div className="absolute inset-0 overflow-hidden">
-          <Image
-            src={currentVideo.poster}
-            alt="Hero background"
-            fill
-            priority
-            sizes="100vw"
-            className={cn(
-              'object-cover transition-opacity duration-500',
-              isVideoLoaded ? 'opacity-0' : 'opacity-100'
-            )}
-          />
+          {!isVideoLoaded && (
+            <img
+              key={displayedVideo.id}
+              src={displayedVideo.poster}
+              alt=""
+              className={cn(
+                'absolute inset-0 h-full w-full object-cover transition-opacity duration-500',
+                isTransitioning || !loadedPosters.has(displayedVideo.poster)
+                  ? 'opacity-50'
+                  : 'opacity-100'
+              )}
+            />
+          )}
         </div>
 
         {/* Video Background - Only render current video */}

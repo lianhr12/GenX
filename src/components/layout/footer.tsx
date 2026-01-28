@@ -1,8 +1,8 @@
 'use client';
 
 import Container from '@/components/layout/container';
+import LocaleSwitcher from '@/components/layout/locale-switcher';
 import { Logo } from '@/components/layout/logo';
-import { ModeSwitcherHorizontal } from '@/components/layout/mode-switcher-horizontal';
 import { useFooterLinks } from '@/config/footer-config';
 import { useSocialLinks } from '@/config/social-config';
 import { LocaleLink } from '@/i18n/navigation';
@@ -94,7 +94,7 @@ export function Footer({ className }: React.HTMLAttributes<HTMLElement>) {
           </span>
 
           <div className="flex items-center gap-x-4">
-            <ModeSwitcherHorizontal />
+            <LocaleSwitcher />
           </div>
         </Container>
       </div>

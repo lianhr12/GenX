@@ -8,7 +8,7 @@ export const websiteConfig: WebsiteConfig = {
   ui: {
     mode: {
       defaultMode: 'dark',
-      enableSwitch: true,
+      enableSwitch: false,
     },
   },
   metadata: {
