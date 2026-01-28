@@ -118,11 +118,11 @@ export function WelcomeDialog() {
                       {index + 1}
                     </span>
                     <h4 className="font-semibold">
-                      {t(`steps.${step.id}.title`)}
+                      {t(`steps.${step.id}.title` as Parameters<typeof t>[0])}
                     </h4>
                   </div>
                   <p className="mt-1 text-sm text-muted-foreground">
-                    {t(`steps.${step.id}.description`)}
+                    {t(`steps.${step.id}.description` as Parameters<typeof t>[0])}
                   </p>
                 </div>
               </div>

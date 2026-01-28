@@ -1792,7 +1792,8 @@
       "generatingImagesDescription": "通常需要 10-30 秒。",
       "generatedImages": "生成的图片",
       "clearAll": "清除全部",
-      "preview": "预览"
+      "preview": "预览",
+      "generating": "生成中..."
     },
     "history": {
       "title": "最近作品",

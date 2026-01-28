@@ -144,10 +144,10 @@ export function ToolGuide({ isLoggedIn, toolType }: ToolGuideProps) {
               </span>
             </div>
             <h3 className="text-lg font-semibold mb-2">
-              {t(`steps.${step.id}.title`)}
+              {t(`steps.${step.id}.title` as Parameters<typeof t>[0])}
             </h3>
             <p className="text-sm text-muted-foreground">
-              {t(`steps.${step.id}.description`)}
+              {t(`steps.${step.id}.description` as Parameters<typeof t>[0])}
             </p>
           </div>
 

@@ -1794,7 +1794,8 @@
       "generatingImagesDescription": "This usually takes 10-30 seconds.",
       "generatedImages": "Generated Images",
       "clearAll": "Clear All",
-      "preview": "Preview"
+      "preview": "Preview",
+      "generating": "Generating..."
     },
     "history": {
       "title": "Recent Creations",

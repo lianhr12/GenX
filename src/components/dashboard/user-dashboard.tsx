@@ -194,7 +194,7 @@ export function UserDashboard({ initialCredits }: UserDashboardProps) {
                   <Icon className="h-6 w-6 text-white" />
                 </div>
                 <span className="text-sm font-medium text-center">
-                  {t(`quickActions.${action.id}`)}
+                  {t(`quickActions.${action.id}` as Parameters<typeof t>[0])}
                 </span>
               </LocaleLink>
             );
