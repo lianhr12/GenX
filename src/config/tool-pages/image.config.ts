@@ -71,7 +71,7 @@ export const imageConfig: ToolPageConfig = {
       description:
         'Transform your ideas into beautiful images using cutting-edge AI models. Simply describe what you want and watch AI bring it to life.',
       ctaText: 'Start Creating',
-      ctaSubtext: '50 free credits to try',
+      ctaSubtext: '15 free credits to try',
     },
 
     examples: [

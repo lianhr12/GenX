@@ -67,7 +67,7 @@ export const textToVideoConfig: ToolPageConfig = {
       description:
         'Describe your vision in plain text and let AI bring it to life. From cinematic scenes to product showcases, the possibilities are endless.',
       ctaText: 'Start Creating',
-      ctaSubtext: '50 free credits to try',
+      ctaSubtext: '15 free credits to try',
     },
 
     examples: [

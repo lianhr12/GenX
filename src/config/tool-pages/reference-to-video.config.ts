@@ -64,7 +64,7 @@ export const referenceToVideoConfig: ToolPageConfig = {
       description:
         'Upload a reference video and let AI create stunning variations, style transfers, or seamless edits while preserving the core content.',
       ctaText: 'Try It Now',
-      ctaSubtext: '50 free credits to start',
+      ctaSubtext: '15 free credits to start',
     },
 
     examples: [

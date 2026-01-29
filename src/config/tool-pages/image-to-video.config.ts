@@ -66,7 +66,7 @@ export const imageToVideoConfig: ToolPageConfig = {
       description:
         'Upload any photo and watch AI bring it to life with smooth, realistic motion. Perfect for social media, marketing, and creative projects.',
       ctaText: 'Get Started Free',
-      ctaSubtext: '50 free credits to try',
+      ctaSubtext: '15 free credits to try',
     },
 
     examples: [
