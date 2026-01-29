@@ -347,7 +347,6 @@ function MainMobileMenu({ userLoggedIn, onLinkClicked }: MainMobileMenuProps) {
             );
           })}
         </ul>
-
       </div>
     </div>
   );

@@ -44,8 +44,21 @@ export async function POST(request: NextRequest) {
       prompt: data.prompt,
       model: data.model,
       duration: data.duration,
-      aspectRatio: data.aspectRatio as '16:9' | '9:16' | '1:1' | '4:3' | '3:4' | '21:9' | undefined,
-      quality: data.quality as 'standard' | 'high' | '480P' | '720P' | '1080P' | undefined,
+      aspectRatio: data.aspectRatio as
+        | '16:9'
+        | '9:16'
+        | '1:1'
+        | '4:3'
+        | '3:4'
+        | '21:9'
+        | undefined,
+      quality: data.quality as
+        | 'standard'
+        | 'high'
+        | '480P'
+        | '720P'
+        | '1080P'
+        | undefined,
       imageUrl: data.imageUrl,
     });
 

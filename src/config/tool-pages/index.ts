@@ -4,8 +4,8 @@
  * Provides unified config access interface with route-based lookup
  */
 
-import { imageConfig } from './image.config';
 import { imageToVideoConfig } from './image-to-video.config';
+import { imageConfig } from './image.config';
 import { referenceToVideoConfig } from './reference-to-video.config';
 import { textToVideoConfig } from './text-to-video.config';
 import type {

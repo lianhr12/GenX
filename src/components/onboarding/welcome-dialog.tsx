@@ -122,7 +122,9 @@ export function WelcomeDialog() {
                     </h4>
                   </div>
                   <p className="mt-1 text-sm text-muted-foreground">
-                    {t(`steps.${step.id}.description` as Parameters<typeof t>[0])}
+                    {t(
+                      `steps.${step.id}.description` as Parameters<typeof t>[0]
+                    )}
                   </p>
                 </div>
               </div>

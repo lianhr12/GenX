@@ -1,9 +1,9 @@
 import dotenv from 'dotenv';
 import { eq } from 'drizzle-orm';
-import { getDb } from '../src/db/index.js';
-import { user } from '../src/db/schema.js';
 import { addCredits } from '../src/credits/credits.js';
 import { CREDIT_TRANSACTION_TYPE } from '../src/credits/types.js';
+import { getDb } from '../src/db/index.js';
+import { user } from '../src/db/schema.js';
 
 dotenv.config();
 
@@ -72,9 +72,9 @@ if (args.length < 2) {
 }
 
 const email = args[0];
-const amount = parseInt(args[1]);
+const amount = Number.parseInt(args[1]);
 const description = args[2];
-const expireDays = args[3] ? parseInt(args[3]) : undefined;
+const expireDays = args[3] ? Number.parseInt(args[3]) : undefined;
 
 // 执行添加积分
 addCreditsToUser({

@@ -58,10 +58,7 @@ export default async function AIImagePage() {
       {/* Breadcrumb Navigation */}
       <div className="container mx-auto px-4 pt-4">
         <PageBreadcrumb
-          items={[
-            { label: 'Create', href: '/create' },
-            { label: 'AI Image' },
-          ]}
+          items={[{ label: 'Create', href: '/create' }, { label: 'AI Image' }]}
         />
       </div>
 

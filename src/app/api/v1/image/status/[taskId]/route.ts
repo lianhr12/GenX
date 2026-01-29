@@ -39,7 +39,9 @@ export async function GET(req: NextRequest, { params }: RouteParams) {
     const taskResponse = await provider.getTaskStatus(taskId);
 
     // Log status check for audit
-    console.log(`[Image Status] Check: taskId=${taskId}, userId=${session.user.id}, status=${taskResponse.status}`);
+    console.log(
+      `[Image Status] Check: taskId=${taskId}, userId=${session.user.id}, status=${taskResponse.status}`
+    );
 
     // Return task status
     return NextResponse.json({
@@ -53,7 +55,10 @@ export async function GET(req: NextRequest, { params }: RouteParams) {
       },
     });
   } catch (error) {
-    console.error(`[Image Status] Error for userId=${session?.user?.id}, taskId=unknown:`, error);
+    console.error(
+      `[Image Status] Error for userId=${session?.user?.id}, taskId=unknown:`,
+      error
+    );
     return NextResponse.json(
       {
         success: false,

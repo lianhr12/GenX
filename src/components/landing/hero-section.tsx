@@ -36,27 +36,32 @@ const artStyleVideos = [
   {
     id: 'cyberpunk',
     mp4: 'https://asset.genx.art/home/video/_04d086227554f06685353417a38f9e89_70fadb6e-314e-4494-857a-6004a7bbb6aa.mp4',
-    poster: 'https://asset.genx.art/home/video/_04d086227554f06685353417a38f9e89_70fadb6e-314e-4494-857a-6004a7bbb6aa_01.png',
+    poster:
+      'https://asset.genx.art/home/video/_04d086227554f06685353417a38f9e89_70fadb6e-314e-4494-857a-6004a7bbb6aa_01.png',
   },
   {
     id: 'watercolor',
     mp4: 'https://asset.genx.art/home/video/_89a6fc273b0d504687862aa2999382aa_39c5be85-1261-4792-9d4d-aa27363043e4.mp4',
-    poster: 'https://asset.genx.art/home/video/_89a6fc273b0d504687862aa2999382aa_39c5be85-1261-4792-9d4d-aa27363043e4_01.png',
+    poster:
+      'https://asset.genx.art/home/video/_89a6fc273b0d504687862aa2999382aa_39c5be85-1261-4792-9d4d-aa27363043e4_01.png',
   },
   {
     id: 'oil-painting',
     mp4: 'https://asset.genx.art/home/video/_ddf6d58cce8fe6f57c3ee514db06da23_e475bcb5-91dc-4180-8862-bcd5089de28f.mp4',
-    poster: 'https://asset.genx.art/home/video/_ddf6d58cce8fe6f57c3ee514db06da23_e475bcb5-91dc-4180-8862-bcd5089de28f_01.png',
+    poster:
+      'https://asset.genx.art/home/video/_ddf6d58cce8fe6f57c3ee514db06da23_e475bcb5-91dc-4180-8862-bcd5089de28f_01.png',
   },
   {
     id: 'anime',
     mp4: 'https://asset.genx.art/home/video/_4bc4c70ea2304da776542666be0df089_5eefa457-e760-4ac8-9665-babec92bea0e.mp4',
-    poster: 'https://asset.genx.art/home/video/_4bc4c70ea2304da776542666be0df089_5eefa457-e760-4ac8-9665-babec92bea0e_01.png',
+    poster:
+      'https://asset.genx.art/home/video/_4bc4c70ea2304da776542666be0df089_5eefa457-e760-4ac8-9665-babec92bea0e_01.png',
   },
   {
     id: 'fluid-art',
     mp4: 'https://asset.genx.art/home/video/_b3e26e0f6f3d6ce75e88fc50ae986c59_cf27cf03-03d9-46f4-9448-0fa2b9507984.mp4',
-    poster: 'https://asset.genx.art/home/video/_b3e26e0f6f3d6ce75e88fc50ae986c59_cf27cf03-03d9-46f4-9448-0fa2b9507984_01.png',
+    poster:
+      'https://asset.genx.art/home/video/_b3e26e0f6f3d6ce75e88fc50ae986c59_cf27cf03-03d9-46f4-9448-0fa2b9507984_01.png',
   },
 ];
 

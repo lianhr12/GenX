@@ -164,7 +164,9 @@ export function ResultPanel({
           <h3 className="text-lg font-semibold text-foreground mb-2">
             {t('generatingTitle')}
           </h3>
-          <p className="text-muted-foreground text-sm">{t('generatingDescription')}</p>
+          <p className="text-muted-foreground text-sm">
+            {t('generatingDescription')}
+          </p>
           {generatingProgress > 0 && (
             <div className="mt-4">
               <div className="w-48 h-2 mx-auto bg-muted rounded-full overflow-hidden">

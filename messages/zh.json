@@ -98,21 +98,25 @@
     }
   },
   "CreditPackages": {
+    "starter": {
+      "name": "入门版",
+      "description": "适合初次体验 AI 生成"
+    },
     "basic": {
       "name": "基础版",
-      "description": "基础版功能介绍放这里"
+      "description": "适合轻度创作者"
     },
     "standard": {
       "name": "标准版",
-      "description": "标准版功能介绍放这里"
+      "description": "性价比之选，适合日常使用"
     },
     "premium": {
       "name": "高级版",
-      "description": "高级版功能介绍放这里"
+      "description": "适合专业用户和创作者"
     },
     "enterprise": {
       "name": "企业版",
-      "description": "企业版功能介绍放这里"
+      "description": "大容量积分，适合重度使用"
     }
   },
   "NotFoundPage": {

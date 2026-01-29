@@ -4,7 +4,10 @@ import type { ToolPageConfig } from '@/config/tool-pages';
 import { useLocaleRouter } from '@/i18n/navigation';
 import { useTranslations } from 'next-intl';
 import { useCallback, useState } from 'react';
-import { ImageGeneratorPanel, type ImageGeneratorData } from './image-generator-panel';
+import {
+  type ImageGeneratorData,
+  ImageGeneratorPanel,
+} from './image-generator-panel';
 import { ImageResultPanel } from './image-result-panel';
 
 interface ImageToolPageLayoutProps {
@@ -34,7 +37,11 @@ export function ImageToolPageLayout({
 
   // Poll for task status
   const pollTaskStatus = useCallback(
-    async (taskId: string, prompt: string, model: string): Promise<GeneratedImage[]> => {
+    async (
+      taskId: string,
+      prompt: string,
+      model: string
+    ): Promise<GeneratedImage[]> => {
       const maxAttempts = 60; // Max 5 minutes (60 * 5 seconds)
       const pollInterval = 5000; // 5 seconds
 
@@ -127,7 +134,11 @@ export function ImageToolPageLayout({
           setGeneratedImages((prev) => [...newImages, ...prev]);
         } else {
           // Poll for completion
-          const newImages = await pollTaskStatus(taskId, data.prompt, data.model);
+          const newImages = await pollTaskStatus(
+            taskId,
+            data.prompt,
+            data.model
+          );
           setGeneratedImages((prev) => [...newImages, ...prev]);
         }
       } catch (err) {

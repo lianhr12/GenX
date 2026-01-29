@@ -190,7 +190,9 @@ export function ImageGeneratorPanel({
             <textarea
               value={prompt}
               onChange={(e) => setPrompt(e.target.value)}
-              placeholder={config.generator.promptPlaceholder || t('promptPlaceholder')}
+              placeholder={
+                config.generator.promptPlaceholder || t('promptPlaceholder')
+              }
               disabled={isLoading}
               className="w-full min-h-[120px] max-h-[200px] px-4 py-3 rounded-lg bg-muted border border-border text-foreground placeholder:text-muted-foreground/50 resize-none focus:outline-none focus:border-primary transition-colors text-sm leading-relaxed"
               rows={5}
@@ -205,24 +207,28 @@ export function ImageGeneratorPanel({
               <div>
                 <SectionLabel>{t('aspectRatio')}</SectionLabel>
                 <div className="flex flex-wrap gap-2">
-                  {(config.generator.settings.aspectRatios || ['1:1', '16:9', '9:16']).map(
-                    (ar) => (
-                      <button
-                        key={ar}
-                        type="button"
-                        onClick={() => setAspectRatio(ar)}
-                        disabled={isLoading}
-                        className={cn(
-                          'px-4 py-2 rounded-lg text-sm font-medium transition-all',
-                          aspectRatio === ar
-                            ? 'bg-primary/20 text-primary border-2 border-primary'
-                            : 'bg-muted text-muted-foreground border-2 border-border hover:border-muted-foreground/50'
-                        )}
-                      >
-                        {ar}
-                      </button>
-                    )
-                  )}
+                  {(
+                    config.generator.settings.aspectRatios || [
+                      '1:1',
+                      '16:9',
+                      '9:16',
+                    ]
+                  ).map((ar) => (
+                    <button
+                      key={ar}
+                      type="button"
+                      onClick={() => setAspectRatio(ar)}
+                      disabled={isLoading}
+                      className={cn(
+                        'px-4 py-2 rounded-lg text-sm font-medium transition-all',
+                        aspectRatio === ar
+                          ? 'bg-primary/20 text-primary border-2 border-primary'
+                          : 'bg-muted text-muted-foreground border-2 border-border hover:border-muted-foreground/50'
+                      )}
+                    >
+                      {ar}
+                    </button>
+                  ))}
                 </div>
               </div>
             )}
@@ -233,24 +239,24 @@ export function ImageGeneratorPanel({
                 <div>
                   <SectionLabel>{t('quality')}</SectionLabel>
                   <div className="flex gap-2">
-                    {(config.generator.settings.qualities || ['standard', 'hd']).map(
-                      (q) => (
-                        <button
-                          key={q}
-                          type="button"
-                          onClick={() => setQuality(q)}
-                          disabled={isLoading}
-                          className={cn(
-                            'flex-1 px-3 py-2.5 rounded-lg text-sm font-medium transition-all capitalize',
-                            quality === q
-                              ? 'bg-primary text-primary-foreground'
-                              : 'bg-muted text-muted-foreground hover:bg-muted/80'
-                          )}
-                        >
-                          {q}
-                        </button>
-                      )
-                    )}
+                    {(
+                      config.generator.settings.qualities || ['standard', 'hd']
+                    ).map((q) => (
+                      <button
+                        key={q}
+                        type="button"
+                        onClick={() => setQuality(q)}
+                        disabled={isLoading}
+                        className={cn(
+                          'flex-1 px-3 py-2.5 rounded-lg text-sm font-medium transition-all capitalize',
+                          quality === q
+                            ? 'bg-primary text-primary-foreground'
+                            : 'bg-muted text-muted-foreground hover:bg-muted/80'
+                        )}
+                      >
+                        {q}
+                      </button>
+                    ))}
                   </div>
                 </div>
               )}

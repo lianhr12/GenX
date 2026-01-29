@@ -100,21 +100,25 @@
     }
   },
   "CreditPackages": {
+    "starter": {
+      "name": "Starter",
+      "description": "Perfect for trying out AI generation"
+    },
     "basic": {
       "name": "Basic",
-      "description": "Basic credits package description"
+      "description": "Great for casual creators"
     },
     "standard": {
       "name": "Standard",
-      "description": "Standard credits package description"
+      "description": "Best value for regular users"
     },
     "premium": {
       "name": "Premium",
-      "description": "Premium credits package description"
+      "description": "For power users and professionals"
     },
     "enterprise": {
       "name": "Enterprise",
-      "description": "Enterprise credits package description"
+      "description": "Maximum credits for heavy usage"
     }
   },
   "NotFoundPage": {

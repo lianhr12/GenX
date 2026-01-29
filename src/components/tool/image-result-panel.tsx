@@ -29,7 +29,9 @@ export function ImageResultPanel({
   onClear,
 }: ImageResultPanelProps) {
   const t = useTranslations('ToolPage.result');
-  const [selectedImage, setSelectedImage] = useState<GeneratedImage | null>(null);
+  const [selectedImage, setSelectedImage] = useState<GeneratedImage | null>(
+    null
+  );
 
   // Empty state
   if (!isGenerating && images.length === 0) {
@@ -129,7 +131,9 @@ export function ImageResultPanel({
             <div className="aspect-square rounded-lg bg-muted border border-border flex items-center justify-center">
               <div className="text-center">
                 <Loader2 className="w-8 h-8 text-primary animate-spin mx-auto mb-2" />
-                <p className="text-xs text-muted-foreground">{t('generating')}</p>
+                <p className="text-xs text-muted-foreground">
+                  {t('generating')}
+                </p>
               </div>
             </div>
           )}

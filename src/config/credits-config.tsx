@@ -19,6 +19,14 @@ export function useCreditPackages(): Record<string, CreditPackage> {
   const packages: Record<string, CreditPackage> = {};
 
   // Add translated content to each plan
+  if (creditConfig.packages.starter) {
+    packages.starter = {
+      ...creditConfig.packages.starter,
+      name: t('starter.name'),
+      description: t('starter.description'),
+    };
+  }
+
   if (creditConfig.packages.basic) {
     packages.basic = {
       ...creditConfig.packages.basic,

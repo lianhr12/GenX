@@ -31,32 +31,60 @@ export interface ModelConfig {
 // ============================================================================
 
 export const VIDEO_MODELS: Record<string, ModelConfig> = {
+  'sora-2-lite': {
+    id: 'sora-2-lite',
+    name: 'Sora 2 Lite',
+    provider: 'evolink',
+    description: 'OpenAI Sora 2 Lite - Fast and affordable',
+    supportImageToVideo: true,
+    maxDuration: 15,
+    durations: [10, 15],
+    aspectRatios: ['16:9', '9:16'],
+    creditCost: {
+      base: 5,
+      perExtraSecond: 0.5,
+    },
+  },
   'sora-2': {
     id: 'sora-2',
     name: 'Sora 2',
     provider: 'evolink',
     description: 'OpenAI Sora 2 - High quality video generation',
     supportImageToVideo: true,
-    maxDuration: 15,
-    durations: [10, 15],
+    maxDuration: 12,
+    durations: [4, 8, 12],
     aspectRatios: ['16:9', '9:16'],
     creditCost: {
-      base: 7,
-      perExtraSecond: 1,
+      base: 35,
+      perExtraSecond: 3,
     },
   },
-  'wan-2-6': {
-    id: 'wan-2-6',
-    name: 'Wan 2.6',
+  'wan-2-6-720p': {
+    id: 'wan-2-6-720p',
+    name: 'Wan 2.6 (720p)',
     provider: 'evolink',
-    description: 'Alibaba Wan 2.6 - Fast and efficient',
+    description: 'Alibaba Wan 2.6 - Fast 720p generation',
     supportImageToVideo: true,
     maxDuration: 15,
     durations: [5, 10, 15],
     aspectRatios: ['16:9', '9:16', '1:1', '4:3', '3:4'],
     creditCost: {
-      base: 5,
-      perExtraSecond: 0.5,
+      base: 55,
+      perExtraSecond: 5,
+    },
+  },
+  'wan-2-6-1080p': {
+    id: 'wan-2-6-1080p',
+    name: 'Wan 2.6 (1080p)',
+    provider: 'evolink',
+    description: 'Alibaba Wan 2.6 - High quality 1080p',
+    supportImageToVideo: true,
+    maxDuration: 15,
+    durations: [5, 10, 15],
+    aspectRatios: ['16:9', '9:16', '1:1', '4:3', '3:4'],
+    creditCost: {
+      base: 90,
+      perExtraSecond: 8,
     },
   },
   'veo-3-1': {
@@ -69,7 +97,7 @@ export const VIDEO_MODELS: Record<string, ModelConfig> = {
     durations: [4, 6, 8],
     aspectRatios: ['16:9', '9:16'],
     creditCost: {
-      base: 10,
+      base: 15,
       perExtraSecond: 2,
     },
   },
@@ -84,9 +112,9 @@ export const VIDEO_MODELS: Record<string, ModelConfig> = {
     aspectRatios: ['16:9', '9:16', '1:1', '4:3', '3:4', '21:9'],
     qualities: ['480P', '720P', '1080P'],
     creditCost: {
-      base: 6,
-      perExtraSecond: 0.8,
-      highQualityMultiplier: 1.5,
+      base: 20,
+      perExtraSecond: 2,
+      highQualityMultiplier: 1.8,
     },
   },
   'kling-2': {
@@ -99,8 +127,8 @@ export const VIDEO_MODELS: Record<string, ModelConfig> = {
     durations: [5, 10],
     aspectRatios: ['16:9', '9:16'],
     creditCost: {
-      base: 4,
-      perExtraSecond: 0.5,
+      base: 45,
+      perExtraSecond: 4,
     },
   },
 };
@@ -166,7 +194,7 @@ export const CREDITS_CONFIG = {
   // New user gift credits
   registerGift: {
     enabled: true,
-    amount: 50,
+    amount: 15,
     expireDays: 30,
   },
 

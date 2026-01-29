@@ -82,7 +82,9 @@ export class EvolinkProvider implements AIVideoProvider {
         status: response.status,
         body: errorBody,
       });
-      if (this.shouldFallbackToTaskEndpoint(taskId, response.status, errorBody)) {
+      if (
+        this.shouldFallbackToTaskEndpoint(taskId, response.status, errorBody)
+      ) {
         const fallbackUrl = `${this.baseUrl}/tasks/${taskId}`;
         const fallback = await fetch(fallbackUrl, {
           headers: { Authorization: `Bearer ${this.apiKey}` },
@@ -154,8 +156,10 @@ export class EvolinkProvider implements AIVideoProvider {
 
   private extractProgress(data: Record<string, unknown>): number | undefined {
     const inner = this.asRecord(data.data);
-    return (data.progress as number | undefined) ||
-      (inner?.progress as number | undefined);
+    return (
+      (data.progress as number | undefined) ||
+      (inner?.progress as number | undefined)
+    );
   }
 
   private extractMedia(data: Record<string, unknown>): {
@@ -192,7 +196,9 @@ export class EvolinkProvider implements AIVideoProvider {
     };
   }
 
-  private extractEstimatedTime(data: Record<string, unknown>): number | undefined {
+  private extractEstimatedTime(
+    data: Record<string, unknown>
+  ): number | undefined {
     const taskInfo = this.asRecord(data.task_info);
     return taskInfo?.estimated_time as number | undefined;
   }

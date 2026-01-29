@@ -1,6 +1,6 @@
 import {
-  getEvolinkImageProvider,
   type ImageGenerationParams,
+  getEvolinkImageProvider,
 } from '@/ai/image/providers/evolink';
 import { requireSession, unauthorizedResponse } from '@/lib/require-session';
 import { type NextRequest, NextResponse } from 'next/server';
@@ -13,11 +13,21 @@ const MIN_IMAGES_PER_REQUEST = 1;
 
 // Zod schema for request validation
 const generateImageSchema = z.object({
-  prompt: z.string().min(1, 'Prompt is required').max(MAX_PROMPT_LENGTH, `Prompt must be ${MAX_PROMPT_LENGTH} characters or less`),
+  prompt: z
+    .string()
+    .min(1, 'Prompt is required')
+    .max(
+      MAX_PROMPT_LENGTH,
+      `Prompt must be ${MAX_PROMPT_LENGTH} characters or less`
+    ),
   model: z.string().optional(),
   aspectRatio: z.enum(['1:1', '16:9', '9:16', '4:3', '3:4']).optional(),
   quality: z.enum(['auto', 'high', 'medium', 'low']).optional(),
-  numberOfImages: z.number().min(MIN_IMAGES_PER_REQUEST).max(MAX_IMAGES_PER_REQUEST).optional(),
+  numberOfImages: z
+    .number()
+    .min(MIN_IMAGES_PER_REQUEST)
+    .max(MAX_IMAGES_PER_REQUEST)
+    .optional(),
   imageUrls: z.array(z.string().url()).max(5).optional(),
 });
 
@@ -74,25 +84,27 @@ export async function POST(req: NextRequest) {
 
   try {
     const body = await req.json();
-    
+
     // Validate input with Zod
     const parseResult = generateImageSchema.safeParse(body);
     if (!parseResult.success) {
       return NextResponse.json(
-        { 
-          success: false, 
+        {
+          success: false,
           error: 'Invalid request parameters',
-          details: parseResult.error.issues 
+          details: parseResult.error.issues,
         },
         { status: 400 }
       );
     }
 
-    const { prompt, model, aspectRatio, quality, numberOfImages, imageUrls } = parseResult.data;
+    const { prompt, model, aspectRatio, quality, numberOfImages, imageUrls } =
+      parseResult.data;
 
     // Get model config
     const modelKey = model || 'gpt-image-1.5';
-    const modelConfig = MODEL_CONFIGS[modelKey] || MODEL_CONFIGS['gpt-image-1.5'];
+    const modelConfig =
+      MODEL_CONFIGS[modelKey] || MODEL_CONFIGS['gpt-image-1.5'];
 
     // Determine size from aspect ratio
     const size = aspectRatio
@@ -114,7 +126,9 @@ export async function POST(req: NextRequest) {
     const taskResponse = await provider.createTask(params);
 
     // Log task creation for audit
-    console.log(`[Image Generation] Task created: taskId=${taskResponse.taskId}, userId=${session.user.id}, model=${params.model}`);
+    console.log(
+      `[Image Generation] Task created: taskId=${taskResponse.taskId}, userId=${session.user.id}, model=${params.model}`
+    );
 
     // If task is already completed (unlikely but possible), return images
     if (taskResponse.status === 'completed' && taskResponse.imageUrls) {
@@ -138,7 +152,10 @@ export async function POST(req: NextRequest) {
       },
     });
   } catch (error) {
-    console.error(`[Image Generation] Error for userId=${session?.user?.id}:`, error);
+    console.error(
+      `[Image Generation] Error for userId=${session?.user?.id}:`,
+      error
+    );
     return NextResponse.json(
       {
         success: false,
