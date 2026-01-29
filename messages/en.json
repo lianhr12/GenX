@@ -70,32 +70,32 @@
   "PricePlans": {
     "free": {
       "name": "Free",
-      "description": "Basic features for personal use",
+      "description": "Perfect for trying GenX",
       "features": {
-        "feature-1": "Up to 3 projects",
-        "feature-2": "1 GB storage",
-        "feature-3": "Basic analytics",
-        "feature-4": "Community support"
+        "feature-1": "15 credits on signup",
+        "feature-2": "All 5 art styles",
+        "feature-3": "1080p output quality",
+        "feature-4": "Standard support"
       },
       "limits": {
-        "limit-1": "Custom domains",
-        "limit-2": "Custom branding",
-        "limit-3": "Continuous updates"
+        "limit-1": "Credits expire in 30 days",
+        "limit-2": "Includes watermark",
+        "limit-3": "Personal use only"
       }
     },
     "pro": {
       "name": "Pro",
-      "description": "Advanced features for professionals",
+      "description": "For serious creators",
       "features": {
-        "feature-1": "Unlimited projects",
-        "feature-2": "10 GB storage",
-        "feature-3": "Advanced analytics",
+        "feature-1": "800 credits/month",
+        "feature-2": "All 5 art styles",
+        "feature-3": "1080p HD output",
         "feature-4": "Priority support",
-        "feature-5": "Custom domains"
+        "feature-5": "No watermark"
       },
       "limits": {
-        "limit-1": "Custom branding",
-        "limit-2": "Continuous updates"
+        "limit-1": "Monthly credits don't roll over",
+        "limit-2": "Commercial license included"
       }
     }
   },

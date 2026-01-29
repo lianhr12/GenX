@@ -70,30 +70,32 @@
   "PricePlans": {
     "free": {
       "name": "免费版",
-      "description": "适用于个人使用的基本功能",
+      "description": "适合体验 GenX",
       "features": {
-        "feature-1": "最多3个项目",
-        "feature-2": "1GB存储空间",
-        "feature-3": "基础分析功能",
-        "feature-4": "社区支持"
+        "feature-1": "注册赠送 15 积分",
+        "feature-2": "全部 5 种艺术风格",
+        "feature-3": "1080p 输出质量",
+        "feature-4": "标准支持"
       },
       "limits": {
-        "limit-1": "不支持自定义域名",
-        "limit-2": "不支持自定义品牌"
+        "limit-1": "积分 30 天后过期",
+        "limit-2": "包含水印",
+        "limit-3": "仅限个人使用"
       }
     },
     "pro": {
       "name": "专业版",
-      "description": "更强大的功能",
+      "description": "适合认真的创作者",
       "features": {
-        "feature-1": "无限项目",
-        "feature-2": "10GB存储空间",
-        "feature-3": "高级分析功能",
+        "feature-1": "每月 800 积分",
+        "feature-2": "全部 5 种艺术风格",
+        "feature-3": "1080p 高清输出",
         "feature-4": "优先支持",
-        "feature-5": "自定义域名"
+        "feature-5": "无水印"
       },
       "limits": {
-        "limit-1": "不支持自定义品牌"
+        "limit-1": "月度积分不结转",
+        "limit-2": "包含商业许可"
       }
     }
   },
