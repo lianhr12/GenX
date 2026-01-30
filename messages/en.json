@@ -467,6 +467,41 @@
     "dashboard": {
       "title": "Dashboard"
     },
+    "creations": {
+      "title": "My Creations",
+      "videos": {
+        "title": "Videos",
+        "description": "View and manage your generated videos",
+        "empty": "No videos yet",
+        "emptyHint": "Start creating videos to see them here"
+      },
+      "images": {
+        "title": "Images",
+        "description": "View and manage your generated images",
+        "empty": "No images yet",
+        "emptyHint": "Start creating images to see them here"
+      },
+      "filters": {
+        "all": "All",
+        "completed": "Completed",
+        "generating": "Generating",
+        "failed": "Failed",
+        "favorites": "Favorites"
+      },
+      "actions": {
+        "delete": "Delete",
+        "download": "Download",
+        "favorite": "Favorite",
+        "unfavorite": "Unfavorite",
+        "regenerate": "Regenerate",
+        "viewDetails": "View Details"
+      },
+      "batch": {
+        "selected": "{count} selected",
+        "deleteSelected": "Delete Selected",
+        "downloadSelected": "Download Selected"
+      }
+    },
     "admin": {
       "title": "Admin",
       "users": {
@@ -516,6 +551,10 @@
           "error": "Failed to unban user"
         },
         "close": "Close"
+      },
+      "images": {
+        "title": "Images",
+        "description": "Manage all user generated images"
       }
     },
     "settings": {

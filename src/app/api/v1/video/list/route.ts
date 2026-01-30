@@ -18,11 +18,21 @@ export async function GET(request: NextRequest) {
     const limit = Number.parseInt(searchParams.get('limit') || '20', 10);
     const cursor = searchParams.get('cursor') || undefined;
     const status = searchParams.get('status') || undefined;
+    const isFavoriteParam = searchParams.get('isFavorite');
+    const isFavorite =
+      isFavoriteParam === 'true'
+        ? true
+        : isFavoriteParam === 'false'
+          ? false
+          : undefined;
+    const search = searchParams.get('search') || undefined;
 
     const result = await videoService.listVideos(session.user.id, {
       limit: Math.min(limit, 100),
       cursor,
       status,
+      isFavorite,
+      search,
     });
 
     return NextResponse.json({ success: true, data: result });

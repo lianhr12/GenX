@@ -6,11 +6,19 @@ import { useCallback, useEffect, useState } from 'react';
 interface UseVideosOptions {
   initialLimit?: number;
   status?: string;
+  isFavorite?: boolean;
+  search?: string;
   autoFetch?: boolean;
 }
 
 export function useVideos(options: UseVideosOptions = {}) {
-  const { initialLimit = 20, status, autoFetch = true } = options;
+  const {
+    initialLimit = 20,
+    status,
+    isFavorite,
+    search,
+    autoFetch = true,
+  } = options;
 
   const [videos, setVideos] = useState<Video[]>([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -29,6 +37,9 @@ export function useVideos(options: UseVideosOptions = {}) {
         params.set('limit', String(initialLimit));
         if (cursor) params.set('cursor', cursor);
         if (status) params.set('status', status);
+        if (isFavorite !== undefined)
+          params.set('isFavorite', String(isFavorite));
+        if (search) params.set('search', search);
 
         const response = await fetch(`/api/v1/video/list?${params.toString()}`);
 
@@ -57,7 +68,7 @@ export function useVideos(options: UseVideosOptions = {}) {
         setIsLoading(false);
       }
     },
-    [initialLimit, status]
+    [initialLimit, status, isFavorite, search]
   );
 
   // Load more videos
@@ -94,6 +105,53 @@ export function useVideos(options: UseVideosOptions = {}) {
     }
   }, []);
 
+  // Toggle favorite
+  const toggleFavorite = useCallback(async (uuid: string) => {
+    try {
+      const response = await fetch(`/api/v1/video/${uuid}/favorite`, {
+        method: 'PATCH',
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to toggle favorite');
+      }
+
+      const result = await response.json();
+      const isFav = result.data?.isFavorite;
+
+      // Update local state
+      setVideos((prev) =>
+        prev.map((v) => (v.uuid === uuid ? { ...v, isFavorite: isFav } : v))
+      );
+      return true;
+    } catch (err) {
+      console.error('Failed to toggle favorite:', err);
+      return false;
+    }
+  }, []);
+
+  // Batch delete
+  const batchDelete = useCallback(async (uuids: string[]) => {
+    try {
+      const response = await fetch('/api/v1/video/batch', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ action: 'delete', uuids }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to batch delete');
+      }
+
+      // Remove from local state
+      setVideos((prev) => prev.filter((v) => !uuids.includes(v.uuid)));
+      return true;
+    } catch (err) {
+      console.error('Failed to batch delete:', err);
+      return false;
+    }
+  }, []);
+
   // Add video to list (for when a new video is generated)
   const addVideo = useCallback((video: Video) => {
     setVideos((prev) => [video, ...prev]);
@@ -106,12 +164,14 @@ export function useVideos(options: UseVideosOptions = {}) {
     );
   }, []);
 
-  // Auto fetch on mount
+  // Auto fetch on mount and when filters change
   useEffect(() => {
     if (autoFetch) {
+      setNextCursor(null);
+      setHasMore(true);
       fetchVideos();
     }
-  }, [autoFetch, fetchVideos]);
+  }, [autoFetch, status, isFavorite, search]);
 
   return {
     videos,
@@ -121,6 +181,8 @@ export function useVideos(options: UseVideosOptions = {}) {
     loadMore,
     refresh,
     deleteVideo,
+    toggleFavorite,
+    batchDelete,
     addVideo,
     updateVideo,
   };

@@ -19,7 +19,7 @@ import { calculateModelCredits, getModelConfig } from '@/config/video-credits';
 import { freezeCredits, releaseCredits, settleCredits } from '@/credits/server';
 import { type Video, VideoStatus, creditHolds, getDb, videos } from '@/db';
 import { getStorage } from '@/storage';
-import { and, desc, eq, lt } from 'drizzle-orm';
+import { and, desc, eq, ilike, inArray, lt } from 'drizzle-orm';
 import { nanoid } from 'nanoid';
 
 // ============================================================================
@@ -431,6 +431,8 @@ export class VideoService {
       limit?: number;
       cursor?: string;
       status?: string;
+      isFavorite?: boolean;
+      search?: string;
     }
   ): Promise<{ videos: Video[]; nextCursor?: string }> {
     const db = await getDb();
@@ -445,6 +447,14 @@ export class VideoService {
           options.status as (typeof VideoStatus)[keyof typeof VideoStatus]
         )
       );
+    }
+
+    if (options?.isFavorite !== undefined) {
+      conditions.push(eq(videos.isFavorite, options.isFavorite));
+    }
+
+    if (options?.search) {
+      conditions.push(ilike(videos.prompt, `%${options.search}%`));
     }
 
     if (options?.cursor) {
@@ -484,6 +494,84 @@ export class VideoService {
       .update(videos)
       .set({ isDeleted: true, updatedAt: new Date() })
       .where(and(eq(videos.uuid, uuid), eq(videos.userId, userId)));
+  }
+
+  /**
+   * Toggle favorite status
+   */
+  async toggleFavorite(uuid: string, userId: string): Promise<boolean> {
+    const db = await getDb();
+    const [video] = await db
+      .select({ isFavorite: videos.isFavorite })
+      .from(videos)
+      .where(
+        and(
+          eq(videos.uuid, uuid),
+          eq(videos.userId, userId),
+          eq(videos.isDeleted, false)
+        )
+      )
+      .limit(1);
+
+    if (!video) {
+      throw new Error('Video not found');
+    }
+
+    const newValue = !video.isFavorite;
+    await db
+      .update(videos)
+      .set({ isFavorite: newValue, updatedAt: new Date() })
+      .where(and(eq(videos.uuid, uuid), eq(videos.userId, userId)));
+
+    return newValue;
+  }
+
+  /**
+   * Batch delete videos
+   */
+  async batchDelete(uuids: string[], userId: string): Promise<number> {
+    if (uuids.length === 0) return 0;
+
+    const db = await getDb();
+    const result = await db
+      .update(videos)
+      .set({ isDeleted: true, updatedAt: new Date() })
+      .where(
+        and(
+          inArray(videos.uuid, uuids),
+          eq(videos.userId, userId),
+          eq(videos.isDeleted, false)
+        )
+      )
+      .returning({ uuid: videos.uuid });
+
+    return result.length;
+  }
+
+  /**
+   * Batch toggle favorite
+   */
+  async batchFavorite(
+    uuids: string[],
+    userId: string,
+    isFavorite: boolean
+  ): Promise<number> {
+    if (uuids.length === 0) return 0;
+
+    const db = await getDb();
+    const result = await db
+      .update(videos)
+      .set({ isFavorite, updatedAt: new Date() })
+      .where(
+        and(
+          inArray(videos.uuid, uuids),
+          eq(videos.userId, userId),
+          eq(videos.isDeleted, false)
+        )
+      )
+      .returning({ uuid: videos.uuid });
+
+    return result.length;
   }
 }
 

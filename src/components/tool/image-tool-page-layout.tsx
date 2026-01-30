@@ -1,9 +1,11 @@
 'use client';
 
 import type { ToolPageConfig } from '@/config/tool-pages';
+import type { Image } from '@/db';
+import { useImages } from '@/hooks/use-images';
 import { useLocaleRouter } from '@/i18n/navigation';
 import { useTranslations } from 'next-intl';
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import {
   type ImageGeneratorData,
   ImageGeneratorPanel,
@@ -22,6 +24,8 @@ interface GeneratedImage {
   prompt: string;
   model: string;
   createdAt: Date;
+  uuid?: string;
+  isFavorite?: boolean;
 }
 
 export function ImageToolPageLayout({
@@ -35,10 +39,40 @@ export function ImageToolPageLayout({
   const [generatedImages, setGeneratedImages] = useState<GeneratedImage[]>([]);
   const [error, setError] = useState<string | null>(null);
 
-  // Poll for task status
+  // Use the images hook to fetch history (only for logged in users)
+  const {
+    images: historyImages,
+    refresh: refreshHistory,
+    updateImage,
+  } = useImages({
+    initialLimit: 20,
+    autoFetch: isLoggedIn,
+    status: 'COMPLETED',
+  });
+
+  // Convert history images to GeneratedImage format and merge with current session
+  useEffect(() => {
+    if (historyImages.length > 0 && generatedImages.length === 0) {
+      const converted: GeneratedImage[] = historyImages.flatMap((img) => {
+        const urls = (img.imageUrls as string[]) || [];
+        return urls.map((url, index) => ({
+          id: `${img.uuid}-${index}`,
+          url,
+          prompt: img.prompt,
+          model: img.model,
+          createdAt: new Date(img.createdAt),
+          uuid: img.uuid,
+          isFavorite: img.isFavorite,
+        }));
+      });
+      setGeneratedImages(converted);
+    }
+  }, [historyImages, generatedImages.length]);
+
+  // Poll for task status using imageUuid
   const pollTaskStatus = useCallback(
     async (
-      taskId: string,
+      imageUuid: string,
       prompt: string,
       model: string
     ): Promise<GeneratedImage[]> => {
@@ -46,7 +80,7 @@ export function ImageToolPageLayout({
       const pollInterval = 5000; // 5 seconds
 
       for (let attempt = 0; attempt < maxAttempts; attempt++) {
-        const response = await fetch(`/api/v1/image/status/${taskId}`);
+        const response = await fetch(`/api/v1/image/status/${imageUuid}`);
         const result = await response.json();
 
         if (!result.success) {
@@ -57,11 +91,12 @@ export function ImageToolPageLayout({
 
         if (status === 'completed' && images) {
           return images.map((img: { url: string }, index: number) => ({
-            id: `${taskId}-${index}`,
+            id: `${imageUuid}-${index}`,
             url: img.url,
             prompt,
             model,
             createdAt: new Date(),
+            uuid: imageUuid,
           }));
         }
 
@@ -125,29 +160,35 @@ export function ImageToolPageLayout({
           throw new Error(result.error || tErrors('generateFailed'));
         }
 
-        const { taskId, status, images } = result.data;
+        // Use imageUuid for polling (new format)
+        const { imageUuid, taskId, status, images } = result.data;
+        const pollId = imageUuid || taskId;
 
         // If already completed (unlikely), use images directly
         if (status === 'completed' && images) {
           const newImages: GeneratedImage[] = images.map(
             (img: { url: string }, index: number) => ({
-              id: `${taskId}-${index}`,
+              id: `${pollId}-${index}`,
               url: img.url,
               prompt: data.prompt,
               model: data.model,
               createdAt: new Date(),
+              uuid: imageUuid,
             })
           );
           setGeneratedImages((prev) => [...newImages, ...prev]);
         } else {
-          // Poll for completion
+          // Poll for completion using imageUuid
           const newImages = await pollTaskStatus(
-            taskId,
+            pollId,
             data.prompt,
             data.model
           );
           setGeneratedImages((prev) => [...newImages, ...prev]);
         }
+
+        // Refresh history to include the new image
+        refreshHistory();
       } catch (err) {
         setError(
           err instanceof Error ? err.message : tErrors('generateFailed')
@@ -156,7 +197,7 @@ export function ImageToolPageLayout({
         setIsGenerating(false);
       }
     },
-    [isLoggedIn, userCredits, router, tErrors, pollTaskStatus]
+    [isLoggedIn, userCredits, router, tErrors, pollTaskStatus, refreshHistory]
   );
 
   const handleClearImages = useCallback(() => {

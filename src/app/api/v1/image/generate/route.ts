@@ -1,8 +1,5 @@
-import {
-  type ImageGenerationParams,
-  getEvolinkImageProvider,
-} from '@/ai/image/providers/evolink';
 import { requireSession, unauthorizedResponse } from '@/lib/require-session';
+import { imageService } from '@/services/image';
 import { type NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
 
@@ -34,47 +31,82 @@ const generateImageSchema = z.object({
 // Supported models and their mappings based on Evolink API documentation
 const MODEL_CONFIGS: Record<
   string,
-  { evolinkModel: string; defaultSize: string }
+  {
+    evolinkModel: string;
+    defaultSize: string;
+    supportedSizes: string[];
+  }
 > = {
   // GPT Image models
   'gpt-image-1.5': {
     evolinkModel: 'gpt-image-1.5',
     defaultSize: '1024x1024',
+    supportedSizes: [
+      '1024x1024',
+      '1024x1536',
+      '1536x1024',
+      '1:1',
+      '2:3',
+      '3:2',
+    ],
   },
   'gpt-image-1.5-lite': {
     evolinkModel: 'gpt-image-1.5-lite',
     defaultSize: '1024x1024',
+    supportedSizes: [
+      '1024x1024',
+      '1024x1536',
+      '1536x1024',
+      '1:1',
+      '2:3',
+      '3:2',
+    ],
   },
   // Seedream models
   'seedream-4.5': {
     evolinkModel: 'doubao-seedream-4.5',
     defaultSize: '2048x2048',
+    supportedSizes: ['1:1', '16:9', '9:16', '4:3', '3:4', '2:3', '3:2'],
   },
   'seedream-4.0': {
     evolinkModel: 'doubao-seedream-4.0',
     defaultSize: '2048x2048',
+    supportedSizes: ['1:1', '16:9', '9:16', '4:3', '3:4', '2:3', '3:2'],
   },
   // Nanobanana models (using Gemini backend)
   'nanobanana-pro': {
     evolinkModel: 'gemini-3-pro-image-preview',
     defaultSize: '1024x1024',
+    supportedSizes: ['1:1', '16:9', '9:16', '4:3', '3:4', '2:3', '3:2'],
   },
   // Wan2.5 text-to-image
   'wan2.5': {
     evolinkModel: 'wan2.5-text-to-image',
     defaultSize: '1280x1280',
+    supportedSizes: ['1:1', '16:9', '9:16', '4:3', '3:4', '2:3', '3:2'],
   },
 };
 
-// Map aspect ratio to API-compatible format
-// Evolink API accepts ratio strings directly (e.g., "1:1", "2:3")
-// For ratios not directly supported, map to closest supported ratio
-const ASPECT_RATIO_MAP: Record<string, string> = {
-  '1:1': '1:1',
-  '16:9': '16:9',
-  '9:16': '9:16',
-  '4:3': '4:3',
-  '3:4': '3:4',
+// Map aspect ratio to closest supported ratio for models with limited support
+// GPT models: only support 1:1, 2:3, 3:2
+// Other models: support wider range including 16:9, 9:16, 4:3, 3:4
+const ASPECT_RATIO_FALLBACK: Record<string, Record<string, string>> = {
+  // For GPT models with limited size support
+  'gpt-limited': {
+    '1:1': '1:1',
+    '16:9': '3:2', // Map 16:9 to closest supported 3:2
+    '9:16': '2:3', // Map 9:16 to closest supported 2:3
+    '4:3': '3:2', // Map 4:3 to closest supported 3:2
+    '3:4': '2:3', // Map 3:4 to closest supported 2:3
+  },
+  // For models with full support
+  full: {
+    '1:1': '1:1',
+    '16:9': '16:9',
+    '9:16': '9:16',
+    '4:3': '4:3',
+    '3:4': '3:4',
+  },
 };
 
 export async function POST(req: NextRequest) {
@@ -108,50 +140,42 @@ export async function POST(req: NextRequest) {
     const modelConfig =
       MODEL_CONFIGS[modelKey] || MODEL_CONFIGS['gpt-image-1.5'];
 
-    // Determine size - use aspect ratio string directly if provided
-    // Evolink API accepts ratio strings like "1:1", "2:3", etc.
+    // Determine size - use aspect ratio with model-specific mapping
+    // GPT models have limited size support, so we need to map unsupported ratios
+    const isGptModel = modelKey.startsWith('gpt-image');
+    const fallbackMap = isGptModel
+      ? ASPECT_RATIO_FALLBACK['gpt-limited']
+      : ASPECT_RATIO_FALLBACK.full;
+
     const size = aspectRatio
-      ? ASPECT_RATIO_MAP[aspectRatio] || aspectRatio
+      ? fallbackMap[aspectRatio] || aspectRatio
       : modelConfig.defaultSize;
 
-    // Create task params
-    const params: ImageGenerationParams = {
-      model: modelConfig.evolinkModel,
+    // Use ImageService to create task and persist to database
+    const result = await imageService.generate({
+      userId: session.user.id,
       prompt,
-      size,
+      model: modelConfig.evolinkModel,
+      aspectRatio,
       quality: quality || 'medium',
-      n: numberOfImages || 1,
+      numberOfImages: numberOfImages || 1,
+      size,
       imageUrls,
-    };
-
-    // Get provider and create task
-    const provider = getEvolinkImageProvider();
-    const taskResponse = await provider.createTask(params);
+    });
 
     // Log task creation for audit
     console.log(
-      `[Image Generation] Task created: taskId=${taskResponse.taskId}, userId=${session.user.id}, model=${params.model}`
+      `[Image Generation] Task created: imageUuid=${result.imageUuid}, taskId=${result.taskId}, userId=${session.user.id}, model=${modelConfig.evolinkModel}`
     );
 
-    // If task is already completed (unlikely but possible), return images
-    if (taskResponse.status === 'completed' && taskResponse.imageUrls) {
-      return NextResponse.json({
-        success: true,
-        data: {
-          taskId: taskResponse.taskId,
-          status: taskResponse.status,
-          images: taskResponse.imageUrls.map((url) => ({ url })),
-        },
-      });
-    }
-
-    // Return task info for polling
+    // Return task info for polling (use imageUuid for status checks)
     return NextResponse.json({
       success: true,
       data: {
-        taskId: taskResponse.taskId,
-        status: taskResponse.status,
-        progress: taskResponse.progress,
+        imageUuid: result.imageUuid,
+        taskId: result.taskId,
+        status: result.status,
+        progress: result.progress,
       },
     });
   } catch (error) {

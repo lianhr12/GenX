@@ -153,6 +153,7 @@ export const videos = pgTable("videos", {
 	aspectRatio: text("aspect_ratio"),
 	fileSize: integer("file_size"),
 	creditsUsed: integer("credits_used").default(0).notNull(),
+	isFavorite: boolean("is_favorite").default(false).notNull(),
 	createdAt: timestamp("created_at").defaultNow().notNull(),
 	updatedAt: timestamp("updated_at").defaultNow().notNull(),
 	completedAt: timestamp("completed_at"),
@@ -163,6 +164,7 @@ export const videos = pgTable("videos", {
 	videosStatusIdx: index("videos_status_idx").on(table.status),
 	videosCreatedAtIdx: index("videos_created_at_idx").on(table.createdAt),
 	videosUuidIdx: uniqueIndex("videos_uuid_idx").on(table.uuid),
+	videosFavoriteIdx: index("videos_favorite_idx").on(table.isFavorite),
 }));
 
 /**
@@ -214,3 +216,66 @@ export const CreditHoldStatus = {
 	RELEASED: "RELEASED",
 } as const;
 export type CreditHoldStatus = (typeof CreditHoldStatus)[keyof typeof CreditHoldStatus];
+
+// ============================================================================
+// Image Generation Tables
+// ============================================================================
+
+/**
+ * Image generation records table
+ * Stores all image generation tasks and their results
+ */
+export const images = pgTable("images", {
+	id: serial("id").primaryKey(),
+	uuid: text("uuid").notNull().unique(),
+	userId: text("user_id").notNull().references(() => user.id, { onDelete: 'cascade' }),
+
+	// Generation parameters
+	prompt: text("prompt").notNull(),
+	model: text("model").notNull(),
+	provider: text("provider").default("evolink"),
+	externalTaskId: text("external_task_id"),
+	parameters: jsonb("parameters"), // { aspectRatio, quality, numberOfImages, size }
+
+	// Status
+	status: text("status").default("PENDING").notNull(), // PENDING, GENERATING, COMPLETED, FAILED
+	errorMessage: text("error_message"),
+
+	// Image data
+	imageUrls: jsonb("image_urls"), // string[]
+	thumbnailUrl: text("thumbnail_url"),
+
+	// Metadata
+	creditsUsed: integer("credits_used").default(0).notNull(),
+
+	// User management
+	isFavorite: boolean("is_favorite").default(false).notNull(),
+	tags: jsonb("tags"), // string[]
+
+	// Timestamps
+	createdAt: timestamp("created_at").defaultNow().notNull(),
+	updatedAt: timestamp("updated_at").defaultNow().notNull(),
+	completedAt: timestamp("completed_at"),
+	generationTime: integer("generation_time"), // in milliseconds
+
+	// Soft delete
+	isDeleted: boolean("is_deleted").default(false).notNull(),
+}, (table) => ({
+	imagesUserIdIdx: index("images_user_id_idx").on(table.userId),
+	imagesStatusIdx: index("images_status_idx").on(table.status),
+	imagesCreatedAtIdx: index("images_created_at_idx").on(table.createdAt),
+	imagesUuidIdx: uniqueIndex("images_uuid_idx").on(table.uuid),
+	imagesFavoriteIdx: index("images_favorite_idx").on(table.isFavorite),
+	imagesModelIdx: index("images_model_idx").on(table.model),
+}));
+
+export type Image = typeof images.$inferSelect;
+
+// Image status enum values
+export const ImageStatus = {
+	PENDING: "PENDING",
+	GENERATING: "GENERATING",
+	COMPLETED: "COMPLETED",
+	FAILED: "FAILED",
+} as const;
+export type ImageStatus = (typeof ImageStatus)[keyof typeof ImageStatus];

@@ -467,6 +467,41 @@
     "dashboard": {
       "title": "仪表盘"
     },
+    "creations": {
+      "title": "我的创作",
+      "videos": {
+        "title": "视频",
+        "description": "查看和管理您生成的视频",
+        "empty": "暂无视频",
+        "emptyHint": "开始创作视频后将在这里显示"
+      },
+      "images": {
+        "title": "图片",
+        "description": "查看和管理您生成的图片",
+        "empty": "暂无图片",
+        "emptyHint": "开始创作图片后将在这里显示"
+      },
+      "filters": {
+        "all": "全部",
+        "completed": "已完成",
+        "generating": "生成中",
+        "failed": "失败",
+        "favorites": "收藏"
+      },
+      "actions": {
+        "delete": "删除",
+        "download": "下载",
+        "favorite": "收藏",
+        "unfavorite": "取消收藏",
+        "regenerate": "重新生成",
+        "viewDetails": "查看详情"
+      },
+      "batch": {
+        "selected": "已选择 {count} 项",
+        "deleteSelected": "删除所选",
+        "downloadSelected": "下载所选"
+      }
+    },
     "admin": {
       "title": "系统管理",
       "users": {
@@ -516,6 +551,10 @@
           "error": "解除封禁失败"
         },
         "close": "关闭"
+      },
+      "images": {
+        "title": "图片管理",
+        "description": "管理所有用户生成的图片"
       }
     },
     "settings": {

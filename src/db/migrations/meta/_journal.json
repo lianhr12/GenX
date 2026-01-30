@@ -64,6 +64,20 @@
       "when": 1769259856708,
       "tag": "0008_hard_the_fury",
       "breakpoints": true
+    },
+    {
+      "idx": 9,
+      "version": "7",
+      "when": 1769763308947,
+      "tag": "0009_tearful_stryfe",
+      "breakpoints": true
+    },
+    {
+      "idx": 10,
+      "version": "7",
+      "when": 1769766158670,
+      "tag": "0010_ambitious_revanche",
+      "breakpoints": true
     }
   ]
 }

@@ -8,11 +8,14 @@ import {
   CircleUserRoundIcon,
   CoinsIcon,
   CreditCardIcon,
+  FolderOpenIcon,
+  ImageIcon,
   LayoutDashboardIcon,
   LockKeyholeIcon,
   Settings2Icon,
   SettingsIcon,
   UsersRoundIcon,
+  VideoIcon,
 } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { websiteConfig } from './website';
@@ -38,6 +41,24 @@ export function useSidebarLinks(): NestedMenuItem[] {
       external: false,
     },
     {
+      title: t('creations.title'),
+      icon: <FolderOpenIcon className="size-4 shrink-0" />,
+      items: [
+        {
+          title: t('creations.videos.title'),
+          icon: <VideoIcon className="size-4 shrink-0" />,
+          href: Routes.MyVideos,
+          external: false,
+        },
+        {
+          title: t('creations.images.title'),
+          icon: <ImageIcon className="size-4 shrink-0" />,
+          href: Routes.MyImages,
+          external: false,
+        },
+      ],
+    },
+    {
       title: t('admin.title'),
       icon: <SettingsIcon className="size-4 shrink-0" />,
       authorizeOnly: isDemo ? ['admin', 'user'] : ['admin'],
@@ -46,6 +67,12 @@ export function useSidebarLinks(): NestedMenuItem[] {
           title: t('admin.users.title'),
           icon: <UsersRoundIcon className="size-4 shrink-0" />,
           href: Routes.AdminUsers,
+          external: false,
+        },
+        {
+          title: t('admin.images.title'),
+          icon: <ImageIcon className="size-4 shrink-0" />,
+          href: Routes.AdminImages,
           external: false,
         },
       ],
