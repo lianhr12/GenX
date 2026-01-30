@@ -19,8 +19,8 @@ const artStyles = [
     bgColor: 'bg-cyan-500/10',
     borderColor: 'border-cyan-500/20',
     hoverBorderColor: 'hover:border-cyan-500/50',
-    video: '/videos/demo/cyberpunk.mp4',
-    poster: '/images/demo/cyberpunk-poster.jpg',
+    video: 'https://asset.genx.art/home/video/_04d086227554f06685353417a38f9e89_70fadb6e-314e-4494-857a-6004a7bbb6aa.mp4',
+    poster: 'https://asset.genx.art/home/styles/cyberpunk.png',
   },
   {
     id: 'watercolor',
@@ -31,7 +31,7 @@ const artStyles = [
     borderColor: 'border-blue-400/20',
     hoverBorderColor: 'hover:border-blue-400/50',
     video: '/videos/demo/watercolor.mp4',
-    poster: '/images/demo/watercolor-poster.jpg',
+    poster: 'https://asset.genx.art/home/styles/watercolor.png',
   },
   {
     id: 'oilPainting',
@@ -42,7 +42,7 @@ const artStyles = [
     borderColor: 'border-amber-500/20',
     hoverBorderColor: 'hover:border-amber-500/50',
     video: '/videos/demo/oil-painting.mp4',
-    poster: '/images/demo/oil-painting-poster.jpg',
+    poster: 'https://asset.genx.art/home/styles/painting1.png',
   },
   {
     id: 'anime',
@@ -53,7 +53,7 @@ const artStyles = [
     borderColor: 'border-pink-500/20',
     hoverBorderColor: 'hover:border-pink-500/50',
     video: '/videos/demo/anime.mp4',
-    poster: '/images/demo/anime-poster.jpg',
+    poster: 'https://asset.genx.art/home/styles/cartoon.png',
   },
   {
     id: 'fluidArt',
@@ -64,8 +64,9 @@ const artStyles = [
     borderColor: 'border-violet-500/20',
     hoverBorderColor: 'hover:border-violet-500/50',
     video: '/videos/demo/fluid-art.mp4',
-    poster: '/images/demo/fluid-art-poster.jpg',
+    poster: 'https://asset.genx.art/home/styles/fluid-art.png',
   },
+  
 ];
 
 interface StyleCardProps {
@@ -73,9 +74,10 @@ interface StyleCardProps {
   isActive: boolean;
   onHover: () => void;
   onLeave: () => void;
+  index: number;
 }
 
-function StyleCard({ style, isActive, onHover, onLeave }: StyleCardProps) {
+function StyleCard({ style, isActive, onHover, onLeave, index }: StyleCardProps) {
   const t = useTranslations('Landing.artStyles');
   const videoRef = useRef<HTMLVideoElement>(null);
   const Icon = style.icon;
@@ -96,34 +98,69 @@ function StyleCard({ style, isActive, onHover, onLeave }: StyleCardProps) {
   return (
     <motion.div
       className={cn(
-        'group relative overflow-hidden rounded-2xl border transition-all duration-500',
+        'group relative overflow-hidden rounded-2xl border transition-all duration-300',
         style.borderColor,
         style.hoverBorderColor,
         isActive ? 'scale-[1.02] shadow-xl' : ''
       )}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      whileHover={{ y: -4 }}
+      whileHover={{ 
+        y: -8,
+        transition: { duration: 0.2, ease: "easeOut" }
+      }}
+      whileTap={{ scale: 0.98 }}
     >
       {/* Video/Image Container */}
-      <div className="relative aspect-video overflow-hidden">
-        {/* Poster Image - Using Next.js Image for optimization */}
-        <Image
-          src={style.poster}
-          alt={t(`styles.${style.id}.title` as never)}
-          fill
-          sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1280px) 33vw, 20vw"
+      <div className="relative aspect-[4/5] overflow-hidden">
+        {/* Poster Image - Using Next.js Image with fallback */}
+        <div 
           className={cn(
-            'object-cover transition-opacity duration-500',
+            'absolute inset-0 transition-opacity duration-500',
             isActive ? 'opacity-0' : 'opacity-100'
           )}
-          loading="lazy"
-        />
+        >
+          <Image
+            src={style.poster}
+            alt={t(`styles.${style.id}.title` as never)}
+            fill
+            sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1280px) 33vw, 20vw"
+            className="object-cover"
+            loading={index === 0 ? "eager" : "lazy"}
+            priority={index === 0}
+            unoptimized={true}
+            onError={(e) => {
+              // Fallback to gradient background if image fails to load
+              const target = e.target as HTMLImageElement;
+              const parent = target.parentElement;
+              if (parent) {
+                parent.style.background = `linear-gradient(to bottom right, 
+                  ${style.id === 'cyberpunk' ? '#06b6d4, #a855f7, #ec4899' : 
+                    style.id === 'watercolor' ? '#60a5fa, #14b8a6, #06b6d4' :
+                    style.id === 'oilPainting' ? '#f59e0b, #f97316, #ef4444' :
+                    style.id === 'anime' ? '#ec4899, #f43f5e, #a855f7' :
+                    '#8b5cf6, #d946ef, #a855f7'})`;
+                target.style.display = 'none';
+              }
+            }}
+          />
+          
+          {/* Fallback gradient overlay (hidden by default) */}
+          <div 
+            className={cn(
+              'absolute inset-0 bg-gradient-to-br hidden',
+              style.id === 'cyberpunk' && 'from-cyan-600 via-purple-600 to-pink-600',
+              style.id === 'watercolor' && 'from-blue-400 via-teal-400 to-cyan-400',
+              style.id === 'oilPainting' && 'from-amber-500 via-orange-500 to-red-500',
+              style.id === 'anime' && 'from-pink-400 via-rose-400 to-purple-400',
+              style.id === 'fluidArt' && 'from-violet-500 via-fuchsia-500 to-purple-500'
+            )}
+          />
+        </div>
 
         {/* Video (shown on hover) - loaded lazily */}
         <video
           ref={videoRef}
-          poster={style.poster}
           muted
           loop
           playsInline
@@ -158,24 +195,23 @@ function StyleCard({ style, isActive, onHover, onLeave }: StyleCardProps) {
       </div>
 
       {/* Content */}
-      <div className="p-5">
-        <h3 className="text-lg font-semibold">
-          {t(`styles.${style.id}.title` as never)}
-        </h3>
-        <p className="mt-2 text-sm text-muted-foreground line-clamp-2">
-          {t(`styles.${style.id}.description` as never)}
-        </p>
-        <p className="mt-2 text-xs text-muted-foreground/70">
-          {t(`styles.${style.id}.bestFor` as never)}
-        </p>
-
+      <div className="p-4">
+          <h3 className="text-lg font-semibold">
+            {t(`styles.${style.id}.title` as never)}
+          </h3>
+          <p className="mt-2 text-sm text-muted-foreground line-clamp-2">
+            {t(`styles.${style.id}.description` as never)}
+          </p>
+          <p className="mt-2 text-xs text-muted-foreground/70">
+            {t(`styles.${style.id}.bestFor` as never)}
+          </p>
         {/* CTA */}
         <Button
           asChild
           variant="ghost"
           size="sm"
           className={cn(
-            'mt-4 w-full bg-gradient-to-r opacity-0 transition-all group-hover:opacity-100',
+            'mt-3 w-full bg-gradient-to-r opacity-0 transition-all group-hover:opacity-100',
             style.gradientColor,
             'text-white hover:text-white'
           )}
@@ -203,45 +239,81 @@ export function ArtStylesSection() {
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center">
-          <AnimatedGroup preset="blur-slide">
-            <span className="inline-block rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-sm font-medium text-primary">
-              {t('badge')}
-            </span>
-            <h2 className="mt-4 text-balance text-3xl font-bold tracking-tight md:text-4xl lg:text-5xl">
-              {t('headline')}
-            </h2>
-            <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
-              {t('subheadline')}
-            </p>
-          </AnimatedGroup>
-        </div>
+        <motion.div 
+          className="text-center"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6 }}
+        >
+          <motion.span
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="inline-block rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-sm font-medium text-primary"
+          >
+            {t('badge')}
+          </motion.span>
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="mt-4 text-balance text-3xl font-bold tracking-tight md:text-4xl lg:text-5xl"
+          >
+            {t('headline')}
+          </motion.h2>
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground"
+          >
+            {t('subheadline')}
+          </motion.p>
+        </motion.div>
 
         {/* Styles Grid */}
-        <div className="mt-16">
-          <AnimatedGroup
-            preset="scale"
-            className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5"
-          >
-            {artStyles.map((style) => (
+        <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+          {artStyles.map((style, index) => (
+            <motion.div
+              key={style.id}
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ 
+                duration: 0.5, 
+                delay: index * 0.1,
+                type: "spring",
+                stiffness: 300,
+                damping: 20
+              }}
+            >
               <StyleCard
-                key={style.id}
                 style={style}
                 isActive={activeStyle === style.id}
                 onHover={() => setActiveStyle(style.id)}
                 onLeave={() => setActiveStyle(null)}
+                index={index}
               />
-            ))}
-          </AnimatedGroup>
+            </motion.div>
+          ))}
         </div>
 
         {/* Bottom CTA */}
         <div className="mt-12 text-center">
-          <AnimatedGroup preset="fade">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.5, delay: 0.8 }}
+          >
             <Button asChild variant="outline" size="lg" className="rounded-xl">
               <LocaleLink href="/styles">{t('exploreAll')}</LocaleLink>
             </Button>
-          </AnimatedGroup>
+          </motion.div>
         </div>
       </div>
     </section>
