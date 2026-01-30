@@ -95,6 +95,13 @@ export function ImageToolPageLayout({
 
       try {
         // Create image generation task
+        // Map frontend quality values to API values
+        const qualityMap: Record<string, string> = {
+          standard: 'medium',
+          hd: 'high',
+        };
+        const apiQuality = qualityMap[data.quality || 'standard'] || 'medium';
+
         const response = await fetch('/api/v1/image/generate', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
@@ -102,7 +109,7 @@ export function ImageToolPageLayout({
             prompt: data.prompt,
             model: data.model,
             aspectRatio: data.aspectRatio,
-            quality: data.quality,
+            quality: apiQuality,
             numberOfImages: data.numberOfImages,
           }),
         });

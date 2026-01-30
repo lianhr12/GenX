@@ -22,7 +22,7 @@ const generateImageSchema = z.object({
     ),
   model: z.string().optional(),
   aspectRatio: z.enum(['1:1', '16:9', '9:16', '4:3', '3:4']).optional(),
-  quality: z.enum(['auto', 'high', 'medium', 'low']).optional(),
+  quality: z.enum(['high', 'medium', 'low']).optional(),
   numberOfImages: z
     .number()
     .min(MIN_IMAGES_PER_REQUEST)
@@ -66,13 +66,15 @@ const MODEL_CONFIGS: Record<
   },
 };
 
-// Map aspect ratio to size
-const ASPECT_RATIO_TO_SIZE: Record<string, string> = {
-  '1:1': '1024x1024',
-  '16:9': '1792x1024',
-  '9:16': '1024x1792',
-  '4:3': '1024x768',
-  '3:4': '768x1024',
+// Map aspect ratio to API-compatible format
+// Evolink API accepts ratio strings directly (e.g., "1:1", "2:3")
+// For ratios not directly supported, map to closest supported ratio
+const ASPECT_RATIO_MAP: Record<string, string> = {
+  '1:1': '1:1',
+  '16:9': '16:9',
+  '9:16': '9:16',
+  '4:3': '4:3',
+  '3:4': '3:4',
 };
 
 export async function POST(req: NextRequest) {
@@ -106,9 +108,10 @@ export async function POST(req: NextRequest) {
     const modelConfig =
       MODEL_CONFIGS[modelKey] || MODEL_CONFIGS['gpt-image-1.5'];
 
-    // Determine size from aspect ratio
+    // Determine size - use aspect ratio string directly if provided
+    // Evolink API accepts ratio strings like "1:1", "2:3", etc.
     const size = aspectRatio
-      ? ASPECT_RATIO_TO_SIZE[aspectRatio] || modelConfig.defaultSize
+      ? ASPECT_RATIO_MAP[aspectRatio] || aspectRatio
       : modelConfig.defaultSize;
 
     // Create task params
@@ -116,7 +119,7 @@ export async function POST(req: NextRequest) {
       model: modelConfig.evolinkModel,
       prompt,
       size,
-      quality: quality || 'auto',
+      quality: quality || 'medium',
       n: numberOfImages || 1,
       imageUrls,
     };

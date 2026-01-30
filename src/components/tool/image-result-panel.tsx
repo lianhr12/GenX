@@ -168,12 +168,27 @@ interface ImageCardProps {
 function ImageCard({ image, onSelect }: ImageCardProps) {
   const t = useTranslations('ToolPage.result');
 
+  const handleImageError = (e: React.SyntheticEvent<HTMLImageElement>) => {
+    const img = e.currentTarget;
+    const retryCount = Number(img.dataset.retryCount || 0);
+    if (retryCount < 3) {
+      img.dataset.retryCount = String(retryCount + 1);
+      setTimeout(
+        () => {
+          img.src = `${image.url}${image.url.includes('?') ? '&' : '?'}_t=${Date.now()}`;
+        },
+        1000 * (retryCount + 1)
+      );
+    }
+  };
+
   return (
     <div className="group relative aspect-square rounded-lg overflow-hidden border border-border bg-muted">
       <img
         src={image.url}
         alt={image.prompt}
         className="w-full h-full object-cover"
+        onError={handleImageError}
       />
 
       {/* Hover overlay */}
@@ -211,6 +226,20 @@ interface ImagePreviewModalProps {
 function ImagePreviewModal({ image, onClose }: ImagePreviewModalProps) {
   const t = useTranslations('ToolPage.result');
 
+  const handleImageError = (e: React.SyntheticEvent<HTMLImageElement>) => {
+    const img = e.currentTarget;
+    const retryCount = Number(img.dataset.retryCount || 0);
+    if (retryCount < 3) {
+      img.dataset.retryCount = String(retryCount + 1);
+      setTimeout(
+        () => {
+          img.src = `${image.url}${image.url.includes('?') ? '&' : '?'}_t=${Date.now()}`;
+        },
+        1000 * (retryCount + 1)
+      );
+    }
+  };
+
   return (
     <div
       className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4"
@@ -225,6 +254,7 @@ function ImagePreviewModal({ image, onClose }: ImagePreviewModalProps) {
           src={image.url}
           alt={image.prompt}
           className="max-w-full max-h-[70vh] object-contain"
+          onError={handleImageError}
         />
 
         {/* Info */}

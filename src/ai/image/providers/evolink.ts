@@ -42,7 +42,7 @@ export class EvolinkImageProvider {
         model: params.model,
         prompt: params.prompt,
         size: params.size || '1024x1024',
-        quality: params.quality || 'auto',
+        quality: params.quality || 'medium',
         n: params.n || 1,
         image_urls: params.imageUrls,
       }),
