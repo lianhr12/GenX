@@ -19,7 +19,8 @@ const artStyles = [
     bgColor: 'bg-cyan-500/10',
     borderColor: 'border-cyan-500/20',
     hoverBorderColor: 'hover:border-cyan-500/50',
-    video: 'https://asset.genx.art/home/video/_04d086227554f06685353417a38f9e89_70fadb6e-314e-4494-857a-6004a7bbb6aa.mp4',
+    video:
+      'https://asset.genx.art/home/video/_04d086227554f06685353417a38f9e89_70fadb6e-314e-4494-857a-6004a7bbb6aa.mp4',
     poster: 'https://asset.genx.art/home/styles/cyberpunk.png',
   },
   {
@@ -66,7 +67,6 @@ const artStyles = [
     video: '/videos/demo/fluid-art.mp4',
     poster: 'https://asset.genx.art/home/styles/fluid-art.png',
   },
-  
 ];
 
 interface StyleCardProps {
@@ -77,7 +77,13 @@ interface StyleCardProps {
   index: number;
 }
 
-function StyleCard({ style, isActive, onHover, onLeave, index }: StyleCardProps) {
+function StyleCard({
+  style,
+  isActive,
+  onHover,
+  onLeave,
+  index,
+}: StyleCardProps) {
   const t = useTranslations('Landing.artStyles');
   const videoRef = useRef<HTMLVideoElement>(null);
   const Icon = style.icon;
@@ -105,16 +111,16 @@ function StyleCard({ style, isActive, onHover, onLeave, index }: StyleCardProps)
       )}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      whileHover={{ 
+      whileHover={{
         y: -8,
-        transition: { duration: 0.2, ease: "easeOut" }
+        transition: { duration: 0.2, ease: 'easeOut' },
       }}
       whileTap={{ scale: 0.98 }}
     >
       {/* Video/Image Container */}
       <div className="relative aspect-[4/5] overflow-hidden">
         {/* Poster Image - Using Next.js Image with fallback */}
-        <div 
+        <div
           className={cn(
             'absolute inset-0 transition-opacity duration-500',
             isActive ? 'opacity-0' : 'opacity-100'
@@ -126,7 +132,7 @@ function StyleCard({ style, isActive, onHover, onLeave, index }: StyleCardProps)
             fill
             sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1280px) 33vw, 20vw"
             className="object-cover"
-            loading={index === 0 ? "eager" : "lazy"}
+            loading={index === 0 ? 'eager' : 'lazy'}
             priority={index === 0}
             unoptimized={true}
             onError={(e) => {
@@ -135,25 +141,36 @@ function StyleCard({ style, isActive, onHover, onLeave, index }: StyleCardProps)
               const parent = target.parentElement;
               if (parent) {
                 parent.style.background = `linear-gradient(to bottom right, 
-                  ${style.id === 'cyberpunk' ? '#06b6d4, #a855f7, #ec4899' : 
-                    style.id === 'watercolor' ? '#60a5fa, #14b8a6, #06b6d4' :
-                    style.id === 'oilPainting' ? '#f59e0b, #f97316, #ef4444' :
-                    style.id === 'anime' ? '#ec4899, #f43f5e, #a855f7' :
-                    '#8b5cf6, #d946ef, #a855f7'})`;
+                  ${
+                    style.id === 'cyberpunk'
+                      ? '#06b6d4, #a855f7, #ec4899'
+                      : style.id === 'watercolor'
+                        ? '#60a5fa, #14b8a6, #06b6d4'
+                        : style.id === 'oilPainting'
+                          ? '#f59e0b, #f97316, #ef4444'
+                          : style.id === 'anime'
+                            ? '#ec4899, #f43f5e, #a855f7'
+                            : '#8b5cf6, #d946ef, #a855f7'
+                  })`;
                 target.style.display = 'none';
               }
             }}
           />
-          
+
           {/* Fallback gradient overlay (hidden by default) */}
-          <div 
+          <div
             className={cn(
               'absolute inset-0 bg-gradient-to-br hidden',
-              style.id === 'cyberpunk' && 'from-cyan-600 via-purple-600 to-pink-600',
-              style.id === 'watercolor' && 'from-blue-400 via-teal-400 to-cyan-400',
-              style.id === 'oilPainting' && 'from-amber-500 via-orange-500 to-red-500',
-              style.id === 'anime' && 'from-pink-400 via-rose-400 to-purple-400',
-              style.id === 'fluidArt' && 'from-violet-500 via-fuchsia-500 to-purple-500'
+              style.id === 'cyberpunk' &&
+                'from-cyan-600 via-purple-600 to-pink-600',
+              style.id === 'watercolor' &&
+                'from-blue-400 via-teal-400 to-cyan-400',
+              style.id === 'oilPainting' &&
+                'from-amber-500 via-orange-500 to-red-500',
+              style.id === 'anime' &&
+                'from-pink-400 via-rose-400 to-purple-400',
+              style.id === 'fluidArt' &&
+                'from-violet-500 via-fuchsia-500 to-purple-500'
             )}
           />
         </div>
@@ -196,15 +213,15 @@ function StyleCard({ style, isActive, onHover, onLeave, index }: StyleCardProps)
 
       {/* Content */}
       <div className="p-4">
-          <h3 className="text-lg font-semibold">
-            {t(`styles.${style.id}.title` as never)}
-          </h3>
-          <p className="mt-2 text-sm text-muted-foreground line-clamp-2">
-            {t(`styles.${style.id}.description` as never)}
-          </p>
-          <p className="mt-2 text-xs text-muted-foreground/70">
-            {t(`styles.${style.id}.bestFor` as never)}
-          </p>
+        <h3 className="text-lg font-semibold">
+          {t(`styles.${style.id}.title` as never)}
+        </h3>
+        <p className="mt-2 text-sm text-muted-foreground line-clamp-2">
+          {t(`styles.${style.id}.description` as never)}
+        </p>
+        <p className="mt-2 text-xs text-muted-foreground/70">
+          {t(`styles.${style.id}.bestFor` as never)}
+        </p>
         {/* CTA */}
         <Button
           asChild
@@ -239,7 +256,7 @@ export function ArtStylesSection() {
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <motion.div 
+        <motion.div
           className="text-center"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -255,7 +272,7 @@ export function ArtStylesSection() {
           >
             {t('badge')}
           </motion.span>
-          <motion.h2 
+          <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
@@ -264,7 +281,7 @@ export function ArtStylesSection() {
           >
             {t('headline')}
           </motion.h2>
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
@@ -283,12 +300,12 @@ export function ArtStylesSection() {
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true, amount: 0.3 }}
-              transition={{ 
-                duration: 0.5, 
+              transition={{
+                duration: 0.5,
                 delay: index * 0.1,
-                type: "spring",
+                type: 'spring',
                 stiffness: 300,
-                damping: 20
+                damping: 20,
               }}
             >
               <StyleCard

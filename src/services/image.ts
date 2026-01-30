@@ -13,6 +13,7 @@ import {
   type ImageTaskResponse,
   getEvolinkImageProvider,
 } from '@/ai/image/providers/evolink';
+import { generateSignedImageCallbackUrl } from '@/ai/image/utils/callback-signature';
 import { type Image, ImageStatus, getDb, images } from '@/db';
 import { getStorage } from '@/storage';
 import { and, desc, eq, ilike, inArray, lt, or, sql } from 'drizzle-orm';
@@ -72,6 +73,12 @@ export interface BatchOperationResult {
 // ============================================================================
 
 export class ImageService {
+  private callbackBaseUrl: string;
+
+  constructor() {
+    this.callbackBaseUrl = process.env.AI_IMAGE_CALLBACK_URL || '';
+  }
+
   /**
    * Create image generation task
    */
@@ -108,6 +115,14 @@ export class ImageService {
     // Call AI provider
     const provider = getEvolinkImageProvider();
 
+    // Generate callback URL if configured
+    const callbackUrl = this.callbackBaseUrl
+      ? generateSignedImageCallbackUrl(
+          `${this.callbackBaseUrl}/evolink`,
+          imageResult.uuid
+        )
+      : undefined;
+
     try {
       const providerParams: ImageGenerationParams = {
         model: params.model,
@@ -116,6 +131,7 @@ export class ImageService {
         quality: params.quality,
         n: params.numberOfImages || 1,
         imageUrls: params.imageUrls,
+        callbackUrl,
       };
 
       const result = await provider.createTask(providerParams);
@@ -148,6 +164,49 @@ export class ImageService {
         })
         .where(eq(images.uuid, imageResult.uuid));
       throw error;
+    }
+  }
+
+  /**
+   * Handle AI provider callback
+   */
+  async handleCallback(
+    providerType: 'evolink',
+    payload: unknown,
+    imageUuid: string
+  ): Promise<void> {
+    const db = await getDb();
+    const provider = getEvolinkImageProvider();
+    const result = provider.parseCallback(payload);
+
+    const [image] = await db
+      .select()
+      .from(images)
+      .where(eq(images.uuid, imageUuid))
+      .limit(1);
+
+    if (!image) {
+      console.error(`Image not found: ${imageUuid}`);
+      return;
+    }
+
+    // Verify task ID matches (if we have one stored)
+    if (image.externalTaskId && image.externalTaskId !== result.taskId) {
+      console.error(
+        `Task ID mismatch: expected ${image.externalTaskId}, got ${result.taskId}`
+      );
+      return;
+    }
+
+    // Process based on status
+    if (result.status === 'completed' && result.imageUrls?.length) {
+      await this.tryCompleteGeneration(image.uuid, result, image.createdAt);
+    } else if (result.status === 'failed') {
+      await this.tryFailGeneration(
+        image.uuid,
+        result.error?.message,
+        image.createdAt
+      );
     }
   }
 

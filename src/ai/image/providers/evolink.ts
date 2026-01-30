@@ -10,6 +10,7 @@ export interface ImageGenerationParams {
   quality?: string;
   n?: number;
   imageUrls?: string[];
+  callbackUrl?: string;
 }
 
 export interface ImageTaskResponse {
@@ -45,6 +46,7 @@ export class EvolinkImageProvider {
         quality: params.quality || 'medium',
         n: params.n || 1,
         image_urls: params.imageUrls,
+        callback_url: params.callbackUrl,
       }),
     });
 
@@ -106,6 +108,26 @@ export class EvolinkImageProvider {
 
     const data = (await response.json()) as Record<string, unknown>;
     return this.buildTaskStatusResponse(data, taskId);
+  }
+
+  /**
+   * Parse callback payload from AI provider webhook
+   */
+  parseCallback(payload: unknown): ImageTaskResponse {
+    const data = payload as Record<string, unknown>;
+    const status = this.extractStatus(data);
+    const progress = this.extractProgress(data);
+    const imageUrls = this.extractImageUrls(data);
+
+    return {
+      taskId: this.extractTaskId(data) || (data.id as string),
+      provider: 'evolink',
+      status: this.mapStatus(status || 'pending'),
+      progress,
+      imageUrls: imageUrls.length > 0 ? imageUrls : undefined,
+      error: data.error as { code: string; message: string } | undefined,
+      raw: payload,
+    };
   }
 
   private extractTaskId(data: Record<string, unknown>): string | undefined {
