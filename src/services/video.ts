@@ -62,6 +62,13 @@ export class VideoService {
       throw new Error(`Unsupported model: ${params.model}`);
     }
 
+    // Validate duration against model's supported durations
+    if (!modelConfig.durations.includes(params.duration)) {
+      throw new Error(
+        `Model ${params.model} only supports duration: ${modelConfig.durations.join(', ')} seconds. Got: ${params.duration}s`
+      );
+    }
+
     const creditsRequired = calculateModelCredits(params.model, {
       duration: params.duration,
       quality: params.quality,
@@ -69,6 +76,20 @@ export class VideoService {
 
     if (params.imageUrl && !modelConfig.supportImageToVideo) {
       throw new Error(`Model ${params.model} does not support image-to-video`);
+    }
+
+    // Check image requirements for models with strict dimension requirements
+    if (params.imageUrl && modelConfig.imageRequirements?.exactDimensions) {
+      const aspectRatio = params.aspectRatio || '16:9';
+      const requiredDimensions =
+        modelConfig.imageRequirements.dimensions?.[aspectRatio];
+      if (requiredDimensions) {
+        throw new Error(
+          `Image dimensions must match the requested video size. For ${params.model}: ` +
+            `aspect_ratio=${aspectRatio} requires image size ${requiredDimensions.width}x${requiredDimensions.height}. ` +
+            `Please resize your image to match the selected aspect_ratio.`
+        );
+      }
     }
 
     const videoUuid = `vid_${nanoid(21)}`;

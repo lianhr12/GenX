@@ -27,15 +27,28 @@ export const textToVideoConfig: ToolPageConfig = {
     uiMode: 'compact',
 
     defaults: {
-      model: 'sora-2',
-      duration: 10,
+      model: 'seedance-1.5-pro',
+      duration: 5,
       aspectRatio: '16:9',
       outputNumber: 1,
     },
 
     models: {
-      available: ['sora-2', 'veo-3-1', 'wan-2-6', 'seedance-1-5', 'kling-2'],
-      default: 'sora-2',
+      available: [
+        'seedance-1.5-pro',
+        'doubao-seedance-1.0-pro-fast',
+        'sora-2-preview',
+        'sora-2-pro',
+        'veo3.1-fast',
+        'veo3.1-generate-preview',
+        'veo3.1-pro',
+        'wan2.6-text-to-video',
+        'wan2.5-text-to-video',
+        'MiniMax-Hailuo-02',
+        'MiniMax-Hailuo-2.3',
+        'kling-2',
+      ],
+      default: 'seedance-1.5-pro',
     },
 
     features: {
@@ -54,9 +67,9 @@ export const textToVideoConfig: ToolPageConfig = {
       showOutputNumber: false,
       showAudioGeneration: true,
 
-      durations: [5, 10, 15],
+      durations: [4, 5, 6, 8, 10, 12, 15],
       aspectRatios: ['16:9', '9:16', '1:1', '4:3', '3:4', '21:9'],
-      qualities: ['standard', 'high'],
+      qualities: ['480p', '720p', '1080p'],
     },
   },
 
@@ -103,10 +116,15 @@ export const textToVideoConfig: ToolPageConfig = {
     ],
 
     supportedModels: [
-      { name: 'Sora 2', provider: 'OpenAI', color: '#000000' },
-      { name: 'Veo 3.1', provider: 'Google', color: '#4285f4' },
+      { name: 'Sora 2 Pro', provider: 'OpenAI', color: '#000000' },
+      { name: 'Sora 2 Preview', provider: 'OpenAI', color: '#333333' },
+      { name: 'Veo 3.1 Fast', provider: 'Google', color: '#4285f4' },
+      { name: 'Veo 3.1 Pro', provider: 'Google', color: '#1a73e8' },
       { name: 'Wan 2.6', provider: 'Alibaba', color: '#8b5cf6' },
-      { name: 'Seedance 1.5', provider: 'ByteDance', color: '#ec4899' },
+      { name: 'Wan 2.5', provider: 'Alibaba', color: '#a78bfa' },
+      { name: 'Seedance 1.5 Pro', provider: 'ByteDance', color: '#ec4899' },
+      { name: 'Hailuo 02', provider: 'MiniMax', color: '#f97316' },
+      { name: 'Hailuo 2.3', provider: 'MiniMax', color: '#fb923c' },
       { name: 'Kling 2', provider: 'Kuaishou', color: '#f59e0b' },
     ],
 

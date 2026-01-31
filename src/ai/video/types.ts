@@ -3,16 +3,43 @@
  * Unified abstraction for multiple AI video generation providers
  */
 
+// Camera motion instructions (Hailuo series specific)
+export type CameraMotion =
+  | 'Truck left'
+  | 'Truck right'
+  | 'Pan left'
+  | 'Pan right'
+  | 'Push in'
+  | 'Pull out'
+  | 'Pedestal up'
+  | 'Pedestal down'
+  | 'Tilt up'
+  | 'Tilt down'
+  | 'Zoom in'
+  | 'Zoom out'
+  | 'Shake'
+  | 'Tracking shot'
+  | 'Static shot';
+
+// Model-specific parameters
+export interface ModelParams {
+  prompt_optimizer?: boolean;
+  fast_pretreatment?: boolean;
+}
+
 // Unified video generation parameters
 export interface VideoGenerationParams {
   model: string;
   prompt: string;
   aspectRatio?: '16:9' | '9:16' | '1:1' | '4:3' | '3:4' | '21:9';
   duration?: number;
-  quality?: 'standard' | 'high' | '480P' | '720P' | '1080P';
+  quality?: 'standard' | 'high' | '480P' | '720P' | '1080P' | '512p' | '768p';
   imageUrl?: string;
+  imageUrls?: string[]; // For FLF mode (first-last-frame) - supports 2 images
   removeWatermark?: boolean;
   callbackUrl?: string;
+  modelParams?: ModelParams;
+  cameraMotion?: CameraMotion; // Hailuo series specific
 }
 
 // Unified task response

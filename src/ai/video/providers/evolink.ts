@@ -20,22 +20,41 @@ export class EvolinkProvider implements AIVideoProvider {
   }
 
   async createTask(params: VideoGenerationParams): Promise<VideoTaskResponse> {
+    // Build image_urls array: prioritize imageUrls (FLF mode), fallback to single imageUrl
+    const imageUrls = params.imageUrls?.length
+      ? params.imageUrls
+      : params.imageUrl
+        ? [params.imageUrl]
+        : undefined;
+
+    // Build request body
+    const requestBody: Record<string, unknown> = {
+      model: params.model,
+      prompt: params.prompt,
+      aspect_ratio: params.aspectRatio || '16:9',
+      duration: params.duration || 10,
+      remove_watermark: params.removeWatermark ?? true,
+      callback_url: params.callbackUrl,
+    };
+
+    // Add optional parameters
+    if (params.quality) {
+      requestBody.quality = params.quality;
+    }
+    if (imageUrls) {
+      requestBody.image_urls = imageUrls;
+    }
+    if (params.modelParams) {
+      requestBody.model_params = params.modelParams;
+    }
+
     const response = await fetch(`${this.baseUrl}/videos/generations`, {
       method: 'POST',
       headers: {
         Authorization: `Bearer ${this.apiKey}`,
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({
-        model: params.model,
-        prompt: params.prompt,
-        aspect_ratio: params.aspectRatio || '16:9',
-        duration: params.duration || 10,
-        ...(params.quality ? { quality: params.quality } : {}),
-        image_urls: params.imageUrl ? [params.imageUrl] : undefined,
-        remove_watermark: params.removeWatermark ?? true,
-        callback_url: params.callbackUrl,
-      }),
+      body: JSON.stringify(requestBody),
     });
 
     if (!response.ok) {
