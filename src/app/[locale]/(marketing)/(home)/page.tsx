@@ -80,13 +80,13 @@ const TestimonialsSection = dynamic(
 );
 
 // Pricing - SSR for SEO (important for conversions)
-// const PricingPreviewSection = dynamic(
-//   () =>
-//     import('@/components/landing/pricing-preview-section').then(
-//       (m) => m.PricingPreviewSection
-//     ),
-//   { ssr: true }
-// );
+const PricingPreviewSection = dynamic(
+  () =>
+    import('@/components/landing/pricing-preview-section').then(
+      (m) => m.PricingPreviewSection
+    ),
+  { ssr: true }
+);
 
 // FAQ - SSR for SEO (important for search)
 const FAQSection = dynamic(
@@ -161,7 +161,7 @@ export default async function HomePage(props: HomePageProps) {
         <TestimonialsSection />
 
         {/* Pricing Preview - Transparent pricing */}
-        {/* <PricingPreviewSection /> */}
+        <PricingPreviewSection />
 
         {/* FAQ - Remove concerns + SEO */}
         <FAQSection />

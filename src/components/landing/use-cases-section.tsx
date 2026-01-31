@@ -14,7 +14,7 @@ import {
 import { AnimatePresence, motion } from 'motion/react';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 
 const useCases = [
   {
@@ -22,41 +22,59 @@ const useCases = [
     icon: Smartphone,
     color: 'from-blue-500 to-purple-500',
     bgColor: 'bg-blue-500/10',
-    video: '/videos/demo/use-case-social.mp4',
-    image: '/images/demo/use-case-social.jpg',
+    video: 'https://asset.genx.art/home/video/1769839322049.mp4',
+    image: 'https://asset.genx.art/home/video/1769839322049_01.png',
   },
   {
     id: 'product',
     icon: ShoppingBag,
     color: 'from-orange-500 to-red-500',
     bgColor: 'bg-orange-500/10',
-    video: '/videos/demo/use-case-product.mp4',
-    image: '/images/demo/use-case-product.jpg',
+    video: 'https://asset.genx.art/home/video/1769838755648.mp4',
+    image: 'https://asset.genx.art/home/video/1769838755648_1.png',
   },
   {
     id: 'art',
     icon: Palette,
     color: 'from-pink-500 to-rose-500',
     bgColor: 'bg-pink-500/10',
-    video: '/videos/demo/use-case-art.mp4',
-    image: '/images/demo/use-case-art.jpg',
+    video: 'https://asset.genx.art/home/video/_ce536aaac781eda12e5ab55346d2f965_9b55ee0f-3630-4cd3-a72c-841c2194f53f.mp4',
+    image: 'https://asset.genx.art/home/video/_ce536aaac781eda12e5ab55346d2f965_9b55ee0f-3630-4cd3-a72c-841c2194f53f_1.png',
   },
   {
     id: 'content',
     icon: BookOpen,
     color: 'from-green-500 to-teal-500',
     bgColor: 'bg-green-500/10',
-    video: '/videos/demo/use-case-content.mp4',
-    image: '/images/demo/use-case-content.jpg',
+    video: 'https://asset.genx.art/home/video/video_697d92ddf6348190afae5b0c80470ece.mp4',
+    image: 'https://asset.genx.art/home/video/video_697d92ddf6348190afae5b0c80470ece_1.png',
   },
 ];
 
 export function UseCasesSection() {
   const t = useTranslations('Landing.useCases');
   const [activeCase, setActiveCase] = useState(useCases[0].id);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   const currentCase = useCases.find((c) => c.id === activeCase) || useCases[0];
   const Icon = currentCase.icon;
+
+  const handlePlayClick = () => {
+    setIsPlaying(true);
+  };
+
+  const handleVideoClick = () => {
+    if (videoRef.current) {
+      videoRef.current.pause();
+      setIsPlaying(false);
+    }
+  };
+
+  const handleCaseChange = (caseId: string) => {
+    setActiveCase(caseId);
+    setIsPlaying(false);
+  };
 
   return (
     <section id="use-cases" className="relative py-24 lg:py-32 bg-muted/30">
@@ -86,7 +104,7 @@ export function UseCasesSection() {
                   <button
                     key={useCase.id}
                     type="button"
-                    onClick={() => setActiveCase(useCase.id)}
+                    onClick={() => handleCaseChange(useCase.id)}
                     className={cn(
                       'w-full rounded-xl border p-5 text-left transition-all',
                       isActive
@@ -160,20 +178,39 @@ export function UseCasesSection() {
               >
                 {/* Video/Image */}
                 <div className="relative aspect-video">
-                  <Image
-                    src={currentCase.image}
-                    alt={t(`cases.${currentCase.id}.title` as never)}
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 50vw"
-                    className="object-cover"
-                    loading="lazy"
-                  />
+                  {isPlaying ? (
+                    <video
+                      ref={videoRef}
+                      src={currentCase.video}
+                      className="h-full w-full object-cover cursor-pointer"
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      onClick={handleVideoClick}
+                    />
+                  ) : (
+                    <Image
+                      src={currentCase.image}
+                      alt={t(`cases.${currentCase.id}.title` as never)}
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 50vw"
+                      className="object-cover"
+                      loading="lazy"
+                    />
+                  )}
                   {/* Play Overlay */}
-                  <div className="absolute inset-0 flex items-center justify-center bg-black/20">
-                    <div className="flex h-16 w-16 items-center justify-center rounded-full bg-white/20 backdrop-blur-sm">
-                      <div className="ml-1 h-0 w-0 border-y-8 border-l-[12px] border-y-transparent border-l-white" />
-                    </div>
-                  </div>
+                  {!isPlaying && (
+                    <button
+                      type="button"
+                      onClick={handlePlayClick}
+                      className="absolute inset-0 flex items-center justify-center bg-black/20 transition-colors hover:bg-black/30"
+                    >
+                      <div className="flex h-16 w-16 items-center justify-center rounded-full bg-white/20 backdrop-blur-sm transition-transform hover:scale-110">
+                        <div className="ml-1 h-0 w-0 border-y-8 border-l-[12px] border-y-transparent border-l-white" />
+                      </div>
+                    </button>
+                  )}
                 </div>
 
                 {/* Info Panel */}
