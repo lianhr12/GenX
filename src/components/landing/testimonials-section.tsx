@@ -13,26 +13,26 @@ import { motion } from 'motion/react';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 
-// Demo testimonials - names/roles are fetched from i18n
+// testimonials - names/roles are fetched from i18n
 const testimonials = [
   {
     id: '1',
-    avatar: '/images/demo/avatars/avatar-1.jpg',
+    avatar: '/images/avatars/avatar-1.jpg',
     rating: 5,
   },
   {
     id: '2',
-    avatar: '/images/demo/avatars/avatar-2.jpg',
+    avatar: '/images/avatars/avatar-2.jpg',
     rating: 5,
   },
   {
     id: '3',
-    avatar: '/images/demo/avatars/avatar-3.jpg',
+    avatar: '/images/avatars/avatar-3.jpg',
     rating: 5,
   },
   {
     id: '4',
-    avatar: '/images/demo/avatars/avatar-4.jpg',
+    avatar: '/images/avatars/avatar-4.jpg',
     rating: 5,
   },
 ];
