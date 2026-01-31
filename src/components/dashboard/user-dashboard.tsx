@@ -248,9 +248,9 @@ export function UserDashboard({ initialCredits }: UserDashboardProps) {
                 key={video.uuid}
                 className="group relative aspect-video overflow-hidden rounded-lg border bg-muted cursor-pointer hover:border-primary/50 transition-colors"
               >
-                {video.thumbnailUrl ? (
+                {video.thumbnailUrl || video.startImageUrl ? (
                   <Image
-                    src={video.thumbnailUrl}
+                    src={video.thumbnailUrl || video.startImageUrl || ''}
                     alt={video.prompt || 'Video thumbnail'}
                     fill
                     className="object-cover"

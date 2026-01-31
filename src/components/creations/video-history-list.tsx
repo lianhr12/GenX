@@ -282,7 +282,8 @@ function VideoCard({
   onDownload,
   t,
 }: VideoCardProps) {
-  const thumbnailUrl = video.thumbnailUrl;
+  // 优先使用 thumbnailUrl，备选使用 startImageUrl（用户上传的起始图片）
+  const thumbnailUrl = video.thumbnailUrl || video.startImageUrl;
 
   const statusColors: Record<string, string> = {
     COMPLETED: 'bg-green-500',

@@ -224,7 +224,11 @@ export function ResultPanel({
               src={videoSrc}
               controls
               className="w-full h-full object-contain"
-              poster={currentVideo?.thumbnailUrl || undefined}
+              poster={
+                currentVideo?.thumbnailUrl ||
+                currentVideo?.startImageUrl ||
+                undefined
+              }
             />
           ) : (
             <div className="w-full h-full flex items-center justify-center">

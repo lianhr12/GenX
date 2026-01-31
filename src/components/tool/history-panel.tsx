@@ -177,11 +177,11 @@ function VideoHistoryCard({
           : 'border-border bg-muted hover:border-muted-foreground/50 hover:bg-muted/80'
       )}
     >
-      {/* Thumbnail */}
+      {/* Thumbnail - 优先使用 thumbnailUrl，备选使用 startImageUrl */}
       <div className="relative aspect-video bg-muted">
-        {video.thumbnailUrl ? (
+        {video.thumbnailUrl || video.startImageUrl ? (
           <img
-            src={video.thumbnailUrl}
+            src={video.thumbnailUrl || video.startImageUrl || ''}
             alt="Video thumbnail"
             className="w-full h-full object-cover"
           />
