@@ -2,75 +2,16 @@
 
 import { AnimatedGroup } from '@/components/tailark/motion/animated-group';
 import { Button } from '@/components/ui/button';
+import { type ArtStyleUI, artStylesUI } from '@/config/art-styles-ui';
 import { LocaleLink } from '@/i18n/navigation';
 import { cn } from '@/lib/utils';
-import { Brush, Film, Palette, Sparkles, Zap } from 'lucide-react';
 import { motion } from 'motion/react';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import { useRef, useState } from 'react';
 
-const artStyles = [
-  {
-    id: 'cyberpunk',
-    icon: Zap,
-    gradientColor: 'from-cyan-500 to-purple-500',
-    iconColor: 'text-cyan-500',
-    bgColor: 'bg-cyan-500/10',
-    borderColor: 'border-cyan-500/20',
-    hoverBorderColor: 'hover:border-cyan-500/50',
-    video:
-      'https://asset.genx.art/home/video/1769828074664.mp4',
-    poster: 'https://asset.genx.art/home/styles/cyberpunk.png',
-  },
-  {
-    id: 'watercolor',
-    icon: Brush,
-    gradientColor: 'from-blue-400 to-teal-400',
-    iconColor: 'text-blue-400',
-    bgColor: 'bg-blue-400/10',
-    borderColor: 'border-blue-400/20',
-    hoverBorderColor: 'hover:border-blue-400/50',
-    video: 'https://asset.genx.art/home/video/1769828795276.mp4',
-    poster: 'https://asset.genx.art/home/styles/watercolor.png',
-  },
-  {
-    id: 'oilPainting',
-    icon: Palette,
-    gradientColor: 'from-amber-500 to-orange-500',
-    iconColor: 'text-amber-500',
-    bgColor: 'bg-amber-500/10',
-    borderColor: 'border-amber-500/20',
-    hoverBorderColor: 'hover:border-amber-500/50',
-    video: 'https://asset.genx.art/home/video/1769829229563.mp4',
-    poster: 'https://asset.genx.art/home/styles/painting1.png',
-  },
-  {
-    id: 'anime',
-    icon: Sparkles,
-    gradientColor: 'from-pink-500 to-rose-500',
-    iconColor: 'text-pink-500',
-    bgColor: 'bg-pink-500/10',
-    borderColor: 'border-pink-500/20',
-    hoverBorderColor: 'hover:border-pink-500/50',
-    video: 'https://asset.genx.art/home/video/1769829499967.mp4',
-    poster: 'https://asset.genx.art/home/styles/cartoon.png',
-  },
-  {
-    id: 'fluidArt',
-    icon: Film,
-    gradientColor: 'from-violet-500 to-fuchsia-500',
-    iconColor: 'text-violet-500',
-    bgColor: 'bg-violet-500/10',
-    borderColor: 'border-violet-500/20',
-    hoverBorderColor: 'hover:border-violet-500/50',
-    video: 'https://asset.genx.art/home/video/176982969377601.mp4',
-    poster: 'https://asset.genx.art/home/styles/fluid-art.png',
-  },
-];
-
 interface StyleCardProps {
-  style: (typeof artStyles)[0];
+  style: ArtStyleUI;
   isActive: boolean;
   onHover: () => void;
   onLeave: () => void;
@@ -294,7 +235,7 @@ export function ArtStylesSection() {
 
         {/* Styles Grid */}
         <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
-          {artStyles.map((style, index) => (
+          {artStylesUI.map((style, index) => (
             <motion.div
               key={style.id}
               initial={{ opacity: 0, scale: 0.8 }}

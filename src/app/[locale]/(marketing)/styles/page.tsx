@@ -1,65 +1,116 @@
+'use client';
+
 import { Button } from '@/components/ui/button';
+import { artStylesUI } from '@/config/art-styles-ui';
 import { LocaleLink } from '@/i18n/navigation';
-import { constructMetadata } from '@/lib/metadata';
-import { ArrowRightIcon, PaletteIcon, PlayCircleIcon } from 'lucide-react';
-import type { Metadata } from 'next';
-import type { Locale } from 'next-intl';
-import { getTranslations } from 'next-intl/server';
+import { cn } from '@/lib/utils';
+import { ArrowRightIcon, PaletteIcon } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 import Image from 'next/image';
+import { useRef, useState } from 'react';
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ locale: Locale }>;
-}): Promise<Metadata | undefined> {
-  const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: 'Metadata' });
-
-  return constructMetadata({
-    title: 'Art Styles - 5 Unique Styles | ' + t('title'),
-    description:
-      'Explore our 5 unique art styles: Cyberpunk, Watercolor, Oil Painting, Anime, and Fluid Art. Each style is carefully tuned to make your work stand out.',
-    locale,
-    pathname: '/styles',
-  });
+interface StyleCardProps {
+  style: (typeof artStylesUI)[number];
+  index: number;
 }
 
-// Style data - this could be moved to a config file
-const styles = [
-  {
-    id: 'cyberpunk',
-    gradient: 'from-purple-600 via-pink-500 to-cyan-400',
-    bgColor: 'bg-purple-950',
-    previewImage: '/images/styles/cyberpunk-preview.jpg',
-  },
-  {
-    id: 'watercolor',
-    gradient: 'from-blue-400 via-teal-300 to-emerald-400',
-    bgColor: 'bg-blue-950',
-    previewImage: '/images/styles/watercolor-preview.jpg',
-  },
-  {
-    id: 'oil-painting',
-    gradient: 'from-amber-600 via-orange-500 to-yellow-400',
-    bgColor: 'bg-amber-950',
-    previewImage: '/images/styles/oil-painting-preview.jpg',
-  },
-  {
-    id: 'anime',
-    gradient: 'from-pink-500 via-rose-400 to-red-400',
-    bgColor: 'bg-pink-950',
-    previewImage: '/images/styles/anime-preview.jpg',
-  },
-  {
-    id: 'fluid-art',
-    gradient: 'from-indigo-500 via-purple-500 to-pink-500',
-    bgColor: 'bg-indigo-950',
-    previewImage: '/images/styles/fluid-art-preview.jpg',
-  },
-];
+function StyleCard({ style, index }: StyleCardProps) {
+  const t = useTranslations('StylesPage');
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isHovered, setIsHovered] = useState(false);
+  const Icon = style.icon;
 
-export default async function StylesPage() {
-  const t = await getTranslations('StylesPage');
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+    videoRef.current?.play();
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+    if (videoRef.current) {
+      videoRef.current.pause();
+      videoRef.current.currentTime = 0;
+    }
+  };
+
+  return (
+    <LocaleLink
+      href={`/styles/${style.slug}`}
+      className={cn(
+        'group relative overflow-hidden rounded-2xl border bg-card aspect-[4/5] transition-all duration-300 hover:shadow-xl',
+        style.borderColor,
+        style.hoverBorderColor
+      )}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
+      {/* Poster Image */}
+      <div
+        className={cn(
+          'absolute inset-0 transition-opacity duration-500',
+          isHovered ? 'opacity-0' : 'opacity-100'
+        )}
+      >
+        <Image
+          src={style.poster}
+          alt={t(`styles.${style.slug}.title` as never)}
+          fill
+          sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
+          className="object-cover"
+          loading={index < 3 ? 'eager' : 'lazy'}
+          priority={index < 3}
+          unoptimized={true}
+        />
+      </div>
+
+      {/* Video (shown on hover) */}
+      <video
+        ref={videoRef}
+        muted
+        loop
+        playsInline
+        preload="none"
+        className={cn(
+          'absolute inset-0 h-full w-full object-cover transition-opacity duration-500',
+          isHovered ? 'opacity-100' : 'opacity-0'
+        )}
+      >
+        <source src={style.video.replace('.mp4', '.webm')} type="video/webm" />
+        <source src={style.video} type="video/mp4" />
+      </video>
+
+      {/* Style Badge */}
+      <div
+        className={cn(
+          'absolute left-4 top-4 z-10 flex items-center gap-2 rounded-full px-3 py-1.5 backdrop-blur-md',
+          style.bgColor
+        )}
+      >
+        <Icon className={cn('h-4 w-4', style.iconColor)} />
+        <span className="text-xs font-medium">
+          {t(`styles.${style.slug}.title` as never)}
+        </span>
+      </div>
+
+      {/* Content Overlay */}
+      <div className="absolute inset-0 flex flex-col justify-end p-6 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
+        <h2 className="text-2xl font-bold text-white mb-2">
+          {t(`styles.${style.slug}.title` as never)}
+        </h2>
+        <p className="text-white/80 text-sm mb-4 line-clamp-2">
+          {t(`styles.${style.slug}.description` as never)}
+        </p>
+        <div className="flex items-center gap-2 text-white/60 text-sm group-hover:text-white transition-colors">
+          <span>{t('viewStyle')}</span>
+          <ArrowRightIcon className="size-4 group-hover:translate-x-1 transition-transform" />
+        </div>
+      </div>
+    </LocaleLink>
+  );
+}
+
+export default function StylesPage() {
+  const t = useTranslations('StylesPage');
 
   return (
     <div>
@@ -79,40 +130,8 @@ export default async function StylesPage() {
 
       {/* Styles Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {styles.map((style) => (
-          <LocaleLink
-            key={style.id}
-            href={`/styles/${style.id}`}
-            className="group relative overflow-hidden rounded-2xl border bg-card aspect-[4/5] transition-all duration-300 hover:shadow-xl hover:border-primary/50"
-          >
-            {/* Gradient Background */}
-            <div
-              className={`absolute inset-0 bg-gradient-to-br ${style.gradient} opacity-20 group-hover:opacity-30 transition-opacity duration-300`}
-            />
-
-            {/* Preview Image Placeholder */}
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div
-                className={`w-full h-full ${style.bgColor} flex items-center justify-center`}
-              >
-                <PlayCircleIcon className="size-16 text-white/50 group-hover:text-white/80 transition-colors" />
-              </div>
-            </div>
-
-            {/* Content Overlay */}
-            <div className="absolute inset-0 flex flex-col justify-end p-6 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
-              <h2 className="text-2xl font-bold text-white mb-2">
-                {t(`styles.${style.id}.title` as never)}
-              </h2>
-              <p className="text-white/80 text-sm mb-4 line-clamp-2">
-                {t(`styles.${style.id}.description` as never)}
-              </p>
-              <div className="flex items-center gap-2 text-white/60 text-sm group-hover:text-white transition-colors">
-                <span>{t('viewStyle')}</span>
-                <ArrowRightIcon className="size-4 group-hover:translate-x-1 transition-transform" />
-              </div>
-            </div>
-          </LocaleLink>
+        {artStylesUI.map((style, index) => (
+          <StyleCard key={style.id} style={style} index={index} />
         ))}
       </div>
 

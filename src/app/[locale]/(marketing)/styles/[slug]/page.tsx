@@ -1,133 +1,48 @@
+'use client';
+
 import { Button } from '@/components/ui/button';
-import { LocaleLink } from '@/i18n/navigation';
-import { constructMetadata } from '@/lib/metadata';
 import {
-  ArrowLeftIcon,
-  CheckCircleIcon,
-  PlayCircleIcon,
-  SparklesIcon,
-} from 'lucide-react';
-import type { Metadata } from 'next';
-import type { Locale } from 'next-intl';
-import { getTranslations } from 'next-intl/server';
-import { notFound } from 'next/navigation';
+  artStylesUI,
+  getStyleBySlug,
+  validStyleSlugs,
+} from '@/config/art-styles-ui';
+import { LocaleLink } from '@/i18n/navigation';
+import { cn } from '@/lib/utils';
+import { ArrowLeftIcon, CheckCircleIcon, SparklesIcon } from 'lucide-react';
+import { useTranslations } from 'next-intl';
+import Image from 'next/image';
+import { notFound, useParams } from 'next/navigation';
+import { useRef, useState } from 'react';
 
-// Valid style slugs
-const validStyles = [
-  'cyberpunk',
-  'watercolor',
-  'oil-painting',
-  'anime',
-  'fluid-art',
-] as const;
-
-type StyleSlug = (typeof validStyles)[number];
-
-// Style configurations
-const styleConfigs: Record<
-  StyleSlug,
-  {
-    gradient: string;
-    bgColor: string;
-    seoKeywords: string[];
-  }
-> = {
-  cyberpunk: {
-    gradient: 'from-purple-600 via-pink-500 to-cyan-400',
-    bgColor: 'bg-purple-950',
-    seoKeywords: [
-      'cyberpunk video',
-      'neon art',
-      'futuristic video',
-      'sci-fi video generator',
-    ],
-  },
-  watercolor: {
-    gradient: 'from-blue-400 via-teal-300 to-emerald-400',
-    bgColor: 'bg-blue-950',
-    seoKeywords: [
-      'watercolor video',
-      'painting animation',
-      'artistic video',
-      'watercolor effect',
-    ],
-  },
-  'oil-painting': {
-    gradient: 'from-amber-600 via-orange-500 to-yellow-400',
-    bgColor: 'bg-amber-950',
-    seoKeywords: [
-      'oil painting video',
-      'classic art video',
-      'renaissance style',
-      'painting animation',
-    ],
-  },
-  anime: {
-    gradient: 'from-pink-500 via-rose-400 to-red-400',
-    bgColor: 'bg-pink-950',
-    seoKeywords: [
-      'anime video',
-      'anime style generator',
-      'japanese animation',
-      'manga video',
-    ],
-  },
-  'fluid-art': {
-    gradient: 'from-indigo-500 via-purple-500 to-pink-500',
-    bgColor: 'bg-indigo-950',
-    seoKeywords: [
-      'fluid art video',
-      'abstract video',
-      'color flow animation',
-      'psychedelic video',
-    ],
-  },
-};
-
-export async function generateStaticParams() {
-  return validStyles.map((slug) => ({ slug }));
-}
-
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ locale: Locale; slug: string }>;
-}): Promise<Metadata | undefined> {
-  const { locale, slug } = await params;
-
-  if (!validStyles.includes(slug as StyleSlug)) {
-    return;
-  }
-
-  const t = await getTranslations({ locale, namespace: 'Metadata' });
-  const st = await getTranslations({ locale, namespace: 'StylesPage' });
-
-  const styleTitle = st(`styles.${slug}.title` as never);
-  const styleDesc = st(`styles.${slug}.description` as never);
-
-  return constructMetadata({
-    title: `${styleTitle} Style - AI Art Video | ${t('title')}`,
-    description: `Create stunning ${styleTitle} art videos. ${styleDesc}`,
-    locale,
-    pathname: `/styles/${slug}`,
-    keywords: styleConfigs[slug as StyleSlug]?.seoKeywords,
-  });
-}
-
-export default async function StyleDetailPage({
-  params,
-}: {
-  params: Promise<{ locale: Locale; slug: string }>;
-}) {
-  const { slug } = await params;
+export default function StyleDetailPage() {
+  const params = useParams();
+  const slug = params.slug as string;
+  const t = useTranslations('StylesPage');
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
 
   // Validate slug
-  if (!validStyles.includes(slug as StyleSlug)) {
+  if (!validStyleSlugs.includes(slug)) {
     notFound();
   }
 
-  const t = await getTranslations('StylesPage');
-  const config = styleConfigs[slug as StyleSlug];
+  const style = getStyleBySlug(slug);
+  if (!style) {
+    notFound();
+  }
+
+  const Icon = style.icon;
+
+  const handleVideoToggle = () => {
+    if (videoRef.current) {
+      if (isPlaying) {
+        videoRef.current.pause();
+      } else {
+        videoRef.current.play();
+      }
+      setIsPlaying(!isPlaying);
+    }
+  };
 
   return (
     <div>
@@ -145,7 +60,10 @@ export default async function StyleDetailPage({
         {/* Left: Content */}
         <div className="flex flex-col justify-center">
           <div
-            className={`inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r ${config.gradient} text-white text-sm font-medium mb-6 w-fit`}
+            className={cn(
+              'inline-flex items-center gap-2 px-4 py-2 rounded-full text-white text-sm font-medium mb-6 w-fit bg-gradient-to-r',
+              style.gradient
+            )}
           >
             <SparklesIcon className="size-4" />
             {t(`styles.${slug}.title` as never)}
@@ -193,19 +111,71 @@ export default async function StyleDetailPage({
         {/* Right: Preview */}
         <div className="relative">
           <div
-            className={`aspect-video rounded-2xl overflow-hidden ${config.bgColor} flex items-center justify-center border`}
+            className={cn(
+              'aspect-video rounded-2xl overflow-hidden border cursor-pointer relative group',
+              style.borderColor
+            )}
+            onClick={handleVideoToggle}
           >
-            {/* Video Preview Placeholder */}
-            <div className="text-center">
-              <PlayCircleIcon className="size-20 text-white/50 mx-auto mb-4" />
-              <p className="text-white/60 text-sm">{t('previewComingSoon')}</p>
+            {/* Poster Image */}
+            <div
+              className={cn(
+                'absolute inset-0 transition-opacity duration-500',
+                isPlaying ? 'opacity-0' : 'opacity-100'
+              )}
+            >
+              <Image
+                src={style.poster}
+                alt={t(`styles.${slug}.title` as never)}
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover"
+                priority
+                unoptimized={true}
+              />
+              {/* Play Button Overlay */}
+              <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/30 transition-colors">
+                <div
+                  className={cn(
+                    'w-16 h-16 rounded-full flex items-center justify-center backdrop-blur-sm',
+                    style.bgColor
+                  )}
+                >
+                  <Icon className={cn('size-8', style.iconColor)} />
+                </div>
+              </div>
             </div>
+
+            {/* Video */}
+            <video
+              ref={videoRef}
+              muted
+              loop
+              playsInline
+              preload="none"
+              className={cn(
+                'absolute inset-0 h-full w-full object-cover transition-opacity duration-500',
+                isPlaying ? 'opacity-100' : 'opacity-0'
+              )}
+            >
+              <source
+                src={style.video.replace('.mp4', '.webm')}
+                type="video/webm"
+              />
+              <source src={style.video} type="video/mp4" />
+            </video>
 
             {/* Gradient Overlay */}
             <div
-              className={`absolute inset-0 bg-gradient-to-br ${config.gradient} opacity-20`}
+              className={cn(
+                'absolute inset-0 bg-gradient-to-br opacity-10 pointer-events-none',
+                style.gradient
+              )}
             />
           </div>
+          <p className="text-center text-sm text-muted-foreground mt-3">
+            {t('clickToPlay')}
+          </p>
         </div>
       </div>
 
@@ -233,21 +203,41 @@ export default async function StyleDetailPage({
       <div className="border-t pt-16 mt-16">
         <h2 className="text-2xl font-bold mb-8">{t('otherStyles')}</h2>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {validStyles
-            .filter((s) => s !== slug)
-            .map((otherSlug) => {
-              const otherConfig = styleConfigs[otherSlug];
+          {artStylesUI
+            .filter((s) => s.slug !== slug)
+            .map((otherStyle) => {
+              const OtherIcon = otherStyle.icon;
               return (
                 <LocaleLink
-                  key={otherSlug}
-                  href={`/styles/${otherSlug}`}
-                  className="group p-4 rounded-xl border bg-card hover:border-primary/50 transition-all"
+                  key={otherStyle.slug}
+                  href={`/styles/${otherStyle.slug}`}
+                  className={cn(
+                    'group p-4 rounded-xl border bg-card transition-all',
+                    otherStyle.borderColor,
+                    otherStyle.hoverBorderColor
+                  )}
                 >
-                  <div
-                    className={`w-full aspect-video rounded-lg ${otherConfig.bgColor} mb-3 group-hover:opacity-80 transition-opacity`}
-                  />
+                  <div className="w-full aspect-video rounded-lg overflow-hidden mb-3 relative">
+                    <Image
+                      src={otherStyle.poster}
+                      alt={t(`styles.${otherStyle.slug}.title` as never)}
+                      fill
+                      sizes="(max-width: 768px) 50vw, 25vw"
+                      className="object-cover group-hover:scale-105 transition-transform duration-300"
+                      unoptimized={true}
+                    />
+                    <div
+                      className={cn(
+                        'absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/30'
+                      )}
+                    >
+                      <OtherIcon
+                        className={cn('size-8', otherStyle.iconColor)}
+                      />
+                    </div>
+                  </div>
                   <h3 className="font-medium text-sm">
-                    {t(`styles.${otherSlug}.title` as never)}
+                    {t(`styles.${otherStyle.slug}.title` as never)}
                   </h3>
                 </LocaleLink>
               );
