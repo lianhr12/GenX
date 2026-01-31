@@ -19,7 +19,7 @@ export const websiteConfig: WebsiteConfig = {
     },
     social: {
       twitter: 'https://twitter.com/genxart',
-      discord: 'https://discord.gg/genxart',
+      discord: 'https://discord.gg/KqbTsxGA',
     },
   },
   features: {
