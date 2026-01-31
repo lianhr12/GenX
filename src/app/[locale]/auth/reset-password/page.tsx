@@ -17,10 +17,11 @@ export async function generateMetadata({
   });
 
   return constructMetadata({
-    title: pt('title') + ' | ' + t('title'),
+    title: pt('title') + ' | ' + t('name'),
     description: t('description'),
     locale,
     pathname: '/auth/reset-password',
+    noIndex: true,
   });
 }
 

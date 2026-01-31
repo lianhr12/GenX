@@ -2,8 +2,19 @@ import { DashboardSidebar } from '@/components/dashboard/dashboard-sidebar';
 import { SidebarInset, SidebarProvider } from '@/components/ui/sidebar';
 import { getSession } from '@/lib/server';
 import { Routes } from '@/routes';
+import type { Metadata } from 'next';
 import { redirect } from 'next/navigation';
 import type { PropsWithChildren } from 'react';
+
+/**
+ * Protected routes should not be indexed by search engines
+ */
+export const metadata: Metadata = {
+  robots: {
+    index: false,
+    follow: false,
+  },
+};
 
 /**
  * Protected layout for authenticated users

@@ -28,17 +28,19 @@ export const actionClient = createSafeActionClient({
 // -----------------------------------------------------------------------------
 // 2. Auth-guarded client
 // -----------------------------------------------------------------------------
-export const userActionClient = actionClient.use<UserContext>(async ({ next }) => {
-  const session = await getSession();
-  if (!session?.user) {
-    return {
-      success: false,
-      error: 'Unauthorized',
-    };
-  }
+export const userActionClient = actionClient.use<UserContext>(
+  async ({ next }) => {
+    const session = await getSession();
+    if (!session?.user) {
+      return {
+        success: false,
+        error: 'Unauthorized',
+      };
+    }
 
-  return next({ ctx: { user: session.user as User } });
-});
+    return next({ ctx: { user: session.user as User } });
+  }
+);
 
 // -----------------------------------------------------------------------------
 // 3. Admin-only client (extends auth client)

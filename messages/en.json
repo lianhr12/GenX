@@ -1,8 +1,9 @@
 {
   "Metadata": {
     "name": "GenX.art",
-    "title": "GenX.art - AI Image to Video Generator | Turn Photos into Cinematic Art",
-    "description": "Free AI image to video generator. Upload a photo, pick an art style, get a stunning art video in 30 seconds. Create text to video with 5 unique styles: Cyberpunk, Watercolor, Oil Painting, Anime, Fluid Art. No skills needed."
+    "title": "GenX.art - Free AI Image to Video Generator",
+    "description": "Transform photos into stunning art videos in 30 seconds. 5 unique styles: Cyberpunk, Watercolor, Oil Painting, Anime, Fluid Art. No skills needed.",
+    "keywords": "AI image to video, photo to video, art video generator, AI video maker, image animation, text to video"
   },
   "Common": {
     "premium": "Premium",
@@ -45,8 +46,9 @@
     }
   },
   "PricingPage": {
-    "title": "Pricing",
-    "description": "Choose the plan that works best for you",
+    "title": "Pricing Plans",
+    "description": "Choose the perfect plan for your creative needs. Free tier with 15 credits, Pro with unlimited access and HD quality.",
+    "keywords": "GenX pricing, AI video pricing, subscription plans, free AI video",
     "subtitle": "Choose the plan that works best for you",
     "monthly": "Monthly",
     "yearly": "Yearly",
@@ -151,17 +153,20 @@
   },
   "ChangelogPage": {
     "title": "Changelog",
-    "description": "Stay up to date with the latest changes in our product",
+    "description": "See what's new in GenX.art. Track our latest features, improvements, and bug fixes for the AI video generator.",
+    "keywords": "GenX updates, changelog, new features, release notes",
     "subtitle": "Stay up to date with the latest changes in our product"
   },
   "RoadmapPage": {
     "title": "Roadmap",
-    "description": "Explore our future plans and upcoming features",
+    "description": "Explore GenX.art's future plans. See upcoming features like new art styles, API improvements, and mobile app development.",
+    "keywords": "GenX roadmap, upcoming features, future plans, product development",
     "subtitle": "Explore our future plans and upcoming features"
   },
   "ContactPage": {
-    "title": "Contact",
-    "description": "We'll help you find the right plan for your business",
+    "title": "Contact Us",
+    "description": "Get in touch with the GenX.art team. We're here to help with questions about AI video generation, pricing, or technical support.",
+    "keywords": "contact GenX, support, help, customer service",
     "subtitle": "We'll help you find the right plan for your business",
     "form": {
       "title": "Contact Us",
@@ -181,8 +186,9 @@
     }
   },
   "WaitlistPage": {
-    "title": "Waitlist",
-    "description": "Join our waitlist for the launch of our product",
+    "title": "Join Waitlist",
+    "description": "Be the first to know about new GenX.art features and exclusive early access. Join our waitlist for updates.",
+    "keywords": "GenX waitlist, early access, newsletter, updates",
     "subtitle": "Join our waitlist for the launch of our product",
     "form": {
       "title": "Join Our Waitlist",
@@ -277,7 +283,8 @@
   },
   "BlogPage": {
     "title": "Blog",
-    "description": "Latest news and updates from our team",
+    "description": "Discover AI video creation tips, tutorials, and the latest updates from GenX.art. Learn how to create stunning art videos.",
+    "keywords": "AI video blog, video creation tips, GenX tutorials, art video guides",
     "subtitle": "Latest news and updates from our team",
     "author": "Author",
     "categories": "Categories",

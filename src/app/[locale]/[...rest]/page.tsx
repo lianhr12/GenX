@@ -1,4 +1,15 @@
+import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
+
+/**
+ * 404 pages should not be indexed by search engines
+ */
+export const metadata: Metadata = {
+  robots: {
+    index: false,
+    follow: false,
+  },
+};
 
 /**
  * Catching unknown routes
