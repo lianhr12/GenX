@@ -283,8 +283,8 @@ export function GallerySection() {
             preset="fade"
             className="flex flex-col items-center justify-center gap-4 sm:flex-row"
           >
-            <Button variant="outline" size="lg" className="rounded-xl">
-              {t('loadMore')}
+            <Button asChild variant="outline" size="lg" className="rounded-xl">
+              <LocaleLink href="/gallery">{t('loadMore')}</LocaleLink>
             </Button>
             <Button asChild size="lg" className="rounded-xl">
               <LocaleLink href="/create/image-to-video">
