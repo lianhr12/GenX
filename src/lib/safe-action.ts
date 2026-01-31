@@ -3,6 +3,9 @@ import type { User } from './auth-types';
 import { isDemoWebsite } from './demo';
 import { getSession } from './server';
 
+// Context type for authenticated actions
+type UserContext = { user: User };
+
 // -----------------------------------------------------------------------------
 // 1. Base action client – put global error handling / metadata here if needed
 // -----------------------------------------------------------------------------
@@ -25,7 +28,7 @@ export const actionClient = createSafeActionClient({
 // -----------------------------------------------------------------------------
 // 2. Auth-guarded client
 // -----------------------------------------------------------------------------
-export const userActionClient = actionClient.use(async ({ next }) => {
+export const userActionClient = actionClient.use<UserContext>(async ({ next }) => {
   const session = await getSession();
   if (!session?.user) {
     return {
@@ -34,14 +37,14 @@ export const userActionClient = actionClient.use(async ({ next }) => {
     };
   }
 
-  return next({ ctx: { user: session.user } });
+  return next({ ctx: { user: session.user as User } });
 });
 
 // -----------------------------------------------------------------------------
 // 3. Admin-only client (extends auth client)
 // -----------------------------------------------------------------------------
 export const adminActionClient = userActionClient.use(async ({ next, ctx }) => {
-  const user = (ctx as { user: User }).user;
+  const user = ctx.user;
   const isDemo = isDemoWebsite();
   const isAdmin = user.role === 'admin';
 
@@ -53,5 +56,5 @@ export const adminActionClient = userActionClient.use(async ({ next, ctx }) => {
     };
   }
 
-  return next({ ctx });
+  return next({ ctx: { user } });
 });
