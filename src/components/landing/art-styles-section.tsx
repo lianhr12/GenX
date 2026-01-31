@@ -20,7 +20,7 @@ const artStyles = [
     borderColor: 'border-cyan-500/20',
     hoverBorderColor: 'hover:border-cyan-500/50',
     video:
-      'https://asset.genx.art/home/video/_04d086227554f06685353417a38f9e89_70fadb6e-314e-4494-857a-6004a7bbb6aa.mp4',
+      'https://asset.genx.art/home/video/1769828074664.mp4',
     poster: 'https://asset.genx.art/home/styles/cyberpunk.png',
   },
   {
@@ -31,7 +31,7 @@ const artStyles = [
     bgColor: 'bg-blue-400/10',
     borderColor: 'border-blue-400/20',
     hoverBorderColor: 'hover:border-blue-400/50',
-    video: '/videos/demo/watercolor.mp4',
+    video: 'https://asset.genx.art/home/video/1769828795276.mp4',
     poster: 'https://asset.genx.art/home/styles/watercolor.png',
   },
   {
@@ -42,7 +42,7 @@ const artStyles = [
     bgColor: 'bg-amber-500/10',
     borderColor: 'border-amber-500/20',
     hoverBorderColor: 'hover:border-amber-500/50',
-    video: '/videos/demo/oil-painting.mp4',
+    video: 'https://asset.genx.art/home/video/1769829229563.mp4',
     poster: 'https://asset.genx.art/home/styles/painting1.png',
   },
   {
@@ -53,7 +53,7 @@ const artStyles = [
     bgColor: 'bg-pink-500/10',
     borderColor: 'border-pink-500/20',
     hoverBorderColor: 'hover:border-pink-500/50',
-    video: '/videos/demo/anime.mp4',
+    video: 'https://asset.genx.art/home/video/1769829499967.mp4',
     poster: 'https://asset.genx.art/home/styles/cartoon.png',
   },
   {
@@ -64,7 +64,7 @@ const artStyles = [
     bgColor: 'bg-violet-500/10',
     borderColor: 'border-violet-500/20',
     hoverBorderColor: 'hover:border-violet-500/50',
-    video: '/videos/demo/fluid-art.mp4',
+    video: 'https://asset.genx.art/home/video/176982969377601.mp4',
     poster: 'https://asset.genx.art/home/styles/fluid-art.png',
   },
 ];
