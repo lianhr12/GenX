@@ -555,6 +555,89 @@
       "images": {
         "title": "图片管理",
         "description": "管理所有用户生成的图片"
+      },
+      "gallery": {
+        "title": "画廊管理",
+        "description": "管理画廊项目和用户提交",
+        "search": "搜索画廊...",
+        "noResults": "未找到画廊项目",
+        "error": "加载画廊项目失败",
+        "columns": {
+          "thumbnail": "缩略图",
+          "prompt": "提示词",
+          "artStyle": "艺术风格",
+          "sourceType": "来源",
+          "status": "状态",
+          "isFeatured": "精选",
+          "likesCount": "点赞数",
+          "viewsCount": "浏览量",
+          "creatorName": "创作者",
+          "createdAt": "创建时间",
+          "actions": "操作"
+        },
+        "sourceTypes": {
+          "official": "官方",
+          "user": "用户"
+        },
+        "statuses": {
+          "pending": "待审核",
+          "approved": "已通过",
+          "rejected": "已拒绝"
+        },
+        "actions": {
+          "edit": "编辑",
+          "delete": "删除",
+          "approve": "通过",
+          "reject": "拒绝",
+          "feature": "设为精选",
+          "unfeature": "取消精选"
+        },
+        "create": {
+          "title": "创建画廊项目",
+          "description": "添加新项目到画廊"
+        },
+        "edit": {
+          "title": "编辑画廊项目",
+          "description": "更新画廊项目详情"
+        },
+        "form": {
+          "videoUrl": "视频链接",
+          "videoUrlPlaceholder": "https://...",
+          "thumbnailUrl": "缩略图链接",
+          "thumbnailUrlPlaceholder": "https://...",
+          "prompt": "提示词",
+          "promptPlaceholder": "输入创建此视频使用的提示词",
+          "artStyle": "艺术风格",
+          "selectArtStyle": "选择艺术风格",
+          "sourceType": "来源类型",
+          "creatorName": "创作者名称",
+          "creatorNamePlaceholder": "输入创作者名称",
+          "isFeatured": "在首页精选展示",
+          "sortWeight": "排序权重",
+          "sortWeightHint": "数值越大越靠前",
+          "submit": "保存",
+          "submitting": "保存中...",
+          "success": "画廊项目保存成功",
+          "error": "保存画廊项目失败"
+        },
+        "review": {
+          "title": "审核提交",
+          "approve": "通过",
+          "reject": "拒绝",
+          "rejectReason": "拒绝原因",
+          "rejectReasonPlaceholder": "输入拒绝原因",
+          "approveSuccess": "提交已通过",
+          "rejectSuccess": "提交已拒绝",
+          "error": "审核失败"
+        },
+        "delete": {
+          "title": "删除画廊项目",
+          "description": "确定要删除此画廊项目吗？此操作无法撤销。",
+          "confirm": "删除",
+          "cancel": "取消",
+          "success": "画廊项目已删除",
+          "error": "删除画廊项目失败"
+        }
       }
     },
     "settings": {
@@ -1272,13 +1355,43 @@
     "title": "看看创作者们在做什么",
     "description": "来自世界各地创作者使用 GenX 制作的艺术视频。点击任何作品查看使用的风格和提示词。",
     "loadMore": "加载更多",
+    "loading": "加载中...",
+    "noMore": "没有更多了",
+    "empty": "暂无画廊作品",
+    "emptyDescription": "成为第一个分享作品的人！",
+    "sort": {
+      "latest": "最新",
+      "popular": "最热门"
+    },
     "filters": {
       "all": "全部",
       "cyberpunk": "赛博朋克",
       "watercolor": "水彩",
       "oil-painting": "油画",
+      "oilPainting": "油画",
       "anime": "动漫",
-      "fluid-art": "流体艺术"
+      "fluid-art": "流体艺术",
+      "fluidArt": "流体艺术"
+    },
+    "card": {
+      "views": "{count} 次浏览",
+      "likes": "{count} 次点赞",
+      "by": "作者：{name}"
+    },
+    "modal": {
+      "prompt": "提示词",
+      "style": "风格",
+      "creator": "创作者",
+      "views": "浏览量",
+      "likes": "点赞数",
+      "createSimilar": "创作类似作品"
+    },
+    "submit": {
+      "title": "分享你的作品",
+      "description": "提交你的视频到画廊展示",
+      "button": "提交到画廊",
+      "success": "你的提交正在等待审核",
+      "error": "提交失败"
     },
     "cta": {
       "title": "准备好创作自己的作品了吗？",

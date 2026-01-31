@@ -555,6 +555,89 @@
       "images": {
         "title": "Images",
         "description": "Manage all user generated images"
+      },
+      "gallery": {
+        "title": "Gallery",
+        "description": "Manage gallery items and submissions",
+        "search": "Search gallery...",
+        "noResults": "No gallery items found",
+        "error": "Failed to load gallery items",
+        "columns": {
+          "thumbnail": "Thumbnail",
+          "prompt": "Prompt",
+          "artStyle": "Art Style",
+          "sourceType": "Source",
+          "status": "Status",
+          "isFeatured": "Featured",
+          "likesCount": "Likes",
+          "viewsCount": "Views",
+          "creatorName": "Creator",
+          "createdAt": "Created At",
+          "actions": "Actions"
+        },
+        "sourceTypes": {
+          "official": "Official",
+          "user": "User"
+        },
+        "statuses": {
+          "pending": "Pending",
+          "approved": "Approved",
+          "rejected": "Rejected"
+        },
+        "actions": {
+          "edit": "Edit",
+          "delete": "Delete",
+          "approve": "Approve",
+          "reject": "Reject",
+          "feature": "Feature",
+          "unfeature": "Unfeature"
+        },
+        "create": {
+          "title": "Create Gallery Item",
+          "description": "Add a new item to the gallery"
+        },
+        "edit": {
+          "title": "Edit Gallery Item",
+          "description": "Update gallery item details"
+        },
+        "form": {
+          "videoUrl": "Video URL",
+          "videoUrlPlaceholder": "https://...",
+          "thumbnailUrl": "Thumbnail URL",
+          "thumbnailUrlPlaceholder": "https://...",
+          "prompt": "Prompt",
+          "promptPlaceholder": "Enter the prompt used to create this video",
+          "artStyle": "Art Style",
+          "selectArtStyle": "Select art style",
+          "sourceType": "Source Type",
+          "creatorName": "Creator Name",
+          "creatorNamePlaceholder": "Enter creator name",
+          "isFeatured": "Featured on homepage",
+          "sortWeight": "Sort Weight",
+          "sortWeightHint": "Higher values appear first",
+          "submit": "Save",
+          "submitting": "Saving...",
+          "success": "Gallery item saved successfully",
+          "error": "Failed to save gallery item"
+        },
+        "review": {
+          "title": "Review Submission",
+          "approve": "Approve",
+          "reject": "Reject",
+          "rejectReason": "Rejection Reason",
+          "rejectReasonPlaceholder": "Enter reason for rejection",
+          "approveSuccess": "Submission approved",
+          "rejectSuccess": "Submission rejected",
+          "error": "Failed to review submission"
+        },
+        "delete": {
+          "title": "Delete Gallery Item",
+          "description": "Are you sure you want to delete this gallery item? This action cannot be undone.",
+          "confirm": "Delete",
+          "cancel": "Cancel",
+          "success": "Gallery item deleted",
+          "error": "Failed to delete gallery item"
+        }
       }
     },
     "settings": {
@@ -1272,13 +1355,43 @@
     "title": "See What Creators Are Making",
     "description": "Art videos from creators around the world using GenX. Click any work to see the style and prompt used.",
     "loadMore": "Load More",
+    "loading": "Loading...",
+    "noMore": "No more items",
+    "empty": "No gallery items yet",
+    "emptyDescription": "Be the first to share your creation!",
+    "sort": {
+      "latest": "Latest",
+      "popular": "Most Popular"
+    },
     "filters": {
       "all": "All",
       "cyberpunk": "Cyberpunk",
       "watercolor": "Watercolor",
       "oil-painting": "Oil Painting",
+      "oilPainting": "Oil Painting",
       "anime": "Anime",
-      "fluid-art": "Fluid Art"
+      "fluid-art": "Fluid Art",
+      "fluidArt": "Fluid Art"
+    },
+    "card": {
+      "views": "{count} views",
+      "likes": "{count} likes",
+      "by": "by {name}"
+    },
+    "modal": {
+      "prompt": "Prompt",
+      "style": "Style",
+      "creator": "Creator",
+      "views": "Views",
+      "likes": "Likes",
+      "createSimilar": "Create Similar"
+    },
+    "submit": {
+      "title": "Share Your Creation",
+      "description": "Submit your video to be featured in the gallery",
+      "button": "Submit to Gallery",
+      "success": "Your submission is pending review",
+      "error": "Failed to submit"
     },
     "cta": {
       "title": "Ready to Create Your Own?",

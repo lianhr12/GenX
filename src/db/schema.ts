@@ -279,3 +279,100 @@ export const ImageStatus = {
 	FAILED: "FAILED",
 } as const;
 export type ImageStatus = (typeof ImageStatus)[keyof typeof ImageStatus];
+
+// ============================================================================
+// Gallery Tables
+// ============================================================================
+
+/**
+ * Gallery items table
+ * Stores gallery items for showcase (official examples + user featured works)
+ */
+export const galleryItems = pgTable("gallery_items", {
+	id: serial("id").primaryKey(),
+	uuid: text("uuid").notNull().unique(),
+
+	// Link to user video (optional)
+	videoId: integer("video_id").references(() => videos.id, { onDelete: 'set null' }),
+
+	// Media content
+	videoUrl: text("video_url").notNull(),
+	thumbnailUrl: text("thumbnail_url").notNull(),
+	prompt: text("prompt").notNull(),
+	artStyle: text("art_style").notNull(), // cyberpunk, watercolor, oilPainting, anime, fluidArt
+
+	// Creator info
+	creatorId: text("creator_id").references(() => user.id, { onDelete: 'set null' }),
+	creatorName: text("creator_name"),
+	creatorAvatar: text("creator_avatar"),
+
+	// Interaction data
+	likesCount: integer("likes_count").default(0).notNull(),
+	viewsCount: integer("views_count").default(0).notNull(),
+
+	// Management fields
+	sourceType: text("source_type").default("official").notNull(), // official, user
+	status: text("status").default("pending").notNull(), // pending, approved, rejected
+	isFeatured: boolean("is_featured").default(false).notNull(),
+	sortWeight: integer("sort_weight").default(0).notNull(),
+
+	// Review info
+	reviewedAt: timestamp("reviewed_at"),
+	reviewedBy: text("reviewed_by"),
+	rejectReason: text("reject_reason"),
+
+	// Timestamps
+	createdAt: timestamp("created_at").defaultNow().notNull(),
+	updatedAt: timestamp("updated_at").defaultNow().notNull(),
+}, (table) => ({
+	galleryItemsUuidIdx: uniqueIndex("gallery_items_uuid_idx").on(table.uuid),
+	galleryItemsStatusIdx: index("gallery_items_status_idx").on(table.status),
+	galleryItemsArtStyleIdx: index("gallery_items_art_style_idx").on(table.artStyle),
+	galleryItemsIsFeaturedIdx: index("gallery_items_is_featured_idx").on(table.isFeatured),
+	galleryItemsCreatorIdIdx: index("gallery_items_creator_id_idx").on(table.creatorId),
+	galleryItemsSortWeightIdx: index("gallery_items_sort_weight_idx").on(table.sortWeight),
+	galleryItemsCreatedAtIdx: index("gallery_items_created_at_idx").on(table.createdAt),
+}));
+
+/**
+ * Gallery likes table
+ * Tracks user likes on gallery items
+ */
+export const galleryLikes = pgTable("gallery_likes", {
+	id: serial("id").primaryKey(),
+	galleryItemId: integer("gallery_item_id").notNull().references(() => galleryItems.id, { onDelete: 'cascade' }),
+	userId: text("user_id").notNull().references(() => user.id, { onDelete: 'cascade' }),
+	createdAt: timestamp("created_at").defaultNow().notNull(),
+}, (table) => ({
+	galleryLikesUniqueIdx: uniqueIndex("gallery_likes_unique_idx").on(table.galleryItemId, table.userId),
+	galleryLikesGalleryItemIdIdx: index("gallery_likes_gallery_item_id_idx").on(table.galleryItemId),
+	galleryLikesUserIdIdx: index("gallery_likes_user_id_idx").on(table.userId),
+}));
+
+export type GalleryItem = typeof galleryItems.$inferSelect;
+export type GalleryLike = typeof galleryLikes.$inferSelect;
+
+// Gallery source type enum values
+export const GallerySourceType = {
+	OFFICIAL: "official",
+	USER: "user",
+} as const;
+export type GallerySourceType = (typeof GallerySourceType)[keyof typeof GallerySourceType];
+
+// Gallery status enum values
+export const GalleryStatus = {
+	PENDING: "pending",
+	APPROVED: "approved",
+	REJECTED: "rejected",
+} as const;
+export type GalleryStatus = (typeof GalleryStatus)[keyof typeof GalleryStatus];
+
+// Art style enum values
+export const ArtStyle = {
+	CYBERPUNK: "cyberpunk",
+	WATERCOLOR: "watercolor",
+	OIL_PAINTING: "oilPainting",
+	ANIME: "anime",
+	FLUID_ART: "fluidArt",
+} as const;
+export type ArtStyle = (typeof ArtStyle)[keyof typeof ArtStyle];

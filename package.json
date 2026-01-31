@@ -129,6 +129,7 @@
     "react-day-picker": "9.11.1",
     "react-dom": "^19.2.3",
     "react-hook-form": "^7.62.0",
+    "react-intersection-observer": "^10.0.2",
     "react-remove-scroll": "^2.6.3",
     "react-resizable-panels": "^2.1.7",
     "react-social-media-embed": "^2.5.18",

@@ -38,16 +38,20 @@ const useCases = [
     icon: Palette,
     color: 'from-pink-500 to-rose-500',
     bgColor: 'bg-pink-500/10',
-    video: 'https://asset.genx.art/home/video/_ce536aaac781eda12e5ab55346d2f965_9b55ee0f-3630-4cd3-a72c-841c2194f53f.mp4',
-    image: 'https://asset.genx.art/home/video/_ce536aaac781eda12e5ab55346d2f965_9b55ee0f-3630-4cd3-a72c-841c2194f53f_1.png',
+    video:
+      'https://asset.genx.art/home/video/_ce536aaac781eda12e5ab55346d2f965_9b55ee0f-3630-4cd3-a72c-841c2194f53f.mp4',
+    image:
+      'https://asset.genx.art/home/video/_ce536aaac781eda12e5ab55346d2f965_9b55ee0f-3630-4cd3-a72c-841c2194f53f_1.png',
   },
   {
     id: 'content',
     icon: BookOpen,
     color: 'from-green-500 to-teal-500',
     bgColor: 'bg-green-500/10',
-    video: 'https://asset.genx.art/home/video/video_697d92ddf6348190afae5b0c80470ece.mp4',
-    image: 'https://asset.genx.art/home/video/video_697d92ddf6348190afae5b0c80470ece_1.png',
+    video:
+      'https://asset.genx.art/home/video/video_697d92ddf6348190afae5b0c80470ece.mp4',
+    image:
+      'https://asset.genx.art/home/video/video_697d92ddf6348190afae5b0c80470ece_1.png',
   },
 ];
 
