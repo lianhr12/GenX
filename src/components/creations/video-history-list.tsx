@@ -87,9 +87,9 @@ export function VideoHistoryList() {
     [toggleFavorite]
   );
 
-  const handleDownload = useCallback((item: GalleryItemData) => {
+  const handleDownload = useCallback(async (item: GalleryItemData) => {
     if (item.videoUrl) {
-      downloadVideo(item.videoUrl, String(item.uuid || item.id));
+      await downloadVideo(item.videoUrl, String(item.uuid || item.id));
     }
   }, []);
 

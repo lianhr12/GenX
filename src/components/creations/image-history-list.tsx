@@ -89,10 +89,10 @@ export function ImageHistoryList() {
     [toggleFavorite]
   );
 
-  const handleDownload = useCallback((item: GalleryItemData) => {
+  const handleDownload = useCallback(async (item: GalleryItemData) => {
     const urls = item.imageUrls || [];
     if (urls.length > 0) {
-      downloadImages(urls, String(item.uuid || item.id));
+      await downloadImages(urls, String(item.uuid || item.id));
     }
   }, []);
 

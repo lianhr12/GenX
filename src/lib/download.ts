@@ -1,10 +1,10 @@
 /**
  * Download utility functions for images and videos
- * Uses fetch + blob to force download instead of opening in browser
+ * Uses server-side proxy to bypass CORS restrictions
  */
 
 /**
- * Download a file from URL
+ * Download a file using the server-side proxy
  * @param url - The URL of the file to download
  * @param filename - The filename to save as
  */
@@ -13,9 +13,13 @@ export async function downloadFile(
   filename: string
 ): Promise<void> {
   try {
-    const response = await fetch(url);
+    // Use server-side proxy to download
+    const proxyUrl = `/api/download?url=${encodeURIComponent(url)}&filename=${encodeURIComponent(filename)}`;
+
+    const response = await fetch(proxyUrl);
+
     if (!response.ok) {
-      throw new Error(`Failed to fetch: ${response.statusText}`);
+      throw new Error(`Download failed: ${response.statusText}`);
     }
 
     const blob = await response.blob();
@@ -32,8 +36,8 @@ export async function downloadFile(
     URL.revokeObjectURL(blobUrl);
   } catch (error) {
     console.error('Download failed:', error);
-    // Fallback: open in new tab if fetch fails (e.g., CORS issues)
-    window.open(url, '_blank');
+    // Show error to user instead of opening in new tab
+    throw error;
   }
 }
 
@@ -47,7 +51,9 @@ export async function downloadFiles(
   for (const file of files) {
     await downloadFile(file.url, file.filename);
     // Small delay between downloads to prevent browser blocking
-    await new Promise((resolve) => setTimeout(resolve, 300));
+    if (files.length > 1) {
+      await new Promise((resolve) => setTimeout(resolve, 500));
+    }
   }
 }
 

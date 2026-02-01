@@ -30,7 +30,7 @@ interface MediaPreviewModalProps {
   onClose: () => void;
   onDelete?: () => void;
   onToggleFavorite?: () => void;
-  onDownload?: () => void;
+  onDownload?: () => Promise<void>;
 }
 
 function MediaPreviewModal({
@@ -42,10 +42,12 @@ function MediaPreviewModal({
   onDownload,
 }: MediaPreviewModalProps) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [isDownloading, setIsDownloading] = useState(false);
 
-  // Reset image index when item changes
+  // Reset image index and download state when item changes
   useEffect(() => {
     setCurrentImageIndex(0);
+    setIsDownloading(false);
   }, [item?.id]);
 
   if (!item) return null;
@@ -205,9 +207,24 @@ function MediaPreviewModal({
                   </button>
                 )}
                 {onDownload && (item.videoUrl || imageUrls.length > 0) && (
-                  <Button onClick={onDownload} size="sm">
-                    <Download className="h-4 w-4 mr-2" />
-                    Download
+                  <Button
+                    onClick={async () => {
+                      setIsDownloading(true);
+                      try {
+                        await onDownload();
+                      } finally {
+                        setIsDownloading(false);
+                      }
+                    }}
+                    size="sm"
+                    disabled={isDownloading}
+                  >
+                    {isDownloading ? (
+                      <Loader2 className="h-4 w-4 mr-2 animate-spin" />
+                    ) : (
+                      <Download className="h-4 w-4 mr-2" />
+                    )}
+                    {isDownloading ? 'Downloading...' : 'Download'}
                   </Button>
                 )}
                 {onDelete && (
@@ -251,7 +268,7 @@ export interface VideoManagementGalleryProps {
   onDelete?: (item: GalleryItemData) => void;
   onBatchDelete?: (items: GalleryItemData[]) => void;
   onToggleFavorite?: (item: GalleryItemData) => void;
-  onDownload?: (item: GalleryItemData) => void;
+  onDownload?: (item: GalleryItemData) => Promise<void>;
   gap?: number;
   className?: string;
 }
