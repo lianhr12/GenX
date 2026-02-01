@@ -1,14 +1,14 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import { useState, useEffect, useCallback } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import {
-  GalleryCategoryTabs,
   type GalleryCategory,
+  GalleryCategoryTabs,
   type GallerySortOption,
 } from './gallery-category-tabs';
-import { MasonryGallery } from './masonry-gallery';
 import type { GalleryItemData } from './gallery-video-card';
+import { MasonryGallery } from './masonry-gallery';
 
 // Default categories
 const defaultCategories: GalleryCategory[] = [
@@ -83,16 +83,23 @@ export function CommunityGallery({
   const filteredItems =
     activeCategory === 'all'
       ? items
-      : items.filter((item) => item.category === activeCategory);
+      : items.filter(
+          (item) =>
+            item.category === activeCategory || item.artStyle === activeCategory
+        );
 
   // Sort items
   const sortedItems = [...filteredItems].sort((a, b) => {
+    const aLikes = a.likes ?? a.likesCount ?? 0;
+    const bLikes = b.likes ?? b.likesCount ?? 0;
+    const aViews = a.views ?? a.viewsCount ?? 0;
+    const bViews = b.views ?? b.viewsCount ?? 0;
+
     switch (activeSortBy) {
       case 'popular':
-        return b.likes - a.likes;
+        return bLikes - aLikes;
       case 'trending':
-        return b.views - a.views;
-      case 'latest':
+        return bViews - aViews;
       default:
         return 0; // Assume items are already sorted by date
     }
@@ -140,11 +147,7 @@ export function CommunityGallery({
       </div>
 
       {/* Gallery */}
-      <MasonryGallery
-        items={sortedItems}
-        gap={gap}
-        onItemClick={onItemClick}
-      />
+      <MasonryGallery items={sortedItems} gap={gap} onItemClick={onItemClick} />
     </section>
   );
 }

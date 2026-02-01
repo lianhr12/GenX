@@ -2,8 +2,8 @@
 
 import { CreditsBalanceButton } from '@/components/layout/credits-balance-button';
 import type { ProductTab } from '@/config/create';
-import { cn } from '@/lib/utils';
 import { useSession } from '@/hooks/use-session';
+import { cn } from '@/lib/utils';
 import { useCreateStore } from '@/stores/create-store';
 import { ImageIcon, VideoIcon } from 'lucide-react';
 import { useTranslations } from 'next-intl';

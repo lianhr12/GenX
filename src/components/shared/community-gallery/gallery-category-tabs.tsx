@@ -1,6 +1,5 @@
 'use client';
 
-import { cn } from '@/lib/utils';
 import {
   Select,
   SelectContent,
@@ -8,9 +7,9 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
+import { cn } from '@/lib/utils';
 import { ArrowUpDownIcon } from 'lucide-react';
 import { useTranslations } from 'next-intl';
-import { useState } from 'react';
 
 export interface GalleryCategory {
   id: string;
@@ -30,6 +29,7 @@ interface GalleryCategoryTabsProps {
   onCategoryChange: (category: string) => void;
   onSortChange: (sort: string) => void;
   translationNamespace?: string;
+  categoryPrefix?: string;
 }
 
 export function GalleryCategoryTabs({
@@ -40,8 +40,14 @@ export function GalleryCategoryTabs({
   onCategoryChange,
   onSortChange,
   translationNamespace = 'CommunityGallery',
+  categoryPrefix,
 }: GalleryCategoryTabsProps) {
   const t = useTranslations(translationNamespace as never);
+
+  // Determine category translation prefix based on namespace
+  const catPrefix =
+    categoryPrefix ||
+    (translationNamespace === 'GalleryPage' ? 'filters' : 'categories');
 
   return (
     <div className="flex items-center gap-3">
@@ -59,25 +65,27 @@ export function GalleryCategoryTabs({
                 : 'bg-muted text-muted-foreground hover:text-foreground hover:bg-muted/80'
             )}
           >
-            {t(`categories.${category.labelKey}` as never)}
+            {t(`${catPrefix}.${category.labelKey}` as never)}
           </button>
         ))}
       </div>
 
-      {/* Sort dropdown */}
-      <Select value={activeSortBy} onValueChange={onSortChange}>
-        <SelectTrigger className="h-8 w-[120px]">
-          <ArrowUpDownIcon className="size-3.5 mr-1" />
-          <SelectValue />
-        </SelectTrigger>
-        <SelectContent>
-          {sortOptions.map((option) => (
-            <SelectItem key={option.id} value={option.id}>
-              {t(`sort.${option.labelKey}` as never)}
-            </SelectItem>
-          ))}
-        </SelectContent>
-      </Select>
+      {/* Sort dropdown - only show if sortOptions provided */}
+      {sortOptions.length > 0 && (
+        <Select value={activeSortBy} onValueChange={onSortChange}>
+          <SelectTrigger className="h-8 w-[120px]">
+            <ArrowUpDownIcon className="size-3.5 mr-1" />
+            <SelectValue />
+          </SelectTrigger>
+          <SelectContent>
+            {sortOptions.map((option) => (
+              <SelectItem key={option.id} value={option.id}>
+                {t(`sort.${option.labelKey}` as never)}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
+      )}
     </div>
   );
 }

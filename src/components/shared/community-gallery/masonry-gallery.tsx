@@ -52,10 +52,13 @@ export function MasonryGallery({
 
     items.forEach((item) => {
       const shortestColumn = columnHeights.indexOf(Math.min(...columnHeights));
-      const aspectRatio = getAspectRatioValue(item.aspectRatio);
+      const aspectRatio = item.aspectRatio
+        ? getAspectRatioValue(item.aspectRatio)
+        : 16 / 9;
       const itemHeight = columnWidth / aspectRatio;
+      const itemId = String(item.uuid || item.id);
 
-      newPositions.set(item.id, {
+      newPositions.set(itemId, {
         x: shortestColumn * (columnWidth + gap),
         y: columnHeights[shortestColumn],
         width: columnWidth,
@@ -104,12 +107,13 @@ export function MasonryGallery({
       style={{ height: containerHeight || 'auto' }}
     >
       {items.map((item, index) => {
-        const position = positions.get(item.id);
+        const itemId = String(item.uuid || item.id);
+        const position = positions.get(itemId);
         if (!position) return null;
 
         return (
           <div
-            key={item.id}
+            key={itemId}
             className="absolute animate-in fade-in slide-in-from-bottom-4 duration-300"
             style={{
               left: position.x,
