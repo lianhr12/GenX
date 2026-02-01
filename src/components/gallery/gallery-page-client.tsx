@@ -7,6 +7,7 @@ import {
 import { useCurrentUser } from '@/hooks/use-current-user';
 import { useGalleryList, useGalleryView } from '@/hooks/use-gallery';
 import { useCallback, useState } from 'react';
+import { GalleryFavoriteButton } from './gallery-favorite-button';
 import { GalleryLikeButton } from './gallery-like-button';
 
 const categories = [
@@ -56,6 +57,7 @@ export function GalleryPageClient() {
         creatorName: item.creatorName,
         creatorAvatar: item.creatorAvatar,
         isLiked: item.isLiked,
+        isFavorite: item.isFavorite,
         createdAt: item.createdAt,
       }))
     ) || [];
@@ -88,6 +90,16 @@ export function GalleryPageClient() {
     );
   }, []);
 
+  const renderFavoriteButton = useCallback((item: GalleryItemData) => {
+    if (typeof item.id !== 'number') return null;
+    return (
+      <GalleryFavoriteButton
+        galleryItemId={item.id}
+        initialIsFavorite={item.isFavorite ?? false}
+      />
+    );
+  }, []);
+
   return (
     <DynamicCommunityGallery
       items={allItems}
@@ -106,6 +118,7 @@ export function GalleryPageClient() {
       onLoadMore={fetchNextPage}
       onItemView={handleItemView}
       renderLikeButton={renderLikeButton}
+      renderFavoriteButton={renderFavoriteButton}
     />
   );
 }

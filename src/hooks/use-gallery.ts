@@ -3,6 +3,7 @@ import {
   getGalleryListAction,
   incrementViewAction,
   submitToGalleryAction,
+  toggleFavoriteAction,
   toggleLikeAction,
 } from '@/actions/gallery';
 import {
@@ -37,6 +38,7 @@ export interface GalleryItem {
   viewsCount: number;
   createdAt: Date;
   isLiked: boolean;
+  isFavorite: boolean;
 }
 
 // Hook to fetch featured gallery items (for homepage)
@@ -118,6 +120,27 @@ export function useGalleryLike() {
     },
     onSuccess: () => {
       // Invalidate all gallery queries to refresh like status
+      queryClient.invalidateQueries({ queryKey: galleryKeys.all });
+    },
+  });
+}
+
+// Hook to toggle favorite on a gallery item
+export function useGalleryFavorite() {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: async (galleryItemId: number) => {
+      const result = await toggleFavoriteAction({ galleryItemId });
+
+      if (!result?.data?.success) {
+        throw new Error(result?.data?.error || 'Failed to toggle favorite');
+      }
+
+      return result.data.data;
+    },
+    onSuccess: () => {
+      // Invalidate all gallery queries to refresh favorite status
       queryClient.invalidateQueries({ queryKey: galleryKeys.all });
     },
   });

@@ -23,6 +23,7 @@ interface GalleryModalProps {
   onClose: () => void;
   onView?: (item: GalleryItemData) => void;
   likeButton?: React.ReactNode;
+  favoriteButton?: React.ReactNode;
   translationNamespace?: string;
 }
 
@@ -32,6 +33,7 @@ function GalleryModal({
   onClose,
   onView,
   likeButton,
+  favoriteButton,
   translationNamespace = 'GalleryPage',
 }: GalleryModalProps) {
   const t = useTranslations(translationNamespace as never);
@@ -76,6 +78,7 @@ function GalleryModal({
               </span>
               <div className="flex items-center gap-3">
                 {likeButton}
+                {favoriteButton}
                 <div className="flex items-center gap-1 text-muted-foreground">
                   <Eye className="h-4 w-4" />
                   <span className="text-sm">
@@ -131,6 +134,7 @@ export interface DynamicCommunityGalleryProps {
   onLoadMore?: () => void;
   onItemView?: (item: GalleryItemData) => void;
   renderLikeButton?: (item: GalleryItemData) => React.ReactNode;
+  renderFavoriteButton?: (item: GalleryItemData) => React.ReactNode;
   gap?: number;
   className?: string;
 }
@@ -168,6 +172,7 @@ export function DynamicCommunityGallery({
   onLoadMore,
   onItemView,
   renderLikeButton,
+  renderFavoriteButton,
   gap = 16,
   className,
 }: DynamicCommunityGalleryProps) {
@@ -278,6 +283,11 @@ export function DynamicCommunityGallery({
         likeButton={
           selectedItem && renderLikeButton
             ? renderLikeButton(selectedItem)
+            : null
+        }
+        favoriteButton={
+          selectedItem && renderFavoriteButton
+            ? renderFavoriteButton(selectedItem)
             : null
         }
         translationNamespace={translationNamespace}

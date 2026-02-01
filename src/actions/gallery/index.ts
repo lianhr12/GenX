@@ -3,6 +3,7 @@ export { getGalleryListAction } from './get-gallery-list';
 export { getFeaturedGalleryAction } from './get-featured-gallery';
 export { getGalleryItemAction } from './get-gallery-item';
 export { toggleLikeAction } from './toggle-like';
+export { toggleFavoriteAction } from './toggle-favorite';
 export { incrementViewAction } from './increment-view';
 export { submitToGalleryAction } from './submit-to-gallery';
 

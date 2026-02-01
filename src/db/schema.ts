@@ -349,8 +349,24 @@ export const galleryLikes = pgTable("gallery_likes", {
 	galleryLikesUserIdIdx: index("gallery_likes_user_id_idx").on(table.userId),
 }));
 
+/**
+ * Gallery favorites table
+ * Tracks user favorites on gallery items
+ */
+export const galleryFavorites = pgTable("gallery_favorites", {
+	id: serial("id").primaryKey(),
+	galleryItemId: integer("gallery_item_id").notNull().references(() => galleryItems.id, { onDelete: 'cascade' }),
+	userId: text("user_id").notNull().references(() => user.id, { onDelete: 'cascade' }),
+	createdAt: timestamp("created_at").defaultNow().notNull(),
+}, (table) => ({
+	galleryFavoritesUniqueIdx: uniqueIndex("gallery_favorites_unique_idx").on(table.galleryItemId, table.userId),
+	galleryFavoritesGalleryItemIdIdx: index("gallery_favorites_gallery_item_id_idx").on(table.galleryItemId),
+	galleryFavoritesUserIdIdx: index("gallery_favorites_user_id_idx").on(table.userId),
+}));
+
 export type GalleryItem = typeof galleryItems.$inferSelect;
 export type GalleryLike = typeof galleryLikes.$inferSelect;
+export type GalleryFavorite = typeof galleryFavorites.$inferSelect;
 
 // Gallery source type enum values
 export const GallerySourceType = {
