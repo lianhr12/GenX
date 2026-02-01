@@ -2059,5 +2059,148 @@
       "skip": "Skip tour",
       "done": "Got it!"
     }
+  },
+  "CreatePageNew": {
+    "header": {
+      "title": "Create",
+      "tabs": {
+        "video": "AI Video",
+        "image": "AI Image",
+        "agent": "AI Agent"
+      }
+    },
+    "input": {
+      "title": "What do you want to create?",
+      "subtitle": "Describe your vision and let AI bring it to life",
+      "placeholder": "A cinematic shot of a futuristic city at sunset, with flying cars and neon lights...",
+      "enhance": "Enhance",
+      "generate": "Generate",
+      "generating": "Generating...",
+      "parameters": {
+        "credits": "{count} Credits"
+      }
+    },
+    "styles": {
+      "title": "Quick Styles",
+      "clear": "Clear all",
+      "tags": {
+        "realistic": "Realistic",
+        "anime": "Anime",
+        "cinematic": "Cinematic",
+        "3d": "3D",
+        "cartoon": "Cartoon",
+        "cyberpunk": "Cyberpunk",
+        "watercolor": "Watercolor",
+        "oilPainting": "Oil Painting",
+        "fantasy": "Fantasy",
+        "sciFi": "Sci-Fi"
+      }
+    },
+    "banners": {
+      "title": "Featured",
+      "tryNow": "Try Now",
+      "badges": {
+        "hot": "HOT",
+        "new": "NEW"
+      },
+      "imageToVideo": {
+        "title": "Image to Video",
+        "description": "Transform your photos into stunning cinematic videos"
+      },
+      "textToVideo": {
+        "title": "Text to Video",
+        "description": "Describe your vision and watch it come to life"
+      },
+      "aiEffects": {
+        "title": "AI Effects",
+        "description": "Add stunning visual effects to your videos"
+      },
+      "videoExtend": {
+        "title": "Video Extend",
+        "description": "Extend your videos with AI-generated content"
+      }
+    },
+    "tools": {
+      "title": "Video Tools",
+      "viewAll": "View All",
+      "items": {
+        "imageToVideo": "Image to Video",
+        "imageToVideoDesc": "Transform photos into videos",
+        "textToVideo": "Text to Video",
+        "textToVideoDesc": "Generate videos from text",
+        "referenceToVideo": "Reference to Video",
+        "referenceToVideoDesc": "Use reference for style",
+        "videoExtend": "Video Extend",
+        "videoExtendDesc": "Extend video duration",
+        "videoUpscale": "Video Upscale",
+        "videoUpscaleDesc": "Enhance video quality",
+        "lipSync": "Lip Sync",
+        "lipSyncDesc": "Sync lips to audio",
+        "videoEffects": "Video Effects",
+        "videoEffectsDesc": "Add visual effects",
+        "backgroundRemove": "Background Remove",
+        "backgroundRemoveDesc": "Remove video background"
+      }
+    },
+    "models": {
+      "title": "AI Models",
+      "viewAll": "View All",
+      "badges": {
+        "popular": "Popular"
+      },
+      "items": {
+        "kling16Desc": "High-quality realistic video generation",
+        "runwayGen3Desc": "Professional cinematic video creation",
+        "pika15Desc": "Creative stylized video generation",
+        "minimaxDesc": "Anime and cartoon style videos",
+        "lumaDreamDesc": "Smooth 3D and realistic videos",
+        "hailuoDesc": "Chinese artistic style videos",
+        "cogvideoxDesc": "Open-source video generation",
+        "stableVideoDesc": "Stable image-to-video conversion"
+      }
+    },
+    "gallery": {
+      "title": "Community Gallery",
+      "subtitle": "Explore creations from our community",
+      "categories": {
+        "all": "All",
+        "realistic": "Realistic",
+        "anime": "Anime",
+        "cinematic": "Cinematic",
+        "3d": "3D",
+        "fantasy": "Fantasy",
+        "abstract": "Abstract"
+      },
+      "sort": {
+        "latest": "Latest",
+        "popular": "Popular",
+        "trending": "Trending"
+      }
+    },
+    "floating": {
+      "placeholder": "Describe what you want to create...",
+      "generate": "Generate",
+      "generating": "Generating..."
+    }
+  },
+  "CommunityGallery": {
+    "title": "Community Gallery",
+    "subtitle": "Explore creations from our community",
+    "categories": {
+      "all": "All",
+      "realistic": "Realistic",
+      "anime": "Anime",
+      "cinematic": "Cinematic",
+      "3d": "3D",
+      "fantasy": "Fantasy",
+      "abstract": "Abstract"
+    },
+    "sort": {
+      "latest": "Latest",
+      "popular": "Popular",
+      "trending": "Trending"
+    },
+    "empty": "No items to display",
+    "loadMore": "Load More"
   }
 }

@@ -2059,5 +2059,148 @@
       "skip": "跳过引导",
       "done": "明白了！"
     }
+  },
+  "CreatePageNew": {
+    "header": {
+      "title": "创作",
+      "tabs": {
+        "video": "AI 视频",
+        "image": "AI 图像",
+        "agent": "AI 智能体"
+      }
+    },
+    "input": {
+      "title": "你想创作什么？",
+      "subtitle": "描述你的想法，让 AI 将其变为现实",
+      "placeholder": "一个未来城市日落时分的电影镜头，有飞行汽车和霓虹灯...",
+      "enhance": "优化",
+      "generate": "生成",
+      "generating": "生成中...",
+      "parameters": {
+        "credits": "{count} 积分"
+      }
+    },
+    "styles": {
+      "title": "快捷风格",
+      "clear": "清除全部",
+      "tags": {
+        "realistic": "写实",
+        "anime": "动漫",
+        "cinematic": "电影",
+        "3d": "3D",
+        "cartoon": "卡通",
+        "cyberpunk": "赛博朋克",
+        "watercolor": "水彩",
+        "oilPainting": "油画",
+        "fantasy": "奇幻",
+        "sciFi": "科幻"
+      }
+    },
+    "banners": {
+      "title": "精选推荐",
+      "tryNow": "立即体验",
+      "badges": {
+        "hot": "热门",
+        "new": "新功能"
+      },
+      "imageToVideo": {
+        "title": "图片转视频",
+        "description": "将您的照片转换为精美的电影级视频"
+      },
+      "textToVideo": {
+        "title": "文字转视频",
+        "description": "描述您的想法，看着它变为现实"
+      },
+      "aiEffects": {
+        "title": "AI 特效",
+        "description": "为您的视频添加惊艳的视觉效果"
+      },
+      "videoExtend": {
+        "title": "视频延长",
+        "description": "使用 AI 生成内容延长您的视频"
+      }
+    },
+    "tools": {
+      "title": "视频工具",
+      "viewAll": "查看全部",
+      "items": {
+        "imageToVideo": "图片转视频",
+        "imageToVideoDesc": "将照片转换为视频",
+        "textToVideo": "文字转视频",
+        "textToVideoDesc": "从文字生成视频",
+        "referenceToVideo": "参考转视频",
+        "referenceToVideoDesc": "使用参考图定义风格",
+        "videoExtend": "视频延长",
+        "videoExtendDesc": "延长视频时长",
+        "videoUpscale": "视频增强",
+        "videoUpscaleDesc": "提升视频质量",
+        "lipSync": "口型同步",
+        "lipSyncDesc": "同步口型与音频",
+        "videoEffects": "视频特效",
+        "videoEffectsDesc": "添加视觉效果",
+        "backgroundRemove": "背景移除",
+        "backgroundRemoveDesc": "移除视频背景"
+      }
+    },
+    "models": {
+      "title": "AI 模型",
+      "viewAll": "查看全部",
+      "badges": {
+        "popular": "热门"
+      },
+      "items": {
+        "kling16Desc": "高质量写实视频生成",
+        "runwayGen3Desc": "专业电影级视频创作",
+        "pika15Desc": "创意风格化视频生成",
+        "minimaxDesc": "动漫和卡通风格视频",
+        "lumaDreamDesc": "流畅的 3D 和写实视频",
+        "hailuoDesc": "中国艺术风格视频",
+        "cogvideoxDesc": "开源视频生成",
+        "stableVideoDesc": "稳定的图片转视频"
+      }
+    },
+    "gallery": {
+      "title": "社区画廊",
+      "subtitle": "探索社区创作者的作品",
+      "categories": {
+        "all": "全部",
+        "realistic": "写实",
+        "anime": "动漫",
+        "cinematic": "电影",
+        "3d": "3D",
+        "fantasy": "奇幻",
+        "abstract": "抽象"
+      },
+      "sort": {
+        "latest": "最新",
+        "popular": "最热",
+        "trending": "趋势"
+      }
+    },
+    "floating": {
+      "placeholder": "描述你想创作的内容...",
+      "generate": "生成",
+      "generating": "生成中..."
+    }
+  },
+  "CommunityGallery": {
+    "title": "社区画廊",
+    "subtitle": "探索社区创作者的作品",
+    "categories": {
+      "all": "全部",
+      "realistic": "写实",
+      "anime": "动漫",
+      "cinematic": "电影",
+      "3d": "3D",
+      "fantasy": "奇幻",
+      "abstract": "抽象"
+    },
+    "sort": {
+      "latest": "最新",
+      "popular": "最热",
+      "trending": "趋势"
+    },
+    "empty": "暂无内容",
+    "loadMore": "加载更多"
   }
 }
