@@ -1999,6 +1999,7 @@
     },
     "recentCreations": {
       "title": "Recent Creations",
+      "subtitle": "Your latest AI-generated videos",
       "viewAll": "View All",
       "empty": {
         "title": "No Videos Yet",

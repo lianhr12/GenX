@@ -1,23 +1,24 @@
-# Hailuo-02 Video Generation
+# Hailuo-2.3 Video Generation
 
-> - Hailuo 02 (MiniMax-Hailuo-02) supports T2V (Text-to-Video), I2V (Image-to-Video) and FLF (First-Last-Frame) modes
-- Auto mode detection: 0 images=T2V, 1 image=I2V, 2 images=FLF
-- Full-featured model, supports 512P resolution (I2V mode only)
+> - Hailuo 2.3 (MiniMax-Hailuo-2.3) supports T2V (Text-to-Video) and I2V (Image-to-Video) modes
+- Auto mode detection: 0 images=T2V, 1 image=I2V
+- SOTA instruction following, high-quality output
 - Supports 15 camera motion commands like `[Pan left]`, `[Push in]`, `[Static shot]`
 - Async processing, use returned task ID to [query status](/en/api-manual/task-management/get-task-detail)
 - Generated video links are valid for 24 hours, please save promptly
 
 
 
+
 ## OpenAPI
 
-````yaml en/api-manual/video-series/hailuo/hailuo-02-video-generate.json post /v1/videos/generations
+````yaml en/api-manual/video-series/hailuo/hailuo-2-3-video-generate.json post /v1/videos/generations
 openapi: 3.1.0
 info:
-  title: Hailuo 02 API
+  title: Hailuo 2.3 API
   description: >-
-    Create video generation tasks using MiniMax Hailuo 02 model, supporting T2V,
-    I2V and FLF modes
+    Create video generation tasks using MiniMax Hailuo 2.3 model, supporting T2V
+    and I2V modes
   license:
     name: MIT
   version: 1.0.0
@@ -34,14 +35,14 @@ paths:
     post:
       tags:
         - Video Generation
-      summary: Hailuo 02 API
+      summary: Hailuo 2.3 API
       description: >-
-        - Hailuo 02 (MiniMax-Hailuo-02) supports T2V (Text-to-Video), I2V
-        (Image-to-Video) and FLF (First-Last-Frame) modes
+        - Hailuo 2.3 (MiniMax-Hailuo-2.3) supports T2V (Text-to-Video) and I2V
+        (Image-to-Video) modes
 
-        - Auto mode detection: 0 images=T2V, 1 image=I2V, 2 images=FLF
+        - Auto mode detection: 0 images=T2V, 1 image=I2V
 
-        - Full-featured model, supports 512P resolution (I2V mode only)
+        - SOTA instruction following, high-quality output
 
         - Supports 15 camera motion commands like `[Pan left]`, `[Push in]`,
         `[Static shot]`
@@ -61,7 +62,7 @@ paths:
               text_to_video:
                 summary: Text-to-Video (T2V)
                 value:
-                  model: MiniMax-Hailuo-02
+                  model: MiniMax-Hailuo-2.3
                   prompt: A beautiful sunset over the ocean [Static shot]
       responses:
         '200':
@@ -94,17 +95,18 @@ components:
       type: object
       required:
         - model
+        - prompt
       properties:
         model:
           type: string
           description: Video generation model name
-          default: MiniMax-Hailuo-02
-          example: MiniMax-Hailuo-02
+          default: MiniMax-Hailuo-2.3
+          example: MiniMax-Hailuo-2.3
         prompt:
           type: string
           description: >-
             Prompt describing video content and camera motion. Required for T2V,
-            optional for I2V/FLF. Max 2000 characters
+            optional for I2V. Max 2000 characters
 
 
             **15 Camera Commands:**
@@ -135,61 +137,41 @@ components:
 
             - Sequential: Commands execute in text order, e.g. `...slowly [Push
             in], then quickly [Pull out]`
-          example: A young girl gradually grows into an adult woman
+          example: A beautiful sunset over the ocean [Static shot]
           maxLength: 2000
         image_urls:
           type: array
-          description: >-
-            Reference image URLs for I2V and FLF modes
-
+          description: |-
+            Reference image URLs for I2V mode, optional
 
             **Mode Detection:**
-
             - 0 images = T2V (Text-to-Video)
-
             - 1 image = I2V (Image-to-Video)
 
-            - 2 images = FLF (First-Last-Frame transition)
-
-
             **Requirements:**
-
             - Image size: max 20MB
-
             - Formats: JPG, JPEG, PNG, WebP
-
             - Aspect ratio: 2:5 to 5:2
-
             - Short edge > 300px
-
-
-            **FLF Note:** Video resolution follows first frame, last frame will
-            be cropped to match
           items:
             type: string
             format: uri
-          maxItems: 2
+          maxItems: 1
           example:
-            - https://example.com/first.jpg
-            - https://example.com/last.jpg
+            - https://example.com/image.jpg
         quality:
           type: string
           description: |-
             Video resolution
 
             **Supported by mode:**
-            - I2V: 512p, 768p, 1080p
+            - I2V: 768p, 1080p
             - T2V: 768p, 1080p
-            - FLF: 768p, 1080p
 
             **Duration & Resolution:**
-            - 512p: 6s, 10s
             - 768p: 6s, 10s
             - 1080p: 6s only
-
-            Note: 512p only available in I2V mode
           enum:
-            - 512p
             - 768p
             - 1080p
           default: 768p
@@ -204,7 +186,7 @@ components:
             - 6
             - 10
           default: 6
-          example: 6
+          example: 10
         model_params:
           type: object
           description: Model-specific parameters
@@ -218,7 +200,7 @@ components:
               type: boolean
               description: Enable fast preprocessing to reduce optimization time
               default: false
-              example: true
+              example: false
     VideoGenerationResponse:
       type: object
       properties:
@@ -233,7 +215,7 @@ components:
         model:
           type: string
           description: Model name used
-          example: MiniMax-Hailuo-02
+          example: MiniMax-Hailuo-2.3
         object:
           type: string
           enum:
@@ -269,12 +251,6 @@ components:
             type:
               type: string
               description: Error type
-            param:
-              type: string
-              description: Related parameter
-            fallback_suggestion:
-              type: string
-              description: Suggested solution
   securitySchemes:
     bearerAuth:
       type: http
@@ -299,6 +275,7 @@ components:
         ```
 
 ````
+
 
 
 

@@ -19,7 +19,7 @@ import { calculateModelCredits, getModelConfig } from '@/config/video-credits';
 import { freezeCredits, releaseCredits, settleCredits } from '@/credits/server';
 import { type Video, VideoStatus, creditHolds, getDb, videos } from '@/db';
 import { getStorage } from '@/storage';
-import { and, desc, eq, ilike, inArray, lt } from 'drizzle-orm';
+import { and, count, desc, eq, ilike, inArray, lt } from 'drizzle-orm';
 import { nanoid } from 'nanoid';
 
 // ============================================================================
@@ -455,7 +455,7 @@ export class VideoService {
       isFavorite?: boolean;
       search?: string;
     }
-  ): Promise<{ videos: Video[]; nextCursor?: string }> {
+  ): Promise<{ videos: Video[]; nextCursor?: string; total: number }> {
     const db = await getDb();
     const limit = options?.limit || 20;
 
@@ -477,6 +477,13 @@ export class VideoService {
     if (options?.search) {
       conditions.push(ilike(videos.prompt, `%${options.search}%`));
     }
+
+    // Get total count (without cursor filter)
+    const [countResult] = await db
+      .select({ count: count() })
+      .from(videos)
+      .where(and(...conditions));
+    const total = countResult?.count || 0;
 
     if (options?.cursor) {
       const [cursorVideo] = await db
@@ -503,6 +510,7 @@ export class VideoService {
     return {
       videos: list,
       nextCursor: hasMore ? list[list.length - 1]?.uuid : undefined,
+      total,
     };
   }
 

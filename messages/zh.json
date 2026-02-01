@@ -1999,6 +1999,7 @@
     },
     "recentCreations": {
       "title": "最近作品",
+      "subtitle": "您最新的 AI 生成视频",
       "viewAll": "查看全部",
       "empty": {
         "title": "还没有视频",
