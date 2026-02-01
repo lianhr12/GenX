@@ -1,62 +1,67 @@
-# Veo3.1-Fast Video Generation Lite
+# Wan2.6 Text to Video
 
-> - Veo 3.1 Fast (veo-3.1-fast) model supports text-to-video, first-frame image-to-video and other modes
-- Asynchronous processing mode, use the returned task ID to [query](/en/api-manual/task-management/get-task-detail)
+> - WAN2.6 (wan2.6-text-to-video) model supports text-to-video generation
+- Asynchronous processing mode, use the returned task ID to [query status](/en/api-manual/task-management/get-task-detail)
 - Generated video links are valid for 24 hours, please save them promptly
 
+## Pricing
+| MODEL | MODE | QUALITY | DURATION | PRICE (CREDITS) |
+| --- | --- | --- | --- | --- |
+| WAN 2.6 Text to Video | Video Generation | 720p | 5s | 25.500 Credits / video |
+| WAN 2.6 Text to Video | Video Generation | 720p | 10s | 51.000 Credits / video |
+| WAN 2.6 Text to Video | Video Generation | 720p | 15s | 76.500 Credits / video |
+| WAN 2.6 Text to Video | Video Generation | 1080p | 5s | 42.585 Credits / video |
+| WAN 2.6 Text to Video | Video Generation | 1080p | 10s | 85.170 Credits / video |
+| WAN 2.6 Text to Video | Video Generation | 1080p | 15s | 127.755 Credits / video |
 
 
 ## OpenAPI
 
-````yaml en/api-manual/video-series/veo3.1/veo3.1-fast-video-generate.json post /v1/videos/generations
+````yaml en/api-manual/video-series/wan2.6/wan2.6-text-to-video.json post /v1/videos/generations
 openapi: 3.1.0
 info:
-  title: veo3.1-fast Interface
+  title: wan2.6-text-to-video API
   description: >-
-    Use AI models to create video generation tasks, supporting text-to-video,
-    image-to-video and other generation modes
+    Generate videos from text using the WAN2.6 model with simplified model
+    parameter configuration
   license:
     name: MIT
   version: 1.0.0
 servers:
   - url: https://api.evolink.ai
-    description: Production environment
+    description: Production Environment
 security:
   - bearerAuth: []
-tags:
-  - name: Video Generation
-    description: AI video generation related APIs
 paths:
   /v1/videos/generations:
     post:
       tags:
         - Video Generation
-      summary: veo3.1-fast Interface
+      summary: wan2.6-text-to-video API
       description: >-
-        - Veo 3.1 Fast (veo-3.1-fast) model supports text-to-video, first-frame
-        image-to-video and other modes
+        - WAN2.6 (wan2.6-text-to-video) model supports text-to-video generation
 
-        - Asynchronous processing mode, use the returned task ID to
-        [query](/en/api-manual/task-management/get-task-detail)
+        - Asynchronous processing mode, use the returned task ID to [query
+        status](/en/api-manual/task-management/get-task-detail)
 
         - Generated video links are valid for 24 hours, please save them
         promptly
-      operationId: createVideoGeneration
+      operationId: createWan26TextToVideoGeneration
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/VideoGenerationRequest'
+              $ref: '#/components/schemas/Wan26TextToVideoRequest'
             examples:
               text_to_video:
                 summary: Text to Video
                 value:
-                  model: veo3.1-fast
+                  model: wan2.6-text-to-video
                   prompt: A cat playing piano
       responses:
         '200':
-          description: Video generation task created successfully
+          description: Video task created successfully
           content:
             application/json:
               schema:
@@ -70,12 +75,11 @@ paths:
               example:
                 error:
                   code: 400
-                  message: Invalid duration parameter
+                  message: Invalid request format
                   type: invalid_request_error
-                  param: duration
-                  fallback_suggestion: use duration between 1-12 seconds
+                  param: model
         '401':
-          description: Unauthorized, invalid or expired token
+          description: Authentication failed
           content:
             application/json:
               schema:
@@ -83,20 +87,8 @@ paths:
               example:
                 error:
                   code: 401
-                  message: Invalid or expired token
+                  message: Invalid authentication credentials
                   type: authentication_error
-        '402':
-          description: Insufficient quota, recharge required
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorResponse'
-              example:
-                error:
-                  code: 402
-                  message: Insufficient quota
-                  type: insufficient_quota_error
-                  fallback_suggestion: https://evolink.ai/dashboard/billing
         '403':
           description: Access denied
           content:
@@ -121,20 +113,7 @@ paths:
                   message: Specified model not found
                   type: not_found_error
                   param: model
-                  fallback_suggestion: veo3.1-fast
-        '413':
-          description: Request entity too large
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorResponse'
-              example:
-                error:
-                  code: 413
-                  message: Image file too large
-                  type: request_too_large_error
-                  param: image_urls
-                  fallback_suggestion: compress image to under 4MB
+                  fallback_suggestion: wan2.6-text-to-video
         '429':
           description: Rate limit exceeded
           content:
@@ -168,9 +147,9 @@ paths:
               example:
                 error:
                   code: 502
-                  message: Upstream AI service unavailable
+                  message: Bad gateway
                   type: upstream_error
-                  fallback_suggestion: try different model
+                  fallback_suggestion: try again later
         '503':
           description: Service temporarily unavailable
           content:
@@ -185,7 +164,7 @@ paths:
                   fallback_suggestion: retry after 30 seconds
 components:
   schemas:
-    VideoGenerationRequest:
+    Wan26TextToVideoRequest:
       type: object
       required:
         - model
@@ -193,111 +172,159 @@ components:
       properties:
         model:
           type: string
-          description: Video generation model name
+          description: Model name
           enum:
-            - veo3.1-fast
-          default: veo3.1-fast
-          example: veo3.1-fast
+            - wan2.6-text-to-video
+          default: wan2.6-text-to-video
+          example: wan2.6-text-to-video
         prompt:
           type: string
           description: >-
-            Prompt describing what kind of video to generate, limited to 2000
-            tokens
+            Prompt describing the video you want to generate, limited to 1500
+            characters
           example: A cat playing piano
-          maxLength: 2000
+          maxLength: 1500
         aspect_ratio:
           type: string
           description: >-
-            Video aspect ratio. When set to `auto`: image-to-video will
-            automatically select based on the input image ratio, text-to-video
-            will automatically select based on the prompt content
-          enum:
-            - auto
-            - '16:9'
-            - '9:16'
-          default: auto
-          example: auto
-        image_urls:
-          type: array
-          description: >-
-            Reference image URL list for image-to-video feature
+            Video aspect ratio, defaults to `16:9`
 
 
-            **Note:**
+            **Options:**
 
-            - Single request supports input image quantity: `3` images (1 image
-            for first-frame video generation, 2 images for first-and-last-frame
-            video generation)
+            - `720p`: Supports `16:9` (landscape), `9:16` (portrait), `1:1`
+            (square), `4:3`, `3:4`
 
-            - Image size: no more than `10MB`
-
-            - Supported file formats: `.jpg`, `.jpeg`, `.png`, `.webp`
-
-            - Image URLs must be directly viewable by the server, or the image
-            URL should trigger direct download when accessed (typically these
-            URLs end with image file extensions, such as `.png`, `.jpg`)
-          items:
-            type: string
-            format: uri
-          maxItems: 3
-          example:
-            - http://example.com/image1.jpg
+            - `1080p`: Supports `16:9` (landscape), `9:16` (portrait), `1:1`
+            (square), `4:3`, `3:4`
+          example: '16:9'
         quality:
           type: string
-          description: Video resolution, default is `720p`
-          enum:
-            - 720p
-            - 1080p
-            - 4k
-        generation_type:
-          type: string
           description: >-
-            Video generation mode, default matches based on image count, manual
-            selection recommended. Available modes:
+            Video quality, defaults to `720p`
 
 
-            - `TEXT`: Text to video
+            **Options:**
 
-            - `FIRST&LAST`: First and last frame to video, supports `1`~`2`
-            images
+            - `720p`: Standard definition, standard price, this is the default
 
-            - `REFERENCE`: Reference image to video, supports up to `3` images
+            - `1080p`: High definition, higher price
+
+
+            **Note:** Different quality levels support different aspect ratios,
+            see `aspect_ratio` parameter
+          example: 720p
+        duration:
+          type: integer
+          description: >-
+            Specifies the duration of the generated video (in seconds)
 
 
             **Note:**
 
-            - Currently, the reference image to video `REFERENCE` mode only
-            supports `16:9` aspect ratio
-          enum:
-            - TEXT
-            - FIRST&LAST
-            - REFERENCE
-        enhance_prompt:
+            - Only supports `5`, `10`, `15` values, representing `5 seconds`,
+            `10 seconds`, `15 seconds`
+
+            - Each request will be pre-charged based on the `duration` value,
+            actual charge is based on the generated video duration
+          example: 5
+        prompt_extend:
           type: boolean
           description: >-
-            Whether to automatically translate the prompt to English. When
-            enabled, non-English prompts will be automatically translated to
-            English for better generation results
-          default: true
+            Whether to enable intelligent prompt rewriting. When enabled, a
+            large model will optimize the prompt, which significantly improves
+            results for simple or insufficiently descriptive prompts. Default is
+            `true`
           example: true
+        model_params:
+          type: object
+          description: Model parameter configuration
+          properties:
+            shot_type:
+              type: string
+              description: >-
+                Specifies the shot type for the generated video, i.e., whether
+                the video consists of a single continuous shot or multiple
+                switching shots
+
+
+                **Effective Condition:**
+
+                - Only effective when `prompt_extend` is `true`
+
+
+                **Parameter Priority:**
+
+                - `shot_type` > `prompt`
+
+                - For example, if `shot_type` is set to `single`, even if the
+                `prompt` contains `generate multi-shot video`, the model will
+                still output a single-shot video
+
+
+                **Options:**
+
+                - `single`: Default, outputs single-shot video
+
+                - `multi`: Outputs multi-shot video
+
+
+                **Note:**
+
+                - Use this parameter when you want to strictly control the
+                narrative structure of the video (e.g., single shot for product
+                showcases, multi-shot for short stories)
+              enum:
+                - single
+                - multi
+              example: single
+        audio_url:
+          type: string
+          description: >-
+            Audio file URL. The model will use this audio to generate the video.
+
+
+            **Format Requirements:**
+
+            - Supported format: `mp3`
+
+            - Duration: `3~30` seconds
+
+            - File size: Up to `15MB`
+
+
+            **Overflow Handling:**
+
+            - If the audio length exceeds the `duration` value (5 or 10
+            seconds), the first 5 or 10 seconds will be automatically extracted,
+            and the rest will be discarded
+
+            - If the audio length is shorter than the video duration, the
+            portion exceeding the audio length will be silent. For example, if
+            the audio is 3 seconds and the video duration is 5 seconds, the
+            output video will have sound for the first 3 seconds and be silent
+            for the last 2 seconds
+          format: uri
+          example: >-
+            https://help-static-aliyun-doc.aliyuncs.com/file-manage-files/xxx.mp3
         callback_url:
           type: string
           description: >-
-            HTTPS callback address after task completion
+            HTTPS callback URL for task completion
 
 
             **Callback Timing:**
 
             - Triggered when task is completed, failed, or cancelled
 
-            - Sent after billing confirmation is completed
+            - Sent after billing confirmation
 
 
             **Security Restrictions:**
 
             - Only HTTPS protocol is supported
 
-            - Callback to internal IP addresses is prohibited (127.0.0.1,
+            - Callbacks to internal IP addresses are prohibited (127.0.0.1,
             10.x.x.x, 172.16-31.x.x, 192.168.x.x, etc.)
 
             - URL length must not exceed `2048` characters
@@ -307,14 +334,14 @@ components:
 
             - Timeout: `10` seconds
 
-            - Maximum `3` retries on failure (retries after `1` second/`2`
-            seconds/`4` seconds)
+            - Up to `3` retries after failure (retries at `1`/`2`/`4` seconds
+            after failure)
 
-            - Callback response body format is consistent with the task query
-            API response format
+            - Callback response format is consistent with the task query API
+            response
 
-            - Callback address returning 2xx status code is considered
-            successful, other status codes will trigger retry
+            - 2xx status codes are considered successful, other status codes
+            trigger retries
           format: uri
           example: https://your-domain.com/webhooks/video-task-completed
     VideoGenerationResponse:
@@ -331,12 +358,12 @@ components:
         model:
           type: string
           description: Actual model name used
-          example: veo3.1-fast
+          example: wan2.6-text-to-video
         object:
           type: string
           enum:
             - video.generation.task
-          description: Specific task type
+          description: Task type
         progress:
           type: integer
           description: Task progress percentage (0-100)
@@ -354,7 +381,7 @@ components:
           example: pending
         task_info:
           $ref: '#/components/schemas/VideoTaskInfo'
-          description: Video task detailed information
+          description: Video task details
         type:
           type: string
           enum:
@@ -365,7 +392,7 @@ components:
           description: Task output type
           example: video
         usage:
-          $ref: '#/components/schemas/VideoUsage'
+          $ref: '#/components/schemas/Usage'
           description: Usage and billing information
     ErrorResponse:
       type: object
@@ -375,23 +402,19 @@ components:
           properties:
             code:
               type: integer
-              description: HTTP status error code
+              description: Error code
             message:
               type: string
-              description: Error description
-              example: Invalid request parameters
+              description: Error message
             type:
               type: string
               description: Error type
-              example: invalid_request_error
             param:
               type: string
-              description: Related parameter name
-              example: model
+              description: Parameter that caused the error
             fallback_suggestion:
               type: string
-              description: Suggestion for error resolution
-              example: runway-gen3
+              description: Suggested solution
     VideoTaskInfo:
       type: object
       properties:
@@ -403,12 +426,8 @@ components:
           type: integer
           description: Estimated completion time (seconds)
           minimum: 0
-          example: 180
-        video_duration:
-          type: integer
-          description: Video duration (seconds)
-          example: 8
-    VideoUsage:
+          example: 120
+    Usage:
       type: object
       description: Usage and billing information
       properties:
@@ -422,29 +441,32 @@ components:
           example: per_call
         credits_reserved:
           type: number
-          description: Estimated credits consumed
+          description: Estimated credits consumption
           minimum: 0
-          example: 25.7
+          example: 5
         user_group:
           type: string
           description: User group category
+          enum:
+            - default
+            - vip
           example: default
   securitySchemes:
     bearerAuth:
       type: http
       scheme: bearer
       description: >-
-        ##All APIs require Bearer Token authentication##
+        ## All APIs require Bearer Token authentication ##
 
 
         **Get API Key:**
 
 
-        Visit [API Key Management Page](https://evolink.ai/dashboard/keys) to
-        get your API Key
+        Visit the [API Key Management Page](https://evolink.ai/dashboard/keys)
+        to get your API Key
 
 
-        **Add to request header when using:**
+        **Add to request header:**
 
         ```
 
@@ -533,7 +555,7 @@ paths:
                 allOf:
                   - type: string
                     description: Model used
-                    example: veo3.1-fast
+                    example: wan2.5-text-to-video
               object:
                 allOf:
                   - type: string
@@ -594,7 +616,7 @@ paths:
             value:
               created: 1756817821
               id: task-unified-1756817821-4x3rx6ny
-              model: veo3.1-fast
+              model: wan2.5-text-to-video
               object: video.generation.task
               progress: 100
               results:

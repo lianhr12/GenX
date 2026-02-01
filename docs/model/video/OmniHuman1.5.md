@@ -9,7 +9,10 @@
 - Supported audio formats: MP3, WAV
 - Billing is based on audio duration (rounded up to the nearest second)
 
-
+## Pricing
+| MODEL | MODE | PRICE (CREDITS) |
+| --- | --- | --- |
+| OmniHuman 1.5 | Video Generation | 12.000 Credits / second |
 
 ## OpenAPI
 

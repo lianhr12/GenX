@@ -4,6 +4,11 @@
 - Asynchronous processing mode, use the returned task ID to [query](/en/api-manual/task-management/get-task-detail)
 - Generated video links are valid for 24 hours, please save them promptly
 
+## Pricing
+| MODEL | MODE | QUALITY | PRICE (CREDITS) |
+| --- | --- | --- | --- |
+| Veo 3.1 Pro Lite | Video Generation | 720p / 1080p | **60.000 Credits / video** (Popular) |
+| Veo 3.1 Pro Lite | Video Generation | 4K | 90.000 Credits / video |
 
 
 ## OpenAPI

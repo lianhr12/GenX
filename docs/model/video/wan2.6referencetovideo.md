@@ -1,34 +1,38 @@
-# Wan2.5 Image to Video
+# Wan2.6 Reference Video
 
-> - WAN2.5 (wan2.5-image-to-video) model supports first-frame image-to-video mode
-- Asynchronous processing mode, use the returned task ID to [query](/en/api-manual/task-management/get-task-detail)
+> - WAN2.6 (wan2.6-reference-video) model supports reference video-to-video generation
+- Upload reference videos, the model will extract character appearance and voice to generate new videos
+- Asynchronous processing mode, use the returned task ID to [query status](/en/api-manual/task-management/get-task-detail)
 - Generated video links are valid for 24 hours, please save them promptly
+- **Billing**: Combined billing based on input + output video duration, only charged after successful generation, no charges for failures
 
 ## Pricing
 | MODEL | MODE | QUALITY | DURATION | PRICE (CREDITS) |
 | --- | --- | --- | --- | --- |
-| WAN 2.5 Image to Video | Video Generation | 480p | 5s | 12.750 Credits / video |
-| WAN 2.5 Image to Video | Video Generation | 720p | 5s | 25.500 Credits / video |
-| WAN 2.5 Image to Video | Video Generation | 1080p | 5s | 42.585 Credits / video |
-| WAN 2.5 Image to Video | Video Generation | 480p | 10s | 25.500 Credits / video |
-| WAN 2.5 Image to Video | Video Generation | 720p | 10s | 51.000 Credits / video |
-| WAN 2.5 Image to Video | Video Generation | 1080p | 10s | 85.170 Credits / video |
+| WAN 2.6 Reference Video | Input Video | 720p | max 5s | 5.100 Credits / second |
+| WAN 2.6 Reference Video | Input Video | 1080p | max 5s | 8.517 Credits / second |
+| WAN 2.6 Reference Video | Output Video | 720p | 5s | 25.500 Credits / video |
+| WAN 2.6 Reference Video | Output Video | 720p | 10s | 51.000 Credits / video |
+| WAN 2.6 Reference Video | Output Video | 1080p | 5s | 42.585 Credits / video |
+| WAN 2.6 Reference Video | Output Video | 1080p | 10s | 85.170 Credits / video |
+
 
 ## OpenAPI
 
-````yaml en/api-manual/video-series/wan2.5/wan2.5-image-to-video.json post /v1/videos/generations
+````yaml en/api-manual/video-series/wan2.6/wan2.6-reference-video.json post /v1/videos/generations
 openapi: 3.1.0
 info:
-  title: wan2.5-image-to-video Interface
+  title: wan2.6-reference-video API
   description: >-
-    Use WAN2.5 model for image-to-video generation, supporting simplified model
-    parameter configuration
+    Generate videos using the WAN2.6 model with reference videos, extracting
+    character appearance and voice from uploaded reference videos to create new
+    videos
   license:
     name: MIT
   version: 1.0.0
 servers:
   - url: https://api.evolink.ai
-    description: Production environment
+    description: Production Environment
 security:
   - bearerAuth: []
 paths:
@@ -36,29 +40,38 @@ paths:
     post:
       tags:
         - Video Generation
-      summary: wan2.5-image-to-video Interface
+      summary: wan2.6-reference-video API
       description: >-
-        - WAN2.5 (wan2.5-image-to-video) model supports first-frame
-        image-to-video mode
+        - WAN2.6 (wan2.6-reference-video) model supports reference
+        video-to-video generation
 
-        - Asynchronous processing mode, use the returned task ID to
-        [query](/en/api-manual/task-management/get-task-detail)
+        - Upload reference videos, the model will extract character appearance
+        and voice to generate new videos
+
+        - Asynchronous processing mode, use the returned task ID to [query
+        status](/en/api-manual/task-management/get-task-detail)
 
         - Generated video links are valid for 24 hours, please save them
         promptly
-      operationId: createWan25ImageToVideoGeneration
+
+        - **Billing**: Combined billing based on input + output video duration,
+        only charged after successful generation, no charges for failures
+      operationId: createWan26ReferenceVideoGeneration
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Wan25ImageToVideoRequest'
+              $ref: '#/components/schemas/Wan26ReferenceVideoRequest'
             examples:
-              image_to_video:
-                summary: Image to Video
+              reference_video:
+                summary: Reference Video to Video
                 value:
-                  model: wan2.5-image-to-video
-                  prompt: A cat playing piano
+                  model: wan2.6-reference-video
+                  prompt: A person dancing
+                  video_urls:
+                    - >-
+                      https://help-static-aliyun-doc.aliyuncs.com/file-manage-files/xxx.mp4
       responses:
         '200':
           description: Video task created successfully
@@ -113,7 +126,7 @@ paths:
                   message: Specified model not found
                   type: not_found_error
                   param: model
-                  fallback_suggestion: wan2.5-image-to-video
+                  fallback_suggestion: wan2.6-reference-video
         '429':
           description: Rate limit exceeded
           content:
@@ -164,106 +177,182 @@ paths:
                   fallback_suggestion: retry after 30 seconds
 components:
   schemas:
-    Wan25ImageToVideoRequest:
+    Wan26ReferenceVideoRequest:
       type: object
       required:
         - model
         - prompt
-        - image_urls
+        - video_urls
       properties:
         model:
           type: string
           description: Model name
           enum:
-            - wan2.5-image-to-video
-          default: wan2.5-image-to-video
-          example: wan2.5-image-to-video
+            - wan2.6-reference-video
+          default: wan2.6-reference-video
+          example: wan2.6-reference-video
         prompt:
           type: string
           description: >-
-            Prompt describing what kind of video to generate, limited to 2000
-            tokens
-          example: A cat playing the piano
-          maxLength: 2000
-        duration:
-          type: integer
-          description: >-
-            Specifies the duration of the generated video (seconds)
-
-
-            **Note:**
-
-            - Only supports values `5` and `10`, representing `5 seconds` and
-            `10 seconds` respectively
-
-            - A single request will pre-charge based on the value of `duration`,
-            with actual charges based on the generated video duration in seconds
-          example: 5
-        quality:
-          type: string
-          description: |-
-            Video quality, defaults to `720p`
-
-            **Description:**
-            - `480p`: Lower quality, lower price
-            - `720p`: Standard quality, standard price, this is the default
-            - `1080p`: High quality, higher price
-          default: 720p
-          example: 720p
-        image_urls:
+            Prompt describing the video you want to generate, limited to 1500
+            characters
+          example: A person dancing
+          maxLength: 1500
+        video_urls:
           type: array
-          description: >-
-            Reference image URL list for first-frame image-to-video feature
-
-
-            **Note:**
-
-            - Single request supports input image quantity: `1` image
-
-            - Image size: no more than `10MB`
-
-            - Supported image formats: `.jpeg`, `.jpg`, `.png` (transparent
-            channels not supported), `.bmp`, `.webp`
-
-            - Image resolution: image width and height range is `[360, 2000]`
-            pixels
-
-            - Image URLs must be directly viewable by the server, or the image
-            URL should trigger direct download when accessed (typically these
-            URLs end with image file extensions, such as `.png`, `.jpg`)
           items:
             type: string
             format: uri
-          maxItems: 1
-          example:
-            - https://example.com/image1.png
-        prompt_extend:
-          type: boolean
           description: >-
-            Whether to enable intelligent prompt rewriting. When enabled, a
-            large language model will optimize the prompt. This is particularly
-            effective for prompts that lack detail or are too simple. Default
-            value is `true`
-          default: true
-          example: true
+            Array of reference video file URLs. Used to extract character
+            appearance and voice from reference videos to generate new videos.
+
+
+            **URL Requirements:**
+
+            - Supports HTTP or HTTPS protocol
+
+            - Local files can obtain temporary URLs via [File
+            Upload](/en/api-manual/file-series/upload-base64)
+
+
+            **Array Limits:**
+
+            - Maximum 3 videos
+
+
+            **Video Requirements:**
+
+            - Format: mp4, mov
+
+            - Duration: 2~30 seconds
+
+            - File size: Single video no more than 100MB
+
+
+            **Input Video Billing Rules:**
+
+            - Each reference video is truncated and summed, total input billing
+            duration capped at `5` seconds
+
+            - 1 video: `min(video duration, 5s)`
+
+            - 2 videos: `min(video1 duration, 2.5s) + min(video2 duration,
+            2.5s)`
+
+            - 3 videos: `min(video1 duration, 1.65s) + min(video2 duration,
+            1.65s) + min(video3 duration, 1.65s)`
+
+            - `1080p` quality has a higher price
+          maxItems: 3
+          example:
+            - >-
+              https://help-static-aliyun-doc.aliyuncs.com/file-manage-files/xxx.mp4
+        aspect_ratio:
+          type: string
+          description: >-
+            Video aspect ratio, defaults to `16:9`
+
+
+            **Options:**
+
+            - `720p`: Supports `16:9` (landscape), `9:16` (portrait), `1:1`
+            (square), `4:3`, `3:4`
+
+            - `1080p`: Supports `16:9` (landscape), `9:16` (portrait), `1:1`
+            (square), `4:3`, `3:4`
+          example: '16:9'
+        quality:
+          type: string
+          description: >-
+            Video quality, defaults to `720p`
+
+
+            **Options:**
+
+            - `720p`: Standard definition, standard price, this is the default
+
+            - `1080p`: High definition, higher price
+
+
+            **Note:** Different quality levels support different aspect ratios,
+            see `aspect_ratio` parameter
+          example: 720p
+        duration:
+          type: integer
+          description: >-
+            Specifies the duration of the generated video (in seconds)
+
+
+            **Note:**
+
+            - Only supports `5`, `10` values, representing `5 seconds`, `10
+            seconds`
+
+
+            **Output Video Billing Rules:**
+
+            - Output video billing duration: The number of seconds of video
+            successfully generated by the model
+          enum:
+            - 5
+            - 10
+          example: 5
+        model_params:
+          type: object
+          description: Model parameter configuration
+          properties:
+            shot_type:
+              type: string
+              description: >-
+                Specifies the shot type for the generated video, i.e., whether
+                the video consists of a single continuous shot or multiple
+                switching shots
+
+
+                **Parameter Priority:**
+
+                - `shot_type` > `prompt`
+
+                - For example, if `shot_type` is set to `single`, even if the
+                `prompt` contains `generate multi-shot video`, the model will
+                still output a single-shot video
+
+
+                **Options:**
+
+                - `single`: Default, outputs single-shot video
+
+                - `multi`: Outputs multi-shot video
+
+
+                **Note:**
+
+                - Use this parameter when you want to strictly control the
+                narrative structure of the video (e.g., single shot for product
+                showcases, multi-shot for short stories)
+              enum:
+                - single
+                - multi
+              example: single
         callback_url:
           type: string
           description: >-
-            HTTPS callback address after task completion
+            HTTPS callback URL for task completion
 
 
             **Callback Timing:**
 
             - Triggered when task is completed, failed, or cancelled
 
-            - Sent after billing confirmation is completed
+            - Sent after billing confirmation
 
 
             **Security Restrictions:**
 
             - Only HTTPS protocol is supported
 
-            - Callback to internal IP addresses is prohibited (127.0.0.1,
+            - Callbacks to internal IP addresses are prohibited (127.0.0.1,
             10.x.x.x, 172.16-31.x.x, 192.168.x.x, etc.)
 
             - URL length must not exceed `2048` characters
@@ -273,14 +362,14 @@ components:
 
             - Timeout: `10` seconds
 
-            - Maximum `3` retries on failure (retries after `1` second/`2`
-            seconds/`4` seconds)
+            - Up to `3` retries after failure (retries at `1`/`2`/`4` seconds
+            after failure)
 
-            - Callback response body format is consistent with the task query
-            API response format
+            - Callback response format is consistent with the task query API
+            response
 
-            - Callback address returning 2xx status code is considered
-            successful, other status codes will trigger retry
+            - 2xx status codes are considered successful, other status codes
+            trigger retries
           format: uri
           example: https://your-domain.com/webhooks/video-task-completed
     VideoGenerationResponse:
@@ -297,12 +386,12 @@ components:
         model:
           type: string
           description: Actual model name used
-          example: wan2.5-image-to-video
+          example: wan2.6-reference-video
         object:
           type: string
           enum:
             - video.generation.task
-          description: Specific task type
+          description: Task type
         progress:
           type: integer
           description: Task progress percentage (0-100)
@@ -320,7 +409,7 @@ components:
           example: pending
         task_info:
           $ref: '#/components/schemas/VideoTaskInfo'
-          description: Video task detailed information
+          description: Video task details
         type:
           type: string
           enum:
@@ -350,7 +439,7 @@ components:
               description: Error type
             param:
               type: string
-              description: Parameter name that caused the error
+              description: Parameter that caused the error
             fallback_suggestion:
               type: string
               description: Suggested solution
@@ -380,7 +469,7 @@ components:
           example: per_call
         credits_reserved:
           type: number
-          description: Estimated credits consumed
+          description: Estimated credits consumption
           minimum: 0
           example: 5
         user_group:
@@ -395,17 +484,17 @@ components:
       type: http
       scheme: bearer
       description: >-
-        ##All APIs require Bearer Token authentication##
+        ## All APIs require Bearer Token authentication ##
 
 
         **Get API Key:**
 
 
-        Visit [API Key Management Page](https://evolink.ai/dashboard/keys) to
-        get your API Key
+        Visit the [API Key Management Page](https://evolink.ai/dashboard/keys)
+        to get your API Key
 
 
-        **Add to request header when using:**
+        **Add to request header:**
 
         ```
 
@@ -414,6 +503,7 @@ components:
         ```
 
 ````
+
 
 
 
@@ -492,7 +582,7 @@ paths:
                 allOf:
                   - type: string
                     description: Model used
-                    example: wan2.5-image-to-video
+                    example: wan2.5-text-to-video
               object:
                 allOf:
                   - type: string
@@ -553,7 +643,7 @@ paths:
             value:
               created: 1756817821
               id: task-unified-1756817821-4x3rx6ny
-              model: wan2.5-image-to-video
+              model: wan2.5-text-to-video
               object: video.generation.task
               progress: 100
               results:

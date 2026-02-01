@@ -6,6 +6,7 @@ import {
   EyeIcon,
   Heart,
   HeartIcon,
+  ImageIcon,
   Play,
   PlayIcon,
   Trash2,
@@ -17,8 +18,12 @@ import { useState } from 'react';
 export interface GalleryItemData {
   id: string | number;
   uuid?: string;
+  // Media type - 'video' or 'image'
+  mediaType?: 'video' | 'image';
   videoUrl: string;
   thumbnailUrl: string;
+  // For images - array of image URLs
+  imageUrls?: string[];
   prompt: string;
   category?: string;
   artStyle?: string;
@@ -133,18 +138,25 @@ export function GalleryVideoCard({
           />
         ) : (
           <div className="w-full h-full flex items-center justify-center">
-            <VideoIcon className="h-8 w-8 text-muted-foreground" />
+            {item.mediaType === 'image' ? (
+              <ImageIcon className="h-8 w-8 text-muted-foreground" />
+            ) : (
+              <VideoIcon className="h-8 w-8 text-muted-foreground" />
+            )}
           </div>
         )}
 
-        {/* Play Icon Overlay */}
-        {item.status === 'COMPLETED' && item.videoUrl && !isHovered && (
-          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-            <div className="w-12 h-12 rounded-full bg-black/50 flex items-center justify-center">
-              <Play className="h-6 w-6 text-white fill-white" />
+        {/* Play Icon Overlay - Only for videos */}
+        {item.mediaType !== 'image' &&
+          item.status === 'COMPLETED' &&
+          item.videoUrl &&
+          !isHovered && (
+            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+              <div className="w-12 h-12 rounded-full bg-black/50 flex items-center justify-center">
+                <Play className="h-6 w-6 text-white fill-white" />
+              </div>
             </div>
-          </div>
-        )}
+          )}
 
         {/* Status Badge */}
         {item.status && item.status !== 'COMPLETED' && (
@@ -187,19 +199,20 @@ export function GalleryVideoCard({
           >
             <ZoomIn className="h-5 w-5 text-white" />
           </button>
-          {item.videoUrl && onDownload && (
-            <button
-              type="button"
-              onClick={(e) => {
-                e.stopPropagation();
-                onDownload();
-              }}
-              className="p-2 rounded-full bg-white/20 hover:bg-white/30 transition-colors"
-              title="Download"
-            >
-              <Download className="h-5 w-5 text-white" />
-            </button>
-          )}
+          {(item.videoUrl || (item.imageUrls && item.imageUrls.length > 0)) &&
+            onDownload && (
+              <button
+                type="button"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  onDownload();
+                }}
+                className="p-2 rounded-full bg-white/20 hover:bg-white/30 transition-colors"
+                title="Download"
+              >
+                <Download className="h-5 w-5 text-white" />
+              </button>
+            )}
           {onToggleFavorite && (
             <button
               type="button"
@@ -264,7 +277,7 @@ export function GalleryVideoCard({
       onClick={handleClick}
     >
       {/* Thumbnail or Video */}
-      {isPlaying ? (
+      {isPlaying && item.mediaType !== 'image' ? (
         <video
           src={item.videoUrl}
           className="w-full h-full object-cover"
@@ -287,7 +300,7 @@ export function GalleryVideoCard({
             }}
           />
 
-          {/* Play button overlay */}
+          {/* Hover overlay - Play for video, Zoom for image */}
           <div
             className={cn(
               'absolute inset-0 flex items-center justify-center bg-black/20 transition-opacity',
@@ -295,10 +308,14 @@ export function GalleryVideoCard({
             )}
           >
             <div className="w-12 h-12 rounded-full bg-white/90 flex items-center justify-center">
-              <PlayIcon
-                className="size-5 text-black ml-0.5"
-                fill="currentColor"
-              />
+              {item.mediaType === 'image' ? (
+                <ZoomIn className="size-5 text-black" />
+              ) : (
+                <PlayIcon
+                  className="size-5 text-black ml-0.5"
+                  fill="currentColor"
+                />
+              )}
             </div>
           </div>
         </>

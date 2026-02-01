@@ -4,7 +4,12 @@
 - Asynchronous processing mode, use the returned task ID to [query](/en/api-manual/task-management/get-task-detail)
 - Generated video links are valid for 24 hours, please save them promptly
 
-
+## Pricing
+| MODEL | MODE | QUALITY | PRICE (CREDITS) |
+| --- | --- | --- | --- |
+| SeeDance 1 Pro Fast | Video Generation (Fast) | 480p | 0.405 Credits / second |
+| SeeDance 1 Pro Fast | Video Generation (Fast) | 720p | 0.900 Credits / second |
+| SeeDance 1 Pro Fast | Video Generation (Fast) | 1080p | 1.980 Credits / second |
 
 ## OpenAPI
 

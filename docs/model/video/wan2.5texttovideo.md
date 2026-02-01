@@ -4,7 +4,15 @@
 - Asynchronous processing mode, use the returned task ID to [query](/en/api-manual/task-management/get-task-detail)
 - Generated video links are valid for 24 hours, please save them promptly
 
-
+## Pricing
+| MODEL | MODE | QUALITY | DURATION | PRICE (CREDITS) |
+| --- | --- | --- | --- | --- |
+| WAN 2.5 Text to Video | Video Generation | 480p | 5s | 12.750 Credits / video |
+| WAN 2.5 Text to Video | Video Generation | 720p | 5s | 25.500 Credits / video |
+| WAN 2.5 Text to Video | Video Generation | 1080p | 5s | 42.585 Credits / video |
+| WAN 2.5 Text to Video | Video Generation | 480p | 10s | 25.500 Credits / video |
+| WAN 2.5 Text to Video | Video Generation | 720p | 10s | 51.000 Credits / video |
+| WAN 2.5 Text to Video | Video Generation | 1080p | 10s | 85.170 Credits / video |
 
 ## OpenAPI
 

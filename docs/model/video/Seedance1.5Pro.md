@@ -4,6 +4,15 @@
 - Asynchronous processing mode, use the returned task ID to [query](/en/api-manual/task-management/get-task-detail)
 - Generated video links are valid for 24 hours, please save them promptly
 
+## Pricing
+| MODEL | MODE | QUALITY | GENERATE_AUDIO | PRICE (CREDITS) |
+| --- | --- | --- | --- | --- |
+| Seedance 1.5 Pro | Video Generation | 480p | No | 0.818 Credits / second |
+| Seedance 1.5 Pro | Video Generation | 480p | Yes | 1.636 Credits / second |
+| Seedance 1.5 Pro | Video Generation | 720p | No | 1.778 Credits / second |
+| Seedance 1.5 Pro | Video Generation | 720p | Yes | **3.557 Credits /second** |
+| Seedance 1.5 Pro | Video Generation | 1080p | No | 3.966 Credits / second |
+| Seedance 1.5 Pro | Video Generation | 1080p | Yes | 7.932 Credits / second |
 
 
 ## OpenAPI

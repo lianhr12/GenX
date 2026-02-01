@@ -6,6 +6,12 @@
 - Async processing, use returned task ID to [query status](/en/api-manual/task-management/get-task-detail)
 - Generated video links are valid for 24 hours, please save promptly
 
+# Pricing
+| MODEL | MODE | QUALITY | DURATION | PRICE (CREDITS) |
+| --- | --- | --- | --- | --- |
+| Hailuo 2.3 Fast | Video Generation | 768p | 6s | 12.000 Credits / video |
+| Hailuo 2.3 Fast | Video Generation | 768p | 10s | 18.840 Credits / video |
+| Hailuo 2.3 Fast | Video Generation | 1080p | 6s | 22.320 Credits / video |
 
 
 ## OpenAPI

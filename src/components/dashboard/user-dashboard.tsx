@@ -135,6 +135,7 @@ export function UserDashboard({ initialCredits }: UserDashboardProps) {
     return videos.map((video) => ({
       id: video.uuid,
       uuid: video.uuid,
+      mediaType: 'video' as const,
       videoUrl: video.videoUrl || '',
       thumbnailUrl: video.thumbnailUrl || video.startImageUrl || '',
       prompt: video.prompt || '',

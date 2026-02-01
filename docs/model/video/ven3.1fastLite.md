@@ -1,28 +1,25 @@
-# Wan2.5 Image to Video
+# Veo3.1-Fast Video Generation Lite
 
-> - WAN2.5 (wan2.5-image-to-video) model supports first-frame image-to-video mode
+> - Veo 3.1 Fast (veo-3.1-fast) model supports text-to-video, first-frame image-to-video and other modes
 - Asynchronous processing mode, use the returned task ID to [query](/en/api-manual/task-management/get-task-detail)
 - Generated video links are valid for 24 hours, please save them promptly
 
 ## Pricing
-| MODEL | MODE | QUALITY | DURATION | PRICE (CREDITS) |
-| --- | --- | --- | --- | --- |
-| WAN 2.5 Image to Video | Video Generation | 480p | 5s | 12.750 Credits / video |
-| WAN 2.5 Image to Video | Video Generation | 720p | 5s | 25.500 Credits / video |
-| WAN 2.5 Image to Video | Video Generation | 1080p | 5s | 42.585 Credits / video |
-| WAN 2.5 Image to Video | Video Generation | 480p | 10s | 25.500 Credits / video |
-| WAN 2.5 Image to Video | Video Generation | 720p | 10s | 51.000 Credits / video |
-| WAN 2.5 Image to Video | Video Generation | 1080p | 10s | 85.170 Credits / video |
+| MODEL | MODE | QUALITY | PRICE (CREDITS) |
+| --- | --- | --- | --- |
+| Veo 3.1 Fast Lite | Video Generation | 720p / 1080p | **12.100 Credits / video** (Popular) |
+| Veo 3.1 Fast Lite | Video Generation | 4K | 36.300 Credits / video |
+
 
 ## OpenAPI
 
-````yaml en/api-manual/video-series/wan2.5/wan2.5-image-to-video.json post /v1/videos/generations
+````yaml en/api-manual/video-series/veo3.1/veo3.1-fast-video-generate.json post /v1/videos/generations
 openapi: 3.1.0
 info:
-  title: wan2.5-image-to-video Interface
+  title: veo3.1-fast Interface
   description: >-
-    Use WAN2.5 model for image-to-video generation, supporting simplified model
-    parameter configuration
+    Use AI models to create video generation tasks, supporting text-to-video,
+    image-to-video and other generation modes
   license:
     name: MIT
   version: 1.0.0
@@ -31,37 +28,40 @@ servers:
     description: Production environment
 security:
   - bearerAuth: []
+tags:
+  - name: Video Generation
+    description: AI video generation related APIs
 paths:
   /v1/videos/generations:
     post:
       tags:
         - Video Generation
-      summary: wan2.5-image-to-video Interface
+      summary: veo3.1-fast Interface
       description: >-
-        - WAN2.5 (wan2.5-image-to-video) model supports first-frame
-        image-to-video mode
+        - Veo 3.1 Fast (veo-3.1-fast) model supports text-to-video, first-frame
+        image-to-video and other modes
 
         - Asynchronous processing mode, use the returned task ID to
         [query](/en/api-manual/task-management/get-task-detail)
 
         - Generated video links are valid for 24 hours, please save them
         promptly
-      operationId: createWan25ImageToVideoGeneration
+      operationId: createVideoGeneration
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Wan25ImageToVideoRequest'
+              $ref: '#/components/schemas/VideoGenerationRequest'
             examples:
-              image_to_video:
-                summary: Image to Video
+              text_to_video:
+                summary: Text to Video
                 value:
-                  model: wan2.5-image-to-video
+                  model: veo3.1-fast
                   prompt: A cat playing piano
       responses:
         '200':
-          description: Video task created successfully
+          description: Video generation task created successfully
           content:
             application/json:
               schema:
@@ -75,11 +75,12 @@ paths:
               example:
                 error:
                   code: 400
-                  message: Invalid request format
+                  message: Invalid duration parameter
                   type: invalid_request_error
-                  param: model
+                  param: duration
+                  fallback_suggestion: use duration between 1-12 seconds
         '401':
-          description: Authentication failed
+          description: Unauthorized, invalid or expired token
           content:
             application/json:
               schema:
@@ -87,8 +88,20 @@ paths:
               example:
                 error:
                   code: 401
-                  message: Invalid authentication credentials
+                  message: Invalid or expired token
                   type: authentication_error
+        '402':
+          description: Insufficient quota, recharge required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                error:
+                  code: 402
+                  message: Insufficient quota
+                  type: insufficient_quota_error
+                  fallback_suggestion: https://evolink.ai/dashboard/billing
         '403':
           description: Access denied
           content:
@@ -113,7 +126,20 @@ paths:
                   message: Specified model not found
                   type: not_found_error
                   param: model
-                  fallback_suggestion: wan2.5-image-to-video
+                  fallback_suggestion: veo3.1-fast
+        '413':
+          description: Request entity too large
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                error:
+                  code: 413
+                  message: Image file too large
+                  type: request_too_large_error
+                  param: image_urls
+                  fallback_suggestion: compress image to under 4MB
         '429':
           description: Rate limit exceeded
           content:
@@ -147,9 +173,9 @@ paths:
               example:
                 error:
                   code: 502
-                  message: Bad gateway
+                  message: Upstream AI service unavailable
                   type: upstream_error
-                  fallback_suggestion: try again later
+                  fallback_suggestion: try different model
         '503':
           description: Service temporarily unavailable
           content:
@@ -164,69 +190,53 @@ paths:
                   fallback_suggestion: retry after 30 seconds
 components:
   schemas:
-    Wan25ImageToVideoRequest:
+    VideoGenerationRequest:
       type: object
       required:
         - model
         - prompt
-        - image_urls
       properties:
         model:
           type: string
-          description: Model name
+          description: Video generation model name
           enum:
-            - wan2.5-image-to-video
-          default: wan2.5-image-to-video
-          example: wan2.5-image-to-video
+            - veo3.1-fast
+          default: veo3.1-fast
+          example: veo3.1-fast
         prompt:
           type: string
           description: >-
             Prompt describing what kind of video to generate, limited to 2000
             tokens
-          example: A cat playing the piano
+          example: A cat playing piano
           maxLength: 2000
-        duration:
-          type: integer
-          description: >-
-            Specifies the duration of the generated video (seconds)
-
-
-            **Note:**
-
-            - Only supports values `5` and `10`, representing `5 seconds` and
-            `10 seconds` respectively
-
-            - A single request will pre-charge based on the value of `duration`,
-            with actual charges based on the generated video duration in seconds
-          example: 5
-        quality:
+        aspect_ratio:
           type: string
-          description: |-
-            Video quality, defaults to `720p`
-
-            **Description:**
-            - `480p`: Lower quality, lower price
-            - `720p`: Standard quality, standard price, this is the default
-            - `1080p`: High quality, higher price
-          default: 720p
-          example: 720p
+          description: >-
+            Video aspect ratio. When set to `auto`: image-to-video will
+            automatically select based on the input image ratio, text-to-video
+            will automatically select based on the prompt content
+          enum:
+            - auto
+            - '16:9'
+            - '9:16'
+          default: auto
+          example: auto
         image_urls:
           type: array
           description: >-
-            Reference image URL list for first-frame image-to-video feature
+            Reference image URL list for image-to-video feature
 
 
             **Note:**
 
-            - Single request supports input image quantity: `1` image
+            - Single request supports input image quantity: `3` images (1 image
+            for first-frame video generation, 2 images for first-and-last-frame
+            video generation)
 
             - Image size: no more than `10MB`
 
-            - Supported image formats: `.jpeg`, `.jpg`, `.png` (transparent
-            channels not supported), `.bmp`, `.webp`
-
-            - Image resolution: image width and height range is `[360, 2000]`
-            pixels
+            - Supported file formats: `.jpg`, `.jpeg`, `.png`, `.webp`
 
             - Image URLs must be directly viewable by the server, or the image
             URL should trigger direct download when accessed (typically these
@@ -234,16 +244,45 @@ components:
           items:
             type: string
             format: uri
-          maxItems: 1
+          maxItems: 3
           example:
-            - https://example.com/image1.png
-        prompt_extend:
+            - http://example.com/image1.jpg
+        quality:
+          type: string
+          description: Video resolution, default is `720p`
+          enum:
+            - 720p
+            - 1080p
+            - 4k
+        generation_type:
+          type: string
+          description: >-
+            Video generation mode, default matches based on image count, manual
+            selection recommended. Available modes:
+
+
+            - `TEXT`: Text to video
+
+            - `FIRST&LAST`: First and last frame to video, supports `1`~`2`
+            images
+
+            - `REFERENCE`: Reference image to video, supports up to `3` images
+
+
+            **Note:**
+
+            - Currently, the reference image to video `REFERENCE` mode only
+            supports `16:9` aspect ratio
+          enum:
+            - TEXT
+            - FIRST&LAST
+            - REFERENCE
+        enhance_prompt:
           type: boolean
           description: >-
-            Whether to enable intelligent prompt rewriting. When enabled, a
-            large language model will optimize the prompt. This is particularly
-            effective for prompts that lack detail or are too simple. Default
-            value is `true`
+            Whether to automatically translate the prompt to English. When
+            enabled, non-English prompts will be automatically translated to
+            English for better generation results
           default: true
           example: true
         callback_url:
@@ -297,7 +336,7 @@ components:
         model:
           type: string
           description: Actual model name used
-          example: wan2.5-image-to-video
+          example: veo3.1-fast
         object:
           type: string
           enum:
@@ -331,7 +370,7 @@ components:
           description: Task output type
           example: video
         usage:
-          $ref: '#/components/schemas/Usage'
+          $ref: '#/components/schemas/VideoUsage'
           description: Usage and billing information
     ErrorResponse:
       type: object
@@ -341,19 +380,23 @@ components:
           properties:
             code:
               type: integer
-              description: Error code
+              description: HTTP status error code
             message:
               type: string
-              description: Error message
+              description: Error description
+              example: Invalid request parameters
             type:
               type: string
               description: Error type
+              example: invalid_request_error
             param:
               type: string
-              description: Parameter name that caused the error
+              description: Related parameter name
+              example: model
             fallback_suggestion:
               type: string
-              description: Suggested solution
+              description: Suggestion for error resolution
+              example: runway-gen3
     VideoTaskInfo:
       type: object
       properties:
@@ -365,8 +408,12 @@ components:
           type: integer
           description: Estimated completion time (seconds)
           minimum: 0
-          example: 120
-    Usage:
+          example: 180
+        video_duration:
+          type: integer
+          description: Video duration (seconds)
+          example: 8
+    VideoUsage:
       type: object
       description: Usage and billing information
       properties:
@@ -382,13 +429,10 @@ components:
           type: number
           description: Estimated credits consumed
           minimum: 0
-          example: 5
+          example: 25.7
         user_group:
           type: string
           description: User group category
-          enum:
-            - default
-            - vip
           example: default
   securitySchemes:
     bearerAuth:
@@ -414,6 +458,8 @@ components:
         ```
 
 ````
+
+
 
 
 
@@ -492,7 +538,7 @@ paths:
                 allOf:
                   - type: string
                     description: Model used
-                    example: wan2.5-image-to-video
+                    example: veo3.1-fast
               object:
                 allOf:
                   - type: string
@@ -553,7 +599,7 @@ paths:
             value:
               created: 1756817821
               id: task-unified-1756817821-4x3rx6ny
-              model: wan2.5-image-to-video
+              model: veo3.1-fast
               object: video.generation.task
               progress: 100
               results:

@@ -5,6 +5,7 @@ import {
   VideoManagementGallery,
 } from '@/components/shared/community-gallery';
 import { useVideos } from '@/hooks/use-videos';
+import { downloadVideo } from '@/lib/download';
 import { useCallback, useState } from 'react';
 
 type FilterStatus = 'all' | 'COMPLETED' | 'GENERATING' | 'FAILED' | 'favorites';
@@ -43,6 +44,7 @@ export function VideoHistoryList() {
   const items: GalleryItemData[] = videos.map((video) => ({
     id: video.id,
     uuid: video.uuid,
+    mediaType: 'video' as const,
     videoUrl: video.videoUrl || '',
     thumbnailUrl: video.thumbnailUrl || video.startImageUrl || '',
     prompt: video.prompt,
@@ -87,10 +89,7 @@ export function VideoHistoryList() {
 
   const handleDownload = useCallback((item: GalleryItemData) => {
     if (item.videoUrl) {
-      const link = document.createElement('a');
-      link.href = item.videoUrl;
-      link.download = `${item.uuid || item.id}.mp4`;
-      link.click();
+      downloadVideo(item.videoUrl, String(item.uuid || item.id));
     }
   }, []);
 
@@ -98,6 +97,7 @@ export function VideoHistoryList() {
     <VideoManagementGallery
       items={items}
       categories={categories}
+      mediaType="video"
       translationNamespace="Dashboard.creations"
       activeCategory={filter}
       onCategoryChange={(category) => setFilter(category as FilterStatus)}

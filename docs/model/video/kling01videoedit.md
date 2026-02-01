@@ -4,7 +4,10 @@
 - Asynchronous processing mode, use the returned task ID to [query status](/en/api-manual/task-management/get-task-detail)
 - Generated video links are valid for 24 hours, please save them promptly
 
-
+## Pricing
+| MODEL | MODE | **Billing Range** | PRICE (CREDITS) |
+| --- | --- | --- | --- |
+| Kling O1 Video Edit | Video Editing | 3s (min) - 10s (max) | 12.000 Credits / second |
 
 ## OpenAPI
 

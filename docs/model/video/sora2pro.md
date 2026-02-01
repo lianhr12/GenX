@@ -8,7 +8,11 @@
 - Currently Sora2's content moderation mechanism is very strict, tasks may fail due to this
 - Image input containing real human figures is not currently supported
 
-
+## Pricing
+| MODEL | MODE | DURATION | QUALITY | PRICE (CREDITS) |
+| --- | --- | --- | --- | --- |
+| Sora 2 Pro | Video Generation (Pro) | 15s | HD | **69.000 Credits / video** |
+| Sora 2 Pro | Video Generation (Pro) | 25s | Standard | **69.000 Credits / video** |
 
 ## OpenAPI
 

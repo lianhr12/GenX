@@ -8,7 +8,12 @@
 - Sora2 has very strict content moderation, tasks may fail due to this
 - Real person images are not supported
 
-
+## Pricing
+| MODEL | MODE | DURATION | PRICE (CREDITS) |
+| --- | --- | --- | --- |
+| Sora 2 | Video Generation | 4s | **23.040 Credits / video** |
+| Sora 2 | Video Generation | 8s | **46.080 Credits / video** |
+| Sora 2 | Video Generation | 12s | **69.120 Credits / video** |
 
 ## OpenAPI
 
