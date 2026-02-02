@@ -19,13 +19,17 @@ export const getFeaturedGalleryAction = actionClient
 
       const db = await getDb();
 
-      // Get featured items that are approved
+      // Get approved items, prioritizing featured items, then by latest
+      // This ensures the homepage shows content even when no items are marked as featured
       const items = await db
         .select({
           id: galleryItems.id,
           uuid: galleryItems.uuid,
           videoUrl: galleryItems.videoUrl,
           thumbnailUrl: galleryItems.thumbnailUrl,
+          imageUrls: galleryItems.imageUrls,
+          mediaType: galleryItems.mediaType,
+          aspectRatio: galleryItems.aspectRatio,
           prompt: galleryItems.prompt,
           artStyle: galleryItems.artStyle,
           creatorName: galleryItems.creatorName,
@@ -33,15 +37,15 @@ export const getFeaturedGalleryAction = actionClient
           likesCount: galleryItems.likesCount,
           viewsCount: galleryItems.viewsCount,
           createdAt: galleryItems.createdAt,
+          isFeatured: galleryItems.isFeatured,
         })
         .from(galleryItems)
-        .where(
-          and(
-            eq(galleryItems.status, GalleryStatus.APPROVED),
-            eq(galleryItems.isFeatured, true)
-          )
+        .where(eq(galleryItems.status, GalleryStatus.APPROVED))
+        .orderBy(
+          desc(galleryItems.isFeatured), // Featured items first
+          desc(galleryItems.sortWeight), // Then by sort weight
+          desc(galleryItems.createdAt) // Then by latest
         )
-        .orderBy(desc(galleryItems.sortWeight), desc(galleryItems.createdAt))
         .limit(limit);
 
       // If userId provided, check which items user has liked

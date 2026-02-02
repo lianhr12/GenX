@@ -46,33 +46,53 @@ function GalleryModal({
 
   if (!item) return null;
 
+  // Determine if this is an image based on mediaType or presence of imageUrls
+  const imageUrls = item.imageUrls || [];
+  const isImage =
+    item.mediaType === 'image' || (imageUrls.length > 0 && !item.videoUrl);
+
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-4xl border-none bg-transparent p-0 shadow-none">
+      <DialogContent className="max-w-4xl border border-border bg-card p-0 shadow-2xl">
         <VisuallyHidden.Root>
           <DialogTitle>{item.prompt}</DialogTitle>
         </VisuallyHidden.Root>
-        <div className="relative overflow-hidden rounded-2xl bg-background">
+        <div className="relative overflow-hidden rounded-lg">
+          {/* Close button */}
           <button
             type="button"
             onClick={onClose}
-            className="absolute right-4 top-4 z-10 flex h-8 w-8 items-center justify-center rounded-full bg-black/50 text-white backdrop-blur-sm transition-colors hover:bg-black/70"
+            className="absolute right-3 top-3 z-10 flex h-8 w-8 items-center justify-center rounded-full bg-black/50 text-white backdrop-blur-sm transition-colors hover:bg-black/70"
           >
             <X className="h-4 w-4" />
           </button>
 
-          <div className="aspect-video">
-            <video
-              src={item.videoUrl}
-              poster={item.thumbnailUrl}
-              controls
-              autoPlay
-              className="h-full w-full"
-            />
+          {/* Media content */}
+          <div className="bg-black">
+            {isImage ? (
+              <div className="flex items-center justify-center min-h-[300px] max-h-[60vh]">
+                <img
+                  src={imageUrls[0] || item.thumbnailUrl}
+                  alt={item.prompt}
+                  className="max-w-full max-h-[60vh] object-contain"
+                />
+              </div>
+            ) : (
+              <div className="aspect-video">
+                <video
+                  src={item.videoUrl}
+                  poster={item.thumbnailUrl}
+                  controls
+                  autoPlay
+                  className="h-full w-full"
+                />
+              </div>
+            )}
           </div>
 
-          <div className="p-6">
-            <div className="flex items-center gap-3">
+          {/* Info section */}
+          <div className="p-6 bg-card">
+            <div className="flex items-center gap-3 flex-wrap">
               <span className="rounded-full bg-primary/10 px-3 py-1 text-sm font-medium text-primary">
                 {item.artStyle || item.category || item.model}
               </span>
@@ -103,7 +123,11 @@ function GalleryModal({
 
             <div className="mt-6">
               <Button asChild className="w-full sm:w-auto">
-                <LocaleLink href="/create/image-to-video">
+                <LocaleLink
+                  href={
+                    isImage ? '/create/text-to-image' : '/create/image-to-video'
+                  }
+                >
                   {t('modal.createSimilar' as never)}
                 </LocaleLink>
               </Button>

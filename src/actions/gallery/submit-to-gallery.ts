@@ -132,6 +132,7 @@ async function submitVideoToGallery(
       videoId: video.id,
       videoUrl: video.videoUrl,
       thumbnailUrl: video.thumbnailUrl,
+      aspectRatio: video.aspectRatio || '16:9',
       prompt: video.prompt,
       artStyle:
         (video.parameters as { artStyle?: string })?.artStyle || 'default',
@@ -222,6 +223,7 @@ async function submitImageToGallery(
   }
 
   // Create gallery item
+  const imageParams = image.parameters as { aspectRatio?: string } | null;
   const [newItem] = await db
     .insert(galleryItems)
     .values({
@@ -230,6 +232,7 @@ async function submitImageToGallery(
       imageId: image.id,
       thumbnailUrl: image.thumbnailUrl || imageUrls[0],
       imageUrls: imageUrls,
+      aspectRatio: imageParams?.aspectRatio || '1:1',
       prompt: image.prompt,
       artStyle: 'default',
       creatorId: userId,

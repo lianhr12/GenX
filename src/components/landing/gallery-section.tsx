@@ -114,8 +114,13 @@ export function GallerySection() {
       ? dynamicItems.map((item) => ({
           id: item.id,
           uuid: item.uuid,
-          videoUrl: item.videoUrl,
+          mediaType: (item.mediaType as 'video' | 'image') || 'video',
+          videoUrl: item.videoUrl || '',
           thumbnailUrl: item.thumbnailUrl,
+          imageUrls: item.imageUrls as string[] | undefined,
+          aspectRatio:
+            (item.aspectRatio as '16:9' | '9:16' | '1:1' | '4:3' | '3:4') ||
+            undefined,
           prompt: item.prompt,
           artStyle: item.artStyle,
           likesCount: item.likesCount,
@@ -124,7 +129,6 @@ export function GallerySection() {
           creatorAvatar: item.creatorAvatar,
           isLiked: item.isLiked,
           createdAt: item.createdAt,
-          aspectRatio: '16:9',
         }))
       : fallbackGalleryItems;
 

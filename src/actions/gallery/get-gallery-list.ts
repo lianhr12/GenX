@@ -48,8 +48,11 @@ export const getGalleryListAction = actionClient
         .select({
           id: galleryItems.id,
           uuid: galleryItems.uuid,
+          mediaType: galleryItems.mediaType,
           videoUrl: galleryItems.videoUrl,
           thumbnailUrl: galleryItems.thumbnailUrl,
+          imageUrls: galleryItems.imageUrls,
+          aspectRatio: galleryItems.aspectRatio,
           prompt: galleryItems.prompt,
           artStyle: galleryItems.artStyle,
           creatorName: galleryItems.creatorName,

@@ -309,6 +309,7 @@ export const galleryItems = pgTable("gallery_items", {
 	videoUrl: text("video_url"),
 	thumbnailUrl: text("thumbnail_url").notNull(),
 	imageUrls: jsonb("image_urls"), // string[] for images
+	aspectRatio: text("aspect_ratio"), // e.g., "16:9", "9:16", "1:1", "4:3"
 	prompt: text("prompt").notNull(),
 	artStyle: text("art_style").notNull(), // cyberpunk, watercolor, oilPainting, anime, fluidArt
 

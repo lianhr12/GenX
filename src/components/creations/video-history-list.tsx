@@ -54,7 +54,8 @@ export function VideoHistoryList() {
     resolution: video.resolution ?? undefined,
     isFavorite: video.isFavorite,
     createdAt: video.createdAt,
-    aspectRatio: '16:9',
+    aspectRatio:
+      (video.aspectRatio as '16:9' | '9:16' | '1:1' | '4:3' | '3:4') || '16:9',
   }));
 
   const handleDelete = useCallback(

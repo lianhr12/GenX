@@ -43,6 +43,7 @@ export function ImageHistoryList() {
   // Convert Image to GalleryItemData
   const items: GalleryItemData[] = images.map((image) => {
     const imageUrls = (image.imageUrls as string[]) || [];
+    const imageParams = image.parameters as { aspectRatio?: string } | null;
     return {
       id: image.id,
       uuid: image.uuid,
@@ -55,7 +56,9 @@ export function ImageHistoryList() {
       status: image.status as GalleryItemData['status'],
       isFavorite: image.isFavorite,
       createdAt: image.createdAt,
-      aspectRatio: '1:1', // Default for images
+      aspectRatio:
+        (imageParams?.aspectRatio as '16:9' | '9:16' | '1:1' | '4:3' | '3:4') ||
+        '1:1',
     };
   });
 
