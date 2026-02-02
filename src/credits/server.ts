@@ -1,6 +1,6 @@
 /**
  * Server-side Credit Operations
- * Implements freeze-settle-release pattern for video generation
+ * Implements freeze-settle-release pattern for video/image generation
  */
 
 import { randomUUID } from 'crypto';
@@ -51,34 +51,37 @@ interface FreezeResult {
   holdId: number;
 }
 
+type MediaType = 'video' | 'image';
+
 // ============================================================================
-// Freeze Credits
+// Freeze Credits (Generic)
 // ============================================================================
 
 /**
- * Freeze credits for a video generation task
+ * Freeze credits for a media generation task (video or image)
  * Uses FIFO consumption order based on expiration date
  */
-export async function freezeCredits(params: {
+export async function freezeMediaCredits(params: {
   userId: string;
   credits: number;
-  videoUuid: string;
+  mediaUuid: string;
+  mediaType: MediaType;
 }): Promise<FreezeResult> {
-  const { userId, credits, videoUuid } = params;
+  const { userId, credits, mediaUuid, mediaType } = params;
   const db = await getDb();
 
   // Check if hold already exists (idempotency)
   const [existingHold] = await db
     .select()
     .from(creditHolds)
-    .where(eq(creditHolds.videoUuid, videoUuid))
+    .where(eq(creditHolds.mediaUuid, mediaUuid))
     .limit(1);
 
   if (existingHold) {
     if (existingHold.status === CreditHoldStatus.HOLDING) {
       return { success: true, holdId: existingHold.id };
     }
-    throw new Error(`Hold already processed for video: ${videoUuid}`);
+    throw new Error(`Hold already processed for ${mediaType}: ${mediaUuid}`);
   }
 
   const now = new Date();
@@ -154,12 +157,13 @@ export async function freezeCredits(params: {
       .where(eq(userCredit.userId, userId));
   }
 
-  // Create hold record
+  // Create hold record with new mediaUuid field
   const [holdResult] = await db
     .insert(creditHolds)
     .values({
       userId,
-      videoUuid,
+      mediaUuid,
+      mediaType,
       credits,
       status: CreditHoldStatus.HOLDING,
       packageAllocation: allocation,
@@ -173,25 +177,24 @@ export async function freezeCredits(params: {
   return { success: true, holdId: holdResult.id };
 }
 
-// ============================================================================
-// Settle Credits
-// ============================================================================
-
 /**
- * Settle credits after successful video generation
+ * Settle credits after successful media generation
  * Marks the hold as settled and records the transaction
  */
-export async function settleCredits(videoUuid: string): Promise<void> {
+export async function settleMediaCredits(
+  mediaUuid: string,
+  mediaType: MediaType
+): Promise<void> {
   const db = await getDb();
 
   const [hold] = await db
     .select()
     .from(creditHolds)
-    .where(eq(creditHolds.videoUuid, videoUuid))
+    .where(eq(creditHolds.mediaUuid, mediaUuid))
     .limit(1);
 
   if (!hold) {
-    throw new Error(`Hold not found for video: ${videoUuid}`);
+    throw new Error(`Hold not found for ${mediaType}: ${mediaUuid}`);
   }
 
   if (hold.status === CreditHoldStatus.SETTLED) {
@@ -209,50 +212,45 @@ export async function settleCredits(videoUuid: string): Promise<void> {
       status: CreditHoldStatus.SETTLED,
       settledAt: new Date(),
     })
-    .where(eq(creditHolds.videoUuid, videoUuid));
-
-  // Get current balance for transaction record
-  const [userCreditRecord] = await db
-    .select()
-    .from(userCredit)
-    .where(eq(userCredit.userId, hold.userId))
-    .limit(1);
-
-  const balanceAfter = userCreditRecord?.currentCredits || 0;
+    .where(eq(creditHolds.mediaUuid, mediaUuid));
 
   // Record usage transaction
+  const description =
+    mediaType === 'video'
+      ? `Video generation: ${mediaUuid}`
+      : `Image generation: ${mediaUuid}`;
+
   await db.insert(creditTransaction).values({
     id: randomUUID(),
     userId: hold.userId,
     type: CREDIT_TRANSACTION_TYPE.USAGE,
     amount: -hold.credits,
     remainingAmount: null,
-    description: `Video generation: ${videoUuid}`,
+    description,
     createdAt: new Date(),
     updatedAt: new Date(),
   });
 }
 
-// ============================================================================
-// Release Credits
-// ============================================================================
-
 /**
- * Release credits after failed video generation
+ * Release credits after failed media generation
  * Returns the frozen credits to the user
  */
-export async function releaseCredits(videoUuid: string): Promise<void> {
+export async function releaseMediaCredits(
+  mediaUuid: string,
+  mediaType: MediaType
+): Promise<void> {
   const db = await getDb();
 
   const [hold] = await db
     .select()
     .from(creditHolds)
-    .where(eq(creditHolds.videoUuid, videoUuid))
+    .where(eq(creditHolds.mediaUuid, mediaUuid))
     .limit(1);
 
   if (!hold) {
     // No hold found, nothing to release
-    console.warn(`No hold found for video: ${videoUuid}`);
+    console.warn(`No hold found for ${mediaType}: ${mediaUuid}`);
     return;
   }
 
@@ -309,5 +307,76 @@ export async function releaseCredits(videoUuid: string): Promise<void> {
       status: CreditHoldStatus.RELEASED,
       settledAt: new Date(),
     })
-    .where(eq(creditHolds.videoUuid, videoUuid));
+    .where(eq(creditHolds.mediaUuid, mediaUuid));
+}
+
+// ============================================================================
+// Image-specific Credit Functions
+// ============================================================================
+
+/**
+ * Freeze credits for an image generation task
+ */
+export async function freezeImageCredits(params: {
+  userId: string;
+  credits: number;
+  imageUuid: string;
+}): Promise<FreezeResult> {
+  return freezeMediaCredits({
+    userId: params.userId,
+    credits: params.credits,
+    mediaUuid: params.imageUuid,
+    mediaType: 'image',
+  });
+}
+
+/**
+ * Settle credits after successful image generation
+ */
+export async function settleImageCredits(imageUuid: string): Promise<void> {
+  return settleMediaCredits(imageUuid, 'image');
+}
+
+/**
+ * Release credits after failed image generation
+ */
+export async function releaseImageCredits(imageUuid: string): Promise<void> {
+  return releaseMediaCredits(imageUuid, 'image');
+}
+
+// ============================================================================
+// Video-specific Credit Functions (Legacy - for backward compatibility)
+// ============================================================================
+
+/**
+ * Freeze credits for a video generation task
+ * @deprecated Use freezeMediaCredits instead
+ */
+export async function freezeCredits(params: {
+  userId: string;
+  credits: number;
+  videoUuid: string;
+}): Promise<FreezeResult> {
+  return freezeMediaCredits({
+    userId: params.userId,
+    credits: params.credits,
+    mediaUuid: params.videoUuid,
+    mediaType: 'video',
+  });
+}
+
+/**
+ * Settle credits after successful video generation
+ * @deprecated Use settleMediaCredits instead
+ */
+export async function settleCredits(videoUuid: string): Promise<void> {
+  return settleMediaCredits(videoUuid, 'video');
+}
+
+/**
+ * Release credits after failed video generation
+ * @deprecated Use releaseMediaCredits instead
+ */
+export async function releaseCredits(videoUuid: string): Promise<void> {
+  return releaseMediaCredits(videoUuid, 'video');
 }

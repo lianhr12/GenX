@@ -171,12 +171,14 @@ export const videos = pgTable("videos", {
 
 /**
  * Credit holds table for freeze-settle-release pattern
- * Tracks credits frozen during video generation
+ * Tracks credits frozen during video/image generation
  */
 export const creditHolds = pgTable("credit_holds", {
 	id: serial("id").primaryKey(),
 	userId: text("user_id").notNull().references(() => user.id, { onDelete: 'cascade' }),
-	videoUuid: text("video_uuid").notNull().unique(),
+	videoUuid: text("video_uuid").unique(), // Legacy field for video, kept for backward compatibility
+	mediaUuid: text("media_uuid").unique(), // New unified field for both video and image
+	mediaType: text("media_type"), // 'video' or 'image'
 	credits: integer("credits").notNull(),
 	status: text("status").default("HOLDING").notNull(), // HOLDING, SETTLED, RELEASED
 	packageAllocation: jsonb("package_allocation").notNull(), // Array of { packageId, credits }
@@ -186,6 +188,7 @@ export const creditHolds = pgTable("credit_holds", {
 	creditHoldsUserIdIdx: index("credit_holds_user_id_idx").on(table.userId),
 	creditHoldsStatusIdx: index("credit_holds_status_idx").on(table.status),
 	creditHoldsVideoUuidIdx: uniqueIndex("credit_holds_video_uuid_idx").on(table.videoUuid),
+	creditHoldsMediaUuidIdx: uniqueIndex("credit_holds_media_uuid_idx").on(table.mediaUuid),
 }));
 
 // ============================================================================

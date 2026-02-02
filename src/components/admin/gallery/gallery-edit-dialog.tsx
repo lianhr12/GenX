@@ -63,8 +63,8 @@ export function GalleryEditDialog({
   useEffect(() => {
     if (item) {
       setFormData({
-        videoUrl: item.videoUrl,
-        thumbnailUrl: item.thumbnailUrl,
+        videoUrl: item.videoUrl || '',
+        thumbnailUrl: item.thumbnailUrl || '',
         prompt: item.prompt,
         artStyle: item.artStyle,
         creatorName: item.creatorName || '',

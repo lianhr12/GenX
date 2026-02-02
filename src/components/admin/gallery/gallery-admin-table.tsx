@@ -49,7 +49,6 @@ import {
   X,
 } from 'lucide-react';
 import { useTranslations } from 'next-intl';
-import Image from 'next/image';
 import { useState } from 'react';
 import { toast } from 'sonner';
 import { GalleryEditDialog } from './gallery-edit-dialog';
@@ -234,12 +233,11 @@ export function GalleryAdminTable({
               data.map((item) => (
                 <TableRow key={item.id}>
                   <TableCell>
-                    <div className="relative h-14 w-20 overflow-hidden rounded">
-                      <Image
+                    <div className="relative h-14 w-20 overflow-hidden rounded bg-muted">
+                      <img
                         src={item.thumbnailUrl}
                         alt={item.prompt}
-                        fill
-                        className="object-cover"
+                        className="h-full w-full object-cover"
                       />
                     </div>
                   </TableCell>

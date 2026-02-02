@@ -1,10 +1,10 @@
 /**
  * Image Generation Service
  * Handles the complete image generation lifecycle including:
- * - Task creation and database persistence
+ * - Task creation and credit freezing
  * - AI provider integration
  * - Status polling
- * - Image storage
+ * - Image storage and credit settlement
  * - User management (favorites, tags, deletion)
  */
 
@@ -15,6 +15,12 @@ import {
   getEvolinkImageProvider,
 } from '@/ai/image/providers/evolink';
 import { generateSignedImageCallbackUrl } from '@/ai/image/utils/callback-signature';
+import { calculateImageCredits } from '@/config/image-credits';
+import {
+  freezeImageCredits,
+  releaseImageCredits,
+  settleImageCredits,
+} from '@/credits/server';
 import { type Image, ImageStatus, getDb, images, user } from '@/db';
 import { getStorage } from '@/storage';
 import { and, desc, eq, ilike, inArray, lt, or, sql } from 'drizzle-orm';
@@ -89,6 +95,12 @@ export class ImageService {
     const imageUuid = `img_${nanoid(21)}`;
     const startTime = Date.now();
 
+    // Calculate credits required
+    const creditsRequired = calculateImageCredits(params.model, {
+      quality: params.quality,
+      numberOfImages: params.numberOfImages,
+    });
+
     // Create image record
     const [imageResult] = await db
       .insert(images)
@@ -105,7 +117,7 @@ export class ImageService {
           size: params.size,
         },
         status: ImageStatus.PENDING,
-        creditsUsed: 0, // Will be updated when credits system is integrated
+        creditsUsed: creditsRequired,
         isPublic: params.isPublic ?? true,
         updatedAt: new Date(),
       })
@@ -113,6 +125,40 @@ export class ImageService {
 
     if (!imageResult) {
       throw new Error('Failed to create image record');
+    }
+
+    // Freeze credits
+    let freezeResult: { success: boolean; holdId: number };
+    try {
+      freezeResult = await freezeImageCredits({
+        userId: params.userId,
+        credits: creditsRequired,
+        imageUuid: imageResult.uuid,
+      });
+    } catch (error) {
+      await db
+        .update(images)
+        .set({
+          status: ImageStatus.FAILED,
+          errorMessage: String(error),
+          updatedAt: new Date(),
+          generationTime: Date.now() - startTime,
+        })
+        .where(eq(images.uuid, imageResult.uuid));
+      throw error;
+    }
+
+    if (!freezeResult.success) {
+      await db
+        .update(images)
+        .set({
+          status: ImageStatus.FAILED,
+          errorMessage: `Insufficient credits. Required: ${creditsRequired}`,
+          updatedAt: new Date(),
+          generationTime: Date.now() - startTime,
+        })
+        .where(eq(images.uuid, imageResult.uuid));
+      throw new Error(`Insufficient credits. Required: ${creditsRequired}`);
     }
 
     // Call AI provider
@@ -154,9 +200,12 @@ export class ImageService {
         provider: 'evolink',
         status: 'GENERATING',
         progress: result.progress,
-        creditsUsed: 0,
+        creditsUsed: creditsRequired,
       };
     } catch (error) {
+      // Release credits on failure
+      await releaseImageCredits(imageResult.uuid);
+
       await db
         .update(images)
         .set({
@@ -346,6 +395,15 @@ export class ImageService {
 
     const generationTime = Date.now() - createdAt.getTime();
 
+    // Settle credits
+    try {
+      await settleImageCredits(imageUuid);
+    } catch (error) {
+      console.error(`Failed to settle credits for image ${imageUuid}:`, error);
+      // Continue with completion even if credit settlement fails
+      // The credits are already frozen, so this is not a critical error
+    }
+
     // Mark as completed
     await db
       .update(images)
@@ -417,6 +475,14 @@ export class ImageService {
     const generationTime = createdAt
       ? Date.now() - createdAt.getTime()
       : undefined;
+
+    // Release credits
+    try {
+      await releaseImageCredits(imageUuid);
+    } catch (error) {
+      console.error(`Failed to release credits for image ${imageUuid}:`, error);
+      // Continue with failure marking even if credit release fails
+    }
 
     // Mark as failed
     await db

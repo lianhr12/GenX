@@ -38,7 +38,6 @@ import {
   Trash2,
 } from 'lucide-react';
 import { useTranslations } from 'next-intl';
-import Image from 'next/image';
 import { useState } from 'react';
 import { toast } from 'sonner';
 
@@ -187,11 +186,10 @@ export function ImagesAdminTable({
                   <TableCell>
                     <div className="relative h-14 w-14 overflow-hidden rounded bg-muted">
                       {item.thumbnailUrl ? (
-                        <Image
+                        <img
                           src={item.thumbnailUrl}
                           alt={item.prompt}
-                          fill
-                          className="object-cover"
+                          className="h-full w-full object-cover"
                         />
                       ) : (
                         <div className="flex h-full w-full items-center justify-center">
