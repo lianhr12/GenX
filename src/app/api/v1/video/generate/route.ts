@@ -27,6 +27,7 @@ const generateSchema = z.object({
   aspectRatio: z.enum(aspectRatioOptions as [string, ...string[]]).optional(),
   quality: z.enum(allQualityOptions as [string, ...string[]]).optional(),
   imageUrl: z.string().url().optional(),
+  isPublic: z.boolean().default(true),
 });
 
 export async function POST(request: NextRequest) {
@@ -60,6 +61,7 @@ export async function POST(request: NextRequest) {
         | '1080P'
         | undefined,
       imageUrl: data.imageUrl,
+      isPublic: data.isPublic,
     });
 
     return NextResponse.json({ success: true, data: result });

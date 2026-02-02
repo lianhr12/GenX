@@ -8,6 +8,7 @@
  * - Video storage and credit settlement
  */
 
+import { autoSubmitToGallery } from '@/actions/gallery/submit-to-gallery';
 import {
   type ProviderType,
   type VideoGenerationParams,
@@ -17,7 +18,14 @@ import {
 import { generateSignedCallbackUrl } from '@/ai/video/utils/callback-signature';
 import { calculateModelCredits, getModelConfig } from '@/config/video-credits';
 import { freezeCredits, releaseCredits, settleCredits } from '@/credits/server';
-import { type Video, VideoStatus, creditHolds, getDb, videos } from '@/db';
+import {
+  type Video,
+  VideoStatus,
+  creditHolds,
+  getDb,
+  user,
+  videos,
+} from '@/db';
 import { getStorage } from '@/storage';
 import { and, count, desc, eq, ilike, inArray, lt } from 'drizzle-orm';
 import { nanoid } from 'nanoid';
@@ -29,6 +37,7 @@ import { nanoid } from 'nanoid';
 export interface GenerateVideoParams extends VideoGenerationParams {
   userId: string;
   duration: number;
+  isPublic?: boolean;
 }
 
 export interface VideoGenerationResult {
@@ -113,6 +122,7 @@ export class VideoService {
         duration: params.duration,
         aspectRatio: params.aspectRatio || null,
         provider: modelConfig.provider,
+        isPublic: params.isPublic ?? true,
         updatedAt: new Date(),
       })
       .returning({ uuid: videos.uuid, id: videos.id });
@@ -375,6 +385,31 @@ export class VideoService {
         updatedAt: new Date(),
       })
       .where(eq(videos.uuid, videoUuid));
+
+    // Auto-submit to gallery if isPublic is true
+    if (video.isPublic) {
+      try {
+        // Get user info for gallery submission
+        const [userInfo] = await db
+          .select({ name: user.name, image: user.image })
+          .from(user)
+          .where(eq(user.id, video.userId))
+          .limit(1);
+
+        if (userInfo) {
+          await autoSubmitToGallery({
+            mediaType: 'video',
+            mediaId: video.id,
+            userId: video.userId,
+            userName: userInfo.name,
+            userAvatar: userInfo.image,
+          });
+        }
+      } catch (error) {
+        // Log but don't fail the completion
+        console.error('Failed to auto-submit video to gallery:', error);
+      }
+    }
 
     return { status: VideoStatus.COMPLETED, videoUrl: uploaded.url };
   }

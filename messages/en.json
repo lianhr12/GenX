@@ -507,6 +507,17 @@
         "selected": "{count} selected",
         "deleteSelected": "Delete Selected",
         "downloadSelected": "Download Selected"
+      },
+      "visibility": {
+        "public": "Public",
+        "private": "Private",
+        "toggleVisibility": "Toggle visibility",
+        "makePublic": "Make public",
+        "makePrivate": "Make private",
+        "pendingReview": "Pending review",
+        "approved": "Approved",
+        "rejected": "Rejected",
+        "removed": "Removed"
       }
     },
     "admin": {
@@ -589,7 +600,8 @@
         "statuses": {
           "pending": "Pending",
           "approved": "Approved",
-          "rejected": "Rejected"
+          "rejected": "Rejected",
+          "removed": "Removed"
         },
         "actions": {
           "edit": "Edit",
@@ -1930,7 +1942,9 @@
       "generateImage": "Generate Image",
       "generating": "Generating...",
       "loginToGenerate": "Sign In to Generate",
-      "loginHint": "Sign in to save your creations and unlock more features"
+      "loginHint": "Sign in to save your creations and unlock more features",
+      "publicVisibility": "Public Visibility",
+      "publicVisibilityHint": "When enabled, your creation may be featured in the community gallery after review."
     },
     "result": {
       "emptyTitle": "Your creation will appear here",

@@ -13,6 +13,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
+import { PublicVisibilitySwitch } from '@/components/ui/public-visibility-switch';
 import {
   calculateModelCredits,
   getAvailableModels,
@@ -64,6 +65,7 @@ export interface GeneratorData {
   imageFile?: File;
   estimatedCredits: number;
   artStyle?: string;
+  isPublic: boolean;
 }
 
 export function GeneratorPanel({
@@ -84,6 +86,7 @@ export function GeneratorPanel({
   const [artStyle, setArtStyle] = useState('default');
   const [imageFile, setImageFile] = useState<File | null>(null);
   const [imagePreview, setImagePreview] = useState<string | null>(null);
+  const [isPublic, setIsPublic] = useState(true);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   // Filter models based on tool type
@@ -120,6 +123,7 @@ export function GeneratorPanel({
       imageFile: imageFile || undefined,
       estimatedCredits,
       artStyle: artStyle !== 'default' ? artStyle : undefined,
+      isPublic,
     };
 
     onSubmit?.(data);
@@ -136,6 +140,7 @@ export function GeneratorPanel({
     toolType,
     onSubmit,
     currentModel,
+    isPublic,
   ]);
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -415,6 +420,15 @@ export function GeneratorPanel({
                 </div>
               )}
             </div>
+          </div>
+
+          {/* Public Visibility */}
+          <div className="pt-2 border-t border-border">
+            <PublicVisibilitySwitch
+              checked={isPublic}
+              onCheckedChange={setIsPublic}
+              disabled={isLoading}
+            />
           </div>
         </div>
 

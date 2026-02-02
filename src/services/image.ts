@@ -8,13 +8,14 @@
  * - User management (favorites, tags, deletion)
  */
 
+import { autoSubmitToGallery } from '@/actions/gallery/submit-to-gallery';
 import {
   type ImageGenerationParams,
   type ImageTaskResponse,
   getEvolinkImageProvider,
 } from '@/ai/image/providers/evolink';
 import { generateSignedImageCallbackUrl } from '@/ai/image/utils/callback-signature';
-import { type Image, ImageStatus, getDb, images } from '@/db';
+import { type Image, ImageStatus, getDb, images, user } from '@/db';
 import { getStorage } from '@/storage';
 import { and, desc, eq, ilike, inArray, lt, or, sql } from 'drizzle-orm';
 import { nanoid } from 'nanoid';
@@ -32,6 +33,7 @@ export interface GenerateImageParams {
   numberOfImages?: number;
   size?: string;
   imageUrls?: string[];
+  isPublic?: boolean;
 }
 
 export interface ImageGenerationResult {
@@ -104,6 +106,7 @@ export class ImageService {
         },
         status: ImageStatus.PENDING,
         creditsUsed: 0, // Will be updated when credits system is integrated
+        isPublic: params.isPublic ?? true,
         updatedAt: new Date(),
       })
       .returning({ uuid: images.uuid, id: images.id });
@@ -355,6 +358,31 @@ export class ImageService {
         generationTime,
       })
       .where(eq(images.uuid, imageUuid));
+
+    // Auto-submit to gallery if isPublic is true
+    if (image.isPublic) {
+      try {
+        // Get user info for gallery submission
+        const [userInfo] = await db
+          .select({ name: user.name, image: user.image })
+          .from(user)
+          .where(eq(user.id, image.userId))
+          .limit(1);
+
+        if (userInfo) {
+          await autoSubmitToGallery({
+            mediaType: 'image',
+            mediaId: image.id,
+            userId: image.userId,
+            userName: userInfo.name,
+            userAvatar: userInfo.image,
+          });
+        }
+      } catch (error) {
+        // Log but don't fail the completion
+        console.error('Failed to auto-submit image to gallery:', error);
+      }
+    }
 
     return { status: ImageStatus.COMPLETED, imageUrls: uploadedUrls };
   }

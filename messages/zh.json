@@ -507,6 +507,17 @@
         "selected": "已选择 {count} 项",
         "deleteSelected": "删除所选",
         "downloadSelected": "下载所选"
+      },
+      "visibility": {
+        "public": "公开",
+        "private": "私密",
+        "toggleVisibility": "切换可见性",
+        "makePublic": "设为公开",
+        "makePrivate": "设为私密",
+        "pendingReview": "待审核",
+        "approved": "已通过",
+        "rejected": "已拒绝",
+        "removed": "已下架"
       }
     },
     "admin": {
@@ -589,7 +600,8 @@
         "statuses": {
           "pending": "待审核",
           "approved": "已通过",
-          "rejected": "已拒绝"
+          "rejected": "已拒绝",
+          "removed": "已下架"
         },
         "actions": {
           "edit": "编辑",
@@ -1930,7 +1942,9 @@
       "generateImage": "生成图片",
       "generating": "生成中...",
       "loginToGenerate": "登录后生成",
-      "loginHint": "登录以保存您的作品并解锁更多功能"
+      "loginHint": "登录以保存您的作品并解锁更多功能",
+      "publicVisibility": "公开可见",
+      "publicVisibilityHint": "开启后，您的作品可能会在审核通过后展示在社区画廊中。"
     },
     "result": {
       "emptyTitle": "你的作品将在这里显示",

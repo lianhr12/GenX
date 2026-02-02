@@ -13,6 +13,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
+import { PublicVisibilitySwitch } from '@/components/ui/public-visibility-switch';
 import type { ToolPageConfig } from '@/config/tool-pages';
 import { cn } from '@/lib/utils';
 import { ChevronDown, Sparkles, Wand2 } from 'lucide-react';
@@ -51,6 +52,7 @@ export interface ImageGeneratorData {
   quality?: string;
   numberOfImages: number;
   estimatedCredits: number;
+  isPublic: boolean;
 }
 
 // Credit calculation for Evolink image models
@@ -85,6 +87,7 @@ export function ImageGeneratorPanel({
   const [numberOfImages, setNumberOfImages] = useState(
     config.generator.defaults.outputNumber || 1
   );
+  const [isPublic, setIsPublic] = useState(true);
 
   const estimatedCredits = useMemo(() => {
     const baseCredits = IMAGE_CREDITS[selectedModel] || IMAGE_CREDITS.default;
@@ -102,6 +105,7 @@ export function ImageGeneratorPanel({
       quality,
       numberOfImages,
       estimatedCredits,
+      isPublic,
     };
 
     onSubmit?.(data);
@@ -114,6 +118,7 @@ export function ImageGeneratorPanel({
     estimatedCredits,
     isLoading,
     onSubmit,
+    isPublic,
   ]);
 
   const canSubmit = prompt.trim().length > 0 && !isLoading;
@@ -287,6 +292,15 @@ export function ImageGeneratorPanel({
                 </div>
               )}
             </div>
+          </div>
+
+          {/* Public Visibility */}
+          <div className="pt-2 border-t border-border">
+            <PublicVisibilitySwitch
+              checked={isPublic}
+              onCheckedChange={setIsPublic}
+              disabled={isLoading}
+            />
           </div>
         </div>
 

@@ -154,6 +154,7 @@ export const videos = pgTable("videos", {
 	fileSize: integer("file_size"),
 	creditsUsed: integer("credits_used").default(0).notNull(),
 	isFavorite: boolean("is_favorite").default(false).notNull(),
+	isPublic: boolean("is_public").default(true).notNull(),
 	createdAt: timestamp("created_at").defaultNow().notNull(),
 	updatedAt: timestamp("updated_at").defaultNow().notNull(),
 	completedAt: timestamp("completed_at"),
@@ -165,6 +166,7 @@ export const videos = pgTable("videos", {
 	videosCreatedAtIdx: index("videos_created_at_idx").on(table.createdAt),
 	videosUuidIdx: uniqueIndex("videos_uuid_idx").on(table.uuid),
 	videosFavoriteIdx: index("videos_favorite_idx").on(table.isFavorite),
+	videosIsPublicIdx: index("videos_is_public_idx").on(table.isPublic),
 }));
 
 /**
@@ -250,6 +252,7 @@ export const images = pgTable("images", {
 
 	// User management
 	isFavorite: boolean("is_favorite").default(false).notNull(),
+	isPublic: boolean("is_public").default(true).notNull(),
 	tags: jsonb("tags"), // string[]
 
 	// Timestamps
@@ -267,6 +270,7 @@ export const images = pgTable("images", {
 	imagesUuidIdx: uniqueIndex("images_uuid_idx").on(table.uuid),
 	imagesFavoriteIdx: index("images_favorite_idx").on(table.isFavorite),
 	imagesModelIdx: index("images_model_idx").on(table.model),
+	imagesIsPublicIdx: index("images_is_public_idx").on(table.isPublic),
 }));
 
 export type Image = typeof images.$inferSelect;
@@ -292,12 +296,19 @@ export const galleryItems = pgTable("gallery_items", {
 	id: serial("id").primaryKey(),
 	uuid: text("uuid").notNull().unique(),
 
+	// Media type: video or image
+	mediaType: text("media_type").default("video").notNull(), // 'video' | 'image'
+
 	// Link to user video (optional)
 	videoId: integer("video_id").references(() => videos.id, { onDelete: 'set null' }),
 
+	// Link to user image (optional)
+	imageId: integer("image_id").references(() => images.id, { onDelete: 'set null' }),
+
 	// Media content
-	videoUrl: text("video_url").notNull(),
+	videoUrl: text("video_url"),
 	thumbnailUrl: text("thumbnail_url").notNull(),
+	imageUrls: jsonb("image_urls"), // string[] for images
 	prompt: text("prompt").notNull(),
 	artStyle: text("art_style").notNull(), // cyberpunk, watercolor, oilPainting, anime, fluidArt
 
@@ -326,12 +337,15 @@ export const galleryItems = pgTable("gallery_items", {
 	updatedAt: timestamp("updated_at").defaultNow().notNull(),
 }, (table) => ({
 	galleryItemsUuidIdx: uniqueIndex("gallery_items_uuid_idx").on(table.uuid),
+	galleryItemsVideoIdIdx: index("gallery_items_video_id_idx").on(table.videoId),
+	galleryItemsImageIdIdx: index("gallery_items_image_id_idx").on(table.imageId),
 	galleryItemsStatusIdx: index("gallery_items_status_idx").on(table.status),
 	galleryItemsArtStyleIdx: index("gallery_items_art_style_idx").on(table.artStyle),
 	galleryItemsIsFeaturedIdx: index("gallery_items_is_featured_idx").on(table.isFeatured),
 	galleryItemsCreatorIdIdx: index("gallery_items_creator_id_idx").on(table.creatorId),
 	galleryItemsSortWeightIdx: index("gallery_items_sort_weight_idx").on(table.sortWeight),
 	galleryItemsCreatedAtIdx: index("gallery_items_created_at_idx").on(table.createdAt),
+	galleryItemsMediaTypeIdx: index("gallery_items_media_type_idx").on(table.mediaType),
 }));
 
 /**
@@ -380,8 +394,16 @@ export const GalleryStatus = {
 	PENDING: "pending",
 	APPROVED: "approved",
 	REJECTED: "rejected",
+	REMOVED: "removed",
 } as const;
 export type GalleryStatus = (typeof GalleryStatus)[keyof typeof GalleryStatus];
+
+// Gallery media type enum values
+export const GalleryMediaType = {
+	VIDEO: "video",
+	IMAGE: "image",
+} as const;
+export type GalleryMediaType = (typeof GalleryMediaType)[keyof typeof GalleryMediaType];
 
 // Art style enum values
 export const ArtStyle = {

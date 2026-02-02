@@ -26,6 +26,7 @@ const generateImageSchema = z.object({
     .max(MAX_IMAGES_PER_REQUEST)
     .optional(),
   imageUrls: z.array(z.string().url()).max(5).optional(),
+  isPublic: z.boolean().default(true),
 });
 
 // Supported models and their mappings based on Evolink API documentation
@@ -132,8 +133,15 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const { prompt, model, aspectRatio, quality, numberOfImages, imageUrls } =
-      parseResult.data;
+    const {
+      prompt,
+      model,
+      aspectRatio,
+      quality,
+      numberOfImages,
+      imageUrls,
+      isPublic,
+    } = parseResult.data;
 
     // Get model config
     const modelKey = model || 'gpt-image-1.5';
@@ -161,6 +169,7 @@ export async function POST(req: NextRequest) {
       numberOfImages: numberOfImages || 1,
       size,
       imageUrls,
+      isPublic,
     });
 
     // Log task creation for audit

@@ -41,9 +41,6 @@ certificates
 # conductor
 .conductor
 
-# kiro
-.kiro
-
 # typescript
 *.tsbuildinfo
 next-env.d.ts

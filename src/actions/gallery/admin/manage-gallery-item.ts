@@ -6,6 +6,8 @@ import {
   GallerySourceType,
   GalleryStatus,
   galleryItems,
+  images,
+  videos,
 } from '@/db/schema';
 import { adminActionClient } from '@/lib/safe-action';
 import { eq } from 'drizzle-orm';
@@ -183,6 +185,81 @@ export const deleteGalleryItemAction = adminActionClient
           error instanceof Error
             ? error.message
             : 'Failed to delete gallery item',
+      };
+    }
+  });
+
+const removeGalleryItemSchema = z.object({
+  id: z.number(),
+  reason: z.string().optional(),
+});
+
+/**
+ * Admin action to remove (soft delete) a gallery item
+ * This marks the item as removed and sets the original media's isPublic to false
+ */
+export const removeGalleryItemAction = adminActionClient
+  .schema(removeGalleryItemSchema)
+  .action(async ({ parsedInput }) => {
+    try {
+      const { id, reason } = parsedInput;
+
+      const db = await getDb();
+
+      // Get the gallery item
+      const [galleryItem] = await db
+        .select()
+        .from(galleryItems)
+        .where(eq(galleryItems.id, id))
+        .limit(1);
+
+      if (!galleryItem) {
+        return {
+          success: false,
+          error: 'Gallery item not found',
+        };
+      }
+
+      // Mark gallery item as removed
+      await db
+        .update(galleryItems)
+        .set({
+          status: GalleryStatus.REMOVED,
+          rejectReason: reason || 'Removed by admin',
+          updatedAt: new Date(),
+        })
+        .where(eq(galleryItems.id, id));
+
+      // Update the original media's isPublic to false
+      if (galleryItem.videoId) {
+        await db
+          .update(videos)
+          .set({ isPublic: false, updatedAt: new Date() })
+          .where(eq(videos.id, galleryItem.videoId));
+      }
+
+      if (galleryItem.imageId) {
+        await db
+          .update(images)
+          .set({ isPublic: false, updatedAt: new Date() })
+          .where(eq(images.id, galleryItem.imageId));
+      }
+
+      return {
+        success: true,
+        data: {
+          id,
+          status: GalleryStatus.REMOVED,
+        },
+      };
+    } catch (error) {
+      console.error('remove gallery item error:', error);
+      return {
+        success: false,
+        error:
+          error instanceof Error
+            ? error.message
+            : 'Failed to remove gallery item',
       };
     }
   });

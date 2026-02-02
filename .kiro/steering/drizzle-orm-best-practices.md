@@ -1,0 +1,9 @@
+---
+inclusion: fileMatch
+fileMatchPattern: ['*.tsx', '*.ts']
+---
+
+- Use Drizzle's type-safe query builder for better code completion and safety.
+- Implement migrations using Drizzle Kit for database schema management.
+- Utilize Drizzle's relation system to define and query relationships.
+- Use Drizzle's transaction API for complex, atomic operations.
