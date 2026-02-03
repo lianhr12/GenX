@@ -154,14 +154,18 @@ export const REFERRAL_CONFIG = {
  * Check if an email domain is whitelisted
  */
 export function isWhitelistedDomain(domain: string): boolean {
-  return REFERRAL_CONFIG.whitelistedDomains.includes(domain.toLowerCase());
+  return (REFERRAL_CONFIG.whitelistedDomains as readonly string[]).includes(
+    domain.toLowerCase()
+  );
 }
 
 /**
  * Check if an email domain is a temporary/disposable email
  */
 export function isTemporaryEmail(domain: string): boolean {
-  return REFERRAL_CONFIG.temporaryEmailDomains.includes(domain.toLowerCase());
+  return (REFERRAL_CONFIG.temporaryEmailDomains as readonly string[]).includes(
+    domain.toLowerCase()
+  );
 }
 
 /**
