@@ -73,11 +73,6 @@ export function useFooterLinks(): NestedMenuItem[] {
           external: false,
         },
         {
-          title: t('resources.items.api'),
-          href: Routes.APIDocs,
-          external: false,
-        },
-        {
           title: t('resources.items.changelog'),
           href: Routes.Changelog,
           external: false,

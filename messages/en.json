@@ -159,7 +159,7 @@
   },
   "RoadmapPage": {
     "title": "Roadmap",
-    "description": "Explore GenX.art's future plans. See upcoming features like new art styles, API improvements, and mobile app development.",
+    "description": "Explore GenX.art's future plans. See upcoming features like new art styles and mobile app development.",
     "keywords": "GenX roadmap, upcoming features, future plans, product development",
     "subtitle": "Explore our future plans and upcoming features"
   },
@@ -441,7 +441,6 @@
           "blog": "Blog",
           "docs": "Documentation",
           "help": "Help Center",
-          "api": "API",
           "changelog": "Changelog",
           "roadmap": "Roadmap"
         }
@@ -1506,61 +1505,6 @@
         "description": "Detailed guides and tutorials",
         "link": "Browse Docs"
       }
-    }
-  },
-  "APIDocsPage": {
-    "badge": "API Documentation",
-    "title": "Build with GenX API",
-    "description": "Integrate art video generation into your applications with our powerful REST API",
-    "viewFullDocs": "View Full Documentation",
-    "getApiKey": "Get API Key",
-    "features": {
-      "simple": {
-        "title": "Simple Integration",
-        "description": "RESTful API with clear endpoints and comprehensive documentation"
-      },
-      "secure": {
-        "title": "Secure & Reliable",
-        "description": "API key authentication with HTTPS encryption and 99.9% uptime"
-      },
-      "scalable": {
-        "title": "Scalable",
-        "description": "From prototype to production, our API scales with your needs"
-      }
-    },
-    "quickStart": {
-      "title": "Quick Start",
-      "example": "Create a video with cURL",
-      "copy": "Copy"
-    },
-    "endpoints": {
-      "title": "API Endpoints"
-    },
-    "auth": {
-      "title": "Authentication",
-      "subtitle": "API Key Authentication",
-      "description": "All API requests require a valid API key. Include your key in the Authorization header of every request."
-    },
-    "rateLimits": {
-      "title": "Rate Limits",
-      "free": {
-        "title": "Free Tier",
-        "limit1": "100 API calls per day",
-        "limit2": "3 concurrent requests",
-        "limit3": "720p output quality"
-      },
-      "pro": {
-        "title": "Pro Tier",
-        "badge": "Recommended",
-        "limit1": "10,000 API calls per day",
-        "limit2": "20 concurrent requests",
-        "limit3": "1080p HD output quality"
-      }
-    },
-    "cta": {
-      "title": "Ready to Integrate?",
-      "description": "Check out our full documentation for detailed guides, code examples, and SDK references",
-      "button": "View Full Documentation"
     }
   },
   "AIChatPage": {
