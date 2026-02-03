@@ -2194,5 +2194,113 @@
     },
     "empty": "No items to display",
     "loadMore": "Load More"
+  },
+  "Generator": {
+    "modes": {
+      "textToVideo": "Text to Video",
+      "imageToVideo": "Image to Video",
+      "textToImage": "Text to Image",
+      "referenceToVideo": "Reference to Video",
+      "audio": "Audio"
+    },
+    "input": {
+      "placeholder": "Describe what you want to create...",
+      "prompt": "PROMPT"
+    },
+    "parameters": {
+      "selectModel": "Select Model",
+      "audio": "Audio"
+    },
+    "submit": {
+      "generate": "Generate",
+      "generating": "Generating...",
+      "insufficientCredits": "Insufficient credits",
+      "insufficientCreditsButton": "Get Credits",
+      "balance": "Balance",
+      "generationFailed": "Generation failed, please try again"
+    },
+    "model": {
+      "selectModel": "Select Model",
+      "availableModels": "Available Models"
+    },
+    "aspectRatio": {
+      "label": "Aspect Ratio"
+    },
+    "duration": {
+      "label": "Duration"
+    },
+    "quality": {
+      "label": "Quality"
+    },
+    "styles": {
+      "default": "Default",
+      "cyberpunk": "Cyberpunk",
+      "watercolor": "Watercolor",
+      "oilPainting": "Oil Painting",
+      "anime": "Anime",
+      "fluidArt": "Fluid Art"
+    },
+    "imageUpload": {
+      "uploadImage": "Upload Image",
+      "uploadHint": "JPG, PNG, WEBP • Max 10MB",
+      "fileTooLarge": "File is too large",
+      "invalidFileType": "Invalid file type",
+      "imageTooLarge": "Image dimensions exceed maximum allowed",
+      "uploadFailed": "Upload failed, please try again"
+    },
+    "panels": {
+      "textToVideo": {
+        "model": "MODEL",
+        "style": "ART STYLE",
+        "aspectRatio": "ASPECT RATIO",
+        "duration": "DURATION",
+        "quality": "QUALITY"
+      },
+      "imageToVideo": {
+        "model": "MODEL",
+        "sourceImage": "SOURCE IMAGE",
+        "style": "ART STYLE",
+        "duration": "DURATION",
+        "quality": "QUALITY"
+      },
+      "textToImage": {
+        "model": "MODEL",
+        "style": "ART STYLE",
+        "aspectRatio": "ASPECT RATIO",
+        "outputNumber": "NUMBER OF IMAGES"
+      },
+      "referenceToVideo": {
+        "model": "MODEL",
+        "referenceImage": "REFERENCE IMAGE",
+        "referenceHint": "Upload a reference image for the video",
+        "duration": "DURATION",
+        "quality": "QUALITY"
+      },
+      "audio": {
+        "model": "MODEL",
+        "audioType": "AUDIO TYPE",
+        "comingSoon": "Coming soon..."
+      }
+    },
+    "result": {
+      "emptyTitle": "No Result Yet",
+      "emptyDescription": "Enter a prompt and click generate to create your content",
+      "generatingTitle": "Generating...",
+      "generatingDescription": "Please wait while we create your content",
+      "actions": {
+        "download": "Download",
+        "share": "Share",
+        "favorite": "Favorite"
+      }
+    },
+    "history": {
+      "title": "History",
+      "empty": "No history yet",
+      "loading": "Loading...",
+      "loadMore": "Load More"
+    },
+    "floating": {
+      "placeholder": "Enter prompt..."
+    }
   }
 }

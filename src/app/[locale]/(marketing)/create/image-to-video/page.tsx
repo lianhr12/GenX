@@ -1,13 +1,10 @@
+import { ToolPageLayout } from '@/components/generator/layouts/ToolPageLayout';
 import { PageBreadcrumb, SoftwareSchema } from '@/components/seo';
-import { ToolPageLayout } from '@/components/tool';
 import { getToolPageConfig } from '@/config/tool-pages';
-import { getUserCredits } from '@/credits/credits';
-import { auth } from '@/lib/auth';
 import { constructMetadata } from '@/lib/metadata';
 import type { Metadata } from 'next';
 import type { Locale } from 'next-intl';
 import { getTranslations } from 'next-intl/server';
-import { headers } from 'next/headers';
 
 const config = getToolPageConfig('image-to-video');
 
@@ -28,18 +25,7 @@ export async function generateMetadata({
   });
 }
 
-export default async function ImageToVideoPage() {
-  // Get session from headers
-  const session = await auth.api.getSession({
-    headers: await headers(),
-  });
-
-  // Get user credits if logged in
-  let userCredits = 0;
-  if (session?.user?.id) {
-    userCredits = await getUserCredits(session.user.id);
-  }
-
+export default function ImageToVideoPage() {
   return (
     <>
       {/* JSON-LD SoftwareApplication Schema for SEO */}
@@ -65,11 +51,7 @@ export default async function ImageToVideoPage() {
         />
       </div>
 
-      <ToolPageLayout
-        toolType="image-to-video"
-        isLoggedIn={!!session?.user}
-        userCredits={userCredits}
-      />
+      <ToolPageLayout mode="image-to-video" />
     </>
   );
 }

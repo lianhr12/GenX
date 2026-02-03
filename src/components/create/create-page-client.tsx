@@ -1,24 +1,25 @@
 'use client';
 
-import { useCreateStore } from '@/stores/create-store';
-import { useEffect, useRef } from 'react';
+import { GenXCreator } from '@/components/generator';
+import { FloatingCreator } from '@/components/generator/layouts/FloatingCreator';
+import { useRouter } from 'next/navigation';
+import { useEffect, useRef, useState } from 'react';
 import { FeatureBanner } from './banner/feature-banner';
-import { FloatingInputBar } from './floating/floating-input-bar';
 import { GallerySection } from './gallery/gallery-section';
-import { MainInputArea } from './input/main-input-area';
 import { ModelsSection } from './models/models-section';
 import { StyleTags } from './styles/style-tags';
 import { VideoToolsSection } from './tools/video-tools-section';
 
 export function CreatePageClient() {
   const inputRef = useRef<HTMLDivElement>(null);
-  const { setShowFloatingInput } = useCreateStore();
+  const router = useRouter();
+  const [showFloating, setShowFloating] = useState(false);
 
   // Show floating input when main input is out of view
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        setShowFloatingInput(!entry.isIntersecting);
+        setShowFloating(!entry.isIntersecting);
       },
       { threshold: 0 }
     );
@@ -28,14 +29,24 @@ export function CreatePageClient() {
     }
 
     return () => observer.disconnect();
-  }, [setShowFloatingInput]);
+  }, []);
 
   return (
     <div className="min-h-screen bg-background">
       <main className="container mx-auto px-4 py-8 space-y-8">
-        {/* Main Input Area with Tabs */}
-        <div ref={inputRef}>
-          <MainInputArea />
+        {/* Main Input Area with GenXCreator */}
+        <div ref={inputRef} className="max-w-[980px] mx-auto">
+          <GenXCreator
+            allowedModes={['text-to-video', 'image-to-video', 'text-to-image']}
+            modeSwitchBehavior="tabs"
+            showStyles
+            showCredits
+            compact
+            enableNavigation
+            onAfterNavigate={(route) => {
+              router.push(route);
+            }}
+          />
         </div>
 
         {/* Style Tags */}
@@ -57,7 +68,15 @@ export function CreatePageClient() {
       </main>
 
       {/* Floating Input Bar */}
-      <FloatingInputBar />
+      {showFloating && (
+        <FloatingCreator
+          mode="text-to-video"
+          onGenerate={async () => {
+            // 导航到对应工具页面
+            router.push('/create/text-to-video');
+          }}
+        />
+      )}
     </div>
   );
 }

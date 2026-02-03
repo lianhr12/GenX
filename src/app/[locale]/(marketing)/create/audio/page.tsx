@@ -1,4 +1,5 @@
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { ToolPageLayout } from '@/components/generator/layouts/ToolPageLayout';
+import { PageBreadcrumb } from '@/components/seo';
 import { constructMetadata } from '@/lib/metadata';
 import type { Metadata } from 'next';
 import type { Locale } from 'next-intl';
@@ -17,35 +18,21 @@ export async function generateMetadata({
     title: pt('title') + ' | ' + t('title'),
     description: pt('description'),
     locale,
-    pathname: '/ai/audio',
+    pathname: '/create/audio',
   });
 }
 
-export default async function AIAudioPage() {
-  const t = await getTranslations('AIAudioPage');
-
+export default function AIAudioPage() {
   return (
-    <div className="max-w-4xl mx-auto space-y-8">
-      {/* about section */}
-      <div className="relative max-w-(--breakpoint-md) mx-auto mb-24 mt-8 md:mt-16">
-        <div className="mx-auto flex flex-col justify-between">
-          <div className="flex flex-row items-center gap-8">
-            {/* avatar and name */}
-            <div className="flex items-center gap-8">
-              <Avatar className="size-32 p-0.5">
-                <AvatarImage
-                  className="rounded-full border-4 border-gray-200"
-                  src="/logo.png"
-                  alt="Avatar"
-                />
-                <AvatarFallback>
-                  <div className="size-32 text-muted-foreground" />
-                </AvatarFallback>
-              </Avatar>
-            </div>
-          </div>
-        </div>
+    <>
+      {/* Breadcrumb Navigation */}
+      <div className="container mx-auto px-4 pt-4">
+        <PageBreadcrumb
+          items={[{ label: 'Create', href: '/create' }, { label: 'AI Audio' }]}
+        />
       </div>
-    </div>
+
+      <ToolPageLayout mode="audio" />
+    </>
   );
 }
