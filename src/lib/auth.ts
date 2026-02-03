@@ -15,6 +15,12 @@ import { admin, oneTap } from 'better-auth/plugins';
 import { parse as parseCookies } from 'cookie';
 import type { Locale } from 'next-intl';
 import { getAllPricePlans } from './price-plan';
+import {
+  createReferral,
+  payRegistrationReward,
+  validateReferralCode,
+} from './referral';
+import { REFERRAL_CONFIG } from './referral-config';
 import { getBaseUrl, getUrlWithLocaleInCallbackUrl } from './urls/urls';
 
 /**

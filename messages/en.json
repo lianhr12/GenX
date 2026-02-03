@@ -798,7 +798,9 @@
             "PURCHASE": "Purchased Credits",
             "USAGE": "Consumed Credits",
             "EXPIRE": "Expired Credits",
-            "SUBSCRIPTION_RENEWAL": "Subscription Renewal"
+            "SUBSCRIPTION_RENEWAL": "Subscription Renewal",
+            "REFERRAL_REGISTRATION": "Referral Registration Reward",
+            "REFERRAL_PURCHASE": "Referral Purchase Reward"
           },
           "detailViewer": {
             "title": "Credit Transaction Detail",
@@ -860,6 +862,37 @@
           "deleting": "Deleting...",
           "success": "Account deleted successfully",
           "fail": "Failed to delete account"
+        }
+      },
+      "referral": {
+        "title": "Referral",
+        "description": "Invite friends and earn credits",
+        "code": {
+          "title": "Your Referral",
+          "description": "Share your referral code or link with friends",
+          "yourCode": "Referral Code",
+          "yourLink": "Referral Link"
+        },
+        "stats": {
+          "title": "Statistics",
+          "description": "Your referral performance",
+          "totalReferrals": "Total Referrals",
+          "registeredReferrals": "Registered",
+          "purchasedReferrals": "Purchased",
+          "totalCredits": "Credits Earned"
+        },
+        "history": {
+          "title": "Referral History",
+          "user": "User",
+          "status": "Status",
+          "reward": "Reward",
+          "date": "Date",
+          "empty": "No referrals yet. Share your link to start earning!"
+        },
+        "status": {
+          "pending": "Pending",
+          "registered": "Registered",
+          "purchased": "Purchased"
         }
       }
     },

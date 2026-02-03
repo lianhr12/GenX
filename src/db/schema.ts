@@ -418,3 +418,57 @@ export const ArtStyle = {
 	FLUID_ART: "fluidArt",
 } as const;
 export type ArtStyle = (typeof ArtStyle)[keyof typeof ArtStyle];
+
+// ============================================================================
+// Referral System Tables
+// ============================================================================
+
+/**
+ * Referral codes table
+ * Stores unique referral codes for each user
+ */
+export const referralCodes = pgTable("referral_codes", {
+	id: text("id").primaryKey(),
+	userId: text("user_id").notNull().references(() => user.id, { onDelete: 'cascade' }),
+	code: text("code").notNull().unique(),
+	createdAt: timestamp("created_at").defaultNow().notNull(),
+}, (table) => ({
+	referralCodesUserIdIdx: index("referral_codes_user_id_idx").on(table.userId),
+	referralCodesCodeIdx: uniqueIndex("referral_codes_code_idx").on(table.code),
+}));
+
+/**
+ * Referrals table
+ * Tracks referral relationships between users
+ */
+export const referrals = pgTable("referrals", {
+	id: text("id").primaryKey(),
+	referrerId: text("referrer_id").notNull().references(() => user.id, { onDelete: 'cascade' }),
+	referredId: text("referred_id").notNull().references(() => user.id, { onDelete: 'cascade' }).unique(),
+	status: text("status").notNull().default("pending"), // pending | registered | purchased
+	registrationRewardPaid: boolean("registration_reward_paid").default(false),
+	purchaseRewardPaid: boolean("purchase_reward_paid").default(false),
+	referredIp: text("referred_ip"),
+	referredEmailDomain: text("referred_email_domain"),
+	createdAt: timestamp("created_at").defaultNow().notNull(),
+	registeredAt: timestamp("registered_at"),
+	purchasedAt: timestamp("purchased_at"),
+}, (table) => ({
+	referralsReferrerIdIdx: index("referrals_referrer_id_idx").on(table.referrerId),
+	referralsReferredIdIdx: uniqueIndex("referrals_referred_id_idx").on(table.referredId),
+	referralsStatusIdx: index("referrals_status_idx").on(table.status),
+	// Composite indexes for anti-abuse queries
+	referralsIpCreatedAtIdx: index("referrals_ip_created_at_idx").on(table.referredIp, table.createdAt),
+	referralsDomainCreatedAtIdx: index("referrals_domain_created_at_idx").on(table.referredEmailDomain, table.createdAt),
+}));
+
+export type ReferralCode = typeof referralCodes.$inferSelect;
+export type Referral = typeof referrals.$inferSelect;
+
+// Referral status enum values
+export const ReferralStatus = {
+	PENDING: "pending",
+	REGISTERED: "registered",
+	PURCHASED: "purchased",
+} as const;
+export type ReferralStatus = (typeof ReferralStatus)[keyof typeof ReferralStatus];

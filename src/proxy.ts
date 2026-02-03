@@ -38,6 +38,13 @@ export default async function proxy(req: NextRequest) {
   const { nextUrl } = req;
   console.log('>> proxy start, pathname', nextUrl.pathname);
 
+  // Skip intl middleware for referral routes - they don't need localization
+  // and have their own route handler at /ref/[code]
+  if (nextUrl.pathname.startsWith('/ref/')) {
+    console.log('<< proxy end, skipping intl for referral route');
+    return NextResponse.next();
+  }
+
   // When AI agents request docs with markdown preference, serve markdown content
   // https://www.fumadocs.dev/docs/integrations/llms#accept
   if (isMarkdownPreferred(req)) {

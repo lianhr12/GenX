@@ -42,6 +42,8 @@ import {
   GiftIcon,
   HandCoinsIcon,
   ShoppingCartIcon,
+  UserPlusIcon,
+  UsersIcon,
   XIcon,
 } from 'lucide-react';
 import { useTranslations } from 'next-intl';
@@ -149,6 +151,10 @@ export function CreditTransactionsTable({
         return <ClockIcon className="h-5 w-5" />;
       case CREDIT_TRANSACTION_TYPE.SUBSCRIPTION_RENEWAL:
         return <BanknoteIcon className="h-5 w-5" />;
+      case CREDIT_TRANSACTION_TYPE.REFERRAL_REGISTRATION:
+        return <UserPlusIcon className="h-5 w-5" />;
+      case CREDIT_TRANSACTION_TYPE.REFERRAL_PURCHASE:
+        return <UsersIcon className="h-5 w-5" />;
       default:
         return null;
     }
@@ -169,6 +175,10 @@ export function CreditTransactionsTable({
         return t('types.EXPIRE');
       case CREDIT_TRANSACTION_TYPE.SUBSCRIPTION_RENEWAL:
         return t('types.SUBSCRIPTION_RENEWAL');
+      case CREDIT_TRANSACTION_TYPE.REFERRAL_REGISTRATION:
+        return t('types.REFERRAL_REGISTRATION');
+      case CREDIT_TRANSACTION_TYPE.REFERRAL_PURCHASE:
+        return t('types.REFERRAL_PURCHASE');
       default:
         return type;
     }
@@ -193,6 +203,14 @@ export function CreditTransactionsTable({
       {
         label: t('types.SUBSCRIPTION_RENEWAL'),
         value: CREDIT_TRANSACTION_TYPE.SUBSCRIPTION_RENEWAL,
+      },
+      {
+        label: t('types.REFERRAL_REGISTRATION'),
+        value: CREDIT_TRANSACTION_TYPE.REFERRAL_REGISTRATION,
+      },
+      {
+        label: t('types.REFERRAL_PURCHASE'),
+        value: CREDIT_TRANSACTION_TYPE.REFERRAL_PURCHASE,
       },
     ],
     [t]

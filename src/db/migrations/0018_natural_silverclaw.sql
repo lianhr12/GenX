@@ -1,0 +1,2 @@
+CREATE INDEX "referrals_ip_created_at_idx" ON "referrals" USING btree ("referred_ip","created_at");--> statement-breakpoint
+CREATE INDEX "referrals_domain_created_at_idx" ON "referrals" USING btree ("referred_email_domain","created_at");

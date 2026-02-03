@@ -8,6 +8,8 @@ export enum CREDIT_TRANSACTION_TYPE {
   SUBSCRIPTION_RENEWAL = 'SUBSCRIPTION_RENEWAL', // Credits earned by subscription renewal
   USAGE = 'USAGE',                            // Credits spent by usage
   EXPIRE = 'EXPIRE',                          // Credits expired
+  REFERRAL_REGISTRATION = 'REFERRAL_REGISTRATION', // Credits earned by referring a new user
+  REFERRAL_PURCHASE = 'REFERRAL_PURCHASE',    // Credits earned when referred user makes first purchase
 }
 
 /**

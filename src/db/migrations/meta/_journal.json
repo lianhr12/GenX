@@ -120,6 +120,20 @@
       "when": 1770033398632,
       "tag": "0016_remarkable_skrulls",
       "breakpoints": true
+    },
+    {
+      "idx": 17,
+      "version": "7",
+      "when": 1770106955975,
+      "tag": "0017_little_doctor_spectrum",
+      "breakpoints": true
+    },
+    {
+      "idx": 18,
+      "version": "7",
+      "when": 1770108444562,
+      "tag": "0018_natural_silverclaw",
+      "breakpoints": true
     }
   ]
 }

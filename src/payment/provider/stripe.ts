@@ -11,6 +11,7 @@ import {
   PAYMENT_RECORD_RETRY_DELAY,
 } from '@/lib/constants';
 import { findPlanByPlanId, findPriceInPlan } from '@/lib/price-plan';
+import { payPurchaseReward } from '@/lib/referral';
 import { desc, eq } from 'drizzle-orm';
 import { Stripe } from 'stripe';
 import {
@@ -725,6 +726,17 @@ export class StripeProvider implements PaymentProvider {
       console.log('Added subscription credits for user:', userId);
     }
 
+    // Pay referral purchase reward (only for first purchase)
+    try {
+      const result = await payPurchaseReward(userId);
+      if (result.success) {
+        console.log('Paid referral purchase reward for user:', userId);
+      }
+    } catch (error) {
+      console.error('Failed to pay referral purchase reward:', error);
+      // Don't throw - referral reward failure shouldn't block the purchase
+    }
+
     console.log('<< Process subscription purchase success');
   }
 
@@ -819,6 +831,20 @@ export class StripeProvider implements PaymentProvider {
       paymentId: invoice.id,
       expireDays: creditPackage.expireDays,
     });
+
+    // Pay referral purchase reward (only for first purchase)
+    try {
+      const result = await payPurchaseReward(paymentRecord.userId);
+      if (result.success) {
+        console.log(
+          'Paid referral purchase reward for user:',
+          paymentRecord.userId
+        );
+      }
+    } catch (error) {
+      console.error('Failed to pay referral purchase reward:', error);
+      // Don't throw - referral reward failure shouldn't block the purchase
+    }
 
     console.log('<< Process credit purchase success');
   }

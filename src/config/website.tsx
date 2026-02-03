@@ -29,7 +29,7 @@ export const websiteConfig: WebsiteConfig = {
     enablePromotekitAffiliate: false,
     enableDatafastRevenueTrack: false,
     enableCrispChat: process.env.NEXT_PUBLIC_DEMO_WEBSITE === 'true',
-    enableTurnstileCaptcha: process.env.NEXT_PUBLIC_DEMO_WEBSITE === 'true',
+    enableTurnstileCaptcha: true,
   },
   routes: {
     defaultLoginRedirect: '/dashboard',

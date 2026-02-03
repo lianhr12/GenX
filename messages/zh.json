@@ -798,7 +798,9 @@
             "PURCHASE": "购买积分",
             "USAGE": "使用积分",
             "EXPIRE": "过期积分",
-            "SUBSCRIPTION_RENEWAL": "订阅月度积分"
+            "SUBSCRIPTION_RENEWAL": "订阅月度积分",
+            "REFERRAL_REGISTRATION": "推荐注册奖励",
+            "REFERRAL_PURCHASE": "推荐购买奖励"
           },
           "detailViewer": {
             "title": "积分交易详情",
@@ -860,6 +862,37 @@
           "deleting": "删除中...",
           "success": "账号删除成功",
           "fail": "删除账号失败"
+        }
+      },
+      "referral": {
+        "title": "推荐",
+        "description": "邀请好友，赚取积分",
+        "code": {
+          "title": "您的推荐",
+          "description": "分享您的推荐码或链接给好友",
+          "yourCode": "推荐码",
+          "yourLink": "推荐链接"
+        },
+        "stats": {
+          "title": "统计",
+          "description": "您的推荐表现",
+          "totalReferrals": "总推荐数",
+          "registeredReferrals": "已注册",
+          "purchasedReferrals": "已购买",
+          "totalCredits": "获得积分"
+        },
+        "history": {
+          "title": "推荐历史",
+          "user": "用户",
+          "status": "状态",
+          "reward": "奖励",
+          "date": "日期",
+          "empty": "暂无推荐记录。分享您的链接开始赚取积分！"
+        },
+        "status": {
+          "pending": "待验证",
+          "registered": "已注册",
+          "purchased": "已购买"
         }
       }
     },
