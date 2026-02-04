@@ -2,12 +2,11 @@
 
 // src/components/generator/layouts/ToolPageLayout.tsx
 
-import { cn } from '@/lib/utils';
 import { useCreatorNavigationStore } from '@/stores/creator-navigation-store';
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useSearchParams } from 'next/navigation';
+import { Suspense, useCallback, useEffect, useRef, useState } from 'react';
 import { GenXCreator } from '../GenXCreator';
 import type {
-  CreatorMode,
   GenerationParams,
   GenerationResult,
   ToolPageLayoutProps,
@@ -16,28 +15,76 @@ import { FloatingCreator } from './FloatingCreator';
 import { HistorySection } from './HistorySection';
 import { ResultSection } from './ResultSection';
 
-export function ToolPageLayout({ mode, children }: ToolPageLayoutProps) {
+// 内部组件，处理 searchParams
+function ToolPageLayoutInner({ mode, children }: ToolPageLayoutProps) {
   const [currentResult, setCurrentResult] = useState<GenerationResult | null>(
     null
   );
   const [isGenerating, setIsGenerating] = useState(false);
   const [showFloating, setShowFloating] = useState(false);
   const creatorRef = useRef<HTMLDivElement>(null);
+  const [isParamsReady, setIsParamsReady] = useState(false);
+  const hasInitialized = useRef(false);
 
-  const { consumePendingParams, clearPending } = useCreatorNavigationStore();
+  const searchParams = useSearchParams();
+  const consumePendingParams = useCreatorNavigationStore(
+    (state) => state.consumePendingParams
+  );
+  const clearPending = useCreatorNavigationStore((state) => state.clearPending);
   const [initialParams, setInitialParams] =
     useState<Partial<GenerationParams> | null>(null);
 
-  // 页面加载时，消费 pending 数据
+  // 页面加载时，优先从 store 读取，否则从 URL 参数读取
   useEffect(() => {
+    // 防止重复初始化
+    if (hasInitialized.current) {
+      return;
+    }
+    hasInitialized.current = true;
+
     const pending = consumePendingParams();
+    console.log('[ToolPageLayout] Consumed pending params:', pending);
+
     if (pending) {
       setInitialParams(pending);
+      setIsParamsReady(true);
+      return;
     }
 
-    // 清理
+    // 从 URL 参数恢复
+    const prompt = searchParams.get('prompt');
+    const model = searchParams.get('model');
+    const style = searchParams.get('style');
+    const sourceImage = searchParams.get('sourceImage');
+    const referenceImage = searchParams.get('referenceImage');
+
+    console.log('[ToolPageLayout] URL params:', {
+      prompt,
+      model,
+      style,
+      sourceImage,
+      referenceImage,
+    });
+
+    if (prompt || sourceImage || referenceImage) {
+      setInitialParams({
+        mode,
+        prompt: prompt || '',
+        model: model || undefined,
+        style: style || undefined,
+        sourceImage: sourceImage || undefined,
+        referenceImage: referenceImage || undefined,
+      });
+    }
+
+    // 标记参数已准备好
+    setIsParamsReady(true);
+  }, [searchParams, consumePendingParams, mode]);
+
+  // 组件卸载时清理
+  useEffect(() => {
     return () => clearPending();
-  }, [consumePendingParams, clearPending]);
+  }, [clearPending]);
 
   // 监听 GenXCreator 是否在视图内
   useEffect(() => {
@@ -105,14 +152,17 @@ export function ToolPageLayout({ mode, children }: ToolPageLayoutProps) {
 
         {/* GenXCreator 输入区 */}
         <div ref={creatorRef}>
-          <GenXCreator
-            mode={mode}
-            modeSwitchBehavior="locked"
-            defaultValue={initialParams ?? undefined}
-            onGenerate={handleGenerate}
-            showStyles
-            showCredits
-          />
+          {isParamsReady && (
+            <GenXCreator
+              key={initialParams ? JSON.stringify(initialParams) : 'no-params'}
+              mode={mode}
+              modeSwitchBehavior="locked"
+              defaultValue={initialParams ?? undefined}
+              onGenerate={handleGenerate}
+              showStyles
+              showCredits
+            />
+          )}
         </div>
 
         {/* 额外内容 */}
@@ -124,5 +174,14 @@ export function ToolPageLayout({ mode, children }: ToolPageLayoutProps) {
         <FloatingCreator mode={mode} onGenerate={handleGenerate} />
       )}
     </div>
+  );
+}
+
+// 导出的组件，包裹 Suspense
+export function ToolPageLayout({ mode, children }: ToolPageLayoutProps) {
+  return (
+    <Suspense fallback={<div className="min-h-screen" />}>
+      <ToolPageLayoutInner mode={mode}>{children}</ToolPageLayoutInner>
+    </Suspense>
   );
 }

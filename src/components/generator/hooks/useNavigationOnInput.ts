@@ -99,8 +99,31 @@ export function useNavigationOnInput(
       // 获取目标路由
       const targetRoute = getRouteForMode(state.mode);
 
-      // 跳转
-      router.push(targetRoute);
+      // 构建 URL 参数作为备份（用于页面刷新后恢复）
+      const searchParams = new URLSearchParams();
+      if (params.prompt) {
+        searchParams.set('prompt', params.prompt);
+      }
+      if (params.model) {
+        searchParams.set('model', params.model);
+      }
+      if (params.style) {
+        searchParams.set('style', params.style);
+      }
+      if (params.sourceImage && typeof params.sourceImage === 'string') {
+        searchParams.set('sourceImage', params.sourceImage);
+      }
+      if (params.referenceImage && typeof params.referenceImage === 'string') {
+        searchParams.set('referenceImage', params.referenceImage);
+      }
+
+      // 跳转（带参数）
+      const url = searchParams.toString()
+        ? `${targetRoute}?${searchParams.toString()}`
+        : targetRoute;
+
+      console.log('[Navigation] Navigating to:', url, 'with params:', params);
+      router.push(url);
 
       // 调用 onAfterNavigate 回调
       onAfterNavigate?.(targetRoute);

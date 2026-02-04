@@ -223,7 +223,9 @@ export function UseCasesSection() {
                   <div
                     className={cn(
                       'absolute inset-0 flex items-center justify-center bg-black/20 transition-opacity duration-300',
-                      isHovering ? 'opacity-0 pointer-events-none' : 'opacity-100'
+                      isHovering
+                        ? 'opacity-0 pointer-events-none'
+                        : 'opacity-100'
                     )}
                   >
                     <div className="flex h-16 w-16 items-center justify-center rounded-full bg-white/20 backdrop-blur-sm">

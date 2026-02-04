@@ -43,6 +43,7 @@ export { CreatorSubmitButton } from './core/CreatorSubmitButton';
 export { TextToVideoPanel } from './panels/TextToVideoPanel';
 export { ImageToVideoPanel } from './panels/ImageToVideoPanel';
 export { TextToImagePanel } from './panels/TextToImagePanel';
+export { ImageToImagePanel } from './panels/ImageToImagePanel';
 export { ReferenceToVideoPanel } from './panels/ReferenceToVideoPanel';
 export { AudioPanel } from './panels/AudioPanel';
 

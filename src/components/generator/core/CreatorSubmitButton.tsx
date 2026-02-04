@@ -20,6 +20,9 @@ interface CreatorSubmitButtonProps {
   showCredits?: boolean;
   variant?: 'default' | 'compact';
   className?: string;
+  // 导航模式相关
+  enableNavigation?: boolean;
+  onNavigate?: () => Promise<void>;
 }
 
 export function CreatorSubmitButton({
@@ -28,6 +31,8 @@ export function CreatorSubmitButton({
   showCredits = true,
   variant = 'default',
   className,
+  enableNavigation = false,
+  onNavigate,
 }: CreatorSubmitButtonProps) {
   const t = useTranslations('Generator.submit');
   const state = useCreatorState();
@@ -101,7 +106,27 @@ export function CreatorSubmitButton({
 
   const handleSubmit = useCallback(async () => {
     // 防止并发提交
-    if (!canSubmit || !onGenerate || isSubmittingRef.current) return;
+    if (isSubmittingRef.current) return;
+
+    // 导航模式：触发导航而不是生成
+    if (enableNavigation && onNavigate) {
+      // 导航模式下只需要有内容即可
+      if (!state.prompt.trim() && !state.sourceImage && !state.referenceImage) {
+        return;
+      }
+      isSubmittingRef.current = true;
+      state.setGenerating(true);
+      try {
+        await onNavigate();
+      } finally {
+        state.setGenerating(false);
+        isSubmittingRef.current = false;
+      }
+      return;
+    }
+
+    // 生成模式：需要 onGenerate 回调
+    if (!canSubmit || !onGenerate) return;
 
     // 检查积分余额
     if (!hasEnoughCredits) {
@@ -121,7 +146,16 @@ export function CreatorSubmitButton({
       state.setGenerating(false);
       isSubmittingRef.current = false;
     }
-  }, [canSubmit, onGenerate, params, state, hasEnoughCredits, t]);
+  }, [
+    canSubmit,
+    onGenerate,
+    params,
+    state,
+    hasEnoughCredits,
+    t,
+    enableNavigation,
+    onNavigate,
+  ]);
 
   // 按钮禁用状态
   const isDisabled = !canSubmit || !hasEnoughCredits;

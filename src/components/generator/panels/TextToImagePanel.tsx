@@ -55,7 +55,7 @@ export function TextToImagePanel({
           <ModelSelector
             mode={mode}
             value={model}
-            onChange={setModel}
+            onValueChange={setModel}
             disabled={isGenerating}
           />
         </div>

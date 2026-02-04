@@ -2200,6 +2200,7 @@
       "textToVideo": "Text to Video",
       "imageToVideo": "Image to Video",
       "textToImage": "Text to Image",
+      "imageToImage": "Image to Image",
       "referenceToVideo": "Reference to Video",
       "audio": "Audio"
     },
@@ -2267,6 +2268,12 @@
         "model": "MODEL",
         "style": "ART STYLE",
         "aspectRatio": "ASPECT RATIO",
+        "outputNumber": "NUMBER OF IMAGES"
+      },
+      "imageToImage": {
+        "model": "MODEL",
+        "sourceImage": "SOURCE IMAGE",
+        "sourceImageHint": "Upload an image to edit or transform",
         "outputNumber": "NUMBER OF IMAGES"
       },
       "referenceToVideo": {

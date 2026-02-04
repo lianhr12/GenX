@@ -38,7 +38,7 @@ export function AudioPanel({ className }: AudioPanelProps) {
           <ModelSelector
             mode={mode}
             value={model}
-            onChange={setModel}
+            onValueChange={setModel}
             disabled={isGenerating}
           />
         </div>

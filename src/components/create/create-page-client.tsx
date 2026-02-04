@@ -37,7 +37,12 @@ export function CreatePageClient() {
         {/* Main Input Area with GenXCreator */}
         <div ref={inputRef} className="max-w-[980px] mx-auto">
           <GenXCreator
-            allowedModes={['text-to-video', 'image-to-video', 'text-to-image']}
+            allowedModes={[
+              'text-to-video',
+              'image-to-video',
+              'text-to-image',
+              'image-to-image',
+            ]}
             modeSwitchBehavior="tabs"
             showStyles
             showCredits

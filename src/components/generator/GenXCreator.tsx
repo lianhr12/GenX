@@ -10,7 +10,9 @@ import { CreatorInput } from './core/CreatorInput';
 import { CreatorParameterBar } from './core/CreatorParameterBar';
 import { CreatorSubmitButton } from './core/CreatorSubmitButton';
 import { useCreatorState } from './hooks/useCreatorState';
+import { useNavigationOnInput } from './hooks/useNavigationOnInput';
 import { AudioPanel } from './panels/AudioPanel';
+import { ImageToImagePanel } from './panels/ImageToImagePanel';
 import { ImageToVideoPanel } from './panels/ImageToVideoPanel';
 import { ReferenceToVideoPanel } from './panels/ReferenceToVideoPanel';
 import { TextToImagePanel } from './panels/TextToImagePanel';
@@ -81,6 +83,8 @@ function DynamicPanel({ showStyles }: { showStyles: boolean }) {
       return <ImageToVideoPanel showStyles={showStyles} />;
     case 'text-to-image':
       return <TextToImagePanel showStyles={showStyles} />;
+    case 'image-to-image':
+      return <ImageToImagePanel />;
     case 'reference-to-video':
       return <ReferenceToVideoPanel />;
     case 'audio':
@@ -113,6 +117,12 @@ function CreatorContent({
 >) {
   const t = useTranslations('Generator.input');
 
+  // 导航 hook - 用于 Enter 键和生成按钮
+  const { handleInputComplete } = useNavigationOnInput({
+    onBeforeNavigate,
+    onAfterNavigate,
+  });
+
   // 是否显示模式选择器（在参数栏中）
   const showModeSelector = modeSwitchBehavior !== 'locked';
 
@@ -141,6 +151,8 @@ function CreatorContent({
             creditsConfig={creditsConfig}
             showCredits={showCredits}
             variant="compact"
+            enableNavigation={enableNavigation}
+            onNavigate={handleInputComplete}
           />
         </div>
       </div>
@@ -183,6 +195,8 @@ function CreatorContent({
             onGenerate={onGenerate}
             creditsConfig={creditsConfig}
             showCredits={showCredits}
+            enableNavigation={enableNavigation}
+            onNavigate={handleInputComplete}
           />
         </div>
       </div>
@@ -193,7 +207,12 @@ function CreatorContent({
 export function GenXCreator({
   mode,
   defaultMode = 'text-to-video',
-  allowedModes = ['text-to-video', 'image-to-video', 'text-to-image'],
+  allowedModes = [
+    'text-to-video',
+    'image-to-video',
+    'text-to-image',
+    'image-to-image',
+  ],
   modeSwitchBehavior = 'switchable',
   onModeChange,
   value,

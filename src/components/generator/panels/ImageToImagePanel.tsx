@@ -1,17 +1,15 @@
 'use client';
 
-// src/components/generator/panels/ImageToVideoPanel.tsx
+// src/components/generator/panels/ImageToImagePanel.tsx
 
+import { cn } from '@/lib/utils';
 import { useTranslations } from 'next-intl';
+import { defaultOutputNumbers } from '../config/defaults';
 import { useCreatorState } from '../hooks/useCreatorState';
-import { DurationSelector } from '../shared/DurationSelector';
 import { ImageUploader } from '../shared/ImageUploader';
 import { ModelSelector } from '../shared/ModelSelector';
-import { QualitySelector } from '../shared/QualitySelector';
-import { StyleSelector } from '../shared/StyleSelector';
 
-interface ImageToVideoPanelProps {
-  showStyles?: boolean;
+interface ImageToImagePanelProps {
   className?: string;
 }
 
@@ -30,20 +28,15 @@ function SectionLabel({
   );
 }
 
-export function ImageToVideoPanel({
-  showStyles = true,
-  className,
-}: ImageToVideoPanelProps) {
-  const t = useTranslations('Generator.panels.imageToVideo');
+export function ImageToImagePanel({ className }: ImageToImagePanelProps) {
+  const t = useTranslations('Generator.panels.imageToImage');
   const {
     mode,
     model,
     setModel,
     setParam,
-    duration,
-    quality,
-    style,
     sourceImage,
+    outputNumber,
     isGenerating,
   } = useCreatorState();
 
@@ -69,38 +62,31 @@ export function ImageToVideoPanel({
             onChange={(v) => setParam('sourceImage', v)}
             disabled={isGenerating}
           />
+          <p className="text-xs text-muted-foreground mt-2">
+            {t('sourceImageHint')}
+          </p>
         </div>
 
-        {/* Art Style Selection */}
-        {showStyles && (
-          <div>
-            <SectionLabel>{t('style')}</SectionLabel>
-            <StyleSelector
-              value={style}
-              onChange={(v) => setParam('style', v)}
-              disabled={isGenerating}
-            />
-          </div>
-        )}
-
-        {/* Duration & Quality */}
-        <div className="grid grid-cols-2 gap-3">
-          <div>
-            <SectionLabel>{t('duration')}</SectionLabel>
-            <DurationSelector
-              value={duration}
-              onChange={(v) => setParam('duration', v)}
-              disabled={isGenerating}
-            />
-          </div>
-
-          <div>
-            <SectionLabel>{t('quality')}</SectionLabel>
-            <QualitySelector
-              value={quality}
-              onChange={(v) => setParam('quality', v)}
-              disabled={isGenerating}
-            />
+        {/* Output Number */}
+        <div>
+          <SectionLabel>{t('outputNumber')}</SectionLabel>
+          <div className="flex gap-2">
+            {defaultOutputNumbers.map((num) => (
+              <button
+                key={num}
+                type="button"
+                onClick={() => setParam('outputNumber', num)}
+                disabled={isGenerating}
+                className={cn(
+                  'flex-1 px-3 py-2.5 rounded-lg text-sm font-medium transition-all',
+                  outputNumber === num
+                    ? 'bg-primary text-primary-foreground'
+                    : 'bg-muted text-muted-foreground hover:bg-muted/80'
+                )}
+              >
+                {num}
+              </button>
+            ))}
           </div>
         </div>
       </div>

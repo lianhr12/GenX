@@ -63,7 +63,7 @@ export function isVideoMode(mode: CreatorMode): boolean {
  * 检查是否为图片模式
  */
 export function isImageMode(mode: CreatorMode): boolean {
-  return mode === 'text-to-image';
+  return ['text-to-image', 'image-to-image'].includes(mode);
 }
 
 /**

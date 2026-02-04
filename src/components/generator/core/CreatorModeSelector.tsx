@@ -7,6 +7,7 @@ import {
   ImageIcon,
   ImagePlayIcon,
   MusicIcon,
+  PencilIcon,
   UserIcon,
   VideoIcon,
 } from 'lucide-react';
@@ -24,6 +25,7 @@ const modeIcons: Record<CreatorMode, React.ReactNode> = {
   'text-to-video': <VideoIcon className="size-4" />,
   'image-to-video': <ImagePlayIcon className="size-4" />,
   'text-to-image': <ImageIcon className="size-4" />,
+  'image-to-image': <PencilIcon className="size-4" />,
   'reference-to-video': <UserIcon className="size-4" />,
   audio: <MusicIcon className="size-4" />,
 };
@@ -45,6 +47,7 @@ export function CreatorModeSelector({
       'text-to-video': t('textToVideo'),
       'image-to-video': t('imageToVideo'),
       'text-to-image': t('textToImage'),
+      'image-to-image': t('imageToImage'),
       'reference-to-video': t('referenceToVideo'),
       audio: t('audio'),
     };

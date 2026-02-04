@@ -5,6 +5,7 @@ export type CreatorMode =
   | 'text-to-video'
   | 'image-to-video'
   | 'text-to-image'
+  | 'image-to-image'
   | 'reference-to-video'
   | 'audio';
 

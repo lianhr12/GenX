@@ -7,6 +7,7 @@ import { cn } from '@/lib/utils';
 import { PlusIcon } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { getModeRequiresImage } from '../config/modes';
 import { useCreatorState } from '../hooks/useCreatorState';
 import { useNavigationOnInput } from '../hooks/useNavigationOnInput';
 import type { GenerationParams } from '../types';
@@ -61,10 +62,18 @@ export function CreatorInput({
   className,
 }: CreatorInputProps) {
   const t = useTranslations('Generator.input');
-  const { prompt, setPrompt, isGenerating, sourceImage, setParam } =
+  const { prompt, setPrompt, isGenerating, sourceImage, setParam, mode } =
     useCreatorState();
   const inputRef = useRef<HTMLTextAreaElement>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
+
+  // 根据当前模式和 prop 决定是否显示图片上传
+  const shouldShowImageUpload = useMemo(() => {
+    // 如果 prop 禁用了图片上传，直接返回 false
+    if (!showImageUpload) return false;
+    // 根据当前模式的配置决定是否显示
+    return getModeRequiresImage(mode);
+  }, [showImageUpload, mode]);
 
   // 用于存储 Object URL，避免内存泄漏
   const [objectUrl, setObjectUrl] = useState<string | null>(null);
@@ -137,17 +146,6 @@ export function CreatorInput({
     [enableNavigation, handleInputComplete]
   );
 
-  // 处理失焦
-  const handleBlur = useCallback(() => {
-    if (enableNavigation && prompt.trim()) {
-      // 延迟执行，避免点击其他按钮时误触发
-      setTimeout(() => {
-        if (document.activeElement !== inputRef.current) {
-          handleInputComplete();
-        }
-      }, 200);
-    }
-  }, [enableNavigation, prompt, handleInputComplete]);
 
   // 处理图片选择
   const handleImageSelect = useCallback(
@@ -176,7 +174,7 @@ export function CreatorInput({
       <div className="flex-1">
         <div className="flex h-full items-start gap-3">
           {/* Upload Image Button */}
-          {showImageUpload && (
+          {shouldShowImageUpload && (
             <div className="block">
               <div className="group/image-upload relative z-10 flex w-14 shrink-0">
                 <div className="flex flex-col items-center">
@@ -232,7 +230,6 @@ export function CreatorInput({
                     value={prompt}
                     onChange={handlePromptChange}
                     onKeyDown={handleKeyDown}
-                    onBlur={handleBlur}
                     placeholder={placeholder || t('placeholder')}
                     maxLength={MAX_PROMPT_LENGTH}
                     className={cn(
