@@ -101,13 +101,6 @@ export function HowItWorksSection() {
                     <p className="mt-3 text-sm text-muted-foreground">
                       {t(`steps.${step.id}.description` as never)}
                     </p>
-
-                    {/* Details */}
-                    <div className="mt-4 rounded-lg bg-muted/50 p-3">
-                      <p className="text-xs text-muted-foreground">
-                        {t(`steps.${step.id}.details` as never)}
-                      </p>
-                    </div>
                   </motion.div>
                 </div>
               );
