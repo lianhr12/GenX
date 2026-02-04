@@ -8,7 +8,7 @@ import { LocaleLink } from '@/i18n/navigation';
 import { cn } from '@/lib/utils';
 import { Play, Sparkles, Upload } from 'lucide-react';
 import { useTranslations } from 'next-intl';
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 
 const transitionVariants = {
   item: {
@@ -27,6 +27,13 @@ const transitionVariants = {
         duration: 1.5,
       },
     },
+  },
+};
+
+const noAnimationVariants = {
+  item: {
+    hidden: { opacity: 1, y: 0, scale: 1 },
+    visible: { opacity: 1, y: 0, scale: 1 },
   },
 };
 
@@ -72,6 +79,7 @@ export function HeroSection() {
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [loadedPosters, setLoadedPosters] = useState<Set<string>>(new Set());
+  const [hasAnimated, setHasAnimated] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
 
   const currentVideo = artStyleVideos[currentVideoIndex];
@@ -144,6 +152,69 @@ export function HeroSection() {
   const scrollToGallery = () => {
     document.getElementById('gallery')?.scrollIntoView({ behavior: 'smooth' });
   };
+
+  // Mark animation as complete after initial render
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setHasAnimated(true);
+    }, 2000);
+    return () => clearTimeout(timer);
+  }, []);
+
+  // Use no-animation variants after first animation completes
+  const ctaVariants = useMemo(
+    () =>
+      hasAnimated
+        ? { container: { visible: {} }, ...noAnimationVariants }
+        : {
+            container: {
+              visible: {
+                transition: {
+                  staggerChildren: 0.05,
+                  delayChildren: 0.8,
+                },
+              },
+            },
+            ...transitionVariants,
+          },
+    [hasAnimated]
+  );
+
+  const socialProofVariants = useMemo(
+    () =>
+      hasAnimated
+        ? { container: { visible: {} }, ...noAnimationVariants }
+        : {
+            container: {
+              visible: {
+                transition: {
+                  staggerChildren: 0.05,
+                  delayChildren: 1.2,
+                },
+              },
+            },
+            ...transitionVariants,
+          },
+    [hasAnimated]
+  );
+
+  const indicatorVariants = useMemo(
+    () =>
+      hasAnimated
+        ? { container: { visible: {} }, ...noAnimationVariants }
+        : {
+            container: {
+              visible: {
+                transition: {
+                  staggerChildren: 0.1,
+                  delayChildren: 1.5,
+                },
+              },
+            },
+            ...transitionVariants,
+          },
+    [hasAnimated]
+  );
 
   return (
     <section className="relative min-h-screen overflow-hidden">
@@ -229,17 +300,7 @@ export function HeroSection() {
 
           {/* CTA Buttons */}
           <AnimatedGroup
-            variants={{
-              container: {
-                visible: {
-                  transition: {
-                    staggerChildren: 0.05,
-                    delayChildren: 0.8,
-                  },
-                },
-              },
-              ...transitionVariants,
-            }}
+            variants={ctaVariants}
             className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row"
           >
             {/* Primary CTA */}
@@ -270,17 +331,7 @@ export function HeroSection() {
 
           {/* Social Proof Badge */}
           <AnimatedGroup
-            variants={{
-              container: {
-                visible: {
-                  transition: {
-                    staggerChildren: 0.05,
-                    delayChildren: 1.2,
-                  },
-                },
-              },
-              ...transitionVariants,
-            }}
+            variants={socialProofVariants}
             className="mt-10"
           >
             <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-2 backdrop-blur-sm">
@@ -297,17 +348,7 @@ export function HeroSection() {
 
           {/* Video Style Indicators */}
           <AnimatedGroup
-            variants={{
-              container: {
-                visible: {
-                  transition: {
-                    staggerChildren: 0.1,
-                    delayChildren: 1.5,
-                  },
-                },
-              },
-              ...transitionVariants,
-            }}
+            variants={indicatorVariants}
             className="mt-8 flex items-center justify-center gap-2"
           >
             {artStyleVideos.map((video, index) => (

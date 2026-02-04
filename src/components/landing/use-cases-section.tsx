@@ -1,6 +1,5 @@
 'use client';
 
-import { AnimatedGroup } from '@/components/tailark/motion/animated-group';
 import { Button } from '@/components/ui/button';
 import { LocaleLink } from '@/i18n/navigation';
 import { cn } from '@/lib/utils';
@@ -14,7 +13,7 @@ import {
 import { AnimatePresence, motion } from 'motion/react';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
-import { useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 
 const useCases = [
   {
@@ -58,26 +57,37 @@ const useCases = [
 export function UseCasesSection() {
   const t = useTranslations('Landing.useCases');
   const [activeCase, setActiveCase] = useState(useCases[0].id);
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [isHovering, setIsHovering] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   const currentCase = useCases.find((c) => c.id === activeCase) || useCases[0];
   const Icon = currentCase.icon;
 
-  const handlePlayClick = () => {
-    setIsPlaying(true);
-  };
+  const handleMouseEnter = useCallback(() => {
+    setIsHovering(true);
+  }, []);
 
-  const handleVideoClick = () => {
-    if (videoRef.current) {
+  const handleMouseLeave = useCallback(() => {
+    setIsHovering(false);
+  }, []);
+
+  const handleTouchStart = useCallback(() => {
+    setIsHovering(true);
+  }, []);
+
+  useEffect(() => {
+    if (isHovering && videoRef.current) {
+      videoRef.current.play().catch(() => {});
+    } else if (!isHovering && videoRef.current) {
       videoRef.current.pause();
-      setIsPlaying(false);
+      videoRef.current.currentTime = 0;
     }
-  };
+  }, [isHovering]);
 
   const handleCaseChange = (caseId: string) => {
     setActiveCase(caseId);
-    setIsPlaying(false);
+    setIsHovering(false);
   };
 
   return (
@@ -85,21 +95,19 @@ export function UseCasesSection() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center">
-          <AnimatedGroup preset="blur-slide">
-            <span className="inline-block rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-sm font-medium text-primary">
-              {t('badge')}
-            </span>
-            <h2 className="mt-4 text-balance text-3xl font-bold tracking-tight md:text-4xl lg:text-5xl">
-              {t('headline')}
-            </h2>
-          </AnimatedGroup>
+          <span className="inline-block rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-sm font-medium text-primary">
+            {t('badge')}
+          </span>
+          <h2 className="mt-4 text-balance text-3xl font-bold tracking-tight md:text-4xl lg:text-5xl">
+            {t('headline')}
+          </h2>
         </div>
 
         {/* Content */}
         <div className="mt-16 grid gap-8 lg:grid-cols-2 lg:gap-16">
           {/* Left: Tabs */}
           <div className="space-y-4">
-            <AnimatedGroup preset="slide" className="space-y-4">
+            <div className="space-y-4">
               {useCases.map((useCase) => {
                 const CaseIcon = useCase.icon;
                 const isActive = activeCase === useCase.id;
@@ -166,7 +174,7 @@ export function UseCasesSection() {
                   </button>
                 );
               })}
-            </AnimatedGroup>
+            </div>
           </div>
 
           {/* Right: Preview */}
@@ -181,40 +189,47 @@ export function UseCasesSection() {
                 className="relative overflow-hidden rounded-2xl border bg-background shadow-xl"
               >
                 {/* Video/Image */}
-                <div className="relative aspect-video">
-                  {isPlaying ? (
-                    <video
-                      ref={videoRef}
-                      src={currentCase.video}
-                      className="h-full w-full object-cover cursor-pointer"
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
-                      onClick={handleVideoClick}
-                    />
-                  ) : (
-                    <Image
-                      src={currentCase.image}
-                      alt={t(`cases.${currentCase.id}.title` as never)}
-                      fill
-                      sizes="(max-width: 1024px) 100vw, 50vw"
-                      className="object-cover"
-                      loading="lazy"
-                    />
-                  )}
-                  {/* Play Overlay */}
-                  {!isPlaying && (
-                    <button
-                      type="button"
-                      onClick={handlePlayClick}
-                      className="absolute inset-0 flex items-center justify-center bg-black/20 transition-colors hover:bg-black/30"
-                    >
-                      <div className="flex h-16 w-16 items-center justify-center rounded-full bg-white/20 backdrop-blur-sm transition-transform hover:scale-110">
-                        <div className="ml-1 h-0 w-0 border-y-8 border-l-[12px] border-y-transparent border-l-white" />
-                      </div>
-                    </button>
-                  )}
+                <div
+                  ref={containerRef}
+                  className="relative aspect-video cursor-pointer"
+                  onMouseEnter={handleMouseEnter}
+                  onMouseLeave={handleMouseLeave}
+                  onTouchStart={handleTouchStart}
+                >
+                  <Image
+                    src={currentCase.image}
+                    alt={t(`cases.${currentCase.id}.title` as never)}
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    className={cn(
+                      'object-cover transition-opacity duration-300',
+                      isHovering ? 'opacity-0' : 'opacity-100'
+                    )}
+                    loading="lazy"
+                  />
+                  <video
+                    ref={videoRef}
+                    src={currentCase.video}
+                    className={cn(
+                      'absolute inset-0 h-full w-full object-cover transition-opacity duration-300',
+                      isHovering ? 'opacity-100' : 'opacity-0'
+                    )}
+                    loop
+                    muted
+                    playsInline
+                    preload="metadata"
+                  />
+                  {/* Play Icon Overlay - shows when not hovering */}
+                  <div
+                    className={cn(
+                      'absolute inset-0 flex items-center justify-center bg-black/20 transition-opacity duration-300',
+                      isHovering ? 'opacity-0 pointer-events-none' : 'opacity-100'
+                    )}
+                  >
+                    <div className="flex h-16 w-16 items-center justify-center rounded-full bg-white/20 backdrop-blur-sm">
+                      <div className="ml-1 h-0 w-0 border-y-8 border-l-[12px] border-y-transparent border-l-white" />
+                    </div>
+                  </div>
                 </div>
 
                 {/* Info Panel */}
