@@ -9,7 +9,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
-import { Separator } from '@/components/ui/separator';
 import { cn } from '@/lib/utils';
 import {
   ClockIcon,
@@ -128,6 +127,10 @@ export function CreatorParameterBar({
     }
   };
 
+  // 通用的 SelectTrigger 样式，移除焦点边框
+  const selectTriggerNoRing =
+    'focus-visible:ring-0 focus-visible:ring-offset-0 focus-visible:border-transparent';
+
   return (
     <div
       className={cn(
@@ -147,7 +150,7 @@ export function CreatorParameterBar({
             <SelectTrigger
               className={cn(
                 'h-9 gap-1.5 border-none bg-muted/50 px-3',
-                'focus:ring-0 focus:ring-offset-0'
+                selectTriggerNoRing
               )}
             >
               {currentCreativeType === 'video' ? (
@@ -177,7 +180,12 @@ export function CreatorParameterBar({
 
         {/* Model Select */}
         <Select value={model} onValueChange={setModel} disabled={isGenerating}>
-          <SelectTrigger className="h-9 min-w-16 gap-1 border-none bg-muted/50 px-3 focus:ring-0 focus:ring-offset-0">
+          <SelectTrigger
+            className={cn(
+              'h-9 min-w-16 gap-1 border-none bg-muted/50 px-3',
+              selectTriggerNoRing
+            )}
+          >
             <SelectValue placeholder={t('selectModel')} />
           </SelectTrigger>
           <SelectContent>
@@ -189,91 +197,91 @@ export function CreatorParameterBar({
           </SelectContent>
         </Select>
 
-        {/* Aspect Ratio, Duration, Quality */}
-        {(hasAspectRatio || hasDuration || hasQuality) && (
-          <div className={cn(paramButtonClass, 'gap-2')}>
-            {/* Aspect Ratio */}
-            {hasAspectRatio && (
-              <>
-                <Select
-                  value={aspectRatio}
-                  onValueChange={(v) => setParam('aspectRatio', v)}
-                  disabled={isGenerating}
-                >
-                  <SelectTrigger className="h-auto gap-1 border-none bg-transparent p-0 shadow-none focus:ring-0 focus:ring-offset-0">
-                    <div className="flex items-center gap-1">
-                      <div
-                        className="border-[1.5px] border-current"
-                        style={{
-                          width: '12px',
-                          aspectRatio: aspectRatioStyle,
-                        }}
-                      />
-                      <span>{aspectRatio}</span>
-                    </div>
-                  </SelectTrigger>
-                  <SelectContent>
-                    {defaultAspectRatios.map((ar) => (
-                      <SelectItem key={ar} value={ar}>
-                        {ar}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-                {(hasDuration || hasQuality) && (
-                  <Separator orientation="vertical" className="h-4" />
-                )}
-              </>
-            )}
+        {/* Aspect Ratio */}
+        {hasAspectRatio && (
+          <Select
+            value={aspectRatio}
+            onValueChange={(v) => setParam('aspectRatio', v)}
+            disabled={isGenerating}
+          >
+            <SelectTrigger
+              className={cn(
+                'h-9 gap-1 border-none bg-muted/50 px-3',
+                selectTriggerNoRing
+              )}
+            >
+              <div className="flex items-center gap-1">
+                <div
+                  className="border-[1.5px] border-current"
+                  style={{
+                    width: '12px',
+                    aspectRatio: aspectRatioStyle,
+                  }}
+                />
+                <span>{aspectRatio}</span>
+              </div>
+            </SelectTrigger>
+            <SelectContent>
+              {defaultAspectRatios.map((ar) => (
+                <SelectItem key={ar} value={ar}>
+                  {ar}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+        )}
 
-            {/* Duration */}
-            {hasDuration && (
-              <>
-                <Select
-                  value={String(duration)}
-                  onValueChange={(v) => setParam('duration', Number(v))}
-                  disabled={isGenerating}
-                >
-                  <SelectTrigger className="h-auto gap-1 border-none bg-transparent p-0 shadow-none focus:ring-0 focus:ring-offset-0">
-                    <div className="flex items-center gap-1">
-                      <ClockIcon className="size-4" />
-                      <span>{duration}s</span>
-                    </div>
-                  </SelectTrigger>
-                  <SelectContent>
-                    {defaultDurations.map((d) => (
-                      <SelectItem key={d} value={String(d)}>
-                        {d}s
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-                {hasQuality && (
-                  <Separator orientation="vertical" className="h-4" />
-                )}
-              </>
-            )}
+        {/* Duration */}
+        {hasDuration && (
+          <Select
+            value={String(duration)}
+            onValueChange={(v) => setParam('duration', Number(v))}
+            disabled={isGenerating}
+          >
+            <SelectTrigger
+              className={cn(
+                'h-9 gap-1 border-none bg-muted/50 px-3',
+                selectTriggerNoRing
+              )}
+            >
+              <div className="flex items-center gap-1">
+                <ClockIcon className="size-4" />
+                <span>{duration}s</span>
+              </div>
+            </SelectTrigger>
+            <SelectContent>
+              {defaultDurations.map((d) => (
+                <SelectItem key={d} value={String(d)}>
+                  {d}s
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+        )}
 
-            {/* Quality */}
-            {hasQuality && (
-              <Select
-                value={quality}
-                onValueChange={(v) => setParam('quality', v)}
-                disabled={isGenerating}
-              >
-                <SelectTrigger className="h-auto border-none bg-transparent p-0 shadow-none focus:ring-0 focus:ring-offset-0">
-                  <span>{quality}</span>
-                </SelectTrigger>
-                <SelectContent>
-                  {defaultQualities.map((q) => (
-                    <SelectItem key={q} value={q}>
-                      {q}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-            )}
-          </div>
+        {/* Quality */}
+        {hasQuality && (
+          <Select
+            value={quality}
+            onValueChange={(v) => setParam('quality', v)}
+            disabled={isGenerating}
+          >
+            <SelectTrigger
+              className={cn(
+                'h-9 border-none bg-muted/50 px-3',
+                selectTriggerNoRing
+              )}
+            >
+              <span>{quality}</span>
+            </SelectTrigger>
+            <SelectContent>
+              {defaultQualities.map((q) => (
+                <SelectItem key={q} value={q}>
+                  {q}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
         )}
 
         {/* Audio */}
