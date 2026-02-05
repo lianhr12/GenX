@@ -108,7 +108,6 @@ export function useNavigationOnInput(
       if (isImageMode) {
         // 先提交生成任务
         setIsSubmitting(true);
-        toast.info('正在提交生成任务...');
 
         try {
           // 转换 quality 参数：视频质量 (720p/1080p) 不适用于图片
@@ -157,8 +156,6 @@ export function useNavigationOnInput(
           // 保存任务 ID 和参数到 store
           setPendingParams(params);
           setPendingTaskId(data.imageUuid);
-
-          toast.success('任务已创建，正在跳转...');
 
           // 获取目标路由并跳转
           const targetRoute = getRouteForMode(state.mode);

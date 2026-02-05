@@ -16,6 +16,7 @@ import {
 import { getModelConfig } from '@/config/video-credits';
 import { cn } from '@/lib/utils';
 import {
+  CheckIcon,
   ClockIcon,
   ImageIcon,
   ImagePlayIcon,
@@ -28,6 +29,7 @@ import { useTranslations } from 'next-intl';
 import { useEffect, useMemo, useState } from 'react';
 import { isImageMode, isVideoMode } from '../config/credits';
 import { defaultAspectRatios } from '../config/defaults';
+import { getModelById } from '../config/models';
 import { useCreatorState } from '../hooks/useCreatorState';
 import { useHasParameter } from '../hooks/useModeConfig';
 import { ModelSelector } from '../shared/ModelSelector';
@@ -63,18 +65,25 @@ export function CreatorParameterBar({
     setParam,
     duration,
     quality,
+    generateAudio,
     isGenerating,
   } = useCreatorState();
 
   const [videoSettingsOpen, setVideoSettingsOpen] = useState(false);
+  const [audioSettingsOpen, setAudioSettingsOpen] = useState(false);
 
   const hasAspectRatio = useHasParameter(mode, 'aspectRatio');
   const hasDuration = useHasParameter(mode, 'duration');
   const hasQuality = useHasParameter(mode, 'quality');
 
-  // 获取当前模型的配置
+  // 获取当前模型的配置（用于视频参数）
   const modelConfig = useMemo(() => {
     return getModelConfig(model);
+  }, [model]);
+
+  // 获取当前模型信息（用于音频支持判断）
+  const modelInfo = useMemo(() => {
+    return getModelById(model);
   }, [model]);
 
   // 根据模型配置获取可用的参数选项
@@ -129,6 +138,11 @@ export function CreatorParameterBar({
     ) {
       setParam('quality', availableQualities[0]);
     }
+
+    // 如果模型不支持音频生成，重置 generateAudio 为 false
+    if (!modelInfo?.supportsAudioGeneration && generateAudio) {
+      setParam('generateAudio', false);
+    }
   }, [
     model,
     availableAspectRatios,
@@ -137,6 +151,8 @@ export function CreatorParameterBar({
     aspectRatio,
     duration,
     quality,
+    generateAudio,
+    modelInfo?.supportsAudioGeneration,
     setParam,
     mode,
   ]);
@@ -537,13 +553,81 @@ export function CreatorParameterBar({
           </Select>
         )}
 
-        {/* Audio */}
-        {showAudio && (
-          <div className={cn(paramButtonClass, 'gap-1.5')}>
-            <MusicIcon className="size-4" />
-            <span>{t('audio')}</span>
-          </div>
-        )}
+        {/* Audio Settings Popover (仅在视频模式且模型支持音频生成时显示) */}
+        {showAudio &&
+          isVideoMode(mode) &&
+          modelInfo?.supportsAudioGeneration && (
+            <Popover
+              open={audioSettingsOpen}
+              onOpenChange={setAudioSettingsOpen}
+            >
+              <PopoverTrigger asChild disabled={isGenerating}>
+                <button
+                  type="button"
+                  className={cn(
+                    paramButtonClass,
+                    'gap-1.5',
+                    isGenerating && 'cursor-not-allowed opacity-50'
+                  )}
+                >
+                  <MusicIcon className="size-4" />
+                  <span>{t('audio')}</span>
+                </button>
+              </PopoverTrigger>
+              <PopoverContent
+                className="w-[200px] p-3"
+                align="start"
+                sideOffset={8}
+              >
+                <div className="space-y-2">
+                  <div className="text-sm font-medium text-muted-foreground">
+                    {t('addAudio')}
+                  </div>
+                  <div className="space-y-1">
+                    {/* 自动生成音频选项 */}
+                    <button
+                      type="button"
+                      onClick={() => setParam('generateAudio', true)}
+                      className={cn(
+                        'flex w-full items-center gap-2 rounded-lg px-3 py-2 text-sm transition-colors',
+                        generateAudio ? 'bg-muted' : 'hover:bg-muted/50'
+                      )}
+                    >
+                      <div
+                        className={cn(
+                          'flex size-4 items-center justify-center rounded-full border-2',
+                          generateAudio
+                            ? 'border-primary bg-primary'
+                            : 'border-muted-foreground'
+                        )}
+                      >
+                        {generateAudio && (
+                          <div className="size-2 rounded-full bg-primary-foreground" />
+                        )}
+                      </div>
+                      <span>{t('audioGenerate')}</span>
+                    </button>
+                    {/* 无音频选项 */}
+                    <button
+                      type="button"
+                      onClick={() => setParam('generateAudio', false)}
+                      className={cn(
+                        'flex w-full items-center gap-2 rounded-lg px-3 py-2 text-sm transition-colors',
+                        !generateAudio ? 'bg-muted' : 'hover:bg-muted/50'
+                      )}
+                    >
+                      {!generateAudio ? (
+                        <CheckIcon className="size-4" />
+                      ) : (
+                        <div className="size-4" />
+                      )}
+                      <span>{t('audioNone')}</span>
+                    </button>
+                  </div>
+                </div>
+              </PopoverContent>
+            </Popover>
+          )}
 
         {/* More Options */}
         {showMoreOptions && (

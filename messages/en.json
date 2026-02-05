@@ -2210,7 +2210,10 @@
     },
     "parameters": {
       "selectModel": "Select Model",
-      "audio": "Audio"
+      "audio": "Audio",
+      "addAudio": "Add Audio",
+      "audioGenerate": "Auto Generate Audio",
+      "audioNone": "No Audio"
     },
     "submit": {
       "generate": "Generate",

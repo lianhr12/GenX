@@ -327,7 +327,7 @@ function ToolPageLayoutInner({ mode, children }: ToolPageLayoutProps) {
         {/* 历史记录区 */}
         <HistorySection mode={mode} />
 
-        {/* GenXCreator 输入区 */}
+        {/* GenXCreator 输入区 - 使用 compact 模式 */}
         <div ref={creatorRef}>
           {isParamsReady && (
             <GenXCreator
@@ -336,8 +336,8 @@ function ToolPageLayoutInner({ mode, children }: ToolPageLayoutProps) {
               modeSwitchBehavior="locked"
               defaultValue={initialParams ?? undefined}
               onGenerate={handleGenerate}
-              showStyles
               showCredits
+              compact
             />
           )}
         </div>

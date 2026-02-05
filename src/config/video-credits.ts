@@ -16,6 +16,7 @@ export interface ModelConfig {
   description: string;
   supportImageToVideo: boolean;
   supportFirstLastFrame?: boolean; // FLF mode support
+  supportsAudioGeneration?: boolean; // Auto audio generation support
   maxDuration: number;
   durations: number[];
   aspectRatios: string[];
@@ -102,6 +103,7 @@ export const VIDEO_MODELS: Record<string, ModelConfig> = {
     description: 'Google Veo 3.1 Fast - Quick cinematic quality generation',
     supportImageToVideo: true,
     supportFirstLastFrame: true,
+    supportsAudioGeneration: true,
     maxDuration: 8,
     durations: [8],
     aspectRatios: ['auto', '16:9', '9:16'],
@@ -121,6 +123,7 @@ export const VIDEO_MODELS: Record<string, ModelConfig> = {
     description: 'Google Veo 3.1 Preview - Multiple resolution support',
     supportImageToVideo: true,
     supportFirstLastFrame: true,
+    supportsAudioGeneration: true,
     maxDuration: 8,
     durations: [8],
     aspectRatios: ['auto', '16:9', '9:16'],
@@ -139,6 +142,7 @@ export const VIDEO_MODELS: Record<string, ModelConfig> = {
     description: 'Google Veo 3.1 Pro - Professional version with FLF support',
     supportImageToVideo: true,
     supportFirstLastFrame: true,
+    supportsAudioGeneration: true,
     maxDuration: 8,
     durations: [8],
     aspectRatios: ['auto', '16:9', '9:16'],
@@ -259,6 +263,7 @@ export const VIDEO_MODELS: Record<string, ModelConfig> = {
     description: 'ByteDance Seedance 1.5 Pro - T2V + I2V + FLF support',
     supportImageToVideo: true,
     supportFirstLastFrame: true,
+    supportsAudioGeneration: true,
     maxDuration: 12,
     durations: [4, 5, 6, 7, 8, 9, 10, 11, 12],
     aspectRatios: ['16:9', '9:16', '1:1', '4:3', '3:4', '21:9', 'adaptive'],

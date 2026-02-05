@@ -2210,7 +2210,10 @@
     },
     "parameters": {
       "selectModel": "选择模型",
-      "audio": "音频"
+      "audio": "音频",
+      "addAudio": "添加音频",
+      "audioGenerate": "自动生成音频",
+      "audioNone": "无音频"
     },
     "submit": {
       "generate": "生成",

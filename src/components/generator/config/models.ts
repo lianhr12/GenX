@@ -23,6 +23,8 @@ export interface ModelInfo {
   isNew?: boolean;
   /** 支持的模式 */
   supportedModes: CreatorMode[];
+  /** 是否支持自动生成音频 */
+  supportsAudioGeneration?: boolean;
 }
 
 /** 模型提供商列表 */
@@ -89,6 +91,7 @@ export const modelConfigs: ModelInfo[] = [
     baseCredits: 50,
     isNew: true,
     supportedModes: ['text-to-video', 'image-to-video'],
+    supportsAudioGeneration: true,
   },
   {
     id: 'veo-3.1-fast-generate-preview',
@@ -99,6 +102,7 @@ export const modelConfigs: ModelInfo[] = [
     baseCredits: 6,
     isNew: true,
     supportedModes: ['text-to-video', 'image-to-video'],
+    supportsAudioGeneration: true,
   },
   {
     id: 'gemini-3-pro-image-preview',
@@ -199,6 +203,7 @@ export const modelConfigs: ModelInfo[] = [
     baseCredits: 9,
     isNew: true,
     supportedModes: ['text-to-video', 'image-to-video'],
+    supportsAudioGeneration: true,
   },
   {
     id: 'doubao-seedance-1.0-pro-fast',
