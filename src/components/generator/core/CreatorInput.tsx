@@ -146,7 +146,6 @@ export function CreatorInput({
     [enableNavigation, handleInputComplete]
   );
 
-
   // 处理图片选择
   const handleImageSelect = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {

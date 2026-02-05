@@ -1,8 +1,6 @@
 'use client';
 
 import { GenXCreator } from '@/components/generator';
-import { FloatingCreator } from '@/components/generator/layouts/FloatingCreator';
-import { useRouter } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
 import { FeatureBanner } from './banner/feature-banner';
 import { GallerySection } from './gallery/gallery-section';
@@ -12,7 +10,6 @@ import { VideoToolsSection } from './tools/video-tools-section';
 
 export function CreatePageClient() {
   const inputRef = useRef<HTMLDivElement>(null);
-  const router = useRouter();
   const [showFloating, setShowFloating] = useState(false);
 
   // Show floating input when main input is out of view
@@ -48,9 +45,6 @@ export function CreatePageClient() {
             showCredits
             compact
             enableNavigation
-            onAfterNavigate={(route) => {
-              router.push(route);
-            }}
           />
         </div>
 
@@ -72,15 +66,16 @@ export function CreatePageClient() {
         <GallerySection />
       </main>
 
-      {/* Floating Input Bar */}
+      {/* Floating Input Bar - 使用 GenXCreator 的 floating 模式 */}
       {showFloating && (
-        <FloatingCreator
-          mode="text-to-video"
-          onGenerate={async () => {
-            // 导航到对应工具页面
-            router.push('/create/text-to-video');
-          }}
-        />
+        <div className="fixed bottom-4 left-1/2 -translate-x-1/2 z-50 w-full max-w-2xl px-4">
+          <GenXCreator
+            mode="text-to-video"
+            modeSwitchBehavior="locked"
+            compact
+            enableNavigation
+          />
+        </div>
       )}
     </div>
   );

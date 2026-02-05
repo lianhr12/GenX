@@ -2,6 +2,7 @@
 
 // src/components/generator/hooks/useNavigationOnInput.ts
 
+import { generateImageAction } from '@/actions/generate-image';
 import { useCreatorNavigationStore } from '@/stores/creator-navigation-store';
 import { useRouter } from 'next/navigation';
 import { useCallback } from 'react';
@@ -23,6 +24,7 @@ interface UseNavigationOnInputReturn {
 /**
  * Hook to handle navigation after input completion
  * Used in /create main page to navigate to tool pages
+ * Flow: Submit generation task -> On success, navigate to tool page
  */
 export function useNavigationOnInput(
   options: UseNavigationOnInputOptions = {}
@@ -30,8 +32,14 @@ export function useNavigationOnInput(
   const { onBeforeNavigate, onAfterNavigate } = options;
   const router = useRouter();
   const state = useCreatorState();
-  const { setPendingParams, setIsUploading, isUploading } =
-    useCreatorNavigationStore();
+  const {
+    setPendingParams,
+    setPendingTaskId,
+    setIsUploading,
+    setIsSubmitting,
+    isUploading,
+    isSubmitting,
+  } = useCreatorNavigationStore();
 
   const handleInputComplete = useCallback(async () => {
     // 检查是否有内容
@@ -93,55 +101,128 @@ export function useNavigationOnInput(
         }
       }
 
-      // 保存参数到全局 store
-      setPendingParams(params);
+      // 判断是图片还是视频模式
+      const isImageMode =
+        state.mode === 'text-to-image' || state.mode === 'image-to-image';
 
-      // 获取目标路由
-      const targetRoute = getRouteForMode(state.mode);
+      if (isImageMode) {
+        // 先提交生成任务
+        setIsSubmitting(true);
+        toast.info('正在提交生成任务...');
 
-      // 构建 URL 参数作为备份（用于页面刷新后恢复）
-      const searchParams = new URLSearchParams();
-      if (params.prompt) {
-        searchParams.set('prompt', params.prompt);
-      }
-      if (params.model) {
-        searchParams.set('model', params.model);
-      }
-      if (params.style) {
-        searchParams.set('style', params.style);
-      }
-      if (params.sourceImage && typeof params.sourceImage === 'string') {
-        searchParams.set('sourceImage', params.sourceImage);
-      }
-      if (params.referenceImage && typeof params.referenceImage === 'string') {
-        searchParams.set('referenceImage', params.referenceImage);
-      }
+        try {
+          // 转换 quality 参数：视频质量 (720p/1080p) 不适用于图片
+          // 图片质量应该是 high/medium/low，如果不是则使用默认值
+          const imageQuality =
+            params.quality === 'high' ||
+            params.quality === 'medium' ||
+            params.quality === 'low'
+              ? params.quality
+              : 'medium';
 
-      // 跳转（带参数）
-      const url = searchParams.toString()
-        ? `${targetRoute}?${searchParams.toString()}`
-        : targetRoute;
+          const result = await generateImageAction({
+            prompt: params.prompt,
+            model: params.model,
+            aspectRatio: params.aspectRatio as
+              | '1:1'
+              | '16:9'
+              | '9:16'
+              | '4:3'
+              | '3:4'
+              | undefined,
+            quality: imageQuality,
+            numberOfImages: params.outputNumber || 1,
+            isPublic: params.isPublic,
+          });
 
-      console.log('[Navigation] Navigating to:', url, 'with params:', params);
-      router.push(url);
+          console.log('[Navigation] generateImageAction result:', result);
 
-      // 调用 onAfterNavigate 回调
-      onAfterNavigate?.(targetRoute);
+          // next-safe-action 返回格式: { data: { success, data/error }, serverError }
+          if (result?.serverError) {
+            throw new Error(
+              typeof result.serverError === 'string'
+                ? result.serverError
+                : 'Server error occurred'
+            );
+          }
+
+          if (!result?.data?.success) {
+            throw new Error(
+              result?.data?.error || 'Failed to start generation'
+            );
+          }
+
+          const data = result.data.data;
+
+          // 保存任务 ID 和参数到 store
+          setPendingParams(params);
+          setPendingTaskId(data.imageUuid);
+
+          toast.success('任务已创建，正在跳转...');
+
+          // 获取目标路由并跳转
+          const targetRoute = getRouteForMode(state.mode);
+          const url = `${targetRoute}?taskId=${data.imageUuid}`;
+
+          console.log(
+            '[Navigation] Task created, navigating to:',
+            url,
+            'taskId:',
+            data.imageUuid
+          );
+          router.push(url);
+
+          // 调用 onAfterNavigate 回调
+          onAfterNavigate?.(targetRoute);
+        } catch (error) {
+          console.error('Generation failed:', error);
+          toast.error(
+            error instanceof Error ? error.message : '生成任务创建失败，请重试'
+          );
+          // 失败时不跳转
+          return;
+        } finally {
+          setIsSubmitting(false);
+        }
+      } else {
+        // 视频模式 - 暂时只跳转，不创建任务
+        setPendingParams(params);
+
+        const targetRoute = getRouteForMode(state.mode);
+        const searchParams = new URLSearchParams();
+        if (params.prompt) {
+          searchParams.set('prompt', params.prompt);
+        }
+        if (params.model) {
+          searchParams.set('model', params.model);
+        }
+
+        const url = searchParams.toString()
+          ? `${targetRoute}?${searchParams.toString()}`
+          : targetRoute;
+
+        console.log('[Navigation] Navigating to:', url, 'with params:', params);
+        router.push(url);
+
+        onAfterNavigate?.(targetRoute);
+      }
     } catch (error) {
       console.error('Navigation error:', error);
-      toast.error('跳转失败，请重试');
+      toast.error('操作失败，请重试');
     }
   }, [
     state,
     router,
     setPendingParams,
+    setPendingTaskId,
     setIsUploading,
+    setIsSubmitting,
     onBeforeNavigate,
     onAfterNavigate,
   ]);
 
   return {
     handleInputComplete,
-    isNavigating: isUploading,
+    isNavigating: isUploading || isSubmitting,
   };
 }

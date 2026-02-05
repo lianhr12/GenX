@@ -2,10 +2,12 @@
 
 // src/components/generator/layouts/HistorySection.tsx
 
+import { listImagesAction } from '@/actions/generate-image';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { ImageIcon, Loader2Icon, VideoIcon } from 'lucide-react';
 import { useTranslations } from 'next-intl';
+import { useCallback, useEffect, useState } from 'react';
 import type { CreatorMode, GenerationResult } from '../types';
 
 interface HistorySectionProps {
@@ -61,18 +63,85 @@ function HistoryCard({ item, onClick }: HistoryCardProps) {
 
 export function HistorySection({ mode, className }: HistorySectionProps) {
   const t = useTranslations('Generator.history');
+  const [items, setItems] = useState<GenerationResult[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [hasNextPage, setHasNextPage] = useState(false);
+  const [page, setPage] = useState(1);
+  const [isLoadingMore, setIsLoadingMore] = useState(false);
 
-  // TODO: 使用 React Query 获取历史记录
-  // const { data, fetchNextPage, hasNextPage, isLoading } = useInfiniteQuery({
-  //   queryKey: ['generation-history', mode],
-  //   queryFn: ({ pageParam }) => fetchHistory({ mode, cursor: pageParam }),
-  //   getNextPageParam: (lastPage) => lastPage.nextCursor,
-  // });
+  // Determine if this is an image or video mode
+  const isImageMode = mode === 'text-to-image' || mode === 'image-to-image';
 
-  // 模拟数据
-  const items: GenerationResult[] = [];
-  const hasNextPage = false;
-  const isLoading = false;
+  // Fetch history
+  const fetchHistory = useCallback(
+    async (pageNum: number, append = false) => {
+      if (!isImageMode) {
+        // Video history - TODO: implement
+        setIsLoading(false);
+        return;
+      }
+
+      try {
+        const result = await listImagesAction({
+          page: pageNum,
+          limit: 12,
+          status: 'COMPLETED',
+        });
+
+        if (result?.data?.success && result.data.data) {
+          const data = result.data.data;
+
+          // Transform to GenerationResult format
+          const newItems: GenerationResult[] = data.images.map((img) => ({
+            id: img.uuid,
+            type: 'image' as const,
+            url: (img.imageUrls as string[])?.[0] || '',
+            thumbnailUrl: img.thumbnailUrl || (img.imageUrls as string[])?.[0],
+            prompt: img.prompt,
+            model: img.model,
+            creditsUsed: img.creditsUsed,
+            createdAt: new Date(img.createdAt),
+            status:
+              img.status === 'COMPLETED'
+                ? ('completed' as const)
+                : img.status === 'FAILED'
+                  ? ('failed' as const)
+                  : img.status === 'GENERATING'
+                    ? ('processing' as const)
+                    : ('pending' as const),
+          }));
+
+          if (append) {
+            setItems((prev) => [...prev, ...newItems]);
+          } else {
+            setItems(newItems);
+          }
+
+          setHasNextPage(data.page < data.totalPages);
+        }
+      } catch (error) {
+        console.error('Failed to fetch history:', error);
+      } finally {
+        setIsLoading(false);
+        setIsLoadingMore(false);
+      }
+    },
+    [isImageMode]
+  );
+
+  // Initial fetch
+  useEffect(() => {
+    fetchHistory(1);
+  }, [fetchHistory]);
+
+  // Load more handler
+  const handleLoadMore = useCallback(() => {
+    if (isLoadingMore || !hasNextPage) return;
+    setIsLoadingMore(true);
+    const nextPage = page + 1;
+    setPage(nextPage);
+    fetchHistory(nextPage, true);
+  }, [isLoadingMore, hasNextPage, page, fetchHistory]);
 
   if (items.length === 0 && !isLoading) {
     return (
@@ -95,30 +164,38 @@ export function HistorySection({ mode, className }: HistorySectionProps) {
     >
       <h3 className="text-sm font-medium text-foreground mb-4">{t('title')}</h3>
 
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
-        {items.map((item) => (
-          <HistoryCard key={item.id} item={item} />
-        ))}
-      </div>
-
-      {hasNextPage && (
-        <div className="mt-4 text-center">
-          <Button
-            variant="outline"
-            size="sm"
-            // onClick={() => fetchNextPage()}
-            disabled={isLoading}
-          >
-            {isLoading ? (
-              <>
-                <Loader2Icon className="w-4 h-4 animate-spin mr-2" />
-                {t('loading')}
-              </>
-            ) : (
-              t('loadMore')
-            )}
-          </Button>
+      {isLoading ? (
+        <div className="flex items-center justify-center py-8">
+          <Loader2Icon className="w-6 h-6 animate-spin text-muted-foreground" />
         </div>
+      ) : (
+        <>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+            {items.map((item) => (
+              <HistoryCard key={item.id} item={item} />
+            ))}
+          </div>
+
+          {hasNextPage && (
+            <div className="mt-4 text-center">
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={handleLoadMore}
+                disabled={isLoadingMore}
+              >
+                {isLoadingMore ? (
+                  <>
+                    <Loader2Icon className="w-4 h-4 animate-spin mr-2" />
+                    {t('loading')}
+                  </>
+                ) : (
+                  t('loadMore')
+                )}
+              </Button>
+            </div>
+          )}
+        </>
       )}
     </div>
   );

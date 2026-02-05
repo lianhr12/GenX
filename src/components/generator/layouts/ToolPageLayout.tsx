@@ -2,9 +2,14 @@
 
 // src/components/generator/layouts/ToolPageLayout.tsx
 
+import {
+  generateImageAction,
+  refreshImageStatusAction,
+} from '@/actions/generate-image';
 import { useCreatorNavigationStore } from '@/stores/creator-navigation-store';
 import { useSearchParams } from 'next/navigation';
 import { Suspense, useCallback, useEffect, useRef, useState } from 'react';
+import { toast } from 'sonner';
 import { GenXCreator } from '../GenXCreator';
 import type {
   GenerationParams,
@@ -14,6 +19,10 @@ import type {
 import { FloatingCreator } from './FloatingCreator';
 import { HistorySection } from './HistorySection';
 import { ResultSection } from './ResultSection';
+
+// Polling interval for status check (ms)
+const POLL_INTERVAL = 2000;
+const MAX_POLL_ATTEMPTS = 150; // 5 minutes max
 
 // 内部组件，处理 searchParams
 function ToolPageLayoutInner({ mode, children }: ToolPageLayoutProps) {
@@ -25,14 +34,80 @@ function ToolPageLayoutInner({ mode, children }: ToolPageLayoutProps) {
   const creatorRef = useRef<HTMLDivElement>(null);
   const [isParamsReady, setIsParamsReady] = useState(false);
   const hasInitialized = useRef(false);
+  const pollTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   const searchParams = useSearchParams();
-  const consumePendingParams = useCreatorNavigationStore(
-    (state) => state.consumePendingParams
+  const consumePendingData = useCreatorNavigationStore(
+    (state) => state.consumePendingData
   );
   const clearPending = useCreatorNavigationStore((state) => state.clearPending);
   const [initialParams, setInitialParams] =
     useState<Partial<GenerationParams> | null>(null);
+
+  // Poll for image status
+  const pollImageStatus = useCallback(
+    async (imageUuid: string, attempt = 0) => {
+      if (attempt >= MAX_POLL_ATTEMPTS) {
+        setIsGenerating(false);
+        toast.error('生成超时，请稍后重试');
+        return;
+      }
+
+      try {
+        const result = await refreshImageStatusAction({ imageUuid });
+
+        // Handle server error
+        if (result?.serverError) {
+          throw new Error(
+            typeof result.serverError === 'string'
+              ? result.serverError
+              : 'Server error occurred'
+          );
+        }
+
+        if (!result?.data?.success) {
+          throw new Error(result?.data?.error || 'Failed to get status');
+        }
+
+        const status = result.data.data;
+
+        if (status.status === 'COMPLETED' && status.imageUrls?.length) {
+          setCurrentResult((prev) => ({
+            ...prev!,
+            status: 'completed',
+            url: status.imageUrls![0],
+            thumbnailUrl: status.imageUrls![0],
+          }));
+          setIsGenerating(false);
+          toast.success('图片生成完成！');
+          return;
+        }
+
+        if (status.status === 'FAILED') {
+          setCurrentResult((prev) => ({
+            ...prev!,
+            status: 'failed',
+            errorMessage: status.error,
+          }));
+          setIsGenerating(false);
+          toast.error(status.error || '生成失败');
+          return;
+        }
+
+        // Continue polling
+        pollTimeoutRef.current = setTimeout(() => {
+          pollImageStatus(imageUuid, attempt + 1);
+        }, POLL_INTERVAL);
+      } catch (error) {
+        console.error('Poll status error:', error);
+        // Continue polling on error
+        pollTimeoutRef.current = setTimeout(() => {
+          pollImageStatus(imageUuid, attempt + 1);
+        }, POLL_INTERVAL);
+      }
+    },
+    []
+  );
 
   // 页面加载时，优先从 store 读取，否则从 URL 参数读取
   useEffect(() => {
@@ -42,16 +117,42 @@ function ToolPageLayoutInner({ mode, children }: ToolPageLayoutProps) {
     }
     hasInitialized.current = true;
 
-    const pending = consumePendingParams();
-    console.log('[ToolPageLayout] Consumed pending params:', pending);
+    const { params: pending, taskId } = consumePendingData();
+    console.log(
+      '[ToolPageLayout] Consumed pending data:',
+      pending,
+      'taskId:',
+      taskId
+    );
 
-    if (pending) {
+    // 如果有 taskId，说明任务已经创建，开始轮询
+    if (taskId && pending) {
       setInitialParams(pending);
       setIsParamsReady(true);
+      setIsGenerating(true);
+
+      // 设置初始结果状态
+      const initialResult: GenerationResult = {
+        id: taskId,
+        type: 'image',
+        url: '',
+        prompt: pending.prompt || '',
+        model: pending.model || '',
+        aspectRatio: pending.aspectRatio,
+        quality: pending.quality,
+        creditsUsed: 0,
+        createdAt: new Date(),
+        status: 'processing',
+      };
+      setCurrentResult(initialResult);
+
+      // 开始轮询状态
+      pollImageStatus(taskId);
       return;
     }
 
-    // 从 URL 参数恢复
+    // 从 URL 参数恢复（用于页面刷新或直接访问）
+    const taskIdFromUrl = searchParams.get('taskId');
     const prompt = searchParams.get('prompt');
     const model = searchParams.get('model');
     const style = searchParams.get('style');
@@ -59,12 +160,30 @@ function ToolPageLayoutInner({ mode, children }: ToolPageLayoutProps) {
     const referenceImage = searchParams.get('referenceImage');
 
     console.log('[ToolPageLayout] URL params:', {
+      taskIdFromUrl,
       prompt,
       model,
       style,
       sourceImage,
       referenceImage,
     });
+
+    // 如果 URL 中有 taskId，开始轮询
+    if (taskIdFromUrl) {
+      setIsGenerating(true);
+      const initialResult: GenerationResult = {
+        id: taskIdFromUrl,
+        type: 'image',
+        url: '',
+        prompt: prompt || '',
+        model: model || '',
+        creditsUsed: 0,
+        createdAt: new Date(),
+        status: 'processing',
+      };
+      setCurrentResult(initialResult);
+      pollImageStatus(taskIdFromUrl);
+    }
 
     if (prompt || sourceImage || referenceImage) {
       setInitialParams({
@@ -79,11 +198,16 @@ function ToolPageLayoutInner({ mode, children }: ToolPageLayoutProps) {
 
     // 标记参数已准备好
     setIsParamsReady(true);
-  }, [searchParams, consumePendingParams, mode]);
+  }, [searchParams, consumePendingData, mode, pollImageStatus]);
 
   // 组件卸载时清理
   useEffect(() => {
-    return () => clearPending();
+    return () => {
+      clearPending();
+      if (pollTimeoutRef.current) {
+        clearTimeout(pollTimeoutRef.current);
+      }
+    };
   }, [clearPending]);
 
   // 监听 GenXCreator 是否在视图内
@@ -102,39 +226,92 @@ function ToolPageLayoutInner({ mode, children }: ToolPageLayoutProps) {
     async (params: GenerationParams) => {
       setIsGenerating(true);
 
+      // Clear any existing poll
+      if (pollTimeoutRef.current) {
+        clearTimeout(pollTimeoutRef.current);
+      }
+
       try {
-        // TODO: 调用实际的生成 API
-        // const result = await generateContent(params);
+        // Determine if this is an image or video generation
+        const isImageMode =
+          mode === 'text-to-image' || mode === 'image-to-image';
 
-        // 模拟生成
-        await new Promise((resolve) => setTimeout(resolve, 2000));
+        if (isImageMode) {
+          // 转换 quality 参数：视频质量 (720p/1080p) 不适用于图片
+          // 图片质量应该是 high/medium/low，如果不是则使用默认值
+          const imageQuality =
+            params.quality === 'high' ||
+            params.quality === 'medium' ||
+            params.quality === 'low'
+              ? params.quality
+              : 'medium';
 
-        const mockResult: GenerationResult = {
-          id: `gen-${Date.now()}`,
-          type: mode.includes('video')
-            ? 'video'
-            : mode === 'audio'
-              ? 'audio'
-              : 'image',
-          url: '',
-          prompt: params.prompt,
-          model: params.model,
-          duration: params.duration,
-          aspectRatio: params.aspectRatio,
-          quality: params.quality,
-          creditsUsed: 100,
-          createdAt: new Date(),
-          status: 'completed',
-        };
+          // Call image generation API
+          const result = await generateImageAction({
+            prompt: params.prompt,
+            model: params.model,
+            aspectRatio: params.aspectRatio as
+              | '1:1'
+              | '16:9'
+              | '9:16'
+              | '4:3'
+              | '3:4'
+              | undefined,
+            quality: imageQuality,
+            numberOfImages: params.outputNumber || 1,
+            isPublic: params.isPublic,
+          });
 
-        setCurrentResult(mockResult);
+          // Handle server error
+          if (result?.serverError) {
+            throw new Error(
+              typeof result.serverError === 'string'
+                ? result.serverError
+                : 'Server error occurred'
+            );
+          }
+
+          if (!result?.data?.success) {
+            throw new Error(
+              result?.data?.error || 'Failed to start generation'
+            );
+          }
+
+          const data = result.data.data;
+
+          // Set initial result
+          const initialResult: GenerationResult = {
+            id: data.imageUuid,
+            type: 'image',
+            url: '',
+            prompt: params.prompt,
+            model: params.model,
+            aspectRatio: params.aspectRatio,
+            quality: params.quality,
+            creditsUsed: 0,
+            createdAt: new Date(),
+            status: 'processing',
+          };
+
+          setCurrentResult(initialResult);
+          toast.info('图片生成中...');
+
+          // Start polling for status
+          pollImageStatus(data.imageUuid);
+        } else {
+          // Video generation - TODO: implement video generation
+          toast.info('视频生成功能即将上线');
+          setIsGenerating(false);
+        }
       } catch (error) {
         console.error('Generation failed:', error);
-      } finally {
         setIsGenerating(false);
+        toast.error(
+          error instanceof Error ? error.message : '生成失败，请重试'
+        );
       }
     },
-    [mode]
+    [mode, pollImageStatus]
   );
 
   return (
