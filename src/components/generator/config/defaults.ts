@@ -16,6 +16,7 @@ export const defaultCreatorState: CreatorState = {
   outputNumber: 1,
   isPublic: true,
   generateAudio: false,
+  audioUrl: null,
   isGenerating: false,
   generationProgress: 0,
 };
@@ -27,6 +28,8 @@ export function getDefaultStateForMode(
     mode,
     model: getDefaultModel(mode),
     prompt: '',
+    generateAudio: false,
+    audioUrl: null,
     isGenerating: false,
     generationProgress: 0,
   };

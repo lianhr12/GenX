@@ -47,6 +47,12 @@ export class EvolinkProvider implements AIVideoProvider {
     if (params.modelParams) {
       requestBody.model_params = params.modelParams;
     }
+    if (params.audioUrl) {
+      requestBody.audio_url = params.audioUrl;
+    }
+    if (params.generateAudio !== undefined) {
+      requestBody.generate_audio = params.generateAudio;
+    }
 
     const response = await fetch(`${this.baseUrl}/videos/generations`, {
       method: 'POST',

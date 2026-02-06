@@ -17,6 +17,7 @@ export interface ModelConfig {
   supportImageToVideo: boolean;
   supportFirstLastFrame?: boolean; // FLF mode support
   supportsAudioGeneration?: boolean; // Auto audio generation support
+  supportsAudioUrl?: boolean; // Custom audio URL input support
   maxDuration: number;
   durations: number[];
   aspectRatios: string[];
@@ -205,6 +206,7 @@ export const VIDEO_MODELS: Record<string, ModelConfig> = {
     provider: 'evolink',
     description: 'Alibaba Wan 2.6 - Text to video generation',
     supportImageToVideo: false,
+    supportsAudioUrl: true,
     maxDuration: 15,
     durations: [5, 10, 15],
     aspectRatios: ['16:9', '9:16', '1:1', '4:3', '3:4'],
@@ -222,6 +224,7 @@ export const VIDEO_MODELS: Record<string, ModelConfig> = {
     provider: 'evolink',
     description: 'Alibaba Wan 2.6 - First frame image to video',
     supportImageToVideo: true,
+    supportsAudioUrl: true,
     maxDuration: 15,
     durations: [5, 10, 15],
     aspectRatios: ['16:9', '9:16', '1:1', '4:3', '3:4'],
@@ -456,6 +459,7 @@ export const VIDEO_MODELS: Record<string, ModelConfig> = {
     provider: 'evolink',
     description: 'Audio-driven digital human video generation (max 35s audio)',
     supportImageToVideo: false,
+    supportsAudioUrl: true,
     maxDuration: 35,
     durations: [10, 20, 30, 35],
     aspectRatios: ['16:9', '9:16', '1:1'],

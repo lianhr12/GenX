@@ -59,6 +59,8 @@ export function useNavigationOnInput(
       style: state.style,
       outputNumber: state.outputNumber,
       isPublic: state.isPublic,
+      generateAudio: state.generateAudio,
+      audioUrl: state.audioUrl,
     };
 
     // 调用 onBeforeNavigate 回调

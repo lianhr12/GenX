@@ -2213,6 +2213,13 @@
       "audio": "Audio",
       "addAudio": "Add Audio",
       "audioGenerate": "Auto Generate Audio",
+      "audioUpload": "Upload Audio",
+      "audioUploading": "Uploading...",
+      "audioUploaded": "Audio uploaded",
+      "audioReplace": "Click to replace audio",
+      "audioUploadAction": "Click to select audio file",
+      "audioUploadHint": "Supports MP3, WAV, AAC formats, max 10MB",
+      "audioUploadError": "Audio upload failed, please try again",
       "audioNone": "No Audio"
     },
     "submit": {

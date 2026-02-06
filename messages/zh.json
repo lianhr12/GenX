@@ -2213,6 +2213,13 @@
       "audio": "音频",
       "addAudio": "添加音频",
       "audioGenerate": "自动生成音频",
+      "audioUpload": "上传音频",
+      "audioUploading": "上传中...",
+      "audioUploaded": "音频已上传",
+      "audioReplace": "点击替换音频",
+      "audioUploadAction": "点击选择音频文件",
+      "audioUploadHint": "支持 MP3、WAV、AAC 格式，最大 10MB",
+      "audioUploadError": "音频上传失败，请重试",
       "audioNone": "无音频"
     },
     "submit": {

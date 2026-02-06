@@ -3,6 +3,13 @@
 // src/components/generator/core/CreatorParameterBar.tsx
 
 import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from '@/components/ui/dialog';
+import {
   Popover,
   PopoverContent,
   PopoverTrigger,
@@ -15,18 +22,22 @@ import {
 } from '@/components/ui/select';
 import { getModelConfig } from '@/config/video-credits';
 import { cn } from '@/lib/utils';
+import { uploadFileFromBrowser } from '@/storage/client';
 import {
   CheckIcon,
   ClockIcon,
   ImageIcon,
   ImagePlayIcon,
+  Loader2Icon,
   MoreHorizontalIcon,
   MusicIcon,
+  TrashIcon,
   TypeIcon,
+  UploadIcon,
   VideoIcon,
 } from 'lucide-react';
 import { useTranslations } from 'next-intl';
-import { useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { isImageMode, isVideoMode } from '../config/credits';
 import { defaultAspectRatios } from '../config/defaults';
 import { getModelById } from '../config/models';
@@ -66,11 +77,49 @@ export function CreatorParameterBar({
     duration,
     quality,
     generateAudio,
+    audioUrl,
     isGenerating,
   } = useCreatorState();
 
   const [videoSettingsOpen, setVideoSettingsOpen] = useState(false);
   const [audioSettingsOpen, setAudioSettingsOpen] = useState(false);
+  const [audioDialogOpen, setAudioDialogOpen] = useState(false);
+  const [audioUploading, setAudioUploading] = useState(false);
+  const [audioUploadError, setAudioUploadError] = useState<string | null>(null);
+  const [audioFileName, setAudioFileName] = useState<string | null>(null);
+  const audioInputRef = useRef<HTMLInputElement>(null);
+
+  const handleAudioFileSelect = useCallback(
+    async (e: React.ChangeEvent<HTMLInputElement>) => {
+      const file = e.target.files?.[0];
+      if (!file) return;
+
+      setAudioUploadError(null);
+      setAudioUploading(true);
+      try {
+        const result = await uploadFileFromBrowser(file, 'audio');
+        setParam('audioUrl', result.url);
+        setParam('generateAudio', false);
+        setAudioFileName(file.name);
+        setAudioDialogOpen(false);
+      } catch (err) {
+        setAudioUploadError(
+          err instanceof Error ? err.message : t('audioUploadError')
+        );
+      } finally {
+        setAudioUploading(false);
+        if (audioInputRef.current) {
+          audioInputRef.current.value = '';
+        }
+      }
+    },
+    [setParam, t]
+  );
+
+  const handleRemoveAudio = useCallback(() => {
+    setParam('audioUrl', null);
+    setAudioFileName(null);
+  }, [setParam]);
 
   const hasAspectRatio = useHasParameter(mode, 'aspectRatio');
   const hasDuration = useHasParameter(mode, 'duration');
@@ -143,6 +192,12 @@ export function CreatorParameterBar({
     if (!modelInfo?.supportsAudioGeneration && generateAudio) {
       setParam('generateAudio', false);
     }
+
+    // 如果模型不支持音频 URL，重置 audioUrl
+    if (!modelInfo?.supportsAudioUrl && audioUrl) {
+      setParam('audioUrl', null);
+      setAudioFileName(null);
+    }
   }, [
     model,
     availableAspectRatios,
@@ -152,7 +207,9 @@ export function CreatorParameterBar({
     duration,
     quality,
     generateAudio,
+    audioUrl,
     modelInfo?.supportsAudioGeneration,
+    modelInfo?.supportsAudioUrl,
     setParam,
     mode,
   ]);
@@ -553,80 +610,208 @@ export function CreatorParameterBar({
           </Select>
         )}
 
-        {/* Audio Settings Popover (仅在视频模式且模型支持音频生成时显示) */}
+        {/* Audio Settings Popover (视频模式且模型支持音频生成或音频 URL 时显示) */}
         {showAudio &&
           isVideoMode(mode) &&
-          modelInfo?.supportsAudioGeneration && (
-            <Popover
-              open={audioSettingsOpen}
-              onOpenChange={setAudioSettingsOpen}
-            >
-              <PopoverTrigger asChild disabled={isGenerating}>
-                <button
-                  type="button"
-                  className={cn(
-                    paramButtonClass,
-                    'gap-1.5',
-                    isGenerating && 'cursor-not-allowed opacity-50'
-                  )}
-                >
-                  <MusicIcon className="size-4" />
-                  <span>{t('audio')}</span>
-                </button>
-              </PopoverTrigger>
-              <PopoverContent
-                className="w-[200px] p-3"
-                align="start"
-                sideOffset={8}
+          (modelInfo?.supportsAudioGeneration ||
+            modelInfo?.supportsAudioUrl) && (
+            <>
+              <Popover
+                open={audioSettingsOpen}
+                onOpenChange={setAudioSettingsOpen}
               >
-                <div className="space-y-2">
-                  <div className="text-sm font-medium text-muted-foreground">
-                    {t('addAudio')}
-                  </div>
-                  <div className="space-y-1">
-                    {/* 自动生成音频选项 */}
-                    <button
-                      type="button"
-                      onClick={() => setParam('generateAudio', true)}
-                      className={cn(
-                        'flex w-full items-center gap-2 rounded-lg px-3 py-2 text-sm transition-colors',
-                        generateAudio ? 'bg-muted' : 'hover:bg-muted/50'
+                <PopoverTrigger asChild disabled={isGenerating}>
+                  <button
+                    type="button"
+                    className={cn(
+                      paramButtonClass,
+                      'gap-1.5',
+                      (generateAudio || audioUrl) &&
+                        'border-primary/50 bg-primary/10',
+                      isGenerating && 'cursor-not-allowed opacity-50'
+                    )}
+                  >
+                    <MusicIcon className="size-4" />
+                    <span>{t('audio')}</span>
+                  </button>
+                </PopoverTrigger>
+                <PopoverContent
+                  className="w-[220px] p-3"
+                  align="start"
+                  sideOffset={8}
+                >
+                  <div className="space-y-2">
+                    <div className="text-sm font-medium text-muted-foreground">
+                      {t('addAudio')}
+                    </div>
+                    <div className="space-y-1">
+                      {/* 自动生成音频选项 */}
+                      {modelInfo?.supportsAudioGeneration && (
+                        <button
+                          type="button"
+                          onClick={() => {
+                            setParam('generateAudio', true);
+                            setParam('audioUrl', null);
+                            setAudioFileName(null);
+                          }}
+                          className={cn(
+                            'flex w-full items-center gap-2 rounded-lg px-3 py-2 text-sm transition-colors',
+                            generateAudio && !audioUrl
+                              ? 'bg-muted'
+                              : 'hover:bg-muted/50'
+                          )}
+                        >
+                          <div
+                            className={cn(
+                              'flex size-4 items-center justify-center rounded-full border-2',
+                              generateAudio && !audioUrl
+                                ? 'border-primary bg-primary'
+                                : 'border-muted-foreground'
+                            )}
+                          >
+                            {generateAudio && !audioUrl && (
+                              <div className="size-2 rounded-full bg-primary-foreground" />
+                            )}
+                          </div>
+                          <span>{t('audioGenerate')}</span>
+                        </button>
                       )}
-                    >
-                      <div
+                      {/* 上传音频选项 */}
+                      {modelInfo?.supportsAudioUrl && (
+                        <button
+                          type="button"
+                          onClick={() => {
+                            setAudioSettingsOpen(false);
+                            setAudioDialogOpen(true);
+                          }}
+                          className={cn(
+                            'flex w-full items-center gap-2 rounded-lg px-3 py-2 text-sm transition-colors',
+                            audioUrl ? 'bg-muted' : 'hover:bg-muted/50'
+                          )}
+                        >
+                          <div
+                            className={cn(
+                              'flex size-4 items-center justify-center rounded-full border-2',
+                              audioUrl
+                                ? 'border-primary bg-primary'
+                                : 'border-muted-foreground'
+                            )}
+                          >
+                            {audioUrl && (
+                              <div className="size-2 rounded-full bg-primary-foreground" />
+                            )}
+                          </div>
+                          <span>{t('audioUpload')}</span>
+                        </button>
+                      )}
+                      {/* 无音频选项 */}
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setParam('generateAudio', false);
+                          setParam('audioUrl', null);
+                          setAudioFileName(null);
+                        }}
                         className={cn(
-                          'flex size-4 items-center justify-center rounded-full border-2',
-                          generateAudio
-                            ? 'border-primary bg-primary'
-                            : 'border-muted-foreground'
+                          'flex w-full items-center gap-2 rounded-lg px-3 py-2 text-sm transition-colors',
+                          !generateAudio && !audioUrl
+                            ? 'bg-muted'
+                            : 'hover:bg-muted/50'
                         )}
                       >
-                        {generateAudio && (
-                          <div className="size-2 rounded-full bg-primary-foreground" />
-                        )}
+                        <div
+                          className={cn(
+                            'flex size-4 items-center justify-center rounded-full border-2',
+                            !generateAudio && !audioUrl
+                              ? 'border-primary bg-primary'
+                              : 'border-muted-foreground'
+                          )}
+                        >
+                          {!generateAudio && !audioUrl && (
+                            <div className="size-2 rounded-full bg-primary-foreground" />
+                          )}
+                        </div>
+                        <span>{t('audioNone')}</span>
+                      </button>
+                    </div>
+                  </div>
+                </PopoverContent>
+              </Popover>
+
+              {/* 音频上传 Dialog */}
+              <Dialog open={audioDialogOpen} onOpenChange={setAudioDialogOpen}>
+                <DialogContent
+                  onInteractOutside={(e) => e.preventDefault()}
+                  onEscapeKeyDown={(e) => {
+                    if (audioUploading) e.preventDefault();
+                  }}
+                  className="sm:max-w-md"
+                >
+                  <DialogHeader>
+                    <DialogTitle>{t('audioUpload')}</DialogTitle>
+                    <DialogDescription>
+                      {t('audioUploadHint')}
+                    </DialogDescription>
+                  </DialogHeader>
+                  <div className="space-y-4">
+                    {/* 已上传音频信息 */}
+                    {audioUrl && (
+                      <div className="flex items-center justify-between rounded-lg border bg-muted/50 p-3">
+                        <div className="flex items-center gap-2 truncate">
+                          <MusicIcon className="size-4 shrink-0 text-primary" />
+                          <span className="truncate text-sm">
+                            {audioFileName || t('audioUploaded')}
+                          </span>
+                        </div>
+                        <button
+                          type="button"
+                          onClick={handleRemoveAudio}
+                          className="ml-2 shrink-0 rounded-md p-1 text-muted-foreground hover:bg-destructive/10 hover:text-destructive"
+                        >
+                          <TrashIcon className="size-4" />
+                        </button>
                       </div>
-                      <span>{t('audioGenerate')}</span>
-                    </button>
-                    {/* 无音频选项 */}
-                    <button
-                      type="button"
-                      onClick={() => setParam('generateAudio', false)}
+                    )}
+
+                    {/* 上传区域 */}
+                    <label
                       className={cn(
-                        'flex w-full items-center gap-2 rounded-lg px-3 py-2 text-sm transition-colors',
-                        !generateAudio ? 'bg-muted' : 'hover:bg-muted/50'
+                        'flex cursor-pointer flex-col items-center justify-center gap-2 rounded-lg border-2 border-dashed p-6 transition-colors hover:border-primary/50 hover:bg-muted/50',
+                        audioUploading && 'pointer-events-none opacity-50'
                       )}
                     >
-                      {!generateAudio ? (
-                        <CheckIcon className="size-4" />
+                      <input
+                        ref={audioInputRef}
+                        type="file"
+                        accept="audio/mpeg,audio/mp3,audio/wav,audio/x-wav,audio/mp4,audio/aac"
+                        className="hidden"
+                        onChange={handleAudioFileSelect}
+                        disabled={audioUploading}
+                      />
+                      {audioUploading ? (
+                        <Loader2Icon className="size-6 animate-spin text-muted-foreground" />
                       ) : (
-                        <div className="size-4" />
+                        <UploadIcon className="size-6 text-muted-foreground" />
                       )}
-                      <span>{t('audioNone')}</span>
-                    </button>
+                      <span className="text-sm text-muted-foreground">
+                        {audioUploading
+                          ? t('audioUploading')
+                          : audioUrl
+                            ? t('audioReplace')
+                            : t('audioUploadAction')}
+                      </span>
+                    </label>
+
+                    {/* 错误提示 */}
+                    {audioUploadError && (
+                      <p className="text-sm text-destructive">
+                        {audioUploadError}
+                      </p>
+                    )}
                   </div>
-                </div>
-              </PopoverContent>
-            </Popover>
+                </DialogContent>
+              </Dialog>
+            </>
           )}
 
         {/* More Options */}

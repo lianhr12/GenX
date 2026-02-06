@@ -31,6 +31,7 @@ export interface GenerationParams {
   // 音频参数
   audioType?: string;
   generateAudio?: boolean;
+  audioUrl?: string | null;
   // 输出数量（图片）
   outputNumber?: number;
   // 公开性
@@ -130,6 +131,7 @@ export interface CreatorState {
   outputNumber: number;
   isPublic: boolean;
   generateAudio: boolean;
+  audioUrl: string | null;
   isGenerating: boolean;
   generationProgress: number;
 }

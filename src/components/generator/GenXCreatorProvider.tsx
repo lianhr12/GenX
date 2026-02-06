@@ -95,6 +95,7 @@ function getNextState(
     outputNumber: nextState.outputNumber,
     isPublic: nextState.isPublic,
     generateAudio: nextState.generateAudio,
+    audioUrl: nextState.audioUrl,
   };
 }
 
@@ -145,6 +146,7 @@ export function GenXCreatorProvider({
         outputNumber: value.outputNumber ?? internalState.outputNumber,
         isPublic: value.isPublic ?? internalState.isPublic,
         generateAudio: value.generateAudio ?? internalState.generateAudio,
+        audioUrl: value.audioUrl ?? internalState.audioUrl,
       };
     }
     return internalState;

@@ -30,7 +30,17 @@ export async function POST(request: NextRequest) {
     }
 
     // Validate file type (optional, based on your requirements)
-    const allowedTypes = ['image/jpeg', 'image/png', 'image/webp'];
+    const allowedTypes = [
+      'image/jpeg',
+      'image/png',
+      'image/webp',
+      'audio/mpeg',
+      'audio/mp3',
+      'audio/wav',
+      'audio/x-wav',
+      'audio/mp4',
+      'audio/aac',
+    ];
     if (!allowedTypes.includes(file.type)) {
       console.log('uploadFile, file type not supported', file.type);
       return NextResponse.json(

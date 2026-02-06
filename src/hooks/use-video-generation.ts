@@ -16,6 +16,8 @@ interface GenerateVideoParams {
   aspectRatio?: string;
   quality?: string;
   imageUrl?: string;
+  audioUrl?: string;
+  generateAudio?: boolean;
 }
 
 export function useVideoGeneration(options: UseVideoGenerationOptions = {}) {

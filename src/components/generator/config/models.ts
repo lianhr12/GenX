@@ -25,6 +25,8 @@ export interface ModelInfo {
   supportedModes: CreatorMode[];
   /** 是否支持自动生成音频 */
   supportsAudioGeneration?: boolean;
+  /** 是否支持自定义音频 URL 输入 */
+  supportsAudioUrl?: boolean;
 }
 
 /** 模型提供商列表 */
@@ -125,6 +127,7 @@ export const modelConfigs: ModelInfo[] = [
     baseCredits: 26,
     isNew: true,
     supportedModes: ['text-to-video'],
+    supportsAudioUrl: true,
   },
   {
     id: 'wan2.5-text-to-video',
@@ -144,6 +147,7 @@ export const modelConfigs: ModelInfo[] = [
     baseCredits: 26,
     isNew: true,
     supportedModes: ['image-to-video'],
+    supportsAudioUrl: true,
   },
   {
     id: 'wan2.5-image-to-video',
@@ -266,6 +270,7 @@ export const modelConfigs: ModelInfo[] = [
     estimatedTime: 120,
     baseCredits: 12,
     supportedModes: ['reference-to-video'],
+    supportsAudioUrl: true,
   },
 
   // === Qwen 模型 ===

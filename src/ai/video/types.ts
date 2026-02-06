@@ -40,6 +40,8 @@ export interface VideoGenerationParams {
   callbackUrl?: string;
   modelParams?: ModelParams;
   cameraMotion?: CameraMotion; // Hailuo series specific
+  audioUrl?: string; // Custom audio URL for audio-driven generation
+  generateAudio?: boolean; // Auto generate audio
 }
 
 // Unified task response

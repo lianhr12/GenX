@@ -143,7 +143,7 @@ function CreatorContent({
           <CreatorParameterBar
             allowedModes={allowedModes}
             showModeSelector={showModeSelector}
-            showAudio={false}
+            showAudio
             showMoreOptions={false}
           />
           <CreatorSubmitButton
@@ -188,7 +188,7 @@ function CreatorContent({
           <CreatorParameterBar
             allowedModes={allowedModes}
             showModeSelector={showModeSelector}
-            showAudio={false}
+            showAudio
             showMoreOptions={false}
           />
           <CreatorSubmitButton

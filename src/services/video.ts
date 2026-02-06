@@ -181,6 +181,8 @@ export class VideoService {
         aspectRatio: params.aspectRatio,
         quality: params.quality,
         imageUrl: params.imageUrl,
+        audioUrl: params.audioUrl,
+        generateAudio: params.generateAudio,
         callbackUrl,
       });
 
