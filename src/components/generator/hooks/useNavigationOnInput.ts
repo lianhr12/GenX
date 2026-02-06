@@ -3,6 +3,7 @@
 // src/components/generator/hooks/useNavigationOnInput.ts
 
 import { generateImageAction } from '@/actions/generate-image';
+import { generateVideoAction } from '@/actions/generate-video';
 import { useCreatorNavigationStore } from '@/stores/creator-navigation-store';
 import { useRouter } from 'next/navigation';
 import { useCallback } from 'react';
@@ -155,6 +156,10 @@ export function useNavigationOnInput(
 
           const data = result.data.data;
 
+          if (!data) {
+            throw new Error('No data returned from server');
+          }
+
           // 保存任务 ID 和参数到 store
           setPendingParams(params);
           setPendingTaskId(data.imageUuid);
@@ -184,26 +189,72 @@ export function useNavigationOnInput(
           setIsSubmitting(false);
         }
       } else {
-        // 视频模式 - 暂时只跳转，不创建任务
-        setPendingParams(params);
+        // 视频模式 - 先创建任务再跳转
+        setIsSubmitting(true);
 
-        const targetRoute = getRouteForMode(state.mode);
-        const searchParams = new URLSearchParams();
-        if (params.prompt) {
-          searchParams.set('prompt', params.prompt);
+        try {
+          const result = await generateVideoAction({
+            prompt: params.prompt,
+            model: params.model,
+            duration: params.duration || 5,
+            aspectRatio: params.aspectRatio,
+            quality: params.quality,
+            generateAudio: params.generateAudio,
+            audioUrl: params.audioUrl ?? undefined,
+            isPublic: params.isPublic,
+          });
+
+          console.log('[Navigation] generateVideoAction result:', result);
+
+          // next-safe-action 返回格式: { data: { success, data/error }, serverError }
+          if (result?.serverError) {
+            throw new Error(
+              typeof result.serverError === 'string'
+                ? result.serverError
+                : 'Server error occurred'
+            );
+          }
+
+          if (!result?.data?.success) {
+            throw new Error(
+              result?.data?.error || 'Failed to start video generation'
+            );
+          }
+
+          const data = result.data.data;
+
+          if (!data) {
+            throw new Error('No data returned from server');
+          }
+
+          // 保存任务 ID 和参数到 store
+          setPendingParams(params);
+          setPendingTaskId(data.videoUuid);
+
+          // 获取目标路由并跳转
+          const targetRoute = getRouteForMode(state.mode);
+          const url = `${targetRoute}?taskId=${data.videoUuid}`;
+
+          console.log(
+            '[Navigation] Video task created, navigating to:',
+            url,
+            'taskId:',
+            data.videoUuid
+          );
+          router.push(url);
+
+          // 调用 onAfterNavigate 回调
+          onAfterNavigate?.(targetRoute);
+        } catch (error) {
+          console.error('Video generation failed:', error);
+          toast.error(
+            error instanceof Error ? error.message : '视频任务创建失败，请重试'
+          );
+          // 失败时不跳转
+          return;
+        } finally {
+          setIsSubmitting(false);
         }
-        if (params.model) {
-          searchParams.set('model', params.model);
-        }
-
-        const url = searchParams.toString()
-          ? `${targetRoute}?${searchParams.toString()}`
-          : targetRoute;
-
-        console.log('[Navigation] Navigating to:', url, 'with params:', params);
-        router.push(url);
-
-        onAfterNavigate?.(targetRoute);
       }
     } catch (error) {
       console.error('Navigation error:', error);

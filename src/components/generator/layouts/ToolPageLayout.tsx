@@ -6,6 +6,10 @@ import {
   generateImageAction,
   refreshImageStatusAction,
 } from '@/actions/generate-image';
+import {
+  generateVideoAction,
+  refreshVideoStatusAction,
+} from '@/actions/generate-video';
 import { useCreatorNavigationStore } from '@/stores/creator-navigation-store';
 import { useSearchParams } from 'next/navigation';
 import { Suspense, useCallback, useEffect, useRef, useState } from 'react';
@@ -71,6 +75,10 @@ function ToolPageLayoutInner({ mode, children }: ToolPageLayoutProps) {
 
         const status = result.data.data;
 
+        if (!status) {
+          throw new Error('No status data returned');
+        }
+
         if (status.status === 'COMPLETED' && status.imageUrls?.length) {
           setCurrentResult((prev) => ({
             ...prev!,
@@ -109,6 +117,75 @@ function ToolPageLayoutInner({ mode, children }: ToolPageLayoutProps) {
     []
   );
 
+  // Poll for video status
+  const pollVideoStatus = useCallback(
+    async (videoUuid: string, attempt = 0) => {
+      if (attempt >= MAX_POLL_ATTEMPTS) {
+        setIsGenerating(false);
+        toast.error('生成超时，请稍后重试');
+        return;
+      }
+
+      try {
+        const result = await refreshVideoStatusAction({ videoUuid });
+
+        // Handle server error
+        if (result?.serverError) {
+          throw new Error(
+            typeof result.serverError === 'string'
+              ? result.serverError
+              : 'Server error occurred'
+          );
+        }
+
+        if (!result?.data?.success) {
+          throw new Error(result?.data?.error || 'Failed to get status');
+        }
+
+        const status = result.data.data;
+
+        if (!status) {
+          throw new Error('No status data returned');
+        }
+
+        if (status.status === 'COMPLETED' && status.videoUrl) {
+          setCurrentResult((prev) => ({
+            ...prev!,
+            status: 'completed',
+            url: status.videoUrl!,
+            thumbnailUrl: status.videoUrl,
+          }));
+          setIsGenerating(false);
+          toast.success('视频生成完成！');
+          return;
+        }
+
+        if (status.status === 'FAILED') {
+          setCurrentResult((prev) => ({
+            ...prev!,
+            status: 'failed',
+            errorMessage: status.error,
+          }));
+          setIsGenerating(false);
+          toast.error(status.error || '生成失败');
+          return;
+        }
+
+        // Continue polling
+        pollTimeoutRef.current = setTimeout(() => {
+          pollVideoStatus(videoUuid, attempt + 1);
+        }, POLL_INTERVAL);
+      } catch (error) {
+        console.error('Poll video status error:', error);
+        // Continue polling on error
+        pollTimeoutRef.current = setTimeout(() => {
+          pollVideoStatus(videoUuid, attempt + 1);
+        }, POLL_INTERVAL);
+      }
+    },
+    []
+  );
+
   // 页面加载时，优先从 store 读取，否则从 URL 参数读取
   useEffect(() => {
     // 防止重复初始化
@@ -117,12 +194,18 @@ function ToolPageLayoutInner({ mode, children }: ToolPageLayoutProps) {
     }
     hasInitialized.current = true;
 
+    // 判断是图片还是视频模式
+    const isImageMode = mode === 'text-to-image' || mode === 'image-to-image';
+    const resultType = isImageMode ? 'image' : 'video';
+
     const { params: pending, taskId } = consumePendingData();
     console.log(
       '[ToolPageLayout] Consumed pending data:',
       pending,
       'taskId:',
-      taskId
+      taskId,
+      'mode:',
+      mode
     );
 
     // 如果有 taskId，说明任务已经创建，开始轮询
@@ -134,7 +217,7 @@ function ToolPageLayoutInner({ mode, children }: ToolPageLayoutProps) {
       // 设置初始结果状态
       const initialResult: GenerationResult = {
         id: taskId,
-        type: 'image',
+        type: resultType,
         url: '',
         prompt: pending.prompt || '',
         model: pending.model || '',
@@ -146,8 +229,12 @@ function ToolPageLayoutInner({ mode, children }: ToolPageLayoutProps) {
       };
       setCurrentResult(initialResult);
 
-      // 开始轮询状态
-      pollImageStatus(taskId);
+      // 根据模式开始轮询状态
+      if (isImageMode) {
+        pollImageStatus(taskId);
+      } else {
+        pollVideoStatus(taskId);
+      }
       return;
     }
 
@@ -173,7 +260,7 @@ function ToolPageLayoutInner({ mode, children }: ToolPageLayoutProps) {
       setIsGenerating(true);
       const initialResult: GenerationResult = {
         id: taskIdFromUrl,
-        type: 'image',
+        type: resultType,
         url: '',
         prompt: prompt || '',
         model: model || '',
@@ -182,7 +269,13 @@ function ToolPageLayoutInner({ mode, children }: ToolPageLayoutProps) {
         status: 'processing',
       };
       setCurrentResult(initialResult);
-      pollImageStatus(taskIdFromUrl);
+
+      // 根据模式开始轮询状态
+      if (isImageMode) {
+        pollImageStatus(taskIdFromUrl);
+      } else {
+        pollVideoStatus(taskIdFromUrl);
+      }
     }
 
     if (prompt || sourceImage || referenceImage) {
@@ -198,7 +291,13 @@ function ToolPageLayoutInner({ mode, children }: ToolPageLayoutProps) {
 
     // 标记参数已准备好
     setIsParamsReady(true);
-  }, [searchParams, consumePendingData, mode, pollImageStatus]);
+  }, [
+    searchParams,
+    consumePendingData,
+    mode,
+    pollImageStatus,
+    pollVideoStatus,
+  ]);
 
   // 组件卸载时清理
   useEffect(() => {
@@ -279,6 +378,10 @@ function ToolPageLayoutInner({ mode, children }: ToolPageLayoutProps) {
 
           const data = result.data.data;
 
+          if (!data) {
+            throw new Error('No data returned from server');
+          }
+
           // Set initial result
           const initialResult: GenerationResult = {
             id: data.imageUuid,
@@ -299,9 +402,58 @@ function ToolPageLayoutInner({ mode, children }: ToolPageLayoutProps) {
           // Start polling for status
           pollImageStatus(data.imageUuid);
         } else {
-          // Video generation - TODO: implement video generation
-          toast.info('视频生成功能即将上线');
-          setIsGenerating(false);
+          // Video generation
+          const result = await generateVideoAction({
+            prompt: params.prompt,
+            model: params.model,
+            duration: params.duration || 5,
+            aspectRatio: params.aspectRatio,
+            quality: params.quality,
+            generateAudio: params.generateAudio,
+            audioUrl: params.audioUrl ?? undefined,
+            isPublic: params.isPublic,
+          });
+
+          // Handle server error
+          if (result?.serverError) {
+            throw new Error(
+              typeof result.serverError === 'string'
+                ? result.serverError
+                : 'Server error occurred'
+            );
+          }
+
+          if (!result?.data?.success) {
+            throw new Error(
+              result?.data?.error || 'Failed to start video generation'
+            );
+          }
+
+          const data = result.data.data;
+
+          if (!data) {
+            throw new Error('No data returned from server');
+          }
+
+          // Set initial result
+          const initialResult: GenerationResult = {
+            id: data.videoUuid,
+            type: 'video',
+            url: '',
+            prompt: params.prompt,
+            model: params.model,
+            aspectRatio: params.aspectRatio,
+            quality: params.quality,
+            creditsUsed: data.creditsUsed,
+            createdAt: new Date(),
+            status: 'processing',
+          };
+
+          setCurrentResult(initialResult);
+          toast.info('视频生成中...');
+
+          // Start polling for status
+          pollVideoStatus(data.videoUuid);
         }
       } catch (error) {
         console.error('Generation failed:', error);
@@ -311,7 +463,7 @@ function ToolPageLayoutInner({ mode, children }: ToolPageLayoutProps) {
         );
       }
     },
-    [mode, pollImageStatus]
+    [mode, pollImageStatus, pollVideoStatus]
   );
 
   return (

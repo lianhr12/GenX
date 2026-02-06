@@ -27,7 +27,7 @@ export function getDefaultStateForMode(
   const baseState: Partial<CreatorState> = {
     mode,
     model: getDefaultModel(mode),
-    prompt: '',
+    // 注意：不要在这里设置 prompt，因为切换模式时应该保留用户输入的提示词
     generateAudio: false,
     audioUrl: null,
     isGenerating: false,
