@@ -109,10 +109,10 @@ const dashboardBanners = [
     badge: 'new',
   },
   {
-    id: 'ai-effects',
-    titleKey: 'aiEffects.title',
-    descriptionKey: 'aiEffects.description',
-    href: '/create/effects',
+    id: 'text-to-image',
+    titleKey: 'textToImage.title',
+    descriptionKey: 'textToImage.description',
+    href: '/create/text-to-image',
     gradient: 'from-orange-600 via-amber-500 to-yellow-500',
   },
 ];
@@ -233,7 +233,7 @@ export function UserDashboard({ initialCredits }: UserDashboardProps) {
 
         {/* Quick Start Card - CTA Style */}
         <LocaleLink
-          href="/create/image-to-video"
+          href="/create/text-to-video"
           className="group relative overflow-hidden rounded-2xl p-6 bg-gradient-to-br from-cyan-500 via-teal-500 to-emerald-500 text-white transition-all hover:shadow-xl hover:shadow-teal-500/25 hover:scale-[1.02]"
         >
           <div className="relative z-10">
@@ -268,7 +268,7 @@ export function UserDashboard({ initialCredits }: UserDashboardProps) {
             href="/create"
             className="flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground transition-colors"
           >
-            View All
+            {t('recentCreations.viewAll')}
             <ArrowRightIcon className="size-4" />
           </LocaleLink>
         </div>
@@ -314,7 +314,7 @@ export function UserDashboard({ initialCredits }: UserDashboardProps) {
       </section>
 
       {/* AI Tools Section */}
-      <section className="w-full">
+      {/* <section className="w-full">
         <div className="flex items-center justify-between mb-4">
           <h2 className="text-lg font-semibold">{t('quickActions.title')}</h2>
           <LocaleLink
@@ -392,7 +392,7 @@ export function UserDashboard({ initialCredits }: UserDashboardProps) {
           </div>
           <ScrollBar orientation="horizontal" />
         </ScrollArea>
-      </section>
+      </section> */}
 
       {/* Recent Creations */}
       <section className="w-full">

@@ -2117,9 +2117,9 @@
         "title": "文字转视频",
         "description": "描述您的想法，看着它变为现实"
       },
-      "aiEffects": {
-        "title": "AI 特效",
-        "description": "为您的视频添加惊艳的视觉效果"
+      "textToImage": {
+        "title": "文生图",
+        "description": "通过文字描述生成精美图片"
       },
       "videoExtend": {
         "title": "视频延长",

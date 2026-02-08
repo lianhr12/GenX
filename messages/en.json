@@ -2117,9 +2117,9 @@
         "title": "Text to Video",
         "description": "Describe your vision and watch it come to life"
       },
-      "aiEffects": {
-        "title": "AI Effects",
-        "description": "Add stunning visual effects to your videos"
+      "textToImage": {
+        "title": "Text to Image",
+        "description": "Generate stunning images from your text descriptions"
       },
       "videoExtend": {
         "title": "Video Extend",

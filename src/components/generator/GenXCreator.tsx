@@ -24,6 +24,7 @@ import { ImageToVideoPanel } from './panels/ImageToVideoPanel';
 import { ReferenceToVideoPanel } from './panels/ReferenceToVideoPanel';
 import { TextToImagePanel } from './panels/TextToImagePanel';
 import { TextToVideoPanel } from './panels/TextToVideoPanel';
+import { PromptSuggestions } from './shared/PromptSuggestions';
 import { QuickStyles } from './shared/QuickStyles';
 import type { CreatorMode, CreatorState, GenXCreatorProps } from './types';
 
@@ -167,6 +168,9 @@ function CreatorContent({
             onBeforeNavigate={onBeforeNavigate}
             onAfterNavigate={onAfterNavigate}
           />
+
+          {/* Prompt 灵感建议 */}
+          <PromptSuggestions className="pt-2" />
 
           {/* 参数栏 + 提交按钮 */}
           <div className="flex flex-wrap items-center gap-2 pt-4">
