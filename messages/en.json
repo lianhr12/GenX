@@ -438,6 +438,16 @@
           "moreModels": "More Models"
         }
       },
+      "imageModels": {
+        "title": "Image Models",
+        "items": {
+          "gptImage": "GPT Image",
+          "seedream": "Seedream",
+          "nanobanana": "Nanobanana Pro",
+          "wanImage": "Wan 2.5 Image",
+          "moreModels": "More Models"
+        }
+      },
       "product": {
         "title": "Product",
         "items": {
@@ -458,18 +468,12 @@
           "roadmap": "Roadmap"
         }
       },
-      "company": {
+      "companyAndLegal": {
         "title": "Company",
         "items": {
           "about": "About",
           "contact": "Contact",
-          "waitlist": "Waitlist"
-        }
-      },
-      "legal": {
-        "title": "Legal",
-        "items": {
-          "cookiePolicy": "Cookie Policy",
+          "waitlist": "Waitlist",
           "privacyPolicy": "Privacy Policy",
           "termsOfService": "Terms of Service"
         }
@@ -3103,6 +3107,430 @@
         "2": {
           "title": "Generate Avatar Video",
           "description": "OmniHuman creates a realistic talking avatar with synced lip movements and natural body gestures."
+        }
+      }
+    },
+    "gptImage": {
+      "seo": {
+        "title": "GPT Image 1.5 AI Image Generator - Create Stunning Images | GenX",
+        "description": "Try GPT Image 1.5 by OpenAI, the most advanced AI image generator with superior text rendering, image editing, and multi-style support."
+      },
+      "tagline": "OpenAI's most advanced AI image generator with superior text rendering",
+      "description": "GPT Image 1.5 is OpenAI's latest image generation model that combines deep language understanding with stunning visual output. It excels at rendering text in images, complex scene composition, and precise prompt following across diverse artistic styles.",
+      "cta": "Try GPT Image Now",
+      "learnMore": "Learn More",
+      "features": {
+        "understanding": {
+          "title": "Deep Prompt Understanding",
+          "description": "GPT Image 1.5 leverages GPT's advanced language capabilities to understand complex, nuanced prompts. It accurately interprets detailed descriptions, spatial relationships, and abstract concepts to produce exactly what you envision."
+        },
+        "text": {
+          "title": "Superior Text Rendering",
+          "description": "Unlike most AI image generators, GPT Image excels at rendering text within images. Create logos, posters, memes, and designs with clean, readable typography that matches your specifications."
+        },
+        "editing": {
+          "title": "Intelligent Image Editing",
+          "description": "Beyond generation, GPT Image supports powerful image editing capabilities. Modify existing images with natural language instructions — change colors, add elements, adjust compositions, or transform styles."
+        },
+        "styles": {
+          "title": "Versatile Style Range",
+          "description": "From photorealistic renders to watercolor paintings, flat illustrations to 3D artwork — GPT Image handles an incredibly wide range of visual styles with consistent quality and artistic coherence."
+        }
+      },
+      "useCases": {
+        "marketing": {
+          "title": "Marketing & Ads",
+          "description": "Create eye-catching marketing visuals, social media graphics, and ad creatives with embedded text and brand-consistent imagery in seconds."
+        },
+        "social": {
+          "title": "Social Media Content",
+          "description": "Generate unique illustrations, memes, thumbnails, and profile graphics that stand out on any social platform."
+        },
+        "design": {
+          "title": "Design Prototyping",
+          "description": "Rapidly prototype UI mockups, product concepts, and visual designs with accurate text placement and layout control."
+        }
+      },
+      "faq": {
+        "what": {
+          "question": "What is GPT Image 1.5?",
+          "answer": "GPT Image 1.5 is OpenAI's latest AI image generation model. It combines GPT's language understanding with advanced image synthesis to create highly detailed, accurate images from text prompts."
+        },
+        "difference": {
+          "question": "What's the difference between GPT Image 1.5 and 1.5 Lite?",
+          "answer": "GPT Image 1.5 offers the highest quality output with HD support and advanced text rendering. The Lite version is faster and more affordable, ideal for quick iterations and simpler images."
+        },
+        "free": {
+          "question": "Is GPT Image free to use?",
+          "answer": "Yes. You can try GPT Image on GenX with free credits. No credit card required to get started."
+        },
+        "text": {
+          "question": "Can GPT Image render text in images?",
+          "answer": "Yes! GPT Image 1.5 is one of the best AI models for text rendering. It can create logos, posters, signs, and any image with clean, readable text."
+        }
+      },
+      "stats": {
+        "resolution": "Max Resolution",
+        "quality": "Quality Mode",
+        "speed": "Generation Speed",
+        "credits": "Starting Credits"
+      },
+      "showcase": {
+        "0": {
+          "title": "Photorealistic Portrait",
+          "description": "Lifelike portrait photography with natural lighting and skin textures"
+        },
+        "1": {
+          "title": "Logo with Text",
+          "description": "Clean logo design with perfectly rendered typography"
+        },
+        "2": {
+          "title": "Product Mockup",
+          "description": "Professional product photography with detailed textures"
+        },
+        "3": {
+          "title": "Digital Illustration",
+          "description": "Vibrant digital art in various illustration styles"
+        },
+        "4": {
+          "title": "Meme with Caption",
+          "description": "Creative memes with accurate text overlay"
+        },
+        "5": {
+          "title": "Architecture Concept",
+          "description": "Detailed architectural renders and interior designs"
+        }
+      },
+      "howToUse": {
+        "0": {
+          "title": "Describe Your Image",
+          "description": "Write a detailed prompt describing the image you want — include style, composition, colors, and any text to render."
+        },
+        "1": {
+          "title": "Choose Quality & Size",
+          "description": "Select between HD or standard quality, and pick the aspect ratio that fits your needs."
+        },
+        "2": {
+          "title": "Generate & Download",
+          "description": "GPT Image creates your image in seconds. Download in high resolution or generate variations."
+        }
+      }
+    },
+    "seedreamImage": {
+      "seo": {
+        "title": "Seedream 4.5 AI Image Generator - Ultra-High Quality Images | GenX",
+        "description": "Try Seedream 4.5 by ByteDance, featuring 2048px ultra-high resolution image generation with stunning aesthetic quality and multi-style support."
+      },
+      "tagline": "ByteDance's ultra-high resolution AI image generator",
+      "description": "Seedream 4.5 is ByteDance's latest image generation model delivering 2048px ultra-high resolution output. It features exceptional aesthetic quality, rich detail rendering, and versatile style support from photorealism to artistic illustration.",
+      "cta": "Try Seedream Now",
+      "learnMore": "Learn More",
+      "features": {
+        "resolution": {
+          "title": "2048px Ultra Resolution",
+          "description": "Seedream 4.5 generates images at up to 2048×2048 pixels natively, delivering exceptional detail and clarity. No upscaling needed — get print-ready quality directly from the model."
+        },
+        "aesthetic": {
+          "title": "Superior Aesthetic Quality",
+          "description": "Trained on carefully curated high-quality data, Seedream produces images with outstanding aesthetic appeal. Natural color harmony, balanced composition, and professional-grade visual quality in every output."
+        },
+        "prompt": {
+          "title": "Advanced Prompt Following",
+          "description": "Seedream excels at understanding complex prompts with multiple subjects, spatial relationships, and detailed descriptions. It faithfully translates your creative vision into stunning visuals."
+        },
+        "versatility": {
+          "title": "Multi-Style Versatility",
+          "description": "From photorealistic renders to anime, oil paintings to flat design — Seedream handles diverse artistic styles with remarkable consistency and quality across all genres."
+        }
+      },
+      "useCases": {
+        "art": {
+          "title": "Digital Art Creation",
+          "description": "Create stunning digital artworks, illustrations, and concept art with ultra-high resolution detail and professional aesthetic quality."
+        },
+        "product": {
+          "title": "Product Visualization",
+          "description": "Generate high-quality product renders, packaging mockups, and marketing visuals with realistic detail and lighting."
+        },
+        "illustration": {
+          "title": "Book & Editorial",
+          "description": "Produce beautiful illustrations for books, magazines, and editorial content with diverse artistic styles."
+        }
+      },
+      "faq": {
+        "what": {
+          "question": "What is Seedream 4.5?",
+          "answer": "Seedream 4.5 is ByteDance's latest AI image generation model. It produces ultra-high resolution images (2048px) with exceptional aesthetic quality and detail."
+        },
+        "difference": {
+          "question": "What's the difference between Seedream 4.5 and 4.0?",
+          "answer": "Seedream 4.5 offers improved quality, better prompt following, and enhanced detail rendering compared to 4.0. Both support 2048px output, but 4.5 delivers noticeably better results."
+        },
+        "free": {
+          "question": "Is Seedream free to use?",
+          "answer": "Yes. You can try Seedream on GenX with free credits. No credit card required to get started."
+        },
+        "quality": {
+          "question": "Why is Seedream's image quality so high?",
+          "answer": "Seedream is trained on carefully curated, high-quality datasets and uses advanced diffusion techniques to produce images with exceptional detail, color accuracy, and aesthetic appeal."
+        }
+      },
+      "stats": {
+        "resolution": "Max Resolution",
+        "quality": "Quality Level",
+        "speed": "Generation Speed",
+        "credits": "Starting Credits"
+      },
+      "showcase": {
+        "0": {
+          "title": "Cinematic Landscape",
+          "description": "Breathtaking landscape photography with ultra-high detail"
+        },
+        "1": {
+          "title": "Character Design",
+          "description": "Detailed character art with rich textures and personality"
+        },
+        "2": {
+          "title": "Abstract Art",
+          "description": "Vibrant abstract compositions with bold colors and forms"
+        },
+        "3": {
+          "title": "Food Photography",
+          "description": "Mouth-watering food visuals with realistic lighting"
+        },
+        "4": {
+          "title": "Fashion Editorial",
+          "description": "High-fashion imagery with professional styling and mood"
+        },
+        "5": {
+          "title": "Fantasy World",
+          "description": "Imaginative fantasy scenes with incredible depth and detail"
+        }
+      },
+      "howToUse": {
+        "0": {
+          "title": "Write Your Prompt",
+          "description": "Describe the image you want in detail — subject, style, lighting, mood, and composition."
+        },
+        "1": {
+          "title": "Select Settings",
+          "description": "Choose your preferred aspect ratio and quality level. Seedream supports multiple ratios for various use cases."
+        },
+        "2": {
+          "title": "Generate & Enjoy",
+          "description": "Seedream produces stunning 2048px images in about 10 seconds. Download and use immediately."
+        }
+      }
+    },
+    "nanobanana": {
+      "seo": {
+        "title": "Nanobanana Pro AI Image Generator - Premium Quality Images | GenX",
+        "description": "Try Nanobanana Pro powered by Google Gemini 3 Pro, delivering premium-quality AI image generation with exceptional photorealism and creative versatility."
+      },
+      "tagline": "Google Gemini-powered premium AI image generator",
+      "description": "Nanobanana Pro is powered by Google's Gemini 3 Pro model, delivering premium-quality AI image generation. It combines multimodal AI understanding with exceptional photorealism, creative versatility, and built-in safety features.",
+      "cta": "Try Nanobanana Pro Now",
+      "learnMore": "Learn More",
+      "features": {
+        "multimodal": {
+          "title": "Multimodal Intelligence",
+          "description": "Powered by Gemini 3 Pro's multimodal capabilities, Nanobanana Pro understands complex visual concepts, spatial relationships, and abstract ideas to generate images that precisely match your intent."
+        },
+        "photorealism": {
+          "title": "Exceptional Photorealism",
+          "description": "Generate stunningly photorealistic images with natural lighting, accurate shadows, and lifelike textures. Ideal for product photography, portraits, and any application demanding visual authenticity."
+        },
+        "reasoning": {
+          "title": "AI-Powered Reasoning",
+          "description": "Unlike simple diffusion models, Nanobanana Pro uses Gemini's reasoning capabilities to understand context, resolve ambiguities, and make intelligent creative decisions in image generation."
+        },
+        "safety": {
+          "title": "Built-in Safety",
+          "description": "Google's advanced safety filters ensure generated images are appropriate and responsible. Content moderation is built into the model for reliable, safe image generation."
+        }
+      },
+      "useCases": {
+        "creative": {
+          "title": "Creative Projects",
+          "description": "Bring your creative visions to life with premium quality — from concept art and storyboards to illustration and visual storytelling."
+        },
+        "professional": {
+          "title": "Professional Imagery",
+          "description": "Generate studio-quality product photos, corporate visuals, and professional headshots without expensive photo shoots."
+        },
+        "content": {
+          "title": "Content Creation",
+          "description": "Produce unique blog illustrations, website graphics, and presentation visuals that engage and captivate your audience."
+        }
+      },
+      "faq": {
+        "what": {
+          "question": "What is Nanobanana Pro?",
+          "answer": "Nanobanana Pro is a premium AI image generator powered by Google's Gemini 3 Pro model. It delivers exceptional image quality with advanced multimodal understanding."
+        },
+        "gemini": {
+          "question": "How is Nanobanana Pro related to Google Gemini?",
+          "answer": "Nanobanana Pro uses Google's Gemini 3 Pro model as its foundation, leveraging the same multimodal AI technology for superior image generation quality and prompt understanding."
+        },
+        "free": {
+          "question": "Is Nanobanana Pro free to use?",
+          "answer": "Yes. You can try Nanobanana Pro on GenX with free credits. No credit card required to get started."
+        },
+        "quality": {
+          "question": "Why is Nanobanana Pro a premium model?",
+          "answer": "Nanobanana Pro uses Google's latest Gemini 3 Pro model which requires more compute resources. The higher cost reflects the superior quality, photorealism, and reasoning capabilities."
+        }
+      },
+      "stats": {
+        "resolution": "Max Resolution",
+        "quality": "Quality Level",
+        "speed": "Generation Speed",
+        "credits": "Starting Credits"
+      },
+      "showcase": {
+        "0": {
+          "title": "Studio Portrait",
+          "description": "Professional portrait photography with perfect lighting"
+        },
+        "1": {
+          "title": "Nature Scene",
+          "description": "Breathtaking nature photography with vivid colors"
+        },
+        "2": {
+          "title": "Product Shot",
+          "description": "Clean product photography on seamless backgrounds"
+        },
+        "3": {
+          "title": "Concept Art",
+          "description": "Detailed concept art with rich world-building elements"
+        },
+        "4": {
+          "title": "Interior Design",
+          "description": "Realistic interior renders with natural lighting"
+        },
+        "5": {
+          "title": "Artistic Painting",
+          "description": "Beautiful paintings in classical and modern styles"
+        }
+      },
+      "howToUse": {
+        "0": {
+          "title": "Craft Your Prompt",
+          "description": "Write a detailed description of the image you want. Nanobanana Pro excels with rich, descriptive prompts."
+        },
+        "1": {
+          "title": "Choose Aspect Ratio",
+          "description": "Select the perfect aspect ratio for your needs — square, landscape, portrait, or custom dimensions."
+        },
+        "2": {
+          "title": "Generate Premium Image",
+          "description": "Nanobanana Pro delivers premium-quality images in about 12 seconds. Download and use for any project."
+        }
+      }
+    },
+    "wanImage": {
+      "seo": {
+        "title": "Wan 2.5 AI Image Generator - Bilingual Text-to-Image | GenX",
+        "description": "Try Wan 2.5 Image by Alibaba, featuring bilingual prompt support, fast generation, and high-quality image output across multiple aspect ratios."
+      },
+      "tagline": "Alibaba's fast and versatile bilingual AI image generator",
+      "description": "Wan 2.5 Image is Alibaba's text-to-image model from the Wan AI family. It features native bilingual support for English and Chinese prompts, fast generation speed, and high-quality output across multiple aspect ratios and artistic styles.",
+      "cta": "Try Wan 2.5 Image Now",
+      "learnMore": "Learn More",
+      "features": {
+        "bilingual": {
+          "title": "Native Bilingual Support",
+          "description": "Wan 2.5 Image natively understands both English and Chinese prompts without translation. Write in your preferred language and get equally high-quality results."
+        },
+        "diversity": {
+          "title": "Rich Style Diversity",
+          "description": "From realistic photography to anime, traditional Chinese painting to modern digital art — Wan 2.5 handles a wide spectrum of visual styles with impressive consistency and quality."
+        },
+        "ratio": {
+          "title": "Flexible Aspect Ratios",
+          "description": "Generate images in any popular aspect ratio — 1:1, 16:9, 9:16, 4:3, 3:4, and more. Perfect for social media posts, wallpapers, posters, and any creative format."
+        },
+        "efficiency": {
+          "title": "Fast & Efficient",
+          "description": "Wan 2.5 generates high-quality images in approximately 6 seconds, making it one of the fastest image models available. Ideal for rapid iteration and batch creation."
+        }
+      },
+      "useCases": {
+        "creative": {
+          "title": "Creative Exploration",
+          "description": "Quickly explore visual ideas with fast generation and bilingual prompts. Perfect for brainstorming, mood boards, and concept development."
+        },
+        "ecommerce": {
+          "title": "E-commerce Visuals",
+          "description": "Generate product images, lifestyle shots, and marketing visuals for online stores with consistent quality and fast turnaround."
+        },
+        "social": {
+          "title": "Social Media",
+          "description": "Create engaging social media content in any aspect ratio with bilingual support for global audiences."
+        }
+      },
+      "faq": {
+        "what": {
+          "question": "What is Wan 2.5 Image?",
+          "answer": "Wan 2.5 Image is Alibaba's text-to-image AI model from the Wan AI family. It specializes in fast, high-quality image generation with native bilingual support."
+        },
+        "bilingual": {
+          "question": "Does Wan 2.5 support Chinese prompts?",
+          "answer": "Yes! Wan 2.5 Image natively supports both English and Chinese prompts. You can write in either language and get high-quality results without any translation needed."
+        },
+        "free": {
+          "question": "Is Wan 2.5 Image free to use?",
+          "answer": "Yes. You can try Wan 2.5 Image on GenX with free credits. No credit card required to get started."
+        },
+        "video": {
+          "question": "Is Wan 2.5 Image related to Wan AI video?",
+          "answer": "Yes, both are part of Alibaba's Wan AI family. Wan 2.5 Image focuses on text-to-image generation, while Wan AI handles video generation. They share similar technology foundations."
+        }
+      },
+      "stats": {
+        "resolution": "Max Resolution",
+        "quality": "Quality Level",
+        "speed": "Generation Speed",
+        "credits": "Starting Credits"
+      },
+      "showcase": {
+        "0": {
+          "title": "Chinese Ink Painting",
+          "description": "Traditional Chinese ink wash painting with elegant brushwork"
+        },
+        "1": {
+          "title": "Urban Photography",
+          "description": "Vibrant cityscape photography with atmospheric lighting"
+        },
+        "2": {
+          "title": "Anime Character",
+          "description": "Detailed anime-style character art with expressive design"
+        },
+        "3": {
+          "title": "Still Life",
+          "description": "Classic still life composition with rich textures and colors"
+        },
+        "4": {
+          "title": "Sci-Fi Scene",
+          "description": "Futuristic science fiction imagery with detailed world-building"
+        },
+        "5": {
+          "title": "Watercolor Art",
+          "description": "Delicate watercolor paintings with soft blending and flow"
+        }
+      },
+      "howToUse": {
+        "0": {
+          "title": "Enter Your Prompt",
+          "description": "Describe your image in English or Chinese — Wan 2.5 understands both languages natively."
+        },
+        "1": {
+          "title": "Pick Aspect Ratio",
+          "description": "Choose the aspect ratio that fits your use case — square for social, widescreen for banners, portrait for stories."
+        },
+        "2": {
+          "title": "Generate Instantly",
+          "description": "Wan 2.5 creates your image in about 6 seconds. Download in high quality and use anywhere."
         }
       }
     }

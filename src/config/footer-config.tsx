@@ -62,6 +62,36 @@ export function useFooterLinks(): NestedMenuItem[] {
       ],
     },
     {
+      title: t('imageModels.title'),
+      items: [
+        {
+          title: t('imageModels.items.gptImage'),
+          href: '/models/gpt-image',
+          external: false,
+        },
+        {
+          title: t('imageModels.items.seedream'),
+          href: '/models/seedream',
+          external: false,
+        },
+        {
+          title: t('imageModels.items.nanobanana'),
+          href: '/models/nanobanana',
+          external: false,
+        },
+        {
+          title: t('imageModels.items.wanImage'),
+          href: '/models/wan-image',
+          external: false,
+        },
+        {
+          title: t('imageModels.items.moreModels'),
+          href: Routes.Models,
+          external: false,
+        },
+      ],
+    },
+    {
       title: t('product.title'),
       items: [
         {
@@ -130,40 +160,30 @@ export function useFooterLinks(): NestedMenuItem[] {
       ],
     },
     {
-      title: t('company.title'),
+      title: t('companyAndLegal.title'),
       items: [
         {
-          title: t('company.items.about'),
+          title: t('companyAndLegal.items.about'),
           href: Routes.About,
           external: false,
         },
         {
-          title: t('company.items.contact'),
+          title: t('companyAndLegal.items.contact'),
           href: Routes.Contact,
           external: false,
         },
         {
-          title: t('company.items.waitlist'),
+          title: t('companyAndLegal.items.waitlist'),
           href: Routes.Waitlist,
           external: false,
         },
-      ],
-    },
-    {
-      title: t('legal.title'),
-      items: [
         {
-          title: t('legal.items.cookiePolicy'),
-          href: Routes.CookiePolicy,
-          external: false,
-        },
-        {
-          title: t('legal.items.privacyPolicy'),
+          title: t('companyAndLegal.items.privacyPolicy'),
           href: Routes.PrivacyPolicy,
           external: false,
         },
         {
-          title: t('legal.items.termsOfService'),
+          title: t('companyAndLegal.items.termsOfService'),
           href: Routes.TermsOfService,
           external: false,
         },

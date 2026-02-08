@@ -438,6 +438,16 @@
           "moreModels": "更多模型"
         }
       },
+      "imageModels": {
+        "title": "图片模型",
+        "items": {
+          "gptImage": "GPT Image",
+          "seedream": "Seedream",
+          "nanobanana": "Nanobanana Pro",
+          "wanImage": "Wan 2.5 图片",
+          "moreModels": "更多模型"
+        }
+      },
       "product": {
         "title": "产品",
         "items": {
@@ -458,18 +468,12 @@
           "roadmap": "路线图"
         }
       },
-      "company": {
-        "title": "公司",
+      "companyAndLegal": {
+        "title": "关于",
         "items": {
           "about": "关于我们",
           "contact": "联系我们",
-          "waitlist": "邮件列表"
-        }
-      },
-      "legal": {
-        "title": "法律",
-        "items": {
-          "cookiePolicy": "Cookie政策",
+          "waitlist": "邮件列表",
           "privacyPolicy": "隐私政策",
           "termsOfService": "服务条款"
         }
@@ -3103,6 +3107,430 @@
         "2": {
           "title": "生成头像视频",
           "description": "OmniHuman 创建逼真的说话头像，唇部运动同步和自然身体手势。"
+        }
+      }
+    },
+    "gptImage": {
+      "seo": {
+        "title": "GPT Image 1.5 AI 图片生成器 - 创建精美图片 | GenX",
+        "description": "试用 OpenAI 的 GPT Image 1.5，最先进的 AI 图片生成器，拥有卓越的文字渲染、图片编辑和多风格支持。"
+      },
+      "tagline": "OpenAI 最先进的 AI 图片生成器，卓越的文字渲染能力",
+      "description": "GPT Image 1.5 是 OpenAI 最新的图片生成模型，将深度语言理解与令人惊叹的视觉输出相结合。它擅长在图片中渲染文字、复杂场景构图，以及在多种艺术风格中精准遵循提示词。",
+      "cta": "立即试用 GPT Image",
+      "learnMore": "了解更多",
+      "features": {
+        "understanding": {
+          "title": "深度提示词理解",
+          "description": "GPT Image 1.5 利用 GPT 先进的语言能力理解复杂、细腻的提示词。它能准确解读详细描述、空间关系和抽象概念，精确生成你构想的画面。"
+        },
+        "text": {
+          "title": "卓越的文字渲染",
+          "description": "与大多数 AI 图片生成器不同，GPT Image 擅长在图片中渲染文字。创建包含清晰可读字体的 Logo、海报、表情包和设计作品。"
+        },
+        "editing": {
+          "title": "智能图片编辑",
+          "description": "除了生成，GPT Image 还支持强大的图片编辑功能。用自然语言指令修改现有图片——改变颜色、添加元素、调整构图或转换风格。"
+        },
+        "styles": {
+          "title": "多样化风格",
+          "description": "从写实渲染到水彩画，从扁平插画到 3D 艺术——GPT Image 处理极其广泛的视觉风格，保持一致的质量和艺术连贯性。"
+        }
+      },
+      "useCases": {
+        "marketing": {
+          "title": "营销与广告",
+          "description": "在几秒钟内创建引人注目的营销视觉、社交媒体图形和广告创意，嵌入文字和品牌一致的图像。"
+        },
+        "social": {
+          "title": "社交媒体内容",
+          "description": "生成独特的插画、表情包、缩略图和头像图形，在任何社交平台上脱颖而出。"
+        },
+        "design": {
+          "title": "设计原型",
+          "description": "快速制作 UI 模型、产品概念和视觉设计原型，精准放置文字和控制布局。"
+        }
+      },
+      "faq": {
+        "what": {
+          "question": "什么是 GPT Image 1.5？",
+          "answer": "GPT Image 1.5 是 OpenAI 最新的 AI 图片生成模型。它将 GPT 的语言理解与先进的图像合成相结合，从文字提示创建高度详细、准确的图片。"
+        },
+        "difference": {
+          "question": "GPT Image 1.5 和 1.5 Lite 有什么区别？",
+          "answer": "GPT Image 1.5 提供最高质量输出，支持 HD 和高级文字渲染。Lite 版本更快更实惠，适合快速迭代和简单图片。"
+        },
+        "free": {
+          "question": "GPT Image 可以免费使用吗？",
+          "answer": "可以。您可以在 GenX 上使用免费积分试用 GPT Image，无需信用卡即可开始。"
+        },
+        "text": {
+          "question": "GPT Image 能在图片中渲染文字吗？",
+          "answer": "可以！GPT Image 1.5 是最擅长文字渲染的 AI 模型之一。它能创建包含清晰可读文字的 Logo、海报、标牌等各种图片。"
+        }
+      },
+      "stats": {
+        "resolution": "最高分辨率",
+        "quality": "质量模式",
+        "speed": "生成速度",
+        "credits": "起始积分"
+      },
+      "showcase": {
+        "0": {
+          "title": "写实人像",
+          "description": "具有自然光线和皮肤纹理的逼真人像摄影"
+        },
+        "1": {
+          "title": "文字 Logo",
+          "description": "清晰的 Logo 设计，完美渲染的字体排版"
+        },
+        "2": {
+          "title": "产品模型",
+          "description": "专业产品摄影，细节丰富的纹理"
+        },
+        "3": {
+          "title": "数字插画",
+          "description": "充满活力的数字艺术，多种插画风格"
+        },
+        "4": {
+          "title": "表情包文字",
+          "description": "创意表情包，精准文字叠加"
+        },
+        "5": {
+          "title": "建筑概念",
+          "description": "精细的建筑渲染和室内设计"
+        }
+      },
+      "howToUse": {
+        "0": {
+          "title": "描述你的图片",
+          "description": "写一段详细的提示词描述你想要的图片——包括风格、构图、颜色以及要渲染的文字。"
+        },
+        "1": {
+          "title": "选择质量和尺寸",
+          "description": "在 HD 或标准质量之间选择，并挑选适合你需求的宽高比。"
+        },
+        "2": {
+          "title": "生成并下载",
+          "description": "GPT Image 在几秒钟内创建你的图片。下载高分辨率版本或生成变体。"
+        }
+      }
+    },
+    "seedreamImage": {
+      "seo": {
+        "title": "Seedream 4.5 AI 图片生成器 - 超高画质图片 | GenX",
+        "description": "试用字节跳动的 Seedream 4.5，支持 2048px 超高分辨率图片生成，拥有惊人的美学品质和多风格支持。"
+      },
+      "tagline": "字节跳动超高分辨率 AI 图片生成器",
+      "description": "Seedream 4.5 是字节跳动最新的图片生成模型，可输出 2048px 超高分辨率图片。它具有卓越的美学品质、丰富的细节渲染和从写实到艺术插画的多种风格支持。",
+      "cta": "立即试用 Seedream",
+      "learnMore": "了解更多",
+      "features": {
+        "resolution": {
+          "title": "2048px 超高分辨率",
+          "description": "Seedream 4.5 原生生成高达 2048×2048 像素的图片，提供卓越的细节和清晰度。无需放大——直接从模型获得印刷级品质。"
+        },
+        "aesthetic": {
+          "title": "卓越美学品质",
+          "description": "基于精心策划的高质量数据训练，Seedream 生成具有出色美学吸引力的图片。自然色彩和谐、平衡构图和专业级视觉质量贯穿每一张输出。"
+        },
+        "prompt": {
+          "title": "先进的提示词遵循",
+          "description": "Seedream 擅长理解包含多个主体、空间关系和详细描述的复杂提示词。它忠实地将你的创意愿景转化为令人惊叹的视觉作品。"
+        },
+        "versatility": {
+          "title": "多风格适配",
+          "description": "从写实渲染到动漫，从油画到扁平设计——Seedream 以卓越的一致性和质量处理多种艺术风格。"
+        }
+      },
+      "useCases": {
+        "art": {
+          "title": "数字艺术创作",
+          "description": "用超高分辨率细节和专业美学品质创作令人惊叹的数字艺术品、插画和概念设计。"
+        },
+        "product": {
+          "title": "产品可视化",
+          "description": "生成高品质产品渲染图、包装模型和营销视觉，具有逼真的细节和光线效果。"
+        },
+        "illustration": {
+          "title": "书籍与编辑",
+          "description": "以多种艺术风格为书籍、杂志和编辑内容制作精美插画。"
+        }
+      },
+      "faq": {
+        "what": {
+          "question": "什么是 Seedream 4.5？",
+          "answer": "Seedream 4.5 是字节跳动最新的 AI 图片生成模型。它生成超高分辨率图片（2048px），拥有卓越的美学品质和细节。"
+        },
+        "difference": {
+          "question": "Seedream 4.5 和 4.0 有什么区别？",
+          "answer": "Seedream 4.5 相比 4.0 提供了更好的质量、更好的提示词遵循和增强的细节渲染。两者都支持 2048px 输出，但 4.5 的效果明显更好。"
+        },
+        "free": {
+          "question": "Seedream 可以免费使用吗？",
+          "answer": "可以。您可以在 GenX 上使用免费积分试用 Seedream，无需信用卡即可开始。"
+        },
+        "quality": {
+          "question": "为什么 Seedream 的图片质量这么高？",
+          "answer": "Seedream 基于精心策划的高质量数据集训练，并使用先进的扩散技术，生成具有卓越细节、色彩准确性和美学吸引力的图片。"
+        }
+      },
+      "stats": {
+        "resolution": "最高分辨率",
+        "quality": "质量等级",
+        "speed": "生成速度",
+        "credits": "起始积分"
+      },
+      "showcase": {
+        "0": {
+          "title": "电影级风景",
+          "description": "超高细节的令人叹为观止的风景摄影"
+        },
+        "1": {
+          "title": "角色设计",
+          "description": "丰富纹理和个性的精细角色艺术"
+        },
+        "2": {
+          "title": "抽象艺术",
+          "description": "大胆色彩和形式的活力抽象构图"
+        },
+        "3": {
+          "title": "美食摄影",
+          "description": "逼真光影效果的诱人食物视觉"
+        },
+        "4": {
+          "title": "时尚编辑",
+          "description": "专业造型和氛围的高端时尚图像"
+        },
+        "5": {
+          "title": "奇幻世界",
+          "description": "令人难以置信的深度和细节的奇幻场景"
+        }
+      },
+      "howToUse": {
+        "0": {
+          "title": "撰写提示词",
+          "description": "详细描述你想要的图片——主题、风格、光线、情绪和构图。"
+        },
+        "1": {
+          "title": "选择设置",
+          "description": "选择你偏好的宽高比和质量等级。Seedream 支持多种比例适配不同用途。"
+        },
+        "2": {
+          "title": "生成并欣赏",
+          "description": "Seedream 在约 10 秒内生成令人惊叹的 2048px 图片。立即下载使用。"
+        }
+      }
+    },
+    "nanobanana": {
+      "seo": {
+        "title": "Nanobanana Pro AI 图片生成器 - 高端品质图片 | GenX",
+        "description": "试用由 Google Gemini 3 Pro 驱动的 Nanobanana Pro，提供卓越的写实效果和创意多样性的高端 AI 图片生成。"
+      },
+      "tagline": "Google Gemini 驱动的高端 AI 图片生成器",
+      "description": "Nanobanana Pro 由 Google 的 Gemini 3 Pro 模型驱动，提供高端品质的 AI 图片生成。它将多模态 AI 理解与卓越的写实效果、创意多样性和内置安全功能相结合。",
+      "cta": "立即试用 Nanobanana Pro",
+      "learnMore": "了解更多",
+      "features": {
+        "multimodal": {
+          "title": "多模态智能",
+          "description": "依托 Gemini 3 Pro 的多模态能力，Nanobanana Pro 理解复杂的视觉概念、空间关系和抽象想法，生成精确匹配你意图的图片。"
+        },
+        "photorealism": {
+          "title": "卓越写实效果",
+          "description": "生成令人惊叹的写实图片，具有自然光照、准确阴影和逼真纹理。适合产品摄影、人像和任何需要视觉真实性的应用。"
+        },
+        "reasoning": {
+          "title": "AI 推理能力",
+          "description": "不同于简单的扩散模型，Nanobanana Pro 使用 Gemini 的推理能力来理解上下文、解决歧义，并在图片生成中做出智能创意决策。"
+        },
+        "safety": {
+          "title": "内置安全机制",
+          "description": "Google 的高级安全过滤器确保生成的图片适当且负责任。内容审核内置于模型中，保障可靠、安全的图片生成。"
+        }
+      },
+      "useCases": {
+        "creative": {
+          "title": "创意项目",
+          "description": "以高端品质将你的创意愿景变为现实——从概念艺术和故事板到插画和视觉叙事。"
+        },
+        "professional": {
+          "title": "专业图像",
+          "description": "无需昂贵的摄影棚，即可生成专业级产品照片、企业视觉和专业头像。"
+        },
+        "content": {
+          "title": "内容创作",
+          "description": "制作独特的博客插画、网站图形和演示视觉，吸引并打动你的受众。"
+        }
+      },
+      "faq": {
+        "what": {
+          "question": "什么是 Nanobanana Pro？",
+          "answer": "Nanobanana Pro 是由 Google Gemini 3 Pro 模型驱动的高端 AI 图片生成器。它凭借先进的多模态理解提供卓越的图片品质。"
+        },
+        "gemini": {
+          "question": "Nanobanana Pro 和 Google Gemini 是什么关系？",
+          "answer": "Nanobanana Pro 以 Google 的 Gemini 3 Pro 模型为基础，利用同样的多模态 AI 技术实现卓越的图片生成品质和提示词理解。"
+        },
+        "free": {
+          "question": "Nanobanana Pro 可以免费使用吗？",
+          "answer": "可以。您可以在 GenX 上使用免费积分试用 Nanobanana Pro，无需信用卡即可开始。"
+        },
+        "quality": {
+          "question": "为什么 Nanobanana Pro 是高端模型？",
+          "answer": "Nanobanana Pro 使用 Google 最新的 Gemini 3 Pro 模型，需要更多计算资源。更高的成本反映了其卓越的品质、写实效果和推理能力。"
+        }
+      },
+      "stats": {
+        "resolution": "最高分辨率",
+        "quality": "质量等级",
+        "speed": "生成速度",
+        "credits": "起始积分"
+      },
+      "showcase": {
+        "0": {
+          "title": "影棚人像",
+          "description": "完美光照的专业人像摄影"
+        },
+        "1": {
+          "title": "自然风光",
+          "description": "色彩鲜艳的令人叹为观止的自然摄影"
+        },
+        "2": {
+          "title": "产品拍摄",
+          "description": "无缝背景的干净产品摄影"
+        },
+        "3": {
+          "title": "概念设计",
+          "description": "丰富世界观元素的精细概念艺术"
+        },
+        "4": {
+          "title": "室内设计",
+          "description": "自然光照的逼真室内渲染"
+        },
+        "5": {
+          "title": "艺术绘画",
+          "description": "古典与现代风格的精美绘画"
+        }
+      },
+      "howToUse": {
+        "0": {
+          "title": "编写提示词",
+          "description": "详细描述你想要的图片。Nanobanana Pro 擅长处理丰富、描述性的提示词。"
+        },
+        "1": {
+          "title": "选择宽高比",
+          "description": "选择适合你需求的宽高比——方形、横屏、竖屏或自定义尺寸。"
+        },
+        "2": {
+          "title": "生成高端图片",
+          "description": "Nanobanana Pro 在约 12 秒内交付高端品质图片。下载并用于任何项目。"
+        }
+      }
+    },
+    "wanImage": {
+      "seo": {
+        "title": "Wan 2.5 AI 图片生成器 - 双语文生图 | GenX",
+        "description": "试用阿里巴巴的 Wan 2.5 图片生成器，支持中英双语提示词、快速生成和多种宽高比的高质量图片输出。"
+      },
+      "tagline": "阿里巴巴快速多能的双语 AI 图片生成器",
+      "description": "Wan 2.5 Image 是阿里巴巴 Wan AI 家族的文生图模型。它原生支持中英双语提示词，具有快速生成速度，在多种宽高比和艺术风格下提供高质量输出。",
+      "cta": "立即试用 Wan 2.5 图片",
+      "learnMore": "了解更多",
+      "features": {
+        "bilingual": {
+          "title": "原生双语支持",
+          "description": "Wan 2.5 Image 原生理解中文和英文提示词，无需翻译。用你喜欢的语言书写，获得同样高质量的结果。"
+        },
+        "diversity": {
+          "title": "丰富的风格多样性",
+          "description": "从写实摄影到动漫，从传统中国画到现代数字艺术——Wan 2.5 以出色的一致性和质量处理广泛的视觉风格。"
+        },
+        "ratio": {
+          "title": "灵活的宽高比",
+          "description": "以任何热门宽高比生成图片——1:1、16:9、9:16、4:3、3:4 等。适合社交媒体帖子、壁纸、海报等各种创意格式。"
+        },
+        "efficiency": {
+          "title": "快速高效",
+          "description": "Wan 2.5 在约 6 秒内生成高质量图片，是目前最快的图片模型之一。非常适合快速迭代和批量创作。"
+        }
+      },
+      "useCases": {
+        "creative": {
+          "title": "创意探索",
+          "description": "通过快速生成和双语提示词快速探索视觉想法。完美适合头脑风暴、情绪板和概念开发。"
+        },
+        "ecommerce": {
+          "title": "电商视觉",
+          "description": "为网店生成产品图片、生活方式照片和营销视觉，品质稳定、出图快速。"
+        },
+        "social": {
+          "title": "社交媒体",
+          "description": "以任何宽高比创建引人入胜的社交媒体内容，双语支持面向全球受众。"
+        }
+      },
+      "faq": {
+        "what": {
+          "question": "什么是 Wan 2.5 Image？",
+          "answer": "Wan 2.5 Image 是阿里巴巴 Wan AI 家族的文生图 AI 模型。它专注于快速、高质量的图片生成，并原生支持双语。"
+        },
+        "bilingual": {
+          "question": "Wan 2.5 支持中文提示词吗？",
+          "answer": "支持！Wan 2.5 Image 原生支持中文和英文提示词。你可以使用任何一种语言，无需翻译即可获得高质量结果。"
+        },
+        "free": {
+          "question": "Wan 2.5 Image 可以免费使用吗？",
+          "answer": "可以。您可以在 GenX 上使用免费积分试用 Wan 2.5 Image，无需信用卡即可开始。"
+        },
+        "video": {
+          "question": "Wan 2.5 Image 和 Wan AI 视频有关系吗？",
+          "answer": "是的，两者都属于阿里巴巴的 Wan AI 家族。Wan 2.5 Image 专注于文生图生成，而 Wan AI 处理视频生成。它们共享相似的技术基础。"
+        }
+      },
+      "stats": {
+        "resolution": "最高分辨率",
+        "quality": "质量等级",
+        "speed": "生成速度",
+        "credits": "起始积分"
+      },
+      "showcase": {
+        "0": {
+          "title": "中国水墨画",
+          "description": "优雅笔触的传统中国水墨画"
+        },
+        "1": {
+          "title": "城市摄影",
+          "description": "氛围感光线的活力都市风光"
+        },
+        "2": {
+          "title": "动漫角色",
+          "description": "富有表现力的精细动漫风格角色"
+        },
+        "3": {
+          "title": "静物写生",
+          "description": "丰富纹理和色彩的经典静物构图"
+        },
+        "4": {
+          "title": "科幻场景",
+          "description": "精细世界观构建的未来主义科幻图像"
+        },
+        "5": {
+          "title": "水彩艺术",
+          "description": "柔和晕染和流动感的精致水彩画"
+        }
+      },
+      "howToUse": {
+        "0": {
+          "title": "输入提示词",
+          "description": "用中文或英文描述你的图片——Wan 2.5 原生理解两种语言。"
+        },
+        "1": {
+          "title": "选择宽高比",
+          "description": "选择适合你用途的宽高比——方形适合社交、宽屏适合横幅、竖屏适合故事。"
+        },
+        "2": {
+          "title": "即时生成",
+          "description": "Wan 2.5 在约 6 秒内创建你的图片。下载高质量版本，随处使用。"
         }
       }
     }

@@ -93,6 +93,7 @@ function ModelSection({
 export function ModelListPage() {
   const t = useTranslations('ModelPage.list');
   const videoModels = getModelPagesByCategory('video');
+  const imageModels = getModelPagesByCategory('image');
   const digitalHumanModels = getModelPagesByCategory('digital-human');
 
   return (
@@ -111,6 +112,7 @@ export function ModelListPage() {
       </div>
 
       <ModelSection titleKey="videoModels" models={videoModels} />
+      <ModelSection titleKey="imageModels" models={imageModels} />
       <ModelSection titleKey="digitalHumanModels" models={digitalHumanModels} />
     </div>
   );

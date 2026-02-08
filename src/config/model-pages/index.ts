@@ -1,11 +1,15 @@
+import { gptImageConfig } from './gpt-image.config';
 import { hailuoConfig } from './hailuo.config';
 import { klingConfig } from './kling.config';
+import { nanobananaConfig } from './nanobanana.config';
 import { omnihumanConfig } from './omnihuman.config';
 import { seedanceConfig } from './seedance.config';
+import { seedreamConfig } from './seedream.config';
 import { sora2Config } from './sora-2.config';
 import type { ModelCategory, ModelPageConfig } from './types';
 import { veo3Config } from './veo-3.config';
 import { wanConfig } from './wan.config';
+import { wanImageConfig } from './wan-image.config';
 
 /** All model page configs */
 export const modelPageConfigs: ModelPageConfig[] = [
@@ -16,6 +20,10 @@ export const modelPageConfigs: ModelPageConfig[] = [
   seedanceConfig,
   wanConfig,
   omnihumanConfig,
+  gptImageConfig,
+  seedreamConfig,
+  nanobananaConfig,
+  wanImageConfig,
 ];
 
 /** Map from slug to config */
