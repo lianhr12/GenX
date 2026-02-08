@@ -1,5 +1,6 @@
 'use client';
 
+import { ReplicateButton } from '@/components/shared/replicate-button';
 import { AnimatedGroup } from '@/components/tailark/motion/animated-group';
 import { Button } from '@/components/ui/button';
 import { type ArtStyleUI, artStylesUI } from '@/config/art-styles-ui';
@@ -164,20 +165,31 @@ function StyleCard({
           {t(`styles.${style.id}.bestFor` as never)}
         </p>
         {/* CTA */}
-        <Button
-          asChild
-          variant="ghost"
-          size="sm"
-          className={cn(
-            'mt-3 w-full bg-gradient-to-r opacity-0 transition-all group-hover:opacity-100',
-            style.gradientColor,
-            'text-white hover:text-white'
-          )}
-        >
-          <LocaleLink href={`/create/image-to-video?style=${style.id}`}>
-            {t('createWith')}
-          </LocaleLink>
-        </Button>
+        <div className="mt-3 flex gap-2 opacity-0 transition-all group-hover:opacity-100">
+          <Button
+            asChild
+            variant="ghost"
+            size="sm"
+            className={cn(
+              'flex-1 bg-gradient-to-r',
+              style.gradientColor,
+              'text-white hover:text-white',
+            )}
+          >
+            <LocaleLink href={`/create/image-to-video?style=${style.id}`}>
+              {t('createWith')}
+            </LocaleLink>
+          </Button>
+          <ReplicateButton
+            data={{
+              artStyle: style.id,
+              mediaType: 'video',
+              targetMode: 'image-to-video',
+            }}
+            variant="button"
+            size="sm"
+          />
+        </div>
       </div>
     </motion.div>
   );

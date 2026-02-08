@@ -24,7 +24,7 @@ export const nanobananaConfig: ModelPageConfig = {
   descriptionKey: 'description',
   taglineKey: 'tagline',
   badges: ['new', 'pro'],
-  ctaLink: '/create/image?model=nanobanana-pro',
+  ctaLink: '/create/text-to-image?model=nanobanana-pro',
   supportedModes: ['text-to-image'],
   gradient: 'from-blue-600 via-indigo-500 to-violet-400',
   stats: [

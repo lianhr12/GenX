@@ -139,13 +139,15 @@ function CreatorContent({
         />
 
         {/* 参数栏 + 提交按钮 */}
-        <div className="flex items-center justify-between pt-4">
-          <CreatorParameterBar
-            allowedModes={allowedModes}
-            showModeSelector={showModeSelector}
-            showAudio
-            showMoreOptions={false}
-          />
+        <div className="flex flex-wrap items-center gap-2 pt-4">
+          <div className="min-w-0 flex-1 overflow-x-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+            <CreatorParameterBar
+              allowedModes={allowedModes}
+              showModeSelector={showModeSelector}
+              showAudio
+              showMoreOptions={false}
+            />
+          </div>
           <CreatorSubmitButton
             onGenerate={onGenerate}
             creditsConfig={creditsConfig}

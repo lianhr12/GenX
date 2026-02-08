@@ -25,6 +25,7 @@ const staticRoutes = [
   '/auth/login',
   '/auth/register',
   // Tool pages - important for SEO
+  '/create/text-to-image',
   '/create/image-to-video',
   '/create/text-to-video',
   '/create/reference-to-video',

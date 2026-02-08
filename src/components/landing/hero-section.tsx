@@ -1,12 +1,9 @@
 'use client';
 
-import { NumberTicker } from '@/components/magicui/number-ticker';
+import { GenXCreator } from '@/components/generator/GenXCreator';
 import { AnimatedGroup } from '@/components/tailark/motion/animated-group';
 import { TextEffect } from '@/components/tailark/motion/text-effect';
-import { Button } from '@/components/ui/button';
-import { LocaleLink } from '@/i18n/navigation';
 import { cn } from '@/lib/utils';
-import { Play, Sparkles, Upload } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 
@@ -149,10 +146,6 @@ export function HeroSection() {
     setIsVideoLoaded(true);
   }, []);
 
-  const scrollToGallery = () => {
-    document.getElementById('gallery')?.scrollIntoView({ behavior: 'smooth' });
-  };
-
   // Mark animation as complete after initial render
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -172,42 +165,6 @@ export function HeroSection() {
                 transition: {
                   staggerChildren: 0.05,
                   delayChildren: 0.8,
-                },
-              },
-            },
-            ...transitionVariants,
-          },
-    [hasAnimated]
-  );
-
-  const socialProofVariants = useMemo(
-    () =>
-      hasAnimated
-        ? { container: { visible: {} }, ...noAnimationVariants }
-        : {
-            container: {
-              visible: {
-                transition: {
-                  staggerChildren: 0.05,
-                  delayChildren: 1.2,
-                },
-              },
-            },
-            ...transitionVariants,
-          },
-    [hasAnimated]
-  );
-
-  const indicatorVariants = useMemo(
-    () =>
-      hasAnimated
-        ? { container: { visible: {} }, ...noAnimationVariants }
-        : {
-            container: {
-              visible: {
-                transition: {
-                  staggerChildren: 0.1,
-                  delayChildren: 1.5,
                 },
               },
             },
@@ -273,15 +230,15 @@ export function HeroSection() {
       </div>
 
       {/* Content */}
-      <div className="relative z-20 flex min-h-screen flex-col items-center justify-center px-4 py-20">
-        <div className="mx-auto max-w-5xl text-center">
+      <div className="relative z-20 flex min-h-screen flex-col items-center justify-center px-4 sm:px-6 py-20">
+        <div className="mx-auto w-full max-w-5xl text-center">
           {/* Headline */}
           <TextEffect
             per="word"
             preset="fade-in-blur"
             speedSegment={0.3}
             as="h1"
-            className="text-balance text-5xl font-bold tracking-tight md:text-6xl lg:text-7xl xl:text-8xl"
+            className="text-balance text-3xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl"
           >
             {t('headline')}
           </TextEffect>
@@ -293,77 +250,22 @@ export function HeroSection() {
             speedSegment={0.3}
             delay={0.5}
             as="p"
-            className="mx-auto mt-6 max-w-3xl text-balance text-lg text-muted-foreground md:text-xl lg:text-2xl"
+            className="mx-auto mt-4 max-w-3xl text-balance text-base text-muted-foreground sm:mt-6 sm:text-lg md:text-xl lg:text-2xl"
           >
             {t('subheadline')}
           </TextEffect>
 
-          {/* CTA Buttons */}
+          {/* GenXCreator - Embedded */}
           <AnimatedGroup
             variants={ctaVariants}
-            className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row"
+            className="mt-6 w-full max-w-4xl mx-auto sm:mt-10"
           >
-            {/* Primary CTA */}
-            <div className="rounded-[calc(var(--radius-xl)+0.125rem)] border bg-primary/10 p-0.5">
-              <Button
-                asChild
-                size="lg"
-                className="rounded-xl px-8 text-base font-semibold"
-              >
-                <LocaleLink href="/create/image-to-video">
-                  <Upload className="mr-2 h-5 w-5" />
-                  {t('cta.primary')}
-                </LocaleLink>
-              </Button>
-            </div>
-
-            {/* Secondary CTA */}
-            <Button
-              size="lg"
-              variant="outline"
-              className="rounded-xl px-8 text-base"
-              onClick={scrollToGallery}
-            >
-              <Play className="mr-2 h-5 w-5" />
-              {t('cta.secondary')}
-            </Button>
-          </AnimatedGroup>
-
-          {/* Social Proof Badge */}
-          <AnimatedGroup variants={socialProofVariants} className="mt-10">
-            <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-2 backdrop-blur-sm">
-              <Sparkles className="h-4 w-4 text-primary" />
-              <span className="text-sm text-muted-foreground">
-                <NumberTicker
-                  value={12847}
-                  className="font-semibold text-foreground"
-                />{' '}
-                {t('socialProof')}
-              </span>
-            </div>
-          </AnimatedGroup>
-
-          {/* Video Style Indicators */}
-          <AnimatedGroup
-            variants={indicatorVariants}
-            className="mt-8 flex items-center justify-center gap-2"
-          >
-            {artStyleVideos.map((video, index) => (
-              <button
-                key={video.id}
-                type="button"
-                onClick={() => handleVideoChange(index)}
-                disabled={isTransitioning}
-                className={cn(
-                  'h-2 w-2 rounded-full transition-all duration-300',
-                  index === currentVideoIndex
-                    ? 'w-8 bg-primary'
-                    : 'bg-muted-foreground/30 hover:bg-muted-foreground/50',
-                  isTransitioning && 'cursor-not-allowed opacity-50'
-                )}
-                aria-label={t('switchStyle', { style: video.id })}
-              />
-            ))}
+            <GenXCreator
+              compact
+              enableNavigation
+              showCredits={false}
+              className="backdrop-blur-md bg-card/80 border-white/10"
+            />
           </AnimatedGroup>
         </div>
       </div>

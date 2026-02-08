@@ -24,7 +24,7 @@ export const gptImageConfig: ModelPageConfig = {
   descriptionKey: 'description',
   taglineKey: 'tagline',
   badges: ['new', 'popular'],
-  ctaLink: '/create/image?model=gpt-image-1.5',
+  ctaLink: '/create/text-to-image?model=gpt-image-1.5',
   supportedModes: ['text-to-image', 'image-editing'],
   gradient: 'from-emerald-600 via-teal-500 to-cyan-400',
   stats: [

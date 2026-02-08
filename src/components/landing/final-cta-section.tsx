@@ -91,7 +91,7 @@ export function FinalCTASection() {
               size="lg"
               className="rounded-xl px-10 py-6 text-lg font-semibold shadow-lg shadow-primary/30"
             >
-              <LocaleLink href="/create/image-to-video">
+              <LocaleLink href="/create">
                 <Sparkles className="mr-2 h-5 w-5" />
                 {t('cta')}
               </LocaleLink>

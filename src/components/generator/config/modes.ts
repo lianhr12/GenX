@@ -133,7 +133,7 @@ export function getModeCreditsBase(mode: CreatorMode): number {
 export const modeRoutes: Record<CreatorMode, string> = {
   'text-to-video': '/create/text-to-video',
   'image-to-video': '/create/image-to-video',
-  'text-to-image': '/create/image',
+  'text-to-image': '/create/text-to-image',
   'image-to-image': '/create/image-to-image',
   'reference-to-video': '/create/reference-to-video',
   audio: '/create/audio',

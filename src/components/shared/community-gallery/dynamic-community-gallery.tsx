@@ -1,8 +1,8 @@
 'use client';
 
+import { ReplicateButton } from '@/components/shared/replicate-button';
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogTitle } from '@/components/ui/dialog';
-import { LocaleLink } from '@/i18n/navigation';
 import { cn } from '@/lib/utils';
 import * as VisuallyHidden from '@radix-ui/react-visually-hidden';
 import { Eye, Loader2, X } from 'lucide-react';
@@ -122,15 +122,18 @@ function GalleryModal({
             </div>
 
             <div className="mt-6">
-              <Button asChild className="w-full sm:w-auto">
-                <LocaleLink
-                  href={
-                    isImage ? '/create/text-to-image' : '/create/image-to-video'
-                  }
-                >
-                  {t('modal.createSimilar' as never)}
-                </LocaleLink>
-              </Button>
+              <ReplicateButton
+                data={{
+                  prompt: item.prompt,
+                  artStyle: item.artStyle,
+                  aspectRatio: item.aspectRatio,
+                  model: item.model,
+                  mediaType: item.mediaType || (isImage ? 'image' : 'video'),
+                }}
+                variant="button"
+                size="md"
+                className="w-full sm:w-auto"
+              />
             </div>
           </div>
         </div>

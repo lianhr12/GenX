@@ -44,6 +44,9 @@ function ToolPageLayoutInner({ mode, children }: ToolPageLayoutProps) {
   const consumePendingData = useCreatorNavigationStore(
     (state) => state.consumePendingData
   );
+  const consumeReplicateData = useCreatorNavigationStore(
+    (state) => state.consumeReplicateData
+  );
   const clearPending = useCreatorNavigationStore((state) => state.clearPending);
   const [initialParams, setInitialParams] =
     useState<Partial<GenerationParams> | null>(null);
@@ -198,6 +201,21 @@ function ToolPageLayoutInner({ mode, children }: ToolPageLayoutProps) {
     const isImageMode = mode === 'text-to-image' || mode === 'image-to-image';
     const resultType = isImageMode ? 'image' : 'video';
 
+    // 优先检查 replicateData（从复刻按钮传入）
+    const replicateData = consumeReplicateData();
+    if (replicateData) {
+      console.log('[ToolPageLayout] Consumed replicate data:', replicateData);
+      setInitialParams({
+        mode,
+        prompt: replicateData.prompt || '',
+        model: replicateData.model || undefined,
+        style: replicateData.artStyle || undefined,
+        aspectRatio: replicateData.aspectRatio || undefined,
+      });
+      setIsParamsReady(true);
+      return;
+    }
+
     const { params: pending, taskId } = consumePendingData();
     console.log(
       '[ToolPageLayout] Consumed pending data:',
@@ -294,6 +312,7 @@ function ToolPageLayoutInner({ mode, children }: ToolPageLayoutProps) {
   }, [
     searchParams,
     consumePendingData,
+    consumeReplicateData,
     mode,
     pollImageStatus,
     pollVideoStatus,

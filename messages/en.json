@@ -23,6 +23,7 @@
     "loading": "Loading...",
     "cancel": "Cancel",
     "logoutFailed": "Failed to log out",
+    "replicate": "Replicate Effect",
     "table": {
       "totalRecords": "Total {count} records",
       "noResults": "No results",

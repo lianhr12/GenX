@@ -144,7 +144,7 @@ export function WelcomeDialog() {
             className="w-full sm:w-auto"
             onClick={handleStartCreating}
           >
-            <LocaleLink href="/create/image-to-video">
+            <LocaleLink href="/create">
               {t('startButton')}
               <ArrowRight className="ml-2 h-4 w-4" />
             </LocaleLink>

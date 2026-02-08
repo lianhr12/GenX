@@ -23,6 +23,7 @@
     "loading": "加载中...",
     "cancel": "取消",
     "logoutFailed": "退出失败",
+    "replicate": "复刻效果",
     "table": {
       "totalRecords": "总共 {count} 条记录",
       "noResults": "无结果",

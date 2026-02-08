@@ -48,7 +48,7 @@ export enum Routes {
 
   // Create routes (AI tools)
   CreateText = '/create/text',
-  CreateImage = '/create/image',
+  CreateImage = '/create/text-to-image',
   CreateChat = '/create/chat',
   CreateVideo = '/create/video',
   CreateAudio = '/create/audio',

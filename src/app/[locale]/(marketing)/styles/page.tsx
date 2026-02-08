@@ -1,5 +1,6 @@
 'use client';
 
+import { ReplicateButton } from '@/components/shared/replicate-button';
 import { Button } from '@/components/ui/button';
 import { artStylesUI } from '@/config/art-styles-ui';
 import { LocaleLink } from '@/i18n/navigation';
@@ -92,6 +93,22 @@ function StyleCard({ style, index }: StyleCardProps) {
         </span>
       </div>
 
+      {/* Replicate button */}
+      <div
+        className={cn(
+          'absolute right-4 top-4 z-10 transition-opacity',
+          isHovered ? 'opacity-100' : 'opacity-0',
+        )}
+      >
+        <ReplicateButton
+          data={{
+            artStyle: style.id,
+            mediaType: 'video',
+            targetMode: 'image-to-video',
+          }}
+        />
+      </div>
+
       {/* Content Overlay */}
       <div className="absolute inset-0 flex flex-col justify-end p-6 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
         <h2 className="text-2xl font-bold text-white mb-2">
@@ -145,7 +162,7 @@ export default function StylesPage() {
             </p>
           </div>
           <Button asChild size="lg" className="whitespace-nowrap">
-            <LocaleLink href="/create/image-to-video">
+            <LocaleLink href="/create">
               {t('cta.button')}
             </LocaleLink>
           </Button>

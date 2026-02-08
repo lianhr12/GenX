@@ -142,7 +142,7 @@ export function PainPointsSection() {
                 {/* CTA */}
                 <div className="mt-8">
                   <Button asChild size="lg" className="w-full sm:w-auto">
-                    <LocaleLink href="/create/image-to-video">
+                    <LocaleLink href="/create">
                       {t('cta')}
                     </LocaleLink>
                   </Button>

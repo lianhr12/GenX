@@ -7,6 +7,15 @@ import type {
 } from '@/components/generator/types';
 import { create } from 'zustand';
 
+export interface ReplicateData {
+  prompt?: string;
+  artStyle?: string;
+  aspectRatio?: string;
+  model?: string;
+  mediaType?: 'video' | 'image';
+  targetMode?: import('@/components/generator/types').CreatorMode;
+}
+
 interface CreatorNavigationState {
   // 待传递的数据
   pendingParams: GenerationParams | null;
@@ -27,6 +36,9 @@ interface CreatorNavigationState {
   // 是否正在提交任务
   isSubmitting: boolean;
 
+  // 复刻效果数据
+  replicateData: ReplicateData | null;
+
   // Actions
   setPendingParams: (params: GenerationParams) => void;
   setPendingTaskId: (taskId: string) => void;
@@ -35,6 +47,8 @@ interface CreatorNavigationState {
   setIsUploading: (isUploading: boolean) => void;
   setIsSubmitting: (isSubmitting: boolean) => void;
   navigateToTool: (mode: CreatorMode) => void;
+  setReplicateData: (data: ReplicateData) => void;
+  consumeReplicateData: () => ReplicateData | null;
   clearPending: () => void;
   consumePendingData: () => {
     params: GenerationParams | null;
@@ -51,6 +65,7 @@ export const useCreatorNavigationStore = create<CreatorNavigationState>(
     targetRoute: null,
     isUploading: false,
     isSubmitting: false,
+    replicateData: null,
 
     setPendingParams: (params) => set({ pendingParams: params }),
 
@@ -68,6 +83,14 @@ export const useCreatorNavigationStore = create<CreatorNavigationState>(
       set({ targetRoute: modeRoutes[mode] });
     },
 
+    setReplicateData: (data) => set({ replicateData: data }),
+
+    consumeReplicateData: () => {
+      const data = get().replicateData;
+      set({ replicateData: null });
+      return data;
+    },
+
     clearPending: () =>
       set({
         pendingParams: null,
@@ -77,6 +100,7 @@ export const useCreatorNavigationStore = create<CreatorNavigationState>(
         targetRoute: null,
         isUploading: false,
         isSubmitting: false,
+        replicateData: null,
       }),
 
     // 消费并清除 pending 数据

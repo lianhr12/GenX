@@ -331,7 +331,7 @@ export function CreatorParameterBar({
   return (
     <div
       className={cn(
-        'flex items-center justify-between overflow-hidden',
+        'flex items-center justify-between',
         className
       )}
     >

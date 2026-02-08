@@ -205,7 +205,7 @@ export function GallerySection() {
               <LocaleLink href="/gallery">{t('loadMore')}</LocaleLink>
             </Button>
             <Button asChild size="lg" className="rounded-xl">
-              <LocaleLink href="/create/image-to-video">
+              <LocaleLink href="/create">
                 {t('createOwn')}
               </LocaleLink>
             </Button>
