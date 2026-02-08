@@ -14,7 +14,7 @@ export function useReplicateWatcher() {
   const { setMode, setState } = useCreatorState();
   const replicateData = useCreatorNavigationStore((s) => s.replicateData);
   const consumeReplicateData = useCreatorNavigationStore(
-    (s) => s.consumeReplicateData,
+    (s) => s.consumeReplicateData
   );
 
   useEffect(() => {

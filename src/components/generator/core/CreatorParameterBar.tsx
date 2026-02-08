@@ -14,13 +14,13 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from '@/components/ui/popover';
-import { Switch } from '@/components/ui/switch';
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
 } from '@/components/ui/select';
+import { Switch } from '@/components/ui/switch';
 import { getModelConfig } from '@/config/video-credits';
 import { cn } from '@/lib/utils';
 import { uploadFileFromBrowser } from '@/storage/client';
@@ -332,12 +332,7 @@ export function CreatorParameterBar({
     'focus-visible:ring-0 focus-visible:ring-offset-0 focus-visible:border-transparent';
 
   return (
-    <div
-      className={cn(
-        'flex items-center justify-between',
-        className
-      )}
-    >
+    <div className={cn('flex items-center justify-between', className)}>
       {/* Left side - Parameters */}
       <div className="flex h-9 origin-top items-center gap-1 transition-all duration-300 ease-in-out">
         {/* Creative Type Select (AI Video / AI Image) */}
@@ -830,11 +825,15 @@ export function CreatorParameterBar({
               className="w-72 p-0 bg-popover border border-border rounded-xl shadow-xl"
             >
               <div className="p-3 space-y-1">
-                <h4 className="text-sm font-medium px-1 pb-1">{t('moreOptions')}</h4>
+                <h4 className="text-sm font-medium px-1 pb-1">
+                  {t('moreOptions')}
+                </h4>
                 {/* 公开可见性 */}
                 <div className="flex items-center justify-between gap-3 rounded-lg p-2 hover:bg-muted/50 transition-colors">
                   <div className="flex-1 min-w-0">
-                    <p className="text-sm font-medium">{t('publicVisibility')}</p>
+                    <p className="text-sm font-medium">
+                      {t('publicVisibility')}
+                    </p>
                     <p className="text-xs text-muted-foreground leading-relaxed">
                       {t('publicVisibilityDesc')}
                     </p>
@@ -847,14 +846,18 @@ export function CreatorParameterBar({
                 {/* 版权保护 */}
                 <div className="flex items-center justify-between gap-3 rounded-lg p-2 hover:bg-muted/50 transition-colors">
                   <div className="flex-1 min-w-0">
-                    <p className="text-sm font-medium">{t('copyrightProtection')}</p>
+                    <p className="text-sm font-medium">
+                      {t('copyrightProtection')}
+                    </p>
                     <p className="text-xs text-muted-foreground leading-relaxed">
                       {t('copyrightProtectionDesc')}
                     </p>
                   </div>
                   <Switch
                     checked={hidePrompt}
-                    onCheckedChange={(checked) => setParam('hidePrompt', checked)}
+                    onCheckedChange={(checked) =>
+                      setParam('hidePrompt', checked)
+                    }
                   />
                 </div>
               </div>

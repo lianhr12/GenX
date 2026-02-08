@@ -1,10 +1,10 @@
 'use client';
 
 import { ReplicateButton } from '@/components/shared/replicate-button';
-import type { ReplicateData } from '@/stores/creator-navigation-store';
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogTitle } from '@/components/ui/dialog';
 import { cn } from '@/lib/utils';
+import type { ReplicateData } from '@/stores/creator-navigation-store';
 import * as VisuallyHidden from '@radix-ui/react-visually-hidden';
 import { Eye, Loader2, X } from 'lucide-react';
 import { useTranslations } from 'next-intl';

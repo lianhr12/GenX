@@ -31,6 +31,7 @@ const generateImageSchema = z.object({
 });
 
 // Supported models and their mappings based on Evolink API documentation
+// Keys include both Evolink IDs (used by Creator UI) and short names (used by Tool pages)
 const MODEL_CONFIGS: Record<
   string,
   {
@@ -39,7 +40,7 @@ const MODEL_CONFIGS: Record<
     supportedSizes: string[];
   }
 > = {
-  // GPT Image models
+  // GPT Image models (same ID in both formats)
   'gpt-image-1.5': {
     evolinkModel: 'gpt-image-1.5',
     defaultSize: '1024x1024',
@@ -64,7 +65,7 @@ const MODEL_CONFIGS: Record<
       '3:2',
     ],
   },
-  // Seedream models
+  // Seedream models - short names (Tool page)
   'seedream-4.5': {
     evolinkModel: 'doubao-seedream-4.5',
     defaultSize: '2048x2048',
@@ -75,17 +76,96 @@ const MODEL_CONFIGS: Record<
     defaultSize: '2048x2048',
     supportedSizes: ['1:1', '16:9', '9:16', '4:3', '3:4', '2:3', '3:2'],
   },
-  // Nanobanana models (using Gemini backend)
+  // Seedream models - Evolink IDs (Creator UI)
+  'doubao-seedream-4.5': {
+    evolinkModel: 'doubao-seedream-4.5',
+    defaultSize: '2048x2048',
+    supportedSizes: ['1:1', '16:9', '9:16', '4:3', '3:4', '2:3', '3:2'],
+  },
+  'doubao-seedream-4.0': {
+    evolinkModel: 'doubao-seedream-4.0',
+    defaultSize: '2048x2048',
+    supportedSizes: ['1:1', '16:9', '9:16', '4:3', '3:4', '2:3', '3:2'],
+  },
+  // Nanobanana Pro - short name (Tool page)
   'nanobanana-pro': {
     evolinkModel: 'gemini-3-pro-image-preview',
     defaultSize: '1024x1024',
     supportedSizes: ['1:1', '16:9', '9:16', '4:3', '3:4', '2:3', '3:2'],
   },
-  // Wan2.5 text-to-image
+  // Nanobanana Pro - Evolink ID (Creator UI)
+  'gemini-3-pro-image-preview': {
+    evolinkModel: 'gemini-3-pro-image-preview',
+    defaultSize: '1024x1024',
+    supportedSizes: ['1:1', '16:9', '9:16', '4:3', '3:4', '2:3', '3:2'],
+  },
+  // Wan2.5 text-to-image - short name (Tool page)
   'wan2.5': {
     evolinkModel: 'wan2.5-text-to-image',
     defaultSize: '1280x1280',
     supportedSizes: ['1:1', '16:9', '9:16', '4:3', '3:4', '2:3', '3:2'],
+  },
+  // Wan2.5 text-to-image - Evolink ID (Creator UI)
+  'wan2.5-text-to-image': {
+    evolinkModel: 'wan2.5-text-to-image',
+    defaultSize: '1280x1280',
+    supportedSizes: ['1:1', '16:9', '9:16', '4:3', '3:4', '2:3', '3:2'],
+  },
+  // Nano Banana (Gemini 2.5 Flash)
+  'gemini-2.5-flash-image': {
+    evolinkModel: 'gemini-2.5-flash-image',
+    defaultSize: '1024x1024',
+    supportedSizes: ['1:1', '2:3', '3:2', '4:3', '3:4', '16:9', '9:16'],
+  },
+  // Nano Banana Pro Lite
+  'nano-banana-2-lite': {
+    evolinkModel: 'nano-banana-2-lite',
+    defaultSize: '1024x1024',
+    supportedSizes: [
+      '1:1',
+      '2:3',
+      '3:2',
+      '3:4',
+      '4:3',
+      '4:5',
+      '5:4',
+      '9:16',
+      '16:9',
+      '21:9',
+    ],
+  },
+  // Z Image Turbo (Tongyi Lab)
+  'z-image-turbo': {
+    evolinkModel: 'z-image-turbo',
+    defaultSize: '1024x1024',
+    supportedSizes: [
+      '1:1',
+      '2:3',
+      '3:2',
+      '3:4',
+      '4:3',
+      '9:16',
+      '16:9',
+      '1:2',
+      '2:1',
+    ],
+  },
+  // Wan2.5 image-to-image
+  'wan2.5-image-to-image': {
+    evolinkModel: 'wan2.5-image-to-image',
+    defaultSize: '1280x1280',
+    supportedSizes: ['1:1', '16:9', '9:16', '4:3', '3:4', '2:3', '3:2'],
+  },
+  // Qwen image editing models
+  'qwen-image-edit': {
+    evolinkModel: 'qwen-image-edit',
+    defaultSize: '1024x1024',
+    supportedSizes: ['1:1'],
+  },
+  'qwen-image-edit-plus': {
+    evolinkModel: 'qwen-image-edit-plus',
+    defaultSize: '1024x1024',
+    supportedSizes: ['1:1'],
   },
 };
 

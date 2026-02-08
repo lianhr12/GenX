@@ -97,7 +97,7 @@ function StyleCard({ style, index }: StyleCardProps) {
       <div
         className={cn(
           'absolute right-4 top-4 z-10 transition-opacity',
-          isHovered ? 'opacity-100' : 'opacity-0',
+          isHovered ? 'opacity-100' : 'opacity-0'
         )}
       >
         <ReplicateButton
@@ -162,9 +162,7 @@ export default function StylesPage() {
             </p>
           </div>
           <Button asChild size="lg" className="whitespace-nowrap">
-            <LocaleLink href="/create">
-              {t('cta.button')}
-            </LocaleLink>
+            <LocaleLink href="/create">{t('cta.button')}</LocaleLink>
           </Button>
         </div>
       </div>

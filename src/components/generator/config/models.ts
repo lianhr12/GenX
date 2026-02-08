@@ -33,13 +33,19 @@ export interface ModelInfo {
 /** 模型提供商列表 */
 export const modelProviders: ModelProvider[] = [
   { id: 'openai', name: 'OpenAI', icon: '/images/models/openai.svg' },
-  { id: 'google', name: 'Google', icon: '/images/models/google.svg', isNew: true },
+  {
+    id: 'google',
+    name: 'Google',
+    icon: '/images/models/google.svg',
+    isNew: true,
+  },
   { id: 'wan', name: 'Wan AI', icon: '/images/models/wan.svg', isNew: true },
   { id: 'bytedance', name: 'ByteDance', icon: '/images/models/seedance.svg' },
   { id: 'kling', name: 'Kling AI', icon: '/images/models/kling.svg' },
   { id: 'minimax', name: 'MiniMax', icon: '/images/models/minimax.svg' },
   { id: 'omnihuman', name: 'OmniHuman', icon: '/images/models/omnihuman.svg' },
   { id: 'qwen', name: 'Qwen', icon: '/images/models/qwen.svg' },
+  { id: 'tongyi', name: 'Tongyi Lab', icon: '/images/models/wan.svg' },
 ];
 
 /** 所有模型配置 */
@@ -80,7 +86,7 @@ export const modelConfigs: ModelInfo[] = [
     providerId: 'openai',
     description: 'Fast and efficient image generation',
     estimatedTime: 8,
-    baseCredits: 2,
+    baseCredits: 4,
     supportedModes: ['text-to-image'],
   },
 
@@ -113,8 +119,26 @@ export const modelConfigs: ModelInfo[] = [
     providerId: 'google',
     description: 'Google multimodal image generation',
     estimatedTime: 20,
-    baseCredits: 5,
+    baseCredits: 10,
     isNew: true,
+    supportedModes: ['text-to-image'],
+  },
+  {
+    id: 'gemini-2.5-flash-image',
+    name: 'Nano Banana',
+    providerId: 'google',
+    description: 'Fast image generation powered by Gemini 2.5 Flash',
+    estimatedTime: 10,
+    baseCredits: 5,
+    supportedModes: ['text-to-image'],
+  },
+  {
+    id: 'nano-banana-2-lite',
+    name: 'Nano Banana Pro Lite',
+    providerId: 'google',
+    description: 'Cost-effective image generation with quality options',
+    estimatedTime: 15,
+    baseCredits: 8,
     supportedModes: ['text-to-image'],
   },
 
@@ -175,7 +199,7 @@ export const modelConfigs: ModelInfo[] = [
     providerId: 'wan',
     description: 'High-quality image generation',
     estimatedTime: 15,
-    baseCredits: 2,
+    baseCredits: 5,
     supportedModes: ['text-to-image'],
   },
 
@@ -186,7 +210,7 @@ export const modelConfigs: ModelInfo[] = [
     providerId: 'bytedance',
     description: 'ByteDance advanced image model',
     estimatedTime: 12,
-    baseCredits: 2,
+    baseCredits: 6,
     isNew: true,
     supportedModes: ['text-to-image'],
   },
@@ -196,7 +220,7 @@ export const modelConfigs: ModelInfo[] = [
     providerId: 'bytedance',
     description: 'Stable image generation model',
     estimatedTime: 10,
-    baseCredits: 2,
+    baseCredits: 5,
     supportedModes: ['text-to-image'],
   },
   {
@@ -293,6 +317,18 @@ export const modelConfigs: ModelInfo[] = [
     baseCredits: 1.5,
     isNew: true,
     supportedModes: ['image-to-image'],
+  },
+
+  // === Tongyi Lab 模型 ===
+  {
+    id: 'z-image-turbo',
+    name: 'Z Image Turbo',
+    providerId: 'tongyi',
+    description: 'Ultra-fast image generation by Tongyi Lab',
+    estimatedTime: 5,
+    baseCredits: 1,
+    isNew: true,
+    supportedModes: ['text-to-image'],
   },
 
   // === Wan AI Image-to-Image 模型 ===

@@ -1,6 +1,8 @@
 'use client';
 
+import { ReplicateButton } from '@/components/shared/replicate-button';
 import { cn } from '@/lib/utils';
+import type { ReplicateData } from '@/stores/creator-navigation-store';
 import {
   Download,
   EyeIcon,
@@ -14,8 +16,6 @@ import {
   ZoomIn,
 } from 'lucide-react';
 import { useState } from 'react';
-import { ReplicateButton } from '@/components/shared/replicate-button';
-import type { ReplicateData } from '@/stores/creator-navigation-store';
 
 export interface GalleryItemData {
   id: string | number;
@@ -365,7 +365,7 @@ export function GalleryVideoCard({
       <div
         className={cn(
           'absolute top-2 right-2 transition-opacity',
-          isHovered ? 'opacity-100' : 'opacity-0',
+          isHovered ? 'opacity-100' : 'opacity-0'
         )}
       >
         <ReplicateButton

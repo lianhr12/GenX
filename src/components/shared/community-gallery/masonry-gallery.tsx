@@ -1,9 +1,9 @@
 'use client';
 
+import type { ReplicateData } from '@/stores/creator-navigation-store';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import type { GalleryItemData } from './gallery-video-card';
 import { GalleryVideoCard } from './gallery-video-card';
-import type { ReplicateData } from '@/stores/creator-navigation-store';
 
 interface MasonryPosition {
   x: number;
@@ -127,7 +127,11 @@ export function MasonryGallery({
               animationFillMode: 'backwards',
             }}
           >
-            <GalleryVideoCard item={item} onClick={onItemClick} onReplicate={onReplicate} />
+            <GalleryVideoCard
+              item={item}
+              onClick={onItemClick}
+              onReplicate={onReplicate}
+            />
           </div>
         );
       })}

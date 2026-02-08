@@ -201,11 +201,7 @@ export function HeroSection() {
 
           {/* GenXCreator - Embedded */}
           <div className="mt-6 w-full max-w-4xl mx-auto sm:mt-10 animate-in fade-in slide-in-from-bottom-3 duration-700 delay-700 fill-mode-both">
-            <GenXCreator
-              compact
-              enableNavigation
-              showCredits={false}
-            />
+            <GenXCreator compact enableNavigation showCredits={false} />
           </div>
         </div>
       </div>

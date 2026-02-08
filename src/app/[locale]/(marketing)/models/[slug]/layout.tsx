@@ -21,7 +21,10 @@ export async function generateMetadata({
     return;
   }
 
-  const t = await getTranslations({ locale, namespace: config.i18nPrefix as never });
+  const t = await getTranslations({
+    locale,
+    namespace: config.i18nPrefix as never,
+  });
 
   return constructMetadata({
     title: t('seo.title' as never),

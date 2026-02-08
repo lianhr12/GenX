@@ -62,9 +62,7 @@ export default async function GalleryPage({
               {t('cta.description')}
             </p>
             <Button asChild size="lg">
-              <LocaleLink href="/create">
-                {t('cta.button')}
-              </LocaleLink>
+              <LocaleLink href="/create">{t('cta.button')}</LocaleLink>
             </Button>
           </div>
         </div>

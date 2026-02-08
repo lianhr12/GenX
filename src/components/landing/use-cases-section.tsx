@@ -257,9 +257,7 @@ export function UseCasesSection() {
 
                   <div className="mt-6">
                     <Button asChild className="w-full">
-                      <LocaleLink href="/create">
-                        {t('cta')}
-                      </LocaleLink>
+                      <LocaleLink href="/create">{t('cta')}</LocaleLink>
                     </Button>
                   </div>
                 </div>

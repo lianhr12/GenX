@@ -71,7 +71,12 @@ export const nanobananaConfig: ModelPageConfig = {
       speed: '~12s',
       quality: 'Best',
       startingCredits: 10,
-      features: ['text-to-image', 'premium-quality', 'photorealistic', 'multi-style'],
+      features: [
+        'text-to-image',
+        'premium-quality',
+        'photorealistic',
+        'multi-style',
+      ],
       recommended: true,
     },
   ],

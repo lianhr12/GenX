@@ -114,9 +114,7 @@ export function HowItWorksSection() {
             <p className="text-lg text-muted-foreground">{t('bottomText')}</p>
             <div className="mt-6">
               <Button asChild size="lg" className="rounded-xl px-8">
-                <LocaleLink href="/create">
-                  {t('cta')}
-                </LocaleLink>
+                <LocaleLink href="/create">{t('cta')}</LocaleLink>
               </Button>
             </div>
           </AnimatedGroup>

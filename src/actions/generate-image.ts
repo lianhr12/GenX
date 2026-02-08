@@ -17,6 +17,7 @@ const generateImageSchema = z.object({
 });
 
 // Model configurations
+// Keys include both Evolink IDs (used by Creator UI) and short names (used by Tool pages)
 const MODEL_CONFIGS: Record<
   string,
   {
@@ -24,6 +25,7 @@ const MODEL_CONFIGS: Record<
     defaultSize: string;
   }
 > = {
+  // GPT Image models (same ID in both formats)
   'gpt-image-1.5': {
     evolinkModel: 'gpt-image-1.5',
     defaultSize: '1024x1024',
@@ -32,6 +34,7 @@ const MODEL_CONFIGS: Record<
     evolinkModel: 'gpt-image-1.5-lite',
     defaultSize: '1024x1024',
   },
+  // Seedream models - short names (Tool page)
   'seedream-4.5': {
     evolinkModel: 'doubao-seedream-4.5',
     defaultSize: '2048x2048',
@@ -40,13 +43,63 @@ const MODEL_CONFIGS: Record<
     evolinkModel: 'doubao-seedream-4.0',
     defaultSize: '2048x2048',
   },
+  // Seedream models - Evolink IDs (Creator UI)
+  'doubao-seedream-4.5': {
+    evolinkModel: 'doubao-seedream-4.5',
+    defaultSize: '2048x2048',
+  },
+  'doubao-seedream-4.0': {
+    evolinkModel: 'doubao-seedream-4.0',
+    defaultSize: '2048x2048',
+  },
+  // Nanobanana Pro - short name (Tool page)
   'nanobanana-pro': {
     evolinkModel: 'gemini-3-pro-image-preview',
     defaultSize: '1024x1024',
   },
+  // Nanobanana Pro - Evolink ID (Creator UI)
+  'gemini-3-pro-image-preview': {
+    evolinkModel: 'gemini-3-pro-image-preview',
+    defaultSize: '1024x1024',
+  },
+  // Wan2.5 text-to-image - short name (Tool page)
   'wan2.5': {
     evolinkModel: 'wan2.5-text-to-image',
     defaultSize: '1280x1280',
+  },
+  // Wan2.5 text-to-image - Evolink ID (Creator UI)
+  'wan2.5-text-to-image': {
+    evolinkModel: 'wan2.5-text-to-image',
+    defaultSize: '1280x1280',
+  },
+  // Nano Banana (Gemini 2.5 Flash)
+  'gemini-2.5-flash-image': {
+    evolinkModel: 'gemini-2.5-flash-image',
+    defaultSize: '1024x1024',
+  },
+  // Nano Banana Pro Lite
+  'nano-banana-2-lite': {
+    evolinkModel: 'nano-banana-2-lite',
+    defaultSize: '1024x1024',
+  },
+  // Z Image Turbo (Tongyi Lab)
+  'z-image-turbo': {
+    evolinkModel: 'z-image-turbo',
+    defaultSize: '1024x1024',
+  },
+  // Wan2.5 image-to-image
+  'wan2.5-image-to-image': {
+    evolinkModel: 'wan2.5-image-to-image',
+    defaultSize: '1280x1280',
+  },
+  // Qwen image editing models
+  'qwen-image-edit': {
+    evolinkModel: 'qwen-image-edit',
+    defaultSize: '1024x1024',
+  },
+  'qwen-image-edit-plus': {
+    evolinkModel: 'qwen-image-edit-plus',
+    defaultSize: '1024x1024',
   },
 };
 
@@ -74,8 +127,15 @@ const ASPECT_RATIO_FALLBACK: Record<string, Record<string, string>> = {
 export const generateImageAction = userActionClient
   .schema(generateImageSchema)
   .action(async ({ parsedInput, ctx }) => {
-    const { prompt, model, aspectRatio, quality, numberOfImages, isPublic, hidePrompt } =
-      parsedInput;
+    const {
+      prompt,
+      model,
+      aspectRatio,
+      quality,
+      numberOfImages,
+      isPublic,
+      hidePrompt,
+    } = parsedInput;
     const currentUser = (ctx as { user: User }).user;
 
     try {

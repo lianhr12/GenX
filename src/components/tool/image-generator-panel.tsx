@@ -14,6 +14,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { PublicVisibilitySwitch } from '@/components/ui/public-visibility-switch';
+import { calculateImageCredits } from '@/config/image-credits';
 import type { ToolPageConfig } from '@/config/tool-pages';
 import { cn } from '@/lib/utils';
 import { ChevronDown, Sparkles, Wand2 } from 'lucide-react';
@@ -55,17 +56,6 @@ export interface ImageGeneratorData {
   isPublic: boolean;
 }
 
-// Credit calculation for Evolink image models
-const IMAGE_CREDITS: Record<string, number> = {
-  'gpt-image-1.5': 8,
-  'gpt-image-1.5-lite': 4,
-  'seedream-4.5': 6,
-  'seedream-4.0': 5,
-  'nanobanana-pro': 10,
-  'wan2.5': 5,
-  default: 5,
-};
-
 export function ImageGeneratorPanel({
   config,
   isLoading = false,
@@ -90,9 +80,10 @@ export function ImageGeneratorPanel({
   const [isPublic, setIsPublic] = useState(true);
 
   const estimatedCredits = useMemo(() => {
-    const baseCredits = IMAGE_CREDITS[selectedModel] || IMAGE_CREDITS.default;
-    const qualityMultiplier = quality === 'hd' ? 1.5 : 1;
-    return Math.ceil(baseCredits * qualityMultiplier * numberOfImages);
+    return calculateImageCredits(selectedModel, {
+      quality: quality === 'hd' ? 'hd' : undefined,
+      numberOfImages,
+    });
   }, [selectedModel, quality, numberOfImages]);
 
   const handleSubmit = useCallback(() => {

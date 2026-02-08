@@ -1,12 +1,12 @@
 'use client';
 
 import { ReplicateButton } from '@/components/shared/replicate-button';
-import type { ReplicateData } from '@/stores/creator-navigation-store';
 import { AnimatedGroup } from '@/components/tailark/motion/animated-group';
 import { Button } from '@/components/ui/button';
 import { type ArtStyleUI, artStylesUI } from '@/config/art-styles-ui';
 import { LocaleLink } from '@/i18n/navigation';
 import { cn } from '@/lib/utils';
+import type { ReplicateData } from '@/stores/creator-navigation-store';
 import { motion } from 'motion/react';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
@@ -165,22 +165,23 @@ function StyleCard({
               artStyle: style.id,
               mediaType: 'video',
               targetMode: 'image-to-video',
-              prompt: style.id === 'cyberpunk' 
-                ? 'A futuristic cityscape at night with flying cars'
-                : style.id === 'watercolor'
-                ? 'A peaceful landscape with mountains and a lake'
-                : style.id === 'oilPainting'
-                ? 'A portrait of a woman in renaissance style'
-                : style.id === 'anime'
-                ? 'A girl with flowing hair under cherry blossoms'
-                : 'Abstract colors flowing and mixing together',
+              prompt:
+                style.id === 'cyberpunk'
+                  ? 'A futuristic cityscape at night with flying cars'
+                  : style.id === 'watercolor'
+                    ? 'A peaceful landscape with mountains and a lake'
+                    : style.id === 'oilPainting'
+                      ? 'A portrait of a woman in renaissance style'
+                      : style.id === 'anime'
+                        ? 'A girl with flowing hair under cherry blossoms'
+                        : 'Abstract colors flowing and mixing together',
             }}
             variant="icon"
             size="sm"
             onReplicate={onReplicate}
           />
         </div>
-        
+
         <h3 className="text-lg font-semibold">
           {t(`styles.${style.id}.title` as never)}
         </h3>
@@ -199,7 +200,7 @@ function StyleCard({
             className={cn(
               'w-full bg-gradient-to-r',
               style.gradientColor,
-              'text-white hover:text-white',
+              'text-white hover:text-white'
             )}
           >
             <LocaleLink href={`/create/image-to-video?style=${style.id}`}>

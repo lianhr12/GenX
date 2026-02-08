@@ -37,10 +37,7 @@ function resolveTargetRoute(data: ReplicateData): string {
   if (mediaType === 'video') {
     if (model) {
       const lowerModel = model.toLowerCase();
-      if (
-        lowerModel.includes('image-to-video') ||
-        lowerModel.includes('i2v')
-      ) {
+      if (lowerModel.includes('image-to-video') || lowerModel.includes('i2v')) {
         return modeRoutes['image-to-video'];
       }
       if (
@@ -64,10 +61,7 @@ export function getTargetMode(data: ReplicateData): CreatorMode | null {
   if (mediaType === 'video') {
     if (model) {
       const lowerModel = model.toLowerCase();
-      if (
-        lowerModel.includes('image-to-video') ||
-        lowerModel.includes('i2v')
-      ) {
+      if (lowerModel.includes('image-to-video') || lowerModel.includes('i2v')) {
         return 'image-to-video';
       }
       if (
@@ -92,9 +86,7 @@ export function ReplicateButton({
 }: ReplicateButtonProps) {
   const t = useTranslations('Common');
   const router = useLocaleRouter();
-  const setReplicateData = useCreatorNavigationStore(
-    (s) => s.setReplicateData,
-  );
+  const setReplicateData = useCreatorNavigationStore((s) => s.setReplicateData);
 
   const handleReplicate = useCallback(
     (e: React.MouseEvent) => {
@@ -108,12 +100,11 @@ export function ReplicateButton({
         router.push(route);
       }
     },
-    [data, setReplicateData, onReplicate, router],
+    [data, setReplicateData, onReplicate, router]
   );
 
   const iconSize = size === 'sm' ? 'h-3.5 w-3.5' : 'h-4 w-4';
-  const btnSize =
-    size === 'sm' ? 'h-7 w-7' : 'h-8 w-8';
+  const btnSize = size === 'sm' ? 'h-7 w-7' : 'h-8 w-8';
 
   if (variant === 'icon') {
     return (
@@ -128,7 +119,7 @@ export function ReplicateButton({
               'hover:bg-primary hover:text-white',
               'transition-all duration-200',
               btnSize,
-              className,
+              className
             )}
             aria-label={t('replicate' as Parameters<typeof t>[0])}
           >
@@ -151,7 +142,7 @@ export function ReplicateButton({
         'bg-black/50 text-white text-sm backdrop-blur-sm',
         'hover:bg-primary hover:text-white',
         'transition-all duration-200',
-        className,
+        className
       )}
     >
       <Copy className={iconSize} />

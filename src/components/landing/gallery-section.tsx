@@ -214,9 +214,7 @@ export function GallerySection() {
               <LocaleLink href="/gallery">{t('loadMore')}</LocaleLink>
             </Button>
             <Button asChild size="lg" className="rounded-xl">
-              <LocaleLink href="/create">
-                {t('createOwn')}
-              </LocaleLink>
+              <LocaleLink href="/create">{t('createOwn')}</LocaleLink>
             </Button>
           </AnimatedGroup>
         </div>

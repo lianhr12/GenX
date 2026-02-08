@@ -7,10 +7,7 @@ import { Check, Sparkles } from 'lucide-react';
 import { motion } from 'motion/react';
 import { useTranslations } from 'next-intl';
 
-const trustBadges = [
-  { id: 'thirtySeconds' },
-  { id: 'instantDownload' },
-];
+const trustBadges = [{ id: 'thirtySeconds' }, { id: 'instantDownload' }];
 
 export function FinalCTASection() {
   const t = useTranslations('Landing.finalCta');

@@ -37,9 +37,7 @@ const features = [
   },
 ];
 
-const trustBadges = [
-  { id: 'noWatermark' },
-];
+const trustBadges = [{ id: 'noWatermark' }];
 
 export function WhyGenXSection() {
   const t = useTranslations('Landing.whyGenx');

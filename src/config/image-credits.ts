@@ -108,6 +108,96 @@ export const IMAGE_MODELS: Record<string, ImageModelConfig> = {
       hdMultiplier: 1.5,
     },
   },
+  // Wan2.5 image-to-image (Alibaba)
+  'wan2.5-image-to-image': {
+    id: 'wan2.5-image-to-image',
+    name: 'Wan 2.5 Image to Image',
+    description: 'Alibaba Wan 2.5 - Image editing and transformation',
+    supportedSizes: ['1:1', '16:9', '9:16', '4:3', '3:4', '2:3', '3:2'],
+    defaultSize: '1280x1280',
+    creditCost: {
+      base: 1.5,
+    },
+  },
+  // Nanobanana (Gemini 2.5 Flash backend)
+  'gemini-2.5-flash-image': {
+    id: 'gemini-2.5-flash-image',
+    name: 'Nano Banana',
+    description: 'Google Gemini 2.5 Flash - Fast image generation',
+    supportedSizes: ['1:1', '2:3', '3:2', '4:3', '3:4', '16:9', '9:16'],
+    defaultSize: '1024x1024',
+    creditCost: {
+      base: 5,
+      hdMultiplier: 1.5,
+    },
+  },
+  // Nanobanana Pro Lite (Google)
+  'nano-banana-2-lite': {
+    id: 'nano-banana-2-lite',
+    name: 'Nano Banana Pro Lite',
+    description:
+      'Google Nano Banana Pro Lite - Cost-effective image generation',
+    supportedSizes: [
+      '1:1',
+      '2:3',
+      '3:2',
+      '3:4',
+      '4:3',
+      '4:5',
+      '5:4',
+      '9:16',
+      '16:9',
+      '21:9',
+    ],
+    defaultSize: '1024x1024',
+    creditCost: {
+      base: 8,
+      hdMultiplier: 1.1,
+    },
+  },
+  // Z Image Turbo (Tongyi Lab via Evolink)
+  'z-image-turbo': {
+    id: 'z-image-turbo',
+    name: 'Z Image Turbo',
+    description: 'Tongyi Lab Z Image Turbo - Ultra-fast image generation',
+    supportedSizes: [
+      '1:1',
+      '2:3',
+      '3:2',
+      '3:4',
+      '4:3',
+      '9:16',
+      '16:9',
+      '1:2',
+      '2:1',
+    ],
+    defaultSize: '1024x1024',
+    creditCost: {
+      base: 1,
+    },
+  },
+  // Qwen Image Edit (Alibaba)
+  'qwen-image-edit': {
+    id: 'qwen-image-edit',
+    name: 'Qwen Image Edit',
+    description: 'Alibaba Qwen - Image editing and transformation',
+    supportedSizes: ['1:1'],
+    defaultSize: '1024x1024',
+    creditCost: {
+      base: 2.3,
+    },
+  },
+  // Qwen Image Edit Plus (Alibaba)
+  'qwen-image-edit-plus': {
+    id: 'qwen-image-edit-plus',
+    name: 'Qwen Image Edit Plus',
+    description: 'Alibaba Qwen - Advanced image editing',
+    supportedSizes: ['1:1'],
+    defaultSize: '1024x1024',
+    creditCost: {
+      base: 1.5,
+    },
+  },
 };
 
 // ============================================================================

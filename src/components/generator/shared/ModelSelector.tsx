@@ -107,7 +107,11 @@ export function ModelSelector({
         >
           {/* Provider Icon */}
           <ProviderIcon
-            icon={selectedModel ? getProviderById(selectedModel.providerId)?.icon : undefined}
+            icon={
+              selectedModel
+                ? getProviderById(selectedModel.providerId)?.icon
+                : undefined
+            }
             size="sm"
           />
           <span className="max-w-[140px] truncate">
@@ -269,15 +273,27 @@ function ProviderIcon({
 
   if (icon) {
     return (
-      <div className={cn('flex items-center justify-center rounded', sizeClass)}>
+      <div
+        className={cn('flex items-center justify-center rounded', sizeClass)}
+      >
         <img src={icon} alt="" className={imgSize} />
       </div>
     );
   }
 
   return (
-    <div className={cn('flex items-center justify-center rounded bg-muted', sizeClass)}>
-      <SparklesIcon className={cn('text-muted-foreground', size === 'sm' ? 'size-3' : 'size-3.5')} />
+    <div
+      className={cn(
+        'flex items-center justify-center rounded bg-muted',
+        sizeClass
+      )}
+    >
+      <SparklesIcon
+        className={cn(
+          'text-muted-foreground',
+          size === 'sm' ? 'size-3' : 'size-3.5'
+        )}
+      />
     </div>
   );
 }

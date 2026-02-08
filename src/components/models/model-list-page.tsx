@@ -1,8 +1,8 @@
 'use client';
 
 import {
-  getModelPagesByCategory,
   type ModelPageConfig,
+  getModelPagesByCategory,
 } from '@/config/model-pages';
 import { LocaleLink } from '@/i18n/navigation';
 import { cn } from '@/lib/utils';
@@ -35,7 +35,7 @@ function ModelCard({ config }: { config: ModelPageConfig }) {
                 badge === 'popular' &&
                   'bg-orange-100 text-orange-700 dark:bg-orange-900/30 dark:text-orange-400',
                 badge === 'pro' &&
-                  'bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-400',
+                  'bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-400'
               )}
             >
               {badge.toUpperCase()}
