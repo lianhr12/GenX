@@ -18,11 +18,13 @@ export function ModelCard({ model }: ModelCardProps) {
       <div className="relative overflow-hidden rounded-xl border bg-card transition-all hover:shadow-md hover:border-primary/50">
         {/* Model Image */}
         <div className="aspect-square relative overflow-hidden bg-muted">
-          <div className="absolute inset-0 flex items-center justify-center text-4xl font-bold text-muted-foreground/20">
-            {model.name.charAt(0)}
+          <div className="absolute inset-0 flex items-center justify-center">
+            <img
+              src={model.image}
+              alt={model.name}
+              className="size-12 opacity-60 group-hover:opacity-80 transition-opacity"
+            />
           </div>
-          {/* Placeholder for actual model image */}
-          {/* <Image src={model.image} alt={model.name} fill className="object-cover" /> */}
 
           {/* Badges */}
           <div className="absolute top-2 left-2 flex flex-wrap gap-1">

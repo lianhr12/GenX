@@ -157,7 +157,30 @@ function StyleCard({
       </div>
 
       {/* Content */}
-      <div className="p-4">
+      <div className="relative p-4">
+        {/* 复制按钮悬浮在右上角 */}
+        <div className="absolute top-2 right-2 opacity-0 transition-all group-hover:opacity-100">
+          <ReplicateButton
+            data={{
+              artStyle: style.id,
+              mediaType: 'video',
+              targetMode: 'image-to-video',
+              prompt: style.id === 'cyberpunk' 
+                ? 'A futuristic cityscape at night with flying cars'
+                : style.id === 'watercolor'
+                ? 'A peaceful landscape with mountains and a lake'
+                : style.id === 'oilPainting'
+                ? 'A portrait of a woman in renaissance style'
+                : style.id === 'anime'
+                ? 'A girl with flowing hair under cherry blossoms'
+                : 'Abstract colors flowing and mixing together',
+            }}
+            variant="icon"
+            size="sm"
+            onReplicate={onReplicate}
+          />
+        </div>
+        
         <h3 className="text-lg font-semibold">
           {t(`styles.${style.id}.title` as never)}
         </h3>
@@ -168,13 +191,13 @@ function StyleCard({
           {t(`styles.${style.id}.bestFor` as never)}
         </p>
         {/* CTA */}
-        <div className="mt-3 flex gap-2 opacity-0 transition-all group-hover:opacity-100">
+        <div className="mt-3 opacity-0 transition-all group-hover:opacity-100">
           <Button
             asChild
             variant="ghost"
             size="sm"
             className={cn(
-              'flex-1 bg-gradient-to-r',
+              'w-full bg-gradient-to-r',
               style.gradientColor,
               'text-white hover:text-white',
             )}
@@ -183,16 +206,6 @@ function StyleCard({
               {t('createWith')}
             </LocaleLink>
           </Button>
-          <ReplicateButton
-            data={{
-              artStyle: style.id,
-              mediaType: 'video',
-              targetMode: 'image-to-video',
-            }}
-            variant="button"
-            size="sm"
-            onReplicate={onReplicate}
-          />
         </div>
       </div>
     </motion.div>

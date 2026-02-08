@@ -6,6 +6,7 @@ import type { CreatorMode } from '../types';
 export interface ModelProvider {
   id: string;
   name: string;
+  icon?: string;
   isNew?: boolean;
 }
 
@@ -31,14 +32,14 @@ export interface ModelInfo {
 
 /** 模型提供商列表 */
 export const modelProviders: ModelProvider[] = [
-  { id: 'openai', name: 'OpenAI' },
-  { id: 'google', name: 'Google', isNew: true },
-  { id: 'wan', name: 'Wan AI', isNew: true },
-  { id: 'bytedance', name: 'ByteDance' },
-  { id: 'kling', name: 'Kling AI' },
-  { id: 'minimax', name: 'MiniMax' },
-  { id: 'omnihuman', name: 'OmniHuman' },
-  { id: 'qwen', name: 'Qwen' },
+  { id: 'openai', name: 'OpenAI', icon: '/images/models/openai.svg' },
+  { id: 'google', name: 'Google', icon: '/images/models/google.svg', isNew: true },
+  { id: 'wan', name: 'Wan AI', icon: '/images/models/wan.svg', isNew: true },
+  { id: 'bytedance', name: 'ByteDance', icon: '/images/models/seedance.svg' },
+  { id: 'kling', name: 'Kling AI', icon: '/images/models/kling.svg' },
+  { id: 'minimax', name: 'MiniMax', icon: '/images/models/minimax.svg' },
+  { id: 'omnihuman', name: 'OmniHuman', icon: '/images/models/omnihuman.svg' },
+  { id: 'qwen', name: 'Qwen', icon: '/images/models/qwen.svg' },
 ];
 
 /** 所有模型配置 */

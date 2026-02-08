@@ -24,6 +24,7 @@ import {
   type ModelProvider,
   getModelById,
   getModelsForMode,
+  getProviderById,
   getProvidersForMode,
 } from '../config/models';
 import type { CreatorMode } from '../types';
@@ -104,10 +105,11 @@ export function ModelSelector({
             className
           )}
         >
-          {/* Provider Icon Placeholder */}
-          <div className="flex size-5 items-center justify-center rounded bg-muted">
-            <SparklesIcon className="size-3 text-muted-foreground" />
-          </div>
+          {/* Provider Icon */}
+          <ProviderIcon
+            icon={selectedModel ? getProviderById(selectedModel.providerId)?.icon : undefined}
+            size="sm"
+          />
           <span className="max-w-[140px] truncate">
             {selectedModel?.name || 'Select Model'}
           </span>
@@ -182,10 +184,8 @@ function ProviderItem({
           : 'hover:bg-accent/50 text-foreground'
       )}
     >
-      {/* Provider Icon Placeholder */}
-      <div className="flex size-6 items-center justify-center rounded bg-muted">
-        <SparklesIcon className="size-3.5 text-muted-foreground" />
-      </div>
+      {/* Provider Icon */}
+      <ProviderIcon icon={provider.icon} />
       <span className="flex-1 text-left">{provider.name}</span>
       {provider.isNew && (
         <Badge
@@ -220,10 +220,8 @@ function ModelItem({
     >
       {/* Header: Icon + Name + New Badge */}
       <div className="flex items-center gap-2">
-        {/* Model Icon Placeholder */}
-        <div className="flex size-6 items-center justify-center rounded bg-muted">
-          <SparklesIcon className="size-3.5 text-muted-foreground" />
-        </div>
+        {/* Model Icon */}
+        <ProviderIcon icon={getProviderById(model.providerId)?.icon} />
         <span className="font-medium">{model.name}</span>
         {model.isNew && (
           <Badge
@@ -255,5 +253,31 @@ function ModelItem({
         </span>
       </div>
     </button>
+  );
+}
+
+/** Provider 图标组件 */
+function ProviderIcon({
+  icon,
+  size = 'md',
+}: {
+  icon?: string;
+  size?: 'sm' | 'md';
+}) {
+  const sizeClass = size === 'sm' ? 'size-5' : 'size-6';
+  const imgSize = size === 'sm' ? 'size-3.5' : 'size-4';
+
+  if (icon) {
+    return (
+      <div className={cn('flex items-center justify-center rounded', sizeClass)}>
+        <img src={icon} alt="" className={imgSize} />
+      </div>
+    );
+  }
+
+  return (
+    <div className={cn('flex items-center justify-center rounded bg-muted', sizeClass)}>
+      <SparklesIcon className={cn('text-muted-foreground', size === 'sm' ? 'size-3' : 'size-3.5')} />
+    </div>
   );
 }
