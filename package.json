@@ -26,7 +26,10 @@
     "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
     "upload": "opennextjs-cloudflare build && opennextjs-cloudflare upload",
     "cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts",
-    "knip": "knip"
+    "knip": "knip",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage"
   },
   "dependencies": {
     "@ai-sdk/deepseek": "^1.0.0",
@@ -166,6 +169,7 @@
     "@types/react": "^19.2.7",
     "@types/react-dom": "^19.2.3",
     "@types/react-syntax-highlighter": "^15.5.13",
+    "@vitest/coverage-v8": "^4.0.18",
     "drizzle-kit": "^0.30.4",
     "knip": "^5.61.2",
     "postcss": "^8",
@@ -173,6 +177,7 @@
     "tailwindcss": "^4.0.14",
     "tsx": "^4.19.3",
     "typescript": "^5.8.3",
-    "vite": "^7.2.1"
+    "vite": "^7.2.1",
+    "vitest": "^4.0.18"
   }
 }

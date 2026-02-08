@@ -630,7 +630,6 @@ export function CreatorParameterBar({
                     )}
                   >
                     <MusicIcon className="size-4" />
-                    <span>{t('audio')}</span>
                   </button>
                 </PopoverTrigger>
                 <PopoverContent
