@@ -184,8 +184,8 @@ describe('calculateModelCredits', () => {
     });
 
     it('4k 质量应该应用乘数', () => {
-      const normal = calculateModelCredits('veo3.1-fast', { duration: 8 });
-      const hq = calculateModelCredits('veo3.1-fast', {
+      const normal = calculateModelCredits('veo-3.1-fast-generate-preview', { duration: 8 });
+      const hq = calculateModelCredits('veo-3.1-fast-generate-preview', {
         duration: 8,
         quality: '4k',
       });
@@ -194,9 +194,9 @@ describe('calculateModelCredits', () => {
 
     it('high 质量应该应用乘数（仅对有 highQualityMultiplier > 1 的模型）', () => {
       // sora-2-pro 的 highQualityMultiplier 默认为 1，所以 high 不改变积分
-      // 使用 veo3.1-pro 测试，其 highQualityMultiplier = 1.5
-      const normal = calculateModelCredits('veo3.1-pro', { duration: 8 });
-      const hq = calculateModelCredits('veo3.1-pro', {
+      // 使用 veo-3.1-pro 测试，其 highQualityMultiplier = 1.5
+      const normal = calculateModelCredits('veo-3.1-pro', { duration: 8 });
+      const hq = calculateModelCredits('veo-3.1-pro', {
         duration: 8,
         quality: 'high',
       });
@@ -328,9 +328,9 @@ describe('calculateModelCredits', () => {
       expect(actual).toBe(expected);
     });
 
-    it('veo3.1-fast 4K 8s 应应用 4K 乘数', () => {
-      const normal = calculateModelCredits('veo3.1-fast', { duration: 8 });
-      const hq = calculateModelCredits('veo3.1-fast', {
+    it('veo-3.1-fast-generate-preview 4K 8s 应应用 4K 乘数', () => {
+      const normal = calculateModelCredits('veo-3.1-fast-generate-preview', { duration: 8 });
+      const hq = calculateModelCredits('veo-3.1-fast-generate-preview', {
         duration: 8,
         quality: '4K',
       });
@@ -373,11 +373,11 @@ describe('calculateModelCredits', () => {
     });
 
     it('4k 和 4K 应产生相同积分', () => {
-      const hq1 = calculateModelCredits('veo3.1-fast', {
+      const hq1 = calculateModelCredits('veo-3.1-fast-generate-preview', {
         duration: 8,
         quality: '4k',
       });
-      const hq2 = calculateModelCredits('veo3.1-fast', {
+      const hq2 = calculateModelCredits('veo-3.1-fast-generate-preview', {
         duration: 8,
         quality: '4K',
       });

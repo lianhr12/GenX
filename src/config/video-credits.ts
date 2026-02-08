@@ -97,8 +97,8 @@ export const VIDEO_MODELS: Record<string, ModelConfig> = {
   // API成本: 720p/1080p无音频=5.76-11.52, 有音频=8.64-23.04, 4K无音频=17.28-23.04, 4K有音频=20.22-34.56
   // 目标75%利润率: 售价 = 成本 × 4
   // ============================================================================
-  'veo3.1-fast': {
-    id: 'veo3.1-fast',
+  'veo-3.1-fast-generate-preview': {
+    id: 'veo-3.1-fast-generate-preview',
     name: 'Veo 3.1 Fast',
     provider: 'evolink',
     description: 'Google Veo 3.1 Fast - Quick cinematic quality generation',
@@ -117,8 +117,8 @@ export const VIDEO_MODELS: Record<string, ModelConfig> = {
       highQualityMultiplier: 2.3, // 4K multiplier: 81/35 ≈ 2.3
     },
   },
-  'veo3.1-generate-preview': {
-    id: 'veo3.1-generate-preview',
+  'veo-3.1-generate-preview': {
+    id: 'veo-3.1-generate-preview',
     name: 'Veo 3.1 Preview',
     provider: 'evolink',
     description: 'Google Veo 3.1 Preview - Multiple resolution support',
@@ -136,8 +136,8 @@ export const VIDEO_MODELS: Record<string, ModelConfig> = {
       highQualityMultiplier: 2.0,
     },
   },
-  'veo3.1-pro': {
-    id: 'veo3.1-pro',
+  'veo-3.1-pro': {
+    id: 'veo-3.1-pro',
     name: 'Veo 3.1 Pro',
     provider: 'evolink',
     description: 'Google Veo 3.1 Pro - Professional version with FLF support',

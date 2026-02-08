@@ -46,8 +46,8 @@ describe('VideoService 时长验证', () => {
       expect(config.durations).toEqual([5, 10]);
     });
 
-    it('veo3.1-fast 仅支持 8s', () => {
-      const config = getModelConfig('veo3.1-fast')!;
+    it('veo-3.1-fast-generate-preview 仅支持 8s', () => {
+      const config = getModelConfig('veo-3.1-fast-generate-preview')!;
       expect(config.durations).toEqual([8]);
     });
 
@@ -259,7 +259,7 @@ describe('VideoService 积分计算一致性', () => {
 
 describe('VideoService 音频支持', () => {
   it('支持 generateAudio 的模型', () => {
-    const audioModels = ['veo3.1-fast', 'veo3.1-pro', 'seedance-1.5-pro'];
+    const audioModels = ['veo-3.1-fast-generate-preview', 'veo-3.1-pro', 'seedance-1.5-pro'];
     for (const modelId of audioModels) {
       const config = getModelConfig(modelId)!;
       expect(config.supportsAudioGeneration).toBe(true);
