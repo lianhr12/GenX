@@ -24,7 +24,7 @@ export const wanImageConfig: ModelPageConfig = {
   descriptionKey: 'description',
   taglineKey: 'tagline',
   badges: ['new'],
-  ctaLink: '/create/text-to-image?model=wan2.5',
+  ctaLink: '/create/text-to-image?model=wan2.5-text-to-image',
   supportedModes: ['text-to-image'],
   gradient: 'from-orange-600 via-amber-500 to-yellow-400',
   stats: [

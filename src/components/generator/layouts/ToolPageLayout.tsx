@@ -296,7 +296,7 @@ function ToolPageLayoutInner({ mode, children }: ToolPageLayoutProps) {
       }
     }
 
-    if (prompt || sourceImage || referenceImage) {
+    if (prompt || model || style || sourceImage || referenceImage) {
       setInitialParams({
         mode,
         prompt: prompt || '',

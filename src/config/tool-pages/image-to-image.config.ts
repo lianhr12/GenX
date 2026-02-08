@@ -72,20 +72,23 @@ export const imageToImageConfig: ToolPageConfig = {
       {
         thumbnail:
           'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80',
-        title: 'Style Transfer',
-        prompt: 'Transform this photo into a watercolor painting style',
+        title: 'Pet Magazine',
+        prompt:
+          'A luxurious magazine-style portrait featuring the subject lounging confidently in an elegant vintage armchair. The subject is styled with spa-like accessories such as a white bathrobe, towel turban, or sunglasses, giving a humorous yet refined celebrity aesthetic. Warm studio lighting creates soft shadows and golden highlights. Background remains minimal and classy, emphasizing premium lifestyle photography.',
       },
       {
         thumbnail:
           'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=600&q=80',
-        title: 'Background Change',
-        prompt: 'Change the background to a futuristic cityscape',
+        title: 'Album Cover',
+        prompt:
+          'Transform the image into a retro-style cassette album set displayed on a full wooden tabletop. The scene must include three key objects arranged naturally: Cassette tape case featuring the subject\'s portrait, a transparent cassette tape deck/player with visible reels, and wired earphones casually placed on the wooden table. Use realistic lighting and shadows, warm tones, and a nostalgic analogue mood.',
       },
       {
         thumbnail:
           'https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&q=80',
-        title: 'Object Modification',
-        prompt: 'Add glowing neon effects to the circuit board',
+        title: 'CCD Christmas Mood',
+        prompt:
+          'A vertical two-panel indoor Christmas portrait with CCD film grain texture and candid photography style, soft lighting with gentle glow effect. Person near Christmas tree, smiling and relaxed, background featuring lit Christmas tree with red bows and warm yellow string lights. Fuji film color tone with subtle cool-warm Winter Christmas atmosphere.',
       },
     ],
 

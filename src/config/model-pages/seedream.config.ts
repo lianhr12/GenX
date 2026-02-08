@@ -24,7 +24,7 @@ export const seedreamConfig: ModelPageConfig = {
   descriptionKey: 'description',
   taglineKey: 'tagline',
   badges: ['new'],
-  ctaLink: '/create/text-to-image?model=seedream-4.5',
+  ctaLink: '/create/text-to-image?model=doubao-seedream-4.5',
   supportedModes: ['text-to-image'],
   gradient: 'from-violet-600 via-purple-500 to-fuchsia-400',
   stats: [

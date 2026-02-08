@@ -81,23 +81,23 @@ export const imageConfig: ToolPageConfig = {
       {
         thumbnail:
           'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=600&q=80',
-        title: 'Fantasy Landscape',
+        title: 'Vibe Siren',
         prompt:
-          'A mystical forest with glowing mushrooms and floating lanterns',
+          'A glamorous young woman striking a confident, flirtatious pose, stylish high-fashion outfit, soft cinematic lighting, flawless skin and hair details, subtle sensuality, dreamy blurred background, photorealistic, 8K, highly detailed, editorial fashion photography vibe',
       },
       {
         thumbnail:
           'https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&q=80',
-        title: 'Tech Abstract',
+        title: 'Neon Phone Clash',
         prompt:
-          'Abstract digital art with flowing circuits and holographic elements',
+          'A bold young woman leaning out of a public phone booth, thrusting a classic green telephone receiver toward the camera, extreme ultra-wide fisheye perspective from a low angle, dynamic motion and intense depth distortion, rainy urban night with glowing red and blue neon signs reflecting on wet pavement, cold fluorescent booth lighting contrasting with vibrant city lights, stylish winter outfit with chunky boots, gritty lo-fi cinematic vibe, high contrast, film grain, moody atmosphere, photorealistic, ultra-detailed textures, editorial street photography style, 8K.',
       },
       {
         thumbnail:
           'https://images.unsplash.com/photo-1534447677768-be436bb09401?w=600&q=80',
-        title: 'Portrait Art',
+        title: 'Into the Wild',
         prompt:
-          'Cinematic portrait with dramatic lighting and bokeh background',
+          'A lush Western forest landscape in cool teal-green tones, panoramic wide view, dense evergreen trees, misty air, clear streams and mossy rocks, soft diffused daylight, calm and refreshing atmosphere, rich cyan and emerald greens, cinematic composition, ultra-realistic textures, 8K resolution, perfect for desktop wallpaper.',
       },
     ],
 

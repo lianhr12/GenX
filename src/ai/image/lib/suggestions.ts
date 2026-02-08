@@ -3,116 +3,56 @@ export interface Suggestion {
   prompt: string;
 }
 
-const artStyles = ['anime', 'art nouveau', 'ukiyo-e', 'watercolor'];
-
 const basePrompts: { text: string; prompt: string }[] = [
   {
-    text: 'Salamander Dusk',
-    prompt: 'A salamander at dusk in a forest pond',
-  },
-  {
-    text: 'Sultry Chicken',
+    text: 'Vibe Siren',
     prompt:
-      'A sultry chicken peering around the corner from shadows, clearly up to no good',
+      'A glamorous young woman striking a confident, flirtatious pose, stylish high-fashion outfit, soft cinematic lighting, flawless skin and hair details, subtle sensuality, dreamy blurred background, photorealistic, 8K, highly detailed, editorial fashion photography vibe',
   },
   {
-    text: 'Cat Vercel',
-    prompt: 'A cat launching its website on Vercel',
-  },
-  {
-    text: 'Red Panda',
+    text: 'Birthday Card',
     prompt:
-      'A red panda sipping tea under cherry blossoms at sunset with Mount Fuji in the background',
+      'A festive birthday card illustration, cute and cheerful style, colorful balloons, confetti, cakes, and gifts, whimsical typography space for a message, bright and joyful atmosphere, hand-drawn or digital art style, 8K, detailed and charming, perfect for celebration.',
   },
   {
-    text: 'Beach Otter',
-    prompt: 'A mischievous otter surfing the waves in Bali at golden hour',
-  },
-  {
-    text: 'Badger Ramen',
-    prompt: 'A pensive honey badger eating a bowl of ramen in Osaka',
-  },
-  {
-    text: 'Zen Frog',
+    text: 'Moon Carry',
     prompt:
-      'A frog meditating on a lotus leaf in a tranquil forest pond at dawn, surrounded by fireflies',
+      'moon-interaction concepts: holding the moon above their hands, carrying the moon on their shoulder, hugging the moon, lifting the moon like a balloon, wearing the moon as a hat. Scene set in a deep blue cinematic night sky with warm golden moonlight reflecting onto the person. Surreal, whimsical, dreamy, postcard-style aesthetic.',
   },
   {
-    text: 'Macaw Love',
+    text: 'Pet on Trip',
     prompt:
-      'A colorful macaw delivering a love letter, flying over the Grand Canyon at sunrise',
+      'The image shows a gray puppy against the backdrop of the Sydney Opera House in Australia, highlighting its fine fur, backlighting, blue sky, grass, and happy puppy. The photo has a realistic, real-life feel. A mobile phone is mounted on a tripod in the picture, taking a picture of the puppy.',
   },
   {
-    text: 'Fox Painting',
-    prompt: 'A fox walking through a field of lavender with a golden sunset',
-  },
-  {
-    text: 'Armadillo Aerospace',
+    text: 'Neon Phone Clash',
     prompt:
-      'An armadillo in a rocket at countdown preparing to blast off to Mars',
+      'A bold young woman leaning out of a public phone booth, thrusting a classic green telephone receiver toward the camera, extreme ultra-wide fisheye perspective from a low angle, rainy urban night with glowing red and blue neon signs reflecting on wet pavement, gritty lo-fi cinematic vibe, high contrast, film grain, moody atmosphere, photorealistic, ultra-detailed textures, editorial street photography style, 8K.',
   },
   {
-    text: 'Penguin Delight',
-    prompt: 'A penguin in pajamas eating ice cream while watching television',
-  },
-  {
-    text: 'Echidna Library',
+    text: 'CCD Christmas Mood',
     prompt:
-      'An echidna reading a book in a cozy library built into the branches of a eucalyptus tree',
+      'A vertical two-panel indoor Christmas portrait with CCD film grain texture and candid photography style, soft lighting with gentle glow effect. Person near Christmas tree, smiling and relaxed, background featuring lit Christmas tree with red bows and warm yellow string lights. Fuji film color tone with subtle cool-warm Winter Christmas atmosphere.',
   },
   {
-    text: 'Capybara Onsen',
+    text: 'Pet Magazine',
     prompt:
-      'A capybara relaxing in a hot spring surrounded by snow-covered mountains with a waterfall in the background',
+      'A luxurious magazine-style portrait featuring the subject lounging confidently in an elegant vintage armchair. The subject is styled with spa-like accessories such as a white bathrobe, towel turban, or sunglasses, giving a humorous yet refined celebrity aesthetic. Warm studio lighting creates soft shadows and golden highlights.',
   },
   {
-    text: 'Lion Throne',
+    text: 'Tokyo Hotline Rush',
     prompt:
-      'A regal lion wearing a crown, sitting on a throne in a jungle palace, with waterfalls in the distance',
+      'A dramatic street-style portrait shot with exaggerated fisheye lens distortion, a confident girl aggressively reaching toward the camera with a green phone receiver, rainy Tokyo night setting, glossy reflections on asphalt, cinematic lighting with cool highlights and neon color spill, Wong Kar-wai inspired mood, lo-fi aesthetics, hyper-realistic details, 8K photorealism.',
   },
   {
-    text: 'Dolphin Glow',
+    text: 'Album Cover',
     prompt:
-      'A dolphin leaping through a glowing ring of bioluminescence under a starry sky',
+      'Transform the image into a retro-style cassette album set displayed on a full wooden tabletop. Cassette tape case featuring a portrait, a transparent cassette tape deck/player with visible reels, and wired earphones casually placed on the wooden table. Realistic lighting and shadows, warm tones, and a nostalgic analogue mood.',
   },
   {
-    text: 'Owl Detective',
+    text: 'Into the Wild',
     prompt:
-      'An owl wearing a monocle and top hat, solving a mystery in a misty forest at midnight',
-  },
-  {
-    text: 'Jellyfish Cathedral',
-    prompt:
-      'A jellyfish floating gracefully in an underwater cathedral made of coral and glass',
-  },
-  {
-    text: 'Platypus River',
-    prompt: 'A platypus foraging in a river with a sunset in the background',
-  },
-  {
-    text: 'Chameleon Urban',
-    prompt:
-      'A chameleon blending into a graffiti-covered wall in an urban jungle',
-  },
-  {
-    text: 'Tortoise Oasis',
-    prompt:
-      'A giant tortoise slowly meandering its way to an oasis in the desert',
-  },
-  {
-    text: 'Hummingbird Morning',
-    prompt:
-      'A hummingbird sipping nectar from a purple bougainvillea at sunrise, captured mid-flight',
-  },
-  {
-    text: 'Polar Bear',
-    prompt:
-      'A polar bear clambering onto an iceberg to greet a friendly harbor seal as dusk falls',
-  },
-  {
-    text: 'Lemur Sunbathing',
-    prompt:
-      'A ring-tailed lemur sunbathing on a rock in Madagascar in early morning light',
+      'A lush Western forest landscape in cool teal-green tones, panoramic wide view, dense evergreen trees, misty air, clear streams and mossy rocks, soft diffused daylight, calm and refreshing atmosphere, rich cyan and emerald greens, cinematic composition, ultra-realistic textures, 8K resolution, perfect for desktop wallpaper.',
   },
 ];
 
@@ -127,12 +67,9 @@ function shuffle<T>(array: T[]): T[] {
 
 export function getRandomSuggestions(count = 5): Suggestion[] {
   const shuffledPrompts = shuffle(basePrompts);
-  const shuffledStyles = shuffle(artStyles);
 
-  return shuffledPrompts.slice(0, count).map((item, index) => ({
+  return shuffledPrompts.slice(0, count).map((item) => ({
     text: item.text,
-    prompt: `${item.prompt}, in the style of ${
-      shuffledStyles[index % shuffledStyles.length]
-    }`,
+    prompt: item.prompt,
   }));
 }
