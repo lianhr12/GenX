@@ -376,7 +376,13 @@ export class VideoService {
     });
 
     // Settle credits
-    await settleCredits(videoUuid);
+    try {
+      await settleCredits(videoUuid);
+    } catch (error) {
+      console.error(`Failed to settle credits for video ${videoUuid}:`, error);
+      // Continue with completion even if credit settlement fails
+      // The credits are already frozen, so this is not a critical error
+    }
 
     // Mark as completed
     await db

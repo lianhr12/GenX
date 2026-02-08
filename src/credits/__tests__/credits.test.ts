@@ -22,7 +22,7 @@ const mockLimit = vi.fn();
 const mockOrderBy = vi.fn();
 
 // 构建链式 mock
-const mockDb = {
+const mockDb: Record<string, any> = {
   select: vi.fn().mockReturnThis(),
   from: vi.fn().mockReturnThis(),
   where: vi.fn().mockImplementation(() => {
@@ -41,6 +41,10 @@ const mockDb = {
     set: vi.fn().mockReturnValue({
       where: vi.fn().mockResolvedValue(undefined),
     }),
+  }),
+  // Transaction support: execute callback with mockDb as the transaction context
+  transaction: vi.fn().mockImplementation(async (cb: (tx: any) => Promise<any>) => {
+    return await cb(mockDb);
   }),
 };
 
@@ -980,5 +984,58 @@ describe('积分安全性边界测试', () => {
   it('浮点精度问题：0.1 + 0.2 不等于 0.3', () => {
     expect(0.1 + 0.2).not.toBe(0.3);
     expect(Math.round((0.1 + 0.2) * 100) / 100).toBe(0.3);
+  });
+});
+
+// ============================================================================
+// 事务保护验证
+// ============================================================================
+
+describe('事务保护', () => {
+  beforeEach(() => {
+    vi.clearAllMocks();
+    limitReturnValue = [];
+    orderByReturnValue = [];
+  });
+
+  it('addCredits 应使用 db.transaction', async () => {
+    limitReturnValue = [{ userId: 'user-1', currentCredits: 50 }];
+    const { addCredits } = await import('../credits');
+    await addCredits({
+      userId: 'user-1',
+      amount: 100,
+      type: CREDIT_TRANSACTION_TYPE.PURCHASE_PACKAGE,
+      description: 'Test purchase',
+    });
+    expect(mockDb.transaction).toHaveBeenCalledTimes(1);
+  });
+
+  it('consumeCredits 应使用 db.transaction', async () => {
+    // 设置余额充足
+    limitReturnValue = [{ userId: 'user-1', currentCredits: 200 }];
+    orderByReturnValue = [
+      { id: 'tx-1', remainingAmount: 200, expirationDate: null, type: 'PURCHASE_PACKAGE' },
+    ];
+    const { consumeCredits } = await import('../credits');
+    await consumeCredits({
+      userId: 'user-1',
+      amount: 50,
+      description: 'Test consume',
+    });
+    expect(mockDb.transaction).toHaveBeenCalledTimes(1);
+  });
+
+  it('consumeCredits 余额不足时事务内应抛出错误', async () => {
+    limitReturnValue = [{ userId: 'user-1', currentCredits: 10 }];
+    const { consumeCredits } = await import('../credits');
+    await expect(
+      consumeCredits({
+        userId: 'user-1',
+        amount: 100,
+        description: 'Too much',
+      })
+    ).rejects.toThrow('Insufficient credits');
+    // 事务被调用但内部抛出（会自动回滚）
+    expect(mockDb.transaction).toHaveBeenCalledTimes(1);
   });
 });

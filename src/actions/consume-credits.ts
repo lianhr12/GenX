@@ -13,10 +13,22 @@ const consumeSchema = z.object({
 
 /**
  * Consume credits
+ * WARNING: This action is restricted to development/test environment only.
+ * In production, credits should only be consumed through the freeze-settle pattern
+ * in image/video generation services.
  */
 export const consumeCreditsAction = userActionClient
   .schema(consumeSchema)
   .action(async ({ parsedInput, ctx }) => {
+    // Block in production to prevent abuse - credits should only be consumed via freeze-settle
+    if (process.env.NODE_ENV === 'production') {
+      console.error('consumeCreditsAction is disabled in production');
+      return {
+        success: false,
+        error: 'This action is not available in production',
+      };
+    }
+
     const { amount, description } = parsedInput;
     const currentUser = (ctx as { user: User }).user;
 

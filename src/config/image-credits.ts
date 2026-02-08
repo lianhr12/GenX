@@ -116,7 +116,7 @@ export const IMAGE_MODELS: Record<string, ImageModelConfig> = {
     supportedSizes: ['1:1', '16:9', '9:16', '4:3', '3:4', '2:3', '3:2'],
     defaultSize: '1280x1280',
     creditCost: {
-      base: 1.5,
+      base: 2,
     },
   },
   // Nanobanana (Gemini 2.5 Flash backend)
@@ -184,7 +184,7 @@ export const IMAGE_MODELS: Record<string, ImageModelConfig> = {
     supportedSizes: ['1:1'],
     defaultSize: '1024x1024',
     creditCost: {
-      base: 2.3,
+      base: 2,
     },
   },
   // Qwen Image Edit Plus (Alibaba)
@@ -195,7 +195,7 @@ export const IMAGE_MODELS: Record<string, ImageModelConfig> = {
     supportedSizes: ['1:1'],
     defaultSize: '1024x1024',
     creditCost: {
-      base: 1.5,
+      base: 2,
     },
   },
 };

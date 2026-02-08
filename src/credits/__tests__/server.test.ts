@@ -26,7 +26,7 @@ const mockUpdateSet = vi.fn().mockReturnValue({
   where: mockUpdateSetWhere,
 });
 
-const mockDb = {
+const mockDb: Record<string, any> = {
   select: vi.fn().mockReturnThis(),
   from: vi.fn().mockReturnThis(),
   where: vi.fn().mockImplementation(() => ({
@@ -48,6 +48,10 @@ const mockDb = {
   })),
   update: vi.fn().mockReturnValue({
     set: mockUpdateSet,
+  }),
+  // Transaction support: execute callback with mockDb as the transaction context
+  transaction: vi.fn().mockImplementation(async (cb: (tx: any) => Promise<any>) => {
+    return await cb(mockDb);
   }),
 };
 
@@ -604,5 +608,120 @@ describe('Freeze-Settle-Release 生命周期', () => {
     const { releaseCredits } = await import('../server');
     await releaseCredits('vid_double_r');
     await releaseCredits('vid_double_r');
+  });
+});
+
+// ============================================================================
+// 事务保护验证
+// ============================================================================
+
+describe('事务保护', () => {
+  beforeEach(() => {
+    vi.clearAllMocks();
+    limitReturnValue = [];
+    selectResult = [];
+  });
+
+  it('freezeMediaCredits 应使用 db.transaction', async () => {
+    // 设置余额不足以触发事务内的 throw
+    limitReturnValue = [];
+    selectResult = [
+      { id: 'tx-1', remainingAmount: 5, expirationDate: null },
+    ];
+    const { freezeMediaCredits } = await import('../server');
+    await expect(
+      freezeMediaCredits({
+        userId: 'user-1',
+        credits: 100,
+        mediaUuid: 'vid_tx_test',
+        mediaType: 'video',
+      })
+    ).rejects.toThrow('Insufficient credits');
+    // 确认 transaction 被调用
+    expect(mockDb.transaction).toHaveBeenCalledTimes(1);
+  });
+
+  it('settleMediaCredits HOLDING 状态应使用 db.transaction', async () => {
+    limitReturnValue = [
+      {
+        id: 1,
+        userId: 'user-1',
+        mediaUuid: 'vid_tx_settle',
+        credits: 50,
+        status: 'HOLDING',
+        packageAllocation: [],
+      },
+    ];
+    const { settleMediaCredits } = await import('../server');
+    await settleMediaCredits('vid_tx_settle', 'video');
+    expect(mockDb.transaction).toHaveBeenCalledTimes(1);
+  });
+
+  it('releaseMediaCredits HOLDING 状态应使用 db.transaction', async () => {
+    const originalWhere = mockDb.where;
+    let callCount = 0;
+    mockDb.where = vi.fn().mockImplementation(() => {
+      callCount++;
+      if (callCount === 1) {
+        return {
+          limit: vi.fn().mockReturnValue([
+            {
+              id: 1,
+              userId: 'user-1',
+              mediaUuid: 'vid_tx_release',
+              credits: 80,
+              status: 'HOLDING',
+              packageAllocation: [
+                { transactionId: 'tx-1', credits: 80 },
+              ],
+            },
+          ]),
+        };
+      }
+      return {
+        limit: vi.fn().mockReturnValue([
+          { id: 'tx-1', remainingAmount: 0, currentCredits: 100 },
+        ]),
+      };
+    });
+
+    const { releaseMediaCredits } = await import('../server');
+    await releaseMediaCredits('vid_tx_release', 'video');
+    expect(mockDb.transaction).toHaveBeenCalledTimes(1);
+
+    mockDb.where = originalWhere;
+  });
+
+  it('settleMediaCredits 已 SETTLED 不应调用 transaction', async () => {
+    limitReturnValue = [
+      {
+        id: 1,
+        userId: 'user-1',
+        mediaUuid: 'vid_already_settled',
+        credits: 50,
+        status: 'SETTLED',
+        packageAllocation: [],
+      },
+    ];
+    const { settleMediaCredits } = await import('../server');
+    await settleMediaCredits('vid_already_settled', 'video');
+    // 幂等快速路径不应触发事务
+    expect(mockDb.transaction).not.toHaveBeenCalled();
+  });
+
+  it('releaseMediaCredits 已 RELEASED 不应调用 transaction', async () => {
+    limitReturnValue = [
+      {
+        id: 1,
+        userId: 'user-1',
+        mediaUuid: 'vid_already_released',
+        credits: 50,
+        status: 'RELEASED',
+        packageAllocation: [],
+      },
+    ];
+    const { releaseMediaCredits } = await import('../server');
+    await releaseMediaCredits('vid_already_released', 'video');
+    expect(mockDb.transaction).not.toHaveBeenCalled();
   });
 });

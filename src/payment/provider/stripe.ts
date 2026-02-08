@@ -756,6 +756,12 @@ export class StripeProvider implements PaymentProvider {
   ): Promise<void> {
     console.log('>> Update one-time payment record');
 
+    // Idempotency guard: skip if already paid (prevents duplicate credit addition on webhook retry)
+    if (paymentRecord.paid) {
+      console.log('<< Payment already marked as paid, skipping:', paymentRecord.id);
+      return;
+    }
+
     try {
       // Update payment record with invoice details
       const db = await getDb();

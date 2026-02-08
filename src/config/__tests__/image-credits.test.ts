@@ -85,7 +85,7 @@ describe('calculateImageCredits', () => {
       expect(credits).toBe(1);
     });
 
-    it('Qwen Image Edit Plus 基础积分应为 1.5（取整后为 2）', () => {
+    it('Qwen Image Edit Plus 基础积分应为 2', () => {
       const credits = calculateImageCredits('qwen-image-edit-plus', {});
       expect(credits).toBe(2);
     });
@@ -211,31 +211,30 @@ describe('calculateImageCredits', () => {
       expect(credits).toBeLessThan(0);
     });
 
-    it('小数 base（如 1.5）经 Math.round 应得到整数积分', () => {
-      // qwen-image-edit-plus base=1.5, wan2.5-image-to-image base=1.5
+    it('整数 base 应得到精确积分（无舍入误差）', () => {
+      // qwen-image-edit-plus base=2, wan2.5-image-to-image base=2
       const credits1 = calculateImageCredits('qwen-image-edit-plus', {});
       expect(Number.isInteger(credits1)).toBe(true);
-      expect(credits1).toBe(2); // Math.round(1.5) = 2
+      expect(credits1).toBe(2);
 
       const credits2 = calculateImageCredits('wan2.5-image-to-image', {});
       expect(Number.isInteger(credits2)).toBe(true);
-      expect(credits2).toBe(2); // Math.round(1.5) = 2
+      expect(credits2).toBe(2);
     });
 
-    it('小数 base 乘以多图后仍应为整数（注意：先乘后取整）', () => {
-      // 实际逻辑: credits = base * numberOfImages → Math.round
-      // 1.5 * 3 = 4.5 → Math.round(4.5) = 5（非 Math.round(1.5)*3=6）
+    it('整数 base 乘以多图应精确计算（无舍入损失）', () => {
+      // base=2, numberOfImages=3 → 2 * 3 = 6（精确）
       const credits = calculateImageCredits('qwen-image-edit-plus', {
         numberOfImages: 3,
       });
       expect(Number.isInteger(credits)).toBe(true);
-      expect(credits).toBe(5); // Math.round(1.5 * 3) = Math.round(4.5) = 5
+      expect(credits).toBe(6); // 2 * 3 = 6
     });
 
-    it('qwen-image-edit base=2.3 取整应为 2', () => {
+    it('qwen-image-edit base=2 应返回 2', () => {
       const credits = calculateImageCredits('qwen-image-edit', {});
       expect(Number.isInteger(credits)).toBe(true);
-      expect(credits).toBe(2); // Math.round(2.3) = 2
+      expect(credits).toBe(2);
     });
 
     it('非常大的 numberOfImages 应该正确计算', () => {

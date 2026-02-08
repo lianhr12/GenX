@@ -7,7 +7,7 @@ import crypto from 'crypto';
 
 const CALLBACK_SECRET =
   process.env.AI_CALLBACK_SECRET || 'default-secret-change-me';
-const SIGNATURE_EXPIRY_SECONDS = 3600; // 1 hour
+const SIGNATURE_EXPIRY_SECONDS = 7200; // 2 hours (some video models may take longer)
 
 /**
  * Generate a signed callback URL with video UUID and signature

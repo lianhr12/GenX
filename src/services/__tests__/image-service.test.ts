@@ -272,12 +272,11 @@ describe('ImageService image-to-image 积分计算', () => {
     expect(edit).toBeGreaterThanOrEqual(editPlus);
   });
 
-  it('qwen-image-edit 原始 base 高于 qwen-image-edit-plus', () => {
+  it('qwen-image-edit 和 qwen-image-edit-plus base 相同（均为整数 2）', () => {
     const editConfig = getImageModelConfig('qwen-image-edit')!;
     const editPlusConfig = getImageModelConfig('qwen-image-edit-plus')!;
-    expect(editConfig.creditCost.base).toBeGreaterThan(
-      editPlusConfig.creditCost.base
-    );
+    expect(editConfig.creditCost.base).toBe(editPlusConfig.creditCost.base);
+    expect(editConfig.creditCost.base).toBe(2);
   });
 });
 

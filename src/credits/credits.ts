@@ -132,43 +132,53 @@ export async function addCredits({
     console.error('addCredits, invalid expire days', userId, expireDays);
     throw new Error('Invalid expire days');
   }
-  // Update user credit balance
+  // Use transaction to ensure atomicity of balance update + transaction record
   const db = await getDb();
-  const current = await db
-    .select()
-    .from(userCredit)
-    .where(eq(userCredit.userId, userId))
-    .limit(1);
-  // const newBalance = (current[0]?.currentCredits || 0) + amount;
-  if (current.length > 0) {
-    const newBalance = (current[0]?.currentCredits || 0) + amount;
-    console.log('addCredits, update user credit', userId, newBalance);
-    await db
-      .update(userCredit)
-      .set({
+  await db.transaction(async (tx) => {
+    const current = await tx
+      .select()
+      .from(userCredit)
+      .where(eq(userCredit.userId, userId))
+      .limit(1);
+
+    if (current.length > 0) {
+      const newBalance = (current[0]?.currentCredits || 0) + amount;
+      console.log('addCredits, update user credit', userId, newBalance);
+      await tx
+        .update(userCredit)
+        .set({
+          currentCredits: newBalance,
+          updatedAt: new Date(),
+        })
+        .where(eq(userCredit.userId, userId));
+    } else {
+      const newBalance = amount;
+      console.log('addCredits, insert user credit', userId, newBalance);
+      await tx.insert(userCredit).values({
+        id: randomUUID(),
+        userId,
         currentCredits: newBalance,
+        createdAt: new Date(),
         updatedAt: new Date(),
-      })
-      .where(eq(userCredit.userId, userId));
-  } else {
-    const newBalance = amount;
-    console.log('addCredits, insert user credit', userId, newBalance);
-    await db.insert(userCredit).values({
+      });
+    }
+
+    // Write credit transaction record
+    const expirationDate = expireDays
+      ? addDays(new Date(), expireDays)
+      : undefined;
+    await tx.insert(creditTransaction).values({
       id: randomUUID(),
       userId,
-      currentCredits: newBalance,
+      type,
+      amount,
+      remainingAmount: amount > 0 ? amount : null,
+      description,
+      paymentId,
+      expirationDate,
       createdAt: new Date(),
       updatedAt: new Date(),
     });
-  }
-  // Write credit transaction record
-  await saveCreditTransaction({
-    userId,
-    type,
-    amount,
-    description,
-    paymentId,
-    expirationDate: expireDays ? addDays(new Date(), expireDays) : undefined,
   });
 }
 
@@ -209,72 +219,82 @@ export async function consumeCredits({
     console.error('consumeCredits, invalid amount', userId, amount);
     throw new Error('Invalid amount');
   }
-  // Check balance
-  if (!(await hasEnoughCredits({ userId, requiredCredits: amount }))) {
-    console.error(
-      `consumeCredits, insufficient credits for user ${userId}, required: ${amount}`
-    );
-    throw new Error('Insufficient credits');
-  }
-  // FIFO consumption: consume from the earliest unexpired credits first
+  // Use transaction to ensure atomicity of balance check + FIFO deduction + usage record
   const db = await getDb();
-  const now = new Date();
-  const transactions = await db
-    .select()
-    .from(creditTransaction)
-    .where(
-      and(
-        eq(creditTransaction.userId, userId),
-        // Exclude usage and expire records (these are consumption/expiration logs)
-        not(eq(creditTransaction.type, CREDIT_TRANSACTION_TYPE.USAGE)),
-        not(eq(creditTransaction.type, CREDIT_TRANSACTION_TYPE.EXPIRE)),
-        // Only include transactions with remaining amount > 0
-        gt(creditTransaction.remainingAmount, 0),
-        // Only include unexpired credits (either no expiration date or not yet expired)
-        or(
-          isNull(creditTransaction.expirationDate),
-          gt(creditTransaction.expirationDate, now)
+  await db.transaction(async (tx) => {
+    // Check balance inside transaction to prevent race conditions
+    const [balanceRecord] = await tx
+      .select({ currentCredits: userCredit.currentCredits })
+      .from(userCredit)
+      .where(eq(userCredit.userId, userId))
+      .limit(1);
+
+    const currentBalance = balanceRecord?.currentCredits || 0;
+    if (currentBalance < amount) {
+      console.error(
+        `consumeCredits, insufficient credits for user ${userId}, required: ${amount}, available: ${currentBalance}`
+      );
+      throw new Error('Insufficient credits');
+    }
+
+    // FIFO consumption: consume from the earliest unexpired credits first
+    const now = new Date();
+    const transactions = await tx
+      .select()
+      .from(creditTransaction)
+      .where(
+        and(
+          eq(creditTransaction.userId, userId),
+          not(eq(creditTransaction.type, CREDIT_TRANSACTION_TYPE.USAGE)),
+          not(eq(creditTransaction.type, CREDIT_TRANSACTION_TYPE.EXPIRE)),
+          gt(creditTransaction.remainingAmount, 0),
+          or(
+            isNull(creditTransaction.expirationDate),
+            gt(creditTransaction.expirationDate, now)
+          )
         )
       )
-    )
-    .orderBy(
-      asc(creditTransaction.expirationDate),
-      asc(creditTransaction.createdAt)
-    );
-  // Consume credits
-  let remainingToDeduct = amount;
-  for (const transaction of transactions) {
-    if (remainingToDeduct <= 0) break;
-    const remainingAmount = transaction.remainingAmount || 0;
-    if (remainingAmount <= 0) continue;
-    // credits to consume at most in this transaction
-    const deductFromThis = Math.min(remainingAmount, remainingToDeduct);
-    await db
-      .update(creditTransaction)
-      .set({
-        remainingAmount: remainingAmount - deductFromThis,
-        updatedAt: new Date(),
-      })
-      .where(eq(creditTransaction.id, transaction.id));
-    remainingToDeduct -= deductFromThis;
-  }
-  // Update balance
-  const current = await db
-    .select()
-    .from(userCredit)
-    .where(eq(userCredit.userId, userId))
-    .limit(1);
-  const newBalance = (current[0]?.currentCredits || 0) - amount;
-  await db
-    .update(userCredit)
-    .set({ currentCredits: newBalance, updatedAt: new Date() })
-    .where(eq(userCredit.userId, userId));
-  // Write usage record
-  await saveCreditTransaction({
-    userId,
-    type: CREDIT_TRANSACTION_TYPE.USAGE,
-    amount: -amount,
-    description,
+      .orderBy(
+        sql`${creditTransaction.expirationDate} is null`,
+        asc(creditTransaction.expirationDate),
+        asc(creditTransaction.createdAt)
+      );
+
+    // Consume credits
+    let remainingToDeduct = amount;
+    for (const transaction of transactions) {
+      if (remainingToDeduct <= 0) break;
+      const remainingAmount = transaction.remainingAmount || 0;
+      if (remainingAmount <= 0) continue;
+      const deductFromThis = Math.min(remainingAmount, remainingToDeduct);
+      await tx
+        .update(creditTransaction)
+        .set({
+          remainingAmount: remainingAmount - deductFromThis,
+          updatedAt: new Date(),
+        })
+        .where(eq(creditTransaction.id, transaction.id));
+      remainingToDeduct -= deductFromThis;
+    }
+
+    // Update balance
+    const newBalance = currentBalance - amount;
+    await tx
+      .update(userCredit)
+      .set({ currentCredits: newBalance, updatedAt: new Date() })
+      .where(eq(userCredit.userId, userId));
+
+    // Write usage record
+    await tx.insert(creditTransaction).values({
+      id: randomUUID(),
+      userId,
+      type: CREDIT_TRANSACTION_TYPE.USAGE,
+      amount: -amount,
+      remainingAmount: null,
+      description,
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    });
   });
 }
 

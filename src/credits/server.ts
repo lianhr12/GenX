@@ -70,7 +70,7 @@ export async function freezeMediaCredits(params: {
   const { userId, credits, mediaUuid, mediaType } = params;
   const db = await getDb();
 
-  // Check if hold already exists (idempotency)
+  // Check if hold already exists (idempotency) - outside transaction for fast path
   const [existingHold] = await db
     .select()
     .from(creditHolds)
@@ -84,97 +84,100 @@ export async function freezeMediaCredits(params: {
     throw new Error(`Hold already processed for ${mediaType}: ${mediaUuid}`);
   }
 
-  const now = new Date();
+  // Use transaction to prevent race conditions on concurrent freeze requests
+  return await db.transaction(async (tx) => {
+    const now = new Date();
 
-  // Get available credit transactions (FIFO by expiration)
-  const transactions = await db
-    .select()
-    .from(creditTransaction)
-    .where(
-      and(
-        eq(creditTransaction.userId, userId),
-        gt(creditTransaction.remainingAmount, 0),
-        or(
-          isNull(creditTransaction.expirationDate),
-          gt(creditTransaction.expirationDate, now)
+    // Get available credit transactions (FIFO by expiration)
+    const transactions = await tx
+      .select()
+      .from(creditTransaction)
+      .where(
+        and(
+          eq(creditTransaction.userId, userId),
+          gt(creditTransaction.remainingAmount, 0),
+          or(
+            isNull(creditTransaction.expirationDate),
+            gt(creditTransaction.expirationDate, now)
+          )
         )
       )
-    )
-    .orderBy(
-      sql`${creditTransaction.expirationDate} is null`,
-      asc(creditTransaction.expirationDate),
-      asc(creditTransaction.createdAt)
+      .orderBy(
+        sql`${creditTransaction.expirationDate} is null`,
+        asc(creditTransaction.expirationDate),
+        asc(creditTransaction.createdAt)
+      );
+
+    // Calculate available credits
+    const availableCredits = transactions.reduce(
+      (sum, t) => sum + (t.remainingAmount || 0),
+      0
     );
 
-  // Calculate available credits
-  const availableCredits = transactions.reduce(
-    (sum, t) => sum + (t.remainingAmount || 0),
-    0
-  );
+    if (availableCredits < credits) {
+      throw new Error(
+        `Insufficient credits. Required: ${credits}, Available: ${availableCredits}`
+      );
+    }
 
-  if (availableCredits < credits) {
-    throw new Error(
-      `Insufficient credits. Required: ${credits}, Available: ${availableCredits}`
-    );
-  }
+    // Allocate credits from transactions (FIFO)
+    const allocation: PackageAllocation[] = [];
+    let remaining = credits;
 
-  // Allocate credits from transactions (FIFO)
-  const allocation: PackageAllocation[] = [];
-  let remaining = credits;
+    for (const transaction of transactions) {
+      if (remaining <= 0) break;
 
-  for (const transaction of transactions) {
-    if (remaining <= 0) break;
+      const toFreeze = Math.min(transaction.remainingAmount || 0, remaining);
+      allocation.push({ transactionId: transaction.id, credits: toFreeze });
 
-    const toFreeze = Math.min(transaction.remainingAmount || 0, remaining);
-    allocation.push({ transactionId: transaction.id, credits: toFreeze });
+      // Deduct from transaction
+      await tx
+        .update(creditTransaction)
+        .set({
+          remainingAmount: (transaction.remainingAmount || 0) - toFreeze,
+          updatedAt: new Date(),
+        })
+        .where(eq(creditTransaction.id, transaction.id));
 
-    // Deduct from transaction
-    await db
-      .update(creditTransaction)
-      .set({
-        remainingAmount: (transaction.remainingAmount || 0) - toFreeze,
-        updatedAt: new Date(),
+      remaining -= toFreeze;
+    }
+
+    // Update user credit balance
+    const [userCreditRecord] = await tx
+      .select()
+      .from(userCredit)
+      .where(eq(userCredit.userId, userId))
+      .limit(1);
+
+    if (userCreditRecord) {
+      await tx
+        .update(userCredit)
+        .set({
+          currentCredits: userCreditRecord.currentCredits - credits,
+          updatedAt: new Date(),
+        })
+        .where(eq(userCredit.userId, userId));
+    }
+
+    // Create hold record with new mediaUuid field
+    const [holdResult] = await tx
+      .insert(creditHolds)
+      .values({
+        userId,
+        mediaUuid,
+        mediaType,
+        credits,
+        status: CreditHoldStatus.HOLDING,
+        packageAllocation: allocation,
       })
-      .where(eq(creditTransaction.id, transaction.id));
+      .returning({ id: creditHolds.id });
 
-    remaining -= toFreeze;
-  }
+    if (!holdResult) {
+      throw new Error('Failed to create credit hold');
+    }
 
-  // Update user credit balance
-  const [userCreditRecord] = await db
-    .select()
-    .from(userCredit)
-    .where(eq(userCredit.userId, userId))
-    .limit(1);
-
-  if (userCreditRecord) {
-    await db
-      .update(userCredit)
-      .set({
-        currentCredits: userCreditRecord.currentCredits - credits,
-        updatedAt: new Date(),
-      })
-      .where(eq(userCredit.userId, userId));
-  }
-
-  // Create hold record with new mediaUuid field
-  const [holdResult] = await db
-    .insert(creditHolds)
-    .values({
-      userId,
-      mediaUuid,
-      mediaType,
-      credits,
-      status: CreditHoldStatus.HOLDING,
-      packageAllocation: allocation,
-    })
-    .returning({ id: creditHolds.id });
-
-  if (!holdResult) {
-    throw new Error('Failed to create credit hold');
-  }
-
-  return { success: true, holdId: holdResult.id };
+    return { success: true, holdId: holdResult.id };
+  });
 }
 
 /**
@@ -198,37 +201,40 @@ export async function settleMediaCredits(
   }
 
   if (hold.status === CreditHoldStatus.SETTLED) {
-    return; // Already settled
+    return; // Already settled (idempotent)
   }
 
   if (hold.status !== CreditHoldStatus.HOLDING) {
     throw new Error(`Invalid hold status: ${hold.status}`);
   }
 
-  // Mark hold as settled
-  await db
-    .update(creditHolds)
-    .set({
-      status: CreditHoldStatus.SETTLED,
-      settledAt: new Date(),
-    })
-    .where(eq(creditHolds.mediaUuid, mediaUuid));
+  // Use transaction to ensure atomicity of settle + usage record
+  await db.transaction(async (tx) => {
+    // Mark hold as settled
+    await tx
+      .update(creditHolds)
+      .set({
+        status: CreditHoldStatus.SETTLED,
+        settledAt: new Date(),
+      })
+      .where(eq(creditHolds.mediaUuid, mediaUuid));
 
-  // Record usage transaction
-  const description =
-    mediaType === 'video'
-      ? `Video generation: ${mediaUuid}`
-      : `Image generation: ${mediaUuid}`;
+    // Record usage transaction
+    const description =
+      mediaType === 'video'
+        ? `Video generation: ${mediaUuid}`
+        : `Image generation: ${mediaUuid}`;
 
-  await db.insert(creditTransaction).values({
-    id: randomUUID(),
-    userId: hold.userId,
-    type: CREDIT_TRANSACTION_TYPE.USAGE,
-    amount: -hold.credits,
-    remainingAmount: null,
-    description,
-    createdAt: new Date(),
-    updatedAt: new Date(),
+    await tx.insert(creditTransaction).values({
+      id: randomUUID(),
+      userId: hold.userId,
+      type: CREDIT_TRANSACTION_TYPE.USAGE,
+      amount: -hold.credits,
+      remainingAmount: null,
+      description,
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    });
   });
 }
 
@@ -255,59 +261,62 @@ export async function releaseMediaCredits(
   }
 
   if (hold.status === CreditHoldStatus.RELEASED) {
-    return; // Already released
+    return; // Already released (idempotent)
   }
 
   if (hold.status !== CreditHoldStatus.HOLDING) {
     throw new Error(`Invalid hold status: ${hold.status}`);
   }
 
-  const allocation = hold.packageAllocation as PackageAllocation[];
+  // Use transaction to ensure atomicity of release operations
+  await db.transaction(async (tx) => {
+    const allocation = hold.packageAllocation as PackageAllocation[];
 
-  // Return credits to original transactions
-  for (const { transactionId, credits } of allocation) {
-    const [transaction] = await db
+    // Return credits to original transactions
+    for (const { transactionId, credits } of allocation) {
+      const [transaction] = await tx
+        .select()
+        .from(creditTransaction)
+        .where(eq(creditTransaction.id, transactionId))
+        .limit(1);
+
+      if (transaction) {
+        await tx
+          .update(creditTransaction)
+          .set({
+            remainingAmount: (transaction.remainingAmount || 0) + credits,
+            updatedAt: new Date(),
+          })
+          .where(eq(creditTransaction.id, transactionId));
+      }
+    }
+
+    // Restore user credit balance
+    const [userCreditRecord] = await tx
       .select()
-      .from(creditTransaction)
-      .where(eq(creditTransaction.id, transactionId))
+      .from(userCredit)
+      .where(eq(userCredit.userId, hold.userId))
       .limit(1);
 
-    if (transaction) {
-      await db
-        .update(creditTransaction)
+    if (userCreditRecord) {
+      await tx
+        .update(userCredit)
         .set({
-          remainingAmount: (transaction.remainingAmount || 0) + credits,
+          currentCredits: userCreditRecord.currentCredits + hold.credits,
           updatedAt: new Date(),
         })
-        .where(eq(creditTransaction.id, transactionId));
+        .where(eq(userCredit.userId, hold.userId));
     }
-  }
 
-  // Restore user credit balance
-  const [userCreditRecord] = await db
-    .select()
-    .from(userCredit)
-    .where(eq(userCredit.userId, hold.userId))
-    .limit(1);
-
-  if (userCreditRecord) {
-    await db
-      .update(userCredit)
+    // Mark hold as released
+    await tx
+      .update(creditHolds)
       .set({
-        currentCredits: userCreditRecord.currentCredits + hold.credits,
-        updatedAt: new Date(),
+        status: CreditHoldStatus.RELEASED,
+        settledAt: new Date(),
       })
-      .where(eq(userCredit.userId, hold.userId));
-  }
-
-  // Mark hold as released
-  await db
-    .update(creditHolds)
-    .set({
-      status: CreditHoldStatus.RELEASED,
-      settledAt: new Date(),
-    })
-    .where(eq(creditHolds.mediaUuid, mediaUuid));
+      .where(eq(creditHolds.mediaUuid, mediaUuid));
+  });
 }
 
 // ============================================================================
