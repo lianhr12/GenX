@@ -35,6 +35,7 @@ function ToolPageLayoutInner({ mode, children }: ToolPageLayoutProps) {
   );
   const [isGenerating, setIsGenerating] = useState(false);
   const [showFloating, setShowFloating] = useState(false);
+  const [historyRefreshKey, setHistoryRefreshKey] = useState(0);
   const creatorRef = useRef<HTMLDivElement>(null);
   const [isParamsReady, setIsParamsReady] = useState(false);
   const hasInitialized = useRef(false);
@@ -90,6 +91,7 @@ function ToolPageLayoutInner({ mode, children }: ToolPageLayoutProps) {
             thumbnailUrl: status.imageUrls![0],
           }));
           setIsGenerating(false);
+          setHistoryRefreshKey((k) => k + 1);
           toast.success('图片生成完成！');
           return;
         }
@@ -159,6 +161,7 @@ function ToolPageLayoutInner({ mode, children }: ToolPageLayoutProps) {
             thumbnailUrl: status.videoUrl,
           }));
           setIsGenerating(false);
+          setHistoryRefreshKey((k) => k + 1);
           toast.success('视频生成完成！');
           return;
         }
@@ -485,6 +488,16 @@ function ToolPageLayoutInner({ mode, children }: ToolPageLayoutProps) {
     [mode, pollImageStatus, pollVideoStatus]
   );
 
+  const handleSelectHistoryItem = useCallback(
+    (item: GenerationResult) => {
+      setCurrentResult(item);
+      setIsGenerating(false);
+      // Scroll to top to show the selected result
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    },
+    []
+  );
+
   return (
     <div className="min-h-screen">
       <div className="container mx-auto px-4 py-8 space-y-6">
@@ -496,7 +509,11 @@ function ToolPageLayoutInner({ mode, children }: ToolPageLayoutProps) {
         />
 
         {/* 历史记录区 */}
-        <HistorySection mode={mode} />
+        <HistorySection
+          mode={mode}
+          onSelectItem={handleSelectHistoryItem}
+          refreshKey={historyRefreshKey}
+        />
 
         {/* GenXCreator 输入区 - 使用 compact 模式 */}
         <div ref={creatorRef}>

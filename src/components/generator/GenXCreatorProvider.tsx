@@ -123,7 +123,12 @@ export function GenXCreatorProvider({
   const initialState = useMemo(() => {
     const base = { ...defaultCreatorState };
     if (defaultValue) {
-      return { ...base, ...defaultValue };
+      // 如果指定了 mode，先应用该 mode 的默认参数（包括正确的默认 model），
+      // 再用 defaultValue 中的显式值覆盖
+      const modeDefaults = defaultValue.mode
+        ? getDefaultStateForMode(defaultValue.mode)
+        : {};
+      return { ...base, ...modeDefaults, ...defaultValue };
     }
     return base;
   }, [defaultValue]);

@@ -3,8 +3,10 @@
 // src/components/generator/layouts/ResultSection.tsx
 
 import { Button } from '@/components/ui/button';
+import { downloadFile, downloadVideo } from '@/lib/download';
 import { cn } from '@/lib/utils';
 import {
+  CheckIcon,
   DownloadIcon,
   HeartIcon,
   ImageIcon,
@@ -13,6 +15,8 @@ import {
   VideoIcon,
 } from 'lucide-react';
 import { useTranslations } from 'next-intl';
+import { useCallback, useEffect, useState } from 'react';
+import { toast } from 'sonner';
 import type { CreatorMode, GenerationResult } from '../types';
 
 interface ResultSectionProps {
@@ -20,6 +24,9 @@ interface ResultSectionProps {
   mode: CreatorMode;
   isLoading?: boolean;
   className?: string;
+  onDownload?: (result: GenerationResult) => void;
+  onShare?: (result: GenerationResult) => void;
+  onFavorite?: (result: GenerationResult) => void;
 }
 
 function EmptyState({ mode }: { mode: CreatorMode }) {
@@ -61,21 +68,129 @@ function LoadingState() {
   );
 }
 
-function ResultActions({ result }: { result: GenerationResult }) {
+interface ResultActionsProps {
+  result: GenerationResult;
+  onDownload?: (result: GenerationResult) => void;
+  onShare?: (result: GenerationResult) => void;
+  onFavorite?: (result: GenerationResult) => void;
+}
+
+function ResultActions({ result, onDownload, onShare, onFavorite }: ResultActionsProps) {
   const t = useTranslations('Generator.result.actions');
+  const [isDownloading, setIsDownloading] = useState(false);
+  const [isFavorited, setIsFavorited] = useState(false);
+  const [shareSuccess, setShareSuccess] = useState(false);
+
+  // Reset states when result changes
+  useEffect(() => {
+    setIsFavorited(false);
+    setShareSuccess(false);
+    setIsDownloading(false);
+  }, [result.id]);
+
+  const handleDownload = useCallback(async () => {
+    if (!result.url || isDownloading) return;
+    setIsDownloading(true);
+    try {
+      if (onDownload) {
+        onDownload(result);
+      } else {
+        const isVideo = result.type === 'video';
+        if (isVideo) {
+          await downloadVideo(result.url, result.id);
+        } else {
+          await downloadFile(result.url, `${result.id}.png`);
+        }
+        toast.success(t('downloadSuccess'));
+      }
+    } catch {
+      toast.error(t('downloadFailed'));
+    } finally {
+      setIsDownloading(false);
+    }
+  }, [result, isDownloading, onDownload, t]);
+
+  const handleShare = useCallback(async () => {
+    if (onShare) {
+      onShare(result);
+      return;
+    }
+    try {
+      const shareUrl = result.url || window.location.href;
+      if (navigator.share) {
+        await navigator.share({
+          title: result.prompt,
+          url: shareUrl,
+        });
+      } else {
+        await navigator.clipboard.writeText(shareUrl);
+        setShareSuccess(true);
+        toast.success(t('linkCopied'));
+        setTimeout(() => setShareSuccess(false), 2000);
+      }
+    } catch {
+      // User cancelled share or error
+    }
+  }, [result, onShare, t]);
+
+  const handleFavorite = useCallback(async () => {
+    if (onFavorite) {
+      onFavorite(result);
+      return;
+    }
+    try {
+      const isImage = result.type === 'image';
+      const endpoint = isImage
+        ? `/api/v1/image/${result.id}/favorite`
+        : `/api/v1/video/${result.id}/favorite`;
+      const response = await fetch(endpoint, { method: 'PATCH' });
+      if (!response.ok) throw new Error('Failed to toggle favorite');
+      const data = await response.json();
+      setIsFavorited(data.data?.isFavorite ?? !isFavorited);
+      toast.success(data.data?.isFavorite ? t('favorited') : t('unfavorited'));
+    } catch {
+      toast.error(t('favoriteFailed'));
+    }
+  }, [result, onFavorite, isFavorited, t]);
 
   return (
     <div className="flex items-center gap-2 mt-4">
-      <Button variant="outline" size="sm" className="gap-2">
-        <DownloadIcon className="w-4 h-4" />
+      <Button
+        variant="outline"
+        size="sm"
+        className="gap-2"
+        onClick={handleDownload}
+        disabled={!result.url || isDownloading}
+      >
+        {isDownloading ? (
+          <Loader2Icon className="w-4 h-4 animate-spin" />
+        ) : (
+          <DownloadIcon className="w-4 h-4" />
+        )}
         {t('download')}
       </Button>
-      <Button variant="outline" size="sm" className="gap-2">
-        <ShareIcon className="w-4 h-4" />
+      <Button
+        variant="outline"
+        size="sm"
+        className="gap-2"
+        onClick={handleShare}
+        disabled={!result.url}
+      >
+        {shareSuccess ? (
+          <CheckIcon className="w-4 h-4" />
+        ) : (
+          <ShareIcon className="w-4 h-4" />
+        )}
         {t('share')}
       </Button>
-      <Button variant="outline" size="sm" className="gap-2">
-        <HeartIcon className="w-4 h-4" />
+      <Button
+        variant="outline"
+        size="sm"
+        className="gap-2"
+        onClick={handleFavorite}
+        disabled={!result.url}
+      >
+        <HeartIcon className={cn('w-4 h-4', isFavorited && 'fill-current text-red-500')} />
         {t('favorite')}
       </Button>
     </div>
@@ -128,6 +243,9 @@ export function ResultSection({
   mode,
   isLoading = false,
   className,
+  onDownload,
+  onShare,
+  onFavorite,
 }: ResultSectionProps) {
   if (isLoading) {
     return (
@@ -174,7 +292,12 @@ export function ResultSection({
       </div>
 
       {/* Actions */}
-      <ResultActions result={result} />
+      <ResultActions
+        result={result}
+        onDownload={onDownload}
+        onShare={onShare}
+        onFavorite={onFavorite}
+      />
     </div>
   );
 }

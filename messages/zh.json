@@ -2341,7 +2341,13 @@
       "actions": {
         "download": "下载",
         "share": "分享",
-        "favorite": "收藏"
+        "favorite": "收藏",
+        "downloadSuccess": "下载成功",
+        "downloadFailed": "下载失败",
+        "linkCopied": "链接已复制到剪贴板",
+        "favorited": "已添加到收藏",
+        "unfavorited": "已取消收藏",
+        "favoriteFailed": "收藏操作失败"
       }
     },
     "history": {

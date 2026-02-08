@@ -2341,7 +2341,13 @@
       "actions": {
         "download": "Download",
         "share": "Share",
-        "favorite": "Favorite"
+        "favorite": "Favorite",
+        "downloadSuccess": "Downloaded successfully",
+        "downloadFailed": "Download failed",
+        "linkCopied": "Link copied to clipboard",
+        "favorited": "Added to favorites",
+        "unfavorited": "Removed from favorites",
+        "favoriteFailed": "Failed to toggle favorite"
       }
     },
     "history": {
