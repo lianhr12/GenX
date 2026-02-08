@@ -236,7 +236,7 @@ export function CreatorInput({
                       'h-full min-h-[24px] leading-relaxed outline-none',
                       'border-0 bg-transparent p-0',
                       'focus-visible:ring-0 focus-visible:ring-offset-0',
-                      'placeholder:text-muted-foreground/60'
+                      'placeholder:text-muted-foreground/60 dark:bg-input/0'
                     )}
                     disabled={isGenerating || isNavigating}
                   />

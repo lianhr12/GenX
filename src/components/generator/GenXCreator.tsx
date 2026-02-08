@@ -129,7 +129,7 @@ function CreatorContent({
   if (compact) {
     // 紧凑模式：类似 /create 主页面的输入框样式
     return (
-      <div className="rounded-xl bg-card border border-border p-4">
+      <div className="rounded-2xl bg-card/90 backdrop-blur-xl border border-white/10 p-4">
         {/* 输入区 */}
         <CreatorInput
           showImageUpload
@@ -163,7 +163,7 @@ function CreatorContent({
 
   // 完整模式：类似工具页面的完整表单
   return (
-    <div className="rounded-xl bg-card border border-border overflow-hidden">
+    <div className="rounded-2xl bg-card/60 backdrop-blur-xl border border-white/10 overflow-hidden">
       {/* 内容区 */}
       <div className="p-5 space-y-5">
         {/* 动态面板 */}
@@ -185,7 +185,7 @@ function CreatorContent({
       </div>
 
       {/* 底部：参数栏 + Credits + 提交按钮 */}
-      <div className="px-5 py-4 bg-muted/50 border-t border-border">
+      <div className="px-5 py-4 bg-muted/30 border-t border-white/10">
         <div className="flex items-center justify-between">
           <CreatorParameterBar
             allowedModes={allowedModes}
