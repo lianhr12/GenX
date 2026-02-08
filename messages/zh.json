@@ -2234,7 +2234,12 @@
       "audioUploadAction": "点击选择音频文件",
       "audioUploadHint": "支持 MP3、WAV、AAC 格式，最大 10MB",
       "audioUploadError": "音频上传失败，请重试",
-      "audioNone": "无音频"
+      "audioNone": "无音频",
+      "moreOptions": "更多选项",
+      "publicVisibility": "公开可见性",
+      "publicVisibilityDesc": "开启后，您的作品可能会被展示到探索页。",
+      "copyrightProtection": "版权保护",
+      "copyrightProtectionDesc": "开启后，向社区隐藏您上传的图片和提示词。"
     },
     "submit": {
       "generate": "生成",

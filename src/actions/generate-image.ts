@@ -13,6 +13,7 @@ const generateImageSchema = z.object({
   quality: z.enum(['high', 'medium', 'low']).optional(),
   numberOfImages: z.number().min(1).max(4).optional(),
   isPublic: z.boolean().optional(),
+  hidePrompt: z.boolean().optional(),
 });
 
 // Model configurations
@@ -73,7 +74,7 @@ const ASPECT_RATIO_FALLBACK: Record<string, Record<string, string>> = {
 export const generateImageAction = userActionClient
   .schema(generateImageSchema)
   .action(async ({ parsedInput, ctx }) => {
-    const { prompt, model, aspectRatio, quality, numberOfImages, isPublic } =
+    const { prompt, model, aspectRatio, quality, numberOfImages, isPublic, hidePrompt } =
       parsedInput;
     const currentUser = (ctx as { user: User }).user;
 
@@ -103,6 +104,7 @@ export const generateImageAction = userActionClient
         numberOfImages: numberOfImages || 1,
         size,
         isPublic: isPublic ?? true,
+        hidePrompt: hidePrompt ?? false,
       });
 
       return {

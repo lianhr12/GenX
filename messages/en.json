@@ -2234,7 +2234,12 @@
       "audioUploadAction": "Click to select audio file",
       "audioUploadHint": "Supports MP3, WAV, AAC formats, max 10MB",
       "audioUploadError": "Audio upload failed, please try again",
-      "audioNone": "No Audio"
+      "audioNone": "No Audio",
+      "moreOptions": "More Options",
+      "publicVisibility": "Public Visibility",
+      "publicVisibilityDesc": "When enabled, your creations may be featured in the Explore page.",
+      "copyrightProtection": "Copyright Protection",
+      "copyrightProtectionDesc": "When enabled, your uploaded images and prompts will be hidden from the community."
     },
     "submit": {
       "generate": "Generate",

@@ -14,6 +14,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from '@/components/ui/popover';
+import { Switch } from '@/components/ui/switch';
 import {
   Select,
   SelectContent,
@@ -79,6 +80,8 @@ export function CreatorParameterBar({
     generateAudio,
     audioUrl,
     isGenerating,
+    isPublic,
+    hidePrompt,
   } = useCreatorState();
 
   const [videoSettingsOpen, setVideoSettingsOpen] = useState(false);
@@ -816,9 +819,47 @@ export function CreatorParameterBar({
 
         {/* More Options */}
         {showMoreOptions && (
-          <button type="button" className={cn(paramButtonClass, 'p-2.5')}>
-            <MoreHorizontalIcon className="size-4" />
-          </button>
+          <Popover>
+            <PopoverTrigger asChild>
+              <button type="button" className={cn(paramButtonClass, 'p-2.5')}>
+                <MoreHorizontalIcon className="size-4" />
+              </button>
+            </PopoverTrigger>
+            <PopoverContent
+              align="end"
+              className="w-72 p-0 bg-popover border border-border rounded-xl shadow-xl"
+            >
+              <div className="p-3 space-y-1">
+                <h4 className="text-sm font-medium px-1 pb-1">{t('moreOptions')}</h4>
+                {/* 公开可见性 */}
+                <div className="flex items-center justify-between gap-3 rounded-lg p-2 hover:bg-muted/50 transition-colors">
+                  <div className="flex-1 min-w-0">
+                    <p className="text-sm font-medium">{t('publicVisibility')}</p>
+                    <p className="text-xs text-muted-foreground leading-relaxed">
+                      {t('publicVisibilityDesc')}
+                    </p>
+                  </div>
+                  <Switch
+                    checked={isPublic}
+                    onCheckedChange={(checked) => setParam('isPublic', checked)}
+                  />
+                </div>
+                {/* 版权保护 */}
+                <div className="flex items-center justify-between gap-3 rounded-lg p-2 hover:bg-muted/50 transition-colors">
+                  <div className="flex-1 min-w-0">
+                    <p className="text-sm font-medium">{t('copyrightProtection')}</p>
+                    <p className="text-xs text-muted-foreground leading-relaxed">
+                      {t('copyrightProtectionDesc')}
+                    </p>
+                  </div>
+                  <Switch
+                    checked={hidePrompt}
+                    onCheckedChange={(checked) => setParam('hidePrompt', checked)}
+                  />
+                </div>
+              </div>
+            </PopoverContent>
+          </Popover>
         )}
       </div>
     </div>

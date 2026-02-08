@@ -40,6 +40,7 @@ export interface GalleryItemData {
   isLiked?: boolean;
   isFavorite?: boolean;
   createdAt?: Date;
+  hidePrompt?: boolean;
   // Management fields
   status?: 'COMPLETED' | 'GENERATING' | 'PENDING' | 'UPLOADING' | 'FAILED';
   duration?: number;
@@ -331,7 +332,9 @@ export function GalleryVideoCard({
       {/* Info overlay */}
       <div className="absolute inset-x-0 bottom-0 p-3">
         {/* Prompt */}
-        <p className="text-white text-xs line-clamp-2 mb-2">{item.prompt}</p>
+        {!item.hidePrompt && (
+          <p className="text-white text-xs line-clamp-2 mb-2">{item.prompt}</p>
+        )}
 
         {/* Stats */}
         <div className="flex items-center gap-3 text-white/80 text-xs">
@@ -367,7 +370,7 @@ export function GalleryVideoCard({
       >
         <ReplicateButton
           data={{
-            prompt: item.prompt,
+            prompt: item.hidePrompt ? '' : item.prompt,
             artStyle: item.artStyle,
             aspectRatio: item.aspectRatio,
             model: item.model,

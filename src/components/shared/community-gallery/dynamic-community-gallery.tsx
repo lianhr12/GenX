@@ -117,17 +117,19 @@ function GalleryModal({
               </p>
             )}
 
-            <div className="mt-4">
-              <p className="text-sm text-muted-foreground">
-                {t('modal.prompt' as never)}
-              </p>
-              <p className="mt-1 text-foreground">{item.prompt}</p>
-            </div>
+            {!item.hidePrompt && (
+              <div className="mt-4">
+                <p className="text-sm text-muted-foreground">
+                  {t('modal.prompt' as never)}
+                </p>
+                <p className="mt-1 text-foreground">{item.prompt}</p>
+              </div>
+            )}
 
             <div className="mt-6">
               <ReplicateButton
                 data={{
-                  prompt: item.prompt,
+                  prompt: item.hidePrompt ? '' : item.prompt,
                   artStyle: item.artStyle,
                   aspectRatio: item.aspectRatio,
                   model: item.model,

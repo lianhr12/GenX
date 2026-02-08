@@ -155,6 +155,7 @@ export const videos = pgTable("videos", {
 	creditsUsed: integer("credits_used").default(0).notNull(),
 	isFavorite: boolean("is_favorite").default(false).notNull(),
 	isPublic: boolean("is_public").default(true).notNull(),
+	hidePrompt: boolean("hide_prompt").default(false).notNull(),
 	createdAt: timestamp("created_at").defaultNow().notNull(),
 	updatedAt: timestamp("updated_at").defaultNow().notNull(),
 	completedAt: timestamp("completed_at"),
@@ -256,6 +257,7 @@ export const images = pgTable("images", {
 	// User management
 	isFavorite: boolean("is_favorite").default(false).notNull(),
 	isPublic: boolean("is_public").default(true).notNull(),
+	hidePrompt: boolean("hide_prompt").default(false).notNull(),
 	tags: jsonb("tags"), // string[]
 
 	// Timestamps
@@ -330,6 +332,7 @@ export const galleryItems = pgTable("gallery_items", {
 	status: text("status").default("pending").notNull(), // pending, approved, rejected
 	isFeatured: boolean("is_featured").default(false).notNull(),
 	sortWeight: integer("sort_weight").default(0).notNull(),
+	hidePrompt: boolean("hide_prompt").default(false).notNull(),
 
 	// Review info
 	reviewedAt: timestamp("reviewed_at"),

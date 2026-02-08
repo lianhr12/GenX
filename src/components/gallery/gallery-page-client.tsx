@@ -64,6 +64,7 @@ export function GalleryPageClient() {
         isLiked: item.isLiked,
         isFavorite: item.isFavorite,
         createdAt: item.createdAt,
+        hidePrompt: item.hidePrompt,
       }))
     ) || [];
 

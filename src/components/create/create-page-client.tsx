@@ -2,11 +2,11 @@
 
 import { GenXCreator } from '@/components/generator';
 import { useEffect, useRef, useState } from 'react';
-import { FeatureBanner } from './banner/feature-banner';
+// import { FeatureBanner } from './banner/feature-banner';
 import { GallerySection } from './gallery/gallery-section';
 import { ModelsSection } from './models/models-section';
 import { StyleTags } from './styles/style-tags';
-import { VideoToolsSection } from './tools/video-tools-section';
+// import { VideoToolsSection } from './tools/video-tools-section';
 
 export function CreatePageClient() {
   const inputRef = useRef<HTMLDivElement>(null);
@@ -54,10 +54,10 @@ export function CreatePageClient() {
         </div>
 
         {/* Feature Banners */}
-        <FeatureBanner />
+        {/* <FeatureBanner /> */}
 
         {/* Video Tools */}
-        <VideoToolsSection />
+        {/* <VideoToolsSection /> */}
 
         {/* AI Models */}
         <ModelsSection />

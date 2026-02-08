@@ -16,6 +16,7 @@ const generateVideoSchema = z.object({
   generateAudio: z.boolean().optional(),
   audioUrl: z.string().url().optional(),
   isPublic: z.boolean().optional(),
+  hidePrompt: z.boolean().optional(),
 });
 
 /**
@@ -51,6 +52,7 @@ export const generateVideoAction = userActionClient
         audioUrl: parsedInput.audioUrl,
         generateAudio: parsedInput.generateAudio,
         isPublic: parsedInput.isPublic ?? true,
+        hidePrompt: parsedInput.hidePrompt ?? false,
       });
 
       return {

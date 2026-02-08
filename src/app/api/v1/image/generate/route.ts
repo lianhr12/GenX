@@ -27,6 +27,7 @@ const generateImageSchema = z.object({
     .optional(),
   imageUrls: z.array(z.string().url()).max(5).optional(),
   isPublic: z.boolean().default(true),
+  hidePrompt: z.boolean().default(false),
 });
 
 // Supported models and their mappings based on Evolink API documentation
@@ -141,6 +142,7 @@ export async function POST(req: NextRequest) {
       numberOfImages,
       imageUrls,
       isPublic,
+      hidePrompt,
     } = parseResult.data;
 
     // Get model config
@@ -170,6 +172,7 @@ export async function POST(req: NextRequest) {
       size,
       imageUrls,
       isPublic,
+      hidePrompt,
     });
 
     // Log task creation for audit

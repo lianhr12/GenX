@@ -39,6 +39,7 @@ export interface GalleryItem {
   createdAt: Date;
   isLiked: boolean;
   isFavorite: boolean;
+  hidePrompt?: boolean;
 }
 
 // Hook to fetch featured gallery items (for homepage)

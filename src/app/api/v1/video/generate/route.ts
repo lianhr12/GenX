@@ -30,6 +30,7 @@ const generateSchema = z.object({
   audioUrl: z.string().url().optional(),
   generateAudio: z.boolean().optional(),
   isPublic: z.boolean().default(true),
+  hidePrompt: z.boolean().default(false),
 });
 
 export async function POST(request: NextRequest) {
@@ -66,6 +67,7 @@ export async function POST(request: NextRequest) {
       audioUrl: data.audioUrl,
       generateAudio: data.generateAudio,
       isPublic: data.isPublic,
+      hidePrompt: data.hidePrompt,
     });
 
     return NextResponse.json({ success: true, data: result });

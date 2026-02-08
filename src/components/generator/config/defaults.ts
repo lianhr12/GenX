@@ -15,6 +15,7 @@ export const defaultCreatorState: CreatorState = {
   style: 'default',
   outputNumber: 1,
   isPublic: true,
+  hidePrompt: false,
   generateAudio: false,
   audioUrl: null,
   isGenerating: false,

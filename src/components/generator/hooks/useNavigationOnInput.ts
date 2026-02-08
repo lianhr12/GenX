@@ -60,6 +60,7 @@ export function useNavigationOnInput(
       style: state.style,
       outputNumber: state.outputNumber,
       isPublic: state.isPublic,
+      hidePrompt: state.hidePrompt,
       generateAudio: state.generateAudio,
       audioUrl: state.audioUrl,
     };
@@ -135,6 +136,7 @@ export function useNavigationOnInput(
             quality: imageQuality,
             numberOfImages: params.outputNumber || 1,
             isPublic: params.isPublic,
+            hidePrompt: params.hidePrompt,
           });
 
           console.log('[Navigation] generateImageAction result:', result);
@@ -202,6 +204,7 @@ export function useNavigationOnInput(
             generateAudio: params.generateAudio,
             audioUrl: params.audioUrl ?? undefined,
             isPublic: params.isPublic,
+            hidePrompt: params.hidePrompt,
           });
 
           console.log('[Navigation] generateVideoAction result:', result);

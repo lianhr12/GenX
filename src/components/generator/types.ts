@@ -36,6 +36,8 @@ export interface GenerationParams {
   outputNumber?: number;
   // 公开性
   isPublic?: boolean;
+  // 版权保护（隐藏提示词和源图片）
+  hidePrompt?: boolean;
 }
 
 /** Credits 配置 */
@@ -130,6 +132,7 @@ export interface CreatorState {
   style: string;
   outputNumber: number;
   isPublic: boolean;
+  hidePrompt: boolean;
   generateAudio: boolean;
   audioUrl: string | null;
   isGenerating: boolean;

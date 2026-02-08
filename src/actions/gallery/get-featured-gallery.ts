@@ -38,6 +38,7 @@ export const getFeaturedGalleryAction = actionClient
           viewsCount: galleryItems.viewsCount,
           createdAt: galleryItems.createdAt,
           isFeatured: galleryItems.isFeatured,
+          hidePrompt: galleryItems.hidePrompt,
         })
         .from(galleryItems)
         .where(eq(galleryItems.status, GalleryStatus.APPROVED))

@@ -40,6 +40,7 @@ export interface GenerateImageParams {
   size?: string;
   imageUrls?: string[];
   isPublic?: boolean;
+  hidePrompt?: boolean;
 }
 
 export interface ImageGenerationResult {
@@ -119,6 +120,7 @@ export class ImageService {
         status: ImageStatus.PENDING,
         creditsUsed: creditsRequired,
         isPublic: params.isPublic ?? true,
+        hidePrompt: params.hidePrompt ?? false,
         updatedAt: new Date(),
       })
       .returning({ uuid: images.uuid, id: images.id });

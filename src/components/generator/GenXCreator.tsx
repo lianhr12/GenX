@@ -149,7 +149,6 @@ function CreatorContent({
               allowedModes={allowedModes}
               showModeSelector={showModeSelector}
               showAudio
-              showMoreOptions={false}
             />
           </div>
           <CreatorSubmitButton
@@ -195,7 +194,6 @@ function CreatorContent({
             allowedModes={allowedModes}
             showModeSelector={showModeSelector}
             showAudio
-            showMoreOptions={false}
           />
           <CreatorSubmitButton
             onGenerate={onGenerate}

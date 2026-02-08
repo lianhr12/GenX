@@ -60,6 +60,7 @@ export const getGalleryListAction = actionClient
           likesCount: galleryItems.likesCount,
           viewsCount: galleryItems.viewsCount,
           createdAt: galleryItems.createdAt,
+          hidePrompt: galleryItems.hidePrompt,
         })
         .from(galleryItems)
         .where(where)

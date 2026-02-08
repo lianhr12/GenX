@@ -143,6 +143,7 @@ async function submitVideoToGallery(
       status: GalleryStatus.PENDING,
       isFeatured: false,
       sortWeight: 0,
+      hidePrompt: video.hidePrompt ?? false,
     })
     .returning({ id: galleryItems.id, uuid: galleryItems.uuid });
 
@@ -242,6 +243,7 @@ async function submitImageToGallery(
       status: GalleryStatus.PENDING,
       isFeatured: false,
       sortWeight: 0,
+      hidePrompt: image.hidePrompt ?? false,
     })
     .returning({ id: galleryItems.id, uuid: galleryItems.uuid });
 

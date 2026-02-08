@@ -38,6 +38,7 @@ export interface GenerateVideoParams extends VideoGenerationParams {
   userId: string;
   duration: number;
   isPublic?: boolean;
+  hidePrompt?: boolean;
 }
 
 export interface VideoGenerationResult {
@@ -123,6 +124,7 @@ export class VideoService {
         aspectRatio: params.aspectRatio || null,
         provider: modelConfig.provider,
         isPublic: params.isPublic ?? true,
+        hidePrompt: params.hidePrompt ?? false,
         updatedAt: new Date(),
       })
       .returning({ uuid: videos.uuid, id: videos.id });

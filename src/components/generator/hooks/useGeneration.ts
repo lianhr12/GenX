@@ -50,6 +50,7 @@ export function useGeneration(
         style: state.style,
         outputNumber: state.outputNumber,
         isPublic: state.isPublic,
+        hidePrompt: state.hidePrompt,
         ...overrideParams,
       };
 
