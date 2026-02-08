@@ -157,8 +157,11 @@ export function CreatorSubmitButton({
     onNavigate,
   ]);
 
-  // 按钮禁用状态
+  // 按钮禁用状态（不可点击）
   const isDisabled = !canSubmit || !hasEnoughCredits;
+
+  // 视觉高亮状态：条件满足 或 正在生成时，按钮保持高亮
+  const isHighlighted = (canSubmit && hasEnoughCredits) || state.isGenerating;
 
   if (variant === 'compact') {
     return (
@@ -178,14 +181,14 @@ export function CreatorSubmitButton({
         <Button
           type="button"
           size="icon"
-          variant="outline"
+          variant="ghost"
           onClick={handleSubmit}
           disabled={isDisabled}
           className={cn(
-            '!size-9 rounded-full border-none',
-            !isDisabled
-              ? 'bg-white text-black hover:bg-white/90'
-              : 'bg-muted text-muted-foreground'
+            '!size-9 rounded-full border-none transition-all duration-200',
+            isHighlighted
+              ? '!bg-amber-500 !text-black shadow-md shadow-amber-500/30 hover:!bg-amber-400'
+              : '!bg-muted !text-muted-foreground'
           )}
         >
           {state.isGenerating ? (
@@ -220,9 +223,9 @@ export function CreatorSubmitButton({
         onClick={handleSubmit}
         disabled={isDisabled}
         className={cn(
-          'flex items-center gap-2',
-          !isDisabled
-            ? 'bg-primary hover:bg-primary/90 text-primary-foreground'
+          'flex items-center gap-2 transition-all duration-200',
+          isHighlighted
+            ? 'bg-amber-500 hover:bg-amber-400 text-black shadow-md shadow-amber-500/30'
             : 'bg-muted text-muted-foreground'
         )}
       >

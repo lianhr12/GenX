@@ -133,19 +133,6 @@ export function CreatorInput({
     [setPrompt]
   );
 
-  // 处理回车键
-  const handleKeyDown = useCallback(
-    (e: React.KeyboardEvent) => {
-      if (e.key === 'Enter' && !e.shiftKey) {
-        e.preventDefault();
-        if (enableNavigation) {
-          handleInputComplete();
-        }
-      }
-    },
-    [enableNavigation, handleInputComplete]
-  );
-
   // 处理图片选择
   const handleImageSelect = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -228,7 +215,6 @@ export function CreatorInput({
                     ref={inputRef}
                     value={prompt}
                     onChange={handlePromptChange}
-                    onKeyDown={handleKeyDown}
                     placeholder={placeholder || t('placeholder')}
                     maxLength={MAX_PROMPT_LENGTH}
                     className={cn(

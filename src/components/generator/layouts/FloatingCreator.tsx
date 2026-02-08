@@ -40,16 +40,6 @@ export function FloatingCreator({ mode, onGenerate }: FloatingCreatorProps) {
     }
   }, [prompt, isGenerating, onGenerate, params]);
 
-  const handleKeyDown = useCallback(
-    (e: React.KeyboardEvent) => {
-      if (e.key === 'Enter' && !e.shiftKey) {
-        e.preventDefault();
-        handleSubmit();
-      }
-    },
-    [handleSubmit]
-  );
-
   const showImageUpload =
     mode === 'image-to-video' || mode === 'reference-to-video';
 
@@ -71,7 +61,6 @@ export function FloatingCreator({ mode, onGenerate }: FloatingCreatorProps) {
           type="text"
           value={prompt}
           onChange={(e) => setPrompt(e.target.value)}
-          onKeyDown={handleKeyDown}
           placeholder={t('placeholder')}
           disabled={isGenerating}
           className="flex-1 bg-transparent border-none outline-none text-sm text-foreground placeholder:text-muted-foreground"
@@ -85,14 +74,14 @@ export function FloatingCreator({ mode, onGenerate }: FloatingCreatorProps) {
           <Button
             type="button"
             size="icon"
-            variant="outline"
+            variant="ghost"
             onClick={handleSubmit}
             disabled={!prompt.trim() || isGenerating}
             className={cn(
-              '!size-8 rounded-full border-none',
-              prompt.trim()
-                ? 'bg-white text-black hover:bg-white/90'
-                : 'bg-muted text-muted-foreground'
+              '!size-8 rounded-full border-none transition-all duration-200',
+              prompt.trim() || isGenerating
+                ? '!bg-amber-500 !text-black shadow-md shadow-amber-500/30 hover:!bg-amber-400'
+                : '!bg-muted !text-muted-foreground'
             )}
           >
             {isGenerating ? (
