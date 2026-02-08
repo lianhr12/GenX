@@ -20,7 +20,7 @@ export async function generateMetadata({
     title: config.seo.title + ' | ' + t('title'),
     description: config.seo.description,
     locale,
-    pathname: '/create/image',
+    pathname: '/create/text-to-image',
     keywords: config.seo.keywords,
   });
 }
