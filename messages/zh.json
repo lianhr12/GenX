@@ -23,6 +23,7 @@
     "loading": "加载中...",
     "cancel": "取消",
     "logoutFailed": "退出失败",
+    "home": "首页",
     "replicate": "复刻效果",
     "table": {
       "totalRecords": "总共 {count} 条记录",
@@ -1248,6 +1249,10 @@
     "description": "GenX 让您在几天内轻松构建您的 AI SaaS，简单且毫不费力"
   },
   "CreatePage": {
+    "seo": {
+      "title": "创作 - AI视频和图片生成器",
+      "description": "使用多种AI模型创建精美的视频和图片。文生视频、图生视频等AI驱动的创作工具。"
+    },
     "badge": "AI 创作工具",
     "title": "创造精彩内容",
     "description": "使用我们的 AI 驱动创作工具，将您的想法转化为精美的视觉内容",
@@ -1290,6 +1295,12 @@
     "exploreStyles": "探索所有风格"
   },
   "StylesPage": {
+    "seo": {
+      "title": "艺术风格 - 5种独特风格",
+      "description": "探索我们5种独特的艺术风格：赛博朋克、水彩、油画、动漫和流体艺术。每种风格都经过精心调校，让您的作品脱颖而出。",
+      "detailTitle": "{style}风格 - AI艺术视频",
+      "detailDescription": "创建令人惊艳的{style}艺术视频。{description}"
+    },
     "badge": "艺术风格库",
     "title": "选择您的艺术语言",
     "description": "5 种独特的艺术风格，每一种都经过精心调校，让您的作品脱颖而出",
@@ -1420,6 +1431,10 @@
     }
   },
   "GalleryPage": {
+    "seo": {
+      "title": "创作者画廊 - 精美艺术视频",
+      "description": "探索社区创作者制作的精美艺术视频。从赛博朋克、水彩、油画、动漫和流体艺术风格中获取灵感。"
+    },
     "badge": "创作者画廊",
     "title": "看看创作者们在做什么",
     "description": "来自世界各地创作者使用 GenX 制作的艺术视频。点击任何作品查看使用的风格和提示词。",
@@ -1469,6 +1484,10 @@
     }
   },
   "HelpPage": {
+    "seo": {
+      "title": "帮助中心",
+      "description": "获取GenX.art帮助。查找关于创建艺术视频、价格、账户管理等常见问题的答案。"
+    },
     "badge": "帮助中心",
     "title": "我们能帮您什么？",
     "description": "查找常见问题的答案或联系我们的支持团队",
@@ -1973,6 +1992,24 @@
       "viewAll": "在仪表盘查看全部",
       "untitled": "无标题视频"
     },
+    "toast": {
+      "generationTimeout": "生成超时，请稍后重试",
+      "imageCompleted": "图片生成完成！",
+      "videoCompleted": "视频生成完成！",
+      "generationFailed": "生成失败",
+      "imageGenerating": "图片生成中...",
+      "videoGenerating": "视频生成中...",
+      "generationError": "生成失败，请重试"
+    },
+    "breadcrumb": {
+      "create": "创作",
+      "textToVideo": "文生视频",
+      "imageToVideo": "图生视频",
+      "referenceToVideo": "参考视频",
+      "textToImage": "AI 图像",
+      "imageToImage": "图片编辑",
+      "audio": "AI 音频"
+    },
     "errors": {
       "insufficientCredits": "积分不足，请购买更多积分后继续。",
       "uploadFailed": "上传图片失败，请重试。",
@@ -1980,6 +2017,36 @@
       "generateFailed": "视频生成失败",
       "noTrackingId": "视频生成已开始但未返回跟踪 ID。",
       "generationFailed": "视频生成失败"
+    },
+    "TextToVideo": {
+      "seo": {
+        "title": "文字转视频 - 用AI从文字创建视频",
+        "description": "使用AI将您的文字描述转化为精彩视频。只需描述您想要的内容，即可观看Sora 2、Veo 3.1等AI模型将您的愿景变为现实。"
+      }
+    },
+    "ImageToVideo": {
+      "seo": {
+        "title": "图片转视频 - 将照片转化为AI视频",
+        "description": "使用AI将您的图片转化为精彩视频。上传任何照片，即可看到它以流畅逼真的动态效果栩栩如生。支持Sora 2、Veo 3.1等模型。"
+      }
+    },
+    "Image": {
+      "seo": {
+        "title": "AI图片生成器 - 用AI创建精美图片",
+        "description": "使用多种AI模型从文字描述生成精美图片。比较来自OpenAI、Replicate、Fal等的生成结果。"
+      }
+    },
+    "ReferenceToVideo": {
+      "seo": {
+        "title": "参考图转视频 - 用AI转化视频",
+        "description": "上传参考视频，用AI将其转化为全新内容。更改风格、添加特效或创建变体，同时保留原始视频的精髓。"
+      }
+    },
+    "ImageToImage": {
+      "seo": {
+        "title": "AI图片编辑器 - 用AI转化图片",
+        "description": "使用AI编辑和转化您的图片。上传图片并描述您想要进行的更改。"
+      }
     }
   },
   "UserDashboard": {

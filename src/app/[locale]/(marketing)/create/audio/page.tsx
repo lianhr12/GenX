@@ -22,13 +22,18 @@ export async function generateMetadata({
   });
 }
 
-export default function AIAudioPage() {
+export default async function AIAudioPage() {
+  const bt = await getTranslations('ToolPage');
+
   return (
     <>
       {/* Breadcrumb Navigation */}
       <div className="container mx-auto px-4 pt-4">
         <PageBreadcrumb
-          items={[{ label: 'Create', href: '/create' }, { label: 'AI Audio' }]}
+          items={[
+            { label: bt('breadcrumb.create'), href: '/create' },
+            { label: bt('breadcrumb.audio') },
+          ]}
         />
       </div>
 

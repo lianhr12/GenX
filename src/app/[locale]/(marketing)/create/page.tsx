@@ -12,10 +12,11 @@ export async function generateMetadata({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'Metadata' });
 
+  const ct = await getTranslations({ locale, namespace: 'CreatePage' });
+
   return constructMetadata({
-    title: 'Create - AI Video & Image Generator | ' + t('title'),
-    description:
-      'Create stunning AI videos and images with multiple models. Text to video, image to video, and more AI-powered creation tools.',
+    title: ct('seo.title') + ' | ' + t('title'),
+    description: ct('seo.description'),
     locale,
     pathname: '/create',
   });

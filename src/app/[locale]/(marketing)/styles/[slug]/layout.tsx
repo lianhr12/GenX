@@ -32,8 +32,8 @@ export async function generateMetadata({
   const styleDesc = st(`styles.${slug}.description` as never);
 
   return constructMetadata({
-    title: `${styleTitle} Style - AI Art Video | ${t('title')}`,
-    description: `Create stunning ${styleTitle} art videos. ${styleDesc}`,
+    title: st('seo.detailTitle', { style: styleTitle }) + ' | ' + t('title'),
+    description: st('seo.detailDescription', { style: styleTitle, description: styleDesc }),
     locale,
     pathname: `/styles/${slug}`,
     keywords: style.seoKeywords,

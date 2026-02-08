@@ -20,10 +20,11 @@ export async function generateMetadata({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'Metadata' });
 
+  const ht = await getTranslations({ locale, namespace: 'HelpPage' });
+
   return constructMetadata({
-    title: 'Help Center | ' + t('title'),
-    description:
-      'Get help with GenX.art. Find answers to frequently asked questions about creating art videos, pricing, account management, and more.',
+    title: ht('seo.title') + ' | ' + t('title'),
+    description: ht('seo.description'),
     locale,
     pathname: '/help',
   });

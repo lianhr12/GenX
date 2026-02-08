@@ -12,11 +12,11 @@ export async function generateMetadata({
 }): Promise<Metadata | undefined> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'Metadata' });
+  const st = await getTranslations({ locale, namespace: 'StylesPage' });
 
   return constructMetadata({
-    title: 'Art Styles - 5 Unique Styles | ' + t('title'),
-    description:
-      'Explore our 5 unique art styles: Cyberpunk, Watercolor, Oil Painting, Anime, and Fluid Art. Each style is carefully tuned to make your work stand out.',
+    title: st('seo.title') + ' | ' + t('title'),
+    description: st('seo.description'),
     locale,
     pathname: '/styles',
   });

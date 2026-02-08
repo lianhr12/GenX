@@ -16,10 +16,11 @@ export async function generateMetadata({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'Metadata' });
 
+  const gt = await getTranslations({ locale, namespace: 'GalleryPage' });
+
   return constructMetadata({
-    title: 'Creator Gallery - Art Videos | ' + t('title'),
-    description:
-      'Explore stunning art videos created by our community. Get inspired by Cyberpunk, Watercolor, Oil Painting, Anime, and Fluid Art styles.',
+    title: gt('seo.title') + ' | ' + t('title'),
+    description: gt('seo.description'),
     locale,
     pathname: '/gallery',
   });

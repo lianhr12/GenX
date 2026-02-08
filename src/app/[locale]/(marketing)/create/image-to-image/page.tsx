@@ -15,23 +15,27 @@ export async function generateMetadata({
 }): Promise<Metadata | undefined> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'Metadata' });
+  const tp = await getTranslations({ locale, namespace: config.i18nPrefix as never });
 
   return constructMetadata({
-    title: config.seo.title + ' | ' + t('title'),
-    description: config.seo.description,
+    title: tp('seo.title' as never) + ' | ' + t('title'),
+    description: tp('seo.description' as never),
     locale,
     pathname: '/create/image-to-image',
     keywords: config.seo.keywords,
   });
 }
 
-export default function ImageToImagePage() {
+export default async function ImageToImagePage() {
+  const bt = await getTranslations('ToolPage');
+  const tp = await getTranslations(config.i18nPrefix as never);
+
   return (
     <>
       {/* JSON-LD SoftwareApplication Schema for SEO */}
       <SoftwareSchema
-        name={config.seo.title}
-        description={config.seo.description}
+        name={tp('seo.title' as never)}
+        description={tp('seo.description' as never)}
         applicationCategory="MultimediaApplication"
         price={0}
         features={config.landing.features}
@@ -45,8 +49,8 @@ export default function ImageToImagePage() {
       <div className="container mx-auto px-4 pt-4">
         <PageBreadcrumb
           items={[
-            { label: 'Create', href: '/create' },
-            { label: 'Image to Image' },
+            { label: bt('breadcrumb.create'), href: '/create' },
+            { label: bt('breadcrumb.imageToImage') },
           ]}
         />
       </div>

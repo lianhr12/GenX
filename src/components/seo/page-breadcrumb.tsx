@@ -10,6 +10,7 @@ import {
 } from '@/components/ui/breadcrumb';
 import { LocaleLink } from '@/i18n/navigation';
 import { Home } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 import { Fragment } from 'react';
 import {
   BreadcrumbSchema,
@@ -34,11 +35,13 @@ interface PageBreadcrumbProps {
  */
 export function PageBreadcrumb({
   items,
-  homeLabel = 'Home',
+  homeLabel,
 }: PageBreadcrumbProps) {
+  const t = useTranslations('Common');
+  const resolvedHomeLabel = homeLabel || t('home');
   // Build schema items including home
   const schemaItems: BreadcrumbSchemaItem[] = [
-    { name: homeLabel, url: '/' },
+    { name: resolvedHomeLabel, url: '/' },
     ...items.map((item) => ({
       name: item.label,
       url: item.href || '',
@@ -58,7 +61,7 @@ export function PageBreadcrumb({
             <BreadcrumbLink asChild>
               <LocaleLink href="/" className="flex items-center gap-1">
                 <Home className="size-3.5" />
-                <span className="sr-only">{homeLabel}</span>
+                <span className="sr-only">{resolvedHomeLabel}</span>
               </LocaleLink>
             </BreadcrumbLink>
           </BreadcrumbItem>

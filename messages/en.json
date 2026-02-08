@@ -23,6 +23,7 @@
     "loading": "Loading...",
     "cancel": "Cancel",
     "logoutFailed": "Failed to log out",
+    "home": "Home",
     "replicate": "Replicate Effect",
     "table": {
       "totalRecords": "Total {count} records",
@@ -1248,6 +1249,10 @@
     "description": "GenX lets you make AI SaaS in days, simply and effortlessly"
   },
   "CreatePage": {
+    "seo": {
+      "title": "Create - AI Video & Image Generator",
+      "description": "Create stunning AI videos and images with multiple models. Text to video, image to video, and more AI-powered creation tools."
+    },
     "badge": "AI Creation Tools",
     "title": "Create Something Amazing",
     "description": "Transform your ideas into stunning visual content with our AI-powered creation tools",
@@ -1290,6 +1295,12 @@
     "exploreStyles": "Explore All Styles"
   },
   "StylesPage": {
+    "seo": {
+      "title": "Art Styles - 5 Unique Styles",
+      "description": "Explore our 5 unique art styles: Cyberpunk, Watercolor, Oil Painting, Anime, and Fluid Art. Each style is carefully tuned to make your work stand out.",
+      "detailTitle": "{style} Style - AI Art Video",
+      "detailDescription": "Create stunning {style} art videos. {description}"
+    },
     "badge": "Art Style Library",
     "title": "Choose Your Art Language",
     "description": "5 unique art styles, each carefully tuned to make your work stand out from the crowd",
@@ -1420,6 +1431,10 @@
     }
   },
   "GalleryPage": {
+    "seo": {
+      "title": "Creator Gallery - Art Videos",
+      "description": "Explore stunning art videos created by our community. Get inspired by Cyberpunk, Watercolor, Oil Painting, Anime, and Fluid Art styles."
+    },
     "badge": "Creator Gallery",
     "title": "See What Creators Are Making",
     "description": "Art videos from creators around the world using GenX. Click any work to see the style and prompt used.",
@@ -1469,6 +1484,10 @@
     }
   },
   "HelpPage": {
+    "seo": {
+      "title": "Help Center",
+      "description": "Get help with GenX.art. Find answers to frequently asked questions about creating art videos, pricing, account management, and more."
+    },
     "badge": "Help Center",
     "title": "How Can We Help?",
     "description": "Find answers to common questions or contact our support team",
@@ -1973,6 +1992,24 @@
       "viewAll": "View All in Dashboard",
       "untitled": "Untitled video"
     },
+    "toast": {
+      "generationTimeout": "Generation timed out, please try again later",
+      "imageCompleted": "Image generation completed!",
+      "videoCompleted": "Video generation completed!",
+      "generationFailed": "Generation failed",
+      "imageGenerating": "Generating image...",
+      "videoGenerating": "Generating video...",
+      "generationError": "Generation failed, please try again"
+    },
+    "breadcrumb": {
+      "create": "Create",
+      "textToVideo": "Text to Video",
+      "imageToVideo": "Image to Video",
+      "referenceToVideo": "Reference to Video",
+      "textToImage": "AI Image",
+      "imageToImage": "Image to Image",
+      "audio": "AI Audio"
+    },
     "errors": {
       "insufficientCredits": "Insufficient credits. Please purchase more credits to continue.",
       "uploadFailed": "Failed to upload image. Please try again.",
@@ -1980,6 +2017,36 @@
       "generateFailed": "Failed to generate video",
       "noTrackingId": "Video generation started but no tracking ID returned.",
       "generationFailed": "Video generation failed"
+    },
+    "TextToVideo": {
+      "seo": {
+        "title": "Text to Video - Create Videos from Text with AI",
+        "description": "Transform your text descriptions into stunning videos using AI. Simply describe what you want, and watch Sora 2, Veo 3.1, and other AI models bring your vision to life."
+      }
+    },
+    "ImageToVideo": {
+      "seo": {
+        "title": "Image to Video - Transform Photos into AI Videos",
+        "description": "Convert your images into stunning videos using AI. Upload any photo and watch it come to life with smooth, realistic motion powered by Sora 2, Veo 3.1, and more."
+      }
+    },
+    "Image": {
+      "seo": {
+        "title": "AI Image Generator - Create Stunning Images with AI",
+        "description": "Generate beautiful images from text descriptions using multiple AI models. Compare results from OpenAI, Replicate, Fal, and more."
+      }
+    },
+    "ReferenceToVideo": {
+      "seo": {
+        "title": "Reference to Video - Transform Videos with AI",
+        "description": "Upload a reference video and transform it into something new with AI. Change style, add effects, or create variations while maintaining the essence of your original video."
+      }
+    },
+    "ImageToImage": {
+      "seo": {
+        "title": "AI Image Editor - Transform Images with AI",
+        "description": "Edit and transform your images using AI. Upload an image and describe the changes you want to make."
+      }
     }
   },
   "UserDashboard": {

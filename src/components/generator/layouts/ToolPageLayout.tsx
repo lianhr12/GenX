@@ -11,6 +11,7 @@ import {
   refreshVideoStatusAction,
 } from '@/actions/generate-video';
 import { useCreatorNavigationStore } from '@/stores/creator-navigation-store';
+import { useTranslations } from 'next-intl';
 import { useSearchParams } from 'next/navigation';
 import { Suspense, useCallback, useEffect, useRef, useState } from 'react';
 import { toast } from 'sonner';
@@ -30,6 +31,7 @@ const MAX_POLL_ATTEMPTS = 150; // 5 minutes max
 
 // 内部组件，处理 searchParams
 function ToolPageLayoutInner({ mode, children }: ToolPageLayoutProps) {
+  const t = useTranslations('ToolPage');
   const [currentResult, setCurrentResult] = useState<GenerationResult | null>(
     null
   );
@@ -57,7 +59,7 @@ function ToolPageLayoutInner({ mode, children }: ToolPageLayoutProps) {
     async (imageUuid: string, attempt = 0) => {
       if (attempt >= MAX_POLL_ATTEMPTS) {
         setIsGenerating(false);
-        toast.error('生成超时，请稍后重试');
+        toast.error(t('toast.generationTimeout'));
         return;
       }
 
@@ -92,7 +94,7 @@ function ToolPageLayoutInner({ mode, children }: ToolPageLayoutProps) {
           }));
           setIsGenerating(false);
           setHistoryRefreshKey((k) => k + 1);
-          toast.success('图片生成完成！');
+          toast.success(t('toast.imageCompleted'));
           return;
         }
 
@@ -103,7 +105,7 @@ function ToolPageLayoutInner({ mode, children }: ToolPageLayoutProps) {
             errorMessage: status.error,
           }));
           setIsGenerating(false);
-          toast.error(status.error || '生成失败');
+          toast.error(status.error || t('toast.generationFailed'));
           return;
         }
 
@@ -119,7 +121,7 @@ function ToolPageLayoutInner({ mode, children }: ToolPageLayoutProps) {
         }, POLL_INTERVAL);
       }
     },
-    []
+    [t]
   );
 
   // Poll for video status
@@ -127,7 +129,7 @@ function ToolPageLayoutInner({ mode, children }: ToolPageLayoutProps) {
     async (videoUuid: string, attempt = 0) => {
       if (attempt >= MAX_POLL_ATTEMPTS) {
         setIsGenerating(false);
-        toast.error('生成超时，请稍后重试');
+        toast.error(t('toast.generationTimeout'));
         return;
       }
 
@@ -162,7 +164,7 @@ function ToolPageLayoutInner({ mode, children }: ToolPageLayoutProps) {
           }));
           setIsGenerating(false);
           setHistoryRefreshKey((k) => k + 1);
-          toast.success('视频生成完成！');
+          toast.success(t('toast.videoCompleted'));
           return;
         }
 
@@ -173,7 +175,7 @@ function ToolPageLayoutInner({ mode, children }: ToolPageLayoutProps) {
             errorMessage: status.error,
           }));
           setIsGenerating(false);
-          toast.error(status.error || '生成失败');
+          toast.error(status.error || t('toast.generationFailed'));
           return;
         }
 
@@ -189,7 +191,7 @@ function ToolPageLayoutInner({ mode, children }: ToolPageLayoutProps) {
         }, POLL_INTERVAL);
       }
     },
-    []
+    [t]
   );
 
   // 页面加载时，优先从 store 读取，否则从 URL 参数读取
@@ -419,7 +421,7 @@ function ToolPageLayoutInner({ mode, children }: ToolPageLayoutProps) {
           };
 
           setCurrentResult(initialResult);
-          toast.info('图片生成中...');
+          toast.info(t('toast.imageGenerating'));
 
           // Start polling for status
           pollImageStatus(data.imageUuid);
@@ -472,7 +474,7 @@ function ToolPageLayoutInner({ mode, children }: ToolPageLayoutProps) {
           };
 
           setCurrentResult(initialResult);
-          toast.info('视频生成中...');
+          toast.info(t('toast.videoGenerating'));
 
           // Start polling for status
           pollVideoStatus(data.videoUuid);
@@ -481,11 +483,11 @@ function ToolPageLayoutInner({ mode, children }: ToolPageLayoutProps) {
         console.error('Generation failed:', error);
         setIsGenerating(false);
         toast.error(
-          error instanceof Error ? error.message : '生成失败，请重试'
+          error instanceof Error ? error.message : t('toast.generationError')
         );
       }
     },
-    [mode, pollImageStatus, pollVideoStatus]
+    [mode, pollImageStatus, pollVideoStatus, t]
   );
 
   const handleSelectHistoryItem = useCallback(
