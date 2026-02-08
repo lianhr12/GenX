@@ -17,6 +17,51 @@ export function useFooterLinks(): NestedMenuItem[] {
 
   return [
     {
+      title: t('videoModels.title'),
+      items: [
+        {
+          title: t('videoModels.items.veo3'),
+          href: '/models/veo-3',
+          external: false,
+        },
+        {
+          title: t('videoModels.items.sora2'),
+          href: '/models/sora-2',
+          external: false,
+        },
+        {
+          title: t('videoModels.items.kling'),
+          href: '/models/kling',
+          external: false,
+        },
+        {
+          title: t('videoModels.items.hailuo'),
+          href: '/models/hailuo',
+          external: false,
+        },
+        {
+          title: t('videoModels.items.seedance'),
+          href: '/models/seedance',
+          external: false,
+        },
+        {
+          title: t('videoModels.items.wan'),
+          href: '/models/wan',
+          external: false,
+        },
+        {
+          title: t('videoModels.items.omnihuman'),
+          href: '/models/omnihuman',
+          external: false,
+        },
+        {
+          title: t('videoModels.items.moreModels'),
+          href: Routes.Models,
+          external: false,
+        },
+      ],
+    },
+    {
       title: t('product.title'),
       items: [
         {

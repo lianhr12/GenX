@@ -425,6 +425,19 @@
     },
     "footer": {
       "tagline": "每一帧都是艺术 - 将照片转化为令人惊艳的艺术视频",
+      "videoModels": {
+        "title": "视频模型",
+        "items": {
+          "veo3": "Veo 3",
+          "sora2": "Sora 2",
+          "kling": "Kling AI",
+          "hailuo": "Hailuo AI",
+          "seedance": "Seedance",
+          "wan": "Wan AI",
+          "omnihuman": "OmniHuman",
+          "moreModels": "更多模型"
+        }
+      },
       "product": {
         "title": "产品",
         "items": {
@@ -2318,6 +2331,780 @@
     },
     "floating": {
       "placeholder": "输入提示词..."
+    }
+  },
+  "ModelPage": {
+    "backToModels": "返回模型列表",
+    "viewModel": "查看",
+    "sections": {
+      "features": "核心功能",
+      "feature": "功能",
+      "variants": "模型版本",
+      "useCases": "使用场景",
+      "faq": "常见问题",
+      "related": "相关模型",
+      "showcase": "创作展示",
+      "showcaseDesc": "探索 {model} 的无限可能。从惊艳视觉到创意叙事。",
+      "howToUse": "如何使用 {model}"
+    },
+    "table": {
+      "model": "模型",
+      "speed": "速度",
+      "quality": "画质",
+      "credits": "积分",
+      "capabilities": "功能",
+      "fromCredits": "起始 {count} 积分",
+      "recommended": "推荐"
+    },
+    "cta": {
+      "title": "立即使用 {model} 开始创作",
+      "description": "免费试用，无需信用卡。"
+    },
+    "list": {
+      "badge": "AI 模型",
+      "title": "AI 视频与图像模型",
+      "description": "探索最新的 AI 视频和图像生成模型，选择最适合您创作需求的模型。",
+      "videoModels": "视频模型",
+      "imageModels": "图像模型",
+      "digitalHumanModels": "数字人模型",
+      "seo": {
+        "title": "AI 视频与图像模型 - 对比与选择 | GenX",
+        "description": "探索和对比最新的 AI 视频和图像生成模型，包括 Veo 3、Sora 2、Kling AI、Hailuo、Seedance 和 Wan AI。"
+      }
+    },
+    "veo3": {
+      "seo": {
+        "title": "Google Veo 3 AI 视频生成器 - 在线创建视频 | GenX",
+        "description": "试用 Google Veo 3，最先进的 AI 视频模型，具有原生音频生成功能。创建高质量、电影级的视频，配以逼真的音效和对话。"
+      },
+      "tagline": "Google 最先进的 AI 视频模型，支持原生音频生成",
+      "description": "Veo 3 是 Google 推出的最先进 AI 视频模型，能够生成配有逼真自然音频的高质量视频。它于 2025 年 Google I/O 大会上发布，在质量、音频集成和创意控制方面比前代产品 Veo 2 有了显著提升。",
+      "cta": "立即试用 Veo 3",
+      "learnMore": "了解更多",
+      "features": {
+        "audio": {
+          "title": "原生音频生成",
+          "description": "在生成的视频中直接创建和集成音频，包括音效、环境音和角色对话，实现唇形同步。"
+        },
+        "prompt": {
+          "title": "高级提示理解",
+          "description": "高精度解读复杂的叙事性提示词。用日常语言描述详细的场景、角色动作和故事元素。"
+        },
+        "camera": {
+          "title": "相机控制",
+          "description": "指定平移、缩放和角度变化等摄像机运动。创建具有动态视角和流畅过渡的电影镜头。"
+        },
+        "flf": {
+          "title": "首帧与尾帧",
+          "description": "在两张上传的帧之间生成无缝视频内容，确保平滑过渡和连续性，实现连贯的叙事。"
+        }
+      },
+      "useCases": {
+        "viral": {
+          "title": "病毒式内容创作",
+          "description": "几分钟内创建引人入胜的病毒式视频。制作有趣的假新闻短片、时空穿越视频和会说话的动物视频，音画完美同步。"
+        },
+        "film": {
+          "title": "电影制作",
+          "description": "使用高级摄像机控制、风格参考和原生音频制作电影级视频。适合短片和创意项目。"
+        },
+        "marketing": {
+          "title": "营销与广告",
+          "description": "生成具有一致角色、精确风格控制和高质量音频的专业营销视频，服务于品牌推广活动。"
+        }
+      },
+      "faq": {
+        "what": {
+          "question": "什么是 Google Veo 3？",
+          "answer": "Veo 3 是 Google DeepMind 最新的 AI 视频生成模型，能够根据文本或图像提示创建高质量视频，增强了角色一致性、风格和摄像机控制，并支持原生音频生成。"
+        },
+        "difference": {
+          "question": "Veo 3 与 Veo 2 有何不同？",
+          "answer": "与 Veo 2 不同，Veo 3 可以生成原生音频，通过逼真的物理效果、更好的唇形同步以及对复杂叙事提示的增强理解来提供更高质量的视频。"
+        },
+        "free": {
+          "question": "Veo 3 可以免费使用吗？",
+          "answer": "可以。您可以在 GenX 上使用免费积分试用 Google Veo 3。注册即可开始，无需信用卡。"
+        },
+        "audio": {
+          "question": "Veo 3 支持音频吗？",
+          "answer": "是的。Veo 3 原生生成音频，包括音效、环境音和角色对话，实现唇形同步。"
+        }
+      },
+      "stats": {
+        "resolution": "最高分辨率",
+        "audio": "音频支持",
+        "speed": "生成速度",
+        "credits": "起始积分"
+      },
+      "showcase": {
+        "0": {
+          "title": "日落电影城市",
+          "description": "黄金时段未来城市的航拍镜头，体积光照和环境城市音效。"
+        },
+        "1": {
+          "title": "角色对话场景",
+          "description": "角色进行自然唇形同步对话，配合手势和丰富的面部表情。"
+        },
+        "2": {
+          "title": "自然纪录片",
+          "description": "蝴蝶从蛹中羽化的慢动作微距镜头，伴随柔和的自然环境音。"
+        },
+        "3": {
+          "title": "产品广告",
+          "description": "流畅的产品展示，动态镜头运动、专业灯光和电影级音效设计。"
+        },
+        "4": {
+          "title": "动画短片",
+          "description": "充满奇幻色彩的动画序列，多彩角色配合同步背景音乐。"
+        },
+        "5": {
+          "title": "动作序列",
+          "description": "紧张的追逐场景，快速镜头切换、逼真物理效果和沉浸式音效。"
+        }
+      },
+      "howToUse": {
+        "0": {
+          "title": "输入提示词",
+          "description": "详细描述您的视频创意——包括场景、角色、镜头角度和音频方向。"
+        },
+        "1": {
+          "title": "选择模型和设置",
+          "description": "选择 Veo 3 作为您的模型，选择适合项目的分辨率和宽高比。"
+        },
+        "2": {
+          "title": "生成并下载",
+          "description": "点击生成，AI 将为您创建带原生音频的视频。高质量下载。"
+        }
+      }
+    },
+    "sora2": {
+      "seo": {
+        "title": "OpenAI Sora 2 AI 视频生成器 - 创建电影级视频 | GenX",
+        "description": "试用 OpenAI Sora 2，具有逼真物理效果、同步声音和多镜头叙事功能的先进 AI 视频模型。"
+      },
+      "tagline": "OpenAI 旗舰视频模型，电影级画质与逼真物理效果",
+      "description": "Sora 2 是对初代 Sora 的重大改进，在真实感、物理精度、可控性和风格方面都取得了显著进步。它可以遵循物理定律，并在多个镜头中保持一致的世界状态。",
+      "cta": "立即试用 Sora 2",
+      "learnMore": "了解更多",
+      "features": {
+        "physics": {
+          "title": "逼真的物理与世界认知",
+          "description": "模拟真实世界的动态效果，包括重力、浮力、物体碰撞等物理定律，实现高度逼真的视频生成。"
+        },
+        "audio": {
+          "title": "同步声音与对话",
+          "description": "生成包含语音、环境音效和特效的丰富音频场景，与视觉效果完美同步。角色可以自然地说话。"
+        },
+        "consistency": {
+          "title": "长期一致性",
+          "description": "在复杂的多镜头序列中保持物体持久性和场景连续性。角色、道具和环境保持一致。"
+        },
+        "cameo": {
+          "title": "客串：真实世界融入",
+          "description": "上传视频和语音样本创建个人客串角色。Sora 2 学习您的外貌和声音，将您融入任何场景。"
+        }
+      },
+      "useCases": {
+        "cinema": {
+          "title": "电影制作",
+          "description": "创建具有精确物理建模、多镜头一致性和逼真音频的电影级视频，适合专业电影项目。"
+        },
+        "animation": {
+          "title": "动画与动漫",
+          "description": "生成写实、电影或动漫风格的精美动画，角色一致，运动流畅。"
+        },
+        "storytelling": {
+          "title": "多镜头叙事",
+          "description": "跨多个镜头构建连贯的故事，保持世界状态、角色一致性和同步对话。"
+        }
+      },
+      "faq": {
+        "what": {
+          "question": "什么是 OpenAI Sora 2？",
+          "answer": "Sora 2 是 OpenAI 最新的视频和音频生成模型，能够以电影、动漫和写实风格生成高度逼真、物理精确且可控的视频。"
+        },
+        "difference": {
+          "question": "Sora 2 与初代 Sora 有何不同？",
+          "answer": "Sora 2 提供更强的物理模拟、更精确的物体持久性、多场景叙事能力和同步声音，更适合高级创意项目。"
+        },
+        "free": {
+          "question": "Sora 2 可以免费使用吗？",
+          "answer": "可以。Sora 2 可在 GenX 上使用免费试用积分。注册即可开始创作，无需信用卡。"
+        },
+        "professional": {
+          "question": "Sora 2 可以用于专业项目吗？",
+          "answer": "可以。Sora 2 精确的物理建模、多镜头一致性和逼真音频使其成为电影制作人、动画师和内容创作者的出色选择。"
+        }
+      },
+      "stats": {
+        "resolution": "最高分辨率",
+        "physics": "物理引擎",
+        "speed": "生成速度",
+        "credits": "起始积分"
+      },
+      "showcase": {
+        "0": {
+          "title": "写实街景",
+          "description": "繁忙的城市街道，行人、车辆和精确反射遵循真实世界物理规律。"
+        },
+        "1": {
+          "title": "多镜头故事",
+          "description": "三镜头叙事序列，保持角色一致性和世界状态连贯。"
+        },
+        "2": {
+          "title": "动漫战斗场景",
+          "description": "动感十足的动漫风格格斗序列，流畅动作、戏剧性光效和同步音效。"
+        },
+        "3": {
+          "title": "海底世界",
+          "description": "深海探索场景，逼真水体物理、体积光照和海洋环境音。"
+        },
+        "4": {
+          "title": "历史重现",
+          "description": "古代文明的照片级真实重现，精确建筑和大气细节。"
+        },
+        "5": {
+          "title": "太空探索",
+          "description": "宇航员在零重力中漂浮，逼真物理模拟和沉浸式太空氛围。"
+        }
+      },
+      "howToUse": {
+        "0": {
+          "title": "编写脚本",
+          "description": "详细描述视频场景，包括物理效果、角色、镜头角度和音频元素。"
+        },
+        "1": {
+          "title": "选择 Sora 2 模型",
+          "description": "选择符合您质量和速度需求的 Sora 2 变体。"
+        },
+        "2": {
+          "title": "生成并优化",
+          "description": "生成视频，查看结果，迭代优化提示词以获得完美效果。"
+        }
+      }
+    },
+    "kling": {
+      "seo": {
+        "title": "Kling AI 视频生成器 - 创建高质量视频 | GenX",
+        "description": "试用快手科技的 Kling AI 视频生成器。生成电影级 1080p 视频，支持唇形同步、运动画笔和首尾帧。"
+      },
+      "tagline": "快手科技的电影级 AI 视频生成器，功能丰富",
+      "description": "Kling AI 是快手科技研发的尖端视频生成模型，只需简单的文本提示或图像即可生成电影级视频片段。支持 1080p 30fps 高质量输出，具备唇形同步、运动画笔和首尾帧控制等功能。",
+      "cta": "立即试用 Kling AI",
+      "learnMore": "了解更多",
+      "features": {
+        "cinematic": {
+          "title": "电影级画质",
+          "description": "从简单的文本提示或上传的图像生成 1080p 30fps 的流畅高画质视频。"
+        },
+        "lipSync": {
+          "title": "增强唇形同步",
+          "description": "升级的唇形同步功能，含文本转语音配音能力。可选择逼真的声音来完美匹配角色个性。"
+        },
+        "motionBrush": {
+          "title": "运动画笔",
+          "description": "控制视频中特定对象的运动轨迹。绘制运动路径，精确控制角色和物体的移动。"
+        },
+        "startEndFrame": {
+          "title": "首帧与尾帧",
+          "description": "上传首帧和尾帧图像，生成两者之间的平滑过渡，适合创建连贯的视觉序列。"
+        }
+      },
+      "useCases": {
+        "social": {
+          "title": "社交媒体内容",
+          "description": "为 TikTok、Instagram Reels 和 YouTube Shorts 创建引人注目的短视频。"
+        },
+        "marketing": {
+          "title": "营销视频",
+          "description": "制作 1080p 专业营销和广告视频，用于品牌推广、产品演示和品牌叙事。"
+        },
+        "creative": {
+          "title": "创意项目",
+          "description": "通过电影级画质、运动控制和唇形同步实现创意愿景，适合短片和艺术项目。"
+        }
+      },
+      "faq": {
+        "what": {
+          "question": "什么是 Kling AI？",
+          "answer": "Kling AI 是快手科技研发的尖端视频生成模型，拥有包括 Kling 2 在内的多个版本，专注于从文本或图像输入生成电影级 1080p 30fps 视频。"
+        },
+        "free": {
+          "question": "Kling AI 可以免费使用吗？",
+          "answer": "可以在 GenX 上使用免费积分试用 Kling AI。使用邮箱注册即可立即开始创建视频。"
+        },
+        "types": {
+          "question": "Kling AI 可以生成哪些类型的视频？",
+          "answer": "Kling AI 可以生成多种类型的 1080p 视频，适用于营销、电影、社交媒体、广告等场景，支持唇形同步和运动画笔等功能。"
+        },
+        "speed": {
+          "question": "Kling AI 生成视频的速度有多快？",
+          "answer": "视频生成通常需要约 60-70 秒，具体取决于视频长度和选择的模型版本。"
+        }
+      },
+      "stats": {
+        "resolution": "最高分辨率",
+        "fps": "帧率",
+        "speed": "生成速度",
+        "credits": "起始积分"
+      },
+      "showcase": {
+        "0": {
+          "title": "舞蹈表演",
+          "description": "动感舞蹈视频，流畅的身体追踪、精确运动和唇形同步音乐。"
+        },
+        "1": {
+          "title": "产品展示",
+          "description": "专业产品视频，电影级镜头运动和影棚级灯光效果。"
+        },
+        "2": {
+          "title": "时尚画册",
+          "description": "时尚视频，服装间流畅过渡和动态镜头角度。"
+        },
+        "3": {
+          "title": "旅行 Vlog",
+          "description": "沉浸式旅行视频，全景风光镜头和自然环境音。"
+        },
+        "4": {
+          "title": "烹饪教程",
+          "description": "分步烹饪视频，特写镜头、流畅过渡和自然动作。"
+        },
+        "5": {
+          "title": "音乐 MV",
+          "description": "创意音乐视频，唇形同步、运动画笔效果和电影级调色。"
+        }
+      },
+      "howToUse": {
+        "0": {
+          "title": "描述您的视频",
+          "description": "输入详细的文字提示或上传参考图像作为视频概念。"
+        },
+        "1": {
+          "title": "选择 Kling 模型",
+          "description": "从 Kling 2、Kling 1.6 或专用变体中选择。调整时长和质量设置。"
+        },
+        "2": {
+          "title": "生成并导出",
+          "description": "生成 1080p 视频并下载。使用运动画笔进行精细控制。"
+        }
+      }
+    },
+    "hailuo": {
+      "seo": {
+        "title": "Hailuo AI（MiniMax）视频生成器 - 极速 AI 视频 | GenX",
+        "description": "试用 MiniMax Hailuo AI，超快速 AI 视频生成器。秒级生成高质量文字或图像视频，支持摄像机控制。"
+      },
+      "tagline": "MiniMax 超快速 AI 视频生成器，支持摄像机控制",
+      "description": "Hailuo AI 由 MiniMax 推出，是一款文本转视频生成器，根据文字提示创建短视频片段。30秒内即可生成视频，支持文本转视频和图像转视频两种模式，并提供摄像机控制功能。",
+      "cta": "立即试用 Hailuo AI",
+      "learnMore": "了解更多",
+      "features": {
+        "speed": {
+          "title": "极速生成",
+          "description": "30 秒内生成短视频片段。快速的处理速度让您能够迅速迭代和创建内容。"
+        },
+        "i2v": {
+          "title": "图像转视频",
+          "description": "为静态图像添加动画效果和过渡效果，将您的照片或艺术作品转化为精彩视频。"
+        },
+        "t2v": {
+          "title": "文字转视频",
+          "description": "从文字提示创建高质量视频。生成动态的视频内容和引人入胜的视觉效果。"
+        },
+        "camera": {
+          "title": "摄像机控制",
+          "description": "指导摄像机运动，包括缩放、平移和跟踪，让视频输出更具电影感和专业感。"
+        }
+      },
+      "useCases": {
+        "social": {
+          "title": "社交媒体内容",
+          "description": "快速生成吸引眼球的社交媒体短视频。极速生成时间是内容创作者的理想选择。"
+        },
+        "education": {
+          "title": "教育内容",
+          "description": "从文字描述创建引人入胜的教育视频和可视化解释，适用于课程和教程。"
+        },
+        "marketing": {
+          "title": "营销与广告",
+          "description": "快速制作营销视频和广告创意，支持快速迭代和视觉内容的 A/B 测试。"
+        }
+      },
+      "faq": {
+        "what": {
+          "question": "什么是 MiniMax Hailuo AI？",
+          "answer": "Hailuo AI 是 MiniMax 推出的文本转视频生成器，根据文字提示创建短视频片段。适用于营销、社交媒体和教育内容等多种应用场景。"
+        },
+        "how": {
+          "question": "Hailuo AI 如何工作？",
+          "answer": "输入详细的文字提示描述您想要的视频。平台使用先进的 AI 算法处理输入并生成视频片段。"
+        },
+        "free": {
+          "question": "Hailuo AI 可以免费使用吗？",
+          "answer": "可以在 GenX 上使用免费试用积分体验 Hailuo AI。注册即可开始，无需信用卡。"
+        },
+        "resolution": {
+          "question": "Hailuo AI 支持哪些格式和分辨率？",
+          "answer": "Hailuo AI 生成适用于大多数社交媒体和数字平台的标准格式视频，支持多种宽高比。"
+        }
+      },
+      "stats": {
+        "speed": "生成速度",
+        "modes": "输入模式",
+        "camera": "摄像机控制",
+        "credits": "起始积分"
+      },
+      "showcase": {
+        "0": {
+          "title": "快速社交短片",
+          "description": "30秒内创建的热门社交媒体视频，抢眼视觉和流畅运动。"
+        },
+        "1": {
+          "title": "照片动态化",
+          "description": "静态肖像变为动态，自然头部运动、眨眼和微妙表情。"
+        },
+        "2": {
+          "title": "风景延时",
+          "description": "山脉和云层的动态摄像机平移风景延时。"
+        },
+        "3": {
+          "title": "产品演示",
+          "description": "流畅摄像机变焦和专业转场的快速产品演示视频。"
+        },
+        "4": {
+          "title": "角色动画",
+          "description": "卡通角色流畅动作和丰富肢体语言的表演。"
+        },
+        "5": {
+          "title": "抽象艺术视频",
+          "description": "迷人的抽象视觉效果，流动色彩、几何图案和平滑过渡。"
+        }
+      },
+      "howToUse": {
+        "0": {
+          "title": "输入提示或图像",
+          "description": "输入文字描述或上传想要制作成视频的图像。"
+        },
+        "1": {
+          "title": "设置摄像机和时长",
+          "description": "选择缩放、平移或跟踪等摄像机运动。选择视频时长。"
+        },
+        "2": {
+          "title": "秒级生成",
+          "description": "点击生成，30秒内获得视频。立即下载分享。"
+        }
+      }
+    },
+    "seedance": {
+      "seo": {
+        "title": "Seedance AI 视频生成器（字节跳动）- 创建精美视频 | GenX",
+        "description": "试用字节跳动 Seedance，具有精准语义理解、动态摄像机控制和多风格支持的 AI 视频生成器。"
+      },
+      "tagline": "字节跳动电影级 AI 视频生成器，精准语义理解",
+      "description": "Seedance 是字节跳动的 AI 视频生成模型，能够生成电影级画质的视频，具有精准的语义理解、动态摄像机控制、一致的多镜头生成，并支持从动漫到像素艺术的多种视觉风格。",
+      "cta": "立即试用 Seedance",
+      "learnMore": "了解更多",
+      "features": {
+        "semantic": {
+          "title": "精准语义理解",
+          "description": "准确解读复杂的用户提示，理解语义关系，执行涉及多个主体的时间协调动作。"
+        },
+        "camera": {
+          "title": "动态摄像机控制",
+          "description": "支持动态且视觉吸引力的摄像机运动，包括缩放、平移和跟踪，让视频更具电影感。"
+        },
+        "multiShot": {
+          "title": "一致的多镜头生成",
+          "description": "从单个提示生成包含多个镜头的视频，在整个序列中保持主体、风格和氛围的一致性。"
+        },
+        "styles": {
+          "title": "多种视觉风格",
+          "description": "支持多种艺术风格，包括黑白、3D/2D 动画、中国传统绘画、水彩画、像素艺术等。"
+        }
+      },
+      "useCases": {
+        "shortFilm": {
+          "title": "短片制作",
+          "description": "创建具有一致多镜头序列、动态摄像机运动和多种艺术风格的电影级短片。"
+        },
+        "social": {
+          "title": "社交媒体内容",
+          "description": "生成精准跟随提示词的社交媒体视频，支持流行的视觉风格。"
+        },
+        "animation": {
+          "title": "动画与艺术风格化",
+          "description": "以动漫、像素艺术到传统绘画等多种风格制作动画，帧间风格保持一致。"
+        }
+      },
+      "faq": {
+        "what": {
+          "question": "Seedance 如何工作？",
+          "answer": "Seedance 使用 DiT（扩散和变换器）融合单元生成视频，结合扩散模型的特性和变换器架构的功能，实现更优的性能和更高质量的视频输出。"
+        },
+        "modes": {
+          "question": "Seedance 支持图像转视频吗？",
+          "answer": "是的。Seedance 可以根据文本和图像提示生成视频，为您的创意项目提供灵活的输入选项。"
+        },
+        "multiCamera": {
+          "question": "Seedance 可以处理多个摄像机角度吗？",
+          "answer": "是的。Seedance 具有一致的多摄像机生成功能，可以在不同摄像机角度之间平滑过渡，同时保持主体一致性。"
+        },
+        "professional": {
+          "question": "Seedance 适合专业视频制作吗？",
+          "answer": "是的。Seedance 提供电影级视觉效果，支持各种专业视频制作需求，是电影制作人和内容创作者的强大工具。"
+        }
+      },
+      "stats": {
+        "styles": "视觉风格",
+        "audio": "音频支持",
+        "speed": "生成速度",
+        "credits": "起始积分"
+      },
+      "showcase": {
+        "0": {
+          "title": "动漫动作场景",
+          "description": "充满活力的动漫风格动作序列，动态镜头角度和一致角色设计。"
+        },
+        "1": {
+          "title": "像素艺术冒险",
+          "description": "复古像素艺术动画场景，流畅角色运动和怀旧视觉魅力。"
+        },
+        "2": {
+          "title": "中国水墨画",
+          "description": "流动的中国传统水墨画风格视频，优雅的笔触动画。"
+        },
+        "3": {
+          "title": "水彩风景",
+          "description": "梦幻水彩风格风景，柔和色彩融合和轻柔镜头运动。"
+        },
+        "4": {
+          "title": "3D 动画短片",
+          "description": "精致的 3D 动画场景，电影级灯光、流畅角色绑定和动态镜头。"
+        },
+        "5": {
+          "title": "多镜头故事",
+          "description": "连贯的多镜头叙事，在不同角度间保持主体和风格一致。"
+        }
+      },
+      "howToUse": {
+        "0": {
+          "title": "编写提示词",
+          "description": "详细描述视频场景。指定所需的视觉风格——动漫、像素艺术、水彩等。"
+        },
+        "1": {
+          "title": "选择 Seedance 模型",
+          "description": "根据质量和速度需求选择 Seedance 1.5 Pro 或 Fast 版本。"
+        },
+        "2": {
+          "title": "生成并分享",
+          "description": "生成一致多镜头质量的视频。下载并分享您的创作。"
+        }
+      }
+    },
+    "wan": {
+      "seo": {
+        "title": "Wan AI 视频生成器（阿里巴巴）- 在线创建视频 | GenX",
+        "description": "试用阿里巴巴 Wan AI，140 亿参数的开源 AI 视频模型。使用 100+ 视觉风格生成精美视频和图像。"
+      },
+      "tagline": "阿里巴巴开源 AI 模型，140 亿参数，100+ 视觉风格",
+      "description": "Wan AI 是阿里巴巴推出的开源 AI 视频生成模型。支持文本和图像输入，生成令人惊叹的视频和图像内容。拥有 140 亿参数，能够呈现精准逼真的视觉效果、准确的人体姿态和运动轨迹。",
+      "cta": "立即试用 Wan AI",
+      "learnMore": "了解更多",
+      "features": {
+        "generation": {
+          "title": "卓越的生成质量",
+          "description": "140 亿参数驱动，呈现精准逼真的视觉效果，准确的人体姿态、运动轨迹和多对象交互。"
+        },
+        "styles": {
+          "title": "100+ 视觉风格",
+          "description": "提供超过 100 种视觉风格模板，包括赛博朋克、油画等。可自定义角色构图、表情和细节。"
+        },
+        "multiObject": {
+          "title": "多对象交互",
+          "description": "生成逼真的物体交互，能够在不同场景下区分多个物体的运动轨迹。"
+        },
+        "openSource": {
+          "title": "开源模型",
+          "description": "Wan AI 是开源的，允许研究人员和开发者探索和基于该模型构建自定义应用。"
+        }
+      },
+      "useCases": {
+        "creative": {
+          "title": "创意视频制作",
+          "description": "使用多种视觉风格创建宣传短片、教程、电影感短视频、动画和沉浸式 3D 视觉内容。"
+        },
+        "social": {
+          "title": "社交媒体内容",
+          "description": "使用 100+ 风格模板为社交媒体生成动态独特的视觉片段，脱颖而出。"
+        },
+        "education": {
+          "title": "教育内容",
+          "description": "从文字描述制作引人入胜的教育视频，支持多种视觉风格和清晰的物体交互。"
+        }
+      },
+      "faq": {
+        "what": {
+          "question": "什么是 Wan AI？",
+          "answer": "Wan AI 是阿里巴巴推出的开源 AI 视频生成模型。用户只需输入描述性文本提示即可生成逼真的视频内容，内置超过 100 种艺术风格模板。"
+        },
+        "unique": {
+          "question": "Wan AI 有何独特之处？",
+          "answer": "Wan AI 采用先进的 VAE 和 DiT 技术生成逼真、高清的视觉场景。140 亿参数带来卓越的质量和精度。"
+        },
+        "free": {
+          "question": "Wan AI 可以免费使用吗？",
+          "answer": "可以。您可以在 GenX 上使用免费积分试用 Wan AI。无需信用卡即可开始。"
+        },
+        "speed": {
+          "question": "Wan AI 速度有多快？",
+          "answer": "Wan AI 可以在约 15 秒内生成分辨率为 1080p、时长最长 1 分钟的视频，是最快的 AI 视频生成解决方案之一。"
+        }
+      },
+      "stats": {
+        "params": "参数量",
+        "styles": "视觉风格",
+        "speed": "生成速度",
+        "credits": "起始积分"
+      },
+      "showcase": {
+        "0": {
+          "title": "电影短片",
+          "description": "逼真角色运动、精确姿态和沉浸式视觉叙事的电影短片。"
+        },
+        "1": {
+          "title": "3D 动画场景",
+          "description": "精致的 3D 动画场景，精准灯光、流畅过渡和动态镜头。"
+        },
+        "2": {
+          "title": "中国书法",
+          "description": "传统书法风格视频，流动的笔触运动和优雅的墨迹过渡。"
+        },
+        "3": {
+          "title": "赛博朋克城市",
+          "description": "霓虹灯照亮的赛博朋克城市，体积光照、雨效和大气细节。"
+        },
+        "4": {
+          "title": "自然纪录片",
+          "description": "逼真动物运动、自然光照和电影级构图的野生动物场景。"
+        },
+        "5": {
+          "title": "时尚大片",
+          "description": "优雅模特姿态、影棚灯光和流畅镜头平移的时尚视频。"
+        }
+      },
+      "howToUse": {
+        "0": {
+          "title": "输入提示词",
+          "description": "输入文字描述或上传图像。从 100+ 内置视觉风格模板中选择。"
+        },
+        "1": {
+          "title": "选择 Wan 模型",
+          "description": "根据创作需求选择 Wan 2.6 T2V、I2V 或图像生成变体。"
+        },
+        "2": {
+          "title": "生成并下载",
+          "description": "秒级生成内容。下载高质量视频或图像用于项目。"
+        }
+      }
+    },
+    "omnihuman": {
+      "seo": {
+        "title": "OmniHuman 1.5 数字人 AI - 创建说话头像 | GenX",
+        "description": "试用字节跳动 OmniHuman 1.5，音频驱动的数字人视频生成器。从参考视频和音频创建逼真的说话头像。"
+      },
+      "tagline": "字节跳动音频驱动的数字人视频生成器",
+      "description": "OmniHuman 1.5 是字节跳动的 AI 模型，通过音频输入生成数字人视频。上传参考视频和音频，即可创建具有自然唇形同步和身体动作的逼真说话头像视频。",
+      "cta": "立即试用 OmniHuman",
+      "learnMore": "了解更多",
+      "features": {
+        "audioDriven": {
+          "title": "音频驱动生成",
+          "description": "从音频输入生成数字人视频。模型同步唇部运动、面部表情和身体手势与音频。"
+        },
+        "realistic": {
+          "title": "逼真的运动",
+          "description": "生成自然逼真的人体运动，包括微妙的面部表情、头部运动和肢体语言。"
+        },
+        "flexible": {
+          "title": "灵活的输入",
+          "description": "接受各种参考视频格式和音频输入。支持不同的姿势、角度和角色类型。"
+        },
+        "multiLanguage": {
+          "title": "多语言支持",
+          "description": "以多种语言生成说话头像，为每种语言的语音模式提供准确的唇形同步。"
+        }
+      },
+      "useCases": {
+        "presentation": {
+          "title": "商业演示",
+          "description": "为商务会议、项目汇报和企业沟通创建专业的说话头像演示。"
+        },
+        "education": {
+          "title": "在线教育",
+          "description": "使用 AI 主持人制作引人入胜的教育内容，适用于在线课程、教程和培训材料。"
+        },
+        "marketing": {
+          "title": "营销视频",
+          "description": "为营销活动生成代言人视频，无需雇佣演员或安排拍摄。"
+        }
+      },
+      "faq": {
+        "what": {
+          "question": "什么是 OmniHuman 1.5？",
+          "answer": "OmniHuman 1.5 是字节跳动的 AI 模型，从参考视频和音频输入生成逼真的数字人视频，具有自然的唇形同步和身体动作。"
+        },
+        "how": {
+          "question": "OmniHuman 如何工作？",
+          "answer": "上传一段人物参考视频并提供音频文件。OmniHuman 会生成该人物说话的视频，具有同步的唇部运动和自然的手势。"
+        },
+        "free": {
+          "question": "OmniHuman 可以免费使用吗？",
+          "answer": "可以。您可以在 GenX 上使用免费积分试用 OmniHuman 1.5。无需信用卡即可开始。"
+        },
+        "languages": {
+          "question": "OmniHuman 支持哪些语言？",
+          "answer": "OmniHuman 支持多种语言，为每种语言的语音模式提供准确的唇形同步，适合全球内容创作。"
+        }
+      },
+      "stats": {
+        "input": "音频输入",
+        "lipSync": "唇形同步",
+        "speed": "生成速度",
+        "credits": "起始积分"
+      },
+      "showcase": {
+        "0": {
+          "title": "商务演讲者",
+          "description": "专业商务演讲者进行推销，自然手势和完美唇形同步。"
+        },
+        "1": {
+          "title": "语言教师",
+          "description": "多语言教师讲解概念，每种语言都有精确的唇部运动。"
+        },
+        "2": {
+          "title": "新闻主播",
+          "description": "新闻主播播报突发新闻，专业姿态和自然语速。"
+        },
+        "3": {
+          "title": "产品代言人",
+          "description": "品牌大使介绍产品，生动表情和同步音频。"
+        }
+      },
+      "howToUse": {
+        "0": {
+          "title": "上传参考视频",
+          "description": "上传要制作动画的人物参考视频。任何清晰的正面视频均可。"
+        },
+        "1": {
+          "title": "添加音频输入",
+          "description": "上传音频文件——语音、旁白或任何语言的对话。"
+        },
+        "2": {
+          "title": "生成头像视频",
+          "description": "OmniHuman 创建逼真的说话头像，唇部运动同步和自然身体手势。"
+        }
+      }
     }
   }
 }

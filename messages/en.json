@@ -425,6 +425,19 @@
     },
     "footer": {
       "tagline": "Every Frame is Art - Transform photos into stunning art videos",
+      "videoModels": {
+        "title": "Video Models",
+        "items": {
+          "veo3": "Veo 3",
+          "sora2": "Sora 2",
+          "kling": "Kling AI",
+          "hailuo": "Hailuo AI",
+          "seedance": "Seedance",
+          "wan": "Wan AI",
+          "omnihuman": "OmniHuman",
+          "moreModels": "More Models"
+        }
+      },
       "product": {
         "title": "Product",
         "items": {
@@ -2318,6 +2331,780 @@
     },
     "floating": {
       "placeholder": "Enter prompt..."
+    }
+  },
+  "ModelPage": {
+    "backToModels": "Back to Models",
+    "viewModel": "View",
+    "sections": {
+      "features": "Key Features",
+      "feature": "Feature",
+      "variants": "Model Variants",
+      "useCases": "Use Cases",
+      "faq": "Frequently Asked Questions",
+      "related": "Related Models",
+      "showcase": "What Can You Create",
+      "showcaseDesc": "See what's possible with {model}. From stunning visuals to creative storytelling.",
+      "howToUse": "How to Use {model}"
+    },
+    "table": {
+      "model": "Model",
+      "speed": "Speed",
+      "quality": "Quality",
+      "credits": "Credits",
+      "capabilities": "Capabilities",
+      "fromCredits": "From {count} credits",
+      "recommended": "Recommended"
+    },
+    "cta": {
+      "title": "Start Creating with {model}",
+      "description": "Try it now with free credits. No credit card required."
+    },
+    "list": {
+      "badge": "AI Models",
+      "title": "AI Video & Image Models",
+      "description": "Explore the latest AI models for video and image generation. Choose the best model for your creative needs.",
+      "videoModels": "Video Models",
+      "imageModels": "Image Models",
+      "digitalHumanModels": "Digital Human Models",
+      "seo": {
+        "title": "AI Video & Image Models - Compare and Choose | GenX",
+        "description": "Explore and compare the latest AI video and image generation models including Veo 3, Sora 2, Kling AI, Hailuo, Seedance, and Wan AI."
+      }
+    },
+    "veo3": {
+      "seo": {
+        "title": "Google Veo 3 AI Video Generator - Create Videos Online | GenX",
+        "description": "Try Google Veo 3, the most advanced AI video model with native audio generation. Create high-quality, cinematic videos with realistic sound effects and dialogue."
+      },
+      "tagline": "Google's most advanced AI video model with native audio generation",
+      "description": "Veo 3 is a state-of-the-art AI video model from Google that generates high-quality videos with realistic, natural audio. Released at Google I/O 2025, it represents a significant improvement over its predecessor Veo 2 in quality, audio integration, and creative control.",
+      "cta": "Try Veo 3 Now",
+      "learnMore": "Learn More",
+      "features": {
+        "audio": {
+          "title": "Native Audio Generation",
+          "description": "Create and integrate audio directly in generated videos, including sound effects, ambient sounds, and character dialogue with lip sync."
+        },
+        "prompt": {
+          "title": "Advanced Prompt Understanding",
+          "description": "Interpret complex, narrative prompts with high precision. Describe detailed scenes, character actions, and story elements in everyday language."
+        },
+        "camera": {
+          "title": "Camera Control",
+          "description": "Specify camera movements such as pan, zoom, and angle changes. Create cinematic shots with dynamic perspectives and smooth transitions."
+        },
+        "flf": {
+          "title": "First & Last Frame",
+          "description": "Generate seamless video content between two uploaded frames, ensuring smooth transitions and continuity for coherent storytelling."
+        }
+      },
+      "useCases": {
+        "viral": {
+          "title": "Viral Content Creation",
+          "description": "Create engaging viral videos in minutes. Make funny fake news clips, time-travel shorts, and talking animal videos with perfect audio-visual sync."
+        },
+        "film": {
+          "title": "Filmmaking & Cinematics",
+          "description": "Produce cinema-quality video with advanced camera controls, style references, and native audio. Perfect for short films and creative projects."
+        },
+        "marketing": {
+          "title": "Marketing & Advertising",
+          "description": "Generate professional marketing videos with consistent characters, precise style control, and high-quality audio for brand campaigns."
+        }
+      },
+      "faq": {
+        "what": {
+          "question": "What is Google Veo 3?",
+          "answer": "Veo 3 is Google DeepMind's latest AI video generation model that creates high-quality videos from text or image prompts, with enhanced character consistency, style and camera control, and native audio generation."
+        },
+        "difference": {
+          "question": "How is Veo 3 different from Veo 2?",
+          "answer": "Unlike Veo 2, Veo 3 can generate native audio alongside video, delivers higher quality with realistic physics, better lip sync, and enhanced understanding of complex narrative prompts."
+        },
+        "free": {
+          "question": "Can I use Veo 3 for free?",
+          "answer": "Yes. You can try Google Veo 3 on GenX with free credits. Sign up to get started without a credit card."
+        },
+        "audio": {
+          "question": "Does Veo 3 support audio?",
+          "answer": "Yes. Veo 3 natively generates audio including sound effects, ambient sounds, and character dialogue with lip synchronization."
+        }
+      },
+      "stats": {
+        "resolution": "Max Resolution",
+        "audio": "Audio Support",
+        "speed": "Generation Speed",
+        "credits": "Starting Credits"
+      },
+      "showcase": {
+        "0": {
+          "title": "Cinematic City at Sunset",
+          "description": "A sweeping aerial shot of a futuristic city at golden hour with volumetric lighting and ambient city sounds."
+        },
+        "1": {
+          "title": "Talking Character Scene",
+          "description": "A character delivers dialogue with natural lip sync, gestures, and expressive facial animations."
+        },
+        "2": {
+          "title": "Nature Documentary",
+          "description": "A slow-motion macro shot of a butterfly emerging from its chrysalis with gentle ambient nature sounds."
+        },
+        "3": {
+          "title": "Product Commercial",
+          "description": "A sleek product reveal with dynamic camera movements, professional lighting and cinematic sound design."
+        },
+        "4": {
+          "title": "Animated Short Story",
+          "description": "A whimsical animated sequence with colorful characters and synchronized background music."
+        },
+        "5": {
+          "title": "Action Sequence",
+          "description": "An intense chase scene with fast camera cuts, realistic physics and immersive sound effects."
+        }
+      },
+      "howToUse": {
+        "0": {
+          "title": "Enter Your Prompt",
+          "description": "Describe your video idea in detail — include scene, characters, camera angles, and audio direction."
+        },
+        "1": {
+          "title": "Choose Model & Settings",
+          "description": "Select Veo 3 as your model, pick the resolution and aspect ratio that fits your project."
+        },
+        "2": {
+          "title": "Generate & Download",
+          "description": "Click generate and watch AI create your video with native audio. Download in high quality."
+        }
+      }
+    },
+    "sora2": {
+      "seo": {
+        "title": "OpenAI Sora 2 AI Video Generator - Create Cinematic Videos | GenX",
+        "description": "Try OpenAI Sora 2, the advanced AI video model with realistic physics, synchronized sound, and multi-shot narrative capabilities."
+      },
+      "tagline": "OpenAI's flagship video model with cinematic quality and realistic physics",
+      "description": "Sora 2 is a major improvement over the original Sora, with significant advances in realism, physics accuracy, controllability, and style. It can follow physical laws and maintain consistent world states across multiple shots.",
+      "cta": "Try Sora 2 Now",
+      "learnMore": "Learn More",
+      "features": {
+        "physics": {
+          "title": "Realistic Physics & World Knowledge",
+          "description": "Simulate real-world dynamics including gravity, buoyancy, object collisions, and other physical laws for highly realistic video generation."
+        },
+        "audio": {
+          "title": "Synchronized Sound & Dialogue",
+          "description": "Generate rich audio scenes with speech, ambient sounds, and effects perfectly synced with visuals. Characters can speak naturally."
+        },
+        "consistency": {
+          "title": "Long-term Consistency",
+          "description": "Maintain object persistence and scene continuity across complex multi-shot sequences. Characters, props, and environments stay consistent."
+        },
+        "cameo": {
+          "title": "Cameo: Real-World Integration",
+          "description": "Upload video and voice samples to create personal cameo characters. Sora 2 learns your appearance and voice, then inserts you into any scene."
+        }
+      },
+      "useCases": {
+        "cinema": {
+          "title": "Cinematic Production",
+          "description": "Create cinema-quality videos with precise physics modeling, multi-shot consistency, and realistic audio for professional film projects."
+        },
+        "animation": {
+          "title": "Animation & Anime",
+          "description": "Generate stunning animations in realistic, cinematic, or anime styles with consistent characters and smooth motion throughout."
+        },
+        "storytelling": {
+          "title": "Multi-shot Storytelling",
+          "description": "Build coherent stories across multiple shots with maintained world state, character consistency, and synchronized dialogue."
+        }
+      },
+      "faq": {
+        "what": {
+          "question": "What is OpenAI Sora 2?",
+          "answer": "Sora 2 is OpenAI's latest video and audio generation model, capable of producing highly realistic, physically accurate, and controllable videos in cinematic, anime, and realistic styles."
+        },
+        "difference": {
+          "question": "How is Sora 2 different from the original Sora?",
+          "answer": "Sora 2 offers stronger physics simulation, more precise object persistence, multi-scene narrative capabilities, and synchronized sound, making it far more suitable for advanced creative projects."
+        },
+        "free": {
+          "question": "Can I use Sora 2 for free?",
+          "answer": "Yes. Sora 2 is available on GenX with free trial credits. Sign up to start creating without a credit card."
+        },
+        "professional": {
+          "question": "Can I use Sora 2 for professional projects?",
+          "answer": "Yes. Sora 2's precise physics modeling, multi-shot consistency, and realistic audio make it an excellent choice for filmmakers, animators, and content creators."
+        }
+      },
+      "stats": {
+        "resolution": "Max Resolution",
+        "physics": "Physics Engine",
+        "speed": "Generation Speed",
+        "credits": "Starting Credits"
+      },
+      "showcase": {
+        "0": {
+          "title": "Realistic Street Scene",
+          "description": "A busy urban street with pedestrians, vehicles, and accurate reflections following real-world physics."
+        },
+        "1": {
+          "title": "Multi-shot Story",
+          "description": "A three-shot narrative sequence maintaining character consistency and world state throughout."
+        },
+        "2": {
+          "title": "Anime Battle Scene",
+          "description": "A dynamic anime-style fight sequence with fluid motion, dramatic lighting and synchronized sound."
+        },
+        "3": {
+          "title": "Underwater World",
+          "description": "A deep-sea exploration scene with realistic water physics, volumetric lighting and ambient ocean sounds."
+        },
+        "4": {
+          "title": "Historical Recreation",
+          "description": "A photorealistic recreation of an ancient civilization with accurate architecture and atmospheric details."
+        },
+        "5": {
+          "title": "Space Exploration",
+          "description": "An astronaut floating in zero gravity with realistic physics simulation and immersive space ambience."
+        }
+      },
+      "howToUse": {
+        "0": {
+          "title": "Write Your Script",
+          "description": "Describe your video scene with details about physics, characters, camera angles, and audio elements."
+        },
+        "1": {
+          "title": "Select Sora 2 Model",
+          "description": "Choose the Sora 2 variant that matches your quality and speed requirements."
+        },
+        "2": {
+          "title": "Generate & Refine",
+          "description": "Generate your video, review the results, and iterate on your prompt for the perfect output."
+        }
+      }
+    },
+    "kling": {
+      "seo": {
+        "title": "Kling AI Video Generator - Create High-Quality Videos | GenX",
+        "description": "Try Kling AI, the advanced video generator by Kuaishou. Generate cinema-quality 1080p videos with lip sync, motion brush, and start/end frame support."
+      },
+      "tagline": "Kuaishou's cinema-quality AI video generator with advanced features",
+      "description": "Kling AI is a cutting-edge video generation model by Kuaishou, capable of generating cinema-quality video clips from simple text prompts or images. It produces high-quality 1080p videos at 30fps with features like lip sync, motion brush, and start/end frame control.",
+      "cta": "Try Kling AI Now",
+      "learnMore": "Learn More",
+      "features": {
+        "cinematic": {
+          "title": "Cinema-Quality Output",
+          "description": "Generate 1080p video at 30fps with smooth frame rates and high-quality visuals from simple text prompts or uploaded images."
+        },
+        "lipSync": {
+          "title": "Enhanced Lip Sync",
+          "description": "Upgraded lip sync with text-to-speech dubbing capabilities. Choose from realistic voices to perfectly match character personalities."
+        },
+        "motionBrush": {
+          "title": "Motion Brush",
+          "description": "Control the motion trajectory of specific objects in your videos. Paint motion paths for precise control over character and object movement."
+        },
+        "startEndFrame": {
+          "title": "Start & End Frame",
+          "description": "Upload start and end frame images to generate smooth transitions between them, perfect for creating coherent visual sequences."
+        }
+      },
+      "useCases": {
+        "social": {
+          "title": "Social Media Content",
+          "description": "Create engaging short videos for TikTok, Instagram Reels, and YouTube Shorts with high-quality AI video generation."
+        },
+        "marketing": {
+          "title": "Marketing Videos",
+          "description": "Produce professional marketing and advertising videos in 1080p for campaigns, product demos, and brand storytelling."
+        },
+        "creative": {
+          "title": "Creative Projects",
+          "description": "Bring your creative visions to life with cinema-quality video, motion control, and lip sync for short films and art projects."
+        }
+      },
+      "faq": {
+        "what": {
+          "question": "What is Kling AI?",
+          "answer": "Kling AI is a cutting-edge video generation model by Kuaishou, with multiple versions including Kling 2, focused on generating cinema-quality 1080p videos at 30fps from text or image inputs."
+        },
+        "free": {
+          "question": "Is Kling AI free to use?",
+          "answer": "You can try Kling AI on GenX with free credits. Sign up with your email to start creating videos immediately."
+        },
+        "types": {
+          "question": "What types of videos can Kling AI generate?",
+          "answer": "Kling AI can generate many types of 1080p videos for marketing, film, social media, advertising, and more, with features like lip sync and motion brush."
+        },
+        "speed": {
+          "question": "How fast does Kling AI generate videos?",
+          "answer": "Video generation typically takes about 60-70 seconds, depending on the video length and model variant chosen."
+        }
+      },
+      "stats": {
+        "resolution": "Max Resolution",
+        "fps": "Frame Rate",
+        "speed": "Generation Speed",
+        "credits": "Starting Credits"
+      },
+      "showcase": {
+        "0": {
+          "title": "Dance Performance",
+          "description": "A dynamic dance video with smooth body tracking, precise motion, and lip-synced music."
+        },
+        "1": {
+          "title": "Product Showcase",
+          "description": "A professional product video with cinematic camera movements and studio-quality lighting."
+        },
+        "2": {
+          "title": "Fashion Lookbook",
+          "description": "A stylish fashion video with smooth transitions between outfits and dynamic camera angles."
+        },
+        "3": {
+          "title": "Travel Vlog",
+          "description": "An immersive travel video with sweeping landscape shots and natural ambient sounds."
+        },
+        "4": {
+          "title": "Cooking Tutorial",
+          "description": "A step-by-step cooking video with close-up shots, smooth transitions, and natural movements."
+        },
+        "5": {
+          "title": "Music Video",
+          "description": "A creative music video with lip sync, motion brush effects, and cinematic color grading."
+        }
+      },
+      "howToUse": {
+        "0": {
+          "title": "Describe Your Video",
+          "description": "Write a detailed prompt or upload a reference image for your video concept."
+        },
+        "1": {
+          "title": "Select Kling Model",
+          "description": "Choose from Kling 2, Kling 1.6, or specialized variants. Adjust duration and quality settings."
+        },
+        "2": {
+          "title": "Generate & Export",
+          "description": "Generate your 1080p video and download it for your project. Use motion brush for fine control."
+        }
+      }
+    },
+    "hailuo": {
+      "seo": {
+        "title": "Hailuo AI (MiniMax) Video Generator - Fast AI Videos | GenX",
+        "description": "Try MiniMax Hailuo AI, the ultra-fast AI video generator. Create high-quality videos from text or images in seconds with camera controls."
+      },
+      "tagline": "MiniMax's ultra-fast AI video generator with camera controls",
+      "description": "Hailuo AI by MiniMax is a text-to-video generator that creates short video clips from written prompts. It can produce videos in under 30 seconds, supports both text-to-video and image-to-video modes, and offers camera control features.",
+      "cta": "Try Hailuo AI Now",
+      "learnMore": "Learn More",
+      "features": {
+        "speed": {
+          "title": "Ultra-Fast Generation",
+          "description": "Generate short video clips in under 30 seconds. The fast processing time lets you quickly iterate and create content."
+        },
+        "i2v": {
+          "title": "Image-to-Video",
+          "description": "Animate static images by adding effects and transitions to create visually appealing videos from your own photos or artwork."
+        },
+        "t2v": {
+          "title": "Text-to-Video",
+          "description": "Create high-quality videos from text prompts. Generate dynamic video content and engaging visuals that follow your instructions."
+        },
+        "camera": {
+          "title": "Camera Controls",
+          "description": "Direct camera movements including zoom, pan, and tracking shots for more cinematic and professional-looking video output."
+        }
+      },
+      "useCases": {
+        "social": {
+          "title": "Social Media Content",
+          "description": "Quickly generate eye-catching short videos for social media platforms. The fast generation time is ideal for content creators."
+        },
+        "education": {
+          "title": "Educational Content",
+          "description": "Create engaging educational videos and visual explanations from text descriptions for courses and tutorials."
+        },
+        "marketing": {
+          "title": "Marketing & Ads",
+          "description": "Produce marketing videos and ad creatives quickly, allowing rapid iteration and A/B testing of visual content."
+        }
+      },
+      "faq": {
+        "what": {
+          "question": "What is MiniMax Hailuo AI?",
+          "answer": "Hailuo AI is a text-to-video generator by MiniMax that creates short video clips from text prompts. It supports various applications including marketing, social media, and educational content."
+        },
+        "how": {
+          "question": "How does Hailuo AI work?",
+          "answer": "You input a detailed text prompt describing the video you want. The platform uses advanced AI algorithms to process the input and generate a video clip."
+        },
+        "free": {
+          "question": "Is Hailuo AI free to use?",
+          "answer": "Hailuo AI is available on GenX with free trial credits. Sign up to get started without a credit card."
+        },
+        "resolution": {
+          "question": "What formats and resolutions does Hailuo AI support?",
+          "answer": "Hailuo AI generates videos in standard formats suitable for most social media and digital platforms, with support for multiple aspect ratios."
+        }
+      },
+      "stats": {
+        "speed": "Generation Speed",
+        "modes": "Input Modes",
+        "camera": "Camera Control",
+        "credits": "Starting Credits"
+      },
+      "showcase": {
+        "0": {
+          "title": "Quick Social Clip",
+          "description": "A trending social media video created in under 30 seconds with eye-catching visuals and smooth motion."
+        },
+        "1": {
+          "title": "Animated Photo",
+          "description": "A static portrait brought to life with natural head movement, blinking eyes, and subtle expressions."
+        },
+        "2": {
+          "title": "Landscape Timelapse",
+          "description": "A scenic timelapse with dynamic camera panning across mountains and clouds at sunset."
+        },
+        "3": {
+          "title": "Product Demo",
+          "description": "A quick product demonstration video with smooth camera zoom and professional transitions."
+        },
+        "4": {
+          "title": "Character Animation",
+          "description": "A cartoon character performing actions with fluid motion and expressive body language."
+        },
+        "5": {
+          "title": "Abstract Art Video",
+          "description": "A mesmerizing abstract visual with flowing colors, geometric patterns, and smooth transitions."
+        }
+      },
+      "howToUse": {
+        "0": {
+          "title": "Enter Prompt or Image",
+          "description": "Type a text description or upload an image you want to animate into a video."
+        },
+        "1": {
+          "title": "Set Camera & Duration",
+          "description": "Choose camera movements like zoom, pan, or tracking. Select your preferred video duration."
+        },
+        "2": {
+          "title": "Generate in Seconds",
+          "description": "Click generate and get your video in under 30 seconds. Download and share instantly."
+        }
+      }
+    },
+    "seedance": {
+      "seo": {
+        "title": "Seedance AI Video Generator (ByteDance) - Create Stunning Videos | GenX",
+        "description": "Try Seedance by ByteDance, the AI video generator with precise semantic understanding, dynamic camera control, and multi-style support."
+      },
+      "tagline": "ByteDance's cinema-quality AI video generator with precise semantic understanding",
+      "description": "Seedance is ByteDance's AI video generation model that produces cinema-quality visuals with precise semantic understanding, dynamic camera control, consistent multi-shot generation, and support for diverse visual styles from anime to pixel art.",
+      "cta": "Try Seedance Now",
+      "learnMore": "Learn More",
+      "features": {
+        "semantic": {
+          "title": "Precise Semantic Understanding",
+          "description": "Accurately interpret complex user prompts, understand semantic relationships, and execute temporally coordinated actions involving multiple subjects."
+        },
+        "camera": {
+          "title": "Dynamic Camera Control",
+          "description": "Support dynamic and visually appealing camera movements including zoom, pan, and tracking for more cinematic video output."
+        },
+        "multiShot": {
+          "title": "Consistent Multi-Shot Generation",
+          "description": "Generate videos with multiple shots from a single prompt, maintaining subject, style, and atmosphere consistency throughout."
+        },
+        "styles": {
+          "title": "Multiple Visual Styles",
+          "description": "Support diverse artistic styles including black & white, 3D/2D animation, traditional Chinese painting, watercolor, pixel art, and more."
+        }
+      },
+      "useCases": {
+        "shortFilm": {
+          "title": "Short Film Production",
+          "description": "Create cinema-quality short films with consistent multi-shot sequences, dynamic camera work, and various artistic styles."
+        },
+        "social": {
+          "title": "Social Media Content",
+          "description": "Generate engaging social media videos with precise prompt following and support for trending visual styles."
+        },
+        "animation": {
+          "title": "Animation & Stylized Art",
+          "description": "Produce animations in diverse styles from anime and pixel art to traditional painting, with consistent style across frames."
+        }
+      },
+      "faq": {
+        "what": {
+          "question": "How does Seedance work?",
+          "answer": "Seedance uses DiT (Diffusion and Transformer) fusion units to generate videos, combining diffusion model characteristics with transformer architecture for better performance and higher quality output."
+        },
+        "modes": {
+          "question": "Does Seedance support image-to-video?",
+          "answer": "Yes. Seedance can generate videos from both text and image prompts, giving you flexible input options for your creative projects."
+        },
+        "multiCamera": {
+          "question": "Can Seedance handle multiple camera angles?",
+          "answer": "Yes. Seedance features consistent multi-camera generation, allowing smooth transitions between different camera angles while maintaining subject consistency."
+        },
+        "professional": {
+          "question": "Is Seedance suitable for professional video production?",
+          "answer": "Yes. Seedance delivers cinema-quality visuals and supports various professional video production needs, making it a powerful tool for filmmakers and content creators."
+        }
+      },
+      "stats": {
+        "styles": "Visual Styles",
+        "audio": "Audio Support",
+        "speed": "Generation Speed",
+        "credits": "Starting Credits"
+      },
+      "showcase": {
+        "0": {
+          "title": "Anime Action Scene",
+          "description": "A vibrant anime-style action sequence with dynamic camera angles and consistent character design."
+        },
+        "1": {
+          "title": "Pixel Art Adventure",
+          "description": "A retro pixel-art animated scene with smooth character movement and nostalgic visual charm."
+        },
+        "2": {
+          "title": "Chinese Ink Painting",
+          "description": "A flowing traditional Chinese ink painting style video with graceful brushstroke animations."
+        },
+        "3": {
+          "title": "Watercolor Landscape",
+          "description": "A dreamy watercolor-style landscape with soft color blending and gentle camera movement."
+        },
+        "4": {
+          "title": "3D Animation Short",
+          "description": "A polished 3D animated scene with cinematic lighting, smooth character rigging and dynamic camera."
+        },
+        "5": {
+          "title": "Multi-shot Story",
+          "description": "A coherent multi-shot narrative maintaining subject and style consistency across different angles."
+        }
+      },
+      "howToUse": {
+        "0": {
+          "title": "Write Your Prompt",
+          "description": "Describe your video scene in detail. Specify the visual style you want — anime, pixel art, watercolor, etc."
+        },
+        "1": {
+          "title": "Pick Seedance Model",
+          "description": "Choose between Seedance 1.5 Pro or Fast variant based on your quality and speed needs."
+        },
+        "2": {
+          "title": "Generate & Share",
+          "description": "Generate your video with consistent multi-shot quality. Download and share your creation."
+        }
+      }
+    },
+    "wan": {
+      "seo": {
+        "title": "Wan AI Video Generator (Alibaba) - Create Videos Online | GenX",
+        "description": "Try Wan AI by Alibaba, the open-source AI video model with 14B parameters. Generate stunning videos and images with 100+ visual styles."
+      },
+      "tagline": "Alibaba's open-source AI model with 14B parameters and 100+ visual styles",
+      "description": "Wan AI is an open-source AI video generation model by Alibaba. It supports text and image inputs to generate stunning video and image content. With 14 billion parameters, it delivers precise and realistic visuals with accurate human poses and motion trajectories.",
+      "cta": "Try Wan AI Now",
+      "learnMore": "Learn More",
+      "features": {
+        "generation": {
+          "title": "Superior Generation Quality",
+          "description": "Powered by 14B parameters, deliver precise and realistic visuals with accurate human poses, motion trajectories, and multi-object interactions."
+        },
+        "styles": {
+          "title": "100+ Visual Styles",
+          "description": "Access over 100 visual style templates including cyberpunk, oil painting, and more. Customize character composition, expressions, and details."
+        },
+        "multiObject": {
+          "title": "Multi-Object Interaction",
+          "description": "Generate realistic object interactions with the ability to distinguish motion trajectories of multiple objects across different scenes."
+        },
+        "openSource": {
+          "title": "Open Source",
+          "description": "Wan AI is open-source, allowing researchers and developers to explore and build upon the model for custom applications."
+        }
+      },
+      "useCases": {
+        "creative": {
+          "title": "Creative Video Production",
+          "description": "Create promotional clips, tutorials, cinematic shorts, animations, and immersive 3D visuals with diverse visual styles."
+        },
+        "social": {
+          "title": "Social Media Content",
+          "description": "Generate dynamic and unique visual clips for social media with 100+ style templates to stand out from the crowd."
+        },
+        "education": {
+          "title": "Educational Content",
+          "description": "Produce engaging educational videos from text descriptions, with support for multiple visual styles and clear object interactions."
+        }
+      },
+      "faq": {
+        "what": {
+          "question": "What is Wan AI?",
+          "answer": "Wan AI is an open-source AI video generation model by Alibaba. Users can generate realistic video content by entering descriptive text prompts, with over 100 artistic style templates built in."
+        },
+        "unique": {
+          "question": "What makes Wan AI unique?",
+          "answer": "Wan AI uses advanced VAE and DiT technologies to generate realistic, high-definition visual scenes. Its 14B parameters deliver exceptional quality and accuracy."
+        },
+        "free": {
+          "question": "Is Wan AI free to use?",
+          "answer": "Yes. You can try Wan AI on GenX with free credits. No credit card required to get started."
+        },
+        "speed": {
+          "question": "How fast is Wan AI?",
+          "answer": "Wan AI can generate 1080p videos up to 1 minute long in about 15 seconds, making it one of the fastest AI video generation solutions available."
+        }
+      },
+      "stats": {
+        "params": "Parameters",
+        "styles": "Visual Styles",
+        "speed": "Generation Speed",
+        "credits": "Starting Credits"
+      },
+      "showcase": {
+        "0": {
+          "title": "Cinematic Short Film",
+          "description": "A cinematic short with realistic character motion, accurate poses, and immersive visual storytelling."
+        },
+        "1": {
+          "title": "3D Animation Scene",
+          "description": "A polished 3D animated scene with accurate lighting, smooth transitions, and dynamic camera work."
+        },
+        "2": {
+          "title": "Chinese Calligraphy",
+          "description": "A traditional calligraphy style video with flowing brush movements and elegant ink transitions."
+        },
+        "3": {
+          "title": "Cyberpunk City",
+          "description": "A neon-lit cyberpunk cityscape with volumetric lighting, rain effects, and atmospheric details."
+        },
+        "4": {
+          "title": "Nature Documentary",
+          "description": "A wildlife scene with realistic animal motion, natural lighting, and cinematic composition."
+        },
+        "5": {
+          "title": "Fashion Editorial",
+          "description": "A fashion editorial video with elegant model poses, studio lighting, and smooth camera panning."
+        }
+      },
+      "howToUse": {
+        "0": {
+          "title": "Enter Your Prompt",
+          "description": "Write a text description or upload an image. Choose from 100+ built-in visual style templates."
+        },
+        "1": {
+          "title": "Choose Wan Model",
+          "description": "Select between Wan 2.6 T2V, I2V, or image generation variants based on your creative needs."
+        },
+        "2": {
+          "title": "Generate & Download",
+          "description": "Generate your content in seconds. Download high-quality video or images for your project."
+        }
+      }
+    },
+    "omnihuman": {
+      "seo": {
+        "title": "OmniHuman 1.5 Digital Human AI - Create Talking Avatars | GenX",
+        "description": "Try OmniHuman 1.5 by ByteDance, the audio-driven digital human video generator. Create realistic talking avatars from reference videos and audio."
+      },
+      "tagline": "ByteDance's audio-driven digital human video generator",
+      "description": "OmniHuman 1.5 is an AI model by ByteDance that generates digital human videos driven by audio input. Upload a reference video and audio to create realistic talking avatar videos with natural lip sync and body movements.",
+      "cta": "Try OmniHuman Now",
+      "learnMore": "Learn More",
+      "features": {
+        "audioDriven": {
+          "title": "Audio-Driven Generation",
+          "description": "Generate digital human videos from audio input. The model syncs lip movements, facial expressions, and body gestures with the audio."
+        },
+        "realistic": {
+          "title": "Realistic Motion",
+          "description": "Produce natural and realistic human motions including subtle facial expressions, head movements, and body language."
+        },
+        "flexible": {
+          "title": "Flexible Input",
+          "description": "Accept various reference video formats and audio inputs. Support different poses, angles, and character types."
+        },
+        "multiLanguage": {
+          "title": "Multi-Language Support",
+          "description": "Generate talking avatars in multiple languages with accurate lip sync for each language's phonetic patterns."
+        }
+      },
+      "useCases": {
+        "presentation": {
+          "title": "Business Presentations",
+          "description": "Create professional talking avatar presentations for business meetings, pitches, and corporate communications."
+        },
+        "education": {
+          "title": "Online Education",
+          "description": "Produce engaging educational content with AI presenters for online courses, tutorials, and training materials."
+        },
+        "marketing": {
+          "title": "Marketing Videos",
+          "description": "Generate spokesperson videos for marketing campaigns without hiring actors or scheduling photo shoots."
+        }
+      },
+      "faq": {
+        "what": {
+          "question": "What is OmniHuman 1.5?",
+          "answer": "OmniHuman 1.5 is an AI model by ByteDance that generates realistic digital human videos from reference video and audio inputs, with natural lip sync and body movements."
+        },
+        "how": {
+          "question": "How does OmniHuman work?",
+          "answer": "Upload a reference video of a person and provide an audio file. OmniHuman generates a video of the person speaking with synchronized lip movements and natural gestures."
+        },
+        "free": {
+          "question": "Is OmniHuman free to use?",
+          "answer": "Yes. You can try OmniHuman 1.5 on GenX with free credits. No credit card required to get started."
+        },
+        "languages": {
+          "question": "What languages does OmniHuman support?",
+          "answer": "OmniHuman supports multiple languages with accurate lip sync for each language's phonetic patterns, making it suitable for global content creation."
+        }
+      },
+      "stats": {
+        "input": "Audio Input",
+        "lipSync": "Lip Sync",
+        "speed": "Generation Speed",
+        "credits": "Starting Credits"
+      },
+      "showcase": {
+        "0": {
+          "title": "Business Presenter",
+          "description": "A professional business presenter delivering a pitch with natural gestures and perfect lip sync."
+        },
+        "1": {
+          "title": "Language Teacher",
+          "description": "A multilingual teacher explaining concepts with accurate lip movements for each language."
+        },
+        "2": {
+          "title": "News Anchor",
+          "description": "A news anchor delivering breaking news with professional posture and natural speech patterns."
+        },
+        "3": {
+          "title": "Product Spokesperson",
+          "description": "A brand ambassador introducing products with engaging expressions and synchronized audio."
+        }
+      },
+      "howToUse": {
+        "0": {
+          "title": "Upload Reference Video",
+          "description": "Upload a reference video of the person you want to animate. Any clear frontal video works."
+        },
+        "1": {
+          "title": "Add Audio Input",
+          "description": "Upload your audio file — speech, narration, or dialogue in any language."
+        },
+        "2": {
+          "title": "Generate Avatar Video",
+          "description": "OmniHuman creates a realistic talking avatar with synced lip movements and natural body gestures."
+        }
+      }
     }
   }
 }

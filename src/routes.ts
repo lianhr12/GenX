@@ -56,6 +56,9 @@ export enum Routes {
   CreateTextToVideo = '/create/text-to-video',
   CreateReferenceToVideo = '/create/reference-to-video',
 
+  // Model pages
+  Models = '/models',
+
   // Style pages
   Styles = '/styles',
   StyleCyberpunk = '/styles/cyberpunk',
