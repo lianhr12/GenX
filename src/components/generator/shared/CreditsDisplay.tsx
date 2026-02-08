@@ -4,6 +4,7 @@
 
 import { cn } from '@/lib/utils';
 import { CoinsIcon } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 
 interface CreditsDisplayProps {
   credits: number;
@@ -18,6 +19,7 @@ export function CreditsDisplay({
   size = 'md',
   className,
 }: CreditsDisplayProps) {
+  const t = useTranslations('Generator');
   const sizeClasses = {
     sm: 'text-xs',
     md: 'text-sm',
@@ -39,7 +41,7 @@ export function CreditsDisplay({
       )}
     >
       {showIcon && <CoinsIcon className={iconSizes[size]} />}
-      <span>{credits} Credits</span>
+      <span>{t('model.creditsLabel', { count: credits })}</span>
     </div>
   );
 }

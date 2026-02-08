@@ -2318,7 +2318,42 @@
     },
     "model": {
       "selectModel": "Select Model",
-      "availableModels": "Available Models"
+      "availableModels": "Available Models",
+      "models": "Models",
+      "noModels": "No models available",
+      "new": "New",
+      "credits": "{count}+ credits",
+      "creditsLabel": "{count} Credits"
+    },
+    "modelDescriptions": {
+      "sora-2-pro": "OpenAI flagship video model with highest quality",
+      "sora-2-preview": "OpenAI video model preview version",
+      "gpt-image-1_5": "Advanced image generation with high quality",
+      "gpt-image-1_5-lite": "Fast and efficient image generation",
+      "veo-3_1-pro": "Google professional video generation model",
+      "veo-3_1-fast-generate-preview": "Fast video generation with good quality",
+      "gemini-3-pro-image-preview": "Google multimodal image generation",
+      "gemini-2_5-flash-image": "Fast image generation powered by Gemini 2.5 Flash",
+      "nano-banana-2-lite": "Cost-effective image generation with quality options",
+      "wan2_6-text-to-video": "Latest Wan AI text-to-video model",
+      "wan2_5-text-to-video": "Stable text-to-video generation",
+      "wan2_6-image-to-video": "Transform images into dynamic videos with 15s support",
+      "wan2_5-image-to-video": "Reliable image-to-video conversion",
+      "wan2_6-reference-video": "Extract character appearance and voice from reference videos",
+      "wan2_5-text-to-image": "High-quality image generation",
+      "doubao-seedream-4_5": "ByteDance advanced image model",
+      "doubao-seedream-4_0": "Stable image generation model",
+      "seedance-1_5-pro": "Professional video generation with audio support",
+      "doubao-seedance-1_0-pro-fast": "Fast video generation model",
+      "kling-2": "Kling AI latest video model",
+      "kling-o1-image-to-video": "Transform images to videos with first/last frame support",
+      "MiniMax-Hailuo-2_3": "MiniMax latest video generation with camera controls",
+      "MiniMax-Hailuo-02": "Stable video generation model",
+      "omnihuman-1_5": "Audio-driven digital human video generation",
+      "qwen-image-edit": "Image editing and image-to-image generation",
+      "qwen-image-edit-plus": "Advanced image editing with more features",
+      "z-image-turbo": "Ultra-fast image generation by Tongyi Lab",
+      "wan2_5-image-to-image": "Image editing and transformation"
     },
     "aspectRatio": {
       "label": "Aspect Ratio"

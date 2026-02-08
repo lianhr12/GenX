@@ -2318,7 +2318,42 @@
     },
     "model": {
       "selectModel": "选择模型",
-      "availableModels": "可用模型"
+      "availableModels": "可用模型",
+      "models": "模型",
+      "noModels": "暂无可用模型",
+      "new": "新",
+      "credits": "{count}+ 积分",
+      "creditsLabel": "{count} 积分"
+    },
+    "modelDescriptions": {
+      "sora-2-pro": "OpenAI 旗舰视频模型，最高画质",
+      "sora-2-preview": "OpenAI 视频模型预览版",
+      "gpt-image-1_5": "高质量图片生成",
+      "gpt-image-1_5-lite": "快速高效的图片生成",
+      "veo-3_1-pro": "Google 专业视频生成模型",
+      "veo-3_1-fast-generate-preview": "快速视频生成，画质优良",
+      "gemini-3-pro-image-preview": "Google 多模态图片生成",
+      "gemini-2_5-flash-image": "基于 Gemini 2.5 Flash 的快速图片生成",
+      "nano-banana-2-lite": "性价比高的图片生成，支持画质选项",
+      "wan2_6-text-to-video": "最新 Wan AI 文生视频模型",
+      "wan2_5-text-to-video": "稳定的文生视频生成",
+      "wan2_6-image-to-video": "将图片转化为动态视频，支持15秒",
+      "wan2_5-image-to-video": "可靠的图片转视频",
+      "wan2_6-reference-video": "从参考视频中提取角色外观和声音",
+      "wan2_5-text-to-image": "高质量图片生成",
+      "doubao-seedream-4_5": "字节跳动高级图片模型",
+      "doubao-seedream-4_0": "稳定的图片生成模型",
+      "seedance-1_5-pro": "专业视频生成，支持音频",
+      "doubao-seedance-1_0-pro-fast": "快速视频生成模型",
+      "kling-2": "Kling AI 最新视频模型",
+      "kling-o1-image-to-video": "图片转视频，支持首尾帧",
+      "MiniMax-Hailuo-2_3": "MiniMax 最新视频生成，支持镜头控制",
+      "MiniMax-Hailuo-02": "稳定的视频生成模型",
+      "omnihuman-1_5": "音频驱动的数字人视频生成",
+      "qwen-image-edit": "图片编辑与图生图",
+      "qwen-image-edit-plus": "高级图片编辑，更多功能",
+      "z-image-turbo": "通义实验室超快速图片生成",
+      "wan2_5-image-to-image": "图片编辑与风格转换"
     },
     "aspectRatio": {
       "label": "宽高比"

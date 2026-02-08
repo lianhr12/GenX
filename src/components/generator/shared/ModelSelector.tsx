@@ -18,6 +18,7 @@ import {
   CoinsIcon,
   SparklesIcon,
 } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 import { useCallback, useMemo, useState } from 'react';
 import {
   type ModelInfo,
@@ -44,6 +45,7 @@ export function ModelSelector({
   disabled = false,
   className,
 }: ModelSelectorProps) {
+  const t = useTranslations('Generator');
   const [open, setOpen] = useState(false);
   const [selectedProviderId, setSelectedProviderId] = useState<string | null>(
     null
@@ -115,7 +117,7 @@ export function ModelSelector({
             size="sm"
           />
           <span className="max-w-[140px] truncate">
-            {selectedModel?.name || 'Select Model'}
+            {selectedModel?.name || t('model.selectModel')}
           </span>
           <ChevronDownIcon className="size-4 shrink-0 opacity-50" />
         </Button>
@@ -125,7 +127,7 @@ export function ModelSelector({
           {/* Left Panel - Providers */}
           <div className="w-[180px] border-r border-border">
             <div className="px-3 py-2 text-xs font-medium text-muted-foreground">
-              Models
+              {t('model.models')}
             </div>
             <ScrollArea className="h-[320px]">
               <div className="space-y-0.5 px-1">
@@ -135,6 +137,7 @@ export function ModelSelector({
                     provider={provider}
                     isActive={activeProviderId === provider.id}
                     onClick={() => handleProviderSelect(provider.id)}
+                    t={t}
                   />
                 ))}
               </div>
@@ -151,11 +154,12 @@ export function ModelSelector({
                     model={model}
                     isSelected={value === model.id}
                     onClick={() => handleModelSelect(model.id)}
+                    t={t}
                   />
                 ))}
                 {providerModels.length === 0 && (
                   <div className="flex h-[200px] items-center justify-center text-sm text-muted-foreground">
-                    No models available
+                    {t('model.noModels')}
                   </div>
                 )}
               </div>
@@ -172,10 +176,12 @@ function ProviderItem({
   provider,
   isActive,
   onClick,
+  t,
 }: {
   provider: ModelProvider;
   isActive: boolean;
   onClick: () => void;
+  t: ReturnType<typeof useTranslations<'Generator'>>;
 }) {
   return (
     <button
@@ -196,7 +202,7 @@ function ProviderItem({
           variant="secondary"
           className="h-5 bg-green-500/20 px-1.5 text-[10px] text-green-500"
         >
-          New
+          {t('model.new')}
         </Badge>
       )}
     </button>
@@ -208,10 +214,12 @@ function ModelItem({
   model,
   isSelected,
   onClick,
+  t,
 }: {
   model: ModelInfo;
   isSelected: boolean;
   onClick: () => void;
+  t: ReturnType<typeof useTranslations<'Generator'>>;
 }) {
   return (
     <button
@@ -232,7 +240,7 @@ function ModelItem({
             variant="secondary"
             className="h-5 bg-green-500/20 px-1.5 text-[10px] text-green-500"
           >
-            New
+            {t('model.new')}
           </Badge>
         )}
         {isSelected && <CheckIcon className="ml-auto size-4 text-primary" />}
@@ -240,7 +248,7 @@ function ModelItem({
 
       {/* Description */}
       <p className="text-xs text-muted-foreground line-clamp-1 pl-8">
-        {model.description}
+        {t(`modelDescriptions.${model.id.replaceAll('.', '_')}` as never)}
       </p>
 
       {/* Footer: Time + Credits */}
@@ -253,7 +261,7 @@ function ModelItem({
         )}
         <span className="flex items-center gap-1">
           <CoinsIcon className="size-3" />
-          {model.baseCredits}+ credits
+          {t('model.credits', { count: model.baseCredits })}
         </span>
       </div>
     </button>
