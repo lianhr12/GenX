@@ -20,6 +20,7 @@ interface ReplicateButtonProps {
   className?: string;
   size?: 'sm' | 'md';
   variant?: 'icon' | 'button';
+  onReplicate?: (data: ReplicateData) => void;
 }
 
 function resolveTargetRoute(data: ReplicateData): string {
@@ -87,6 +88,7 @@ export function ReplicateButton({
   className,
   size = 'sm',
   variant = 'icon',
+  onReplicate,
 }: ReplicateButtonProps) {
   const t = useTranslations('Common');
   const router = useLocaleRouter();
@@ -99,10 +101,14 @@ export function ReplicateButton({
       e.stopPropagation();
       e.preventDefault();
       setReplicateData(data);
-      const route = resolveTargetRoute(data);
-      router.push(route);
+      if (onReplicate) {
+        onReplicate(data);
+      } else {
+        const route = resolveTargetRoute(data);
+        router.push(route);
+      }
     },
-    [data, setReplicateData, router],
+    [data, setReplicateData, onReplicate, router],
   );
 
   const iconSize = size === 'sm' ? 'h-3.5 w-3.5' : 'h-4 w-4';

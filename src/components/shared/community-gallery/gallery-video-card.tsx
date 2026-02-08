@@ -15,6 +15,7 @@ import {
 } from 'lucide-react';
 import { useState } from 'react';
 import { ReplicateButton } from '@/components/shared/replicate-button';
+import type { ReplicateData } from '@/stores/creator-navigation-store';
 
 export interface GalleryItemData {
   id: string | number;
@@ -48,6 +49,7 @@ export interface GalleryItemData {
 interface GalleryVideoCardProps {
   item: GalleryItemData;
   onClick?: (item: GalleryItemData) => void;
+  onReplicate?: (data: ReplicateData) => void;
   // Management mode props
   isManagementMode?: boolean;
   isSelected?: boolean;
@@ -60,6 +62,7 @@ interface GalleryVideoCardProps {
 export function GalleryVideoCard({
   item,
   onClick,
+  onReplicate,
   isManagementMode = false,
   isSelected = false,
   onToggleSelect,
@@ -370,6 +373,7 @@ export function GalleryVideoCard({
             model: item.model,
             mediaType: item.mediaType,
           }}
+          onReplicate={onReplicate}
         />
       </div>
     </div>

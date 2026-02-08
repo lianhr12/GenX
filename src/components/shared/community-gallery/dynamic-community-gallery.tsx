@@ -1,6 +1,7 @@
 'use client';
 
 import { ReplicateButton } from '@/components/shared/replicate-button';
+import type { ReplicateData } from '@/stores/creator-navigation-store';
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogTitle } from '@/components/ui/dialog';
 import { cn } from '@/lib/utils';
@@ -25,6 +26,7 @@ interface GalleryModalProps {
   likeButton?: React.ReactNode;
   favoriteButton?: React.ReactNode;
   translationNamespace?: string;
+  onReplicate?: (data: ReplicateData) => void;
 }
 
 function GalleryModal({
@@ -35,6 +37,7 @@ function GalleryModal({
   likeButton,
   favoriteButton,
   translationNamespace = 'GalleryPage',
+  onReplicate,
 }: GalleryModalProps) {
   const t = useTranslations(translationNamespace as never);
 
@@ -133,6 +136,7 @@ function GalleryModal({
                 variant="button"
                 size="md"
                 className="w-full sm:w-auto"
+                onReplicate={onReplicate}
               />
             </div>
           </div>
@@ -164,6 +168,7 @@ export interface DynamicCommunityGalleryProps {
   renderFavoriteButton?: (item: GalleryItemData) => React.ReactNode;
   gap?: number;
   className?: string;
+  onReplicate?: (data: ReplicateData) => void;
 }
 
 const defaultCategories: GalleryCategory[] = [
@@ -202,6 +207,7 @@ export function DynamicCommunityGallery({
   renderFavoriteButton,
   gap = 16,
   className,
+  onReplicate,
 }: DynamicCommunityGalleryProps) {
   const t = useTranslations(translationNamespace as never);
   const [selectedItem, setSelectedItem] = useState<GalleryItemData | null>(
@@ -275,6 +281,7 @@ export function DynamicCommunityGallery({
             items={items}
             gap={gap}
             onItemClick={handleItemClick}
+            onReplicate={onReplicate}
           />
         )}
       </div>
@@ -318,6 +325,14 @@ export function DynamicCommunityGallery({
             : null
         }
         translationNamespace={translationNamespace}
+        onReplicate={
+          onReplicate
+            ? (data: ReplicateData) => {
+                setSelectedItem(null);
+                onReplicate(data);
+              }
+            : undefined
+        }
       />
     </section>
   );

@@ -10,6 +10,7 @@ import { Button } from '@/components/ui/button';
 import { useCurrentUser } from '@/hooks/use-current-user';
 import { useGalleryFeatured, useGalleryView } from '@/hooks/use-gallery';
 import { LocaleLink } from '@/i18n/navigation';
+import type { ReplicateData } from '@/stores/creator-navigation-store';
 import { useTranslations } from 'next-intl';
 import { useCallback, useState } from 'react';
 
@@ -97,6 +98,13 @@ export function GallerySection() {
   const user = useCurrentUser();
   const [activeFilter, setActiveFilter] = useState('all');
   const { mutate: incrementView } = useGalleryView();
+
+  const handleReplicate = useCallback((_data: ReplicateData) => {
+    const creator = document.querySelector('.genx-creator');
+    if (creator) {
+      creator.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }, []);
 
   // Fetch dynamic gallery items
   const {
@@ -192,6 +200,7 @@ export function GallerySection() {
             hasNextPage={false}
             onItemView={handleItemView}
             renderLikeButton={renderLikeButton}
+            onReplicate={handleReplicate}
           />
         </div>
 

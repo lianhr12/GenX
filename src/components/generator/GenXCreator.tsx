@@ -11,6 +11,7 @@ import { CreatorParameterBar } from './core/CreatorParameterBar';
 import { CreatorSubmitButton } from './core/CreatorSubmitButton';
 import { useCreatorState } from './hooks/useCreatorState';
 import { useNavigationOnInput } from './hooks/useNavigationOnInput';
+import { useReplicateWatcher } from './hooks/useReplicateWatcher';
 import { AudioPanel } from './panels/AudioPanel';
 import { ImageToImagePanel } from './panels/ImageToImagePanel';
 import { ImageToVideoPanel } from './panels/ImageToVideoPanel';
@@ -116,6 +117,9 @@ function CreatorContent({
   | 'onModeChange'
 >) {
   const t = useTranslations('Generator.input');
+
+  // 监听 replicateData 并填充到创作状态
+  useReplicateWatcher();
 
   // 导航 hook - 用于 Enter 键和生成按钮
   const { handleInputComplete } = useNavigationOnInput({

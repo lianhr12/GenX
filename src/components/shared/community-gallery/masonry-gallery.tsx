@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import type { GalleryItemData } from './gallery-video-card';
 import { GalleryVideoCard } from './gallery-video-card';
+import type { ReplicateData } from '@/stores/creator-navigation-store';
 
 interface MasonryPosition {
   x: number;
@@ -15,6 +16,7 @@ interface MasonryGalleryProps {
   items: GalleryItemData[];
   gap?: number;
   onItemClick?: (item: GalleryItemData) => void;
+  onReplicate?: (data: ReplicateData) => void;
 }
 
 const getAspectRatioValue = (ratio: string): number => {
@@ -26,6 +28,7 @@ export function MasonryGallery({
   items,
   gap = 16,
   onItemClick,
+  onReplicate,
 }: MasonryGalleryProps) {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const [positions, setPositions] = useState<Map<string, MasonryPosition>>(
@@ -124,7 +127,7 @@ export function MasonryGallery({
               animationFillMode: 'backwards',
             }}
           >
-            <GalleryVideoCard item={item} onClick={onItemClick} />
+            <GalleryVideoCard item={item} onClick={onItemClick} onReplicate={onReplicate} />
           </div>
         );
       })}

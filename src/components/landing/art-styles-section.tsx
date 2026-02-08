@@ -1,6 +1,7 @@
 'use client';
 
 import { ReplicateButton } from '@/components/shared/replicate-button';
+import type { ReplicateData } from '@/stores/creator-navigation-store';
 import { AnimatedGroup } from '@/components/tailark/motion/animated-group';
 import { Button } from '@/components/ui/button';
 import { type ArtStyleUI, artStylesUI } from '@/config/art-styles-ui';
@@ -9,7 +10,7 @@ import { cn } from '@/lib/utils';
 import { motion } from 'motion/react';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
-import { useRef, useState } from 'react';
+import { useCallback, useRef, useState } from 'react';
 
 interface StyleCardProps {
   style: ArtStyleUI;
@@ -17,6 +18,7 @@ interface StyleCardProps {
   onHover: () => void;
   onLeave: () => void;
   index: number;
+  onReplicate?: (data: ReplicateData) => void;
 }
 
 function StyleCard({
@@ -25,6 +27,7 @@ function StyleCard({
   onHover,
   onLeave,
   index,
+  onReplicate,
 }: StyleCardProps) {
   const t = useTranslations('Landing.artStyles');
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -188,6 +191,7 @@ function StyleCard({
             }}
             variant="button"
             size="sm"
+            onReplicate={onReplicate}
           />
         </div>
       </div>
@@ -198,6 +202,13 @@ function StyleCard({
 export function ArtStylesSection() {
   const t = useTranslations('Landing.artStyles');
   const [activeStyle, setActiveStyle] = useState<string | null>(null);
+
+  const handleReplicate = useCallback((_data: ReplicateData) => {
+    const creator = document.querySelector('.genx-creator');
+    if (creator) {
+      creator.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }, []);
 
   return (
     <section id="styles" className="relative py-24 lg:py-32">
@@ -267,6 +278,7 @@ export function ArtStylesSection() {
                 onHover={() => setActiveStyle(style.id)}
                 onLeave={() => setActiveStyle(null)}
                 index={index}
+                onReplicate={handleReplicate}
               />
             </motion.div>
           ))}
