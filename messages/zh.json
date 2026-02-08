@@ -1752,8 +1752,6 @@
         }
       },
       "trust": {
-        "noSignup": "无需注册即可试用",
-        "noCard": "无需信用卡",
         "noWatermark": "无隐藏水印（Pro）"
       }
     },
@@ -1870,8 +1868,6 @@
       "subheadline": "30秒后，你将拥有一个令人惊艳的艺术视频",
       "cta": "免费开始创作",
       "trust": {
-        "noSignup": "无需注册",
-        "noCard": "无需信用卡",
         "thirtySeconds": "30秒完成",
         "instantDownload": "即时下载"
       }
@@ -2363,7 +2359,7 @@
     },
     "cta": {
       "title": "立即使用 {model} 开始创作",
-      "description": "免费试用，无需信用卡。"
+      "description": "免费试用，立即开始创作。"
     },
     "list": {
       "badge": "AI 模型",
@@ -2429,7 +2425,7 @@
         },
         "free": {
           "question": "Veo 3 可以免费使用吗？",
-          "answer": "可以。您可以在 GenX 上使用免费积分试用 Google Veo 3。注册即可开始，无需信用卡。"
+          "answer": "可以。您可以在 GenX 上使用免费积分试用 Google Veo 3。注册即可开始。"
         },
         "audio": {
           "question": "Veo 3 支持音频吗？",
@@ -2535,7 +2531,7 @@
         },
         "free": {
           "question": "Sora 2 可以免费使用吗？",
-          "answer": "可以。Sora 2 可在 GenX 上使用免费试用积分。注册即可开始创作，无需信用卡。"
+          "answer": "可以。Sora 2 可在 GenX 上使用免费试用积分。注册即可开始创作。"
         },
         "professional": {
           "question": "Sora 2 可以用于专业项目吗？",
@@ -2747,7 +2743,7 @@
         },
         "free": {
           "question": "Hailuo AI 可以免费使用吗？",
-          "answer": "可以在 GenX 上使用免费试用积分体验 Hailuo AI。注册即可开始，无需信用卡。"
+          "answer": "可以在 GenX 上使用免费试用积分体验 Hailuo AI。注册即可开始。"
         },
         "resolution": {
           "question": "Hailuo AI 支持哪些格式和分辨率？",
@@ -2959,7 +2955,7 @@
         },
         "free": {
           "question": "Wan AI 可以免费使用吗？",
-          "answer": "可以。您可以在 GenX 上使用免费积分试用 Wan AI。无需信用卡即可开始。"
+          "answer": "可以。您可以在 GenX 上使用免费积分试用 Wan AI。"
         },
         "speed": {
           "question": "Wan AI 速度有多快？",
@@ -3065,7 +3061,7 @@
         },
         "free": {
           "question": "OmniHuman 可以免费使用吗？",
-          "answer": "可以。您可以在 GenX 上使用免费积分试用 OmniHuman 1.5。无需信用卡即可开始。"
+          "answer": "可以。您可以在 GenX 上使用免费积分试用 OmniHuman 1.5。"
         },
         "languages": {
           "question": "OmniHuman 支持哪些语言？",
@@ -3163,7 +3159,7 @@
         },
         "free": {
           "question": "GPT Image 可以免费使用吗？",
-          "answer": "可以。您可以在 GenX 上使用免费积分试用 GPT Image，无需信用卡即可开始。"
+          "answer": "可以。您可以在 GenX 上使用免费积分试用 GPT Image。"
         },
         "text": {
           "question": "GPT Image 能在图片中渲染文字吗？",
@@ -3269,7 +3265,7 @@
         },
         "free": {
           "question": "Seedream 可以免费使用吗？",
-          "answer": "可以。您可以在 GenX 上使用免费积分试用 Seedream，无需信用卡即可开始。"
+          "answer": "可以。您可以在 GenX 上使用免费积分试用 Seedream。"
         },
         "quality": {
           "question": "为什么 Seedream 的图片质量这么高？",
@@ -3375,7 +3371,7 @@
         },
         "free": {
           "question": "Nanobanana Pro 可以免费使用吗？",
-          "answer": "可以。您可以在 GenX 上使用免费积分试用 Nanobanana Pro，无需信用卡即可开始。"
+          "answer": "可以。您可以在 GenX 上使用免费积分试用 Nanobanana Pro。"
         },
         "quality": {
           "question": "为什么 Nanobanana Pro 是高端模型？",
@@ -3481,7 +3477,7 @@
         },
         "free": {
           "question": "Wan 2.5 Image 可以免费使用吗？",
-          "answer": "可以。您可以在 GenX 上使用免费积分试用 Wan 2.5 Image，无需信用卡即可开始。"
+          "answer": "可以。您可以在 GenX 上使用免费积分试用 Wan 2.5 Image。"
         },
         "video": {
           "question": "Wan 2.5 Image 和 Wan AI 视频有关系吗？",

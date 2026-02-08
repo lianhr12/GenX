@@ -141,7 +141,7 @@ export function ReplicateButton({
       type="button"
       onClick={handleReplicate}
       className={cn(
-        'inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5',
+        'inline-flex shrink-0 whitespace-nowrap items-center gap-1.5 rounded-lg px-3 py-1.5',
         'bg-black/50 text-white text-sm backdrop-blur-sm',
         'hover:bg-primary hover:text-white',
         'transition-all duration-200',

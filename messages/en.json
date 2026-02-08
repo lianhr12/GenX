@@ -1752,8 +1752,6 @@
         }
       },
       "trust": {
-        "noSignup": "No signup required to try",
-        "noCard": "No credit card needed",
         "noWatermark": "No hidden watermarks (Pro)"
       }
     },
@@ -1870,8 +1868,6 @@
       "subheadline": "In 30 seconds, you'll have a stunning art video",
       "cta": "Start Creating Free",
       "trust": {
-        "noSignup": "No signup required",
-        "noCard": "No credit card",
         "thirtySeconds": "Done in 30 seconds",
         "instantDownload": "Download instantly"
       }
@@ -2363,7 +2359,7 @@
     },
     "cta": {
       "title": "Start Creating with {model}",
-      "description": "Try it now with free credits. No credit card required."
+      "description": "Try it now with free credits."
     },
     "list": {
       "badge": "AI Models",
@@ -2429,7 +2425,7 @@
         },
         "free": {
           "question": "Can I use Veo 3 for free?",
-          "answer": "Yes. You can try Google Veo 3 on GenX with free credits. Sign up to get started without a credit card."
+          "answer": "Yes. You can try Google Veo 3 on GenX with free credits. Sign up to get started."
         },
         "audio": {
           "question": "Does Veo 3 support audio?",
@@ -2535,7 +2531,7 @@
         },
         "free": {
           "question": "Can I use Sora 2 for free?",
-          "answer": "Yes. Sora 2 is available on GenX with free trial credits. Sign up to start creating without a credit card."
+          "answer": "Yes. Sora 2 is available on GenX with free trial credits. Sign up to start creating."
         },
         "professional": {
           "question": "Can I use Sora 2 for professional projects?",
@@ -2747,7 +2743,7 @@
         },
         "free": {
           "question": "Is Hailuo AI free to use?",
-          "answer": "Hailuo AI is available on GenX with free trial credits. Sign up to get started without a credit card."
+          "answer": "Hailuo AI is available on GenX with free trial credits. Sign up to get started."
         },
         "resolution": {
           "question": "What formats and resolutions does Hailuo AI support?",
@@ -2959,7 +2955,7 @@
         },
         "free": {
           "question": "Is Wan AI free to use?",
-          "answer": "Yes. You can try Wan AI on GenX with free credits. No credit card required to get started."
+          "answer": "Yes. You can try Wan AI on GenX with free credits."
         },
         "speed": {
           "question": "How fast is Wan AI?",
@@ -3065,7 +3061,7 @@
         },
         "free": {
           "question": "Is OmniHuman free to use?",
-          "answer": "Yes. You can try OmniHuman 1.5 on GenX with free credits. No credit card required to get started."
+          "answer": "Yes. You can try OmniHuman 1.5 on GenX with free credits."
         },
         "languages": {
           "question": "What languages does OmniHuman support?",
@@ -3163,7 +3159,7 @@
         },
         "free": {
           "question": "Is GPT Image free to use?",
-          "answer": "Yes. You can try GPT Image on GenX with free credits. No credit card required to get started."
+          "answer": "Yes. You can try GPT Image on GenX with free credits."
         },
         "text": {
           "question": "Can GPT Image render text in images?",
@@ -3269,7 +3265,7 @@
         },
         "free": {
           "question": "Is Seedream free to use?",
-          "answer": "Yes. You can try Seedream on GenX with free credits. No credit card required to get started."
+          "answer": "Yes. You can try Seedream on GenX with free credits."
         },
         "quality": {
           "question": "Why is Seedream's image quality so high?",
@@ -3375,7 +3371,7 @@
         },
         "free": {
           "question": "Is Nanobanana Pro free to use?",
-          "answer": "Yes. You can try Nanobanana Pro on GenX with free credits. No credit card required to get started."
+          "answer": "Yes. You can try Nanobanana Pro on GenX with free credits."
         },
         "quality": {
           "question": "Why is Nanobanana Pro a premium model?",
@@ -3481,7 +3477,7 @@
         },
         "free": {
           "question": "Is Wan 2.5 Image free to use?",
-          "answer": "Yes. You can try Wan 2.5 Image on GenX with free credits. No credit card required to get started."
+          "answer": "Yes. You can try Wan 2.5 Image on GenX with free credits."
         },
         "video": {
           "question": "Is Wan 2.5 Image related to Wan AI video?",

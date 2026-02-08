@@ -8,8 +8,6 @@ import { motion } from 'motion/react';
 import { useTranslations } from 'next-intl';
 
 const trustBadges = [
-  { id: 'noSignup' },
-  { id: 'noCard' },
   { id: 'thirtySeconds' },
   { id: 'instantDownload' },
 ];

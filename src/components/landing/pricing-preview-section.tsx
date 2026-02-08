@@ -151,22 +151,22 @@ export function PricingPreviewSection() {
               <img
                 src="/images/payment/visa.svg"
                 alt="Visa"
-                className="h-8 opacity-50"
+                className="h-6 opacity-50"
               />
               <img
                 src="/images/payment/mastercard.svg"
                 alt="Mastercard"
-                className="h-8 opacity-50"
+                className="h-6 opacity-50"
               />
               <img
                 src="/images/payment/paypal.svg"
                 alt="PayPal"
-                className="h-8 opacity-50"
+                className="h-6 opacity-50"
               />
               <img
                 src="/images/payment/stripe.svg"
                 alt="Stripe"
-                className="h-8 opacity-50"
+                className="h-6 opacity-50"
               />
             </div>
           </AnimatedGroup>

@@ -1,38 +1,10 @@
 'use client';
 
 import { GenXCreator } from '@/components/generator/GenXCreator';
-import { AnimatedGroup } from '@/components/tailark/motion/animated-group';
 import { TextEffect } from '@/components/tailark/motion/text-effect';
 import { cn } from '@/lib/utils';
 import { useTranslations } from 'next-intl';
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-
-const transitionVariants = {
-  item: {
-    hidden: {
-      opacity: 0,
-      y: 12,
-      scale: 0.95,
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      transition: {
-        type: 'spring',
-        bounce: 0.3,
-        duration: 1.5,
-      },
-    },
-  },
-};
-
-const noAnimationVariants = {
-  item: {
-    hidden: { opacity: 1, y: 0, scale: 1 },
-    visible: { opacity: 1, y: 0, scale: 1 },
-  },
-};
+import { useCallback, useEffect, useRef, useState } from 'react';
 
 // Art style video samples for background
 // 统一使用 Cloudflare R2 的 MP4 视频
@@ -76,7 +48,6 @@ export function HeroSection() {
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [loadedPosters, setLoadedPosters] = useState<Set<string>>(new Set());
-  const [hasAnimated, setHasAnimated] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
 
   const currentVideo = artStyleVideos[currentVideoIndex];
@@ -145,33 +116,6 @@ export function HeroSection() {
   const handleVideoCanPlay = useCallback(() => {
     setIsVideoLoaded(true);
   }, []);
-
-  // Mark animation as complete after initial render
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setHasAnimated(true);
-    }, 2000);
-    return () => clearTimeout(timer);
-  }, []);
-
-  // Use no-animation variants after first animation completes
-  const ctaVariants = useMemo(
-    () =>
-      hasAnimated
-        ? { container: { visible: {} }, ...noAnimationVariants }
-        : {
-            container: {
-              visible: {
-                transition: {
-                  staggerChildren: 0.05,
-                  delayChildren: 0.8,
-                },
-              },
-            },
-            ...transitionVariants,
-          },
-    [hasAnimated]
-  );
 
   return (
     <section className="relative min-h-screen overflow-hidden">
@@ -256,17 +200,13 @@ export function HeroSection() {
           </TextEffect>
 
           {/* GenXCreator - Embedded */}
-          <AnimatedGroup
-            variants={ctaVariants}
-            className="mt-6 w-full max-w-4xl mx-auto sm:mt-10"
-          >
+          <div className="mt-6 w-full max-w-4xl mx-auto sm:mt-10 animate-in fade-in slide-in-from-bottom-3 duration-700 delay-700 fill-mode-both">
             <GenXCreator
               compact
               enableNavigation
               showCredits={false}
-              className="backdrop-blur-md bg-card/80 border-white/10"
             />
-          </AnimatedGroup>
+          </div>
         </div>
       </div>
 

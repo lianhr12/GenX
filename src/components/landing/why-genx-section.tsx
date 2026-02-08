@@ -38,8 +38,6 @@ const features = [
 ];
 
 const trustBadges = [
-  { id: 'noSignup' },
-  { id: 'noCard' },
   { id: 'noWatermark' },
 ];
 
