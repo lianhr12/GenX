@@ -1,7 +1,8 @@
 'use client';
 
 import { GenXCreator } from '@/components/generator';
-import { useEffect, useRef, useState } from 'react';
+import type { CreatorMode } from '@/components/generator/types';
+import { useCallback, useEffect, useRef, useState } from 'react';
 // import { FeatureBanner } from './banner/feature-banner';
 import { GallerySection } from './gallery/gallery-section';
 import { ModelsSection } from './models/models-section';
@@ -11,6 +12,10 @@ import { StyleTags } from './styles/style-tags';
 export function CreatePageClient() {
   const inputRef = useRef<HTMLDivElement>(null);
   const [showFloating, setShowFloating] = useState(false);
+  const [currentMode, setCurrentMode] = useState<CreatorMode>('text-to-video');
+  const handleModeChange = useCallback((mode: CreatorMode) => {
+    setCurrentMode(mode);
+  }, []);
 
   // Show floating input when main input is out of view
   useEffect(() => {
@@ -41,6 +46,7 @@ export function CreatePageClient() {
               'image-to-image',
             ]}
             modeSwitchBehavior="tabs"
+            onModeChange={handleModeChange}
             showStyles
             showCredits
             compact
@@ -70,7 +76,7 @@ export function CreatePageClient() {
       {showFloating && (
         <div className="fixed bottom-4 left-1/2 -translate-x-1/2 z-50 w-full max-w-2xl px-4">
           <GenXCreator
-            mode="text-to-video"
+            mode={currentMode}
             modeSwitchBehavior="locked"
             compact
             enableNavigation

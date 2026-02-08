@@ -4,7 +4,7 @@
 
 import { cn } from '@/lib/utils';
 import { useTranslations } from 'next-intl';
-import { Component, type ErrorInfo, type ReactNode } from 'react';
+import { Component, type ErrorInfo, type ReactNode, useEffect, useRef } from 'react';
 import { GenXCreatorProvider } from './GenXCreatorProvider';
 import { CreatorInput } from './core/CreatorInput';
 import { CreatorParameterBar } from './core/CreatorParameterBar';
@@ -93,6 +93,21 @@ function DynamicPanel({ showStyles }: { showStyles: boolean }) {
     default:
       return null;
   }
+}
+
+// 内部组件，监听模式变化并通知外部
+function ModeChangeNotifier({ onModeChange }: { onModeChange?: (mode: CreatorMode) => void }) {
+  const { mode } = useCreatorState();
+  const prevModeRef = useRef(mode);
+
+  useEffect(() => {
+    if (prevModeRef.current !== mode) {
+      prevModeRef.current = mode;
+      onModeChange?.(mode);
+    }
+  }, [mode, onModeChange]);
+
+  return null;
 }
 
 // 内部组件，包含所有 UI 元素
@@ -245,6 +260,7 @@ export function GenXCreator({
         onChange={onChange}
         defaultValue={initialState}
       >
+        <ModeChangeNotifier onModeChange={onModeChange} />
         <div className={cn('genx-creator', className)}>
           <CreatorContent
             allowedModes={allowedModes}
