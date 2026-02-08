@@ -31,6 +31,7 @@ export type {
   QualitySelectorProps,
   StyleSelectorProps,
   CreditsDisplayProps,
+  QuickStyleItem,
 } from './types';
 
 // Core components
@@ -55,6 +56,7 @@ export { QualitySelector } from './shared/QualitySelector';
 export { ImageUploader } from './shared/ImageUploader';
 export { StyleSelector } from './shared/StyleSelector';
 export { CreditsDisplay } from './shared/CreditsDisplay';
+export { QuickStyles } from './shared/QuickStyles';
 
 // Layout components
 export { ToolPageLayout } from './layouts/ToolPageLayout';

@@ -2270,6 +2270,21 @@
       "anime": "动漫",
       "fluidArt": "流体艺术"
     },
+    "quickStyles": {
+      "title": "快捷风格",
+      "tags": {
+        "realistic": "写实",
+        "anime": "动漫",
+        "cinematic": "电影",
+        "3d": "3D",
+        "cartoon": "卡通",
+        "cyberpunk": "赛博朋克",
+        "watercolor": "水彩",
+        "oilPainting": "油画",
+        "fantasy": "奇幻",
+        "sciFi": "科幻"
+      }
+    },
     "imageUpload": {
       "uploadImage": "上传图片",
       "uploadHint": "JPG, PNG, WEBP • 最大 10MB",

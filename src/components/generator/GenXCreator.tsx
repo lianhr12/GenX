@@ -24,6 +24,7 @@ import { ImageToVideoPanel } from './panels/ImageToVideoPanel';
 import { ReferenceToVideoPanel } from './panels/ReferenceToVideoPanel';
 import { TextToImagePanel } from './panels/TextToImagePanel';
 import { TextToVideoPanel } from './panels/TextToVideoPanel';
+import { QuickStyles } from './shared/QuickStyles';
 import type { CreatorMode, CreatorState, GenXCreatorProps } from './types';
 
 // 错误边界组件
@@ -127,6 +128,7 @@ function CreatorContent({
   showStyles,
   showCredits,
   compact,
+  quickStyles,
   enableNavigation,
   onBeforeNavigate,
   onAfterNavigate,
@@ -156,33 +158,40 @@ function CreatorContent({
   if (compact) {
     // 紧凑模式：类似 /create 主页面的输入框样式
     return (
-      <div className="rounded-2xl bg-card/90 backdrop-blur-xl border border-white/10 p-4">
-        {/* 输入区 */}
-        <CreatorInput
-          showImageUpload
-          enableNavigation={enableNavigation}
-          onBeforeNavigate={onBeforeNavigate}
-          onAfterNavigate={onAfterNavigate}
-        />
+      <div className="space-y-3">
+        <div className="rounded-2xl bg-card/90 backdrop-blur-xl border border-white/10 p-4">
+          {/* 输入区 */}
+          <CreatorInput
+            showImageUpload
+            enableNavigation={enableNavigation}
+            onBeforeNavigate={onBeforeNavigate}
+            onAfterNavigate={onAfterNavigate}
+          />
 
-        {/* 参数栏 + 提交按钮 */}
-        <div className="flex flex-wrap items-center gap-2 pt-4">
-          <div className="min-w-0 flex-1 overflow-x-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
-            <CreatorParameterBar
-              allowedModes={allowedModes}
-              showModeSelector={showModeSelector}
-              showAudio
+          {/* 参数栏 + 提交按钮 */}
+          <div className="flex flex-wrap items-center gap-2 pt-4">
+            <div className="min-w-0 flex-1 overflow-x-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+              <CreatorParameterBar
+                allowedModes={allowedModes}
+                showModeSelector={showModeSelector}
+                showAudio
+              />
+            </div>
+            <CreatorSubmitButton
+              onGenerate={onGenerate}
+              creditsConfig={creditsConfig}
+              showCredits={showCredits}
+              variant="compact"
+              enableNavigation={enableNavigation}
+              onNavigate={handleInputComplete}
             />
           </div>
-          <CreatorSubmitButton
-            onGenerate={onGenerate}
-            creditsConfig={creditsConfig}
-            showCredits={showCredits}
-            variant="compact"
-            enableNavigation={enableNavigation}
-            onNavigate={handleInputComplete}
-          />
         </div>
+
+        {/* Quick Styles - 独立于输入框卡片 */}
+        {quickStyles && quickStyles.length > 0 && (
+          <QuickStyles items={quickStyles} />
+        )}
       </div>
     );
   }
@@ -251,6 +260,7 @@ export function GenXCreator({
   showCredits = true,
   compact = false,
   className,
+  quickStyles,
   enableNavigation = false,
   onBeforeNavigate,
   onAfterNavigate,
@@ -278,6 +288,7 @@ export function GenXCreator({
             showStyles={showStyles}
             showCredits={showCredits}
             compact={compact}
+            quickStyles={quickStyles}
             enableNavigation={enableNavigation}
             onBeforeNavigate={onBeforeNavigate}
             onAfterNavigate={onAfterNavigate}

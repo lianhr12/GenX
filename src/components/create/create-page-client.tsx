@@ -2,11 +2,11 @@
 
 import { GenXCreator } from '@/components/generator';
 import type { CreatorMode } from '@/components/generator/types';
+import { defaultQuickStyles } from '@/config/create';
 import { useCallback, useEffect, useRef, useState } from 'react';
 // import { FeatureBanner } from './banner/feature-banner';
 import { GallerySection } from './gallery/gallery-section';
 import { ModelsSection } from './models/models-section';
-import { StyleTags } from './styles/style-tags';
 // import { VideoToolsSection } from './tools/video-tools-section';
 
 export function CreatePageClient() {
@@ -50,13 +50,9 @@ export function CreatePageClient() {
             showStyles
             showCredits
             compact
+            quickStyles={defaultQuickStyles}
             enableNavigation
           />
-        </div>
-
-        {/* Style Tags */}
-        <div className="max-w-[980px] mx-auto">
-          <StyleTags />
         </div>
 
         {/* Feature Banners */}

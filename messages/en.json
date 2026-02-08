@@ -2270,6 +2270,21 @@
       "anime": "Anime",
       "fluidArt": "Fluid Art"
     },
+    "quickStyles": {
+      "title": "Quick Styles",
+      "tags": {
+        "realistic": "Realistic",
+        "anime": "Anime",
+        "cinematic": "Cinematic",
+        "3d": "3D",
+        "cartoon": "Cartoon",
+        "cyberpunk": "Cyberpunk",
+        "watercolor": "Watercolor",
+        "oilPainting": "Oil Painting",
+        "fantasy": "Fantasy",
+        "sciFi": "Sci-Fi"
+      }
+    },
     "imageUpload": {
       "uploadImage": "Upload Image",
       "uploadHint": "JPG, PNG, WEBP • Max 10MB",

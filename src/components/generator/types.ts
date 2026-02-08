@@ -81,6 +81,18 @@ export interface GenerationResult {
   errorMessage?: string;
 }
 
+/** Quick Style 配置项 */
+export interface QuickStyleItem {
+  /** 唯一标识 */
+  id: string;
+  /** i18n label key */
+  labelKey: string;
+  /** 点击后替换到 prompt 的文本 */
+  promptText: string;
+  /** 适用的模式，不传则适用所有模式 */
+  modes?: CreatorMode[];
+}
+
 /** 主组件 Props */
 export interface GenXCreatorProps {
   // 模式控制
@@ -108,6 +120,9 @@ export interface GenXCreatorProps {
   showCredits?: boolean;
   compact?: boolean;
   className?: string;
+
+  // Quick Styles 配置（仅 compact 模式生效）
+  quickStyles?: QuickStyleItem[];
 
   // 导航模式 (仅 /create 主页面使用)
   enableNavigation?: boolean;
