@@ -211,11 +211,73 @@ describe('calculateImageCredits', () => {
       expect(credits).toBeLessThan(0);
     });
 
+    it('小数 base（如 1.5）经 Math.round 应得到整数积分', () => {
+      // qwen-image-edit-plus base=1.5, wan2.5-image-to-image base=1.5
+      const credits1 = calculateImageCredits('qwen-image-edit-plus', {});
+      expect(Number.isInteger(credits1)).toBe(true);
+      expect(credits1).toBe(2); // Math.round(1.5) = 2
+
+      const credits2 = calculateImageCredits('wan2.5-image-to-image', {});
+      expect(Number.isInteger(credits2)).toBe(true);
+      expect(credits2).toBe(2); // Math.round(1.5) = 2
+    });
+
+    it('小数 base 乘以多图后仍应为整数（注意：先乘后取整）', () => {
+      // 实际逻辑: credits = base * numberOfImages → Math.round
+      // 1.5 * 3 = 4.5 → Math.round(4.5) = 5（非 Math.round(1.5)*3=6）
+      const credits = calculateImageCredits('qwen-image-edit-plus', {
+        numberOfImages: 3,
+      });
+      expect(Number.isInteger(credits)).toBe(true);
+      expect(credits).toBe(5); // Math.round(1.5 * 3) = Math.round(4.5) = 5
+    });
+
+    it('qwen-image-edit base=2.3 取整应为 2', () => {
+      const credits = calculateImageCredits('qwen-image-edit', {});
+      expect(Number.isInteger(credits)).toBe(true);
+      expect(credits).toBe(2); // Math.round(2.3) = 2
+    });
+
     it('非常大的 numberOfImages 应该正确计算', () => {
       const credits = calculateImageCredits('z-image-turbo', {
         numberOfImages: 1000,
       });
       expect(credits).toBe(1000);
+    });
+  });
+
+  // --- HD 乘数一致性 ---
+
+  describe('HD 乘数一致性', () => {
+    const allModelIds = Object.keys(IMAGE_MODELS);
+
+    for (const modelId of allModelIds) {
+      const config = IMAGE_MODELS[modelId];
+      if (config.creditCost.hdMultiplier && config.creditCost.hdMultiplier > 1) {
+        it(`${modelId} HD 积分应大于普通积分`, () => {
+          const normal = calculateImageCredits(modelId, {});
+          const hd = calculateImageCredits(modelId, { quality: 'high' });
+          expect(hd).toBeGreaterThan(normal);
+        });
+
+        it(`${modelId} quality=high 与 quality=hd 应一致`, () => {
+          const hd1 = calculateImageCredits(modelId, { quality: 'high' });
+          const hd2 = calculateImageCredits(modelId, { quality: 'hd' });
+          expect(hd1).toBe(hd2);
+        });
+      }
+    }
+  });
+
+  // --- 前后端一致性 ---
+
+  describe('前后端积分计算一致性', () => {
+    it('所有模型基础积分 >= 1（不应有 0 积分模型）', () => {
+      const allModelIds = Object.keys(IMAGE_MODELS);
+      for (const modelId of allModelIds) {
+        const credits = calculateImageCredits(modelId, {});
+        expect(credits).toBeGreaterThanOrEqual(1);
+      }
     });
   });
 });

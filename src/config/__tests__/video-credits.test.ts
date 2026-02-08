@@ -299,6 +299,128 @@ describe('calculateModelCredits', () => {
       });
       expect(credits).toBeGreaterThanOrEqual(0);
     });
+
+    it('duration 为负数不应产生负积分', () => {
+      const credits = calculateModelCredits('wan2.6-text-to-video', {
+        duration: -5,
+      });
+      expect(credits).toBeGreaterThanOrEqual(0);
+    });
+  });
+
+  // --- 高质量 + 额外时长组合 ---
+
+  describe('高质量 + 额外时长组合', () => {
+    it('wan2.6-text-to-video 1080p 15s 应正确叠加质量和时长', () => {
+      const config = getModelConfig('wan2.6-text-to-video')!;
+      const baseDuration = config.durations[0];
+      const extraSeconds = 15 - baseDuration;
+      const baseCredits =
+        config.creditCost.base +
+        extraSeconds * (config.creditCost.perExtraSecond || 0);
+      const expected = Math.round(
+        baseCredits * (config.creditCost.highQualityMultiplier || 1)
+      );
+      const actual = calculateModelCredits('wan2.6-text-to-video', {
+        duration: 15,
+        quality: '1080p',
+      });
+      expect(actual).toBe(expected);
+    });
+
+    it('veo3.1-fast 4K 8s 应应用 4K 乘数', () => {
+      const normal = calculateModelCredits('veo3.1-fast', { duration: 8 });
+      const hq = calculateModelCredits('veo3.1-fast', {
+        duration: 8,
+        quality: '4K',
+      });
+      expect(hq).toBe(Math.round(normal * 2.3));
+    });
+  });
+
+  // --- 质量标识全覆盖 ---
+
+  describe('质量标识全覆盖', () => {
+    it('512p 不应应用高质量乘数', () => {
+      const normal = calculateModelCredits('MiniMax-Hailuo-02', {
+        duration: 6,
+      });
+      const q512 = calculateModelCredits('MiniMax-Hailuo-02', {
+        duration: 6,
+        quality: '512p',
+      });
+      expect(q512).toBe(normal);
+    });
+
+    it('768p 不应应用高质量乘数', () => {
+      const normal = calculateModelCredits('MiniMax-Hailuo-02', {
+        duration: 6,
+      });
+      const q768 = calculateModelCredits('MiniMax-Hailuo-02', {
+        duration: 6,
+        quality: '768p',
+      });
+      expect(q768).toBe(normal);
+    });
+
+    it('standard 质量不应应用乘数', () => {
+      const normal = calculateModelCredits('sora-2-pro', { duration: 15 });
+      const std = calculateModelCredits('sora-2-pro', {
+        duration: 15,
+        quality: 'standard',
+      });
+      expect(std).toBe(normal);
+    });
+
+    it('4k 和 4K 应产生相同积分', () => {
+      const hq1 = calculateModelCredits('veo3.1-fast', {
+        duration: 8,
+        quality: '4k',
+      });
+      const hq2 = calculateModelCredits('veo3.1-fast', {
+        duration: 8,
+        quality: '4K',
+      });
+      expect(hq1).toBe(hq2);
+    });
+  });
+
+  // --- 特殊模型积分验证 ---
+
+  describe('特殊模型积分验证', () => {
+    it('omnihuman-1.5 1080P 应应用高质量乘数', () => {
+      const normal = calculateModelCredits('omnihuman-1.5', { duration: 10 });
+      const hq = calculateModelCredits('omnihuman-1.5', {
+        duration: 10,
+        quality: '1080P',
+      });
+      expect(hq).toBe(Math.round(normal * 1.5));
+    });
+
+    it('omnihuman-1.5 35s 最长时长积分应正确', () => {
+      const config = getModelConfig('omnihuman-1.5')!;
+      const extraSeconds = 35 - config.durations[0];
+      const expected =
+        config.creditCost.base +
+        extraSeconds * (config.creditCost.perExtraSecond || 0);
+      const actual = calculateModelCredits('omnihuman-1.5', { duration: 35 });
+      expect(actual).toBe(Math.round(expected));
+    });
+
+    it('所有模型积分应 > 0 且为整数（最短+最高质量）', () => {
+      const allModels = Object.entries(VIDEO_MODELS);
+      for (const [modelId, config] of allModels) {
+        const highQualities = ['1080p', '1080P', '4k', '4K', 'high'];
+        for (const q of highQualities) {
+          const credits = calculateModelCredits(modelId, {
+            duration: config.durations[0],
+            quality: q,
+          });
+          expect(credits).toBeGreaterThan(0);
+          expect(Number.isInteger(credits)).toBe(true);
+        }
+      }
+    });
   });
 });
 
