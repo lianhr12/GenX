@@ -1,0 +1,417 @@
+{
+  "Metadata": {
+    "name": "GenX.art",
+    "title": "GenX.art - Gerador gratuito de vídeos com IA",
+    "description": "Transforme fotos em vídeos artísticos impressionantes em 30 segundos. 5 estilos únicos: Cyberpunk, Aquarela, Óleo, Anime, Arte Fluida. Sem habilidades necessárias.",
+    "keywords": "IA imagem para vídeo, foto para vídeo, gerador de vídeos artísticos, criador de vídeos IA, animação de imagens, texto para vídeo"
+  },
+  "Common": {
+    "premium": "Premium",
+    "login": "Entrar",
+    "logout": "Sair",
+    "signUp": "Cadastrar",
+    "language": "Mudar idioma",
+    "mode": {
+      "label": "Alternar modo",
+      "light": "Claro",
+      "dark": "Escuro",
+      "system": "Sistema"
+    },
+    "copy": "Copiar",
+    "saving": "Salvando...",
+    "save": "Salvar",
+    "loading": "Carregando...",
+    "cancel": "Cancelar",
+    "logoutFailed": "Falha ao sair",
+    "home": "Início",
+    "replicate": "Replicar efeito",
+    "table": {
+      "totalRecords": "Total {count} registros",
+      "noResults": "Sem resultados",
+      "loading": "Carregando...",
+      "columns": "Colunas",
+      "rowsPerPage": "Linhas por página",
+      "page": "Página",
+      "firstPage": "Primeira página",
+      "lastPage": "Última página",
+      "nextPage": "Próxima",
+      "previousPage": "Anterior",
+      "ascending": "Asc",
+      "descending": "Desc",
+      "resetSorting": "Redefinir",
+      "hideColumn": "Ocultar",
+      "viewOptions": "Visualização",
+      "toggleColumns": "Alternar colunas",
+      "searchColumns": "Buscar colunas...",
+      "noColumns": "Nenhuma coluna encontrada.",
+      "clearFilters": "Limpar filtros"
+    }
+  },
+  "PricingPage": {
+    "title": "Planos e preços",
+    "description": "Escolha o plano perfeito para suas necessidades criativas. Plano gratuito com 15 créditos, Pro com acesso ilimitado e qualidade HD.",
+    "keywords": "preços GenX, preços vídeo IA, planos de assinatura, vídeo IA grátis",
+    "subtitle": "Escolha o plano que melhor se adapta a você",
+    "monthly": "Mensal",
+    "yearly": "Anual",
+    "PricingCard": {
+      "freePrice": "R$0",
+      "perMonth": "/mês",
+      "perYear": "/ano",
+      "popular": "Popular",
+      "currentPlan": "Plano atual",
+      "yourCurrentPlan": "Seu plano atual",
+      "getStartedForFree": "Começar grátis",
+      "getStarted": "Começar",
+      "notAvailable": "Não disponível",
+      "daysTrial": "Teste de {days} dias"
+    },
+    "CheckoutButton": {
+      "loading": "Carregando...",
+      "checkoutFailed": "Falha ao abrir a página de pagamento"
+    }
+  },
+  "PricePlans": {
+    "free": {
+      "name": "Grátis",
+      "description": "Perfeito para experimentar o GenX",
+      "features": {
+        "feature-1": "15 créditos ao se cadastrar",
+        "feature-2": "Todos os 5 estilos artísticos",
+        "feature-3": "Qualidade de saída 1080p",
+        "feature-4": "Suporte padrão"
+      },
+      "limits": {
+        "limit-1": "Créditos expiram em 30 dias",
+        "limit-2": "Inclui marca d'água",
+        "limit-3": "Apenas uso pessoal"
+      }
+    },
+    "pro": {
+      "name": "Pro",
+      "description": "Para criadores sérios",
+      "features": {
+        "feature-1": "800 créditos/mês",
+        "feature-2": "Todos os 5 estilos artísticos",
+        "feature-3": "Saída HD 1080p",
+        "feature-4": "Suporte prioritário",
+        "feature-5": "Sem marca d'água"
+      },
+      "limits": {
+        "limit-1": "Créditos mensais não acumulam",
+        "limit-2": "Licença comercial incluída"
+      }
+    }
+  },
+  "CreditPackages": {
+    "starter": { "name": "Inicial", "description": "Perfeito para experimentar a geração IA" },
+    "basic": { "name": "Básico", "description": "Ideal para criadores casuais" },
+    "standard": { "name": "Padrão", "description": "Melhor custo-benefício para usuários regulares" },
+    "premium": { "name": "Premium", "description": "Para usuários avançados e profissionais" },
+    "enterprise": { "name": "Empresarial", "description": "Créditos máximos para uso intensivo" }
+  },
+  "NotFoundPage": {
+    "title": "404",
+    "headline": "Página não encontrada",
+    "message": "Desculpe, a página que você procura não existe ou foi movida.",
+    "backToHome": "Voltar ao início",
+    "searchHelp": "Obter ajuda",
+    "popularPages": "Páginas populares",
+    "links": { "imageToVideo": "Imagem para vídeo", "gallery": "Galeria", "docs": "Documentação", "contact": "Fale conosco" }
+  },
+  "ErrorPage": { "title": "Ops! Algo deu errado!", "tryAgain": "Tentar novamente", "backToHome": "Voltar ao início" },
+  "AboutPage": {
+    "title": "Sobre o GenX.art",
+    "description": "GenX.art é uma plataforma de criação de vídeos artísticos com IA que transforma suas fotos em obras cinematográficas impressionantes em segundos.",
+    "authorName": "GenX.art",
+    "authorBio": "Plataforma de vídeos artísticos com IA",
+    "introduction": "O GenX.art capacita criadores a transformar fotos comuns em vídeos artísticos extraordinários. Usando tecnologia IA avançada, tornamos a criação de vídeos de qualidade profissional acessível a todos.",
+    "talkWithMe": "Fale conosco",
+    "followMe": "Siga-nos no X"
+  },
+  "ChangelogPage": { "title": "Registro de alterações", "description": "Veja as novidades do GenX.art.", "keywords": "atualizações GenX, registro de alterações, novas funcionalidades", "subtitle": "Fique por dentro das últimas mudanças do nosso produto" },
+  "RoadmapPage": { "title": "Roteiro", "description": "Explore os planos futuros do GenX.art.", "keywords": "roteiro GenX, próximas funcionalidades, planos futuros", "subtitle": "Explore nossos planos futuros e próximas funcionalidades" },
+  "ContactPage": {
+    "title": "Fale conosco",
+    "description": "Entre em contato com a equipe do GenX.art.",
+    "keywords": "contato GenX, suporte, ajuda, atendimento ao cliente",
+    "subtitle": "Ajudaremos você a encontrar o plano ideal",
+    "form": {
+      "title": "Fale conosco",
+      "description": "Se tiver dúvidas ou sugestões, entre em contato com nossa equipe",
+      "name": "Nome", "email": "E-mail", "message": "Mensagem",
+      "submit": "Enviar", "submitting": "Enviando...",
+      "success": "Mensagem enviada com sucesso", "fail": "Falha ao enviar mensagem",
+      "nameMinLength": "O nome deve ter pelo menos 3 caracteres", "nameMaxLength": "O nome não deve exceder 30 caracteres",
+      "emailValidation": "Por favor insira um e-mail válido",
+      "messageMinLength": "A mensagem deve ter pelo menos 10 caracteres", "messageMaxLength": "A mensagem não deve exceder 500 caracteres"
+    }
+  },
+  "WaitlistPage": {
+    "title": "Lista de espera", "description": "Seja o primeiro a conhecer as novidades do GenX.art.", "keywords": "lista de espera GenX, acesso antecipado", "subtitle": "Junte-se à nossa lista de espera",
+    "form": { "title": "Junte-se à nossa lista de espera", "description": "Notificaremos quando lançarmos", "email": "E-mail", "subscribe": "Inscrever-se", "subscribing": "Inscrevendo...", "success": "Inscrição realizada", "fail": "Falha na inscrição", "emailValidation": "Por favor insira um e-mail válido" }
+  },
+  "Newsletter": {
+    "title": "Newsletter", "subtitle": "Junte-se à comunidade", "description": "Assine nossa newsletter para as últimas notícias",
+    "form": { "email": "E-mail", "subscribe": "Assinar", "subscribing": "Assinando...", "success": "Assinatura realizada", "fail": "Falha na assinatura", "emailValidation": "Por favor insira um e-mail válido" }
+  },
+  "AuthPage": {
+    "login": {
+      "title": "Entrar", "welcomeBack": "Bem-vindo de volta", "email": "E-mail", "password": "Senha",
+      "signIn": "Entrar", "signUpHint": "Não tem conta? Cadastre-se", "forgotPassword": "Esqueceu a senha?",
+      "signInWithGoogle": "Entrar com Google", "signInWithGitHub": "Entrar com GitHub", "signInWithFacebook": "Entrar com Facebook",
+      "showPassword": "Mostrar senha", "hidePassword": "Ocultar senha", "or": "Ou continuar com",
+      "emailRequired": "Por favor insira seu e-mail", "passwordRequired": "Por favor insira sua senha",
+      "captchaInvalid": "Falha na verificação captcha", "captchaError": "Erro na verificação captcha"
+    },
+    "register": {
+      "title": "Cadastro", "createAccount": "Criar uma conta", "name": "Nome", "email": "E-mail", "password": "Senha",
+      "signUp": "Cadastrar", "signInHint": "Já tem conta? Entre", "checkEmail": "Verifique sua caixa de entrada",
+      "showPassword": "Mostrar senha", "hidePassword": "Ocultar senha",
+      "nameRequired": "Por favor insira seu nome", "emailRequired": "Por favor insira seu e-mail", "passwordRequired": "Por favor insira sua senha",
+      "captchaInvalid": "Falha na verificação captcha", "captchaError": "Erro na verificação captcha"
+    },
+    "forgotPassword": { "title": "Esqueci a senha", "email": "E-mail", "send": "Enviar link de redefinição", "backToLogin": "Voltar ao login", "checkEmail": "Verifique sua caixa de entrada", "emailRequired": "Por favor insira seu e-mail" },
+    "resetPassword": { "title": "Redefinir senha", "password": "Senha", "reset": "Redefinir senha", "backToLogin": "Voltar ao login", "showPassword": "Mostrar senha", "hidePassword": "Ocultar senha", "minLength": "A senha deve ter pelo menos 8 caracteres" },
+    "error": { "title": "Ops! Algo deu errado!", "tryAgain": "Por favor tente novamente.", "backToLogin": "Voltar ao login", "checkEmail": "Verifique sua caixa de entrada" },
+    "common": { "termsOfService": "Termos de serviço", "privacyPolicy": "Política de privacidade", "byClickingContinue": "Ao continuar, você concorda com nossos ", "and": " e " }
+  },
+  "BlogPage": { "title": "Blog", "description": "Dicas de criação de vídeo IA, tutoriais e novidades do GenX.art.", "keywords": "blog vídeo IA, dicas de criação, tutoriais GenX", "subtitle": "Últimas notícias da nossa equipe", "author": "Autor", "categories": "Categorias", "tableOfContents": "Índice", "readTime": "{minutes} min de leitura", "all": "Tudo", "noPostsFound": "Nenhum post encontrado", "allPosts": "Todos os posts", "morePosts": "Mais posts" },
+  "DocsPage": { "toc": "Índice", "search": "Buscar na documentação", "lastUpdate": "Última atualização em", "searchNoResult": "Sem resultados", "previousPage": "Anterior", "nextPage": "Próxima", "chooseLanguage": "Selecionar idioma", "title": "Documentação GenX.art", "homepage": "Início" },
+  "PremiumContent": { "title": "Desbloquear conteúdo Premium", "description": "Assine nosso plano Pro para acessar todo o conteúdo premium e exclusivo.", "upgradeCta": "Atualizar agora", "benefit1": "Todo o conteúdo premium", "benefit2": "Conteúdo exclusivo", "benefit3": "Cancele a qualquer momento", "signIn": "Entrar", "loginRequired": "Entre para continuar lendo", "loginDescription": "Este é conteúdo premium. Entre na sua conta para acessar o conteúdo completo.", "checkingAccess": "Verificando acesso...", "loadingContent": "Carregando conteúdo completo..." },
+  "Marketing": {
+    "navbar": {
+      "features": { "title": "Recursos" }, "pricing": { "title": "Preços" }, "blog": { "title": "Blog" }, "docs": { "title": "Docs" },
+      "create": { "title": "Criar", "items": { "imageToVideo": { "title": "Imagem para vídeo", "description": "Transforme suas fotos em vídeos artísticos impressionantes" }, "textToVideo": { "title": "Texto para vídeo", "description": "Gere vídeos a partir de descrições de texto" }, "image": { "title": "Imagem IA", "description": "Gere belas imagens com IA" } } },
+      "styles": { "title": "Estilos" }, "gallery": { "title": "Galeria" }
+    },
+    "footer": {
+      "tagline": "Cada quadro é arte - Transforme fotos em vídeos artísticos impressionantes",
+      "videoModels": { "title": "Modelos de vídeo", "items": { "veo3": "Veo 3", "sora2": "Sora 2", "kling": "Kling AI", "hailuo": "Hailuo AI", "seedance": "Seedance", "wan": "Wan AI", "omnihuman": "OmniHuman", "moreModels": "Mais modelos" } },
+      "imageModels": { "title": "Modelos de imagem", "items": { "gptImage": "GPT Image", "seedream": "Seedream", "nanobanana": "Nanobanana Pro", "wanImage": "Wan 2.5 Image", "moreModels": "Mais modelos" } },
+      "product": { "title": "Produto", "items": { "features": "Recursos", "styles": "Estilos artísticos", "gallery": "Galeria", "pricing": "Preços", "faq": "FAQ" } },
+      "resources": { "title": "Recursos", "items": { "blog": "Blog", "docs": "Documentação", "help": "Central de ajuda", "changelog": "Registro de alterações", "roadmap": "Roteiro" } },
+      "companyAndLegal": { "title": "Empresa", "items": { "about": "Sobre", "contact": "Contato", "waitlist": "Lista de espera", "privacyPolicy": "Política de privacidade", "termsOfService": "Termos de serviço" } }
+    },
+    "avatar": { "dashboard": "Painel", "billing": "Faturamento", "credits": "Créditos", "settings": "Configurações" }
+  },
+  "Dashboard": {
+    "dashboard": { "title": "Painel" },
+    "creations": {
+      "title": "Minhas criações",
+      "videos": { "title": "Vídeos", "description": "Ver e gerenciar seus vídeos gerados", "empty": "Sem vídeos ainda", "emptyHint": "Comece a criar vídeos para vê-los aqui" },
+      "images": { "title": "Imagens", "description": "Ver e gerenciar suas imagens geradas", "empty": "Sem imagens ainda", "emptyHint": "Comece a criar imagens para vê-las aqui" },
+      "filters": { "all": "Tudo", "completed": "Concluído", "generating": "Gerando", "failed": "Falhou", "favorites": "Favoritos" },
+      "actions": { "delete": "Excluir", "download": "Baixar", "favorite": "Favoritar", "unfavorite": "Desfavoritar", "regenerate": "Regenerar", "viewDetails": "Ver detalhes" },
+      "batch": { "selected": "{count} selecionados", "deleteSelected": "Excluir selecionados", "downloadSelected": "Baixar selecionados" },
+      "visibility": { "public": "Público", "private": "Privado", "toggleVisibility": "Alternar visibilidade", "makePublic": "Tornar público", "makePrivate": "Tornar privado", "pendingReview": "Aguardando revisão", "approved": "Aprovado", "rejected": "Rejeitado", "removed": "Removido" }
+    },
+    "settings": {
+      "title": "Configurações",
+      "profile": {
+        "title": "Perfil", "description": "Gerencie suas informações de conta",
+        "avatar": { "title": "Avatar", "description": "Clique em enviar para carregar um personalizado", "recommendation": "O avatar é opcional mas altamente recomendado", "uploading": "Enviando...", "uploadAvatar": "Enviar avatar", "success": "Avatar atualizado com sucesso", "fail": "Falha ao atualizar o avatar" },
+        "name": { "title": "Nome", "description": "Insira seu nome de exibição", "placeholder": "Insira seu nome", "minLength": "Use pelo menos 3 caracteres", "maxLength": "Use no máximo 30 caracteres", "hint": "Use 3-30 caracteres para seu nome", "success": "Nome atualizado com sucesso", "fail": "Falha ao atualizar o nome", "saving": "Salvando...", "save": "Salvar" }
+      },
+      "billing": {
+        "title": "Faturamento", "description": "Gerencie sua assinatura e detalhes de faturamento",
+        "status": { "active": "Ativo", "trial": "Teste", "free": "Grátis" },
+        "interval": { "month": "mês", "year": "ano", "oneTime": "único" },
+        "currentPlan": { "title": "Plano atual", "description": "Detalhes do seu plano atual", "noPlan": "Você não tem um plano ativo" },
+        "CustomerPortalButton": { "loading": "Carregando...", "createCustomerPortalFailed": "Falha ao abrir o portal Stripe" },
+        "price": "Preço:", "periodStartDate": "Início do período:", "periodEndDate": "Fim do período:", "trialEnds": "Fim do teste:",
+        "freePlanMessage": "Você está no plano gratuito com recursos limitados", "manageSubscription": "Gerenciar assinatura e faturamento", "manageBilling": "Gerenciar faturamento", "upgradePlan": "Melhorar plano", "retry": "Tentar novamente", "errorMessage": "Falha ao obter dados", "paymentSuccess": "Pagamento realizado"
+      },
+      "payment": {
+        "processing": { "title": "Processando pagamento", "description": "Aguarde enquanto confirmamos seu pagamento..." },
+        "success": { "title": "Pagamento realizado", "description": "Redirecionando automaticamente..." },
+        "failed": { "title": "Pagamento falhou", "description": "Houve um problema ao processar seu pagamento." },
+        "timeout": { "title": "Tempo esgotado", "description": "O processamento do pagamento está demorando mais que o esperado." },
+        "retry": "Tentar novamente"
+      },
+      "credits": {
+        "title": "Créditos", "description": "Gerencie suas transações de créditos",
+        "tabs": { "balance": "Saldo", "transactions": "Transações" },
+        "balance": { "title": "Saldo de créditos", "description": "Seu saldo de créditos", "credits": "Créditos", "creditsDescription": "Você tem {credits} créditos", "creditsExpired": "Créditos expirados", "creditsAdded": "Créditos adicionados à sua conta", "viewTransactions": "Ver transações de créditos", "retry": "Tentar novamente", "expiringCredits": "{credits} créditos expiram nos próximos {days} dias" },
+        "packages": { "title": "Pacotes de créditos", "description": "Compre créditos adicionais para usar nossos serviços", "purchase": "Comprar", "processing": "Processando...", "popular": "Popular", "completePurchase": "Concluir sua compra", "failedToFetchCredits": "Falha ao obter créditos", "failedToCreatePaymentIntent": "Falha ao criar intenção de pagamento", "failedToInitiatePayment": "Falha ao iniciar pagamento", "cancel": "Cancelar", "purchaseFailed": "Falha ao comprar créditos", "checkoutFailed": "Falha ao criar sessão de pagamento", "loading": "Carregando...", "pay": "Pagar" },
+        "transactions": {
+          "title": "Transações de créditos", "error": "Falha ao obter transações", "search": "Buscar transações...", "clearSearch": "Limpar busca", "paymentIdCopied": "ID de pagamento copiado", "noResults": "Sem resultados",
+          "columns": { "columns": "Colunas", "id": "ID", "type": "Tipo", "description": "Descrição", "amount": "Quantidade", "remainingAmount": "Quantidade restante", "paymentId": "ID de pagamento", "expirationDate": "Data de expiração", "expirationDateProcessedAt": "Processado em", "createdAt": "Criado em", "updatedAt": "Atualizado em" },
+          "types": { "MONTHLY_REFRESH": "Recarga mensal", "REGISTER_GIFT": "Presente de cadastro", "PURCHASE": "Créditos comprados", "USAGE": "Créditos consumidos", "EXPIRE": "Créditos expirados", "SUBSCRIPTION_RENEWAL": "Renovação de assinatura", "REFERRAL_REGISTRATION": "Recompensa de indicação registro", "REFERRAL_PURCHASE": "Recompensa de indicação compra" },
+          "detailViewer": { "title": "Detalhe da transação", "close": "Fechar" }, "expired": "Expirado", "never": "Nunca"
+        }
+      },
+      "notification": { "title": "Notificações", "description": "Gerencie suas preferências de notificação", "newsletter": { "title": "Assinatura da newsletter", "description": "Gerencie suas preferências de assinatura", "label": "Assinar newsletter", "hint": "Você pode alterar suas preferências a qualquer momento", "emailRequired": "E-mail necessário para assinar", "subscribeSuccess": "Assinatura da newsletter realizada", "subscribeFail": "Falha na assinatura", "unsubscribeSuccess": "Cancelamento realizado", "unsubscribeFail": "Falha ao cancelar assinatura", "error": "Erro ao atualizar sua assinatura" } },
+      "security": {
+        "title": "Segurança", "description": "Gerencie suas configurações de segurança",
+        "updatePassword": { "title": "Alterar senha", "description": "Insira sua senha atual e uma nova", "currentPassword": "Senha atual", "currentRequired": "Senha atual é obrigatória", "newPassword": "Nova senha", "newMinLength": "A senha deve ter pelo menos 8 caracteres", "hint": "Use pelo menos 8 caracteres para a senha", "showPassword": "Mostrar senha", "hidePassword": "Ocultar senha", "success": "Senha atualizada com sucesso", "fail": "Falha ao atualizar a senha", "saving": "Salvando...", "save": "Salvar" },
+        "resetPassword": { "title": "Redefinir senha", "description": "Redefina a senha para habilitar login por e-mail", "info": "Redefinir sua senha permitirá que você entre com e-mail e senha além dos métodos sociais. Você receberá um e-mail com instruções.", "button": "Redefinir senha" },
+        "deleteAccount": { "title": "Excluir conta", "description": "Excluir permanentemente sua conta e todo seu conteúdo", "warning": "Esta ação é irreversível, prossiga com cautela", "button": "Excluir conta", "confirmTitle": "Excluir conta", "confirmDescription": "Tem certeza que deseja excluir sua conta? Esta ação não pode ser desfeita.", "confirm": "Excluir", "cancel": "Cancelar", "deleting": "Excluindo...", "success": "Conta excluída com sucesso", "fail": "Falha ao excluir a conta" }
+      },
+      "referral": {
+        "title": "Indicações", "description": "Convide amigos e ganhe créditos",
+        "code": { "title": "Sua indicação", "description": "Compartilhe seu código ou link de indicação com amigos", "yourCode": "Código de indicação", "yourLink": "Link de indicação" },
+        "stats": { "title": "Estatísticas", "description": "Seu desempenho de indicações", "totalReferrals": "Total de indicações", "registeredReferrals": "Cadastrados", "purchasedReferrals": "Compradores", "totalCredits": "Créditos ganhos" },
+        "history": { "title": "Histórico de indicações", "user": "Usuário", "status": "Status", "reward": "Recompensa", "date": "Data", "empty": "Sem indicações ainda. Compartilhe seu link para começar a ganhar!" },
+        "status": { "pending": "Pendente", "registered": "Cadastrado", "purchased": "Comprou" }
+      }
+    },
+    "upgrade": { "title": "Melhorar", "description": "Melhore para Pro para acessar todos os recursos", "button": "Melhorar" }
+  },
+  "Mail": {
+    "common": { "team": "Equipe {name}", "copyright": "©️ {year} Todos os direitos reservados." },
+    "verifyEmail": { "title": "Olá, {name}.", "body": "Por favor clique no link abaixo para verificar seu e-mail.", "confirmEmail": "Confirmar e-mail", "subject": "Verifique seu e-mail" },
+    "forgotPassword": { "title": "Olá, {name}.", "body": "Por favor clique no link abaixo para redefinir sua senha.", "resetPassword": "Redefinir senha", "subject": "Redefinir sua senha" },
+    "subscribeNewsletter": { "body": "Obrigado por assinar a newsletter. Manteremos você atualizado.", "subject": "Obrigado por assinar" },
+    "contactMessage": { "name": "Nome: {name}", "email": "E-mail: {email}", "message": "Mensagem: {message}", "subject": "Mensagem de contato do site" }
+  },
+  "Landing": {
+    "hero": {
+      "headline": "Cada quadro é arte",
+      "subheadline": "Envie uma foto, escolha um estilo artístico, obtenha um vídeo artístico impressionante em 30 segundos. Sem habilidades necessárias. Sem software caro.",
+      "cta": { "primary": "Enviar foto", "secondary": "Veja o que é possível" },
+      "socialProof": "vídeos artísticos criados", "scrollHint": "Role para explorar", "switchStyle": "Mudar para estilo {style}"
+    },
+    "painPoints": {
+      "headline": "Você tem histórias para contar, mas as ferramentas te impedem",
+      "items": {
+        "learning": { "title": "Aprender Premiere ou After Effects leva meses", "description": "Software complexo com curvas de aprendizado íngremes mantém suas ideias criativas presas." },
+        "cost": { "title": "Contratar uma equipe profissional custa milhares", "description": "Produção de vídeo de qualidade é cara e inacessível para a maioria dos criadores." },
+        "generic": { "title": "Vídeos de template são genéricos e sem alma", "description": "Templates fazem seu conteúdo se misturar com o de todos." }
+      },
+      "solution": { "title": "GenX muda tudo", "description": "Tudo que você precisa é uma foto e uma ideia. A IA transforma o comum em arte, o cotidiano em cinematográfico.", "benefit1": "Sem curva de aprendizado", "benefit2": "Resultados de qualidade profissional", "benefit3": "Estilos artísticos únicos" },
+      "cta": "Experimente grátis em 30 segundos"
+    },
+    "artStyles": {
+      "badge": "5 estilos únicos", "headline": "Escolha sua linguagem artística", "subheadline": "5 estilos artísticos únicos, cada um cuidadosamente ajustado para destacar seu trabalho.",
+      "styles": {
+        "cyberpunk": { "title": "Cyberpunk", "description": "Luzes neon piscando, carros voadores, chuva digital caindo em um mundo cibernético", "bestFor": "Ideal para: Conteúdo tech, trailers" },
+        "watercolor": { "title": "Aquarela", "description": "Cores que sangram no papel, como um poema que você pode ver", "bestFor": "Ideal para: Conteúdo relaxante, expressão emocional" },
+        "oilPainting": { "title": "Óleo", "description": "Cada pincelada carrega calor, transformando fotos em arte colecionável", "bestFor": "Ideal para: Vitrines premium, arte fina" },
+        "anime": { "title": "Anime", "description": "Entre no mundo anime, seja o herói da sua própria história", "bestFor": "Ideal para: Conteúdo anime, público jovem" },
+        "fluidArt": { "title": "Arte fluida", "description": "Cores colidem e se fundem em movimento, cada quadro é arte abstrata única", "bestFor": "Ideal para: Vídeos criativos, fundos" }
+      },
+      "createWith": "Criar com este estilo", "exploreAll": "Explorar todos os estilos"
+    },
+    "howItWorks": {
+      "badge": "Processo simples", "headline": "De foto a arte em 3 passos simples", "subheadline": "Sem tutoriais necessários. Sua criatividade, GenX entrega.",
+      "steps": {
+        "upload": { "title": "Envie sua foto", "description": "Arraste e solte ou clique para procurar", "details": "Suporta JPG/PNG, máx 10MB" },
+        "style": { "title": "Escolha um estilo", "description": "Escolha entre 5 estilos artísticos únicos", "details": "Passe o cursor para visualizar" },
+        "download": { "title": "Espere a mágica", "description": "A IA cria seu vídeo artístico em 30 segundos", "details": "Baixe o vídeo HD instantaneamente" }
+      },
+      "bottomText": "É isso. Sem curva de aprendizado. Sem tutoriais necessários.", "cta": "Experimente agora - Grátis"
+    },
+    "gallery": {
+      "badge": "Galeria de criadores",
+      "headline": "Veja o que os criadores estão fazendo",
+      "subheadline": "Vídeos artísticos de criadores de todo o mundo usando GenX. Clique em qualquer obra para ver o estilo e o prompt.",
+      "styles": { "all": "Todos", "cyberpunk": "Cyberpunk", "watercolor": "Aquarela", "oilPainting": "Óleo", "anime": "Anime", "fluidArt": "Arte fluida" },
+      "videoTitle": "Vídeo {style}",
+      "promptLabel": "Prompt usado:",
+      "createSimilar": "Criar similar",
+      "loadMore": "Carregar mais",
+      "createOwn": "Crie o seu",
+      "items": {
+        "1": { "prompt": "Rua da cidade iluminada por neon à noite, chuva caindo entre anúncios holográficos" },
+        "2": { "prompt": "Um lago sereno na montanha ao pôr do sol com suaves efeitos de aquarela" },
+        "3": { "prompt": "Um retrato clássico no estilo de Rembrandt com iluminação dourada quente" },
+        "4": { "prompt": "Pétalas de cerejeira caindo em um jardim japonês, estilo anime" },
+        "5": { "prompt": "Cores abstratas girando como mármore líquido, fluxo fascinante" },
+        "6": { "prompt": "Carros voadores através de uma paisagem urbana futurista com efeitos glitch" }
+      }
+    },
+    "useCases": {
+      "badge": "Casos de uso",
+      "headline": "Criadores usam GenX para",
+      "cases": {
+        "social": { "title": "Redes sociais", "description": "Destaque-se no TikTok, Instagram, YouTube. Mesmo conteúdo, impacto visual diferente.", "example": "A máquina de vídeos virais para criadores" },
+        "product": { "title": "Demos de produtos", "description": "Fotos estáticas de produtos são entediantes. Faça-as fluir em estilos artísticos.", "example": "Dê vida aos seus produtos" },
+        "art": { "title": "Criação artística", "description": "Sem habilidades artísticas necessárias. Expresse suas ideias com IA.", "example": "Agora todos são artistas" },
+        "content": { "title": "Criação de conteúdo", "description": "Tutoriais, vlogs, histórias — cada frame mantém os espectadores assistindo.", "example": "Histórias merecem visuais melhores" }
+      },
+      "cta": "Começar a criar"
+    },
+    "whyGenx": {
+      "badge": "Por que GenX",
+      "headline": "Por que criadores escolhem GenX",
+      "features": {
+        "quality": { "title": "Qualidade artística", "description": "Não são filtros — tecnologia real de transferência de estilo. Cada frame é criado pela IA." },
+        "speed": { "title": "30 segundos", "description": "Processamento otimizado na nuvem entrega seu vídeo artístico em menos de 30 segundos." },
+        "free": { "title": "Comece grátis", "description": "3 criações gratuitas por dia. O suficiente para experimentar e se apaixonar." },
+        "anywhere": { "title": "Em qualquer lugar", "description": "Sem downloads. No navegador, em qualquer dispositivo, a qualquer hora, em qualquer lugar." }
+      },
+      "trust": { "noWatermark": "Sem marca d'água oculta (Pro)" }
+    },
+    "testimonials": {
+      "badge": "Depoimentos",
+      "headline": "O que os criadores dizem",
+      "items": {
+        "1": { "name": "Sarah Chen", "role": "Criadora TikTok", "content": "Finalmente não preciso aprender After Effects! Faço upload de uma foto, recebo um vídeo. Meus colegas vivem perguntando qual software eu uso." },
+        "2": { "name": "Mike Johnson", "role": "Desenvolvedor indie", "content": "Pela primeira vez senti que realmente podia fazer vídeos artísticos. Muito legal!" },
+        "3": { "name": "Emma Davis", "role": "Gerente de Marketing", "content": "Reduzimos os custos de vídeo de produto em 80% e os resultados são ainda melhores." },
+        "4": { "name": "Alex Kim", "role": "Criador de conteúdo", "content": "O estilo anime é incrível. Meu engajamento no TikTok disparou!" }
+      },
+      "trustBadges": { "comingSoon": "Avaliações em breve", "securePayment": "Pagamento seguro via Stripe" }
+    },
+    "pricing": {
+      "badge": "Preços",
+      "headline": "Preços simples e transparentes",
+      "popular": "Mais popular",
+      "bestValue": "Melhor valor",
+      "perMonth": "/mês",
+      "oneTime": "único",
+      "yearlyOption": "ou ${price}/ano (economize {discount}%)",
+      "plans": {
+        "free": { "name": "Grátis", "description": "Perfeito para experimentar GenX", "feature1": "3 criações por dia", "feature2": "Todos os 5 estilos artísticos", "feature3": "Resolução 720p", "feature4": "Licença uso pessoal", "limit": "Marca d'água GenX incluída", "cta": "Comece grátis" },
+        "pro": { "name": "Pro", "description": "Para criadores sérios", "feature1": "Criações ilimitadas", "feature2": "Resolução 1080p HD", "feature3": "Sem marca d'água", "feature4": "Licença comercial", "cta": "Assinar Pro" }
+      },
+      "paymentNote": "Pagamento seguro via Stripe",
+      "seeFullPricing": "Ver comparação completa de preços"
+    },
+    "faq": {
+      "badge": "FAQ",
+      "headline": "Perguntas frequentes",
+      "items": {
+        "free": { "question": "O GenX é gratuito?", "answer": "Sim! Visitantes podem criar 3 vídeos por dia gratuitamente. Usuários registrados obtêm mais criações diárias. Precisa de mais? Confira nosso plano Pro para acesso ilimitado." },
+        "skills": { "question": "Preciso de habilidades técnicas?", "answer": "De forma alguma! Se você pode fazer upload de uma foto e clicar um botão, pode usar o GenX. Empacotamos IA complexa em uma interface simples." },
+        "commercial": { "question": "Posso usar os vídeos comercialmente?", "answer": "Vídeos gratuitos são apenas para uso pessoal. Usuários Pro obtêm licença comercial completa para projetos empresariais e marketing." },
+        "watermark": { "question": "Os vídeos têm marca d'água?", "answer": "Vídeos gratuitos incluem uma pequena marca d'água GenX. Usuários Pro podem baixar vídeos HD completamente sem marca d'água." },
+        "formats": { "question": "Quais formatos de imagem são suportados?", "answer": "Suportamos JPG e PNG, até 10MB por imagem. Imagens originais de alta resolução dão melhores resultados." },
+        "time": { "question": "Quanto tempo leva a geração?", "answer": "Geralmente 15-45 segundos, dependendo do comprimento do vídeo e carga do servidor. Você verá o progresso em tempo real na tela." },
+        "data": { "question": "Onde meus dados são armazenados? (LGPD)", "answer": "Seus dados são armazenados em servidores AWS seguros nos EUA e UE. Somos compatíveis com LGPD — você pode solicitar exclusão de dados a qualquer momento." },
+        "payment": { "question": "Quais métodos de pagamento vocês aceitam?", "answer": "Aceitamos Visa, Mastercard, American Express e PayPal via Stripe. Todos os pagamentos são seguros e criptografados." },
+        "refund": { "question": "Qual é a política de reembolso?", "answer": "Oferecemos garantia de reembolso de 7 dias para assinaturas Pro. Entre em contato com support@genx.art dentro do período de garantia e processaremos seu reembolso em até 3 dias úteis." },
+        "cancel": { "question": "Como cancelo minha assinatura?", "answer": "Você pode cancelar a qualquer momento pelo painel da sua conta ou contatando support@genx.art. Seu acesso continua até o final do período de cobrança." }
+      }
+    },
+    "finalCta": { "headline": "Pronto para criar seu primeiro vídeo artístico?", "subheadline": "Em 30 segundos, você terá um vídeo artístico impressionante", "cta": "Começar a criar grátis", "trust": { "thirtySeconds": "Pronto em 30 segundos", "instantDownload": "Download instantâneo" } }
+  },
+  "Generator": {
+    "modes": { "textToVideo": "Texto para vídeo", "imageToVideo": "Imagem para vídeo", "textToImage": "Texto para imagem", "imageToImage": "Imagem para imagem", "referenceToVideo": "Referência para vídeo", "audio": "Áudio" },
+    "input": { "placeholder": "Descreva o que você quer criar...", "prompt": "PROMPT" },
+    "parameters": { "selectModel": "Selecionar modelo", "audio": "Áudio", "addAudio": "Adicionar áudio", "audioGenerate": "Gerar áudio automaticamente", "audioUpload": "Enviar áudio", "audioUploading": "Enviando...", "audioUploaded": "Áudio enviado", "audioReplace": "Clique para substituir áudio", "audioUploadAction": "Clique para selecionar arquivo de áudio", "audioUploadHint": "Suporta MP3, WAV, AAC, máx 10MB", "audioUploadError": "Falha ao enviar áudio, tente novamente", "audioNone": "Sem áudio", "moreOptions": "Mais opções", "publicVisibility": "Visibilidade pública", "publicVisibilityDesc": "Quando ativado, suas criações podem aparecer na página Explorar.", "copyrightProtection": "Proteção de direitos autorais", "copyrightProtectionDesc": "Quando ativado, suas imagens e prompts ficam ocultos da comunidade." },
+    "submit": { "generate": "Gerar", "generating": "Gerando...", "insufficientCredits": "Créditos insuficientes", "insufficientCreditsButton": "Obter créditos", "balance": "Saldo", "generationFailed": "Falha na geração, tente novamente" },
+    "model": { "selectModel": "Selecionar modelo", "availableModels": "Modelos disponíveis", "models": "Modelos", "noModels": "Nenhum modelo disponível", "new": "Novo", "credits": "{count}+ créditos", "creditsLabel": "{count} Créditos" },
+    "aspectRatio": { "label": "Proporção" }, "duration": { "label": "Duração" }, "quality": { "label": "Qualidade" },
+    "styles": { "default": "Padrão", "cyberpunk": "Cyberpunk", "watercolor": "Aquarela", "oilPainting": "Óleo", "anime": "Anime", "fluidArt": "Arte fluida" },
+    "imageUpload": { "uploadImage": "Enviar imagem", "uploadHint": "JPG, PNG, WEBP • Máx 10MB", "fileTooLarge": "Arquivo muito grande", "invalidFileType": "Tipo de arquivo inválido", "imageTooLarge": "Dimensões da imagem excedem o máximo permitido", "uploadFailed": "Falha no envio, tente novamente" },
+    "result": { "emptyTitle": "Sem resultado ainda", "emptyDescription": "Insira um prompt e clique em gerar para criar seu conteúdo", "generatingTitle": "Gerando...", "generatingDescription": "Aguarde enquanto criamos seu conteúdo", "actions": { "download": "Baixar", "share": "Compartilhar", "favorite": "Favoritar", "downloadSuccess": "Baixado com sucesso", "downloadFailed": "Falha no download", "linkCopied": "Link copiado", "favorited": "Adicionado aos favoritos", "unfavorited": "Removido dos favoritos", "favoriteFailed": "Falha ao alternar favorito" } },
+    "history": { "title": "Histórico", "empty": "Sem histórico ainda", "loading": "Carregando...", "loadMore": "Carregar mais" },
+    "floating": { "placeholder": "Insira um prompt..." }
+  },
+  "Onboarding": {
+    "welcome": {
+      "title": "Bem-vindo ao GenX, {name}!", "defaultName": "Criador",
+      "description": "Você está a apenas 3 passos simples de criar seu primeiro vídeo artístico impressionante.",
+      "steps": { "upload": { "title": "Envie sua foto", "description": "Qualquer foto funciona - retratos, paisagens, produtos" }, "style": { "title": "Escolha um estilo", "description": "5 estilos únicos: Cyberpunk, Aquarela, Óleo, Anime, Arte fluida" }, "generate": { "title": "Gere e baixe", "description": "A IA cria seu vídeo artístico em cerca de 30 segundos" } },
+      "freeCredits": "Você tem 15 créditos grátis para começar!", "startButton": "Começar a criar", "skipButton": "Vou explorar por conta própria"
+    }
+  },
+  "UserDashboard": {
+    "stats": { "credits": "Saldo de créditos", "creditsHint": "Usado para geração de vídeo IA", "buyCredits": "Obter mais créditos", "videosCreated": "Vídeos criados", "allTime": "Total", "inProgress": "em andamento" },
+    "quickStart": { "title": "Pronto para criar?", "createVideo": "Criar novo vídeo" },
+    "quickActions": { "title": "Ações rápidas", "image-to-video": "Imagem para vídeo", "text-to-video": "Texto para vídeo", "reference-to-video": "Vídeo de referência", "image": "Imagem IA" },
+    "recentCreations": { "title": "Criações recentes", "subtitle": "Seus últimos vídeos gerados por IA", "viewAll": "Ver tudo", "empty": { "title": "Sem vídeos ainda", "description": "Comece a criar seu primeiro vídeo artístico com IA", "cta": "Criar primeiro vídeo" }, "status": { "generating": "Gerando", "pending": "Pendente", "failed": "Falhou" } }
+  }
+}

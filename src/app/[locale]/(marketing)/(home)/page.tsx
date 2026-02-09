@@ -103,8 +103,11 @@ const FinalCTASection = dynamic(
   { ssr: true }
 );
 
-// Crisp Chat - Client Component, import directly (ssr: false not allowed in Server Components)
-import CrispChat from '@/components/layout/crisp-chat';
+// Crisp Chat - Lazy loaded, not needed for initial render or SEO
+const CrispChat = dynamic(
+  () => import('@/components/layout/crisp-chat'),
+  { ssr: true }
+);
 
 /**
  * https://next-intl.dev/docs/environments/actions-metadata-route-handlers#metadata-api

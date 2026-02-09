@@ -55,8 +55,93 @@ export const websiteConfig: WebsiteConfig = {
       },
       zh: {
         flag: '🇨🇳',
-        name: '中文',
+        name: '简体中文',
         hreflang: 'zh-CN',
+      },
+      'zh-hk': {
+        flag: '🇨🇳',
+        name: '繁體中文',
+        hreflang: 'zh-HK',
+      },
+      ja: {
+        flag: '🇯🇵',
+        name: '日本語',
+        hreflang: 'ja',
+      },
+      ko: {
+        flag: '🇰🇷',
+        name: '한국어',
+        hreflang: 'ko',
+      },
+      es: {
+        flag: '🇪🇸',
+        name: 'Español',
+        hreflang: 'es',
+      },
+      fr: {
+        flag: '🇫🇷',
+        name: 'Français',
+        hreflang: 'fr',
+      },
+      pt: {
+        flag: '🇧🇷',
+        name: 'Português',
+        hreflang: 'pt',
+      },
+      de: {
+        flag: '🇩🇪',
+        name: 'Deutsch',
+        hreflang: 'de',
+      },
+      it: {
+        flag: '🇮🇹',
+        name: 'Italiano',
+        hreflang: 'it',
+      },
+      ru: {
+        flag: '🇷🇺',
+        name: 'Русский',
+        hreflang: 'ru',
+      },
+      ar: {
+        flag: '🇸🇦',
+        name: 'العربية',
+        hreflang: 'ar',
+      },
+      th: {
+        flag: '🇹🇭',
+        name: 'ภาษาไทย',
+        hreflang: 'th',
+      },
+      pl: {
+        flag: '🇵🇱',
+        name: 'Polski',
+        hreflang: 'pl',
+      },
+      nl: {
+        flag: '🇳🇱',
+        name: 'Nederlands',
+        hreflang: 'nl',
+      },
+      da: {
+        flag: '🇩🇰',
+        name: 'Dansk',
+        hreflang: 'da',
+      },
+      nb: {
+        flag: '🇳🇴',
+        name: 'Norsk bokmål',
+        hreflang: 'nb',
+      },
+      id: {
+        flag: '🇮🇩',
+        name: 'Bahasa Indonesia',
+        hreflang: 'id',
+      },
+      tr: {
+        flag: '🇹🇷',
+        name: 'Türkçe',
+        hreflang: 'tr',
       },
     },
   },

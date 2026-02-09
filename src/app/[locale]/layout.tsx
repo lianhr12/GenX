@@ -51,19 +51,19 @@ export default async function LocaleLayout({
   return (
     <html suppressHydrationWarning lang={locale}>
       <head>
-        {/* Preconnect to CDN for faster resource loading */}
+        {/* Preconnect to asset CDN for faster resource loading */}
         <link
           rel="preconnect"
-          href="https://cdn.genx.art"
+          href="https://asset.genx.art"
           crossOrigin="anonymous"
         />
-        <link rel="dns-prefetch" href="https://cdn.genx.art" />
+        <link rel="dns-prefetch" href="https://asset.genx.art" />
 
         {/* Preload critical Hero poster image for LCP optimization */}
         <link
           rel="preload"
           as="image"
-          href="/images/demo/cyberpunk-poster.jpg"
+          href="https://asset.genx.art/home/video/_04d086227554f06685353417a38f9e89_70fadb6e-314e-4494-857a-6004a7bbb6aa_01.png"
           fetchPriority="high"
         />
 

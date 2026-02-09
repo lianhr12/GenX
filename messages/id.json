@@ -1,0 +1,805 @@
+{
+  "Metadata": {
+    "name": "GenX.art",
+    "title": "GenX.art - Generator Video AI Gratis",
+    "description": "Ubah foto menjadi video seni yang menakjubkan dalam 30 detik. 5 gaya unik: Cyberpunk, Cat Air, Lukisan Minyak, Anime, Fluid Art. Tanpa keahlian khusus.",
+    "keywords": "AI gambar ke video, foto ke video, generator video seni, pembuat video AI, teks ke video"
+  },
+  "Common": {
+    "premium": "Premium",
+    "login": "Masuk",
+    "logout": "Keluar",
+    "signUp": "Daftar",
+    "language": "Ubah bahasa",
+    "mode": {
+      "label": "Ganti mode",
+      "light": "Terang",
+      "dark": "Gelap",
+      "system": "Sistem"
+    },
+    "copy": "Salin",
+    "saving": "Menyimpan...",
+    "save": "Simpan",
+    "loading": "Memuat...",
+    "cancel": "Batal",
+    "logoutFailed": "Gagal keluar",
+    "home": "Beranda",
+    "replicate": "Tiru efek",
+    "table": {
+      "totalRecords": "Total {count} data",
+      "noResults": "Tidak ada hasil",
+      "loading": "Memuat...",
+      "columns": "Kolom",
+      "rowsPerPage": "Baris per halaman",
+      "page": "Halaman",
+      "firstPage": "Halaman pertama",
+      "lastPage": "Halaman terakhir",
+      "nextPage": "Berikutnya",
+      "previousPage": "Sebelumnya",
+      "ascending": "Naik",
+      "descending": "Turun",
+      "resetSorting": "Reset",
+      "hideColumn": "Sembunyikan",
+      "viewOptions": "Tampilan",
+      "toggleColumns": "Alihkan kolom",
+      "searchColumns": "Cari kolom...",
+      "noColumns": "Kolom tidak ditemukan.",
+      "clearFilters": "Hapus filter"
+    }
+  },
+  "PricingPage": {
+    "title": "Paket Harga",
+    "description": "Pilih paket yang sempurna untuk kebutuhan kreatif Anda.",
+    "keywords": "harga GenX, harga video AI, paket langganan",
+    "subtitle": "Pilih paket yang paling cocok untuk Anda",
+    "monthly": "Bulanan",
+    "yearly": "Tahunan",
+    "PricingCard": {
+      "freePrice": "Rp0",
+      "perMonth": "/bulan",
+      "perYear": "/tahun",
+      "popular": "Populer",
+      "currentPlan": "Paket saat ini",
+      "yourCurrentPlan": "Paket Anda saat ini",
+      "getStartedForFree": "Mulai gratis",
+      "getStarted": "Mulai",
+      "notAvailable": "Tidak tersedia",
+      "daysTrial": "Uji coba {days} hari"
+    },
+    "CheckoutButton": {
+      "loading": "Memuat...",
+      "checkoutFailed": "Gagal membuka halaman pembayaran"
+    }
+  },
+  "PricePlans": {
+    "free": {
+      "name": "Gratis",
+      "description": "Sempurna untuk mencoba GenX",
+      "features": {
+        "feature-1": "15 kredit saat mendaftar",
+        "feature-2": "Semua 5 gaya seni",
+        "feature-3": "Kualitas output 1080p",
+        "feature-4": "Dukungan standar"
+      },
+      "limits": {
+        "limit-1": "Kredit kedaluwarsa dalam 30 hari",
+        "limit-2": "Termasuk watermark",
+        "limit-3": "Hanya penggunaan pribadi"
+      }
+    },
+    "pro": {
+      "name": "Pro",
+      "description": "Untuk kreator serius",
+      "features": {
+        "feature-1": "800 kredit/bulan",
+        "feature-2": "Semua 5 gaya seni",
+        "feature-3": "Output HD 1080p",
+        "feature-4": "Dukungan prioritas",
+        "feature-5": "Tanpa watermark"
+      },
+      "limits": {
+        "limit-1": "Kredit bulanan tidak diakumulasi",
+        "limit-2": "Lisensi komersial termasuk"
+      }
+    }
+  },
+  "CreditPackages": {
+    "starter": {
+      "name": "Pemula",
+      "description": "Sempurna untuk mencoba generasi AI"
+    },
+    "basic": {
+      "name": "Dasar",
+      "description": "Ideal untuk kreator kasual"
+    },
+    "standard": {
+      "name": "Standar",
+      "description": "Nilai terbaik untuk pengguna reguler"
+    },
+    "premium": {
+      "name": "Premium",
+      "description": "Untuk pengguna tingkat lanjut dan profesional"
+    },
+    "enterprise": {
+      "name": "Enterprise",
+      "description": "Kredit maksimal untuk penggunaan intensif"
+    }
+  },
+  "NotFoundPage": {
+    "title": "404",
+    "headline": "Halaman tidak ditemukan",
+    "message": "Maaf, halaman yang Anda cari tidak ada atau telah dipindahkan.",
+    "backToHome": "Kembali ke beranda",
+    "searchHelp": "Dapatkan bantuan",
+    "popularPages": "Halaman populer",
+    "links": {
+      "imageToVideo": "Gambar ke video",
+      "gallery": "Galeri",
+      "docs": "Dokumentasi",
+      "contact": "Hubungi kami"
+    }
+  },
+  "ErrorPage": {
+    "title": "Oops! Terjadi kesalahan!",
+    "tryAgain": "Coba lagi",
+    "backToHome": "Kembali ke beranda"
+  },
+  "AboutPage": {
+    "title": "Tentang GenX.art",
+    "description": "GenX.art adalah platform pembuatan video seni berbasis AI.",
+    "authorName": "GenX.art",
+    "authorBio": "Platform video seni AI",
+    "introduction": "GenX.art memungkinkan kreator mengubah foto biasa menjadi video seni yang luar biasa. Dengan teknologi AI canggih, kami membuat produksi video profesional dapat diakses semua orang.",
+    "talkWithMe": "Hubungi kami",
+    "followMe": "Ikuti kami di X"
+  },
+  "ChangelogPage": {
+    "title": "Log Perubahan",
+    "description": "Lihat yang baru di GenX.art.",
+    "keywords": "update GenX, log perubahan, fitur baru",
+    "subtitle": "Ikuti perubahan produk terbaru"
+  },
+  "RoadmapPage": {
+    "title": "Peta Jalan",
+    "description": "Jelajahi rencana masa depan GenX.art.",
+    "keywords": "peta jalan GenX, fitur mendatang",
+    "subtitle": "Jelajahi rencana masa depan kami"
+  },
+  "ContactPage": {
+    "title": "Hubungi Kami",
+    "description": "Hubungi tim GenX.art.",
+    "keywords": "kontak GenX, dukungan, bantuan",
+    "subtitle": "Kami akan membantu Anda menemukan paket yang tepat",
+    "form": {
+      "title": "Hubungi kami",
+      "description": "Jika ada pertanyaan atau masukan, hubungi tim kami",
+      "name": "Nama",
+      "email": "Email",
+      "message": "Pesan",
+      "submit": "Kirim",
+      "submitting": "Mengirim...",
+      "success": "Pesan berhasil dikirim",
+      "fail": "Gagal mengirim pesan",
+      "nameMinLength": "Nama minimal 3 karakter",
+      "nameMaxLength": "Nama maksimal 30 karakter",
+      "emailValidation": "Masukkan email yang valid",
+      "messageMinLength": "Pesan minimal 10 karakter",
+      "messageMaxLength": "Pesan maksimal 500 karakter"
+    }
+  },
+  "WaitlistPage": {
+    "title": "Daftar Tunggu",
+    "description": "Jadilah yang pertama mencoba fitur baru GenX.art.",
+    "keywords": "daftar tunggu GenX, akses awal",
+    "subtitle": "Bergabung dengan daftar tunggu kami",
+    "form": {
+      "title": "Bergabung daftar tunggu",
+      "description": "Kami akan memberitahu Anda saat peluncuran",
+      "email": "Email",
+      "subscribe": "Berlangganan",
+      "subscribing": "Berlangganan...",
+      "success": "Berlangganan berhasil",
+      "fail": "Berlangganan gagal",
+      "emailValidation": "Masukkan email yang valid"
+    }
+  },
+  "Newsletter": {
+    "title": "Buletin",
+    "subtitle": "Bergabung dengan komunitas",
+    "description": "Berlangganan buletin kami untuk berita terbaru",
+    "form": {
+      "email": "Email",
+      "subscribe": "Berlangganan",
+      "subscribing": "Berlangganan...",
+      "success": "Berhasil berlangganan",
+      "fail": "Gagal berlangganan",
+      "emailValidation": "Masukkan email yang valid"
+    }
+  },
+  "AuthPage": {
+    "login": {
+      "title": "Masuk",
+      "welcomeBack": "Selamat datang kembali",
+      "email": "Email",
+      "password": "Kata sandi",
+      "signIn": "Masuk",
+      "signUpHint": "Belum punya akun? Daftar",
+      "forgotPassword": "Lupa kata sandi?",
+      "signInWithGoogle": "Masuk dengan Google",
+      "signInWithGitHub": "Masuk dengan GitHub",
+      "signInWithFacebook": "Masuk dengan Facebook",
+      "showPassword": "Tampilkan kata sandi",
+      "hidePassword": "Sembunyikan kata sandi",
+      "or": "Atau lanjutkan dengan",
+      "emailRequired": "Masukkan email Anda",
+      "passwordRequired": "Masukkan kata sandi Anda",
+      "captchaInvalid": "Verifikasi captcha gagal",
+      "captchaError": "Error captcha"
+    },
+    "register": {
+      "title": "Daftar",
+      "createAccount": "Buat akun",
+      "name": "Nama",
+      "email": "Email",
+      "password": "Kata sandi",
+      "signUp": "Daftar",
+      "signInHint": "Sudah punya akun? Masuk",
+      "checkEmail": "Periksa kotak masuk Anda",
+      "showPassword": "Tampilkan kata sandi",
+      "hidePassword": "Sembunyikan kata sandi",
+      "nameRequired": "Masukkan nama Anda",
+      "emailRequired": "Masukkan email Anda",
+      "passwordRequired": "Masukkan kata sandi Anda",
+      "captchaInvalid": "Verifikasi captcha gagal",
+      "captchaError": "Error captcha"
+    },
+    "forgotPassword": {
+      "title": "Lupa kata sandi",
+      "email": "Email",
+      "send": "Kirim link reset",
+      "backToLogin": "Kembali ke login",
+      "checkEmail": "Periksa kotak masuk Anda",
+      "emailRequired": "Masukkan email Anda"
+    },
+    "resetPassword": {
+      "title": "Reset kata sandi",
+      "password": "Kata sandi",
+      "reset": "Reset kata sandi",
+      "backToLogin": "Kembali ke login",
+      "showPassword": "Tampilkan kata sandi",
+      "hidePassword": "Sembunyikan kata sandi",
+      "minLength": "Kata sandi minimal 8 karakter"
+    },
+    "error": {
+      "title": "Oops! Terjadi kesalahan!",
+      "tryAgain": "Silakan coba lagi.",
+      "backToLogin": "Kembali ke login",
+      "checkEmail": "Periksa kotak masuk Anda"
+    },
+    "common": {
+      "termsOfService": "Ketentuan layanan",
+      "privacyPolicy": "Kebijakan privasi",
+      "byClickingContinue": "Dengan melanjutkan, Anda menyetujui ",
+      "and": " dan "
+    }
+  },
+  "BlogPage": {
+    "title": "Blog",
+    "description": "Tips pembuatan video AI, tutorial dan berita dari GenX.art.",
+    "subtitle": "Berita terbaru dari tim kami",
+    "author": "Penulis",
+    "categories": "Kategori",
+    "tableOfContents": "Daftar isi",
+    "readTime": "{minutes} menit baca",
+    "all": "Semua",
+    "noPostsFound": "Tidak ada artikel ditemukan",
+    "allPosts": "Semua artikel",
+    "morePosts": "Artikel lainnya"
+  },
+  "DocsPage": {
+    "toc": "Daftar isi",
+    "search": "Cari dokumentasi",
+    "lastUpdate": "Terakhir diperbarui",
+    "searchNoResult": "Tidak ada hasil",
+    "previousPage": "Sebelumnya",
+    "nextPage": "Berikutnya",
+    "chooseLanguage": "Pilih bahasa",
+    "title": "Dokumentasi GenX.art",
+    "homepage": "Beranda"
+  },
+  "PremiumContent": {
+    "title": "Buka konten Premium",
+    "description": "Berlangganan Pro untuk mengakses semua konten premium.",
+    "upgradeCta": "Tingkatkan sekarang",
+    "benefit1": "Semua konten premium",
+    "benefit2": "Konten eksklusif",
+    "benefit3": "Batalkan kapan saja",
+    "signIn": "Masuk",
+    "loginRequired": "Masuk untuk melanjutkan membaca",
+    "loginDescription": "Ini konten premium. Masuk untuk akses penuh.",
+    "checkingAccess": "Memeriksa akses...",
+    "loadingContent": "Memuat konten..."
+  },
+  "Marketing": {
+    "navbar": {
+      "features": {
+        "title": "Fitur"
+      },
+      "pricing": {
+        "title": "Harga"
+      },
+      "blog": {
+        "title": "Blog"
+      },
+      "docs": {
+        "title": "Docs"
+      },
+      "create": {
+        "title": "Buat",
+        "items": {
+          "imageToVideo": {
+            "title": "Gambar ke video",
+            "description": "Ubah foto menjadi video seni"
+          },
+          "textToVideo": {
+            "title": "Teks ke video",
+            "description": "Buat video dari deskripsi teks"
+          },
+          "image": {
+            "title": "Gambar AI",
+            "description": "Buat gambar indah dengan AI"
+          }
+        }
+      },
+      "styles": {
+        "title": "Gaya"
+      },
+      "gallery": {
+        "title": "Galeri"
+      }
+    },
+    "footer": {
+      "tagline": "Setiap frame adalah seni - Ubah foto menjadi video seni yang menakjubkan",
+      "videoModels": {
+        "title": "Model Video",
+        "items": {
+          "veo3": "Veo 3",
+          "sora2": "Sora 2",
+          "kling": "Kling AI",
+          "hailuo": "Hailuo AI",
+          "seedance": "Seedance",
+          "wan": "Wan AI",
+          "omnihuman": "OmniHuman",
+          "moreModels": "Model lainnya"
+        }
+      },
+      "imageModels": {
+        "title": "Model Gambar",
+        "items": {
+          "gptImage": "GPT Image",
+          "seedream": "Seedream",
+          "nanobanana": "Nanobanana Pro",
+          "wanImage": "Wan 2.5 Image",
+          "moreModels": "Model lainnya"
+        }
+      },
+      "product": {
+        "title": "Produk",
+        "items": {
+          "features": "Fitur",
+          "styles": "Gaya seni",
+          "gallery": "Galeri",
+          "pricing": "Harga",
+          "faq": "FAQ"
+        }
+      },
+      "resources": {
+        "title": "Sumber Daya",
+        "items": {
+          "blog": "Blog",
+          "docs": "Dokumentasi",
+          "help": "Pusat bantuan",
+          "changelog": "Log perubahan",
+          "roadmap": "Peta jalan"
+        }
+      },
+      "companyAndLegal": {
+        "title": "Perusahaan",
+        "items": {
+          "about": "Tentang kami",
+          "contact": "Kontak",
+          "waitlist": "Daftar tunggu",
+          "privacyPolicy": "Kebijakan privasi",
+          "termsOfService": "Ketentuan layanan"
+        }
+      }
+    },
+    "avatar": {
+      "dashboard": "Dasbor",
+      "billing": "Penagihan",
+      "credits": "Kredit",
+      "settings": "Pengaturan"
+    }
+  },
+  "Landing": {
+    "hero": {
+      "headline": "Setiap frame adalah seni",
+      "subheadline": "Unggah foto, pilih gaya seni, dapatkan video seni yang menakjubkan dalam 30 detik. Tanpa keahlian. Tanpa software mahal.",
+      "cta": {
+        "primary": "Unggah foto",
+        "secondary": "Lihat kemungkinannya"
+      },
+      "socialProof": "video seni dibuat",
+      "scrollHint": "Gulir untuk menjelajahi",
+      "switchStyle": "Beralih ke gaya {style}"
+    },
+    "finalCta": {
+      "headline": "Siap membuat video seni pertama Anda?",
+      "subheadline": "Dalam 30 detik, Anda akan mendapatkan video seni yang menakjubkan",
+      "cta": "Mulai membuat gratis",
+      "trust": {
+        "thirtySeconds": "Siap dalam 30 detik",
+        "instantDownload": "Unduh instan"
+      }
+    },
+    "gallery": {
+      "badge": "Galeri Kreator",
+      "headline": "Lihat karya para kreator",
+      "subheadline": "Video seni dari kreator di seluruh dunia menggunakan GenX. Klik karya untuk melihat gaya dan prompt.",
+      "styles": {
+        "all": "Semua",
+        "cyberpunk": "Cyberpunk",
+        "watercolor": "Cat Air",
+        "oilPainting": "Cat Minyak",
+        "anime": "Anime",
+        "fluidArt": "Fluid Art"
+      },
+      "videoTitle": "Video {style}",
+      "promptLabel": "Prompt yang digunakan:",
+      "createSimilar": "Buat serupa",
+      "loadMore": "Muat lebih banyak",
+      "createOwn": "Buat milikmu",
+      "items": {
+        "1": {
+          "prompt": "Jalan kota bermandikan neon di malam hari, hujan turun melewati iklan holografis"
+        },
+        "2": {
+          "prompt": "Danau gunung yang tenang saat matahari terbenam dengan efek cat air lembut"
+        },
+        "3": {
+          "prompt": "Potret klasik bergaya Rembrandt dengan pencahayaan emas hangat"
+        },
+        "4": {
+          "prompt": "Kelopak bunga sakura berjatuhan di taman Jepang, gaya anime"
+        },
+        "5": {
+          "prompt": "Warna abstrak berputar seperti marmer cair, aliran yang memukau"
+        },
+        "6": {
+          "prompt": "Mobil terbang melintasi kota futuristik dengan efek glitch"
+        }
+      }
+    },
+    "useCases": {
+      "badge": "Kasus Penggunaan",
+      "headline": "Kreator menggunakan GenX untuk",
+      "cases": {
+        "social": {
+          "title": "Media Sosial",
+          "description": "Tampil beda di TikTok, Instagram, YouTube. Konten sama, dampak visual berbeda.",
+          "example": "Mesin video viral untuk kreator"
+        },
+        "product": {
+          "title": "Demo Produk",
+          "description": "Foto produk statis membosankan. Buat mengalir dalam gaya seni.",
+          "example": "Hidupkan produk Anda"
+        },
+        "art": {
+          "title": "Kreasi Seni",
+          "description": "Tidak perlu keahlian seni. Ekspresikan ide Anda dengan AI.",
+          "example": "Sekarang semua orang bisa jadi seniman"
+        },
+        "content": {
+          "title": "Pembuatan Konten",
+          "description": "Tutorial, vlog, cerita — setiap frame membuat penonton terus menonton.",
+          "example": "Cerita layak mendapat visual yang lebih baik"
+        }
+      },
+      "cta": "Mulai membuat"
+    },
+    "whyGenx": {
+      "badge": "Mengapa GenX",
+      "headline": "Mengapa kreator memilih GenX",
+      "features": {
+        "quality": {
+          "title": "Kualitas seni",
+          "description": "Bukan sekadar filter — teknologi transfer gaya nyata. Setiap frame dibuat oleh AI."
+        },
+        "speed": {
+          "title": "30 detik",
+          "description": "Pemrosesan cloud yang dioptimalkan, video seni Anda siap dalam 30 detik."
+        },
+        "free": {
+          "title": "Mulai gratis",
+          "description": "3 kreasi gratis per hari. Cukup untuk mencoba dan jatuh cinta."
+        },
+        "anywhere": {
+          "title": "Di mana saja",
+          "description": "Tanpa unduhan. Di browser, perangkat apa pun, kapan saja."
+        }
+      },
+      "trust": {
+        "noWatermark": "Tanpa watermark tersembunyi (Pro)"
+      }
+    },
+    "testimonials": {
+      "badge": "Testimoni",
+      "headline": "Apa kata para kreator",
+      "items": {
+        "1": {
+          "name": "Sarah Chen",
+          "role": "Kreator TikTok",
+          "content": "Akhirnya tidak perlu belajar After Effects! Upload foto, dapat video. Rekan kerja selalu bertanya software apa yang saya pakai."
+        },
+        "2": {
+          "name": "Mike Johnson",
+          "role": "Developer Indie",
+          "content": "Pertama kalinya saya merasa benar-benar bisa membuat video seni. Keren!"
+        },
+        "3": {
+          "name": "Emma Davis",
+          "role": "Manajer Marketing",
+          "content": "Biaya video produk kami turun 80% dan hasilnya bahkan lebih baik."
+        },
+        "4": {
+          "name": "Alex Kim",
+          "role": "Kreator Konten",
+          "content": "Gaya anime luar biasa. Engagement TikTok saya melejit!"
+        }
+      },
+      "trustBadges": {
+        "comingSoon": "Review segera hadir",
+        "securePayment": "Pembayaran aman via Stripe"
+      }
+    },
+    "pricing": {
+      "badge": "Harga",
+      "headline": "Harga sederhana dan transparan",
+      "popular": "Paling populer",
+      "bestValue": "Nilai terbaik",
+      "perMonth": "/bulan",
+      "oneTime": "sekali bayar",
+      "yearlyOption": "atau ${price}/tahun (hemat {discount}%)",
+      "plans": {
+        "free": {
+          "name": "Gratis",
+          "description": "Sempurna untuk mencoba GenX",
+          "feature1": "3 kreasi per hari",
+          "feature2": "Semua 5 gaya seni",
+          "feature3": "Resolusi 720p",
+          "feature4": "Lisensi penggunaan pribadi",
+          "limit": "Watermark GenX disertakan",
+          "cta": "Mulai gratis"
+        },
+        "pro": {
+          "name": "Pro",
+          "description": "Untuk kreator serius",
+          "feature1": "Kreasi tanpa batas",
+          "feature2": "Resolusi 1080p HD",
+          "feature3": "Tanpa watermark",
+          "feature4": "Lisensi komersial",
+          "cta": "Upgrade ke Pro"
+        }
+      },
+      "paymentNote": "Pembayaran aman via Stripe",
+      "seeFullPricing": "Lihat perbandingan harga lengkap"
+    },
+    "faq": {
+      "badge": "FAQ",
+      "headline": "Pertanyaan yang sering diajukan",
+      "items": {
+        "free": {
+          "question": "Apakah GenX gratis?",
+          "answer": "Ya! Pengunjung bisa membuat 3 video per hari gratis. Pengguna terdaftar mendapat lebih banyak. Butuh lebih? Lihat paket Pro."
+        },
+        "skills": {
+          "question": "Apakah perlu keahlian teknis?",
+          "answer": "Sama sekali tidak! Jika Anda bisa upload foto dan klik tombol, Anda bisa menggunakan GenX."
+        },
+        "commercial": {
+          "question": "Bisakah video digunakan secara komersial?",
+          "answer": "Video gratis hanya untuk penggunaan pribadi. Pengguna Pro mendapat lisensi komersial penuh."
+        },
+        "watermark": {
+          "question": "Apakah video ada watermark?",
+          "answer": "Video gratis memiliki watermark GenX kecil. Pengguna Pro bisa mengunduh video HD tanpa watermark."
+        },
+        "formats": {
+          "question": "Format gambar apa yang didukung?",
+          "answer": "Kami mendukung JPG dan PNG, hingga 10MB per gambar. Gambar asli resolusi tinggi memberikan hasil lebih baik."
+        },
+        "time": {
+          "question": "Berapa lama proses pembuatan?",
+          "answer": "Biasanya 15-45 detik. Anda akan melihat progres real-time di layar."
+        },
+        "data": {
+          "question": "Di mana data saya disimpan? (GDPR)",
+          "answer": "Data Anda disimpan di server AWS yang aman di AS dan UE. Kami mematuhi GDPR — Anda bisa meminta penghapusan data kapan saja."
+        },
+        "payment": {
+          "question": "Metode pembayaran apa yang diterima?",
+          "answer": "Kami menerima Visa, Mastercard, American Express dan PayPal via Stripe. Semua pembayaran aman dan terenkripsi."
+        },
+        "refund": {
+          "question": "Bagaimana kebijakan pengembalian dana?",
+          "answer": "Garansi uang kembali 7 hari untuk langganan Pro. Hubungi support@genx.art dalam masa garansi."
+        },
+        "cancel": {
+          "question": "Bagaimana cara membatalkan langganan?",
+          "answer": "Anda bisa membatalkan kapan saja dari dashboard atau menghubungi support@genx.art. Akses berlanjut hingga akhir periode penagihan."
+        }
+      }
+    }
+  },
+  "Generator": {
+    "modes": {
+      "textToVideo": "Teks ke video",
+      "imageToVideo": "Gambar ke video",
+      "textToImage": "Teks ke gambar",
+      "imageToImage": "Gambar ke gambar",
+      "referenceToVideo": "Referensi ke video",
+      "audio": "Audio"
+    },
+    "input": {
+      "placeholder": "Jelaskan apa yang ingin Anda buat...",
+      "prompt": "PROMPT"
+    },
+    "submit": {
+      "generate": "Buat",
+      "generating": "Membuat...",
+      "insufficientCredits": "Kredit tidak mencukupi",
+      "insufficientCreditsButton": "Dapatkan kredit",
+      "balance": "Saldo",
+      "generationFailed": "Pembuatan gagal, coba lagi"
+    },
+    "model": {
+      "selectModel": "Pilih model",
+      "availableModels": "Model tersedia",
+      "models": "Model",
+      "noModels": "Tidak ada model tersedia",
+      "new": "Baru",
+      "credits": "{count}+ kredit",
+      "creditsLabel": "{count} Kredit"
+    },
+    "styles": {
+      "default": "Default",
+      "cyberpunk": "Cyberpunk",
+      "watercolor": "Cat Air",
+      "oilPainting": "Lukisan Minyak",
+      "anime": "Anime",
+      "fluidArt": "Fluid Art"
+    },
+    "imageUpload": {
+      "uploadImage": "Unggah gambar",
+      "uploadHint": "JPG, PNG, WEBP • Maks 10MB",
+      "fileTooLarge": "File terlalu besar",
+      "invalidFileType": "Tipe file tidak valid",
+      "imageTooLarge": "Ukuran gambar melebihi batas",
+      "uploadFailed": "Unggah gagal, coba lagi"
+    },
+    "result": {
+      "emptyTitle": "Belum ada hasil",
+      "emptyDescription": "Masukkan prompt dan klik buat",
+      "generatingTitle": "Membuat...",
+      "generatingDescription": "Harap tunggu",
+      "actions": {
+        "download": "Unduh",
+        "share": "Bagikan",
+        "favorite": "Favorit",
+        "downloadSuccess": "Berhasil diunduh",
+        "downloadFailed": "Unduh gagal",
+        "linkCopied": "Link disalin",
+        "favorited": "Ditambahkan ke favorit",
+        "unfavorited": "Dihapus dari favorit",
+        "favoriteFailed": "Gagal mengubah favorit"
+      }
+    },
+    "history": {
+      "title": "Riwayat",
+      "empty": "Belum ada riwayat",
+      "loading": "Memuat...",
+      "loadMore": "Muat lebih banyak"
+    },
+    "floating": {
+      "placeholder": "Masukkan prompt..."
+    }
+  },
+  "Onboarding": {
+    "welcome": {
+      "title": "Selamat datang di GenX, {name}!",
+      "defaultName": "Kreator",
+      "description": "Hanya 3 langkah sederhana menuju video seni pertama Anda.",
+      "steps": {
+        "upload": {
+          "title": "Unggah foto Anda",
+          "description": "Foto apa saja bisa - potret, pemandangan, produk"
+        },
+        "style": {
+          "title": "Pilih gaya seni",
+          "description": "5 gaya unik: Cyberpunk, Cat Air, Lukisan Minyak, Anime, Fluid Art"
+        },
+        "generate": {
+          "title": "Buat dan unduh",
+          "description": "AI membuat video seni Anda dalam sekitar 30 detik"
+        }
+      },
+      "freeCredits": "Anda punya 15 kredit gratis untuk memulai!",
+      "startButton": "Mulai membuat",
+      "skipButton": "Saya jelajahi sendiri"
+    }
+  },
+  "UserDashboard": {
+    "stats": {
+      "credits": "Saldo kredit",
+      "creditsHint": "Untuk pembuatan video AI",
+      "buyCredits": "Dapatkan lebih banyak kredit",
+      "videosCreated": "Video dibuat",
+      "allTime": "Total",
+      "inProgress": "sedang berjalan"
+    },
+    "quickStart": {
+      "title": "Siap membuat?",
+      "createVideo": "Video baru"
+    },
+    "quickActions": {
+      "title": "Aksi cepat",
+      "image-to-video": "Gambar ke video",
+      "text-to-video": "Teks ke video",
+      "reference-to-video": "Video referensi",
+      "image": "Gambar AI"
+    },
+    "recentCreations": {
+      "title": "Kreasi terbaru",
+      "subtitle": "Video AI terbaru Anda",
+      "viewAll": "Lihat semua",
+      "empty": {
+        "title": "Belum ada video",
+        "description": "Buat video seni pertama Anda dengan AI",
+        "cta": "Buat video pertama"
+      },
+      "status": {
+        "generating": "Membuat",
+        "pending": "Menunggu",
+        "failed": "Gagal"
+      }
+    }
+  },
+  "Mail": {
+    "common": {
+      "team": "Tim {name}",
+      "copyright": "©️ {year} Hak cipta dilindungi."
+    },
+    "verifyEmail": {
+      "title": "Halo, {name}.",
+      "body": "Klik link di bawah untuk memverifikasi email Anda.",
+      "confirmEmail": "Konfirmasi email",
+      "subject": "Verifikasi email Anda"
+    },
+    "forgotPassword": {
+      "title": "Halo, {name}.",
+      "body": "Klik link di bawah untuk mereset kata sandi Anda.",
+      "resetPassword": "Reset kata sandi",
+      "subject": "Reset kata sandi Anda"
+    },
+    "subscribeNewsletter": {
+      "body": "Terima kasih telah berlangganan buletin. Kami akan terus menginformasikan Anda.",
+      "subject": "Terima kasih telah berlangganan"
+    },
+    "contactMessage": {
+      "name": "Nama: {name}",
+      "email": "Email: {email}",
+      "message": "Pesan: {message}",
+      "subject": "Pesan kontak dari website"
+    }
+  }
+}

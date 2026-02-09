@@ -79,7 +79,13 @@ const nextConfig: NextConfig = {
   // Experimental features for better performance
   experimental: {
     // Optimize specific package imports to reduce bundle size
-    optimizePackageImports: ['lucide-react', 'motion', '@tabler/icons-react'],
+    optimizePackageImports: [
+      'lucide-react',
+      'motion',
+      '@tabler/icons-react',
+      'sonner',
+      'nuqs',
+    ],
   },
   async rewrites() {
     return [
@@ -113,6 +119,25 @@ const nextConfig: NextConfig = {
           {
             key: 'Permissions-Policy',
             value: 'camera=(), microphone=(), geolocation=()',
+          },
+        ],
+      },
+      // Long-term caching for static assets (fonts, images, hashed bundles)
+      {
+        source: '/fonts/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      {
+        source: '/_next/static/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
           },
         ],
       },

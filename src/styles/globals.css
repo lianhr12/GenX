@@ -319,6 +319,32 @@ body {
   @apply overscroll-none bg-transparent;
 }
 
+/* LCP-safe hero entrance animation: transform only, no opacity change.
+   This ensures the text is immediately visible (opacity:1) for fast LCP,
+   while still providing a subtle slide-up entrance effect. */
+@keyframes hero-enter {
+  from {
+    transform: translateY(12px);
+    filter: blur(2px);
+  }
+  to {
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+.animate-hero-enter {
+  animation: hero-enter 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-hero-enter-delay-1 {
+  animation: hero-enter 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.15s both;
+}
+
+.animate-hero-enter-delay-2 {
+  animation: hero-enter 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both;
+}
+
 .text-gradient_indigo-purple {
   background: linear-gradient(90deg, #12c5b4 0%, rgb(243 178 74 / 0.85) 100%);
   -webkit-background-clip: text;

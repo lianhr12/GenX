@@ -1,0 +1,451 @@
+{
+  "Metadata": {
+    "name": "GenX.art",
+    "title": "GenX.art - 免費 AI 影片產生器",
+    "description": "30 秒內將照片轉換為令人驚豔的藝術影片。5 種獨特風格：賽博龐克、水彩、油畫、動漫、流體藝術。無需任何技能。",
+    "keywords": "AI 圖片轉影片、照片轉影片、藝術影片產生器、AI 影片創作、圖片動畫、文字轉影片"
+  },
+  "Common": {
+    "premium": "進階版",
+    "login": "登入",
+    "logout": "登出",
+    "signUp": "註冊",
+    "language": "切換語言",
+    "mode": { "label": "切換模式", "light": "淺色", "dark": "深色", "system": "系統" },
+    "copy": "複製",
+    "saving": "儲存中...",
+    "save": "儲存",
+    "loading": "載入中...",
+    "cancel": "取消",
+    "logoutFailed": "登出失敗",
+    "home": "首頁",
+    "replicate": "複製效果",
+    "table": {
+      "totalRecords": "共 {count} 筆記錄",
+      "noResults": "沒有結果",
+      "loading": "載入中...",
+      "columns": "欄位",
+      "rowsPerPage": "每頁行數",
+      "page": "頁",
+      "firstPage": "第一頁",
+      "lastPage": "最後一頁",
+      "nextPage": "下一頁",
+      "previousPage": "上一頁",
+      "ascending": "升序",
+      "descending": "降序",
+      "resetSorting": "重設",
+      "hideColumn": "隱藏",
+      "viewOptions": "檢視",
+      "toggleColumns": "切換欄位",
+      "searchColumns": "搜尋欄位...",
+      "noColumns": "找不到欄位。",
+      "clearFilters": "清除篩選"
+    }
+  },
+  "PricingPage": {
+    "title": "方案定價",
+    "description": "選擇最適合您創意需求的方案。免費方案 15 點數，Pro 方案無限使用及 HD 品質。",
+    "keywords": "GenX 定價、AI 影片價格、訂閱方案、免費 AI 影片",
+    "subtitle": "選擇最適合您的方案",
+    "monthly": "月繳",
+    "yearly": "年繳",
+    "PricingCard": {
+      "freePrice": "NT$0",
+      "perMonth": "/月",
+      "perYear": "/年",
+      "popular": "熱門",
+      "currentPlan": "目前方案",
+      "yourCurrentPlan": "您目前的方案",
+      "getStartedForFree": "免費開始",
+      "getStarted": "開始",
+      "notAvailable": "不可用",
+      "daysTrial": "{days} 天試用"
+    },
+    "CheckoutButton": { "loading": "載入中...", "checkoutFailed": "無法開啟付款頁面" }
+  },
+  "PricePlans": {
+    "free": {
+      "name": "免費",
+      "description": "適合體驗 GenX",
+      "features": { "feature-1": "註冊即獲 15 點數", "feature-2": "全部 5 種藝術風格", "feature-3": "1080p 輸出品質", "feature-4": "標準支援" },
+      "limits": { "limit-1": "點數 30 天後到期", "limit-2": "包含浮水印", "limit-3": "僅限個人使用" }
+    },
+    "pro": {
+      "name": "Pro",
+      "description": "適合認真的創作者",
+      "features": { "feature-1": "每月 800 點數", "feature-2": "全部 5 種藝術風格", "feature-3": "HD 1080p 輸出", "feature-4": "優先支援", "feature-5": "無浮水印" },
+      "limits": { "limit-1": "月度點數不累計", "limit-2": "包含商業授權" }
+    }
+  },
+  "CreditPackages": {
+    "starter": { "name": "入門", "description": "適合體驗 AI 生成" },
+    "basic": { "name": "基礎", "description": "適合休閒創作者" },
+    "standard": { "name": "標準", "description": "常規用戶的最佳選擇" },
+    "premium": { "name": "進階", "description": "適合高級用戶和專業人士" },
+    "enterprise": { "name": "企業", "description": "重度使用的最大點數" }
+  },
+  "NotFoundPage": {
+    "title": "404",
+    "headline": "找不到頁面",
+    "message": "抱歉，您尋找的頁面不存在或已被移動。",
+    "backToHome": "返回首頁",
+    "searchHelp": "取得幫助",
+    "popularPages": "熱門頁面",
+    "links": { "imageToVideo": "圖片轉影片", "gallery": "藝廊", "docs": "文件", "contact": "聯繫我們" }
+  },
+  "ErrorPage": { "title": "糟糕！出了點問題！", "tryAgain": "重試", "backToHome": "返回首頁" },
+  "AboutPage": {
+    "title": "關於 GenX.art",
+    "description": "GenX.art 是一個 AI 驅動的藝術影片創作平台，能在數秒內將您的照片轉化為令人驚豔的電影級作品。",
+    "authorName": "GenX.art",
+    "authorBio": "AI 藝術影片平台",
+    "introduction": "GenX.art 讓創作者能將普通照片轉化為非凡的藝術影片。透過先進的 AI 技術，我們讓專業級影片創作觸手可及。我們的使命是讓創意表達大眾化——因為每張圖片都值得成為藝術。",
+    "talkWithMe": "聯繫我們",
+    "followMe": "在 X 上追蹤我們"
+  },
+  "ChangelogPage": { "title": "更新日誌", "description": "了解 GenX.art 的最新動態。", "keywords": "GenX 更新、更新日誌、新功能", "subtitle": "掌握產品最新變更" },
+  "RoadmapPage": { "title": "產品路線圖", "description": "探索 GenX.art 的未來規劃。", "keywords": "GenX 路線圖、即將推出的功能、未來計劃", "subtitle": "探索我們的未來計劃和即將推出的功能" },
+  "ContactPage": {
+    "title": "聯繫我們",
+    "description": "聯繫 GenX.art 團隊。",
+    "keywords": "聯繫 GenX、支援、幫助",
+    "subtitle": "我們將幫助您找到最適合的方案",
+    "form": {
+      "title": "聯繫我們", "description": "如有任何問題或建議，歡迎聯繫我們的團隊",
+      "name": "姓名", "email": "電子郵件", "message": "訊息",
+      "submit": "傳送", "submitting": "傳送中...", "success": "訊息已傳送", "fail": "傳送訊息失敗",
+      "nameMinLength": "姓名至少需要 3 個字元", "nameMaxLength": "姓名不得超過 30 個字元",
+      "emailValidation": "請輸入有效的電子郵件",
+      "messageMinLength": "訊息至少需要 10 個字元", "messageMaxLength": "訊息不得超過 500 個字元"
+    }
+  },
+  "WaitlistPage": {
+    "title": "等候名單", "description": "搶先體驗 GenX.art 的新功能。", "keywords": "GenX 等候名單、搶先體驗", "subtitle": "加入我們的等候名單",
+    "form": { "title": "加入等候名單", "description": "產品上線時我們會通知您", "email": "電子郵件", "subscribe": "訂閱", "subscribing": "訂閱中...", "success": "訂閱成功", "fail": "訂閱失敗", "emailValidation": "請輸入有效的電子郵件" }
+  },
+  "Newsletter": {
+    "title": "電子報", "subtitle": "加入社群", "description": "訂閱電子報獲取最新消息",
+    "form": { "email": "電子郵件", "subscribe": "訂閱", "subscribing": "訂閱中...", "success": "訂閱成功", "fail": "訂閱失敗", "emailValidation": "請輸入有效的電子郵件" }
+  },
+  "AuthPage": {
+    "login": {
+      "title": "登入", "welcomeBack": "歡迎回來", "email": "電子郵件", "password": "密碼",
+      "signIn": "登入", "signUpHint": "還沒有帳戶？註冊", "forgotPassword": "忘記密碼？",
+      "signInWithGoogle": "使用 Google 登入", "signInWithGitHub": "使用 GitHub 登入", "signInWithFacebook": "使用 Facebook 登入",
+      "showPassword": "顯示密碼", "hidePassword": "隱藏密碼", "or": "或繼續使用",
+      "emailRequired": "請輸入您的電子郵件", "passwordRequired": "請輸入您的密碼",
+      "captchaInvalid": "驗證碼驗證失敗", "captchaError": "驗證碼錯誤"
+    },
+    "register": {
+      "title": "註冊", "createAccount": "建立帳戶", "name": "姓名", "email": "電子郵件", "password": "密碼",
+      "signUp": "註冊", "signInHint": "已有帳戶？登入", "checkEmail": "請檢查您的收件匣",
+      "showPassword": "顯示密碼", "hidePassword": "隱藏密碼",
+      "nameRequired": "請輸入您的姓名", "emailRequired": "請輸入您的電子郵件", "passwordRequired": "請輸入您的密碼",
+      "captchaInvalid": "驗證碼驗證失敗", "captchaError": "驗證碼錯誤"
+    },
+    "forgotPassword": { "title": "忘記密碼", "email": "電子郵件", "send": "傳送重設連結", "backToLogin": "返回登入", "checkEmail": "請檢查您的收件匣", "emailRequired": "請輸入您的電子郵件" },
+    "resetPassword": { "title": "重設密碼", "password": "密碼", "reset": "重設密碼", "backToLogin": "返回登入", "showPassword": "顯示密碼", "hidePassword": "隱藏密碼", "minLength": "密碼至少需要 8 個字元" },
+    "error": { "title": "糟糕！出了點問題！", "tryAgain": "請重試。", "backToLogin": "返回登入", "checkEmail": "請檢查您的收件匣" },
+    "common": { "termsOfService": "服務條款", "privacyPolicy": "隱私權政策", "byClickingContinue": "繼續即表示您同意我們的", "and": "和" }
+  },
+  "BlogPage": { "title": "部落格", "description": "AI 影片創作技巧、教學及 GenX.art 最新消息。", "keywords": "AI 影片部落格、創作技巧、GenX 教學", "subtitle": "團隊最新消息與更新", "author": "作者", "categories": "分類", "tableOfContents": "目錄", "readTime": "閱讀 {minutes} 分鐘", "all": "全部", "noPostsFound": "找不到文章", "allPosts": "所有文章", "morePosts": "更多文章" },
+  "DocsPage": { "toc": "目錄", "search": "搜尋文件", "lastUpdate": "最後更新於", "searchNoResult": "沒有結果", "previousPage": "上一頁", "nextPage": "下一頁", "chooseLanguage": "選擇語言", "title": "GenX.art 文件", "homepage": "首頁" },
+  "PremiumContent": { "title": "解鎖進階內容", "description": "訂閱 Pro 方案以存取所有進階和獨家內容。", "upgradeCta": "立即升級", "benefit1": "所有進階內容", "benefit2": "獨家內容", "benefit3": "隨時取消", "signIn": "登入", "loginRequired": "登入以繼續閱讀", "loginDescription": "這是進階內容。請登入您的帳戶以存取完整內容。", "checkingAccess": "正在檢查存取權限...", "loadingContent": "正在載入完整內容..." },
+  "Marketing": {
+    "navbar": {
+      "features": { "title": "功能" }, "pricing": { "title": "定價" }, "blog": { "title": "部落格" }, "docs": { "title": "文件" },
+      "create": { "title": "建立", "items": { "imageToVideo": { "title": "圖片轉影片", "description": "將您的照片轉換為令人驚豔的藝術影片" }, "textToVideo": { "title": "文字轉影片", "description": "從文字描述生成影片" }, "image": { "title": "AI 圖片", "description": "使用 AI 生成精美圖片" } } },
+      "styles": { "title": "風格" }, "gallery": { "title": "藝廊" }
+    },
+    "footer": {
+      "tagline": "每一幀都是藝術 - 將照片轉換為令人驚豔的藝術影片",
+      "videoModels": { "title": "影片模型", "items": { "veo3": "Veo 3", "sora2": "Sora 2", "kling": "Kling AI", "hailuo": "Hailuo AI", "seedance": "Seedance", "wan": "Wan AI", "omnihuman": "OmniHuman", "moreModels": "更多模型" } },
+      "imageModels": { "title": "圖片模型", "items": { "gptImage": "GPT Image", "seedream": "Seedream", "nanobanana": "Nanobanana Pro", "wanImage": "Wan 2.5 Image", "moreModels": "更多模型" } },
+      "product": { "title": "產品", "items": { "features": "功能", "styles": "藝術風格", "gallery": "藝廊", "pricing": "定價", "faq": "常見問題" } },
+      "resources": { "title": "資源", "items": { "blog": "部落格", "docs": "文件", "help": "幫助中心", "changelog": "更新日誌", "roadmap": "產品路線圖" } },
+      "companyAndLegal": { "title": "公司", "items": { "about": "關於我們", "contact": "聯繫我們", "waitlist": "等候名單", "privacyPolicy": "隱私權政策", "termsOfService": "服務條款" } }
+    },
+    "avatar": { "dashboard": "儀表板", "billing": "帳單", "credits": "點數", "settings": "設定" }
+  },
+  "Dashboard": {
+    "dashboard": { "title": "儀表板" },
+    "creations": {
+      "title": "我的作品",
+      "videos": { "title": "影片", "description": "檢視和管理您生成的影片", "empty": "還沒有影片", "emptyHint": "開始建立影片即可在此查看" },
+      "images": { "title": "圖片", "description": "檢視和管理您生成的圖片", "empty": "還沒有圖片", "emptyHint": "開始建立圖片即可在此查看" },
+      "filters": { "all": "全部", "completed": "已完成", "generating": "生成中", "failed": "失敗", "favorites": "收藏" },
+      "actions": { "delete": "刪除", "download": "下載", "favorite": "收藏", "unfavorite": "取消收藏", "regenerate": "重新生成", "viewDetails": "查看詳情" },
+      "batch": { "selected": "已選取 {count} 項", "deleteSelected": "刪除選取", "downloadSelected": "下載選取" },
+      "visibility": { "public": "公開", "private": "私密", "toggleVisibility": "切換可見性", "makePublic": "設為公開", "makePrivate": "設為私密", "pendingReview": "待審核", "approved": "已通過", "rejected": "已拒絕", "removed": "已移除" }
+    },
+    "settings": {
+      "title": "設定",
+      "profile": { "title": "個人檔案", "description": "管理您的帳戶資訊", "avatar": { "title": "頭像", "description": "點擊上傳自訂頭像", "recommendation": "頭像為選填但強烈建議", "uploading": "上傳中...", "uploadAvatar": "上傳頭像", "success": "頭像已更新", "fail": "頭像更新失敗" }, "name": { "title": "姓名", "description": "輸入您的顯示名稱", "placeholder": "輸入姓名", "minLength": "至少使用 3 個字元", "maxLength": "最多使用 30 個字元", "hint": "姓名 3-30 個字元", "success": "姓名已更新", "fail": "姓名更新失敗", "saving": "儲存中...", "save": "儲存" } },
+      "billing": { "title": "帳單", "description": "管理訂閱和帳單詳情", "status": { "active": "啟用中", "trial": "試用", "free": "免費" }, "interval": { "month": "月", "year": "年", "oneTime": "一次性" }, "currentPlan": { "title": "目前方案", "description": "您目前方案的詳情", "noPlan": "您沒有啟用的方案" }, "CustomerPortalButton": { "loading": "載入中...", "createCustomerPortalFailed": "無法開啟 Stripe 入口網站" }, "price": "價格：", "periodStartDate": "期間開始：", "periodEndDate": "期間結束：", "trialEnds": "試用結束：", "freePlanMessage": "您目前使用免費方案，功能有限", "manageSubscription": "管理訂閱與帳單", "manageBilling": "管理帳單", "upgradePlan": "升級方案", "retry": "重試", "errorMessage": "無法取得資料", "paymentSuccess": "付款成功" },
+      "payment": { "processing": { "title": "處理付款中", "description": "請稍候，正在確認您的付款..." }, "success": { "title": "付款成功", "description": "自動重新導向中..." }, "failed": { "title": "付款失敗", "description": "處理付款時發生問題。" }, "timeout": { "title": "逾時", "description": "付款處理時間超過預期。" }, "retry": "重試" },
+      "credits": { "title": "點數", "description": "管理點數交易", "tabs": { "balance": "餘額", "transactions": "交易紀錄" }, "balance": { "title": "點數餘額", "description": "您的點數餘額", "credits": "點數", "creditsDescription": "您有 {credits} 點數", "creditsExpired": "點數已過期", "creditsAdded": "點數已加入您的帳戶", "viewTransactions": "查看點數交易", "retry": "重試", "expiringCredits": "{credits} 點數將在 {days} 天內到期" }, "packages": { "title": "點數方案", "description": "購買額外點數", "purchase": "購買", "processing": "處理中...", "popular": "熱門", "completePurchase": "完成購買", "cancel": "取消", "purchaseFailed": "購買點數失敗", "checkoutFailed": "建立結帳工作階段失敗", "loading": "載入中...", "pay": "付款", "failedToFetchCredits": "無法取得點數", "failedToCreatePaymentIntent": "無法建立付款意圖", "failedToInitiatePayment": "無法啟動付款" }, "transactions": { "title": "點數交易", "error": "無法取得交易紀錄", "search": "搜尋交易...", "clearSearch": "清除搜尋", "paymentIdCopied": "付款 ID 已複製", "noResults": "沒有結果", "columns": { "columns": "欄位", "id": "ID", "type": "類型", "description": "描述", "amount": "數量", "remainingAmount": "剩餘數量", "paymentId": "付款 ID", "expirationDate": "到期日", "expirationDateProcessedAt": "處理日期", "createdAt": "建立日期", "updatedAt": "更新日期" }, "types": { "MONTHLY_REFRESH": "月度充值", "REGISTER_GIFT": "註冊禮物", "PURCHASE": "購買點數", "USAGE": "消耗點數", "EXPIRE": "點數過期", "SUBSCRIPTION_RENEWAL": "訂閱續期", "REFERRAL_REGISTRATION": "推薦註冊獎勵", "REFERRAL_PURCHASE": "推薦購買獎勵" }, "detailViewer": { "title": "交易詳情", "close": "關閉" }, "expired": "已過期", "never": "永不" } },
+      "notification": { "title": "通知", "description": "管理通知偏好設定", "newsletter": { "title": "電子報訂閱", "description": "管理電子報訂閱偏好", "label": "訂閱電子報", "hint": "您可以隨時變更偏好設定", "emailRequired": "訂閱需要電子郵件", "subscribeSuccess": "電子報訂閱成功", "subscribeFail": "訂閱失敗", "unsubscribeSuccess": "取消訂閱成功", "unsubscribeFail": "取消訂閱失敗", "error": "更新訂閱時發生錯誤" } },
+      "security": { "title": "安全性", "description": "管理安全性設定", "updatePassword": { "title": "變更密碼", "description": "輸入目前密碼和新密碼", "currentPassword": "目前密碼", "currentRequired": "需要目前密碼", "newPassword": "新密碼", "newMinLength": "密碼至少需要 8 個字元", "hint": "密碼至少 8 個字元", "showPassword": "顯示密碼", "hidePassword": "隱藏密碼", "success": "密碼已更新", "fail": "密碼更新失敗", "saving": "儲存中...", "save": "儲存" }, "resetPassword": { "title": "重設密碼", "description": "重設密碼以啟用電子郵件登入", "info": "重設密碼後，除了社群登入方式外，您還可以使用電子郵件和密碼登入。您將收到包含操作說明的電子郵件。", "button": "重設密碼" }, "deleteAccount": { "title": "刪除帳戶", "description": "永久刪除帳戶和所有內容", "warning": "此操作不可逆，請謹慎操作", "button": "刪除帳戶", "confirmTitle": "刪除帳戶", "confirmDescription": "確定要刪除帳戶嗎？此操作無法復原。", "confirm": "刪除", "cancel": "取消", "deleting": "刪除中...", "success": "帳戶已刪除", "fail": "帳戶刪除失敗" } },
+      "referral": { "title": "推薦", "description": "邀請朋友並賺取點數", "code": { "title": "您的推薦", "description": "與朋友分享您的推薦碼或連結", "yourCode": "推薦碼", "yourLink": "推薦連結" }, "stats": { "title": "統計", "description": "您的推薦績效", "totalReferrals": "總推薦數", "registeredReferrals": "已註冊", "purchasedReferrals": "已購買", "totalCredits": "已賺取點數" }, "history": { "title": "推薦歷史", "user": "用戶", "status": "狀態", "reward": "獎勵", "date": "日期", "empty": "還沒有推薦。分享您的連結開始賺取！" }, "status": { "pending": "待處理", "registered": "已註冊", "purchased": "已購買" } }
+    },
+    "upgrade": { "title": "升級", "description": "升級至 Pro 以使用所有功能", "button": "升級" }
+  },
+  "Mail": {
+    "common": { "team": "{name} 團隊", "copyright": "©️ {year} 版權所有。" },
+    "verifyEmail": { "title": "您好，{name}。", "body": "請點擊下方連結驗證您的電子郵件。", "confirmEmail": "確認電子郵件", "subject": "驗證您的電子郵件" },
+    "forgotPassword": { "title": "您好，{name}。", "body": "請點擊下方連結重設您的密碼。", "resetPassword": "重設密碼", "subject": "重設您的密碼" },
+    "subscribeNewsletter": { "body": "感謝您訂閱電子報。我們將持續為您提供最新資訊。", "subject": "感謝訂閱" },
+    "contactMessage": { "name": "姓名：{name}", "email": "電子郵件：{email}", "message": "訊息：{message}", "subject": "來自網站的聯繫訊息" }
+  },
+  "Landing": {
+    "hero": {
+      "headline": "每一幀都是藝術",
+      "subheadline": "上傳照片，選擇藝術風格，30 秒內獲得令人驚豔的藝術影片。無需技能。無需昂貴軟體。",
+      "cta": { "primary": "上傳照片", "secondary": "看看有什麼可能" },
+      "socialProof": "藝術影片已建立", "scrollHint": "滾動探索", "switchStyle": "切換至 {style} 風格"
+    },
+    "painPoints": {
+      "headline": "您有故事要講，但工具卻在拖後腿",
+      "items": {
+        "learning": { "title": "學習 Premiere 或 After Effects 需要數月", "description": "複雜軟體的陡峭學習曲線讓您的創意想法困住了。" },
+        "cost": { "title": "聘請專業團隊需花費數千元", "description": "高品質影片製作昂貴且大多數創作者無法負擔。" },
+        "generic": { "title": "範本影片千篇一律", "description": "範本讓您的內容與其他人混為一談。" }
+      },
+      "solution": { "title": "GenX 改變一切", "description": "您只需要一張照片和一個想法。AI 將平凡變成藝術，將日常變成電影感。", "benefit1": "零學習曲線", "benefit2": "專業級成果", "benefit3": "獨特藝術風格" },
+      "cta": "30 秒免費體驗"
+    },
+    "artStyles": {
+      "badge": "5 種獨特風格", "headline": "選擇您的藝術語言", "subheadline": "5 種獨特的藝術風格，每種都精心調校以突顯您的作品。",
+      "styles": {
+        "cyberpunk": { "title": "賽博龐克", "description": "閃爍的霓虹燈、飛行汽車、數位雨落在賽博世界", "bestFor": "適合：科技內容、酷炫預告片" },
+        "watercolor": { "title": "水彩", "description": "色彩在紙上暈染，如同一首看得見的詩", "bestFor": "適合：療癒內容、情感表達" },
+        "oilPainting": { "title": "油畫", "description": "每一筆觸都帶著溫暖，將照片變成值得收藏的藝術品", "bestFor": "適合：精品展示、美術作品" },
+        "anime": { "title": "動漫", "description": "走進動漫世界，成為自己故事的主角", "bestFor": "適合：動漫內容、年輕觀眾" },
+        "fluidArt": { "title": "流體藝術", "description": "色彩碰撞融合在運動中，每一幀都是獨一無二的抽象藝術", "bestFor": "適合：創意影片、背景" }
+      },
+      "createWith": "使用此風格建立", "exploreAll": "探索所有風格"
+    },
+    "howItWorks": {
+      "badge": "簡單流程", "headline": "從照片到藝術只需 3 個簡單步驟", "subheadline": "無需教學。您的創意，GenX 來實現。",
+      "steps": {
+        "upload": { "title": "上傳照片", "description": "拖放圖片或點擊瀏覽", "details": "支援 JPG/PNG，最大 10MB" },
+        "style": { "title": "選擇藝術風格", "description": "從 5 種獨特的藝術風格中選擇", "details": "懸停預覽每種風格" },
+        "download": { "title": "等待魔法", "description": "AI 在 30 秒內建立您的藝術影片", "details": "即時下載 HD 影片" }
+      },
+      "bottomText": "就這樣。零學習曲線。無需教學。", "cta": "立即試用 - 免費"
+    },
+    "gallery": {
+      "badge": "創作者畫廊",
+      "headline": "看看創作者們在做什麼",
+      "subheadline": "來自世界各地使用 GenX 的創作者的藝術影片。點擊任意作品查看風格和提示詞。",
+      "styles": {
+        "all": "全部",
+        "cyberpunk": "賽博龐克",
+        "watercolor": "水彩",
+        "oilPainting": "油畫",
+        "anime": "動漫",
+        "fluidArt": "流體藝術"
+      },
+      "videoTitle": "{style} 影片",
+      "promptLabel": "使用的提示詞：",
+      "createSimilar": "創作類似作品",
+      "loadMore": "載入更多",
+      "createOwn": "創作你自己的",
+      "items": {
+        "1": { "prompt": "夜晚的霓虹城市街道，雨水穿過全息廣告牌" },
+        "2": { "prompt": "日落時分的寧靜山間湖泊，柔和的水彩效果" },
+        "3": { "prompt": "倫勃朗風格的古典肖像，溫暖的金色光線" },
+        "4": { "prompt": "櫻花花瓣飄落在日式花園中，動漫風格" },
+        "5": { "prompt": "抽象色彩如液態大理石般旋轉，令人著迷的流動" },
+        "6": { "prompt": "飛行汽車穿越未來城市景觀，帶有故障效果" }
+      }
+    },
+    "useCases": {
+      "badge": "使用場景",
+      "headline": "創作者用 GenX 做什麼",
+      "cases": {
+        "social": {
+          "title": "社交媒體",
+          "description": "在 TikTok、Instagram、YouTube 上脫穎而出。同樣的內容，不同的視覺衝擊。",
+          "example": "創作者的病毒影片機器"
+        },
+        "product": {
+          "title": "產品演示",
+          "description": "靜態產品圖太無聊了。讓它們以藝術風格流動起來。",
+          "example": "讓你的產品活起來"
+        },
+        "art": {
+          "title": "藝術創作",
+          "description": "無需藝術技能。用 AI 表達你的藝術想法。",
+          "example": "現在人人都是藝術家"
+        },
+        "content": {
+          "title": "內容創作",
+          "description": "教學、Vlog、故事——每一幀都讓觀眾看得更久。",
+          "example": "故事值得更好的視覺呈現"
+        }
+      },
+      "cta": "開始創作"
+    },
+    "whyGenx": {
+      "badge": "為什麼選擇 GenX",
+      "headline": "創作者為什麼選擇 GenX",
+      "features": {
+        "quality": {
+          "title": "藝術級品質",
+          "description": "不只是濾鏡——真正的風格遷移技術。每一幀都由 AI 精心打造。"
+        },
+        "speed": {
+          "title": "30秒極速",
+          "description": "雲端優化處理，30秒內交付你的藝術影片。"
+        },
+        "free": {
+          "title": "免費開始",
+          "description": "每天3次免費創作。足夠你嘗試並愛上它。"
+        },
+        "anywhere": {
+          "title": "隨處可用",
+          "description": "無需下載。基於瀏覽器，任何裝置，隨時隨地。"
+        }
+      },
+      "trust": {
+        "noWatermark": "無隱藏浮水印（Pro）"
+      }
+    },
+    "testimonials": {
+      "badge": "用戶評價",
+      "headline": "創作者們怎麼說",
+      "items": {
+        "1": {
+          "name": "陳小雨",
+          "role": "TikTok 創作者",
+          "content": "終於不用學 After Effects 了！上傳照片就能出影片。同事們一直問我用的是什麼軟體。"
+        },
+        "2": {
+          "name": "Mike Johnson",
+          "role": "獨立開發者",
+          "content": "第一次覺得我真的可以做出藝術影片。太酷了！"
+        },
+        "3": {
+          "name": "Emma Davis",
+          "role": "市場經理",
+          "content": "產品影片成本降低了80%，效果反而更好了。"
+        },
+        "4": {
+          "name": "Alex Kim",
+          "role": "內容創作者",
+          "content": "動漫風格太驚豔了。我的 TikTok 互動量直接起飛！"
+        }
+      },
+      "trustBadges": {
+        "comingSoon": "評價即將推出",
+        "securePayment": "透過 Stripe 安全支付"
+      }
+    },
+    "pricing": {
+      "badge": "價格",
+      "headline": "簡單透明的定價",
+      "popular": "最受歡迎",
+      "bestValue": "最超值",
+      "perMonth": "/月",
+      "oneTime": "一次性",
+      "yearlyOption": "或 ${price}/年（節省 {discount}%）",
+      "plans": {
+        "free": {
+          "name": "免費版",
+          "description": "完美適合體驗 GenX",
+          "feature1": "每天3次創作",
+          "feature2": "全部5種藝術風格",
+          "feature3": "720p 解析度",
+          "feature4": "個人使用授權",
+          "limit": "包含 GenX 浮水印",
+          "cta": "免費開始"
+        },
+        "pro": {
+          "name": "專業版",
+          "description": "適合認真的創作者",
+          "feature1": "無限創作",
+          "feature2": "1080p 高清解析度",
+          "feature3": "無浮水印",
+          "feature4": "商業授權",
+          "cta": "升級專業版"
+        }
+      },
+      "paymentNote": "透過 Stripe 安全支付",
+      "seeFullPricing": "查看完整價格對比"
+    },
+    "faq": {
+      "badge": "常見問題",
+      "headline": "常見問題解答",
+      "items": {
+        "free": {
+          "question": "GenX 免費使用嗎？",
+          "answer": "是的！訪客每天可以免費建立3個影片。註冊用戶獲得更多每日創作次數。需要更多？查看我們的專業版獲得無限存取。"
+        },
+        "skills": {
+          "question": "我需要技術技能嗎？",
+          "answer": "完全不需要！如果你能上傳照片並點擊按鈕，你就能使用 GenX。我們將複雜的 AI 包裝成任何人都能使用的簡單介面。"
+        },
+        "commercial": {
+          "question": "我可以商業使用影片嗎？",
+          "answer": "免費版影片僅供個人使用。專業版用戶獲得完整的商業授權，可用於商業項目、社交媒體行銷、客戶工作等。"
+        },
+        "watermark": {
+          "question": "影片有浮水印嗎？",
+          "answer": "免費版影片包含小型 GenX 浮水印。專業版用戶可以下載完全無浮水印的高清影片。"
+        },
+        "formats": {
+          "question": "支援什麼圖片格式？",
+          "answer": "我們支援 JPG 和 PNG 格式，每張圖片最大 10MB。更高解析度的原始圖片在藝術影片中效果更好。"
+        },
+        "time": {
+          "question": "生成需要多長時間？",
+          "answer": "通常15-45秒，取決於影片長度和伺服器負載。建立過程中你會在螢幕上看到即時進度。"
+        },
+        "data": {
+          "question": "我的資料儲存在哪裡？（GDPR）",
+          "answer": "你的資料儲存在美國和歐盟的安全 AWS 伺服器上。我們符合 GDPR 規定——你可以隨時請求刪除資料。詳情請查看我們的隱私政策。"
+        },
+        "payment": {
+          "question": "你們接受什麼支付方式？",
+          "answer": "我們透過 Stripe 接受 Visa、Mastercard、American Express 和 PayPal。所有支付都是安全加密的。"
+        },
+        "refund": {
+          "question": "你們的退款政策是什麼？",
+          "answer": "我們為專業版訂閱提供7天退款保證：月付在當月扣費後7天內可退款，年付在年費扣費後7天內可退款。只需在保證期內聯繫 support@genx.art，我們將在3個工作天內處理您的退款。"
+        },
+        "cancel": {
+          "question": "如何取消訂閱？",
+          "answer": "您可以透過帳戶儀表板或聯繫 support@genx.art 隨時取消。您的存取權限將持續到計費週期結束，之後不會再收費。"
+        }
+      }
+    },
+    "finalCta": { "headline": "準備好建立您的第一個藝術影片了嗎？", "subheadline": "30 秒內，您將擁有一個令人驚豔的藝術影片", "cta": "免費開始創作", "trust": { "thirtySeconds": "30 秒完成", "instantDownload": "即時下載" } }
+  },
+  "Generator": {
+    "modes": { "textToVideo": "文字轉影片", "imageToVideo": "圖片轉影片", "textToImage": "文字轉圖片", "imageToImage": "圖片轉圖片", "referenceToVideo": "參考轉影片", "audio": "音訊" },
+    "input": { "placeholder": "描述您想建立的內容...", "prompt": "提示詞" },
+    "submit": { "generate": "生成", "generating": "生成中...", "insufficientCredits": "點數不足", "insufficientCreditsButton": "取得點數", "balance": "餘額", "generationFailed": "生成失敗，請重試" },
+    "model": { "selectModel": "選擇模型", "availableModels": "可用模型", "models": "模型", "noModels": "沒有可用模型", "new": "新", "credits": "{count}+ 點數", "creditsLabel": "{count} 點數" },
+    "aspectRatio": { "label": "畫面比例" }, "duration": { "label": "時長" }, "quality": { "label": "品質" },
+    "styles": { "default": "預設", "cyberpunk": "賽博龐克", "watercolor": "水彩", "oilPainting": "油畫", "anime": "動漫", "fluidArt": "流體藝術" },
+    "imageUpload": { "uploadImage": "上傳圖片", "uploadHint": "JPG、PNG、WEBP・最大 10MB", "fileTooLarge": "檔案過大", "invalidFileType": "無效的檔案類型", "imageTooLarge": "圖片尺寸超過上限", "uploadFailed": "上傳失敗，請重試" },
+    "result": { "emptyTitle": "還沒有結果", "emptyDescription": "輸入提示詞並點擊生成", "generatingTitle": "生成中...", "generatingDescription": "請稍候，正在建立您的內容", "actions": { "download": "下載", "share": "分享", "favorite": "收藏", "downloadSuccess": "下載成功", "downloadFailed": "下載失敗", "linkCopied": "連結已複製", "favorited": "已加入收藏", "unfavorited": "已移除收藏", "favoriteFailed": "切換收藏失敗" } },
+    "history": { "title": "歷史記錄", "empty": "還沒有記錄", "loading": "載入中...", "loadMore": "載入更多" },
+    "floating": { "placeholder": "輸入提示詞..." }
+  },
+  "Onboarding": {
+    "welcome": {
+      "title": "歡迎來到 GenX，{name}！", "defaultName": "創作者",
+      "description": "只需 3 個簡單步驟即可建立您的第一個驚豔藝術影片。",
+      "steps": { "upload": { "title": "上傳照片", "description": "任何照片都可以 - 人像、風景、產品" }, "style": { "title": "選擇藝術風格", "description": "5 種獨特風格：賽博龐克、水彩、油畫、動漫、流體藝術" }, "generate": { "title": "生成並下載", "description": "AI 約 30 秒即可建立您的藝術影片" } },
+      "freeCredits": "您有 15 個免費點數可以開始創作！", "startButton": "開始創作", "skipButton": "我自己探索"
+    }
+  },
+  "UserDashboard": {
+    "stats": { "credits": "點數餘額", "creditsHint": "用於 AI 影片生成", "buyCredits": "取得更多點數", "videosCreated": "已建立影片", "allTime": "累計", "inProgress": "進行中" },
+    "quickStart": { "title": "準備好創作了嗎？", "createVideo": "建立新影片" },
+    "quickActions": { "title": "快速操作", "image-to-video": "圖片轉影片", "text-to-video": "文字轉影片", "reference-to-video": "參考影片", "image": "AI 圖片" },
+    "recentCreations": { "title": "最近作品", "subtitle": "您最近的 AI 生成影片", "viewAll": "查看全部", "empty": { "title": "還沒有影片", "description": "開始使用 AI 建立您的第一個藝術影片", "cta": "建立第一個影片" }, "status": { "generating": "生成中", "pending": "等待中", "failed": "失敗" } }
+  }
+}

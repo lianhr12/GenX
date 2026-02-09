@@ -1,0 +1,792 @@
+{
+  "Metadata": {
+    "name": "GenX.art",
+    "title": "GenX.art - Gratis AI-videogenerator",
+    "description": "Forvandle bilder til fantastiske kunstvideor på 30 sekunder. 5 unike stiler: Cyberpunk, Akvarell, Olje, Anime, Fluid Art. Ingen ferdigheter nødvendig.",
+    "keywords": "AI bilde til video, foto til video, kunstvideo-generator, AI-videoskaper, tekst til video"
+  },
+  "Common": {
+    "premium": "Premium",
+    "login": "Logg inn",
+    "logout": "Logg ut",
+    "signUp": "Registrer deg",
+    "language": "Bytt språk",
+    "mode": {
+      "label": "Bytt modus",
+      "light": "Lys",
+      "dark": "Mørk",
+      "system": "System"
+    },
+    "copy": "Kopier",
+    "saving": "Lagrer...",
+    "save": "Lagre",
+    "loading": "Laster...",
+    "cancel": "Avbryt",
+    "logoutFailed": "Utlogging mislyktes",
+    "home": "Hjem",
+    "replicate": "Kopier effekt",
+    "table": {
+      "totalRecords": "Totalt {count} poster",
+      "noResults": "Ingen resultater",
+      "loading": "Laster...",
+      "columns": "Kolonner",
+      "rowsPerPage": "Rader per side",
+      "page": "Side",
+      "firstPage": "Første side",
+      "lastPage": "Siste side",
+      "nextPage": "Neste",
+      "previousPage": "Forrige",
+      "ascending": "Stigende",
+      "descending": "Synkende",
+      "resetSorting": "Nullstill",
+      "hideColumn": "Skjul",
+      "viewOptions": "Visning",
+      "toggleColumns": "Veksle kolonner",
+      "searchColumns": "Søk kolonner...",
+      "noColumns": "Ingen kolonner funnet.",
+      "clearFilters": "Tøm filtre"
+    }
+  },
+  "PricingPage": {
+    "title": "Prisplaner",
+    "description": "Velg den perfekte planen for dine kreative behov.",
+    "keywords": "GenX priser, AI-video priser, abonnementsplaner",
+    "subtitle": "Velg planen som passer best for deg",
+    "monthly": "Månedlig",
+    "yearly": "Årlig",
+    "PricingCard": {
+      "freePrice": "0 kr",
+      "perMonth": "/mnd",
+      "perYear": "/år",
+      "popular": "Populær",
+      "currentPlan": "Nåværende plan",
+      "yourCurrentPlan": "Din nåværende plan",
+      "getStartedForFree": "Start gratis",
+      "getStarted": "Start",
+      "notAvailable": "Ikke tilgjengelig",
+      "daysTrial": "{days} dagers prøveperiode"
+    },
+    "CheckoutButton": {
+      "loading": "Laster...",
+      "checkoutFailed": "Kunne ikke åpne betalingssiden"
+    }
+  },
+  "PricePlans": {
+    "free": {
+      "name": "Gratis",
+      "description": "Perfekt for å prøve GenX",
+      "features": {
+        "feature-1": "15 kreditter ved registrering",
+        "feature-2": "Alle 5 kunststiler",
+        "feature-3": "1080p utgangs­kvalitet",
+        "feature-4": "Standard støtte"
+      },
+      "limits": {
+        "limit-1": "Kreditter utløper etter 30 dager",
+        "limit-2": "Vannmerke inkludert",
+        "limit-3": "Kun personlig bruk"
+      }
+    },
+    "pro": {
+      "name": "Pro",
+      "description": "For seriøse skapere",
+      "features": {
+        "feature-1": "800 kreditter/mnd",
+        "feature-2": "Alle 5 kunststiler",
+        "feature-3": "HD 1080p utgang",
+        "feature-4": "Prioritert støtte",
+        "feature-5": "Uten vannmerke"
+      },
+      "limits": {
+        "limit-1": "Månedlige kreditter overføres ikke",
+        "limit-2": "Kommersiell lisens inkludert"
+      }
+    }
+  },
+  "CreditPackages": {
+    "starter": {
+      "name": "Starter",
+      "description": "Perfekt for å prøve AI-generering"
+    },
+    "basic": {
+      "name": "Basis",
+      "description": "Ideelt for ​​sporadiske skapere"
+    },
+    "standard": {
+      "name": "Standard",
+      "description": "Best verdi for faste brukere"
+    },
+    "premium": {
+      "name": "Premium",
+      "description": "For avanserte brukere og profesjonelle"
+    },
+    "enterprise": {
+      "name": "Enterprise",
+      "description": "Maksimalt antall kreditter for intensiv bruk"
+    }
+  },
+  "NotFoundPage": {
+    "title": "404",
+    "headline": "Side ikke funnet",
+    "message": "Siden du leter etter finnes ikke eller er flyttet.",
+    "backToHome": "Tilbake til hjem",
+    "searchHelp": "Få hjelp",
+    "popularPages": "Populære sider",
+    "links": {
+      "imageToVideo": "Bilde til video",
+      "gallery": "Galleri",
+      "docs": "Dokumentasjon",
+      "contact": "Kontakt oss"
+    }
+  },
+  "ErrorPage": {
+    "title": "Oops! Noe gikk galt!",
+    "tryAgain": "Prøv igjen",
+    "backToHome": "Tilbake til hjem"
+  },
+  "AboutPage": {
+    "title": "Om GenX.art",
+    "description": "GenX.art er en AI-drevet plattform for kunstvideor.",
+    "authorName": "GenX.art",
+    "authorBio": "AI-kunstvideo plattform",
+    "introduction": "GenX.art gir skapere muligheten til å forvandle vanlige bilder til ekstraordinære kunstvideor. Med avansert AI-teknologi gjør vi profesjonell videoproduksjon tilgjengelig for alle.",
+    "talkWithMe": "Kontakt oss",
+    "followMe": "Følg oss på X"
+  },
+  "ChangelogPage": {
+    "title": "Endringslogg",
+    "description": "Se hva som er nytt i GenX.art.",
+    "keywords": "GenX oppdateringer, endringslogg, nye funksjoner",
+    "subtitle": "Hold deg oppdatert med de siste endringene"
+  },
+  "RoadmapPage": {
+    "title": "Veikart",
+    "description": "Utforsk GenX.arts fremtidsplaner.",
+    "keywords": "GenX veikart, kommende funksjoner",
+    "subtitle": "Utforsk våre fremtidsplaner"
+  },
+  "ContactPage": {
+    "title": "Kontakt oss",
+    "description": "Ta kontakt med GenX.art-teamet.",
+    "keywords": "GenX kontakt, støtte, hjelp",
+    "subtitle": "Vi hjelper deg med å finne riktig plan",
+    "form": {
+      "title": "Kontakt oss",
+      "description": "Har du spørsmål eller tilbakemelding, ta kontakt med teamet vårt",
+      "name": "Navn",
+      "email": "E-post",
+      "message": "Melding",
+      "submit": "Send",
+      "submitting": "Sender...",
+      "success": "Melding sendt",
+      "fail": "Sending mislyktes",
+      "nameMinLength": "Navn må ha minst 3 tegn",
+      "nameMaxLength": "Navn kan ikke overstige 30 tegn",
+      "emailValidation": "Oppgi en gyldig e-post",
+      "messageMinLength": "Melding må ha minst 10 tegn",
+      "messageMaxLength": "Melding kan ikke overstige 500 tegn"
+    }
+  },
+  "WaitlistPage": {
+    "title": "Venteliste",
+    "description": "Bli den første til å oppleve nye GenX.art-funksjoner.",
+    "keywords": "GenX venteliste, tidlig tilgang",
+    "subtitle": "Bli med på vår venteliste",
+    "form": {
+      "title": "Bli med på ventelisten",
+      "description": "Vi gir deg beskjed ved lansering",
+      "email": "E-post",
+      "subscribe": "Abonner",
+      "subscribing": "Abonnerer...",
+      "success": "Abonnement fullført",
+      "fail": "Abonnement mislyktes",
+      "emailValidation": "Oppgi en gyldig e-post"
+    }
+  },
+  "Newsletter": {
+    "title": "Nyhetsbrev",
+    "subtitle": "Bli med i fellesskapet",
+    "description": "Abonner på nyhetsbrevet vårt for siste nytt",
+    "form": {
+      "email": "E-post",
+      "subscribe": "Abonner",
+      "subscribing": "Abonnerer...",
+      "success": "Abonnement fullført",
+      "fail": "Abonnement mislyktes",
+      "emailValidation": "Oppgi en gyldig e-post"
+    }
+  },
+  "AuthPage": {
+    "login": {
+      "title": "Logg inn",
+      "welcomeBack": "Velkommen tilbake",
+      "email": "E-post",
+      "password": "Passord",
+      "signIn": "Logg inn",
+      "signUpHint": "Ingen konto? Registrer deg",
+      "forgotPassword": "Glemt passord?",
+      "signInWithGoogle": "Logg inn med Google",
+      "signInWithGitHub": "Logg inn med GitHub",
+      "signInWithFacebook": "Logg inn med Facebook",
+      "showPassword": "Vis passord",
+      "hidePassword": "Skjul passord",
+      "or": "Eller fortsett med",
+      "emailRequired": "Oppgi e-post",
+      "passwordRequired": "Oppgi passord",
+      "captchaInvalid": "Captcha-verifisering mislyktes",
+      "captchaError": "Captcha-feil"
+    },
+    "register": {
+      "title": "Registrer deg",
+      "createAccount": "Opprett konto",
+      "name": "Navn",
+      "email": "E-post",
+      "password": "Passord",
+      "signUp": "Registrer deg",
+      "signInHint": "Har allerede en konto? Logg inn",
+      "checkEmail": "Sjekk innboksen din",
+      "showPassword": "Vis passord",
+      "hidePassword": "Skjul passord",
+      "nameRequired": "Oppgi navnet ditt",
+      "emailRequired": "Oppgi e-post",
+      "passwordRequired": "Oppgi passord",
+      "captchaInvalid": "Captcha-verifisering mislyktes",
+      "captchaError": "Captcha-feil"
+    },
+    "forgotPassword": {
+      "title": "Glemt passord",
+      "email": "E-post",
+      "send": "Send tilbakestillingslenke",
+      "backToLogin": "Tilbake til innlogging",
+      "checkEmail": "Sjekk innboksen din",
+      "emailRequired": "Oppgi e-post"
+    },
+    "resetPassword": {
+      "title": "Tilbakestill passord",
+      "password": "Passord",
+      "reset": "Tilbakestill passord",
+      "backToLogin": "Tilbake til innlogging",
+      "showPassword": "Vis passord",
+      "hidePassword": "Skjul passord",
+      "minLength": "Passordet må ha minst 8 tegn"
+    },
+    "error": {
+      "title": "Oops! Noe gikk galt!",
+      "tryAgain": "Prøv igjen.",
+      "backToLogin": "Tilbake til innlogging",
+      "checkEmail": "Sjekk innboksen din"
+    },
+    "common": {
+      "termsOfService": "Tjenestevilkår",
+      "privacyPolicy": "Personvernregler",
+      "byClickingContinue": "Ved å fortsette godtar du våre ",
+      "and": " og "
+    }
+  },
+  "BlogPage": {
+    "title": "Blogg",
+    "description": "AI-video tips, veiledninger og nyheter fra GenX.art.",
+    "subtitle": "Siste nytt fra teamet vårt",
+    "author": "Forfatter",
+    "categories": "Kategorier",
+    "tableOfContents": "Innholdsfortegnelse",
+    "readTime": "{minutes} min lesetid",
+    "all": "Alle",
+    "noPostsFound": "Ingen innlegg funnet",
+    "allPosts": "Alle innlegg",
+    "morePosts": "Flere innlegg"
+  },
+  "DocsPage": {
+    "toc": "Innholdsfortegnelse",
+    "search": "Søk i dokumentasjon",
+    "lastUpdate": "Sist oppdatert",
+    "searchNoResult": "Ingen resultater",
+    "previousPage": "Forrige",
+    "nextPage": "Neste",
+    "chooseLanguage": "Velg språk",
+    "title": "GenX.art Dokumentasjon",
+    "homepage": "Hjem"
+  },
+  "Marketing": {
+    "navbar": {
+      "features": {
+        "title": "Funksjoner"
+      },
+      "pricing": {
+        "title": "Priser"
+      },
+      "blog": {
+        "title": "Blogg"
+      },
+      "docs": {
+        "title": "Docs"
+      },
+      "create": {
+        "title": "Opprett",
+        "items": {
+          "imageToVideo": {
+            "title": "Bilde til video",
+            "description": "Forvandle bilder til kunstvideor"
+          },
+          "textToVideo": {
+            "title": "Tekst til video",
+            "description": "Generer videoer fra tekstbeskrivelser"
+          },
+          "image": {
+            "title": "AI-bilde",
+            "description": "Generer vakre bilder med AI"
+          }
+        }
+      },
+      "styles": {
+        "title": "Stiler"
+      },
+      "gallery": {
+        "title": "Galleri"
+      }
+    },
+    "footer": {
+      "tagline": "Hvert bilde er kunst - Forvandle bilder til fantastiske kunstvideor",
+      "videoModels": {
+        "title": "Videomodeller",
+        "items": {
+          "veo3": "Veo 3",
+          "sora2": "Sora 2",
+          "kling": "Kling AI",
+          "hailuo": "Hailuo AI",
+          "seedance": "Seedance",
+          "wan": "Wan AI",
+          "omnihuman": "OmniHuman",
+          "moreModels": "Flere modeller"
+        }
+      },
+      "imageModels": {
+        "title": "Bildemodeller",
+        "items": {
+          "gptImage": "GPT Image",
+          "seedream": "Seedream",
+          "nanobanana": "Nanobanana Pro",
+          "wanImage": "Wan 2.5 Image",
+          "moreModels": "Flere modeller"
+        }
+      },
+      "product": {
+        "title": "Produkt",
+        "items": {
+          "features": "Funksjoner",
+          "styles": "Kunststiler",
+          "gallery": "Galleri",
+          "pricing": "Priser",
+          "faq": "FAQ"
+        }
+      },
+      "resources": {
+        "title": "Ressurser",
+        "items": {
+          "blog": "Blogg",
+          "docs": "Dokumentasjon",
+          "help": "Hjelpesenter",
+          "changelog": "Endringslogg",
+          "roadmap": "Veikart"
+        }
+      },
+      "companyAndLegal": {
+        "title": "Selskap",
+        "items": {
+          "about": "Om oss",
+          "contact": "Kontakt",
+          "waitlist": "Venteliste",
+          "privacyPolicy": "Personvernregler",
+          "termsOfService": "Tjenestevilkår"
+        }
+      }
+    },
+    "avatar": {
+      "dashboard": "Dashbord",
+      "billing": "Fakturering",
+      "credits": "Kreditter",
+      "settings": "Innstillinger"
+    }
+  },
+  "Landing": {
+    "hero": {
+      "headline": "Hvert bilde er kunst",
+      "subheadline": "Last opp et bilde, velg en kunststil, få en fantastisk kunstvideo på 30 sekunder. Ingen ferdigheter nødvendig.",
+      "cta": {
+        "primary": "Last opp bilde",
+        "secondary": "Se muligheter"
+      },
+      "socialProof": "kunstvideor opprettet",
+      "scrollHint": "Rull for å utforske",
+      "switchStyle": "Bytt til {style}-stil"
+    },
+    "finalCta": {
+      "headline": "Klar til å lage din første kunstvideo?",
+      "subheadline": "På 30 sekunder har du en fantastisk kunstvideo",
+      "cta": "Begynn å skape gratis",
+      "trust": {
+        "thirtySeconds": "Klar på 30 sekunder",
+        "instantDownload": "Umiddelbar nedlasting"
+      }
+    },
+    "gallery": {
+      "badge": "Skapergalleri",
+      "headline": "Se hva skaperne lager",
+      "subheadline": "Kunstvideoer fra skapere over hele verden som bruker GenX. Klikk på et verk for å se stil og prompt.",
+      "styles": {
+        "all": "Alle",
+        "cyberpunk": "Cyberpunk",
+        "watercolor": "Akvarell",
+        "oilPainting": "Oljemaling",
+        "anime": "Anime",
+        "fluidArt": "Fluid Art"
+      },
+      "videoTitle": "Video {style}",
+      "promptLabel": "Brukt prompt:",
+      "createSimilar": "Lag lignende",
+      "loadMore": "Last inn mer",
+      "createOwn": "Lag din egen",
+      "items": {
+        "1": {
+          "prompt": "Neonopplyst bygate om natten, regn som faller gjennom holografiske reklamer"
+        },
+        "2": {
+          "prompt": "En fredelig fjellsjø ved solnedgang med myke akvarelleffekter"
+        },
+        "3": {
+          "prompt": "Et klassisk portrett i Rembrandt-stil med varmt gyllent lys"
+        },
+        "4": {
+          "prompt": "Kirsebærblomstblader som faller i en japansk hage, anime-stil"
+        },
+        "5": {
+          "prompt": "Abstrakte farger som virvler som flytende marmor, fascinerende flyt"
+        },
+        "6": {
+          "prompt": "Flyvende biler gjennom et futuristisk bylandskap med glitch-effekter"
+        }
+      }
+    },
+    "useCases": {
+      "badge": "Bruksområder",
+      "headline": "Skapere bruker GenX til",
+      "cases": {
+        "social": {
+          "title": "Sosiale medier",
+          "description": "Skill deg ut på TikTok, Instagram, YouTube. Samme innhold, annerledes visuell effekt.",
+          "example": "Den virale videomaskinen for skapere"
+        },
+        "product": {
+          "title": "Produktdemoer",
+          "description": "Statiske produktbilder er kjedelige. La dem flyte i kunststiler.",
+          "example": "Gi produktene dine liv"
+        },
+        "art": {
+          "title": "Kunstskaping",
+          "description": "Ingen kunstferdigheter nødvendig. Uttrykk ideene dine med AI.",
+          "example": "Nå er alle kunstnere"
+        },
+        "content": {
+          "title": "Innholdsproduksjon",
+          "description": "Tutorials, vlogger, historier — hvert bilde holder seerne fengslet.",
+          "example": "Historier fortjener bedre visuals"
+        }
+      },
+      "cta": "Begynn å skape"
+    },
+    "whyGenx": {
+      "badge": "Hvorfor GenX",
+      "headline": "Hvorfor skapere velger GenX",
+      "features": {
+        "quality": {
+          "title": "Kunstnerisk kvalitet",
+          "description": "Ikke bare filtre — ekte stiloverføringsteknologi. Hvert bilde er AI-skapt."
+        },
+        "speed": {
+          "title": "30 sekunder",
+          "description": "Optimert skybehandling leverer kunstvideoen din på under 30 sekunder."
+        },
+        "free": {
+          "title": "Start gratis",
+          "description": "3 gratis kreasjoner per dag. Nok til å prøve og bli forelsket."
+        },
+        "anywhere": {
+          "title": "Overalt",
+          "description": "Ingen nedlasting nødvendig. I nettleseren, enhver enhet, når som helst."
+        }
+      },
+      "trust": {
+        "noWatermark": "Ingen skjult vannmerke (Pro)"
+      }
+    },
+    "testimonials": {
+      "badge": "Anmeldelser",
+      "headline": "Hva skaperne sier",
+      "items": {
+        "1": {
+          "name": "Sarah Chen",
+          "role": "TikTok-skaper",
+          "content": "Endelig trenger jeg ikke lære After Effects! Laster opp et bilde, får en video. Kollegene spør alltid hvilken programvare jeg bruker."
+        },
+        "2": {
+          "name": "Mike Johnson",
+          "role": "Indie-utvikler",
+          "content": "For første gang følte jeg at jeg virkelig kunne lage kunstvideoer. Fantastisk!"
+        },
+        "3": {
+          "name": "Emma Davis",
+          "role": "Markedssjef",
+          "content": "Reduserte produktvideokostnadene med 80%, og resultatene er enda bedre."
+        },
+        "4": {
+          "name": "Alex Kim",
+          "role": "Innholdsskaper",
+          "content": "Anime-stilen er utrolig. TikTok-engasjementet mitt eksploderte!"
+        }
+      },
+      "trustBadges": {
+        "comingSoon": "Anmeldelser kommer snart",
+        "securePayment": "Sikker betaling via Stripe"
+      }
+    },
+    "pricing": {
+      "badge": "Priser",
+      "headline": "Enkle og gjennomsiktige priser",
+      "popular": "Mest populær",
+      "bestValue": "Beste verdi",
+      "perMonth": "/måned",
+      "oneTime": "engangsbetaling",
+      "yearlyOption": "eller ${price}/år (spar {discount}%)",
+      "plans": {
+        "free": {
+          "name": "Gratis",
+          "description": "Perfekt for å prøve GenX",
+          "feature1": "3 kreasjoner per dag",
+          "feature2": "Alle 5 kunststiler",
+          "feature3": "720p oppløsning",
+          "feature4": "Personlig brukslisens",
+          "limit": "GenX vannmerke inkludert",
+          "cta": "Start gratis"
+        },
+        "pro": {
+          "name": "Pro",
+          "description": "For seriøse skapere",
+          "feature1": "Ubegrensede kreasjoner",
+          "feature2": "1080p HD oppløsning",
+          "feature3": "Uten vannmerke",
+          "feature4": "Kommersiell lisens",
+          "cta": "Oppgrader til Pro"
+        }
+      },
+      "paymentNote": "Sikker betaling via Stripe",
+      "seeFullPricing": "Se full prissammenligning"
+    },
+    "faq": {
+      "badge": "FAQ",
+      "headline": "Ofte stilte spørsmål",
+      "items": {
+        "free": {
+          "question": "Er GenX gratis?",
+          "answer": "Ja! Besøkende kan lage 3 videoer per dag gratis. Registrerte brukere får mer. Trenger du mer? Se Pro-planen."
+        },
+        "skills": {
+          "question": "Trenger jeg tekniske ferdigheter?",
+          "answer": "Absolutt ikke! Kan du laste opp et bilde og klikke på en knapp, kan du bruke GenX."
+        },
+        "commercial": {
+          "question": "Kan jeg bruke videoene kommersielt?",
+          "answer": "Gratis videoer er kun for personlig bruk. Pro-brukere får full kommersiell lisens."
+        },
+        "watermark": {
+          "question": "Har videoene vannmerke?",
+          "answer": "Gratis videoer har et lite GenX-vannmerke. Pro-brukere kan laste ned HD-videoer uten vannmerke."
+        },
+        "formats": {
+          "question": "Hvilke bildeformater støttes?",
+          "answer": "Vi støtter JPG og PNG, opptil 10MB per bilde. Originale høyoppløsningsbilder gir bedre resultater."
+        },
+        "time": {
+          "question": "Hvor lang tid tar genereringen?",
+          "answer": "Vanligvis 15-45 sekunder. Du ser fremdriften i sanntid på skjermen."
+        },
+        "data": {
+          "question": "Hvor lagres dataene mine? (GDPR)",
+          "answer": "Dataene dine lagres på sikre AWS-servere i USA og EU. Vi overholder GDPR — du kan be om sletting av data."
+        },
+        "payment": {
+          "question": "Hvilke betalingsmetoder godtar dere?",
+          "answer": "Vi godtar Visa, Mastercard, American Express og PayPal via Stripe. Alle betalinger er sikre og krypterte."
+        },
+        "refund": {
+          "question": "Hva er refusjonspolicyen?",
+          "answer": "7 dagers pengene-tilbake-garanti for Pro-abonnementer. Kontakt support@genx.art innen garantiperioden."
+        },
+        "cancel": {
+          "question": "Hvordan kansellerer jeg abonnementet?",
+          "answer": "Du kan kansellere når som helst fra dashboardet eller ved å kontakte support@genx.art. Tilgangen fortsetter til slutten av faktureringsperioden."
+        }
+      }
+    }
+  },
+  "Generator": {
+    "modes": {
+      "textToVideo": "Tekst til video",
+      "imageToVideo": "Bilde til video",
+      "textToImage": "Tekst til bilde",
+      "imageToImage": "Bilde til bilde",
+      "referenceToVideo": "Referanse til video",
+      "audio": "Lyd"
+    },
+    "input": {
+      "placeholder": "Beskriv hva du vil lage...",
+      "prompt": "PROMPT"
+    },
+    "submit": {
+      "generate": "Generer",
+      "generating": "Genererer...",
+      "insufficientCredits": "Utilstrekkelige kreditter",
+      "insufficientCreditsButton": "Skaff kreditter",
+      "balance": "Saldo",
+      "generationFailed": "Generering mislyktes, prøv igjen"
+    },
+    "model": {
+      "selectModel": "Velg modell",
+      "availableModels": "Tilgjengelige modeller",
+      "models": "Modeller",
+      "noModels": "Ingen modeller tilgjengelig",
+      "new": "Ny",
+      "credits": "{count}+ kreditter",
+      "creditsLabel": "{count} Kreditter"
+    },
+    "styles": {
+      "default": "Standard",
+      "cyberpunk": "Cyberpunk",
+      "watercolor": "Akvarell",
+      "oilPainting": "Olje",
+      "anime": "Anime",
+      "fluidArt": "Fluid Art"
+    },
+    "imageUpload": {
+      "uploadImage": "Last opp bilde",
+      "uploadHint": "JPG, PNG, WEBP • Maks 10MB",
+      "fileTooLarge": "Filen er for stor",
+      "invalidFileType": "Ugyldig filtype",
+      "imageTooLarge": "Bildet er for stort",
+      "uploadFailed": "Opplasting mislyktes, prøv igjen"
+    },
+    "result": {
+      "emptyTitle": "Ingen resultater ennå",
+      "emptyDescription": "Skriv en prompt og klikk generer",
+      "generatingTitle": "Genererer...",
+      "generatingDescription": "Vennligst vent",
+      "actions": {
+        "download": "Last ned",
+        "share": "Del",
+        "favorite": "Favoritt",
+        "downloadSuccess": "Lastet ned",
+        "downloadFailed": "Nedlasting mislyktes",
+        "linkCopied": "Lenke kopiert",
+        "favorited": "Lagt til favoritter",
+        "unfavorited": "Fjernet fra favoritter",
+        "favoriteFailed": "Favorittbytte mislyktes"
+      }
+    },
+    "history": {
+      "title": "Historikk",
+      "empty": "Ingen historikk",
+      "loading": "Laster...",
+      "loadMore": "Last mer"
+    },
+    "floating": {
+      "placeholder": "Skriv en prompt..."
+    }
+  },
+  "Onboarding": {
+    "welcome": {
+      "title": "Velkommen til GenX, {name}!",
+      "defaultName": "Skaper",
+      "description": "Bare 3 enkle steg til din første fantastiske kunstvideo.",
+      "steps": {
+        "upload": {
+          "title": "Last opp bildet ditt",
+          "description": "Alle bilder fungerer - portretter, landskap, produkter"
+        },
+        "style": {
+          "title": "Velg en kunststil",
+          "description": "5 unike stiler: Cyberpunk, Akvarell, Olje, Anime, Fluid Art"
+        },
+        "generate": {
+          "title": "Generer og last ned",
+          "description": "AI lager kunstvideoen din på ca. 30 sekunder"
+        }
+      },
+      "freeCredits": "Du har 15 gratis kreditter å starte med!",
+      "startButton": "Begynn å skape",
+      "skipButton": "Jeg utforsker selv"
+    }
+  },
+  "UserDashboard": {
+    "stats": {
+      "credits": "Kredittsaldo",
+      "creditsHint": "For AI-videogenerering",
+      "buyCredits": "Få flere kreditter",
+      "videosCreated": "Videoer opprettet",
+      "allTime": "Totalt",
+      "inProgress": "pågår"
+    },
+    "quickStart": {
+      "title": "Klar til å skape?",
+      "createVideo": "Ny video"
+    },
+    "quickActions": {
+      "title": "Hurtighandlinger",
+      "image-to-video": "Bilde til video",
+      "text-to-video": "Tekst til video",
+      "reference-to-video": "Referansevideo",
+      "image": "AI-bilde"
+    },
+    "recentCreations": {
+      "title": "Siste kreasjoner",
+      "subtitle": "Dine siste AI-videoer",
+      "viewAll": "Se alle",
+      "empty": {
+        "title": "Ingen videoer ennå",
+        "description": "Lag din første kunstvideo med AI",
+        "cta": "Lag første video"
+      },
+      "status": {
+        "generating": "Genererer",
+        "pending": "Venter",
+        "failed": "Mislyktes"
+      }
+    }
+  },
+  "Mail": {
+    "common": {
+      "team": "Team {name}",
+      "copyright": "©️ {year} Alle rettigheter forbeholdt."
+    },
+    "verifyEmail": {
+      "title": "Hei, {name}.",
+      "body": "Klikk på lenken nedenfor for å verifisere e-posten din.",
+      "confirmEmail": "Bekreft e-post",
+      "subject": "Verifiser e-posten din"
+    },
+    "forgotPassword": {
+      "title": "Hei, {name}.",
+      "body": "Klikk på lenken nedenfor for å tilbakestille passordet ditt.",
+      "resetPassword": "Tilbakestill passord",
+      "subject": "Tilbakestill passordet ditt"
+    },
+    "subscribeNewsletter": {
+      "body": "Takk for at du abonnerer på nyhetsbrevet. Vi holder deg oppdatert.",
+      "subject": "Takk for abonnementet"
+    },
+    "contactMessage": {
+      "name": "Navn: {name}",
+      "email": "E-post: {email}",
+      "message": "Melding: {message}",
+      "subject": "Kontaktmelding fra nettstedet"
+    }
+  }
+}

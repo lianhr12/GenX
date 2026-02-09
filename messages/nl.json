@@ -1,0 +1,777 @@
+{
+  "Metadata": {
+    "name": "GenX.art",
+    "title": "GenX.art - Gratis AI-videogenerator",
+    "description": "Transformeer foto's in verbluffende kunstvideo's in 30 seconden. 5 unieke stijlen: Cyberpunk, Aquarel, Olieverf, Anime, Fluid Art. Geen vaardigheden vereist.",
+    "keywords": "AI afbeelding naar video, foto naar video, kunstvideo-generator, AI-videocreator, tekst naar video"
+  },
+  "Common": {
+    "premium": "Premium",
+    "login": "Inloggen",
+    "logout": "Uitloggen",
+    "signUp": "Registreren",
+    "language": "Taal wijzigen",
+    "mode": {
+      "label": "Modus wisselen",
+      "light": "Licht",
+      "dark": "Donker",
+      "system": "Systeem"
+    },
+    "copy": "Kopiëren",
+    "saving": "Opslaan...",
+    "save": "Opslaan",
+    "loading": "Laden...",
+    "cancel": "Annuleren",
+    "logoutFailed": "Uitloggen mislukt",
+    "home": "Home",
+    "replicate": "Effect repliceren",
+    "table": {
+      "totalRecords": "Totaal {count} records",
+      "noResults": "Geen resultaten",
+      "loading": "Laden...",
+      "columns": "Kolommen",
+      "rowsPerPage": "Rijen per pagina",
+      "page": "Pagina",
+      "firstPage": "Eerste pagina",
+      "lastPage": "Laatste pagina",
+      "nextPage": "Volgende",
+      "previousPage": "Vorige",
+      "ascending": "Oplopend",
+      "descending": "Aflopend",
+      "resetSorting": "Resetten",
+      "hideColumn": "Verbergen",
+      "viewOptions": "Weergave",
+      "toggleColumns": "Kolommen wisselen",
+      "searchColumns": "Kolommen zoeken...",
+      "noColumns": "Geen kolommen gevonden.",
+      "clearFilters": "Filters wissen"
+    }
+  },
+  "PricingPage": {
+    "title": "Prijsplannen",
+    "description": "Kies het perfecte plan voor uw creatieve behoeften.",
+    "keywords": "GenX prijzen, AI-video prijzen, abonnementsplannen",
+    "subtitle": "Kies het plan dat het beste bij u past",
+    "monthly": "Maandelijks",
+    "yearly": "Jaarlijks",
+    "PricingCard": {
+      "freePrice": "€0",
+      "perMonth": "/maand",
+      "perYear": "/jaar",
+      "popular": "Populair",
+      "currentPlan": "Huidig plan",
+      "yourCurrentPlan": "Uw huidige plan",
+      "getStartedForFree": "Gratis beginnen",
+      "getStarted": "Beginnen",
+      "notAvailable": "Niet beschikbaar",
+      "daysTrial": "{days} dagen proefperiode"
+    },
+    "CheckoutButton": {
+      "loading": "Laden...",
+      "checkoutFailed": "Kan betaalpagina niet openen"
+    }
+  },
+  "PricePlans": {
+    "free": {
+      "name": "Gratis",
+      "description": "Perfect om GenX uit te proberen",
+      "features": {
+        "feature-1": "15 credits bij registratie",
+        "feature-2": "Alle 5 kunststijlen",
+        "feature-3": "1080p uitvoerkwaliteit",
+        "feature-4": "Standaard ondersteuning"
+      },
+      "limits": {
+        "limit-1": "Credits verlopen na 30 dagen",
+        "limit-2": "Watermerk inbegrepen",
+        "limit-3": "Alleen persoonlijk gebruik"
+      }
+    },
+    "pro": {
+      "name": "Pro",
+      "description": "Voor serieuze creators",
+      "features": {
+        "feature-1": "800 credits/maand",
+        "feature-2": "Alle 5 kunststijlen",
+        "feature-3": "HD 1080p uitvoer",
+        "feature-4": "Prioriteitsondersteuning",
+        "feature-5": "Geen watermerk"
+      },
+      "limits": {
+        "limit-1": "Maandelijkse credits worden niet overgedragen",
+        "limit-2": "Commerciële licentie inbegrepen"
+      }
+    }
+  },
+  "CreditPackages": {
+    "starter": {
+      "name": "Starter",
+      "description": "Perfect om AI-generatie uit te proberen"
+    },
+    "basic": {
+      "name": "Basis",
+      "description": "Ideaal voor incidentele creators"
+    },
+    "standard": {
+      "name": "Standaard",
+      "description": "Beste waarde voor reguliere gebruikers"
+    },
+    "premium": {
+      "name": "Premium",
+      "description": "Voor gevorderde gebruikers en professionals"
+    },
+    "enterprise": {
+      "name": "Enterprise",
+      "description": "Maximale credits voor intensief gebruik"
+    }
+  },
+  "NotFoundPage": {
+    "title": "404",
+    "headline": "Pagina niet gevonden",
+    "message": "De pagina die u zoekt bestaat niet of is verplaatst.",
+    "backToHome": "Terug naar home",
+    "searchHelp": "Hulp krijgen",
+    "popularPages": "Populaire pagina's",
+    "links": {
+      "imageToVideo": "Afbeelding naar video",
+      "gallery": "Galerij",
+      "docs": "Documentatie",
+      "contact": "Contact"
+    }
+  },
+  "ErrorPage": {
+    "title": "Oeps! Er ging iets mis!",
+    "tryAgain": "Opnieuw proberen",
+    "backToHome": "Terug naar home"
+  },
+  "AboutPage": {
+    "title": "Over GenX.art",
+    "description": "GenX.art is een AI-platform voor het maken van kunstvideo's.",
+    "authorName": "GenX.art",
+    "authorBio": "AI-kunstvideo platform",
+    "introduction": "GenX.art stelt creators in staat om gewone foto's om te zetten in buitengewone kunstvideo's. Met geavanceerde AI-technologie maken we professionele videoproductie toegankelijk voor iedereen.",
+    "talkWithMe": "Contact",
+    "followMe": "Volg ons op X"
+  },
+  "ChangelogPage": {
+    "title": "Wijzigingslogboek",
+    "description": "Ontdek wat er nieuw is bij GenX.art.",
+    "keywords": "GenX updates, wijzigingslogboek, nieuwe functies",
+    "subtitle": "Blijf op de hoogte van de laatste wijzigingen"
+  },
+  "RoadmapPage": {
+    "title": "Roadmap",
+    "description": "Verken de toekomstplannen van GenX.art.",
+    "keywords": "GenX roadmap, toekomstige functies",
+    "subtitle": "Verken onze toekomstplannen"
+  },
+  "ContactPage": {
+    "title": "Contact",
+    "description": "Neem contact op met het GenX.art-team.",
+    "keywords": "GenX contact, ondersteuning, hulp",
+    "subtitle": "We helpen u het juiste plan te vinden",
+    "form": {
+      "title": "Neem contact op",
+      "description": "Bij vragen of feedback, neem contact op met ons team",
+      "name": "Naam",
+      "email": "E-mail",
+      "message": "Bericht",
+      "submit": "Verzenden",
+      "submitting": "Verzenden...",
+      "success": "Bericht succesvol verzonden",
+      "fail": "Bericht verzenden mislukt",
+      "nameMinLength": "Naam moet minimaal 3 tekens bevatten",
+      "nameMaxLength": "Naam mag niet meer dan 30 tekens bevatten",
+      "emailValidation": "Voer een geldig e-mailadres in",
+      "messageMinLength": "Bericht moet minimaal 10 tekens bevatten",
+      "messageMaxLength": "Bericht mag niet meer dan 500 tekens bevatten"
+    }
+  },
+  "WaitlistPage": {
+    "title": "Wachtlijst",
+    "description": "Wees de eerste die nieuwe GenX.art-functies ervaart.",
+    "keywords": "GenX wachtlijst, vroege toegang",
+    "subtitle": "Schrijf u in op onze wachtlijst",
+    "form": {
+      "title": "Schrijf in op de wachtlijst",
+      "description": "We laten het u weten bij de lancering",
+      "email": "E-mail",
+      "subscribe": "Inschrijven",
+      "subscribing": "Inschrijven...",
+      "success": "Inschrijving gelukt",
+      "fail": "Inschrijving mislukt",
+      "emailValidation": "Voer een geldig e-mailadres in"
+    }
+  },
+  "Newsletter": {
+    "title": "Nieuwsbrief",
+    "subtitle": "Word lid van de community",
+    "description": "Abonneer u op onze nieuwsbrief voor het laatste nieuws",
+    "form": {
+      "email": "E-mail",
+      "subscribe": "Abonneren",
+      "subscribing": "Abonneren...",
+      "success": "Abonnement gelukt",
+      "fail": "Abonnement mislukt",
+      "emailValidation": "Voer een geldig e-mailadres in"
+    }
+  },
+  "AuthPage": {
+    "login": {
+      "title": "Inloggen",
+      "welcomeBack": "Welkom terug",
+      "email": "E-mail",
+      "password": "Wachtwoord",
+      "signIn": "Inloggen",
+      "signUpHint": "Geen account? Registreer",
+      "forgotPassword": "Wachtwoord vergeten?",
+      "signInWithGoogle": "Inloggen met Google",
+      "signInWithGitHub": "Inloggen met GitHub",
+      "signInWithFacebook": "Inloggen met Facebook",
+      "showPassword": "Wachtwoord tonen",
+      "hidePassword": "Wachtwoord verbergen",
+      "or": "Of doorgaan met",
+      "emailRequired": "Voer uw e-mail in",
+      "passwordRequired": "Voer uw wachtwoord in",
+      "captchaInvalid": "Captcha-verificatie mislukt",
+      "captchaError": "Captcha-fout"
+    },
+    "register": {
+      "title": "Registreren",
+      "createAccount": "Account aanmaken",
+      "name": "Naam",
+      "email": "E-mail",
+      "password": "Wachtwoord",
+      "signUp": "Registreren",
+      "signInHint": "Al een account? Inloggen",
+      "checkEmail": "Controleer uw inbox",
+      "showPassword": "Wachtwoord tonen",
+      "hidePassword": "Wachtwoord verbergen",
+      "nameRequired": "Voer uw naam in",
+      "emailRequired": "Voer uw e-mail in",
+      "passwordRequired": "Voer uw wachtwoord in",
+      "captchaInvalid": "Captcha-verificatie mislukt",
+      "captchaError": "Captcha-fout"
+    },
+    "forgotPassword": {
+      "title": "Wachtwoord vergeten",
+      "email": "E-mail",
+      "send": "Resetlink verzenden",
+      "backToLogin": "Terug naar inloggen",
+      "checkEmail": "Controleer uw inbox",
+      "emailRequired": "Voer uw e-mail in"
+    },
+    "resetPassword": {
+      "title": "Wachtwoord resetten",
+      "password": "Wachtwoord",
+      "reset": "Wachtwoord resetten",
+      "backToLogin": "Terug naar inloggen",
+      "showPassword": "Wachtwoord tonen",
+      "hidePassword": "Wachtwoord verbergen",
+      "minLength": "Wachtwoord moet minimaal 8 tekens bevatten"
+    },
+    "error": {
+      "title": "Oeps! Er ging iets mis!",
+      "tryAgain": "Probeer het opnieuw.",
+      "backToLogin": "Terug naar inloggen",
+      "checkEmail": "Controleer uw inbox"
+    },
+    "common": {
+      "termsOfService": "Servicevoorwaarden",
+      "privacyPolicy": "Privacybeleid",
+      "byClickingContinue": "Door verder te gaan, gaat u akkoord met onze ",
+      "and": " en "
+    }
+  },
+  "BlogPage": {
+    "title": "Blog",
+    "description": "AI-video tips, tutorials en nieuws van GenX.art.",
+    "subtitle": "Laatste nieuws van ons team",
+    "author": "Auteur",
+    "categories": "Categorieën",
+    "tableOfContents": "Inhoudsopgave",
+    "readTime": "{minutes} min leestijd",
+    "all": "Alles",
+    "noPostsFound": "Geen berichten gevonden",
+    "allPosts": "Alle berichten",
+    "morePosts": "Meer berichten"
+  },
+  "DocsPage": {
+    "toc": "Inhoudsopgave",
+    "search": "Documentatie doorzoeken",
+    "lastUpdate": "Laatst bijgewerkt op",
+    "searchNoResult": "Geen resultaten",
+    "previousPage": "Vorige",
+    "nextPage": "Volgende",
+    "chooseLanguage": "Taal selecteren",
+    "title": "GenX.art Documentatie",
+    "homepage": "Home"
+  },
+  "PremiumContent": {
+    "title": "Premium-inhoud ontgrendelen",
+    "description": "Abonneer u op Pro voor toegang tot alle premium-inhoud.",
+    "upgradeCta": "Nu upgraden",
+    "benefit1": "Alle premium-inhoud",
+    "benefit2": "Exclusieve inhoud",
+    "benefit3": "Op elk moment opzeggen",
+    "signIn": "Inloggen",
+    "loginRequired": "Log in om verder te lezen",
+    "loginDescription": "Dit is premium-inhoud. Log in voor volledige toegang.",
+    "checkingAccess": "Toegang controleren...",
+    "loadingContent": "Volledige inhoud laden..."
+  },
+  "Marketing": {
+    "navbar": {
+      "features": {
+        "title": "Functies"
+      },
+      "pricing": {
+        "title": "Prijzen"
+      },
+      "blog": {
+        "title": "Blog"
+      },
+      "docs": {
+        "title": "Docs"
+      },
+      "create": {
+        "title": "Creëren",
+        "items": {
+          "imageToVideo": {
+            "title": "Afbeelding naar video",
+            "description": "Transformeer foto's in kunstvideo's"
+          },
+          "textToVideo": {
+            "title": "Tekst naar video",
+            "description": "Genereer video's uit tekstbeschrijvingen"
+          },
+          "image": {
+            "title": "AI-afbeelding",
+            "description": "Genereer mooie afbeeldingen met AI"
+          }
+        }
+      },
+      "styles": {
+        "title": "Stijlen"
+      },
+      "gallery": {
+        "title": "Galerij"
+      }
+    },
+    "footer": {
+      "tagline": "Elk beeld is kunst - Transformeer foto's in verbluffende kunstvideo's",
+      "videoModels": {
+        "title": "Videomodellen",
+        "items": {
+          "veo3": "Veo 3",
+          "sora2": "Sora 2",
+          "kling": "Kling AI",
+          "hailuo": "Hailuo AI",
+          "seedance": "Seedance",
+          "wan": "Wan AI",
+          "omnihuman": "OmniHuman",
+          "moreModels": "Meer modellen"
+        }
+      },
+      "imageModels": {
+        "title": "Afbeeldingsmodellen",
+        "items": {
+          "gptImage": "GPT Image",
+          "seedream": "Seedream",
+          "nanobanana": "Nanobanana Pro",
+          "wanImage": "Wan 2.5 Image",
+          "moreModels": "Meer modellen"
+        }
+      },
+      "product": {
+        "title": "Product",
+        "items": {
+          "features": "Functies",
+          "styles": "Kunststijlen",
+          "gallery": "Galerij",
+          "pricing": "Prijzen",
+          "faq": "FAQ"
+        }
+      },
+      "resources": {
+        "title": "Bronnen",
+        "items": {
+          "blog": "Blog",
+          "docs": "Documentatie",
+          "help": "Helpcentrum",
+          "changelog": "Wijzigingslogboek",
+          "roadmap": "Roadmap"
+        }
+      },
+      "companyAndLegal": {
+        "title": "Bedrijf",
+        "items": {
+          "about": "Over ons",
+          "contact": "Contact",
+          "waitlist": "Wachtlijst",
+          "privacyPolicy": "Privacybeleid",
+          "termsOfService": "Servicevoorwaarden"
+        }
+      }
+    },
+    "avatar": {
+      "dashboard": "Dashboard",
+      "billing": "Facturering",
+      "credits": "Credits",
+      "settings": "Instellingen"
+    }
+  },
+  "Landing": {
+    "hero": {
+      "headline": "Elk beeld is kunst",
+      "subheadline": "Upload een foto, kies een kunststijl, ontvang een verbluffende kunstvideo in 30 seconden. Geen vaardigheden nodig.",
+      "cta": {
+        "primary": "Foto uploaden",
+        "secondary": "Bekijk mogelijkheden"
+      },
+      "socialProof": "kunstvideo's gemaakt",
+      "scrollHint": "Scroll om te ontdekken",
+      "switchStyle": "Schakel naar {style}-stijl"
+    },
+    "finalCta": {
+      "headline": "Klaar om uw eerste kunstvideo te maken?",
+      "subheadline": "In 30 seconden heeft u een verbluffende kunstvideo",
+      "cta": "Gratis beginnen met creëren",
+      "trust": {
+        "thirtySeconds": "Klaar in 30 seconden",
+        "instantDownload": "Direct downloaden"
+      }
+    },
+    "gallery": {
+      "badge": "Maker-galerij",
+      "headline": "Bekijk wat makers creëren",
+      "subheadline": "Kunstvideo's van makers wereldwijd die GenX gebruiken. Klik op een werk om de stijl en prompt te zien.",
+      "styles": {
+        "all": "Alle",
+        "cyberpunk": "Cyberpunk",
+        "watercolor": "Aquarel",
+        "oilPainting": "Olieverf",
+        "anime": "Anime",
+        "fluidArt": "Fluid Art"
+      },
+      "videoTitle": "Video {style}",
+      "promptLabel": "Gebruikte prompt:",
+      "createSimilar": "Maak vergelijkbaar",
+      "loadMore": "Meer laden",
+      "createOwn": "Maak je eigen",
+      "items": {
+        "1": {
+          "prompt": "Neonverlichte stadsstraat 's nachts, regen die valt door holografische advertenties"
+        },
+        "2": {
+          "prompt": "Een sereen bergmeer bij zonsondergang met zachte aquareleffecten"
+        },
+        "3": {
+          "prompt": "Een klassiek portret in Rembrandt-stijl met warm gouden licht"
+        },
+        "4": {
+          "prompt": "Kersenbloesemblaadjes die vallen in een Japanse tuin, anime-stijl"
+        },
+        "5": {
+          "prompt": "Abstracte kleuren die draaien als vloeibaar marmer, betoverende flow"
+        },
+        "6": {
+          "prompt": "Vliegende auto's door een futuristisch stadslandschap met glitch-effecten"
+        }
+      }
+    },
+    "useCases": {
+      "badge": "Toepassingen",
+      "headline": "Makers gebruiken GenX voor",
+      "cases": {
+        "social": {
+          "title": "Social media",
+          "description": "Val op op TikTok, Instagram, YouTube. Dezelfde content, andere visuele impact.",
+          "example": "De virale videomachine voor makers"
+        },
+        "product": {
+          "title": "Productdemo's",
+          "description": "Statische productfoto's zijn saai. Laat ze stromen in kunststijlen.",
+          "example": "Breng je producten tot leven"
+        },
+        "art": {
+          "title": "Kunstcreatie",
+          "description": "Geen kunstvaardigheden nodig. Druk je ideeën uit met AI.",
+          "example": "Nu is iedereen een kunstenaar"
+        },
+        "content": {
+          "title": "Contentcreatie",
+          "description": "Tutorials, vlogs, verhalen — elk beeld houdt kijkers geboeid.",
+          "example": "Verhalen verdienen betere visuals"
+        }
+      },
+      "cta": "Begin met maken"
+    },
+    "whyGenx": {
+      "badge": "Waarom GenX",
+      "headline": "Waarom makers kiezen voor GenX",
+      "features": {
+        "quality": {
+          "title": "Artistieke kwaliteit",
+          "description": "Geen simpele filters — echte stijloverdrachtstechnologie. Elk beeld is AI-gemaakt."
+        },
+        "speed": {
+          "title": "30 seconden",
+          "description": "Geoptimaliseerde cloudverwerking levert je kunstvideo in minder dan 30 seconden."
+        },
+        "free": {
+          "title": "Start gratis",
+          "description": "3 gratis creaties per dag. Genoeg om te proberen en verliefd te worden."
+        },
+        "anywhere": {
+          "title": "Overal",
+          "description": "Geen download nodig. In de browser, elk apparaat, altijd en overal."
+        }
+      },
+      "trust": {
+        "noWatermark": "Geen verborgen watermerk (Pro)"
+      }
+    },
+    "testimonials": {
+      "badge": "Reviews",
+      "headline": "Wat makers zeggen",
+      "items": {
+        "1": {
+          "name": "Sarah Chen",
+          "role": "TikTok-maker",
+          "content": "Eindelijk hoef ik geen After Effects te leren! Upload een foto, krijg een video. Collega's vragen altijd welke software ik gebruik."
+        },
+        "2": {
+          "name": "Mike Johnson",
+          "role": "Indie-ontwikkelaar",
+          "content": "Voor het eerst voelde ik dat ik echt kunstvideo's kon maken. Geweldig!"
+        },
+        "3": {
+          "name": "Emma Davis",
+          "role": "Marketingmanager",
+          "content": "Onze productvideokosten met 80% verlaagd en de resultaten zijn nog beter."
+        },
+        "4": {
+          "name": "Alex Kim",
+          "role": "Contentmaker",
+          "content": "De anime-stijl is ongelooflijk. Mijn TikTok-engagement is geëxplodeerd!"
+        }
+      },
+      "trustBadges": {
+        "comingSoon": "Reviews binnenkort",
+        "securePayment": "Veilige betaling via Stripe"
+      }
+    },
+    "pricing": {
+      "badge": "Prijzen",
+      "headline": "Eenvoudige en transparante prijzen",
+      "popular": "Meest populair",
+      "bestValue": "Beste waarde",
+      "perMonth": "/maand",
+      "oneTime": "eenmalig",
+      "yearlyOption": "of ${price}/jaar (bespaar {discount}%)",
+      "plans": {
+        "free": {
+          "name": "Gratis",
+          "description": "Perfect om GenX te proberen",
+          "feature1": "3 creaties per dag",
+          "feature2": "Alle 5 kunststijlen",
+          "feature3": "720p resolutie",
+          "feature4": "Persoonlijke gebruikslicentie",
+          "limit": "GenX watermerk inbegrepen",
+          "cta": "Start gratis"
+        },
+        "pro": {
+          "name": "Pro",
+          "description": "Voor serieuze makers",
+          "feature1": "Onbeperkte creaties",
+          "feature2": "1080p HD resolutie",
+          "feature3": "Zonder watermerk",
+          "feature4": "Commerciële licentie",
+          "cta": "Upgrade naar Pro"
+        }
+      },
+      "paymentNote": "Veilige betaling via Stripe",
+      "seeFullPricing": "Bekijk volledige prijsvergelijking"
+    },
+    "faq": {
+      "badge": "FAQ",
+      "headline": "Veelgestelde vragen",
+      "items": {
+        "free": {
+          "question": "Is GenX gratis?",
+          "answer": "Ja! Bezoekers kunnen 3 video's per dag gratis maken. Geregistreerde gebruikers krijgen meer. Meer nodig? Bekijk het Pro-plan."
+        },
+        "skills": {
+          "question": "Heb ik technische vaardigheden nodig?",
+          "answer": "Absoluut niet! Kun je een foto uploaden en op een knop klikken, dan kun je GenX gebruiken."
+        },
+        "commercial": {
+          "question": "Kan ik de video's commercieel gebruiken?",
+          "answer": "Gratis video's zijn alleen voor persoonlijk gebruik. Pro-gebruikers krijgen een volledige commerciële licentie."
+        },
+        "watermark": {
+          "question": "Hebben de video's een watermerk?",
+          "answer": "Gratis video's hebben een klein GenX-watermerk. Pro-gebruikers kunnen HD-video's zonder watermerk downloaden."
+        },
+        "formats": {
+          "question": "Welke afbeeldingsformaten worden ondersteund?",
+          "answer": "We ondersteunen JPG en PNG, tot 10MB per afbeelding. Originele hoge resolutie afbeeldingen geven betere resultaten."
+        },
+        "time": {
+          "question": "Hoe lang duurt het genereren?",
+          "answer": "Meestal 15-45 seconden. Je ziet de voortgang in realtime op het scherm."
+        },
+        "data": {
+          "question": "Waar worden mijn gegevens opgeslagen? (AVG)",
+          "answer": "Je gegevens worden opgeslagen op beveiligde AWS-servers in de VS en EU. We voldoen aan de AVG — je kunt op elk moment verwijdering van gegevens aanvragen."
+        },
+        "payment": {
+          "question": "Welke betaalmethoden accepteren jullie?",
+          "answer": "We accepteren Visa, Mastercard, American Express en PayPal via Stripe. Alle betalingen zijn veilig en versleuteld."
+        },
+        "refund": {
+          "question": "Wat is het restitutiebeleid?",
+          "answer": "7 dagen geld-terug-garantie voor Pro-abonnementen. Neem contact op met support@genx.art binnen de garantieperiode."
+        },
+        "cancel": {
+          "question": "Hoe annuleer ik mijn abonnement?",
+          "answer": "Je kunt op elk moment annuleren via je dashboard of door contact op te nemen met support@genx.art. Je toegang loopt door tot het einde van de facturatieperiode."
+        }
+      }
+    }
+  },
+  "Generator": {
+    "modes": {
+      "textToVideo": "Tekst naar video",
+      "imageToVideo": "Afbeelding naar video",
+      "textToImage": "Tekst naar afbeelding",
+      "imageToImage": "Afbeelding naar afbeelding",
+      "referenceToVideo": "Referentie naar video",
+      "audio": "Audio"
+    },
+    "input": {
+      "placeholder": "Beschrijf wat u wilt creëren...",
+      "prompt": "PROMPT"
+    },
+    "submit": {
+      "generate": "Genereren",
+      "generating": "Genereren...",
+      "insufficientCredits": "Onvoldoende credits",
+      "insufficientCreditsButton": "Credits kopen",
+      "balance": "Saldo",
+      "generationFailed": "Genereren mislukt, probeer opnieuw"
+    },
+    "model": {
+      "selectModel": "Model selecteren",
+      "availableModels": "Beschikbare modellen",
+      "models": "Modellen",
+      "noModels": "Geen modellen beschikbaar",
+      "new": "Nieuw",
+      "credits": "{count}+ credits",
+      "creditsLabel": "{count} Credits"
+    },
+    "styles": {
+      "default": "Standaard",
+      "cyberpunk": "Cyberpunk",
+      "watercolor": "Aquarel",
+      "oilPainting": "Olieverf",
+      "anime": "Anime",
+      "fluidArt": "Fluid Art"
+    },
+    "imageUpload": {
+      "uploadImage": "Afbeelding uploaden",
+      "uploadHint": "JPG, PNG, WEBP • Max 10MB",
+      "fileTooLarge": "Bestand te groot",
+      "invalidFileType": "Ongeldig bestandstype",
+      "imageTooLarge": "Afbeelding te groot",
+      "uploadFailed": "Upload mislukt, probeer opnieuw"
+    },
+    "result": {
+      "emptyTitle": "Nog geen resultaat",
+      "emptyDescription": "Voer een prompt in en klik op genereren",
+      "generatingTitle": "Genereren...",
+      "generatingDescription": "Even geduld",
+      "actions": {
+        "download": "Downloaden",
+        "share": "Delen",
+        "favorite": "Favoriet",
+        "downloadSuccess": "Succesvol gedownload",
+        "downloadFailed": "Download mislukt",
+        "linkCopied": "Link gekopieerd",
+        "favorited": "Aan favorieten toegevoegd",
+        "unfavorited": "Uit favorieten verwijderd",
+        "favoriteFailed": "Favoriet wisselen mislukt"
+      }
+    },
+    "history": {
+      "title": "Geschiedenis",
+      "empty": "Geen geschiedenis",
+      "loading": "Laden...",
+      "loadMore": "Meer laden"
+    },
+    "floating": {
+      "placeholder": "Voer een prompt in..."
+    }
+  },
+  "Onboarding": {
+    "welcome": {
+      "title": "Welkom bij GenX, {name}!",
+      "defaultName": "Creator",
+      "description": "Slechts 3 eenvoudige stappen naar uw eerste kunstvideo.",
+      "steps": {
+        "upload": {
+          "title": "Upload uw foto",
+          "description": "Elke foto werkt - portretten, landschappen, producten"
+        },
+        "style": {
+          "title": "Kies een kunststijl",
+          "description": "5 unieke stijlen: Cyberpunk, Aquarel, Olieverf, Anime, Fluid Art"
+        },
+        "generate": {
+          "title": "Genereer en download",
+          "description": "AI maakt uw kunstvideo in ca. 30 seconden"
+        }
+      },
+      "freeCredits": "U heeft 15 gratis credits om te beginnen!",
+      "startButton": "Begin met creëren",
+      "skipButton": "Ik verken zelf"
+    }
+  },
+  "UserDashboard": {
+    "stats": {
+      "credits": "Credit-saldo",
+      "creditsHint": "Voor AI-videogeneratie",
+      "buyCredits": "Meer credits",
+      "videosCreated": "Gemaakte video's",
+      "allTime": "Totaal",
+      "inProgress": "in uitvoering"
+    },
+    "quickStart": {
+      "title": "Klaar om te creëren?",
+      "createVideo": "Nieuwe video"
+    },
+    "quickActions": {
+      "title": "Snelle acties",
+      "image-to-video": "Afbeelding naar video",
+      "text-to-video": "Tekst naar video",
+      "reference-to-video": "Referentievideo",
+      "image": "AI-afbeelding"
+    },
+    "recentCreations": {
+      "title": "Recente creaties",
+      "subtitle": "Uw laatste AI-video's",
+      "viewAll": "Alles bekijken",
+      "empty": {
+        "title": "Nog geen video's",
+        "description": "Maak uw eerste kunstvideo met AI",
+        "cta": "Eerste video maken"
+      },
+      "status": {
+        "generating": "Genereren",
+        "pending": "In afwachting",
+        "failed": "Mislukt"
+      }
+    }
+  }
+}

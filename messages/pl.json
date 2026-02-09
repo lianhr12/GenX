@@ -1,0 +1,678 @@
+{
+  "Metadata": {
+    "name": "GenX.art",
+    "title": "GenX.art - Darmowy generator wideo AI",
+    "description": "Zamień zdjęcia w oszałamiające artystyczne filmy w 30 sekund. 5 unikalnych stylów: Cyberpunk, Akwarela, Obraz olejny, Anime, Fluid Art. Bez umiejętności.",
+    "keywords": "AI obraz na wideo, zdjęcie na wideo, generator artystycznych filmów, kreator wideo AI, tekst na wideo"
+  },
+  "Common": {
+    "premium": "Premium",
+    "login": "Zaloguj się",
+    "logout": "Wyloguj się",
+    "signUp": "Zarejestruj się",
+    "language": "Zmień język",
+    "mode": {
+      "label": "Przełącz tryb",
+      "light": "Jasny",
+      "dark": "Ciemny",
+      "system": "Systemowy"
+    },
+    "copy": "Kopiuj",
+    "saving": "Zapisywanie...",
+    "save": "Zapisz",
+    "loading": "Ładowanie...",
+    "cancel": "Anuluj",
+    "logoutFailed": "Wylogowanie nie powiodło się",
+    "home": "Strona główna",
+    "replicate": "Powiel efekt",
+    "table": {
+      "totalRecords": "Łącznie {count} rekordów",
+      "noResults": "Brak wyników",
+      "loading": "Ładowanie...",
+      "columns": "Kolumny",
+      "rowsPerPage": "Wierszy na stronę",
+      "page": "Strona",
+      "firstPage": "Pierwsza strona",
+      "lastPage": "Ostatnia strona",
+      "nextPage": "Następna",
+      "previousPage": "Poprzednia",
+      "ascending": "Rosnąco",
+      "descending": "Malejąco",
+      "resetSorting": "Resetuj",
+      "hideColumn": "Ukryj",
+      "viewOptions": "Widok",
+      "toggleColumns": "Przełącz kolumny",
+      "searchColumns": "Szukaj kolumn...",
+      "noColumns": "Nie znaleziono kolumn.",
+      "clearFilters": "Wyczyść filtry"
+    }
+  },
+  "PricingPage": {
+    "title": "Plany cenowe",
+    "description": "Wybierz idealny plan dla swoich potrzeb twórczych.",
+    "keywords": "ceny GenX, ceny wideo AI, plany subskrypcji",
+    "subtitle": "Wybierz plan najlepszy dla Ciebie",
+    "monthly": "Miesięcznie",
+    "yearly": "Rocznie",
+    "PricingCard": {
+      "freePrice": "0 zł",
+      "perMonth": "/mies.",
+      "perYear": "/rok",
+      "popular": "Popularny",
+      "currentPlan": "Obecny plan",
+      "yourCurrentPlan": "Twój obecny plan",
+      "getStartedForFree": "Zacznij za darmo",
+      "getStarted": "Zacznij",
+      "notAvailable": "Niedostępne",
+      "daysTrial": "{days}-dniowy okres próbny"
+    },
+    "CheckoutButton": {
+      "loading": "Ładowanie...",
+      "checkoutFailed": "Nie można otworzyć strony płatności"
+    }
+  },
+  "PricePlans": {
+    "free": {
+      "name": "Darmowy",
+      "description": "Idealny do wypróbowania GenX",
+      "features": {
+        "feature-1": "15 kredytów przy rejestracji",
+        "feature-2": "Wszystkie 5 stylów",
+        "feature-3": "Jakość wyjściowa 1080p",
+        "feature-4": "Standardowe wsparcie"
+      },
+      "limits": {
+        "limit-1": "Kredyty wygasają po 30 dniach",
+        "limit-2": "Ze znakiem wodnym",
+        "limit-3": "Tylko do użytku osobistego"
+      }
+    },
+    "pro": {
+      "name": "Pro",
+      "description": "Dla poważnych twórców",
+      "features": {
+        "feature-1": "800 kredytów/mies.",
+        "feature-2": "Wszystkie 5 stylów",
+        "feature-3": "Wyjście HD 1080p",
+        "feature-4": "Priorytetowe wsparcie",
+        "feature-5": "Bez znaku wodnego"
+      },
+      "limits": {
+        "limit-1": "Kredyty miesięczne nie kumulują się",
+        "limit-2": "Licencja komercyjna w cenie"
+      }
+    }
+  },
+  "CreditPackages": {
+    "starter": {
+      "name": "Starter",
+      "description": "Do wypróbowania generowania AI"
+    },
+    "basic": {
+      "name": "Podstawowy",
+      "description": "Dla okazjonalnych twórców"
+    },
+    "standard": {
+      "name": "Standard",
+      "description": "Najlepsza wartość dla regularnych użytkowników"
+    },
+    "premium": {
+      "name": "Premium",
+      "description": "Dla zaawansowanych użytkowników"
+    },
+    "enterprise": {
+      "name": "Enterprise",
+      "description": "Maksymalna liczba kredytów"
+    }
+  },
+  "NotFoundPage": {
+    "title": "404",
+    "headline": "Strona nie znaleziona",
+    "message": "Przepraszamy, szukana strona nie istnieje lub została przeniesiona.",
+    "backToHome": "Powrót na stronę główną",
+    "searchHelp": "Uzyskaj pomoc",
+    "popularPages": "Popularne strony",
+    "links": {
+      "imageToVideo": "Obraz na wideo",
+      "gallery": "Galeria",
+      "docs": "Dokumentacja",
+      "contact": "Kontakt"
+    }
+  },
+  "ErrorPage": {
+    "title": "Ups! Coś poszło nie tak!",
+    "tryAgain": "Spróbuj ponownie",
+    "backToHome": "Powrót na stronę główną"
+  },
+  "AboutPage": {
+    "title": "O GenX.art",
+    "description": "GenX.art to platforma do tworzenia artystycznych filmów z wykorzystaniem AI.",
+    "authorName": "GenX.art",
+    "authorBio": "Platforma artystycznych filmów AI",
+    "introduction": "GenX.art umożliwia twórcom przekształcanie zwykłych zdjęć w niezwykłe artystyczne filmy. Dzięki zaawansowanej technologii AI udostępniamy profesjonalną produkcję wideo dla każdego.",
+    "talkWithMe": "Kontakt",
+    "followMe": "Obserwuj nas na X"
+  },
+  "AuthPage": {
+    "login": {
+      "title": "Logowanie",
+      "welcomeBack": "Witamy ponownie",
+      "email": "E-mail",
+      "password": "Hasło",
+      "signIn": "Zaloguj się",
+      "signUpHint": "Nie masz konta? Zarejestruj się",
+      "forgotPassword": "Zapomniałeś hasła?",
+      "signInWithGoogle": "Zaloguj przez Google",
+      "signInWithGitHub": "Zaloguj przez GitHub",
+      "signInWithFacebook": "Zaloguj przez Facebook",
+      "showPassword": "Pokaż hasło",
+      "hidePassword": "Ukryj hasło",
+      "or": "Lub kontynuuj przez",
+      "emailRequired": "Podaj e-mail",
+      "passwordRequired": "Podaj hasło",
+      "captchaInvalid": "Weryfikacja captcha nie powiodła się",
+      "captchaError": "Błąd captcha"
+    },
+    "register": {
+      "title": "Rejestracja",
+      "createAccount": "Utwórz konto",
+      "name": "Imię",
+      "email": "E-mail",
+      "password": "Hasło",
+      "signUp": "Zarejestruj się",
+      "signInHint": "Masz już konto? Zaloguj się",
+      "checkEmail": "Sprawdź swoją skrzynkę",
+      "showPassword": "Pokaż hasło",
+      "hidePassword": "Ukryj hasło",
+      "nameRequired": "Podaj imię",
+      "emailRequired": "Podaj e-mail",
+      "passwordRequired": "Podaj hasło",
+      "captchaInvalid": "Weryfikacja captcha nie powiodła się",
+      "captchaError": "Błąd captcha"
+    },
+    "forgotPassword": {
+      "title": "Zapomniałem hasła",
+      "email": "E-mail",
+      "send": "Wyślij link resetujący",
+      "backToLogin": "Powrót do logowania",
+      "checkEmail": "Sprawdź swoją skrzynkę",
+      "emailRequired": "Podaj e-mail"
+    },
+    "resetPassword": {
+      "title": "Resetuj hasło",
+      "password": "Hasło",
+      "reset": "Resetuj hasło",
+      "backToLogin": "Powrót do logowania",
+      "showPassword": "Pokaż hasło",
+      "hidePassword": "Ukryj hasło",
+      "minLength": "Hasło musi mieć co najmniej 8 znaków"
+    },
+    "error": {
+      "title": "Ups! Coś poszło nie tak!",
+      "tryAgain": "Spróbuj ponownie.",
+      "backToLogin": "Powrót do logowania",
+      "checkEmail": "Sprawdź swoją skrzynkę"
+    },
+    "common": {
+      "termsOfService": "Regulamin",
+      "privacyPolicy": "Polityka prywatności",
+      "byClickingContinue": "Kontynuując, zgadzasz się z naszym ",
+      "and": " i "
+    }
+  },
+  "BlogPage": {
+    "title": "Blog",
+    "description": "Porady dotyczące tworzenia wideo AI, samouczki i nowości z GenX.art.",
+    "subtitle": "Najnowsze wiadomości od naszego zespołu",
+    "author": "Autor",
+    "categories": "Kategorie",
+    "tableOfContents": "Spis treści",
+    "readTime": "{minutes} min czytania",
+    "all": "Wszystko",
+    "noPostsFound": "Nie znaleziono wpisów",
+    "allPosts": "Wszystkie wpisy",
+    "morePosts": "Więcej wpisów"
+  },
+  "DocsPage": {
+    "toc": "Spis treści",
+    "search": "Szukaj w dokumentacji",
+    "lastUpdate": "Ostatnia aktualizacja",
+    "searchNoResult": "Brak wyników",
+    "previousPage": "Poprzednia",
+    "nextPage": "Następna",
+    "chooseLanguage": "Wybierz język",
+    "title": "Dokumentacja GenX.art",
+    "homepage": "Strona główna"
+  },
+  "Marketing": {
+    "navbar": {
+      "features": {
+        "title": "Funkcje"
+      },
+      "pricing": {
+        "title": "Cennik"
+      },
+      "blog": {
+        "title": "Blog"
+      },
+      "docs": {
+        "title": "Dokumentacja"
+      },
+      "create": {
+        "title": "Twórz",
+        "items": {
+          "imageToVideo": {
+            "title": "Obraz na wideo",
+            "description": "Zamień zdjęcia w artystyczne filmy"
+          },
+          "textToVideo": {
+            "title": "Tekst na wideo",
+            "description": "Generuj wideo z opisu tekstowego"
+          },
+          "image": {
+            "title": "Obraz AI",
+            "description": "Generuj piękne obrazy z AI"
+          }
+        }
+      },
+      "styles": {
+        "title": "Style"
+      },
+      "gallery": {
+        "title": "Galeria"
+      }
+    },
+    "footer": {
+      "tagline": "Każda klatka to sztuka - Zamień zdjęcia w artystyczne filmy",
+      "product": {
+        "title": "Produkt",
+        "items": {
+          "features": "Funkcje",
+          "styles": "Style artystyczne",
+          "gallery": "Galeria",
+          "pricing": "Cennik",
+          "faq": "FAQ"
+        }
+      },
+      "resources": {
+        "title": "Zasoby",
+        "items": {
+          "blog": "Blog",
+          "docs": "Dokumentacja",
+          "help": "Centrum pomocy",
+          "changelog": "Dziennik zmian",
+          "roadmap": "Mapa drogowa"
+        }
+      },
+      "companyAndLegal": {
+        "title": "Firma",
+        "items": {
+          "about": "O nas",
+          "contact": "Kontakt",
+          "waitlist": "Lista oczekujących",
+          "privacyPolicy": "Prywatność",
+          "termsOfService": "Regulamin"
+        }
+      }
+    },
+    "avatar": {
+      "dashboard": "Panel",
+      "billing": "Rozliczenia",
+      "credits": "Kredyty",
+      "settings": "Ustawienia"
+    }
+  },
+  "Landing": {
+    "hero": {
+      "headline": "Każda klatka to sztuka",
+      "subheadline": "Prześlij zdjęcie, wybierz styl artystyczny, otrzymaj oszałamiający artystyczny film w 30 sekund. Bez umiejętności. Bez drogiego oprogramowania.",
+      "cta": {
+        "primary": "Prześlij zdjęcie",
+        "secondary": "Zobacz możliwości"
+      },
+      "socialProof": "artystycznych filmów utworzonych",
+      "scrollHint": "Przewiń, aby odkrywać",
+      "switchStyle": "Przełącz na styl {style}"
+    },
+    "finalCta": {
+      "headline": "Gotowy na swój pierwszy artystyczny film?",
+      "subheadline": "W 30 sekund otrzymasz oszałamiający artystyczny film",
+      "cta": "Zacznij tworzyć za darmo",
+      "trust": {
+        "thirtySeconds": "Gotowe w 30 sekund",
+        "instantDownload": "Natychmiastowe pobieranie"
+      }
+    },
+    "gallery": {
+      "badge": "Galeria twórców",
+      "headline": "Zobacz co tworzą artyści",
+      "subheadline": "Filmy artystyczne od twórców z całego świata korzystających z GenX. Kliknij pracę, aby zobaczyć styl i prompt.",
+      "styles": {
+        "all": "Wszystkie",
+        "cyberpunk": "Cyberpunk",
+        "watercolor": "Akwarela",
+        "oilPainting": "Olej",
+        "anime": "Anime",
+        "fluidArt": "Fluid Art"
+      },
+      "videoTitle": "Film {style}",
+      "promptLabel": "Użyty prompt:",
+      "createSimilar": "Stwórz podobny",
+      "loadMore": "Załaduj więcej",
+      "createOwn": "Stwórz własny",
+      "items": {
+        "1": {
+          "prompt": "Neonowa ulica miasta nocą, deszcz padający przez holograficzne reklamy"
+        },
+        "2": {
+          "prompt": "Spokojne jezioro górskie o zachodzie słońca z delikatnymi efektami akwareli"
+        },
+        "3": {
+          "prompt": "Klasyczny portret w stylu Rembrandta z ciepłym złotym oświetleniem"
+        },
+        "4": {
+          "prompt": "Płatki kwiatów wiśni opadające w japońskim ogrodzie, styl anime"
+        },
+        "5": {
+          "prompt": "Abstrakcyjne kolory wirujące jak płynny marmur, hipnotyzujący przepływ"
+        },
+        "6": {
+          "prompt": "Latające samochody przez futurystyczny krajobraz miasta z efektami glitch"
+        }
+      }
+    },
+    "useCases": {
+      "badge": "Zastosowania",
+      "headline": "Twórcy używają GenX do",
+      "cases": {
+        "social": {
+          "title": "Media społecznościowe",
+          "description": "Wyróżnij się na TikToku, Instagramie, YouTube. Ta sama treść, inny efekt wizualny.",
+          "example": "Maszyna do viralowych filmów dla twórców"
+        },
+        "product": {
+          "title": "Demo produktów",
+          "description": "Statyczne zdjęcia produktów są nudne. Niech płyną w stylach artystycznych.",
+          "example": "Ożyw swoje produkty"
+        },
+        "art": {
+          "title": "Tworzenie sztuki",
+          "description": "Nie potrzeba umiejętności artystycznych. Wyrażaj swoje pomysły z AI.",
+          "example": "Teraz każdy jest artystą"
+        },
+        "content": {
+          "title": "Tworzenie treści",
+          "description": "Tutoriale, vlogi, historie — każda klatka przyciąga widzów.",
+          "example": "Historie zasługują na lepsze wizualizacje"
+        }
+      },
+      "cta": "Zacznij tworzyć"
+    },
+    "whyGenx": {
+      "badge": "Dlaczego GenX",
+      "headline": "Dlaczego twórcy wybierają GenX",
+      "features": {
+        "quality": {
+          "title": "Jakość artystyczna",
+          "description": "To nie filtry — prawdziwa technologia transferu stylu. Każda klatka stworzona przez AI."
+        },
+        "speed": {
+          "title": "30 sekund",
+          "description": "Zoptymalizowane przetwarzanie w chmurze dostarcza Twój film artystyczny w mniej niż 30 sekund."
+        },
+        "free": {
+          "title": "Zacznij za darmo",
+          "description": "3 darmowe kreacje dziennie. Wystarczy, żeby spróbować i się zakochać."
+        },
+        "anywhere": {
+          "title": "Wszędzie",
+          "description": "Bez pobierania. W przeglądarce, na każdym urządzeniu, o każdej porze."
+        }
+      },
+      "trust": {
+        "noWatermark": "Bez ukrytego znaku wodnego (Pro)"
+      }
+    },
+    "testimonials": {
+      "badge": "Opinie",
+      "headline": "Co mówią twórcy",
+      "items": {
+        "1": {
+          "name": "Sarah Chen",
+          "role": "Twórczyni TikTok",
+          "content": "W końcu nie muszę uczyć się After Effects! Wrzucam zdjęcie, dostaję film. Znajomi ciągle pytają, jakiego programu używam."
+        },
+        "2": {
+          "name": "Mike Johnson",
+          "role": "Niezależny deweloper",
+          "content": "Po raz pierwszy poczułem, że naprawdę mogę tworzyć filmy artystyczne. Świetne!"
+        },
+        "3": {
+          "name": "Emma Davis",
+          "role": "Kierownik marketingu",
+          "content": "Obniżyliśmy koszty filmów produktowych o 80%, a wyniki są jeszcze lepsze."
+        },
+        "4": {
+          "name": "Alex Kim",
+          "role": "Twórca treści",
+          "content": "Styl anime jest niesamowity. Moje zaangażowanie na TikToku wystrzeliło!"
+        }
+      },
+      "trustBadges": {
+        "comingSoon": "Opinie wkrótce",
+        "securePayment": "Bezpieczna płatność przez Stripe"
+      }
+    },
+    "pricing": {
+      "badge": "Cennik",
+      "headline": "Proste i przejrzyste ceny",
+      "popular": "Najpopularniejszy",
+      "bestValue": "Najlepsza wartość",
+      "perMonth": "/mies.",
+      "oneTime": "jednorazowo",
+      "yearlyOption": "lub ${price}/rok (oszczędź {discount}%)",
+      "plans": {
+        "free": {
+          "name": "Darmowy",
+          "description": "Idealny do wypróbowania GenX",
+          "feature1": "3 kreacje dziennie",
+          "feature2": "Wszystkie 5 stylów",
+          "feature3": "Rozdzielczość 720p",
+          "feature4": "Licencja osobista",
+          "limit": "Znak wodny GenX",
+          "cta": "Zacznij za darmo"
+        },
+        "pro": {
+          "name": "Pro",
+          "description": "Dla poważnych twórców",
+          "feature1": "Nielimitowane kreacje",
+          "feature2": "Rozdzielczość 1080p HD",
+          "feature3": "Bez znaku wodnego",
+          "feature4": "Licencja komercyjna",
+          "cta": "Przejdź na Pro"
+        }
+      },
+      "paymentNote": "Bezpieczna płatność przez Stripe",
+      "seeFullPricing": "Zobacz pełne porównanie cen"
+    },
+    "faq": {
+      "badge": "FAQ",
+      "headline": "Często zadawane pytania",
+      "items": {
+        "free": {
+          "question": "Czy GenX jest darmowy?",
+          "answer": "Tak! Goście mogą tworzyć 3 filmy dziennie za darmo. Zarejestrowani użytkownicy dostają więcej. Potrzebujesz więcej? Sprawdź plan Pro."
+        },
+        "skills": {
+          "question": "Czy potrzebuję umiejętności technicznych?",
+          "answer": "Absolutnie nie! Jeśli potrafisz wrzucić zdjęcie i kliknąć przycisk, możesz używać GenX."
+        },
+        "commercial": {
+          "question": "Czy mogę używać filmów komercyjnie?",
+          "answer": "Darmowe filmy są tylko do użytku osobistego. Użytkownicy Pro otrzymują pełną licencję komercyjną."
+        },
+        "watermark": {
+          "question": "Czy filmy mają znak wodny?",
+          "answer": "Darmowe filmy mają mały znak wodny GenX. Użytkownicy Pro mogą pobierać filmy HD bez znaku wodnego."
+        },
+        "formats": {
+          "question": "Jakie formaty obrazów są obsługiwane?",
+          "answer": "Obsługujemy JPG i PNG, do 10MB na obraz. Oryginalne obrazy w wysokiej rozdzielczości dają lepsze wyniki."
+        },
+        "time": {
+          "question": "Jak długo trwa generowanie?",
+          "answer": "Zwykle 15-45 sekund. Postęp widzisz w czasie rzeczywistym na ekranie."
+        },
+        "data": {
+          "question": "Gdzie przechowywane są moje dane? (RODO)",
+          "answer": "Dane przechowywane na bezpiecznych serwerach AWS w USA i UE. Przestrzegamy RODO — możesz zażądać usunięcia danych."
+        },
+        "payment": {
+          "question": "Jakie metody płatności akceptujecie?",
+          "answer": "Akceptujemy Visa, Mastercard, American Express i PayPal przez Stripe. Wszystkie płatności są bezpieczne i szyfrowane."
+        },
+        "refund": {
+          "question": "Jaka jest polityka zwrotów?",
+          "answer": "7-dniowa gwarancja zwrotu dla subskrypcji Pro. Skontaktuj się z support@genx.art w okresie gwarancji."
+        },
+        "cancel": {
+          "question": "Jak anulować subskrypcję?",
+          "answer": "Możesz anulować w dowolnym momencie z panelu konta lub kontaktując się z support@genx.art. Dostęp trwa do końca okresu rozliczeniowego."
+        }
+      }
+    }
+  },
+  "Generator": {
+    "modes": {
+      "textToVideo": "Tekst na wideo",
+      "imageToVideo": "Obraz na wideo",
+      "textToImage": "Tekst na obraz",
+      "imageToImage": "Obraz na obraz",
+      "referenceToVideo": "Referencja na wideo",
+      "audio": "Audio"
+    },
+    "input": {
+      "placeholder": "Opisz, co chcesz stworzyć...",
+      "prompt": "PROMPT"
+    },
+    "submit": {
+      "generate": "Generuj",
+      "generating": "Generowanie...",
+      "insufficientCredits": "Niewystarczające kredyty",
+      "insufficientCreditsButton": "Zdobądź kredyty",
+      "balance": "Saldo",
+      "generationFailed": "Generowanie nie powiodło się, spróbuj ponownie"
+    },
+    "model": {
+      "selectModel": "Wybierz model",
+      "availableModels": "Dostępne modele",
+      "models": "Modele",
+      "noModels": "Brak dostępnych modeli",
+      "new": "Nowy",
+      "credits": "{count}+ kredytów",
+      "creditsLabel": "{count} Kredytów"
+    },
+    "styles": {
+      "default": "Domyślny",
+      "cyberpunk": "Cyberpunk",
+      "watercolor": "Akwarela",
+      "oilPainting": "Obraz olejny",
+      "anime": "Anime",
+      "fluidArt": "Fluid Art"
+    },
+    "imageUpload": {
+      "uploadImage": "Prześlij obraz",
+      "uploadHint": "JPG, PNG, WEBP • Maks. 10MB",
+      "fileTooLarge": "Plik jest za duży",
+      "invalidFileType": "Nieprawidłowy typ pliku",
+      "imageTooLarge": "Wymiary obrazu przekraczają maksimum",
+      "uploadFailed": "Przesyłanie nie powiodło się, spróbuj ponownie"
+    },
+    "result": {
+      "emptyTitle": "Brak wyników",
+      "emptyDescription": "Wprowadź prompt i kliknij generuj",
+      "generatingTitle": "Generowanie...",
+      "generatingDescription": "Proszę czekać",
+      "actions": {
+        "download": "Pobierz",
+        "share": "Udostępnij",
+        "favorite": "Ulubione",
+        "downloadSuccess": "Pobrano pomyślnie",
+        "downloadFailed": "Pobieranie nie powiodło się",
+        "linkCopied": "Link skopiowany",
+        "favorited": "Dodano do ulubionych",
+        "unfavorited": "Usunięto z ulubionych",
+        "favoriteFailed": "Zmiana ulubionego nie powiodła się"
+      }
+    },
+    "history": {
+      "title": "Historia",
+      "empty": "Brak historii",
+      "loading": "Ładowanie...",
+      "loadMore": "Załaduj więcej"
+    },
+    "floating": {
+      "placeholder": "Wprowadź prompt..."
+    }
+  },
+  "Onboarding": {
+    "welcome": {
+      "title": "Witamy w GenX, {name}!",
+      "defaultName": "Twórco",
+      "description": "Tylko 3 proste kroki do Twojego pierwszego artystycznego filmu.",
+      "steps": {
+        "upload": {
+          "title": "Prześlij zdjęcie",
+          "description": "Każde zdjęcie pasuje - portrety, krajobrazy, produkty"
+        },
+        "style": {
+          "title": "Wybierz styl",
+          "description": "5 unikalnych stylów: Cyberpunk, Akwarela, Obraz olejny, Anime, Fluid Art"
+        },
+        "generate": {
+          "title": "Generuj i pobierz",
+          "description": "AI stworzy Twój film w ok. 30 sekund"
+        }
+      },
+      "freeCredits": "Masz 15 darmowych kredytów na start!",
+      "startButton": "Zacznij tworzyć",
+      "skipButton": "Sam odkryję"
+    }
+  },
+  "UserDashboard": {
+    "stats": {
+      "credits": "Saldo kredytów",
+      "creditsHint": "Do generowania wideo AI",
+      "buyCredits": "Zdobądź więcej",
+      "videosCreated": "Utworzone filmy",
+      "allTime": "Łącznie",
+      "inProgress": "w trakcie"
+    },
+    "quickStart": {
+      "title": "Gotowy do tworzenia?",
+      "createVideo": "Nowy film"
+    },
+    "quickActions": {
+      "title": "Szybkie akcje",
+      "image-to-video": "Obraz na wideo",
+      "text-to-video": "Tekst na wideo",
+      "reference-to-video": "Wideo referencyjne",
+      "image": "Obraz AI"
+    },
+    "recentCreations": {
+      "title": "Ostatnie dzieła",
+      "subtitle": "Twoje ostatnie filmy AI",
+      "viewAll": "Pokaż wszystko",
+      "empty": {
+        "title": "Brak filmów",
+        "description": "Stwórz swój pierwszy artystyczny film z AI",
+        "cta": "Utwórz pierwszy film"
+      },
+      "status": {
+        "generating": "Generowanie",
+        "pending": "Oczekiwanie",
+        "failed": "Niepowodzenie"
+      }
+    }
+  }
+}

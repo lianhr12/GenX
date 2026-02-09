@@ -1,0 +1,897 @@
+{
+  "Metadata": {
+    "name": "GenX.art",
+    "title": "GenX.art - Ücretsiz AI Video Oluşturucu",
+    "description": "Fotoğrafları 30 saniyede muhteşem sanat videolarına dönüştürün. 5 benzersiz stil: Cyberpunk, Suluboya, Yağlıboya, Anime, Fluid Art. Beceri gerektirmez.",
+    "keywords": "AI görüntüden videoya, fotoğraftan videoya, sanat video oluşturucu, AI video yaratıcı, metin videoya"
+  },
+  "Common": {
+    "premium": "Premium",
+    "login": "Giriş Yap",
+    "logout": "Çıkış Yap",
+    "signUp": "Kayıt Ol",
+    "language": "Dil değiştir",
+    "mode": {
+      "label": "Mod değiştir",
+      "light": "Açık",
+      "dark": "Koyu",
+      "system": "Sistem"
+    },
+    "copy": "Kopyala",
+    "saving": "Kaydediliyor...",
+    "save": "Kaydet",
+    "loading": "Yükleniyor...",
+    "cancel": "İptal",
+    "logoutFailed": "Çıkış başarısız",
+    "home": "Ana Sayfa",
+    "replicate": "Efekti kopyala",
+    "table": {
+      "totalRecords": "Toplam {count} kayıt",
+      "noResults": "Sonuç yok",
+      "loading": "Yükleniyor...",
+      "columns": "Sütunlar",
+      "rowsPerPage": "Sayfa başına satır",
+      "page": "Sayfa",
+      "firstPage": "İlk sayfa",
+      "lastPage": "Son sayfa",
+      "nextPage": "Sonraki",
+      "previousPage": "Önceki",
+      "ascending": "Artan",
+      "descending": "Azalan",
+      "resetSorting": "Sıfırla",
+      "hideColumn": "Gizle",
+      "viewOptions": "Görünüm",
+      "toggleColumns": "Sütunları değiştir",
+      "searchColumns": "Sütun ara...",
+      "noColumns": "Sütun bulunamadı.",
+      "clearFilters": "Filtreleri temizle"
+    }
+  },
+  "PricingPage": {
+    "title": "Fiyat Planları",
+    "description": "Yaratıcı ihtiyaçlarınız için mükemmel planı seçin.",
+    "keywords": "GenX fiyatlar, AI video fiyatları, abonelik planları",
+    "subtitle": "Size en uygun planı seçin",
+    "monthly": "Aylık",
+    "yearly": "Yıllık",
+    "PricingCard": {
+      "freePrice": "₺0",
+      "perMonth": "/ay",
+      "perYear": "/yıl",
+      "popular": "Popüler",
+      "currentPlan": "Mevcut plan",
+      "yourCurrentPlan": "Mevcut planınız",
+      "getStartedForFree": "Ücretsiz başla",
+      "getStarted": "Başla",
+      "notAvailable": "Mevcut değil",
+      "daysTrial": "{days} gün deneme"
+    },
+    "CheckoutButton": {
+      "loading": "Yükleniyor...",
+      "checkoutFailed": "Ödeme sayfası açılamadı"
+    }
+  },
+  "PricePlans": {
+    "free": {
+      "name": "Ücretsiz",
+      "description": "GenX'i denemek için mükemmel",
+      "features": {
+        "feature-1": "Kayıtta 15 kredi",
+        "feature-2": "Tüm 5 sanat stili",
+        "feature-3": "1080p çıkış kalitesi",
+        "feature-4": "Standart destek"
+      },
+      "limits": {
+        "limit-1": "Krediler 30 günde sona erer",
+        "limit-2": "Filigran dahil",
+        "limit-3": "Yalnızca kişisel kullanım"
+      }
+    },
+    "pro": {
+      "name": "Pro",
+      "description": "Ciddi içerik üreticileri için",
+      "features": {
+        "feature-1": "800 kredi/ay",
+        "feature-2": "Tüm 5 sanat stili",
+        "feature-3": "HD 1080p çıkış",
+        "feature-4": "Öncelikli destek",
+        "feature-5": "Filigran yok"
+      },
+      "limits": {
+        "limit-1": "Aylık krediler devretmez",
+        "limit-2": "Ticari lisans dahil"
+      }
+    }
+  },
+  "CreditPackages": {
+    "starter": {
+      "name": "Başlangıç",
+      "description": "AI oluşturmayı denemek için mükemmel"
+    },
+    "basic": {
+      "name": "Temel",
+      "description": "Sıradan içerik üreticileri için ideal"
+    },
+    "standard": {
+      "name": "Standart",
+      "description": "Düzenli kullanıcılar için en iyi değer"
+    },
+    "premium": {
+      "name": "Premium",
+      "description": "İleri düzey kullanıcılar ve profesyoneller için"
+    },
+    "enterprise": {
+      "name": "Kurumsal",
+      "description": "Yoğun kullanım için maksimum kredi"
+    }
+  },
+  "NotFoundPage": {
+    "title": "404",
+    "headline": "Sayfa bulunamadı",
+    "message": "Aradığınız sayfa mevcut değil veya taşınmış.",
+    "backToHome": "Ana sayfaya dön",
+    "searchHelp": "Yardım al",
+    "popularPages": "Popüler sayfalar",
+    "links": {
+      "imageToVideo": "Görüntüden videoya",
+      "gallery": "Galeri",
+      "docs": "Belgeler",
+      "contact": "İletişim"
+    }
+  },
+  "ErrorPage": {
+    "title": "Hata! Bir şeyler yanlış gitti!",
+    "tryAgain": "Tekrar dene",
+    "backToHome": "Ana sayfaya dön"
+  },
+  "AboutPage": {
+    "title": "GenX.art Hakkında",
+    "description": "GenX.art, AI destekli sanat video oluşturma platformudur.",
+    "authorName": "GenX.art",
+    "authorBio": "AI sanat video platformu",
+    "introduction": "GenX.art, içerik üreticilerinin sıradan fotoğrafları olağanüstü sanat videolarına dönüştürmesini sağlar. Gelişmiş AI teknolojisi ile profesyonel video üretimini herkes için erişilebilir kılıyoruz.",
+    "talkWithMe": "İletişim",
+    "followMe": "X'te takip edin"
+  },
+  "ChangelogPage": {
+    "title": "Değişiklik Günlüğü",
+    "description": "GenX.art'taki yenilikleri keşfedin.",
+    "keywords": "GenX güncellemeler, değişiklik günlüğü, yeni özellikler",
+    "subtitle": "Son ürün değişikliklerini takip edin"
+  },
+  "RoadmapPage": {
+    "title": "Yol Haritası",
+    "description": "GenX.art'ın gelecek planlarını keşfedin.",
+    "keywords": "GenX yol haritası, gelecek özellikler",
+    "subtitle": "Gelecek planlarımızı keşfedin"
+  },
+  "ContactPage": {
+    "title": "İletişim",
+    "description": "GenX.art ekibiyle iletişime geçin.",
+    "keywords": "GenX iletişim, destek, yardım",
+    "subtitle": "Size doğru planı bulmada yardımcı olacağız",
+    "form": {
+      "title": "Bize ulaşın",
+      "description": "Sorularınız veya geri bildirimleriniz için ekibimizle iletişime geçin",
+      "name": "İsim",
+      "email": "E-posta",
+      "message": "Mesaj",
+      "submit": "Gönder",
+      "submitting": "Gönderiliyor...",
+      "success": "Mesaj başarıyla gönderildi",
+      "fail": "Mesaj gönderilemedi",
+      "nameMinLength": "İsim en az 3 karakter olmalı",
+      "nameMaxLength": "İsim 30 karakteri aşmamalı",
+      "emailValidation": "Geçerli bir e-posta girin",
+      "messageMinLength": "Mesaj en az 10 karakter olmalı",
+      "messageMaxLength": "Mesaj 500 karakteri aşmamalı"
+    }
+  },
+  "WaitlistPage": {
+    "title": "Bekleme Listesi",
+    "description": "GenX.art'ın yeni özelliklerini ilk deneyenlerden olun.",
+    "keywords": "GenX bekleme listesi, erken erişim",
+    "subtitle": "Bekleme listemize katılın",
+    "form": {
+      "title": "Bekleme listesine katıl",
+      "description": "Lansmanda sizi bilgilendireceğiz",
+      "email": "E-posta",
+      "subscribe": "Abone ol",
+      "subscribing": "Abone olunuyor...",
+      "success": "Abonelik başarılı",
+      "fail": "Abonelik başarısız",
+      "emailValidation": "Geçerli bir e-posta girin"
+    }
+  },
+  "Newsletter": {
+    "title": "Bülten",
+    "subtitle": "Topluluğa katılın",
+    "description": "Son haberler için bültenimize abone olun",
+    "form": {
+      "email": "E-posta",
+      "subscribe": "Abone ol",
+      "subscribing": "Abone olunuyor...",
+      "success": "Abonelik başarılı",
+      "fail": "Abonelik başarısız",
+      "emailValidation": "Geçerli bir e-posta girin"
+    }
+  },
+  "AuthPage": {
+    "login": {
+      "title": "Giriş Yap",
+      "welcomeBack": "Tekrar hoş geldiniz",
+      "email": "E-posta",
+      "password": "Şifre",
+      "signIn": "Giriş Yap",
+      "signUpHint": "Hesabınız yok mu? Kayıt olun",
+      "forgotPassword": "Şifremi unuttum?",
+      "signInWithGoogle": "Google ile giriş",
+      "signInWithGitHub": "GitHub ile giriş",
+      "signInWithFacebook": "Facebook ile giriş",
+      "showPassword": "Şifreyi göster",
+      "hidePassword": "Şifreyi gizle",
+      "or": "Veya şununla devam et",
+      "emailRequired": "E-postanızı girin",
+      "passwordRequired": "Şifrenizi girin",
+      "captchaInvalid": "Captcha doğrulaması başarısız",
+      "captchaError": "Captcha hatası"
+    },
+    "register": {
+      "title": "Kayıt Ol",
+      "createAccount": "Hesap oluştur",
+      "name": "İsim",
+      "email": "E-posta",
+      "password": "Şifre",
+      "signUp": "Kayıt Ol",
+      "signInHint": "Zaten hesabınız var mı? Giriş yapın",
+      "checkEmail": "Gelen kutunuzu kontrol edin",
+      "showPassword": "Şifreyi göster",
+      "hidePassword": "Şifreyi gizle",
+      "nameRequired": "İsminizi girin",
+      "emailRequired": "E-postanızı girin",
+      "passwordRequired": "Şifrenizi girin",
+      "captchaInvalid": "Captcha doğrulaması başarısız",
+      "captchaError": "Captcha hatası"
+    },
+    "forgotPassword": {
+      "title": "Şifremi Unuttum",
+      "email": "E-posta",
+      "send": "Sıfırlama bağlantısı gönder",
+      "backToLogin": "Girişe dön",
+      "checkEmail": "Gelen kutunuzu kontrol edin",
+      "emailRequired": "E-postanızı girin"
+    },
+    "resetPassword": {
+      "title": "Şifre Sıfırla",
+      "password": "Şifre",
+      "reset": "Şifreyi sıfırla",
+      "backToLogin": "Girişe dön",
+      "showPassword": "Şifreyi göster",
+      "hidePassword": "Şifreyi gizle",
+      "minLength": "Şifre en az 8 karakter olmalı"
+    },
+    "error": {
+      "title": "Hata! Bir şeyler yanlış gitti!",
+      "tryAgain": "Lütfen tekrar deneyin.",
+      "backToLogin": "Girişe dön",
+      "checkEmail": "Gelen kutunuzu kontrol edin"
+    },
+    "common": {
+      "termsOfService": "Hizmet Şartları",
+      "privacyPolicy": "Gizlilik Politikası",
+      "byClickingContinue": "Devam ederek şunları kabul edersiniz: ",
+      "and": " ve "
+    }
+  },
+  "BlogPage": {
+    "title": "Blog",
+    "description": "AI video oluşturma ipuçları, eğitimler ve GenX.art haberleri.",
+    "subtitle": "Ekibimizden son haberler",
+    "author": "Yazar",
+    "categories": "Kategoriler",
+    "tableOfContents": "İçindekiler",
+    "readTime": "{minutes} dk okuma",
+    "all": "Tümü",
+    "noPostsFound": "Yazı bulunamadı",
+    "allPosts": "Tüm yazılar",
+    "morePosts": "Daha fazla yazı"
+  },
+  "DocsPage": {
+    "toc": "İçindekiler",
+    "search": "Belgelerde ara",
+    "lastUpdate": "Son güncelleme",
+    "searchNoResult": "Sonuç yok",
+    "previousPage": "Önceki",
+    "nextPage": "Sonraki",
+    "chooseLanguage": "Dil seç",
+    "title": "GenX.art Belgeleri",
+    "homepage": "Ana Sayfa"
+  },
+  "PremiumContent": {
+    "title": "Premium İçeriği Aç",
+    "description": "Tüm premium ve özel içeriklere erişmek için Pro'ya abone olun.",
+    "upgradeCta": "Şimdi yükselt",
+    "benefit1": "Tüm premium içerik",
+    "benefit2": "Özel içerik",
+    "benefit3": "İstediğiniz zaman iptal",
+    "signIn": "Giriş Yap",
+    "loginRequired": "Okumaya devam etmek için giriş yapın",
+    "loginDescription": "Bu premium içeriktir. Tam erişim için hesabınıza giriş yapın.",
+    "checkingAccess": "Erişim kontrol ediliyor...",
+    "loadingContent": "İçerik yükleniyor..."
+  },
+  "Marketing": {
+    "navbar": {
+      "features": {
+        "title": "Özellikler"
+      },
+      "pricing": {
+        "title": "Fiyatlar"
+      },
+      "blog": {
+        "title": "Blog"
+      },
+      "docs": {
+        "title": "Belgeler"
+      },
+      "create": {
+        "title": "Oluştur",
+        "items": {
+          "imageToVideo": {
+            "title": "Görüntüden videoya",
+            "description": "Fotoğrafları muhteşem sanat videolarına dönüştürün"
+          },
+          "textToVideo": {
+            "title": "Metinden videoya",
+            "description": "Metin açıklamalarından video oluşturun"
+          },
+          "image": {
+            "title": "AI Görüntü",
+            "description": "AI ile güzel görüntüler oluşturun"
+          }
+        }
+      },
+      "styles": {
+        "title": "Stiller"
+      },
+      "gallery": {
+        "title": "Galeri"
+      }
+    },
+    "footer": {
+      "tagline": "Her kare sanattır - Fotoğrafları muhteşem sanat videolarına dönüştürün",
+      "videoModels": {
+        "title": "Video Modelleri",
+        "items": {
+          "veo3": "Veo 3",
+          "sora2": "Sora 2",
+          "kling": "Kling AI",
+          "hailuo": "Hailuo AI",
+          "seedance": "Seedance",
+          "wan": "Wan AI",
+          "omnihuman": "OmniHuman",
+          "moreModels": "Daha fazla model"
+        }
+      },
+      "imageModels": {
+        "title": "Görüntü Modelleri",
+        "items": {
+          "gptImage": "GPT Image",
+          "seedream": "Seedream",
+          "nanobanana": "Nanobanana Pro",
+          "wanImage": "Wan 2.5 Image",
+          "moreModels": "Daha fazla model"
+        }
+      },
+      "product": {
+        "title": "Ürün",
+        "items": {
+          "features": "Özellikler",
+          "styles": "Sanat stilleri",
+          "gallery": "Galeri",
+          "pricing": "Fiyatlar",
+          "faq": "SSS"
+        }
+      },
+      "resources": {
+        "title": "Kaynaklar",
+        "items": {
+          "blog": "Blog",
+          "docs": "Belgeler",
+          "help": "Yardım merkezi",
+          "changelog": "Değişiklik günlüğü",
+          "roadmap": "Yol haritası"
+        }
+      },
+      "companyAndLegal": {
+        "title": "Şirket",
+        "items": {
+          "about": "Hakkımızda",
+          "contact": "İletişim",
+          "waitlist": "Bekleme listesi",
+          "privacyPolicy": "Gizlilik politikası",
+          "termsOfService": "Hizmet şartları"
+        }
+      }
+    },
+    "avatar": {
+      "dashboard": "Kontrol Paneli",
+      "billing": "Faturalama",
+      "credits": "Krediler",
+      "settings": "Ayarlar"
+    }
+  },
+  "Landing": {
+    "hero": {
+      "headline": "Her kare sanattır",
+      "subheadline": "Fotoğraf yükleyin, sanat stili seçin, 30 saniyede muhteşem bir sanat videosu alın. Beceri gerektirmez. Pahalı yazılım gerektirmez.",
+      "cta": {
+        "primary": "Fotoğraf yükle",
+        "secondary": "Olasılıkları gör"
+      },
+      "socialProof": "sanat videosu oluşturuldu",
+      "scrollHint": "Keşfetmek için kaydır",
+      "switchStyle": "{style} stiline geç"
+    },
+    "painPoints": {
+      "headline": "Anlatacak hikayeleriniz var ama araçlar sizi engelliyor",
+      "items": {
+        "learning": {
+          "title": "Premiere veya After Effects öğrenmek aylar sürer",
+          "description": "Dik öğrenme eğrilerine sahip karmaşık yazılımlar yaratıcı fikirlerinizi hapseder."
+        },
+        "cost": {
+          "title": "Profesyonel ekip tutmak binlerce liraya mal olur",
+          "description": "Kaliteli video üretimi pahalıdır ve çoğu içerik üreticisi için erişilemez."
+        },
+        "generic": {
+          "title": "Şablon videolar sıradan ve ruhsuz",
+          "description": "Şablonlar içeriğinizi diğerleriyle karıştırır."
+        }
+      },
+      "solution": {
+        "title": "GenX her şeyi değiştiriyor",
+        "description": "İhtiyacınız olan tek şey bir fotoğraf ve bir fikir. AI sıradanı sanata dönüştürür.",
+        "benefit1": "Öğrenme eğrisi yok",
+        "benefit2": "Profesyonel kalitede sonuçlar",
+        "benefit3": "Benzersiz sanat stilleri"
+      },
+      "cta": "30 saniyede ücretsiz dene"
+    },
+    "artStyles": {
+      "badge": "5 benzersiz stil",
+      "headline": "Sanat dilinizi seçin",
+      "subheadline": "5 benzersiz sanat stili, her biri özenle ayarlanmış.",
+      "styles": {
+        "cyberpunk": {
+          "title": "Cyberpunk",
+          "description": "Yanıp sönen neon ışıklar, uçan arabalar, siber dünyada dijital yağmur",
+          "bestFor": "İdeal: Teknoloji içeriği, fragmanlar"
+        },
+        "watercolor": {
+          "title": "Suluboya",
+          "description": "Kağıtta akan renkler, görülebilen bir şiir gibi",
+          "bestFor": "İdeal: Rahatlatıcı içerik, duygusal ifade"
+        },
+        "oilPainting": {
+          "title": "Yağlıboya",
+          "description": "Her fırça darbesi sıcaklık taşır, fotoğrafları koleksiyon sanatına dönüştürür",
+          "bestFor": "İdeal: Premium sergi, güzel sanatlar"
+        },
+        "anime": {
+          "title": "Anime",
+          "description": "Anime dünyasına girin, kendi hikayenizin kahramanı olun",
+          "bestFor": "İdeal: Anime içeriği, genç izleyici"
+        },
+        "fluidArt": {
+          "title": "Fluid Art",
+          "description": "Renkler çarpışır ve hareketle birleşir, her kare benzersiz soyut sanat",
+          "bestFor": "İdeal: Yaratıcı videolar, arka planlar"
+        }
+      },
+      "createWith": "Bu stille oluştur",
+      "exploreAll": "Tüm stilleri keşfet"
+    },
+    "howItWorks": {
+      "badge": "Basit süreç",
+      "headline": "Fotoğraftan sanata 3 basit adım",
+      "subheadline": "Eğitim gerekmez. Yaratıcılığınız, GenX gerçekleştirir.",
+      "steps": {
+        "upload": {
+          "title": "Fotoğrafınızı yükleyin",
+          "description": "Sürükle bırak veya tıklayarak seçin",
+          "details": "JPG/PNG desteklenir, maks 10MB"
+        },
+        "style": {
+          "title": "Sanat stili seçin",
+          "description": "5 benzersiz sanat stilinden seçin",
+          "details": "Önizleme için üzerine gelin"
+        },
+        "download": {
+          "title": "Sihri bekleyin",
+          "description": "AI 30 saniyede sanat videonuzu oluşturur",
+          "details": "HD videoyu anında indirin"
+        }
+      },
+      "bottomText": "Hepsi bu. Öğrenme eğrisi yok. Eğitim gerekmez.",
+      "cta": "Şimdi dene - Ücretsiz"
+    },
+    "finalCta": {
+      "headline": "İlk sanat videonuzu oluşturmaya hazır mısınız?",
+      "subheadline": "30 saniyede muhteşem bir sanat videonuz olacak",
+      "cta": "Ücretsiz oluşturmaya başla",
+      "trust": {
+        "thirtySeconds": "30 saniyede hazır",
+        "instantDownload": "Anında indirme"
+      }
+    },
+    "gallery": {
+      "badge": "Yaratıcı Galerisi",
+      "headline": "Yaratıcıların eserlerini keşfedin",
+      "subheadline": "GenX kullanan dünya çapındaki yaratıcıların sanat videoları. Stil ve promptu görmek için bir esere tıklayın.",
+      "styles": {
+        "all": "Tümü",
+        "cyberpunk": "Cyberpunk",
+        "watercolor": "Suluboya",
+        "oilPainting": "Yağlıboya",
+        "anime": "Anime",
+        "fluidArt": "Fluid Art"
+      },
+      "videoTitle": "Video {style}",
+      "promptLabel": "Kullanılan prompt:",
+      "createSimilar": "Benzerini oluştur",
+      "loadMore": "Daha fazla yükle",
+      "createOwn": "Kendinizinkini oluşturun",
+      "items": {
+        "1": {
+          "prompt": "Gece neon ışıklı şehir sokağı, holografik reklamlar arasında yağmur"
+        },
+        "2": {
+          "prompt": "Gün batımında huzurlu bir dağ gölü, yumuşak suluboya efektleriyle"
+        },
+        "3": {
+          "prompt": "Rembrandt tarzında klasik portre, sıcak altın ışıklandırma"
+        },
+        "4": {
+          "prompt": "Japon bahçesinde düşen kiraz çiçeği yaprakları, anime stili"
+        },
+        "5": {
+          "prompt": "Sıvı mermer gibi dönen soyut renkler, büyüleyici akış"
+        },
+        "6": {
+          "prompt": "Fütüristik şehir manzarasında uçan arabalar, glitch efektleriyle"
+        }
+      }
+    },
+    "useCases": {
+      "badge": "Kullanım Alanları",
+      "headline": "Yaratıcılar GenX'i şunlar için kullanıyor",
+      "cases": {
+        "social": {
+          "title": "Sosyal Medya",
+          "description": "TikTok, Instagram, YouTube'da öne çıkın. Aynı içerik, farklı görsel etki.",
+          "example": "İçerik üreticileri için viral video makinesi"
+        },
+        "product": {
+          "title": "Ürün Demoları",
+          "description": "Statik ürün fotoğrafları sıkıcı. Sanat stillerinde akmasını sağlayın.",
+          "example": "Ürünlerinize hayat verin"
+        },
+        "art": {
+          "title": "Sanat Yaratımı",
+          "description": "Sanat becerisi gerekmez. Fikirlerinizi AI ile ifade edin.",
+          "example": "Artık herkes sanatçı"
+        },
+        "content": {
+          "title": "İçerik Üretimi",
+          "description": "Eğitimler, vloglar, hikayeler — her kare izleyicileri tutuyor.",
+          "example": "Hikayeler daha iyi görselleri hak eder"
+        }
+      },
+      "cta": "Oluşturmaya başla"
+    },
+    "whyGenx": {
+      "badge": "Neden GenX",
+      "headline": "Yaratıcılar neden GenX'i seçiyor",
+      "features": {
+        "quality": {
+          "title": "Sanat kalitesi",
+          "description": "Basit filtreler değil — gerçek stil transfer teknolojisi. Her kare AI tarafından oluşturuldu."
+        },
+        "speed": {
+          "title": "30 saniye",
+          "description": "Optimize edilmiş bulut işleme, sanat videonuz 30 saniyeden kısa sürede hazır."
+        },
+        "free": {
+          "title": "Ücretsiz başlayın",
+          "description": "Günde 3 ücretsiz oluşturma. Denemek ve aşık olmak için yeterli."
+        },
+        "anywhere": {
+          "title": "Her yerde",
+          "description": "İndirme gerekmez. Tarayıcıda, her cihazda, her zaman."
+        }
+      },
+      "trust": {
+        "noWatermark": "Gizli filigran yok (Pro)"
+      }
+    },
+    "testimonials": {
+      "badge": "Yorumlar",
+      "headline": "Yaratıcılar ne diyor",
+      "items": {
+        "1": {
+          "name": "Sarah Chen",
+          "role": "TikTok İçerik Üreticisi",
+          "content": "Sonunda After Effects öğrenmek zorunda değilim! Fotoğraf yüklüyorum, video alıyorum. Meslektaşlarım hangi yazılımı kullandığımı hep soruyor."
+        },
+        "2": {
+          "name": "Mike Johnson",
+          "role": "Bağımsız Geliştirici",
+          "content": "İlk kez gerçekten sanat videoları yapabildiğimi hissettim. Harika!"
+        },
+        "3": {
+          "name": "Emma Davis",
+          "role": "Pazarlama Müdürü",
+          "content": "Ürün video maliyetlerimizi %80 düşürdük ve sonuçlar daha da iyi."
+        },
+        "4": {
+          "name": "Alex Kim",
+          "role": "İçerik Üreticisi",
+          "content": "Anime stili inanılmaz. TikTok etkileşimim fırladı!"
+        }
+      },
+      "trustBadges": {
+        "comingSoon": "Yorumlar yakında",
+        "securePayment": "Stripe ile güvenli ödeme"
+      }
+    },
+    "pricing": {
+      "badge": "Fiyatlar",
+      "headline": "Basit ve şeffaf fiyatlandırma",
+      "popular": "En popüler",
+      "bestValue": "En iyi değer",
+      "perMonth": "/ay",
+      "oneTime": "tek seferlik",
+      "yearlyOption": "veya ${price}/yıl (%{discount} tasarruf)",
+      "plans": {
+        "free": {
+          "name": "Ücretsiz",
+          "description": "GenX'i denemek için ideal",
+          "feature1": "Günde 3 oluşturma",
+          "feature2": "5 sanat stili",
+          "feature3": "720p çözünürlük",
+          "feature4": "Kişisel kullanım lisansı",
+          "limit": "GenX filigranı dahil",
+          "cta": "Ücretsiz başla"
+        },
+        "pro": {
+          "name": "Pro",
+          "description": "Ciddi yaratıcılar için",
+          "feature1": "Sınırsız oluşturma",
+          "feature2": "1080p HD çözünürlük",
+          "feature3": "Filigransız",
+          "feature4": "Ticari lisans",
+          "cta": "Pro'ya geç"
+        }
+      },
+      "paymentNote": "Stripe ile güvenli ödeme",
+      "seeFullPricing": "Tam fiyat karşılaştırmasını gör"
+    },
+    "faq": {
+      "badge": "SSS",
+      "headline": "Sıkça sorulan sorular",
+      "items": {
+        "free": {
+          "question": "GenX ücretsiz mi?",
+          "answer": "Evet! Ziyaretçiler günde 3 video ücretsiz oluşturabilir. Kayıtlı kullanıcılar daha fazla alır. Daha fazlasına mı ihtiyacınız var? Pro planına göz atın."
+        },
+        "skills": {
+          "question": "Teknik beceri gerekiyor mu?",
+          "answer": "Kesinlikle hayır! Fotoğraf yükleyip düğmeye tıklayabiliyorsanız GenX kullanabilirsiniz."
+        },
+        "commercial": {
+          "question": "Videoları ticari olarak kullanabilir miyim?",
+          "answer": "Ücretsiz videolar yalnızca kişisel kullanım içindir. Pro kullanıcılar tam ticari lisans alır."
+        },
+        "watermark": {
+          "question": "Videolarda filigran var mı?",
+          "answer": "Ücretsiz videolarda küçük GenX filigranı bulunur. Pro kullanıcılar filigranlı HD video indirebilir."
+        },
+        "formats": {
+          "question": "Hangi görüntü formatları destekleniyor?",
+          "answer": "JPG ve PNG destekliyoruz, görüntü başına 10MB'a kadar. Yüksek çözünürlüklü orijinaller daha iyi sonuç verir."
+        },
+        "time": {
+          "question": "Oluşturma ne kadar sürer?",
+          "answer": "Genellikle 15-45 saniye. Ekranda gerçek zamanlı ilerlemeyi göreceksiniz."
+        },
+        "data": {
+          "question": "Verilerim nerede saklanıyor? (KVKK)",
+          "answer": "Verileriniz ABD ve AB'deki güvenli AWS sunucularında saklanır. GDPR uyumluyuz — istediğiniz zaman veri silme talebinde bulunabilirsiniz."
+        },
+        "payment": {
+          "question": "Hangi ödeme yöntemlerini kabul ediyorsunuz?",
+          "answer": "Stripe aracılığıyla Visa, Mastercard, American Express ve PayPal kabul ediyoruz. Tüm ödemeler güvenli ve şifreli."
+        },
+        "refund": {
+          "question": "İade politikanız nedir?",
+          "answer": "Pro abonelikler için 7 günlük para iade garantisi. Garanti süresi içinde support@genx.art ile iletişime geçin."
+        },
+        "cancel": {
+          "question": "Aboneliğimi nasıl iptal ederim?",
+          "answer": "Hesap panelinizden veya support@genx.art ile iletişime geçerek istediğiniz zaman iptal edebilirsiniz. Erişiminiz fatura dönemi sonuna kadar devam eder."
+        }
+      }
+    }
+  },
+  "Generator": {
+    "modes": {
+      "textToVideo": "Metinden videoya",
+      "imageToVideo": "Görüntüden videoya",
+      "textToImage": "Metinden görüntüye",
+      "imageToImage": "Görüntüden görüntüye",
+      "referenceToVideo": "Referanstan videoya",
+      "audio": "Ses"
+    },
+    "input": {
+      "placeholder": "Ne oluşturmak istediğinizi açıklayın...",
+      "prompt": "İSTEM"
+    },
+    "submit": {
+      "generate": "Oluştur",
+      "generating": "Oluşturuluyor...",
+      "insufficientCredits": "Yetersiz kredi",
+      "insufficientCreditsButton": "Kredi al",
+      "balance": "Bakiye",
+      "generationFailed": "Oluşturma başarısız, tekrar deneyin"
+    },
+    "model": {
+      "selectModel": "Model seç",
+      "availableModels": "Mevcut modeller",
+      "models": "Modeller",
+      "noModels": "Mevcut model yok",
+      "new": "Yeni",
+      "credits": "{count}+ kredi",
+      "creditsLabel": "{count} Kredi"
+    },
+    "aspectRatio": {
+      "label": "En-boy oranı"
+    },
+    "duration": {
+      "label": "Süre"
+    },
+    "quality": {
+      "label": "Kalite"
+    },
+    "styles": {
+      "default": "Varsayılan",
+      "cyberpunk": "Cyberpunk",
+      "watercolor": "Suluboya",
+      "oilPainting": "Yağlıboya",
+      "anime": "Anime",
+      "fluidArt": "Fluid Art"
+    },
+    "imageUpload": {
+      "uploadImage": "Görüntü yükle",
+      "uploadHint": "JPG, PNG, WEBP • Maks 10MB",
+      "fileTooLarge": "Dosya çok büyük",
+      "invalidFileType": "Geçersiz dosya türü",
+      "imageTooLarge": "Görüntü boyutu sınırı aşıyor",
+      "uploadFailed": "Yükleme başarısız, tekrar deneyin"
+    },
+    "result": {
+      "emptyTitle": "Henüz sonuç yok",
+      "emptyDescription": "İstem girin ve oluştur'a tıklayın",
+      "generatingTitle": "Oluşturuluyor...",
+      "generatingDescription": "Lütfen bekleyin",
+      "actions": {
+        "download": "İndir",
+        "share": "Paylaş",
+        "favorite": "Favori",
+        "downloadSuccess": "Başarıyla indirildi",
+        "downloadFailed": "İndirme başarısız",
+        "linkCopied": "Bağlantı kopyalandı",
+        "favorited": "Favorilere eklendi",
+        "unfavorited": "Favorilerden çıkarıldı",
+        "favoriteFailed": "Favori değiştirme başarısız"
+      }
+    },
+    "history": {
+      "title": "Geçmiş",
+      "empty": "Henüz geçmiş yok",
+      "loading": "Yükleniyor...",
+      "loadMore": "Daha fazla yükle"
+    },
+    "floating": {
+      "placeholder": "İstem girin..."
+    }
+  },
+  "Onboarding": {
+    "welcome": {
+      "title": "GenX'e hoş geldiniz, {name}!",
+      "defaultName": "İçerik Üretici",
+      "description": "İlk muhteşem sanat videonuza sadece 3 basit adım kaldı.",
+      "steps": {
+        "upload": {
+          "title": "Fotoğrafınızı yükleyin",
+          "description": "Her fotoğraf olur - portreler, manzaralar, ürünler"
+        },
+        "style": {
+          "title": "Sanat stili seçin",
+          "description": "5 benzersiz stil: Cyberpunk, Suluboya, Yağlıboya, Anime, Fluid Art"
+        },
+        "generate": {
+          "title": "Oluştur ve indir",
+          "description": "AI yaklaşık 30 saniyede sanat videonuzu oluşturur"
+        }
+      },
+      "freeCredits": "Başlamak için 15 ücretsiz krediniz var!",
+      "startButton": "Oluşturmaya başla",
+      "skipButton": "Kendim keşfedeceğim"
+    }
+  },
+  "UserDashboard": {
+    "stats": {
+      "credits": "Kredi bakiyesi",
+      "creditsHint": "AI video oluşturma için",
+      "buyCredits": "Daha fazla kredi al",
+      "videosCreated": "Oluşturulan videolar",
+      "allTime": "Toplam",
+      "inProgress": "devam ediyor"
+    },
+    "quickStart": {
+      "title": "Oluşturmaya hazır mısınız?",
+      "createVideo": "Yeni video oluştur"
+    },
+    "quickActions": {
+      "title": "Hızlı işlemler",
+      "image-to-video": "Görüntüden videoya",
+      "text-to-video": "Metinden videoya",
+      "reference-to-video": "Referans video",
+      "image": "AI Görüntü"
+    },
+    "recentCreations": {
+      "title": "Son oluşturmalar",
+      "subtitle": "En son AI videolarınız",
+      "viewAll": "Tümünü gör",
+      "empty": {
+        "title": "Henüz video yok",
+        "description": "AI ile ilk sanat videonuzu oluşturun",
+        "cta": "İlk videoyu oluştur"
+      },
+      "status": {
+        "generating": "Oluşturuluyor",
+        "pending": "Beklemede",
+        "failed": "Başarısız"
+      }
+    }
+  },
+  "Mail": {
+    "common": {
+      "team": "{name} Ekibi",
+      "copyright": "©️ {year} Tüm hakları saklıdır."
+    },
+    "verifyEmail": {
+      "title": "Merhaba, {name}.",
+      "body": "E-postanızı doğrulamak için aşağıdaki bağlantıya tıklayın.",
+      "confirmEmail": "E-postayı onayla",
+      "subject": "E-postanızı doğrulayın"
+    },
+    "forgotPassword": {
+      "title": "Merhaba, {name}.",
+      "body": "Şifrenizi sıfırlamak için aşağıdaki bağlantıya tıklayın.",
+      "resetPassword": "Şifreyi sıfırla",
+      "subject": "Şifrenizi sıfırlayın"
+    },
+    "subscribeNewsletter": {
+      "body": "Bültene abone olduğunuz için teşekkürler. Sizi bilgilendirmeye devam edeceğiz.",
+      "subject": "Abone olduğunuz için teşekkürler"
+    },
+    "contactMessage": {
+      "name": "İsim: {name}",
+      "email": "E-posta: {email}",
+      "message": "Mesaj: {message}",
+      "subject": "Web sitesinden iletişim mesajı"
+    }
+  }
+}
