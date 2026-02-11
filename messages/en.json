@@ -732,24 +732,56 @@
         "title": "Settings",
         "description": "System configuration and environment settings",
         "pricing": {
-          "title": "Pricing & Credits",
-          "description": "Configuration files for pricing and credit system",
-          "priceConfig": "Price Configuration",
-          "creditsConfig": "Credits Configuration",
-          "videoCredits": "Video Credits",
-          "imageCredits": "Image Credits"
+          "title": "Subscription Plans & Credit Packages",
+          "description": "Current pricing configuration and credit packages",
+          "plans": "Subscription Plans",
+          "free": "Free",
+          "pro": "Pro",
+          "credits": "credits",
+          "days": "days",
+          "month": "month",
+          "year": "year",
+          "packages": "Credit Packages",
+          "validity": "Validity",
+          "popular": "Popular"
         },
-        "admin": {
-          "title": "Admin Permissions",
-          "description": "Role-based access control via Better Auth",
-          "betterAuthNote": "Admin permissions are managed through Better Auth's admin plugin. Users with the 'admin' role can access all admin pages. Set user roles in the Users management page."
+        "models": {
+          "title": "AI Models Overview",
+          "description": "Available AI models and credit cost ranges",
+          "videoModels": "Video Models",
+          "imageModels": "Image Models",
+          "totalModels": "Total Models",
+          "creditRange": "Credit Range",
+          "modelsCount": "{count} models"
+        },
+        "features": {
+          "title": "Features & Services",
+          "description": "Feature toggles and service provider configuration",
+          "featureToggles": "Feature Toggles",
+          "loginMethods": "Login Methods",
+          "serviceProviders": "Service Providers",
+          "upgradeCard": "Upgrade Card",
+          "updateAvatar": "Update Avatar",
+          "turnstileCaptcha": "Turnstile Captcha",
+          "crispChat": "Crisp Chat",
+          "google": "Google",
+          "github": "GitHub",
+          "facebook": "Facebook",
+          "credential": "Email/Password",
+          "googleOneTap": "Google One Tap",
+          "payment": "Payment",
+          "storage": "Storage",
+          "email": "Email",
+          "newsletter": "Newsletter"
         },
         "env": {
-          "title": "Environment Variables",
-          "description": "Key environment variables status"
-        },
-        "system": {
-          "title": "System Information",
+          "title": "Environment & System",
+          "description": "Environment variables and system information",
+          "core": "Core",
+          "payment": "Payment",
+          "storage": "Storage",
+          "ai": "AI Services",
+          "nodeVersion": "Node.js",
           "environment": "Environment",
           "database": "Database",
           "payments": "Payments"
