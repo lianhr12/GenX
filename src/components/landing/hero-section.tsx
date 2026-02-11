@@ -4,8 +4,7 @@ import { HeroVideoBackground } from './hero-video-background';
 
 // Lazy load the heavy GenXCreator to reduce initial JS bundle
 const LazyGenXCreator = dynamic(
-  () =>
-    import('@/components/generator/GenXCreator').then((m) => m.GenXCreator),
+  () => import('@/components/generator/GenXCreator').then((m) => m.GenXCreator),
   {
     ssr: true,
     loading: () => (

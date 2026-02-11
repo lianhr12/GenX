@@ -845,29 +845,64 @@
       "badge": "Galerie des créateurs",
       "headline": "Découvrez les créations",
       "subheadline": "Vidéos artistiques de créateurs du monde entier utilisant GenX. Cliquez sur une œuvre pour voir le style et le prompt utilisés.",
-      "styles": { "all": "Tout", "cyberpunk": "Cyberpunk", "watercolor": "Aquarelle", "oilPainting": "Peinture à l'huile", "anime": "Anime", "fluidArt": "Art fluide" },
+      "styles": {
+        "all": "Tout",
+        "cyberpunk": "Cyberpunk",
+        "watercolor": "Aquarelle",
+        "oilPainting": "Peinture à l'huile",
+        "anime": "Anime",
+        "fluidArt": "Art fluide"
+      },
       "videoTitle": "Vidéo {style}",
       "promptLabel": "Prompt utilisé :",
       "createSimilar": "Créer similaire",
       "loadMore": "Charger plus",
       "createOwn": "Créer le vôtre",
       "items": {
-        "1": { "prompt": "Rue de ville éclairée au néon la nuit, pluie tombant à travers des publicités holographiques" },
-        "2": { "prompt": "Un lac de montagne serein au coucher du soleil avec de doux effets aquarelle" },
-        "3": { "prompt": "Un portrait classique dans le style de Rembrandt avec un éclairage doré chaleureux" },
-        "4": { "prompt": "Pétales de cerisier tombant dans un jardin japonais, style anime" },
-        "5": { "prompt": "Couleurs abstraites tourbillonnant comme du marbre liquide, flux fascinant" },
-        "6": { "prompt": "Voitures volantes à travers un paysage urbain futuriste avec des effets glitch" }
+        "1": {
+          "prompt": "Rue de ville éclairée au néon la nuit, pluie tombant à travers des publicités holographiques"
+        },
+        "2": {
+          "prompt": "Un lac de montagne serein au coucher du soleil avec de doux effets aquarelle"
+        },
+        "3": {
+          "prompt": "Un portrait classique dans le style de Rembrandt avec un éclairage doré chaleureux"
+        },
+        "4": {
+          "prompt": "Pétales de cerisier tombant dans un jardin japonais, style anime"
+        },
+        "5": {
+          "prompt": "Couleurs abstraites tourbillonnant comme du marbre liquide, flux fascinant"
+        },
+        "6": {
+          "prompt": "Voitures volantes à travers un paysage urbain futuriste avec des effets glitch"
+        }
       }
     },
     "useCases": {
       "badge": "Cas d'utilisation",
       "headline": "Les créateurs utilisent GenX pour",
       "cases": {
-        "social": { "title": "Réseaux sociaux", "description": "Démarquez-vous sur TikTok, Instagram, YouTube. Même contenu, impact visuel différent.", "example": "La machine à vidéos virales pour créateurs" },
-        "product": { "title": "Démos produits", "description": "Les photos de produits statiques sont ennuyeuses. Faites-les couler dans des styles artistiques.", "example": "Donnez vie à vos produits" },
-        "art": { "title": "Création artistique", "description": "Aucune compétence artistique requise. Exprimez vos idées avec l'IA.", "example": "Tout le monde est artiste maintenant" },
-        "content": { "title": "Création de contenu", "description": "Tutoriels, vlogs, histoires — chaque image captive les spectateurs plus longtemps.", "example": "Les histoires méritent de meilleurs visuels" }
+        "social": {
+          "title": "Réseaux sociaux",
+          "description": "Démarquez-vous sur TikTok, Instagram, YouTube. Même contenu, impact visuel différent.",
+          "example": "La machine à vidéos virales pour créateurs"
+        },
+        "product": {
+          "title": "Démos produits",
+          "description": "Les photos de produits statiques sont ennuyeuses. Faites-les couler dans des styles artistiques.",
+          "example": "Donnez vie à vos produits"
+        },
+        "art": {
+          "title": "Création artistique",
+          "description": "Aucune compétence artistique requise. Exprimez vos idées avec l'IA.",
+          "example": "Tout le monde est artiste maintenant"
+        },
+        "content": {
+          "title": "Création de contenu",
+          "description": "Tutoriels, vlogs, histoires — chaque image captive les spectateurs plus longtemps.",
+          "example": "Les histoires méritent de meilleurs visuels"
+        }
       },
       "cta": "Commencer à créer"
     },
@@ -875,10 +910,22 @@
       "badge": "Pourquoi GenX",
       "headline": "Pourquoi les créateurs choisissent GenX",
       "features": {
-        "quality": { "title": "Qualité artistique", "description": "Pas de simples filtres — une vraie technologie de transfert de style. Chaque image est créée par l'IA." },
-        "speed": { "title": "30 secondes chrono", "description": "Traitement optimisé en cloud, votre vidéo artistique livrée en moins de 30 secondes." },
-        "free": { "title": "Gratuit pour commencer", "description": "3 créations gratuites par jour. Assez pour essayer et tomber amoureux." },
-        "anywhere": { "title": "Utilisable partout", "description": "Aucun téléchargement nécessaire. Sur navigateur, sur tout appareil, n'importe quand." }
+        "quality": {
+          "title": "Qualité artistique",
+          "description": "Pas de simples filtres — une vraie technologie de transfert de style. Chaque image est créée par l'IA."
+        },
+        "speed": {
+          "title": "30 secondes chrono",
+          "description": "Traitement optimisé en cloud, votre vidéo artistique livrée en moins de 30 secondes."
+        },
+        "free": {
+          "title": "Gratuit pour commencer",
+          "description": "3 créations gratuites par jour. Assez pour essayer et tomber amoureux."
+        },
+        "anywhere": {
+          "title": "Utilisable partout",
+          "description": "Aucun téléchargement nécessaire. Sur navigateur, sur tout appareil, n'importe quand."
+        }
       },
       "trust": { "noWatermark": "Pas de filigrane caché (Pro)" }
     },
@@ -886,12 +933,31 @@
       "badge": "Témoignages",
       "headline": "Ce que disent les créateurs",
       "items": {
-        "1": { "name": "Sarah Chen", "role": "Créatrice TikTok", "content": "Enfin, plus besoin d'apprendre After Effects ! Je charge une photo, j'obtiens une vidéo. Mes collègues demandent toujours quel logiciel j'utilise." },
-        "2": { "name": "Mike Johnson", "role": "Développeur indépendant", "content": "Pour la première fois, j'ai senti que je pouvais vraiment faire des vidéos artistiques. Trop cool !" },
-        "3": { "name": "Emma Davis", "role": "Responsable marketing", "content": "Nos coûts de vidéo produit réduits de 80% et les résultats sont encore meilleurs." },
-        "4": { "name": "Alex Kim", "role": "Créateur de contenu", "content": "Le style anime est incroyable. Mon engagement TikTok a explosé !" }
+        "1": {
+          "name": "Sarah Chen",
+          "role": "Créatrice TikTok",
+          "content": "Enfin, plus besoin d'apprendre After Effects ! Je charge une photo, j'obtiens une vidéo. Mes collègues demandent toujours quel logiciel j'utilise."
+        },
+        "2": {
+          "name": "Mike Johnson",
+          "role": "Développeur indépendant",
+          "content": "Pour la première fois, j'ai senti que je pouvais vraiment faire des vidéos artistiques. Trop cool !"
+        },
+        "3": {
+          "name": "Emma Davis",
+          "role": "Responsable marketing",
+          "content": "Nos coûts de vidéo produit réduits de 80% et les résultats sont encore meilleurs."
+        },
+        "4": {
+          "name": "Alex Kim",
+          "role": "Créateur de contenu",
+          "content": "Le style anime est incroyable. Mon engagement TikTok a explosé !"
+        }
       },
-      "trustBadges": { "comingSoon": "Avis bientôt disponibles", "securePayment": "Paiement sécurisé via Stripe" }
+      "trustBadges": {
+        "comingSoon": "Avis bientôt disponibles",
+        "securePayment": "Paiement sécurisé via Stripe"
+      }
     },
     "pricing": {
       "badge": "Tarifs",
@@ -902,8 +968,25 @@
       "oneTime": "unique",
       "yearlyOption": "ou ${price}/an (économisez {discount}%)",
       "plans": {
-        "free": { "name": "Gratuit", "description": "Parfait pour essayer GenX", "feature1": "3 créations par jour", "feature2": "Les 5 styles artistiques", "feature3": "Résolution 720p", "feature4": "Licence usage personnel", "limit": "Filigrane GenX inclus", "cta": "Commencer gratuitement" },
-        "pro": { "name": "Pro", "description": "Pour les créateurs sérieux", "feature1": "Créations illimitées", "feature2": "Résolution 1080p HD", "feature3": "Sans filigrane", "feature4": "Licence commerciale", "cta": "Passer en Pro" }
+        "free": {
+          "name": "Gratuit",
+          "description": "Parfait pour essayer GenX",
+          "feature1": "3 créations par jour",
+          "feature2": "Les 5 styles artistiques",
+          "feature3": "Résolution 720p",
+          "feature4": "Licence usage personnel",
+          "limit": "Filigrane GenX inclus",
+          "cta": "Commencer gratuitement"
+        },
+        "pro": {
+          "name": "Pro",
+          "description": "Pour les créateurs sérieux",
+          "feature1": "Créations illimitées",
+          "feature2": "Résolution 1080p HD",
+          "feature3": "Sans filigrane",
+          "feature4": "Licence commerciale",
+          "cta": "Passer en Pro"
+        }
       },
       "paymentNote": "Paiement sécurisé via Stripe",
       "seeFullPricing": "Voir la comparaison complète des tarifs"
@@ -912,16 +995,46 @@
       "badge": "FAQ",
       "headline": "Questions fréquentes",
       "items": {
-        "free": { "question": "GenX est-il gratuit ?", "answer": "Oui ! Les visiteurs peuvent créer 3 vidéos par jour gratuitement. Les utilisateurs inscrits obtiennent plus de créations quotidiennes. Besoin de plus ? Découvrez notre plan Pro pour un accès illimité." },
-        "skills": { "question": "Ai-je besoin de compétences techniques ?", "answer": "Pas du tout ! Si vous pouvez charger une photo et cliquer sur un bouton, vous pouvez utiliser GenX. Nous avons encapsulé l'IA complexe dans une interface simple." },
-        "commercial": { "question": "Puis-je utiliser les vidéos commercialement ?", "answer": "Les vidéos gratuites sont réservées à un usage personnel. Les utilisateurs Pro obtiennent une licence commerciale complète pour les projets professionnels." },
-        "watermark": { "question": "Les vidéos ont-elles un filigrane ?", "answer": "Les vidéos gratuites incluent un petit filigrane GenX. Les utilisateurs Pro peuvent télécharger des vidéos HD sans filigrane." },
-        "formats": { "question": "Quels formats d'image sont supportés ?", "answer": "Nous supportons JPG et PNG, jusqu'à 10 Mo par image. Les images originales en haute résolution donnent de meilleurs résultats." },
-        "time": { "question": "Combien de temps prend la génération ?", "answer": "Généralement 15-45 secondes, selon la longueur de la vidéo et la charge du serveur. Vous verrez la progression en temps réel à l'écran." },
-        "data": { "question": "Où sont stockées mes données ? (RGPD)", "answer": "Vos données sont stockées sur des serveurs AWS sécurisés aux États-Unis et en UE. Nous sommes conformes au RGPD — vous pouvez demander la suppression de vos données à tout moment." },
-        "payment": { "question": "Quels modes de paiement acceptez-vous ?", "answer": "Nous acceptons Visa, Mastercard, American Express et PayPal via Stripe. Tous les paiements sont sécurisés et chiffrés." },
-        "refund": { "question": "Quelle est votre politique de remboursement ?", "answer": "Nous offrons une garantie de remboursement de 7 jours pour les abonnements Pro. Contactez support@genx.art pendant la période de garantie et nous traiterons votre remboursement sous 3 jours ouvrables." },
-        "cancel": { "question": "Comment annuler mon abonnement ?", "answer": "Vous pouvez annuler à tout moment via votre tableau de bord ou en contactant support@genx.art. Votre accès continue jusqu'à la fin de la période de facturation." }
+        "free": {
+          "question": "GenX est-il gratuit ?",
+          "answer": "Oui ! Les visiteurs peuvent créer 3 vidéos par jour gratuitement. Les utilisateurs inscrits obtiennent plus de créations quotidiennes. Besoin de plus ? Découvrez notre plan Pro pour un accès illimité."
+        },
+        "skills": {
+          "question": "Ai-je besoin de compétences techniques ?",
+          "answer": "Pas du tout ! Si vous pouvez charger une photo et cliquer sur un bouton, vous pouvez utiliser GenX. Nous avons encapsulé l'IA complexe dans une interface simple."
+        },
+        "commercial": {
+          "question": "Puis-je utiliser les vidéos commercialement ?",
+          "answer": "Les vidéos gratuites sont réservées à un usage personnel. Les utilisateurs Pro obtiennent une licence commerciale complète pour les projets professionnels."
+        },
+        "watermark": {
+          "question": "Les vidéos ont-elles un filigrane ?",
+          "answer": "Les vidéos gratuites incluent un petit filigrane GenX. Les utilisateurs Pro peuvent télécharger des vidéos HD sans filigrane."
+        },
+        "formats": {
+          "question": "Quels formats d'image sont supportés ?",
+          "answer": "Nous supportons JPG et PNG, jusqu'à 10 Mo par image. Les images originales en haute résolution donnent de meilleurs résultats."
+        },
+        "time": {
+          "question": "Combien de temps prend la génération ?",
+          "answer": "Généralement 15-45 secondes, selon la longueur de la vidéo et la charge du serveur. Vous verrez la progression en temps réel à l'écran."
+        },
+        "data": {
+          "question": "Où sont stockées mes données ? (RGPD)",
+          "answer": "Vos données sont stockées sur des serveurs AWS sécurisés aux États-Unis et en UE. Nous sommes conformes au RGPD — vous pouvez demander la suppression de vos données à tout moment."
+        },
+        "payment": {
+          "question": "Quels modes de paiement acceptez-vous ?",
+          "answer": "Nous acceptons Visa, Mastercard, American Express et PayPal via Stripe. Tous les paiements sont sécurisés et chiffrés."
+        },
+        "refund": {
+          "question": "Quelle est votre politique de remboursement ?",
+          "answer": "Nous offrons une garantie de remboursement de 7 jours pour les abonnements Pro. Contactez support@genx.art pendant la période de garantie et nous traiterons votre remboursement sous 3 jours ouvrables."
+        },
+        "cancel": {
+          "question": "Comment annuler mon abonnement ?",
+          "answer": "Vous pouvez annuler à tout moment via votre tableau de bord ou en contactant support@genx.art. Votre accès continue jusqu'à la fin de la période de facturation."
+        }
       }
     }
   },

@@ -1,9 +1,9 @@
-import { describe, expect, it } from 'vitest';
 import {
   IMAGE_MODELS,
   calculateImageCredits,
   getImageModelConfig,
 } from '@/config/image-credits';
+import { describe, expect, it } from 'vitest';
 
 /**
  * ImageService 业务逻辑测试
@@ -129,10 +129,7 @@ const ASPECT_RATIO_FALLBACK: Record<string, Record<string, string>> = {
 };
 
 describe('ImageService Aspect Ratio Fallback', () => {
-  function resolveAspectRatio(
-    modelKey: string,
-    aspectRatio?: string
-  ): string {
+  function resolveAspectRatio(modelKey: string, aspectRatio?: string): string {
     const config = MODEL_CONFIGS[modelKey] || MODEL_CONFIGS['gpt-image-1.5'];
     const isGptModel = modelKey.startsWith('gpt-image');
     const fallbackMap = isGptModel
@@ -296,9 +293,7 @@ describe('ImageService 模型默认尺寸', () => {
   });
 
   it('Wan 模型默认 1280x1280', () => {
-    expect(MODEL_CONFIGS['wan2.5-text-to-image'].defaultSize).toBe(
-      '1280x1280'
-    );
+    expect(MODEL_CONFIGS['wan2.5-text-to-image'].defaultSize).toBe('1280x1280');
     expect(MODEL_CONFIGS['wan2.5-image-to-image'].defaultSize).toBe(
       '1280x1280'
     );
@@ -335,8 +330,7 @@ describe('ImageService image-to-image 尺寸限制', () => {
 describe('ImageService 模型 fallback 安全性', () => {
   it('API Route 中未知模型 fallback 到 gpt-image-1.5', () => {
     const modelKey = 'injected-model-<script>';
-    const config =
-      MODEL_CONFIGS[modelKey] || MODEL_CONFIGS['gpt-image-1.5'];
+    const config = MODEL_CONFIGS[modelKey] || MODEL_CONFIGS['gpt-image-1.5'];
     expect(config.evolinkModel).toBe('gpt-image-1.5');
   });
 

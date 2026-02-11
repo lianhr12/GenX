@@ -184,7 +184,9 @@ describe('calculateModelCredits', () => {
     });
 
     it('4k 质量应该应用乘数', () => {
-      const normal = calculateModelCredits('veo-3.1-fast-generate-preview', { duration: 8 });
+      const normal = calculateModelCredits('veo-3.1-fast-generate-preview', {
+        duration: 8,
+      });
       const hq = calculateModelCredits('veo-3.1-fast-generate-preview', {
         duration: 8,
         quality: '4k',
@@ -329,7 +331,9 @@ describe('calculateModelCredits', () => {
     });
 
     it('veo-3.1-fast-generate-preview 4K 8s 应应用 4K 乘数', () => {
-      const normal = calculateModelCredits('veo-3.1-fast-generate-preview', { duration: 8 });
+      const normal = calculateModelCredits('veo-3.1-fast-generate-preview', {
+        duration: 8,
+      });
       const hq = calculateModelCredits('veo-3.1-fast-generate-preview', {
         duration: 8,
         quality: '4K',

@@ -33,10 +33,7 @@ interface PageBreadcrumbProps {
  * Renders both visual breadcrumb navigation and JSON-LD structured data
  * Use this component on marketing pages to improve SEO and UX
  */
-export function PageBreadcrumb({
-  items,
-  homeLabel,
-}: PageBreadcrumbProps) {
+export function PageBreadcrumb({ items, homeLabel }: PageBreadcrumbProps) {
   const t = useTranslations('Common');
   const resolvedHomeLabel = homeLabel || t('home');
   // Build schema items including home

@@ -252,7 +252,10 @@ describe('calculateImageCredits', () => {
 
     for (const modelId of allModelIds) {
       const config = IMAGE_MODELS[modelId];
-      if (config.creditCost.hdMultiplier && config.creditCost.hdMultiplier > 1) {
+      if (
+        config.creditCost.hdMultiplier &&
+        config.creditCost.hdMultiplier > 1
+      ) {
         it(`${modelId} HD 积分应大于普通积分`, () => {
           const normal = calculateImageCredits(modelId, {});
           const hd = calculateImageCredits(modelId, { quality: 'high' });

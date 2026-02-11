@@ -6,104 +6,877 @@
     "keywords": "ИИ изображение в видео, фото в видео, генератор арт-видео, ИИ создатель видео, анимация изображений, текст в видео"
   },
   "Common": {
-    "premium": "Премиум", "login": "Войти", "logout": "Выйти", "signUp": "Регистрация", "language": "Сменить язык",
-    "mode": { "label": "Переключить режим", "light": "Светлый", "dark": "Тёмный", "system": "Системный" },
-    "copy": "Копировать", "saving": "Сохранение...", "save": "Сохранить", "loading": "Загрузка...", "cancel": "Отмена", "logoutFailed": "Ошибка выхода", "home": "Главная", "replicate": "Повторить эффект",
-    "table": { "totalRecords": "Всего {count} записей", "noResults": "Нет результатов", "loading": "Загрузка...", "columns": "Столбцы", "rowsPerPage": "Строк на странице", "page": "Страница", "firstPage": "Первая страница", "lastPage": "Последняя страница", "nextPage": "Далее", "previousPage": "Назад", "ascending": "По возрастанию", "descending": "По убыванию", "resetSorting": "Сбросить", "hideColumn": "Скрыть", "viewOptions": "Вид", "toggleColumns": "Переключить столбцы", "searchColumns": "Поиск столбцов...", "noColumns": "Столбцы не найдены.", "clearFilters": "Очистить фильтры" }
+    "premium": "Премиум",
+    "login": "Войти",
+    "logout": "Выйти",
+    "signUp": "Регистрация",
+    "language": "Сменить язык",
+    "mode": {
+      "label": "Переключить режим",
+      "light": "Светлый",
+      "dark": "Тёмный",
+      "system": "Системный"
+    },
+    "copy": "Копировать",
+    "saving": "Сохранение...",
+    "save": "Сохранить",
+    "loading": "Загрузка...",
+    "cancel": "Отмена",
+    "logoutFailed": "Ошибка выхода",
+    "home": "Главная",
+    "replicate": "Повторить эффект",
+    "table": {
+      "totalRecords": "Всего {count} записей",
+      "noResults": "Нет результатов",
+      "loading": "Загрузка...",
+      "columns": "Столбцы",
+      "rowsPerPage": "Строк на странице",
+      "page": "Страница",
+      "firstPage": "Первая страница",
+      "lastPage": "Последняя страница",
+      "nextPage": "Далее",
+      "previousPage": "Назад",
+      "ascending": "По возрастанию",
+      "descending": "По убыванию",
+      "resetSorting": "Сбросить",
+      "hideColumn": "Скрыть",
+      "viewOptions": "Вид",
+      "toggleColumns": "Переключить столбцы",
+      "searchColumns": "Поиск столбцов...",
+      "noColumns": "Столбцы не найдены.",
+      "clearFilters": "Очистить фильтры"
+    }
   },
   "PricingPage": {
-    "title": "Тарифные планы", "description": "Выберите идеальный план для ваших творческих потребностей.", "keywords": "цены GenX, цены ИИ видео, планы подписки", "subtitle": "Выберите план, который подходит именно вам", "monthly": "Ежемесячно", "yearly": "Ежегодно",
-    "PricingCard": { "freePrice": "$0", "perMonth": "/мес", "perYear": "/год", "popular": "Популярный", "currentPlan": "Текущий план", "yourCurrentPlan": "Ваш текущий план", "getStartedForFree": "Начать бесплатно", "getStarted": "Начать", "notAvailable": "Недоступно", "daysTrial": "Пробный период {days} дней" },
-    "CheckoutButton": { "loading": "Загрузка...", "checkoutFailed": "Не удалось открыть страницу оплаты" }
+    "title": "Тарифные планы",
+    "description": "Выберите идеальный план для ваших творческих потребностей.",
+    "keywords": "цены GenX, цены ИИ видео, планы подписки",
+    "subtitle": "Выберите план, который подходит именно вам",
+    "monthly": "Ежемесячно",
+    "yearly": "Ежегодно",
+    "PricingCard": {
+      "freePrice": "$0",
+      "perMonth": "/мес",
+      "perYear": "/год",
+      "popular": "Популярный",
+      "currentPlan": "Текущий план",
+      "yourCurrentPlan": "Ваш текущий план",
+      "getStartedForFree": "Начать бесплатно",
+      "getStarted": "Начать",
+      "notAvailable": "Недоступно",
+      "daysTrial": "Пробный период {days} дней"
+    },
+    "CheckoutButton": {
+      "loading": "Загрузка...",
+      "checkoutFailed": "Не удалось открыть страницу оплаты"
+    }
   },
   "PricePlans": {
-    "free": { "name": "Бесплатный", "description": "Идеально для знакомства с GenX", "features": { "feature-1": "15 кредитов при регистрации", "feature-2": "Все 5 арт-стилей", "feature-3": "Качество 1080p", "feature-4": "Стандартная поддержка" }, "limits": { "limit-1": "Кредиты истекают через 30 дней", "limit-2": "Водяной знак", "limit-3": "Только личное использование" } },
-    "pro": { "name": "Pro", "description": "Для серьёзных создателей", "features": { "feature-1": "800 кредитов/мес", "feature-2": "Все 5 арт-стилей", "feature-3": "HD 1080p", "feature-4": "Приоритетная поддержка", "feature-5": "Без водяного знака" }, "limits": { "limit-1": "Месячные кредиты не накапливаются", "limit-2": "Коммерческая лицензия включена" } }
+    "free": {
+      "name": "Бесплатный",
+      "description": "Идеально для знакомства с GenX",
+      "features": {
+        "feature-1": "15 кредитов при регистрации",
+        "feature-2": "Все 5 арт-стилей",
+        "feature-3": "Качество 1080p",
+        "feature-4": "Стандартная поддержка"
+      },
+      "limits": {
+        "limit-1": "Кредиты истекают через 30 дней",
+        "limit-2": "Водяной знак",
+        "limit-3": "Только личное использование"
+      }
+    },
+    "pro": {
+      "name": "Pro",
+      "description": "Для серьёзных создателей",
+      "features": {
+        "feature-1": "800 кредитов/мес",
+        "feature-2": "Все 5 арт-стилей",
+        "feature-3": "HD 1080p",
+        "feature-4": "Приоритетная поддержка",
+        "feature-5": "Без водяного знака"
+      },
+      "limits": {
+        "limit-1": "Месячные кредиты не накапливаются",
+        "limit-2": "Коммерческая лицензия включена"
+      }
+    }
   },
-  "CreditPackages": { "starter": { "name": "Стартовый", "description": "Для знакомства с ИИ-генерацией" }, "basic": { "name": "Базовый", "description": "Для нерегулярных создателей" }, "standard": { "name": "Стандартный", "description": "Лучшее соотношение цена/качество" }, "premium": { "name": "Премиум", "description": "Для продвинутых пользователей" }, "enterprise": { "name": "Корпоративный", "description": "Максимум кредитов для интенсивного использования" } },
-  "NotFoundPage": { "title": "404", "headline": "Страница не найдена", "message": "Страница не существует или была перемещена.", "backToHome": "На главную", "searchHelp": "Получить помощь", "popularPages": "Популярные страницы", "links": { "imageToVideo": "Изображение в видео", "gallery": "Галерея", "docs": "Документация", "contact": "Связаться с нами" } },
-  "ErrorPage": { "title": "Ой! Что-то пошло не так!", "tryAgain": "Попробовать снова", "backToHome": "На главную" },
-  "AboutPage": { "title": "О GenX.art", "description": "GenX.art — платформа для создания арт-видео на базе ИИ.", "authorName": "GenX.art", "authorBio": "Платформа ИИ арт-видео", "introduction": "GenX.art позволяет создателям превращать обычные фото в необычные арт-видео. С помощью продвинутой ИИ-технологии мы делаем профессиональное видео доступным каждому.", "talkWithMe": "Связаться с нами", "followMe": "Подписывайтесь в X" },
-  "ChangelogPage": { "title": "Журнал изменений", "description": "Узнайте о новинках GenX.art.", "keywords": "обновления GenX, журнал изменений, новые функции", "subtitle": "Следите за последними изменениями" },
-  "RoadmapPage": { "title": "Дорожная карта", "description": "Планы развития GenX.art.", "keywords": "дорожная карта GenX, будущие функции", "subtitle": "Наши планы на будущее" },
-  "ContactPage": { "title": "Связаться с нами", "description": "Свяжитесь с командой GenX.art.", "keywords": "контакт GenX, поддержка, помощь", "subtitle": "Поможем найти подходящий план",
-    "form": { "title": "Связаться с нами", "description": "Есть вопросы или предложения? Напишите нам", "name": "Имя", "email": "Email", "message": "Сообщение", "submit": "Отправить", "submitting": "Отправка...", "success": "Сообщение отправлено", "fail": "Ошибка отправки", "nameMinLength": "Имя минимум 3 символа", "nameMaxLength": "Имя максимум 30 символов", "emailValidation": "Введите корректный email", "messageMinLength": "Сообщение минимум 10 символов", "messageMaxLength": "Сообщение максимум 500 символов" }
+  "CreditPackages": {
+    "starter": {
+      "name": "Стартовый",
+      "description": "Для знакомства с ИИ-генерацией"
+    },
+    "basic": {
+      "name": "Базовый",
+      "description": "Для нерегулярных создателей"
+    },
+    "standard": {
+      "name": "Стандартный",
+      "description": "Лучшее соотношение цена/качество"
+    },
+    "premium": {
+      "name": "Премиум",
+      "description": "Для продвинутых пользователей"
+    },
+    "enterprise": {
+      "name": "Корпоративный",
+      "description": "Максимум кредитов для интенсивного использования"
+    }
   },
-  "WaitlistPage": { "title": "Лист ожидания", "description": "Будьте первыми, кто узнает о новых функциях.", "keywords": "лист ожидания GenX, ранний доступ", "subtitle": "Присоединяйтесь к листу ожидания",
-    "form": { "title": "Присоединиться к листу ожидания", "description": "Мы уведомим вас о запуске", "email": "Email", "subscribe": "Подписаться", "subscribing": "Подписка...", "success": "Подписка оформлена", "fail": "Ошибка подписки", "emailValidation": "Введите корректный email" }
+  "NotFoundPage": {
+    "title": "404",
+    "headline": "Страница не найдена",
+    "message": "Страница не существует или была перемещена.",
+    "backToHome": "На главную",
+    "searchHelp": "Получить помощь",
+    "popularPages": "Популярные страницы",
+    "links": {
+      "imageToVideo": "Изображение в видео",
+      "gallery": "Галерея",
+      "docs": "Документация",
+      "contact": "Связаться с нами"
+    }
   },
-  "Newsletter": { "title": "Рассылка", "subtitle": "Присоединяйтесь к сообществу", "description": "Подпишитесь на рассылку для последних новостей", "form": { "email": "Email", "subscribe": "Подписаться", "subscribing": "Подписка...", "success": "Подписка оформлена", "fail": "Ошибка подписки", "emailValidation": "Введите корректный email" } },
+  "ErrorPage": {
+    "title": "Ой! Что-то пошло не так!",
+    "tryAgain": "Попробовать снова",
+    "backToHome": "На главную"
+  },
+  "AboutPage": {
+    "title": "О GenX.art",
+    "description": "GenX.art — платформа для создания арт-видео на базе ИИ.",
+    "authorName": "GenX.art",
+    "authorBio": "Платформа ИИ арт-видео",
+    "introduction": "GenX.art позволяет создателям превращать обычные фото в необычные арт-видео. С помощью продвинутой ИИ-технологии мы делаем профессиональное видео доступным каждому.",
+    "talkWithMe": "Связаться с нами",
+    "followMe": "Подписывайтесь в X"
+  },
+  "ChangelogPage": {
+    "title": "Журнал изменений",
+    "description": "Узнайте о новинках GenX.art.",
+    "keywords": "обновления GenX, журнал изменений, новые функции",
+    "subtitle": "Следите за последними изменениями"
+  },
+  "RoadmapPage": {
+    "title": "Дорожная карта",
+    "description": "Планы развития GenX.art.",
+    "keywords": "дорожная карта GenX, будущие функции",
+    "subtitle": "Наши планы на будущее"
+  },
+  "ContactPage": {
+    "title": "Связаться с нами",
+    "description": "Свяжитесь с командой GenX.art.",
+    "keywords": "контакт GenX, поддержка, помощь",
+    "subtitle": "Поможем найти подходящий план",
+    "form": {
+      "title": "Связаться с нами",
+      "description": "Есть вопросы или предложения? Напишите нам",
+      "name": "Имя",
+      "email": "Email",
+      "message": "Сообщение",
+      "submit": "Отправить",
+      "submitting": "Отправка...",
+      "success": "Сообщение отправлено",
+      "fail": "Ошибка отправки",
+      "nameMinLength": "Имя минимум 3 символа",
+      "nameMaxLength": "Имя максимум 30 символов",
+      "emailValidation": "Введите корректный email",
+      "messageMinLength": "Сообщение минимум 10 символов",
+      "messageMaxLength": "Сообщение максимум 500 символов"
+    }
+  },
+  "WaitlistPage": {
+    "title": "Лист ожидания",
+    "description": "Будьте первыми, кто узнает о новых функциях.",
+    "keywords": "лист ожидания GenX, ранний доступ",
+    "subtitle": "Присоединяйтесь к листу ожидания",
+    "form": {
+      "title": "Присоединиться к листу ожидания",
+      "description": "Мы уведомим вас о запуске",
+      "email": "Email",
+      "subscribe": "Подписаться",
+      "subscribing": "Подписка...",
+      "success": "Подписка оформлена",
+      "fail": "Ошибка подписки",
+      "emailValidation": "Введите корректный email"
+    }
+  },
+  "Newsletter": {
+    "title": "Рассылка",
+    "subtitle": "Присоединяйтесь к сообществу",
+    "description": "Подпишитесь на рассылку для последних новостей",
+    "form": {
+      "email": "Email",
+      "subscribe": "Подписаться",
+      "subscribing": "Подписка...",
+      "success": "Подписка оформлена",
+      "fail": "Ошибка подписки",
+      "emailValidation": "Введите корректный email"
+    }
+  },
   "AuthPage": {
-    "login": { "title": "Вход", "welcomeBack": "С возвращением", "email": "Email", "password": "Пароль", "signIn": "Войти", "signUpHint": "Нет аккаунта? Зарегистрируйтесь", "forgotPassword": "Забыли пароль?", "signInWithGoogle": "Войти через Google", "signInWithGitHub": "Войти через GitHub", "signInWithFacebook": "Войти через Facebook", "showPassword": "Показать пароль", "hidePassword": "Скрыть пароль", "or": "Или продолжить через", "emailRequired": "Введите email", "passwordRequired": "Введите пароль", "captchaInvalid": "Ошибка проверки captcha", "captchaError": "Ошибка captcha" },
-    "register": { "title": "Регистрация", "createAccount": "Создать аккаунт", "name": "Имя", "email": "Email", "password": "Пароль", "signUp": "Зарегистрироваться", "signInHint": "Уже есть аккаунт? Войдите", "checkEmail": "Проверьте вашу почту", "showPassword": "Показать пароль", "hidePassword": "Скрыть пароль", "nameRequired": "Введите имя", "emailRequired": "Введите email", "passwordRequired": "Введите пароль", "captchaInvalid": "Ошибка проверки captcha", "captchaError": "Ошибка captcha" },
-    "forgotPassword": { "title": "Забыли пароль", "email": "Email", "send": "Отправить ссылку для сброса", "backToLogin": "Вернуться ко входу", "checkEmail": "Проверьте вашу почту", "emailRequired": "Введите email" },
-    "resetPassword": { "title": "Сброс пароля", "password": "Пароль", "reset": "Сбросить пароль", "backToLogin": "Вернуться ко входу", "showPassword": "Показать пароль", "hidePassword": "Скрыть пароль", "minLength": "Пароль минимум 8 символов" },
-    "error": { "title": "Ой! Что-то пошло не так!", "tryAgain": "Попробуйте снова.", "backToLogin": "Вернуться ко входу", "checkEmail": "Проверьте вашу почту" },
-    "common": { "termsOfService": "Условия использования", "privacyPolicy": "Политика конфиденциальности", "byClickingContinue": "Продолжая, вы соглашаетесь с нашими ", "and": " и " }
+    "login": {
+      "title": "Вход",
+      "welcomeBack": "С возвращением",
+      "email": "Email",
+      "password": "Пароль",
+      "signIn": "Войти",
+      "signUpHint": "Нет аккаунта? Зарегистрируйтесь",
+      "forgotPassword": "Забыли пароль?",
+      "signInWithGoogle": "Войти через Google",
+      "signInWithGitHub": "Войти через GitHub",
+      "signInWithFacebook": "Войти через Facebook",
+      "showPassword": "Показать пароль",
+      "hidePassword": "Скрыть пароль",
+      "or": "Или продолжить через",
+      "emailRequired": "Введите email",
+      "passwordRequired": "Введите пароль",
+      "captchaInvalid": "Ошибка проверки captcha",
+      "captchaError": "Ошибка captcha"
+    },
+    "register": {
+      "title": "Регистрация",
+      "createAccount": "Создать аккаунт",
+      "name": "Имя",
+      "email": "Email",
+      "password": "Пароль",
+      "signUp": "Зарегистрироваться",
+      "signInHint": "Уже есть аккаунт? Войдите",
+      "checkEmail": "Проверьте вашу почту",
+      "showPassword": "Показать пароль",
+      "hidePassword": "Скрыть пароль",
+      "nameRequired": "Введите имя",
+      "emailRequired": "Введите email",
+      "passwordRequired": "Введите пароль",
+      "captchaInvalid": "Ошибка проверки captcha",
+      "captchaError": "Ошибка captcha"
+    },
+    "forgotPassword": {
+      "title": "Забыли пароль",
+      "email": "Email",
+      "send": "Отправить ссылку для сброса",
+      "backToLogin": "Вернуться ко входу",
+      "checkEmail": "Проверьте вашу почту",
+      "emailRequired": "Введите email"
+    },
+    "resetPassword": {
+      "title": "Сброс пароля",
+      "password": "Пароль",
+      "reset": "Сбросить пароль",
+      "backToLogin": "Вернуться ко входу",
+      "showPassword": "Показать пароль",
+      "hidePassword": "Скрыть пароль",
+      "minLength": "Пароль минимум 8 символов"
+    },
+    "error": {
+      "title": "Ой! Что-то пошло не так!",
+      "tryAgain": "Попробуйте снова.",
+      "backToLogin": "Вернуться ко входу",
+      "checkEmail": "Проверьте вашу почту"
+    },
+    "common": {
+      "termsOfService": "Условия использования",
+      "privacyPolicy": "Политика конфиденциальности",
+      "byClickingContinue": "Продолжая, вы соглашаетесь с нашими ",
+      "and": " и "
+    }
   },
-  "BlogPage": { "title": "Блог", "description": "Советы по созданию ИИ-видео, уроки и новости GenX.art.", "keywords": "блог ИИ видео, советы, уроки GenX", "subtitle": "Последние новости от нашей команды", "author": "Автор", "categories": "Категории", "tableOfContents": "Содержание", "readTime": "{minutes} мин чтения", "all": "Все", "noPostsFound": "Статьи не найдены", "allPosts": "Все статьи", "morePosts": "Ещё статьи" },
-  "DocsPage": { "toc": "Содержание", "search": "Поиск в документации", "lastUpdate": "Последнее обновление", "searchNoResult": "Нет результатов", "previousPage": "Назад", "nextPage": "Далее", "chooseLanguage": "Выбрать язык", "title": "Документация GenX.art", "homepage": "Главная" },
-  "PremiumContent": { "title": "Разблокировать Premium-контент", "description": "Подпишитесь на Pro для доступа ко всему premium-контенту.", "upgradeCta": "Обновить сейчас", "benefit1": "Весь premium-контент", "benefit2": "Эксклюзивный контент", "benefit3": "Отмена в любое время", "signIn": "Войти", "loginRequired": "Войдите, чтобы продолжить чтение", "loginDescription": "Это premium-контент. Войдите в аккаунт для полного доступа.", "checkingAccess": "Проверка доступа...", "loadingContent": "Загрузка полного контента..." },
+  "BlogPage": {
+    "title": "Блог",
+    "description": "Советы по созданию ИИ-видео, уроки и новости GenX.art.",
+    "keywords": "блог ИИ видео, советы, уроки GenX",
+    "subtitle": "Последние новости от нашей команды",
+    "author": "Автор",
+    "categories": "Категории",
+    "tableOfContents": "Содержание",
+    "readTime": "{minutes} мин чтения",
+    "all": "Все",
+    "noPostsFound": "Статьи не найдены",
+    "allPosts": "Все статьи",
+    "morePosts": "Ещё статьи"
+  },
+  "DocsPage": {
+    "toc": "Содержание",
+    "search": "Поиск в документации",
+    "lastUpdate": "Последнее обновление",
+    "searchNoResult": "Нет результатов",
+    "previousPage": "Назад",
+    "nextPage": "Далее",
+    "chooseLanguage": "Выбрать язык",
+    "title": "Документация GenX.art",
+    "homepage": "Главная"
+  },
+  "PremiumContent": {
+    "title": "Разблокировать Premium-контент",
+    "description": "Подпишитесь на Pro для доступа ко всему premium-контенту.",
+    "upgradeCta": "Обновить сейчас",
+    "benefit1": "Весь premium-контент",
+    "benefit2": "Эксклюзивный контент",
+    "benefit3": "Отмена в любое время",
+    "signIn": "Войти",
+    "loginRequired": "Войдите, чтобы продолжить чтение",
+    "loginDescription": "Это premium-контент. Войдите в аккаунт для полного доступа.",
+    "checkingAccess": "Проверка доступа...",
+    "loadingContent": "Загрузка полного контента..."
+  },
   "Marketing": {
-    "navbar": { "features": { "title": "Функции" }, "pricing": { "title": "Цены" }, "blog": { "title": "Блог" }, "docs": { "title": "Документация" }, "create": { "title": "Создать", "items": { "imageToVideo": { "title": "Изображение в видео", "description": "Превратите фото в потрясающие арт-видео" }, "textToVideo": { "title": "Текст в видео", "description": "Генерация видео из текстовых описаний" }, "image": { "title": "ИИ-изображение", "description": "Генерация красивых изображений с помощью ИИ" } } }, "styles": { "title": "Стили" }, "gallery": { "title": "Галерея" } },
+    "navbar": {
+      "features": { "title": "Функции" },
+      "pricing": { "title": "Цены" },
+      "blog": { "title": "Блог" },
+      "docs": { "title": "Документация" },
+      "create": {
+        "title": "Создать",
+        "items": {
+          "imageToVideo": {
+            "title": "Изображение в видео",
+            "description": "Превратите фото в потрясающие арт-видео"
+          },
+          "textToVideo": {
+            "title": "Текст в видео",
+            "description": "Генерация видео из текстовых описаний"
+          },
+          "image": {
+            "title": "ИИ-изображение",
+            "description": "Генерация красивых изображений с помощью ИИ"
+          }
+        }
+      },
+      "styles": { "title": "Стили" },
+      "gallery": { "title": "Галерея" }
+    },
     "footer": {
       "tagline": "Каждый кадр — искусство. Превратите фото в потрясающие арт-видео",
-      "videoModels": { "title": "Модели видео", "items": { "veo3": "Veo 3", "sora2": "Sora 2", "kling": "Kling AI", "hailuo": "Hailuo AI", "seedance": "Seedance", "wan": "Wan AI", "omnihuman": "OmniHuman", "moreModels": "Ещё модели" } },
-      "imageModels": { "title": "Модели изображений", "items": { "gptImage": "GPT Image", "seedream": "Seedream", "nanobanana": "Nanobanana Pro", "wanImage": "Wan 2.5 Image", "moreModels": "Ещё модели" } },
-      "product": { "title": "Продукт", "items": { "features": "Функции", "styles": "Арт-стили", "gallery": "Галерея", "pricing": "Цены", "faq": "FAQ" } },
-      "resources": { "title": "Ресурсы", "items": { "blog": "Блог", "docs": "Документация", "help": "Центр помощи", "changelog": "Журнал изменений", "roadmap": "Дорожная карта" } },
-      "companyAndLegal": { "title": "Компания", "items": { "about": "О нас", "contact": "Контакты", "waitlist": "Лист ожидания", "privacyPolicy": "Конфиденциальность", "termsOfService": "Условия использования" } }
+      "videoModels": {
+        "title": "Модели видео",
+        "items": {
+          "veo3": "Veo 3",
+          "sora2": "Sora 2",
+          "kling": "Kling AI",
+          "hailuo": "Hailuo AI",
+          "seedance": "Seedance",
+          "wan": "Wan AI",
+          "omnihuman": "OmniHuman",
+          "moreModels": "Ещё модели"
+        }
+      },
+      "imageModels": {
+        "title": "Модели изображений",
+        "items": {
+          "gptImage": "GPT Image",
+          "seedream": "Seedream",
+          "nanobanana": "Nanobanana Pro",
+          "wanImage": "Wan 2.5 Image",
+          "moreModels": "Ещё модели"
+        }
+      },
+      "product": {
+        "title": "Продукт",
+        "items": {
+          "features": "Функции",
+          "styles": "Арт-стили",
+          "gallery": "Галерея",
+          "pricing": "Цены",
+          "faq": "FAQ"
+        }
+      },
+      "resources": {
+        "title": "Ресурсы",
+        "items": {
+          "blog": "Блог",
+          "docs": "Документация",
+          "help": "Центр помощи",
+          "changelog": "Журнал изменений",
+          "roadmap": "Дорожная карта"
+        }
+      },
+      "companyAndLegal": {
+        "title": "Компания",
+        "items": {
+          "about": "О нас",
+          "contact": "Контакты",
+          "waitlist": "Лист ожидания",
+          "privacyPolicy": "Конфиденциальность",
+          "termsOfService": "Условия использования"
+        }
+      }
     },
-    "avatar": { "dashboard": "Панель управления", "billing": "Оплата", "credits": "Кредиты", "settings": "Настройки" }
+    "avatar": {
+      "dashboard": "Панель управления",
+      "billing": "Оплата",
+      "credits": "Кредиты",
+      "settings": "Настройки"
+    }
   },
   "Dashboard": {
     "dashboard": { "title": "Панель управления" },
-    "creations": { "title": "Мои работы", "videos": { "title": "Видео", "description": "Просмотр и управление видео", "empty": "Пока нет видео", "emptyHint": "Создайте видео, чтобы увидеть их здесь" }, "images": { "title": "Изображения", "description": "Просмотр и управление изображениями", "empty": "Пока нет изображений", "emptyHint": "Создайте изображения, чтобы увидеть их здесь" }, "filters": { "all": "Все", "completed": "Завершено", "generating": "Генерация", "failed": "Ошибка", "favorites": "Избранное" }, "actions": { "delete": "Удалить", "download": "Скачать", "favorite": "В избранное", "unfavorite": "Убрать из избранного", "regenerate": "Перегенерировать", "viewDetails": "Подробнее" }, "batch": { "selected": "{count} выбрано", "deleteSelected": "Удалить выбранное", "downloadSelected": "Скачать выбранное" }, "visibility": { "public": "Публичное", "private": "Приватное", "toggleVisibility": "Переключить видимость", "makePublic": "Сделать публичным", "makePrivate": "Сделать приватным", "pendingReview": "На модерации", "approved": "Одобрено", "rejected": "Отклонено", "removed": "Удалено" } },
+    "creations": {
+      "title": "Мои работы",
+      "videos": {
+        "title": "Видео",
+        "description": "Просмотр и управление видео",
+        "empty": "Пока нет видео",
+        "emptyHint": "Создайте видео, чтобы увидеть их здесь"
+      },
+      "images": {
+        "title": "Изображения",
+        "description": "Просмотр и управление изображениями",
+        "empty": "Пока нет изображений",
+        "emptyHint": "Создайте изображения, чтобы увидеть их здесь"
+      },
+      "filters": {
+        "all": "Все",
+        "completed": "Завершено",
+        "generating": "Генерация",
+        "failed": "Ошибка",
+        "favorites": "Избранное"
+      },
+      "actions": {
+        "delete": "Удалить",
+        "download": "Скачать",
+        "favorite": "В избранное",
+        "unfavorite": "Убрать из избранного",
+        "regenerate": "Перегенерировать",
+        "viewDetails": "Подробнее"
+      },
+      "batch": {
+        "selected": "{count} выбрано",
+        "deleteSelected": "Удалить выбранное",
+        "downloadSelected": "Скачать выбранное"
+      },
+      "visibility": {
+        "public": "Публичное",
+        "private": "Приватное",
+        "toggleVisibility": "Переключить видимость",
+        "makePublic": "Сделать публичным",
+        "makePrivate": "Сделать приватным",
+        "pendingReview": "На модерации",
+        "approved": "Одобрено",
+        "rejected": "Отклонено",
+        "removed": "Удалено"
+      }
+    },
     "settings": {
       "title": "Настройки",
-      "profile": { "title": "Профиль", "description": "Управление информацией аккаунта", "avatar": { "title": "Аватар", "description": "Загрузите свой аватар", "recommendation": "Аватар необязателен, но рекомендуется", "uploading": "Загрузка...", "uploadAvatar": "Загрузить аватар", "success": "Аватар обновлён", "fail": "Ошибка обновления аватара" }, "name": { "title": "Имя", "description": "Введите отображаемое имя", "placeholder": "Введите имя", "minLength": "Минимум 3 символа", "maxLength": "Максимум 30 символов", "hint": "3-30 символов", "success": "Имя обновлено", "fail": "Ошибка обновления имени", "saving": "Сохранение...", "save": "Сохранить" } },
-      "billing": { "title": "Оплата", "description": "Управление подпиской и оплатой", "status": { "active": "Активна", "trial": "Пробный период", "free": "Бесплатный" }, "interval": { "month": "мес", "year": "год", "oneTime": "разовый" }, "currentPlan": { "title": "Текущий план", "description": "Детали текущего плана", "noPlan": "Нет активного плана" }, "CustomerPortalButton": { "loading": "Загрузка...", "createCustomerPortalFailed": "Не удалось открыть портал Stripe" }, "price": "Цена:", "periodStartDate": "Начало периода:", "periodEndDate": "Конец периода:", "trialEnds": "Окончание пробного:", "freePlanMessage": "Вы на бесплатном плане с ограниченными функциями", "manageSubscription": "Управление подпиской", "manageBilling": "Управление оплатой", "upgradePlan": "Улучшить план", "retry": "Повторить", "errorMessage": "Ошибка получения данных", "paymentSuccess": "Оплата успешна" },
-      "payment": { "processing": { "title": "Обработка оплаты", "description": "Подождите, пока мы подтвердим оплату..." }, "success": { "title": "Оплата успешна", "description": "Автоматический переход..." }, "failed": { "title": "Оплата не прошла", "description": "При обработке оплаты возникла проблема." }, "timeout": { "title": "Тайм-аут", "description": "Обработка оплаты занимает больше времени." }, "retry": "Повторить" },
-      "credits": { "title": "Кредиты", "description": "Управление транзакциями кредитов", "tabs": { "balance": "Баланс", "transactions": "Транзакции" }, "balance": { "title": "Баланс кредитов", "description": "Ваш баланс кредитов", "credits": "Кредиты", "creditsDescription": "У вас {credits} кредитов", "creditsExpired": "Кредиты истекли", "creditsAdded": "Кредиты добавлены на ваш счёт", "viewTransactions": "Просмотр транзакций", "retry": "Повторить", "expiringCredits": "{credits} кредитов истекают через {days} дней" }, "packages": { "title": "Пакеты кредитов", "description": "Купите дополнительные кредиты", "purchase": "Купить", "processing": "Обработка...", "popular": "Популярный", "completePurchase": "Завершить покупку", "cancel": "Отмена", "purchaseFailed": "Ошибка покупки кредитов", "checkoutFailed": "Ошибка создания сессии оплаты", "loading": "Загрузка...", "pay": "Оплатить", "failedToFetchCredits": "Ошибка получения кредитов", "failedToCreatePaymentIntent": "Ошибка создания платежа", "failedToInitiatePayment": "Ошибка инициации платежа" }, "transactions": { "title": "Транзакции кредитов", "error": "Ошибка получения транзакций", "search": "Поиск транзакций...", "clearSearch": "Очистить поиск", "paymentIdCopied": "ID платежа скопирован", "noResults": "Нет результатов", "columns": { "columns": "Столбцы", "id": "ID", "type": "Тип", "description": "Описание", "amount": "Количество", "remainingAmount": "Остаток", "paymentId": "ID платежа", "expirationDate": "Дата истечения", "expirationDateProcessedAt": "Обработано", "createdAt": "Создано", "updatedAt": "Обновлено" }, "types": { "MONTHLY_REFRESH": "Ежемесячное пополнение", "REGISTER_GIFT": "Подарок за регистрацию", "PURCHASE": "Покупка кредитов", "USAGE": "Использование кредитов", "EXPIRE": "Кредиты истекли", "SUBSCRIPTION_RENEWAL": "Продление подписки", "REFERRAL_REGISTRATION": "Реферальный бонус за регистрацию", "REFERRAL_PURCHASE": "Реферальный бонус за покупку" }, "detailViewer": { "title": "Детали транзакции", "close": "Закрыть" }, "expired": "Истёк", "never": "Никогда" } },
-      "notification": { "title": "Уведомления", "description": "Управление настройками уведомлений", "newsletter": { "title": "Подписка на рассылку", "description": "Управление настройками рассылки", "label": "Подписаться на рассылку", "hint": "Вы можете изменить настройки в любое время", "emailRequired": "Email необходим для подписки", "subscribeSuccess": "Подписка оформлена", "subscribeFail": "Ошибка подписки", "unsubscribeSuccess": "Подписка отменена", "unsubscribeFail": "Ошибка отмены подписки", "error": "Ошибка обновления подписки" } },
-      "security": { "title": "Безопасность", "description": "Управление настройками безопасности", "updatePassword": { "title": "Изменить пароль", "description": "Введите текущий и новый пароль", "currentPassword": "Текущий пароль", "currentRequired": "Требуется текущий пароль", "newPassword": "Новый пароль", "newMinLength": "Пароль минимум 8 символов", "hint": "Минимум 8 символов", "showPassword": "Показать пароль", "hidePassword": "Скрыть пароль", "success": "Пароль обновлён", "fail": "Ошибка обновления пароля", "saving": "Сохранение...", "save": "Сохранить" }, "resetPassword": { "title": "Сбросить пароль", "description": "Сбросьте пароль для входа через email", "info": "Сброс пароля позволит входить по email и паролю помимо социальных способов.", "button": "Сбросить пароль" }, "deleteAccount": { "title": "Удалить аккаунт", "description": "Навсегда удалить аккаунт и весь контент", "warning": "Это действие необратимо", "button": "Удалить аккаунт", "confirmTitle": "Удалить аккаунт", "confirmDescription": "Вы уверены? Это действие нельзя отменить.", "confirm": "Удалить", "cancel": "Отмена", "deleting": "Удаление...", "success": "Аккаунт удалён", "fail": "Ошибка удаления аккаунта" } },
-      "referral": { "title": "Реферальная программа", "description": "Приглашайте друзей и получайте кредиты", "code": { "title": "Ваш реферал", "description": "Поделитесь реферальным кодом или ссылкой с друзьями", "yourCode": "Реферальный код", "yourLink": "Реферальная ссылка" }, "stats": { "title": "Статистика", "description": "Ваши реферальные результаты", "totalReferrals": "Всего рефералов", "registeredReferrals": "Зарегистрированных", "purchasedReferrals": "Покупателей", "totalCredits": "Заработано кредитов" }, "history": { "title": "История рефералов", "user": "Пользователь", "status": "Статус", "reward": "Награда", "date": "Дата", "empty": "Пока нет рефералов. Поделитесь ссылкой!" }, "status": { "pending": "Ожидание", "registered": "Зарегистрирован", "purchased": "Купил" } }
+      "profile": {
+        "title": "Профиль",
+        "description": "Управление информацией аккаунта",
+        "avatar": {
+          "title": "Аватар",
+          "description": "Загрузите свой аватар",
+          "recommendation": "Аватар необязателен, но рекомендуется",
+          "uploading": "Загрузка...",
+          "uploadAvatar": "Загрузить аватар",
+          "success": "Аватар обновлён",
+          "fail": "Ошибка обновления аватара"
+        },
+        "name": {
+          "title": "Имя",
+          "description": "Введите отображаемое имя",
+          "placeholder": "Введите имя",
+          "minLength": "Минимум 3 символа",
+          "maxLength": "Максимум 30 символов",
+          "hint": "3-30 символов",
+          "success": "Имя обновлено",
+          "fail": "Ошибка обновления имени",
+          "saving": "Сохранение...",
+          "save": "Сохранить"
+        }
+      },
+      "billing": {
+        "title": "Оплата",
+        "description": "Управление подпиской и оплатой",
+        "status": {
+          "active": "Активна",
+          "trial": "Пробный период",
+          "free": "Бесплатный"
+        },
+        "interval": { "month": "мес", "year": "год", "oneTime": "разовый" },
+        "currentPlan": {
+          "title": "Текущий план",
+          "description": "Детали текущего плана",
+          "noPlan": "Нет активного плана"
+        },
+        "CustomerPortalButton": {
+          "loading": "Загрузка...",
+          "createCustomerPortalFailed": "Не удалось открыть портал Stripe"
+        },
+        "price": "Цена:",
+        "periodStartDate": "Начало периода:",
+        "periodEndDate": "Конец периода:",
+        "trialEnds": "Окончание пробного:",
+        "freePlanMessage": "Вы на бесплатном плане с ограниченными функциями",
+        "manageSubscription": "Управление подпиской",
+        "manageBilling": "Управление оплатой",
+        "upgradePlan": "Улучшить план",
+        "retry": "Повторить",
+        "errorMessage": "Ошибка получения данных",
+        "paymentSuccess": "Оплата успешна"
+      },
+      "payment": {
+        "processing": {
+          "title": "Обработка оплаты",
+          "description": "Подождите, пока мы подтвердим оплату..."
+        },
+        "success": {
+          "title": "Оплата успешна",
+          "description": "Автоматический переход..."
+        },
+        "failed": {
+          "title": "Оплата не прошла",
+          "description": "При обработке оплаты возникла проблема."
+        },
+        "timeout": {
+          "title": "Тайм-аут",
+          "description": "Обработка оплаты занимает больше времени."
+        },
+        "retry": "Повторить"
+      },
+      "credits": {
+        "title": "Кредиты",
+        "description": "Управление транзакциями кредитов",
+        "tabs": { "balance": "Баланс", "transactions": "Транзакции" },
+        "balance": {
+          "title": "Баланс кредитов",
+          "description": "Ваш баланс кредитов",
+          "credits": "Кредиты",
+          "creditsDescription": "У вас {credits} кредитов",
+          "creditsExpired": "Кредиты истекли",
+          "creditsAdded": "Кредиты добавлены на ваш счёт",
+          "viewTransactions": "Просмотр транзакций",
+          "retry": "Повторить",
+          "expiringCredits": "{credits} кредитов истекают через {days} дней"
+        },
+        "packages": {
+          "title": "Пакеты кредитов",
+          "description": "Купите дополнительные кредиты",
+          "purchase": "Купить",
+          "processing": "Обработка...",
+          "popular": "Популярный",
+          "completePurchase": "Завершить покупку",
+          "cancel": "Отмена",
+          "purchaseFailed": "Ошибка покупки кредитов",
+          "checkoutFailed": "Ошибка создания сессии оплаты",
+          "loading": "Загрузка...",
+          "pay": "Оплатить",
+          "failedToFetchCredits": "Ошибка получения кредитов",
+          "failedToCreatePaymentIntent": "Ошибка создания платежа",
+          "failedToInitiatePayment": "Ошибка инициации платежа"
+        },
+        "transactions": {
+          "title": "Транзакции кредитов",
+          "error": "Ошибка получения транзакций",
+          "search": "Поиск транзакций...",
+          "clearSearch": "Очистить поиск",
+          "paymentIdCopied": "ID платежа скопирован",
+          "noResults": "Нет результатов",
+          "columns": {
+            "columns": "Столбцы",
+            "id": "ID",
+            "type": "Тип",
+            "description": "Описание",
+            "amount": "Количество",
+            "remainingAmount": "Остаток",
+            "paymentId": "ID платежа",
+            "expirationDate": "Дата истечения",
+            "expirationDateProcessedAt": "Обработано",
+            "createdAt": "Создано",
+            "updatedAt": "Обновлено"
+          },
+          "types": {
+            "MONTHLY_REFRESH": "Ежемесячное пополнение",
+            "REGISTER_GIFT": "Подарок за регистрацию",
+            "PURCHASE": "Покупка кредитов",
+            "USAGE": "Использование кредитов",
+            "EXPIRE": "Кредиты истекли",
+            "SUBSCRIPTION_RENEWAL": "Продление подписки",
+            "REFERRAL_REGISTRATION": "Реферальный бонус за регистрацию",
+            "REFERRAL_PURCHASE": "Реферальный бонус за покупку"
+          },
+          "detailViewer": { "title": "Детали транзакции", "close": "Закрыть" },
+          "expired": "Истёк",
+          "never": "Никогда"
+        }
+      },
+      "notification": {
+        "title": "Уведомления",
+        "description": "Управление настройками уведомлений",
+        "newsletter": {
+          "title": "Подписка на рассылку",
+          "description": "Управление настройками рассылки",
+          "label": "Подписаться на рассылку",
+          "hint": "Вы можете изменить настройки в любое время",
+          "emailRequired": "Email необходим для подписки",
+          "subscribeSuccess": "Подписка оформлена",
+          "subscribeFail": "Ошибка подписки",
+          "unsubscribeSuccess": "Подписка отменена",
+          "unsubscribeFail": "Ошибка отмены подписки",
+          "error": "Ошибка обновления подписки"
+        }
+      },
+      "security": {
+        "title": "Безопасность",
+        "description": "Управление настройками безопасности",
+        "updatePassword": {
+          "title": "Изменить пароль",
+          "description": "Введите текущий и новый пароль",
+          "currentPassword": "Текущий пароль",
+          "currentRequired": "Требуется текущий пароль",
+          "newPassword": "Новый пароль",
+          "newMinLength": "Пароль минимум 8 символов",
+          "hint": "Минимум 8 символов",
+          "showPassword": "Показать пароль",
+          "hidePassword": "Скрыть пароль",
+          "success": "Пароль обновлён",
+          "fail": "Ошибка обновления пароля",
+          "saving": "Сохранение...",
+          "save": "Сохранить"
+        },
+        "resetPassword": {
+          "title": "Сбросить пароль",
+          "description": "Сбросьте пароль для входа через email",
+          "info": "Сброс пароля позволит входить по email и паролю помимо социальных способов.",
+          "button": "Сбросить пароль"
+        },
+        "deleteAccount": {
+          "title": "Удалить аккаунт",
+          "description": "Навсегда удалить аккаунт и весь контент",
+          "warning": "Это действие необратимо",
+          "button": "Удалить аккаунт",
+          "confirmTitle": "Удалить аккаунт",
+          "confirmDescription": "Вы уверены? Это действие нельзя отменить.",
+          "confirm": "Удалить",
+          "cancel": "Отмена",
+          "deleting": "Удаление...",
+          "success": "Аккаунт удалён",
+          "fail": "Ошибка удаления аккаунта"
+        }
+      },
+      "referral": {
+        "title": "Реферальная программа",
+        "description": "Приглашайте друзей и получайте кредиты",
+        "code": {
+          "title": "Ваш реферал",
+          "description": "Поделитесь реферальным кодом или ссылкой с друзьями",
+          "yourCode": "Реферальный код",
+          "yourLink": "Реферальная ссылка"
+        },
+        "stats": {
+          "title": "Статистика",
+          "description": "Ваши реферальные результаты",
+          "totalReferrals": "Всего рефералов",
+          "registeredReferrals": "Зарегистрированных",
+          "purchasedReferrals": "Покупателей",
+          "totalCredits": "Заработано кредитов"
+        },
+        "history": {
+          "title": "История рефералов",
+          "user": "Пользователь",
+          "status": "Статус",
+          "reward": "Награда",
+          "date": "Дата",
+          "empty": "Пока нет рефералов. Поделитесь ссылкой!"
+        },
+        "status": {
+          "pending": "Ожидание",
+          "registered": "Зарегистрирован",
+          "purchased": "Купил"
+        }
+      }
     },
-    "upgrade": { "title": "Улучшить", "description": "Обновите до Pro для всех функций", "button": "Улучшить" }
+    "upgrade": {
+      "title": "Улучшить",
+      "description": "Обновите до Pro для всех функций",
+      "button": "Улучшить"
+    }
   },
-  "Mail": { "common": { "team": "Команда {name}", "copyright": "©️ {year} Все права защищены." }, "verifyEmail": { "title": "Здравствуйте, {name}.", "body": "Нажмите на ссылку ниже, чтобы подтвердить email.", "confirmEmail": "Подтвердить email", "subject": "Подтвердите ваш email" }, "forgotPassword": { "title": "Здравствуйте, {name}.", "body": "Нажмите на ссылку ниже для сброса пароля.", "resetPassword": "Сбросить пароль", "subject": "Сброс пароля" }, "subscribeNewsletter": { "body": "Спасибо за подписку на рассылку. Будем держать вас в курсе.", "subject": "Спасибо за подписку" }, "contactMessage": { "name": "Имя: {name}", "email": "Email: {email}", "message": "Сообщение: {message}", "subject": "Сообщение с сайта" } },
+  "Mail": {
+    "common": {
+      "team": "Команда {name}",
+      "copyright": "©️ {year} Все права защищены."
+    },
+    "verifyEmail": {
+      "title": "Здравствуйте, {name}.",
+      "body": "Нажмите на ссылку ниже, чтобы подтвердить email.",
+      "confirmEmail": "Подтвердить email",
+      "subject": "Подтвердите ваш email"
+    },
+    "forgotPassword": {
+      "title": "Здравствуйте, {name}.",
+      "body": "Нажмите на ссылку ниже для сброса пароля.",
+      "resetPassword": "Сбросить пароль",
+      "subject": "Сброс пароля"
+    },
+    "subscribeNewsletter": {
+      "body": "Спасибо за подписку на рассылку. Будем держать вас в курсе.",
+      "subject": "Спасибо за подписку"
+    },
+    "contactMessage": {
+      "name": "Имя: {name}",
+      "email": "Email: {email}",
+      "message": "Сообщение: {message}",
+      "subject": "Сообщение с сайта"
+    }
+  },
   "Landing": {
-    "hero": { "headline": "Каждый кадр — искусство", "subheadline": "Загрузите фото, выберите арт-стиль, получите потрясающее арт-видео за 30 секунд. Навыки не нужны.", "cta": { "primary": "Загрузить фото", "secondary": "Посмотреть возможности" }, "socialProof": "арт-видео создано", "scrollHint": "Прокрутите для изучения", "switchStyle": "Переключить на стиль {style}" },
-    "painPoints": { "headline": "У вас есть истории, но инструменты тормозят", "items": { "learning": { "title": "Изучение Premiere или After Effects занимает месяцы", "description": "Сложное ПО с крутой кривой обучения держит ваши идеи взаперти." }, "cost": { "title": "Профессиональная команда стоит тысячи", "description": "Качественное видеопроизводство дорого и недоступно большинству." }, "generic": { "title": "Шаблонные видео безлики", "description": "Шаблоны делают ваш контент неотличимым от остальных." } }, "solution": { "title": "GenX меняет всё", "description": "Нужны только фото и идея. ИИ превращает обычное в искусство.", "benefit1": "Без кривой обучения", "benefit2": "Профессиональный результат", "benefit3": "Уникальные арт-стили" }, "cta": "Попробуйте бесплатно за 30 секунд" },
-    "artStyles": { "badge": "5 уникальных стилей", "headline": "Выберите свой художественный язык", "subheadline": "5 уникальных арт-стилей, каждый тщательно настроен.", "styles": { "cyberpunk": { "title": "Киберпанк", "description": "Мерцающий неон, летающие машины, цифровой дождь в кибермире", "bestFor": "Для: Технологический контент, трейлеры" }, "watercolor": { "title": "Акварель", "description": "Цвета, растекающиеся по бумаге, как видимое стихотворение", "bestFor": "Для: Расслабляющий контент, эмоции" }, "oilPainting": { "title": "Масло", "description": "Каждый мазок несёт тепло, превращая фото в коллекционное искусство", "bestFor": "Для: Премиум-выставки, искусство" }, "anime": { "title": "Аниме", "description": "Войдите в мир аниме, станьте героем своей истории", "bestFor": "Для: Аниме-контент, молодая аудитория" }, "fluidArt": { "title": "Флюид-арт", "description": "Цвета сталкиваются и смешиваются, каждый кадр — уникальное абстрактное искусство", "bestFor": "Для: Креативные видео, фоны" } }, "createWith": "Создать в этом стиле", "exploreAll": "Все стили" },
-    "howItWorks": { "badge": "Простой процесс", "headline": "От фото к искусству за 3 шага", "subheadline": "Никаких уроков. Ваш креатив, GenX реализует.", "steps": { "upload": { "title": "Загрузите фото", "description": "Перетащите или нажмите для выбора", "details": "JPG/PNG, макс 10МБ" }, "style": { "title": "Выберите стиль", "description": "Выберите из 5 уникальных арт-стилей", "details": "Наведите для предпросмотра" }, "download": { "title": "Дождитесь магии", "description": "ИИ создаст ваше арт-видео за 30 секунд", "details": "Скачайте HD-видео мгновенно" } }, "bottomText": "Вот и всё. Без обучения. Без уроков.", "cta": "Попробуйте — Бесплатно" },
+    "hero": {
+      "headline": "Каждый кадр — искусство",
+      "subheadline": "Загрузите фото, выберите арт-стиль, получите потрясающее арт-видео за 30 секунд. Навыки не нужны.",
+      "cta": {
+        "primary": "Загрузить фото",
+        "secondary": "Посмотреть возможности"
+      },
+      "socialProof": "арт-видео создано",
+      "scrollHint": "Прокрутите для изучения",
+      "switchStyle": "Переключить на стиль {style}"
+    },
+    "painPoints": {
+      "headline": "У вас есть истории, но инструменты тормозят",
+      "items": {
+        "learning": {
+          "title": "Изучение Premiere или After Effects занимает месяцы",
+          "description": "Сложное ПО с крутой кривой обучения держит ваши идеи взаперти."
+        },
+        "cost": {
+          "title": "Профессиональная команда стоит тысячи",
+          "description": "Качественное видеопроизводство дорого и недоступно большинству."
+        },
+        "generic": {
+          "title": "Шаблонные видео безлики",
+          "description": "Шаблоны делают ваш контент неотличимым от остальных."
+        }
+      },
+      "solution": {
+        "title": "GenX меняет всё",
+        "description": "Нужны только фото и идея. ИИ превращает обычное в искусство.",
+        "benefit1": "Без кривой обучения",
+        "benefit2": "Профессиональный результат",
+        "benefit3": "Уникальные арт-стили"
+      },
+      "cta": "Попробуйте бесплатно за 30 секунд"
+    },
+    "artStyles": {
+      "badge": "5 уникальных стилей",
+      "headline": "Выберите свой художественный язык",
+      "subheadline": "5 уникальных арт-стилей, каждый тщательно настроен.",
+      "styles": {
+        "cyberpunk": {
+          "title": "Киберпанк",
+          "description": "Мерцающий неон, летающие машины, цифровой дождь в кибермире",
+          "bestFor": "Для: Технологический контент, трейлеры"
+        },
+        "watercolor": {
+          "title": "Акварель",
+          "description": "Цвета, растекающиеся по бумаге, как видимое стихотворение",
+          "bestFor": "Для: Расслабляющий контент, эмоции"
+        },
+        "oilPainting": {
+          "title": "Масло",
+          "description": "Каждый мазок несёт тепло, превращая фото в коллекционное искусство",
+          "bestFor": "Для: Премиум-выставки, искусство"
+        },
+        "anime": {
+          "title": "Аниме",
+          "description": "Войдите в мир аниме, станьте героем своей истории",
+          "bestFor": "Для: Аниме-контент, молодая аудитория"
+        },
+        "fluidArt": {
+          "title": "Флюид-арт",
+          "description": "Цвета сталкиваются и смешиваются, каждый кадр — уникальное абстрактное искусство",
+          "bestFor": "Для: Креативные видео, фоны"
+        }
+      },
+      "createWith": "Создать в этом стиле",
+      "exploreAll": "Все стили"
+    },
+    "howItWorks": {
+      "badge": "Простой процесс",
+      "headline": "От фото к искусству за 3 шага",
+      "subheadline": "Никаких уроков. Ваш креатив, GenX реализует.",
+      "steps": {
+        "upload": {
+          "title": "Загрузите фото",
+          "description": "Перетащите или нажмите для выбора",
+          "details": "JPG/PNG, макс 10МБ"
+        },
+        "style": {
+          "title": "Выберите стиль",
+          "description": "Выберите из 5 уникальных арт-стилей",
+          "details": "Наведите для предпросмотра"
+        },
+        "download": {
+          "title": "Дождитесь магии",
+          "description": "ИИ создаст ваше арт-видео за 30 секунд",
+          "details": "Скачайте HD-видео мгновенно"
+        }
+      },
+      "bottomText": "Вот и всё. Без обучения. Без уроков.",
+      "cta": "Попробуйте — Бесплатно"
+    },
     "gallery": {
       "badge": "Галерея авторов",
       "headline": "Смотрите, что создают авторы",
       "subheadline": "Арт-видео от авторов со всего мира, созданные с GenX. Нажмите на работу, чтобы увидеть стиль и промпт.",
-      "styles": { "all": "Все", "cyberpunk": "Киберпанк", "watercolor": "Акварель", "oilPainting": "Масло", "anime": "Аниме", "fluidArt": "Флюид-арт" },
+      "styles": {
+        "all": "Все",
+        "cyberpunk": "Киберпанк",
+        "watercolor": "Акварель",
+        "oilPainting": "Масло",
+        "anime": "Аниме",
+        "fluidArt": "Флюид-арт"
+      },
       "videoTitle": "Видео {style}",
       "promptLabel": "Использованный промпт:",
       "createSimilar": "Создать похожее",
       "loadMore": "Загрузить ещё",
       "createOwn": "Создать своё",
       "items": {
-        "1": { "prompt": "Неоновая городская улица ночью, дождь сквозь голографическую рекламу" },
-        "2": { "prompt": "Тихое горное озеро на закате с мягкими акварельными эффектами" },
-        "3": { "prompt": "Классический портрет в стиле Рембрандта с тёплым золотым освещением" },
-        "4": { "prompt": "Лепестки сакуры падают в японском саду, стиль аниме" },
-        "5": { "prompt": "Абстрактные цвета кружатся как жидкий мрамор, завораживающий поток" },
-        "6": { "prompt": "Летающие машины в футуристическом городе с глитч-эффектами" }
+        "1": {
+          "prompt": "Неоновая городская улица ночью, дождь сквозь голографическую рекламу"
+        },
+        "2": {
+          "prompt": "Тихое горное озеро на закате с мягкими акварельными эффектами"
+        },
+        "3": {
+          "prompt": "Классический портрет в стиле Рембрандта с тёплым золотым освещением"
+        },
+        "4": {
+          "prompt": "Лепестки сакуры падают в японском саду, стиль аниме"
+        },
+        "5": {
+          "prompt": "Абстрактные цвета кружатся как жидкий мрамор, завораживающий поток"
+        },
+        "6": {
+          "prompt": "Летающие машины в футуристическом городе с глитч-эффектами"
+        }
       }
     },
     "useCases": {
       "badge": "Применение",
       "headline": "Авторы используют GenX для",
       "cases": {
-        "social": { "title": "Социальные сети", "description": "Выделяйтесь в TikTok, Instagram, YouTube. Тот же контент, другой визуальный эффект.", "example": "Машина вирусных видео для авторов" },
-        "product": { "title": "Демо продуктов", "description": "Статичные фото продуктов скучны. Оживите их в художественных стилях.", "example": "Оживите свои продукты" },
-        "art": { "title": "Арт-создание", "description": "Не нужны навыки рисования. Выразите идеи с помощью ИИ.", "example": "Теперь каждый — художник" },
-        "content": { "title": "Создание контента", "description": "Туториалы, влоги, истории — каждый кадр удерживает зрителей.", "example": "Истории заслуживают лучшего визуала" }
+        "social": {
+          "title": "Социальные сети",
+          "description": "Выделяйтесь в TikTok, Instagram, YouTube. Тот же контент, другой визуальный эффект.",
+          "example": "Машина вирусных видео для авторов"
+        },
+        "product": {
+          "title": "Демо продуктов",
+          "description": "Статичные фото продуктов скучны. Оживите их в художественных стилях.",
+          "example": "Оживите свои продукты"
+        },
+        "art": {
+          "title": "Арт-создание",
+          "description": "Не нужны навыки рисования. Выразите идеи с помощью ИИ.",
+          "example": "Теперь каждый — художник"
+        },
+        "content": {
+          "title": "Создание контента",
+          "description": "Туториалы, влоги, истории — каждый кадр удерживает зрителей.",
+          "example": "Истории заслуживают лучшего визуала"
+        }
       },
       "cta": "Начать создавать"
     },
@@ -111,10 +884,22 @@
       "badge": "Почему GenX",
       "headline": "Почему авторы выбирают GenX",
       "features": {
-        "quality": { "title": "Художественное качество", "description": "Не фильтры — настоящая технология переноса стиля. Каждый кадр создан ИИ." },
-        "speed": { "title": "30 секунд", "description": "Облачная обработка доставляет ваше арт-видео менее чем за 30 секунд." },
-        "free": { "title": "Бесплатный старт", "description": "3 бесплатных создания в день. Достаточно, чтобы попробовать и влюбиться." },
-        "anywhere": { "title": "Где угодно", "description": "Без загрузки. В браузере, на любом устройстве, в любое время." }
+        "quality": {
+          "title": "Художественное качество",
+          "description": "Не фильтры — настоящая технология переноса стиля. Каждый кадр создан ИИ."
+        },
+        "speed": {
+          "title": "30 секунд",
+          "description": "Облачная обработка доставляет ваше арт-видео менее чем за 30 секунд."
+        },
+        "free": {
+          "title": "Бесплатный старт",
+          "description": "3 бесплатных создания в день. Достаточно, чтобы попробовать и влюбиться."
+        },
+        "anywhere": {
+          "title": "Где угодно",
+          "description": "Без загрузки. В браузере, на любом устройстве, в любое время."
+        }
       },
       "trust": { "noWatermark": "Без скрытых водяных знаков (Pro)" }
     },
@@ -122,12 +907,31 @@
       "badge": "Отзывы",
       "headline": "Что говорят авторы",
       "items": {
-        "1": { "name": "Сара Чен", "role": "TikTok-автор", "content": "Наконец-то не нужно учить After Effects! Загружаю фото — получаю видео. Коллеги постоянно спрашивают, какой софт я использую." },
-        "2": { "name": "Майк Джонсон", "role": "Инди-разработчик", "content": "Впервые я почувствовал, что могу создавать арт-видео. Круто!" },
-        "3": { "name": "Эмма Дэвис", "role": "Менеджер по маркетингу", "content": "Сократили расходы на видео продуктов на 80%, а результаты стали ещё лучше." },
-        "4": { "name": "Алекс Ким", "role": "Контент-мейкер", "content": "Стиль аниме невероятен. Мой TikTok-энгейджмент взлетел!" }
+        "1": {
+          "name": "Сара Чен",
+          "role": "TikTok-автор",
+          "content": "Наконец-то не нужно учить After Effects! Загружаю фото — получаю видео. Коллеги постоянно спрашивают, какой софт я использую."
+        },
+        "2": {
+          "name": "Майк Джонсон",
+          "role": "Инди-разработчик",
+          "content": "Впервые я почувствовал, что могу создавать арт-видео. Круто!"
+        },
+        "3": {
+          "name": "Эмма Дэвис",
+          "role": "Менеджер по маркетингу",
+          "content": "Сократили расходы на видео продуктов на 80%, а результаты стали ещё лучше."
+        },
+        "4": {
+          "name": "Алекс Ким",
+          "role": "Контент-мейкер",
+          "content": "Стиль аниме невероятен. Мой TikTok-энгейджмент взлетел!"
+        }
       },
-      "trustBadges": { "comingSoon": "Отзывы скоро", "securePayment": "Безопасная оплата через Stripe" }
+      "trustBadges": {
+        "comingSoon": "Отзывы скоро",
+        "securePayment": "Безопасная оплата через Stripe"
+      }
     },
     "pricing": {
       "badge": "Цены",
@@ -138,8 +942,25 @@
       "oneTime": "разово",
       "yearlyOption": "или ${price}/год (экономия {discount}%)",
       "plans": {
-        "free": { "name": "Бесплатно", "description": "Идеально для знакомства с GenX", "feature1": "3 создания в день", "feature2": "Все 5 арт-стилей", "feature3": "Разрешение 720p", "feature4": "Личная лицензия", "limit": "Водяной знак GenX", "cta": "Начать бесплатно" },
-        "pro": { "name": "Pro", "description": "Для серьёзных авторов", "feature1": "Безлимитные создания", "feature2": "1080p HD", "feature3": "Без водяного знака", "feature4": "Коммерческая лицензия", "cta": "Перейти на Pro" }
+        "free": {
+          "name": "Бесплатно",
+          "description": "Идеально для знакомства с GenX",
+          "feature1": "3 создания в день",
+          "feature2": "Все 5 арт-стилей",
+          "feature3": "Разрешение 720p",
+          "feature4": "Личная лицензия",
+          "limit": "Водяной знак GenX",
+          "cta": "Начать бесплатно"
+        },
+        "pro": {
+          "name": "Pro",
+          "description": "Для серьёзных авторов",
+          "feature1": "Безлимитные создания",
+          "feature2": "1080p HD",
+          "feature3": "Без водяного знака",
+          "feature4": "Коммерческая лицензия",
+          "cta": "Перейти на Pro"
+        }
       },
       "paymentNote": "Безопасная оплата через Stripe",
       "seeFullPricing": "Полное сравнение тарифов"
@@ -148,32 +969,190 @@
       "badge": "FAQ",
       "headline": "Часто задаваемые вопросы",
       "items": {
-        "free": { "question": "GenX бесплатен?", "answer": "Да! Гости могут создавать 3 видео в день бесплатно. Зарегистрированные пользователи получают больше. Нужно ещё? Ознакомьтесь с тарифом Pro." },
-        "skills": { "question": "Нужны ли технические навыки?", "answer": "Совсем нет! Если вы можете загрузить фото и нажать кнопку, вы можете использовать GenX." },
-        "commercial": { "question": "Можно использовать видео коммерчески?", "answer": "Бесплатные видео — только для личного использования. Pro-пользователи получают полную коммерческую лицензию." },
-        "watermark": { "question": "На видео есть водяные знаки?", "answer": "Бесплатные видео содержат небольшой знак GenX. Pro-пользователи скачивают HD-видео без знаков." },
-        "formats": { "question": "Какие форматы изображений поддерживаются?", "answer": "Поддерживаем JPG и PNG, до 10МБ. Чем выше разрешение оригинала, тем лучше результат." },
-        "time": { "question": "Сколько времени занимает генерация?", "answer": "Обычно 15-45 секунд. Вы увидите прогресс в реальном времени на экране." },
-        "data": { "question": "Где хранятся мои данные? (GDPR)", "answer": "Данные хранятся на безопасных серверах AWS в США и ЕС. Мы соответствуем GDPR — вы можете запросить удаление данных." },
-        "payment": { "question": "Какие способы оплаты принимаются?", "answer": "Принимаем Visa, Mastercard, American Express и PayPal через Stripe. Все платежи зашифрованы." },
-        "refund": { "question": "Какова политика возврата?", "answer": "7-дневная гарантия возврата для Pro-подписок. Свяжитесь с support@genx.art, и мы обработаем возврат за 3 рабочих дня." },
-        "cancel": { "question": "Как отменить подписку?", "answer": "Отменить можно в любое время в личном кабинете или написав на support@genx.art. Доступ сохраняется до конца периода." }
+        "free": {
+          "question": "GenX бесплатен?",
+          "answer": "Да! Гости могут создавать 3 видео в день бесплатно. Зарегистрированные пользователи получают больше. Нужно ещё? Ознакомьтесь с тарифом Pro."
+        },
+        "skills": {
+          "question": "Нужны ли технические навыки?",
+          "answer": "Совсем нет! Если вы можете загрузить фото и нажать кнопку, вы можете использовать GenX."
+        },
+        "commercial": {
+          "question": "Можно использовать видео коммерчески?",
+          "answer": "Бесплатные видео — только для личного использования. Pro-пользователи получают полную коммерческую лицензию."
+        },
+        "watermark": {
+          "question": "На видео есть водяные знаки?",
+          "answer": "Бесплатные видео содержат небольшой знак GenX. Pro-пользователи скачивают HD-видео без знаков."
+        },
+        "formats": {
+          "question": "Какие форматы изображений поддерживаются?",
+          "answer": "Поддерживаем JPG и PNG, до 10МБ. Чем выше разрешение оригинала, тем лучше результат."
+        },
+        "time": {
+          "question": "Сколько времени занимает генерация?",
+          "answer": "Обычно 15-45 секунд. Вы увидите прогресс в реальном времени на экране."
+        },
+        "data": {
+          "question": "Где хранятся мои данные? (GDPR)",
+          "answer": "Данные хранятся на безопасных серверах AWS в США и ЕС. Мы соответствуем GDPR — вы можете запросить удаление данных."
+        },
+        "payment": {
+          "question": "Какие способы оплаты принимаются?",
+          "answer": "Принимаем Visa, Mastercard, American Express и PayPal через Stripe. Все платежи зашифрованы."
+        },
+        "refund": {
+          "question": "Какова политика возврата?",
+          "answer": "7-дневная гарантия возврата для Pro-подписок. Свяжитесь с support@genx.art, и мы обработаем возврат за 3 рабочих дня."
+        },
+        "cancel": {
+          "question": "Как отменить подписку?",
+          "answer": "Отменить можно в любое время в личном кабинете или написав на support@genx.art. Доступ сохраняется до конца периода."
+        }
       }
     },
-    "finalCta": { "headline": "Готовы создать своё первое арт-видео?", "subheadline": "За 30 секунд у вас будет потрясающее арт-видео", "cta": "Начать бесплатно", "trust": { "thirtySeconds": "Готово за 30 секунд", "instantDownload": "Мгновенная загрузка" } }
+    "finalCta": {
+      "headline": "Готовы создать своё первое арт-видео?",
+      "subheadline": "За 30 секунд у вас будет потрясающее арт-видео",
+      "cta": "Начать бесплатно",
+      "trust": {
+        "thirtySeconds": "Готово за 30 секунд",
+        "instantDownload": "Мгновенная загрузка"
+      }
+    }
   },
   "Generator": {
-    "modes": { "textToVideo": "Текст в видео", "imageToVideo": "Изображение в видео", "textToImage": "Текст в изображение", "imageToImage": "Изображение в изображение", "referenceToVideo": "Референс в видео", "audio": "Аудио" },
-    "input": { "placeholder": "Опишите, что хотите создать...", "prompt": "ПРОМПТ" },
-    "submit": { "generate": "Сгенерировать", "generating": "Генерация...", "insufficientCredits": "Недостаточно кредитов", "insufficientCreditsButton": "Получить кредиты", "balance": "Баланс", "generationFailed": "Ошибка генерации, попробуйте снова" },
-    "model": { "selectModel": "Выбрать модель", "availableModels": "Доступные модели", "models": "Модели", "noModels": "Нет доступных моделей", "new": "Новое", "credits": "{count}+ кредитов", "creditsLabel": "{count} Кредитов" },
-    "aspectRatio": { "label": "Соотношение сторон" }, "duration": { "label": "Длительность" }, "quality": { "label": "Качество" },
-    "styles": { "default": "По умолчанию", "cyberpunk": "Киберпанк", "watercolor": "Акварель", "oilPainting": "Масло", "anime": "Аниме", "fluidArt": "Флюид-арт" },
-    "imageUpload": { "uploadImage": "Загрузить изображение", "uploadHint": "JPG, PNG, WEBP • Макс 10МБ", "fileTooLarge": "Файл слишком большой", "invalidFileType": "Неверный тип файла", "imageTooLarge": "Размер изображения превышает допустимый", "uploadFailed": "Ошибка загрузки, попробуйте снова" },
-    "result": { "emptyTitle": "Пока нет результатов", "emptyDescription": "Введите промпт и нажмите сгенерировать", "generatingTitle": "Генерация...", "generatingDescription": "Подождите, создаём ваш контент", "actions": { "download": "Скачать", "share": "Поделиться", "favorite": "В избранное", "downloadSuccess": "Скачано", "downloadFailed": "Ошибка скачивания", "linkCopied": "Ссылка скопирована", "favorited": "Добавлено в избранное", "unfavorited": "Удалено из избранного", "favoriteFailed": "Ошибка переключения избранного" } },
-    "history": { "title": "История", "empty": "Пока нет истории", "loading": "Загрузка...", "loadMore": "Загрузить ещё" },
+    "modes": {
+      "textToVideo": "Текст в видео",
+      "imageToVideo": "Изображение в видео",
+      "textToImage": "Текст в изображение",
+      "imageToImage": "Изображение в изображение",
+      "referenceToVideo": "Референс в видео",
+      "audio": "Аудио"
+    },
+    "input": {
+      "placeholder": "Опишите, что хотите создать...",
+      "prompt": "ПРОМПТ"
+    },
+    "submit": {
+      "generate": "Сгенерировать",
+      "generating": "Генерация...",
+      "insufficientCredits": "Недостаточно кредитов",
+      "insufficientCreditsButton": "Получить кредиты",
+      "balance": "Баланс",
+      "generationFailed": "Ошибка генерации, попробуйте снова"
+    },
+    "model": {
+      "selectModel": "Выбрать модель",
+      "availableModels": "Доступные модели",
+      "models": "Модели",
+      "noModels": "Нет доступных моделей",
+      "new": "Новое",
+      "credits": "{count}+ кредитов",
+      "creditsLabel": "{count} Кредитов"
+    },
+    "aspectRatio": { "label": "Соотношение сторон" },
+    "duration": { "label": "Длительность" },
+    "quality": { "label": "Качество" },
+    "styles": {
+      "default": "По умолчанию",
+      "cyberpunk": "Киберпанк",
+      "watercolor": "Акварель",
+      "oilPainting": "Масло",
+      "anime": "Аниме",
+      "fluidArt": "Флюид-арт"
+    },
+    "imageUpload": {
+      "uploadImage": "Загрузить изображение",
+      "uploadHint": "JPG, PNG, WEBP • Макс 10МБ",
+      "fileTooLarge": "Файл слишком большой",
+      "invalidFileType": "Неверный тип файла",
+      "imageTooLarge": "Размер изображения превышает допустимый",
+      "uploadFailed": "Ошибка загрузки, попробуйте снова"
+    },
+    "result": {
+      "emptyTitle": "Пока нет результатов",
+      "emptyDescription": "Введите промпт и нажмите сгенерировать",
+      "generatingTitle": "Генерация...",
+      "generatingDescription": "Подождите, создаём ваш контент",
+      "actions": {
+        "download": "Скачать",
+        "share": "Поделиться",
+        "favorite": "В избранное",
+        "downloadSuccess": "Скачано",
+        "downloadFailed": "Ошибка скачивания",
+        "linkCopied": "Ссылка скопирована",
+        "favorited": "Добавлено в избранное",
+        "unfavorited": "Удалено из избранного",
+        "favoriteFailed": "Ошибка переключения избранного"
+      }
+    },
+    "history": {
+      "title": "История",
+      "empty": "Пока нет истории",
+      "loading": "Загрузка...",
+      "loadMore": "Загрузить ещё"
+    },
     "floating": { "placeholder": "Введите промпт..." }
   },
-  "Onboarding": { "welcome": { "title": "Добро пожаловать в GenX, {name}!", "defaultName": "Создатель", "description": "Всего 3 простых шага до вашего первого потрясающего арт-видео.", "steps": { "upload": { "title": "Загрузите фото", "description": "Подойдёт любое фото — портреты, пейзажи, товары" }, "style": { "title": "Выберите стиль", "description": "5 стилей: Киберпанк, Акварель, Масло, Аниме, Флюид-арт" }, "generate": { "title": "Сгенерируйте и скачайте", "description": "ИИ создаст арт-видео примерно за 30 секунд" } }, "freeCredits": "У вас 15 бесплатных кредитов!", "startButton": "Начать создание", "skipButton": "Исследую сам" } },
-  "UserDashboard": { "stats": { "credits": "Баланс кредитов", "creditsHint": "Для генерации ИИ-видео", "buyCredits": "Получить ещё кредитов", "videosCreated": "Создано видео", "allTime": "Всего", "inProgress": "в процессе" }, "quickStart": { "title": "Готовы создавать?", "createVideo": "Создать видео" }, "quickActions": { "title": "Быстрые действия", "image-to-video": "Изображение в видео", "text-to-video": "Текст в видео", "reference-to-video": "Референс-видео", "image": "ИИ-изображение" }, "recentCreations": { "title": "Последние работы", "subtitle": "Ваши последние ИИ-видео", "viewAll": "Все работы", "empty": { "title": "Пока нет видео", "description": "Создайте своё первое арт-видео с ИИ", "cta": "Создать первое видео" }, "status": { "generating": "Генерация", "pending": "Ожидание", "failed": "Ошибка" } } }
+  "Onboarding": {
+    "welcome": {
+      "title": "Добро пожаловать в GenX, {name}!",
+      "defaultName": "Создатель",
+      "description": "Всего 3 простых шага до вашего первого потрясающего арт-видео.",
+      "steps": {
+        "upload": {
+          "title": "Загрузите фото",
+          "description": "Подойдёт любое фото — портреты, пейзажи, товары"
+        },
+        "style": {
+          "title": "Выберите стиль",
+          "description": "5 стилей: Киберпанк, Акварель, Масло, Аниме, Флюид-арт"
+        },
+        "generate": {
+          "title": "Сгенерируйте и скачайте",
+          "description": "ИИ создаст арт-видео примерно за 30 секунд"
+        }
+      },
+      "freeCredits": "У вас 15 бесплатных кредитов!",
+      "startButton": "Начать создание",
+      "skipButton": "Исследую сам"
+    }
+  },
+  "UserDashboard": {
+    "stats": {
+      "credits": "Баланс кредитов",
+      "creditsHint": "Для генерации ИИ-видео",
+      "buyCredits": "Получить ещё кредитов",
+      "videosCreated": "Создано видео",
+      "allTime": "Всего",
+      "inProgress": "в процессе"
+    },
+    "quickStart": {
+      "title": "Готовы создавать?",
+      "createVideo": "Создать видео"
+    },
+    "quickActions": {
+      "title": "Быстрые действия",
+      "image-to-video": "Изображение в видео",
+      "text-to-video": "Текст в видео",
+      "reference-to-video": "Референс-видео",
+      "image": "ИИ-изображение"
+    },
+    "recentCreations": {
+      "title": "Последние работы",
+      "subtitle": "Ваши последние ИИ-видео",
+      "viewAll": "Все работы",
+      "empty": {
+        "title": "Пока нет видео",
+        "description": "Создайте своё первое арт-видео с ИИ",
+        "cta": "Создать первое видео"
+      },
+      "status": {
+        "generating": "Генерация",
+        "pending": "Ожидание",
+        "failed": "Ошибка"
+      }
+    }
+  }
 }

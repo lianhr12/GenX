@@ -104,10 +104,9 @@ const FinalCTASection = dynamic(
 );
 
 // Crisp Chat - Lazy loaded, not needed for initial render or SEO
-const CrispChat = dynamic(
-  () => import('@/components/layout/crisp-chat'),
-  { ssr: true }
-);
+const CrispChat = dynamic(() => import('@/components/layout/crisp-chat'), {
+  ssr: true,
+});
 
 /**
  * https://next-intl.dev/docs/environments/actions-metadata-route-handlers#metadata-api

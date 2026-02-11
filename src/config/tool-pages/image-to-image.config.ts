@@ -81,7 +81,7 @@ export const imageToImageConfig: ToolPageConfig = {
           'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=600&q=80',
         title: 'Album Cover',
         prompt:
-          'Transform the image into a retro-style cassette album set displayed on a full wooden tabletop. The scene must include three key objects arranged naturally: Cassette tape case featuring the subject\'s portrait, a transparent cassette tape deck/player with visible reels, and wired earphones casually placed on the wooden table. Use realistic lighting and shadows, warm tones, and a nostalgic analogue mood.',
+          "Transform the image into a retro-style cassette album set displayed on a full wooden tabletop. The scene must include three key objects arranged naturally: Cassette tape case featuring the subject's portrait, a transparent cassette tape deck/player with visible reels, and wired earphones casually placed on the wooden table. Use realistic lighting and shadows, warm tones, and a nostalgic analogue mood.",
       },
       {
         thumbnail:

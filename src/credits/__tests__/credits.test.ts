@@ -1,4 +1,4 @@
-import { describe, expect, it, vi, beforeEach } from 'vitest';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { CREDIT_TRANSACTION_TYPE } from '../types';
 
 /**
@@ -13,7 +13,7 @@ import { CREDIT_TRANSACTION_TYPE } from '../types';
 // 控制 mock 返回值的变量
 let limitReturnValue: unknown[] = [];
 let orderByReturnValue: unknown[] = [];
-let whereReturnValue: unknown[] = [];
+const whereReturnValue: unknown[] = [];
 
 const mockValues = vi.fn().mockResolvedValue(undefined);
 const mockSet = vi.fn();
@@ -43,9 +43,11 @@ const mockDb: Record<string, any> = {
     }),
   }),
   // Transaction support: execute callback with mockDb as the transaction context
-  transaction: vi.fn().mockImplementation(async (cb: (tx: any) => Promise<any>) => {
-    return await cb(mockDb);
-  }),
+  transaction: vi
+    .fn()
+    .mockImplementation(async (cb: (tx: any) => Promise<any>) => {
+      return await cb(mockDb);
+    }),
 };
 
 vi.mock('@/db', () => ({
@@ -763,9 +765,9 @@ describe('processExpiredCredits', () => {
       }
       // 后续的 userCredit 查询
       return {
-        limit: vi.fn().mockReturnValue([
-          { userId: 'user-1', currentCredits: 200 },
-        ]),
+        limit: vi
+          .fn()
+          .mockReturnValue([{ userId: 'user-1', currentCredits: 200 }]),
       };
     });
 
@@ -929,9 +931,7 @@ describe('CREDIT_TRANSACTION_TYPE', () => {
     expect(CREDIT_TRANSACTION_TYPE.REFERRAL_REGISTRATION).toBe(
       'REFERRAL_REGISTRATION'
     );
-    expect(CREDIT_TRANSACTION_TYPE.REFERRAL_PURCHASE).toBe(
-      'REFERRAL_PURCHASE'
-    );
+    expect(CREDIT_TRANSACTION_TYPE.REFERRAL_PURCHASE).toBe('REFERRAL_PURCHASE');
   });
 
   it('交易类型不应有重复值', () => {
@@ -1014,7 +1014,12 @@ describe('事务保护', () => {
     // 设置余额充足
     limitReturnValue = [{ userId: 'user-1', currentCredits: 200 }];
     orderByReturnValue = [
-      { id: 'tx-1', remainingAmount: 200, expirationDate: null, type: 'PURCHASE_PACKAGE' },
+      {
+        id: 'tx-1',
+        remainingAmount: 200,
+        expirationDate: null,
+        type: 'PURCHASE_PACKAGE',
+      },
     ];
     const { consumeCredits } = await import('../credits');
     await consumeCredits({

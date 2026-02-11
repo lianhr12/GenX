@@ -11,7 +11,12 @@
     "logout": "로그아웃",
     "signUp": "회원가입",
     "language": "언어 변경",
-    "mode": { "label": "모드 전환", "light": "라이트", "dark": "다크", "system": "시스템" },
+    "mode": {
+      "label": "모드 전환",
+      "light": "라이트",
+      "dark": "다크",
+      "system": "시스템"
+    },
     "copy": "복사",
     "saving": "저장 중...",
     "save": "저장",
@@ -61,99 +66,745 @@
       "notAvailable": "이용 불가",
       "daysTrial": "{days}일 체험"
     },
-    "CheckoutButton": { "loading": "로딩 중...", "checkoutFailed": "결제 페이지를 열 수 없습니다" }
+    "CheckoutButton": {
+      "loading": "로딩 중...",
+      "checkoutFailed": "결제 페이지를 열 수 없습니다"
+    }
   },
   "PricePlans": {
     "free": {
       "name": "무료",
       "description": "GenX를 체험하기에 완벽",
-      "features": { "feature-1": "가입 시 15크레딧", "feature-2": "5가지 아트 스타일", "feature-3": "1080p 출력 품질", "feature-4": "기본 지원" },
-      "limits": { "limit-1": "크레딧 30일 후 만료", "limit-2": "워터마크 포함", "limit-3": "개인 사용만 가능" }
+      "features": {
+        "feature-1": "가입 시 15크레딧",
+        "feature-2": "5가지 아트 스타일",
+        "feature-3": "1080p 출력 품질",
+        "feature-4": "기본 지원"
+      },
+      "limits": {
+        "limit-1": "크레딧 30일 후 만료",
+        "limit-2": "워터마크 포함",
+        "limit-3": "개인 사용만 가능"
+      }
     },
     "pro": {
       "name": "Pro",
       "description": "본격적인 크리에이터를 위해",
-      "features": { "feature-1": "800크레딧/월", "feature-2": "5가지 아트 스타일", "feature-3": "HD 1080p 출력", "feature-4": "우선 지원", "feature-5": "워터마크 없음" },
-      "limits": { "limit-1": "월간 크레딧은 이월되지 않음", "limit-2": "상업용 라이선스 포함" }
+      "features": {
+        "feature-1": "800크레딧/월",
+        "feature-2": "5가지 아트 스타일",
+        "feature-3": "HD 1080p 출력",
+        "feature-4": "우선 지원",
+        "feature-5": "워터마크 없음"
+      },
+      "limits": {
+        "limit-1": "월간 크레딧은 이월되지 않음",
+        "limit-2": "상업용 라이선스 포함"
+      }
     }
   },
   "CreditPackages": {
     "starter": { "name": "스타터", "description": "AI 생성을 체험하기에 완벽" },
-    "basic": { "name": "베이직", "description": "가벼운 크리에이터에게 이상적" },
-    "standard": { "name": "스탠다드", "description": "정기 사용자에게 최고의 가치" },
-    "premium": { "name": "프리미엄", "description": "고급 사용자와 전문가를 위해" },
-    "enterprise": { "name": "엔터프라이즈", "description": "대량 사용을 위한 최대 크레딧" }
+    "basic": {
+      "name": "베이직",
+      "description": "가벼운 크리에이터에게 이상적"
+    },
+    "standard": {
+      "name": "스탠다드",
+      "description": "정기 사용자에게 최고의 가치"
+    },
+    "premium": {
+      "name": "프리미엄",
+      "description": "고급 사용자와 전문가를 위해"
+    },
+    "enterprise": {
+      "name": "엔터프라이즈",
+      "description": "대량 사용을 위한 최대 크레딧"
+    }
   },
   "NotFoundPage": {
-    "title": "404", "headline": "페이지를 찾을 수 없습니다", "message": "죄송합니다, 찾으시는 페이지가 존재하지 않거나 이동되었습니다.",
-    "backToHome": "홈으로 돌아가기", "searchHelp": "도움말 보기", "popularPages": "인기 페이지",
-    "links": { "imageToVideo": "이미지 투 비디오", "gallery": "갤러리", "docs": "문서", "contact": "문의하기" }
+    "title": "404",
+    "headline": "페이지를 찾을 수 없습니다",
+    "message": "죄송합니다, 찾으시는 페이지가 존재하지 않거나 이동되었습니다.",
+    "backToHome": "홈으로 돌아가기",
+    "searchHelp": "도움말 보기",
+    "popularPages": "인기 페이지",
+    "links": {
+      "imageToVideo": "이미지 투 비디오",
+      "gallery": "갤러리",
+      "docs": "문서",
+      "contact": "문의하기"
+    }
   },
-  "ErrorPage": { "title": "문제가 발생했습니다!", "tryAgain": "다시 시도", "backToHome": "홈으로 돌아가기" },
-  "AboutPage": { "title": "GenX.art 소개", "description": "GenX.art는 AI 기반 아트 비디오 제작 플랫폼으로, 사진을 몇 초 만에 멋진 시네마틱 작품으로 변환합니다.", "authorName": "GenX.art", "authorBio": "AI 아트 비디오 플랫폼", "introduction": "GenX.art는 크리에이터가 평범한 사진을 특별한 아트 비디오로 변환할 수 있도록 합니다. 고급 AI 기술로 프로 품질의 비디오 제작을 누구나 이용할 수 있게 만들었습니다.", "talkWithMe": "문의하기", "followMe": "X에서 팔로우" },
-  "ChangelogPage": { "title": "변경 로그", "description": "GenX.art의 최신 소식을 확인하세요.", "keywords": "GenX 업데이트, 변경 로그, 새 기능", "subtitle": "최신 제품 변경 사항을 확인하세요" },
-  "RoadmapPage": { "title": "로드맵", "description": "GenX.art의 미래 계획을 살펴보세요.", "keywords": "GenX 로드맵, 예정된 기능, 미래 계획", "subtitle": "미래 계획과 예정된 기능을 살펴보세요" },
+  "ErrorPage": {
+    "title": "문제가 발생했습니다!",
+    "tryAgain": "다시 시도",
+    "backToHome": "홈으로 돌아가기"
+  },
+  "AboutPage": {
+    "title": "GenX.art 소개",
+    "description": "GenX.art는 AI 기반 아트 비디오 제작 플랫폼으로, 사진을 몇 초 만에 멋진 시네마틱 작품으로 변환합니다.",
+    "authorName": "GenX.art",
+    "authorBio": "AI 아트 비디오 플랫폼",
+    "introduction": "GenX.art는 크리에이터가 평범한 사진을 특별한 아트 비디오로 변환할 수 있도록 합니다. 고급 AI 기술로 프로 품질의 비디오 제작을 누구나 이용할 수 있게 만들었습니다.",
+    "talkWithMe": "문의하기",
+    "followMe": "X에서 팔로우"
+  },
+  "ChangelogPage": {
+    "title": "변경 로그",
+    "description": "GenX.art의 최신 소식을 확인하세요.",
+    "keywords": "GenX 업데이트, 변경 로그, 새 기능",
+    "subtitle": "최신 제품 변경 사항을 확인하세요"
+  },
+  "RoadmapPage": {
+    "title": "로드맵",
+    "description": "GenX.art의 미래 계획을 살펴보세요.",
+    "keywords": "GenX 로드맵, 예정된 기능, 미래 계획",
+    "subtitle": "미래 계획과 예정된 기능을 살펴보세요"
+  },
   "ContactPage": {
-    "title": "문의하기", "description": "GenX.art 팀에 연락하세요.", "keywords": "GenX 문의, 지원, 도움말", "subtitle": "비즈니스에 맞는 플랜을 찾도록 도와드리겠습니다",
-    "form": { "title": "문의하기", "description": "질문이나 의견이 있으시면 팀에 연락하세요", "name": "이름", "email": "이메일", "message": "메시지", "submit": "보내기", "submitting": "보내는 중...", "success": "메시지가 전송되었습니다", "fail": "메시지 전송 실패", "nameMinLength": "이름은 3자 이상이어야 합니다", "nameMaxLength": "이름은 30자 이내여야 합니다", "emailValidation": "유효한 이메일을 입력하세요", "messageMinLength": "메시지는 10자 이상이어야 합니다", "messageMaxLength": "메시지는 500자 이내여야 합니다" }
+    "title": "문의하기",
+    "description": "GenX.art 팀에 연락하세요.",
+    "keywords": "GenX 문의, 지원, 도움말",
+    "subtitle": "비즈니스에 맞는 플랜을 찾도록 도와드리겠습니다",
+    "form": {
+      "title": "문의하기",
+      "description": "질문이나 의견이 있으시면 팀에 연락하세요",
+      "name": "이름",
+      "email": "이메일",
+      "message": "메시지",
+      "submit": "보내기",
+      "submitting": "보내는 중...",
+      "success": "메시지가 전송되었습니다",
+      "fail": "메시지 전송 실패",
+      "nameMinLength": "이름은 3자 이상이어야 합니다",
+      "nameMaxLength": "이름은 30자 이내여야 합니다",
+      "emailValidation": "유효한 이메일을 입력하세요",
+      "messageMinLength": "메시지는 10자 이상이어야 합니다",
+      "messageMaxLength": "메시지는 500자 이내여야 합니다"
+    }
   },
   "WaitlistPage": {
-    "title": "대기 목록", "description": "GenX.art의 새 기능을 가장 먼저 만나보세요.", "keywords": "GenX 대기 목록, 얼리 액세스", "subtitle": "출시 대기 목록에 참여하세요",
-    "form": { "title": "대기 목록에 참여", "description": "출시 시 알려드리겠습니다", "email": "이메일", "subscribe": "구독", "subscribing": "구독 중...", "success": "구독 완료", "fail": "구독 실패", "emailValidation": "유효한 이메일을 입력하세요" }
+    "title": "대기 목록",
+    "description": "GenX.art의 새 기능을 가장 먼저 만나보세요.",
+    "keywords": "GenX 대기 목록, 얼리 액세스",
+    "subtitle": "출시 대기 목록에 참여하세요",
+    "form": {
+      "title": "대기 목록에 참여",
+      "description": "출시 시 알려드리겠습니다",
+      "email": "이메일",
+      "subscribe": "구독",
+      "subscribing": "구독 중...",
+      "success": "구독 완료",
+      "fail": "구독 실패",
+      "emailValidation": "유효한 이메일을 입력하세요"
+    }
   },
-  "Newsletter": { "title": "뉴스레터", "subtitle": "커뮤니티에 참여", "description": "최신 소식과 업데이트를 위해 뉴스레터를 구독하세요", "form": { "email": "이메일", "subscribe": "구독", "subscribing": "구독 중...", "success": "구독 완료", "fail": "구독 실패", "emailValidation": "유효한 이메일을 입력하세요" } },
+  "Newsletter": {
+    "title": "뉴스레터",
+    "subtitle": "커뮤니티에 참여",
+    "description": "최신 소식과 업데이트를 위해 뉴스레터를 구독하세요",
+    "form": {
+      "email": "이메일",
+      "subscribe": "구독",
+      "subscribing": "구독 중...",
+      "success": "구독 완료",
+      "fail": "구독 실패",
+      "emailValidation": "유효한 이메일을 입력하세요"
+    }
+  },
   "AuthPage": {
-    "login": { "title": "로그인", "welcomeBack": "다시 오신 것을 환영합니다", "email": "이메일", "password": "비밀번호", "signIn": "로그인", "signUpHint": "계정이 없으신가요? 회원가입", "forgotPassword": "비밀번호를 잊으셨나요?", "signInWithGoogle": "Google로 로그인", "signInWithGitHub": "GitHub로 로그인", "signInWithFacebook": "Facebook으로 로그인", "showPassword": "비밀번호 표시", "hidePassword": "비밀번호 숨기기", "or": "또는 다음으로 계속", "emailRequired": "이메일을 입력하세요", "passwordRequired": "비밀번호를 입력하세요", "captchaInvalid": "캡차 인증 실패", "captchaError": "캡차 인증 오류" },
-    "register": { "title": "회원가입", "createAccount": "계정 만들기", "name": "이름", "email": "이메일", "password": "비밀번호", "signUp": "회원가입", "signInHint": "이미 계정이 있으신가요? 로그인", "checkEmail": "받은 편지함을 확인하세요", "showPassword": "비밀번호 표시", "hidePassword": "비밀번호 숨기기", "nameRequired": "이름을 입력하세요", "emailRequired": "이메일을 입력하세요", "passwordRequired": "비밀번호를 입력하세요", "captchaInvalid": "캡차 인증 실패", "captchaError": "캡차 인증 오류" },
-    "forgotPassword": { "title": "비밀번호 찾기", "email": "이메일", "send": "재설정 링크 보내기", "backToLogin": "로그인으로 돌아가기", "checkEmail": "받은 편지함을 확인하세요", "emailRequired": "이메일을 입력하세요" },
-    "resetPassword": { "title": "비밀번호 재설정", "password": "비밀번호", "reset": "비밀번호 재설정", "backToLogin": "로그인으로 돌아가기", "showPassword": "비밀번호 표시", "hidePassword": "비밀번호 숨기기", "minLength": "비밀번호는 8자 이상이어야 합니다" },
-    "error": { "title": "문제가 발생했습니다!", "tryAgain": "다시 시도해 주세요.", "backToLogin": "로그인으로 돌아가기", "checkEmail": "받은 편지함을 확인하세요" },
-    "common": { "termsOfService": "이용약관", "privacyPolicy": "개인정보처리방침", "byClickingContinue": "계속하면 당사의 ", "and": " 및 " }
+    "login": {
+      "title": "로그인",
+      "welcomeBack": "다시 오신 것을 환영합니다",
+      "email": "이메일",
+      "password": "비밀번호",
+      "signIn": "로그인",
+      "signUpHint": "계정이 없으신가요? 회원가입",
+      "forgotPassword": "비밀번호를 잊으셨나요?",
+      "signInWithGoogle": "Google로 로그인",
+      "signInWithGitHub": "GitHub로 로그인",
+      "signInWithFacebook": "Facebook으로 로그인",
+      "showPassword": "비밀번호 표시",
+      "hidePassword": "비밀번호 숨기기",
+      "or": "또는 다음으로 계속",
+      "emailRequired": "이메일을 입력하세요",
+      "passwordRequired": "비밀번호를 입력하세요",
+      "captchaInvalid": "캡차 인증 실패",
+      "captchaError": "캡차 인증 오류"
+    },
+    "register": {
+      "title": "회원가입",
+      "createAccount": "계정 만들기",
+      "name": "이름",
+      "email": "이메일",
+      "password": "비밀번호",
+      "signUp": "회원가입",
+      "signInHint": "이미 계정이 있으신가요? 로그인",
+      "checkEmail": "받은 편지함을 확인하세요",
+      "showPassword": "비밀번호 표시",
+      "hidePassword": "비밀번호 숨기기",
+      "nameRequired": "이름을 입력하세요",
+      "emailRequired": "이메일을 입력하세요",
+      "passwordRequired": "비밀번호를 입력하세요",
+      "captchaInvalid": "캡차 인증 실패",
+      "captchaError": "캡차 인증 오류"
+    },
+    "forgotPassword": {
+      "title": "비밀번호 찾기",
+      "email": "이메일",
+      "send": "재설정 링크 보내기",
+      "backToLogin": "로그인으로 돌아가기",
+      "checkEmail": "받은 편지함을 확인하세요",
+      "emailRequired": "이메일을 입력하세요"
+    },
+    "resetPassword": {
+      "title": "비밀번호 재설정",
+      "password": "비밀번호",
+      "reset": "비밀번호 재설정",
+      "backToLogin": "로그인으로 돌아가기",
+      "showPassword": "비밀번호 표시",
+      "hidePassword": "비밀번호 숨기기",
+      "minLength": "비밀번호는 8자 이상이어야 합니다"
+    },
+    "error": {
+      "title": "문제가 발생했습니다!",
+      "tryAgain": "다시 시도해 주세요.",
+      "backToLogin": "로그인으로 돌아가기",
+      "checkEmail": "받은 편지함을 확인하세요"
+    },
+    "common": {
+      "termsOfService": "이용약관",
+      "privacyPolicy": "개인정보처리방침",
+      "byClickingContinue": "계속하면 당사의 ",
+      "and": " 및 "
+    }
   },
-  "BlogPage": { "title": "블로그", "description": "AI 비디오 제작 팁, 튜토리얼 및 GenX.art 최신 뉴스.", "keywords": "AI 비디오 블로그, 제작 팁, GenX 튜토리얼", "subtitle": "팀의 최신 뉴스와 업데이트", "author": "작성자", "categories": "카테고리", "tableOfContents": "목차", "readTime": "{minutes}분 소요", "all": "전체", "noPostsFound": "게시물을 찾을 수 없습니다", "allPosts": "모든 게시물", "morePosts": "더 많은 게시물" },
-  "DocsPage": { "toc": "목차", "search": "문서 검색", "lastUpdate": "최종 업데이트", "searchNoResult": "결과 없음", "previousPage": "이전", "nextPage": "다음", "chooseLanguage": "언어 선택", "title": "GenX.art 문서", "homepage": "홈" },
-  "PremiumContent": { "title": "프리미엄 콘텐츠 잠금 해제", "description": "Pro 플랜에 가입하여 모든 프리미엄 및 독점 콘텐츠에 액세스하세요.", "upgradeCta": "지금 업그레이드", "benefit1": "모든 프리미엄 콘텐츠", "benefit2": "독점 콘텐츠", "benefit3": "언제든 취소 가능", "signIn": "로그인", "loginRequired": "계속 읽으려면 로그인하세요", "loginDescription": "프리미엄 콘텐츠입니다. 전체 콘텐츠에 액세스하려면 계정에 로그인하세요.", "checkingAccess": "액세스 확인 중...", "loadingContent": "전체 콘텐츠 로딩 중..." },
+  "BlogPage": {
+    "title": "블로그",
+    "description": "AI 비디오 제작 팁, 튜토리얼 및 GenX.art 최신 뉴스.",
+    "keywords": "AI 비디오 블로그, 제작 팁, GenX 튜토리얼",
+    "subtitle": "팀의 최신 뉴스와 업데이트",
+    "author": "작성자",
+    "categories": "카테고리",
+    "tableOfContents": "목차",
+    "readTime": "{minutes}분 소요",
+    "all": "전체",
+    "noPostsFound": "게시물을 찾을 수 없습니다",
+    "allPosts": "모든 게시물",
+    "morePosts": "더 많은 게시물"
+  },
+  "DocsPage": {
+    "toc": "목차",
+    "search": "문서 검색",
+    "lastUpdate": "최종 업데이트",
+    "searchNoResult": "결과 없음",
+    "previousPage": "이전",
+    "nextPage": "다음",
+    "chooseLanguage": "언어 선택",
+    "title": "GenX.art 문서",
+    "homepage": "홈"
+  },
+  "PremiumContent": {
+    "title": "프리미엄 콘텐츠 잠금 해제",
+    "description": "Pro 플랜에 가입하여 모든 프리미엄 및 독점 콘텐츠에 액세스하세요.",
+    "upgradeCta": "지금 업그레이드",
+    "benefit1": "모든 프리미엄 콘텐츠",
+    "benefit2": "독점 콘텐츠",
+    "benefit3": "언제든 취소 가능",
+    "signIn": "로그인",
+    "loginRequired": "계속 읽으려면 로그인하세요",
+    "loginDescription": "프리미엄 콘텐츠입니다. 전체 콘텐츠에 액세스하려면 계정에 로그인하세요.",
+    "checkingAccess": "액세스 확인 중...",
+    "loadingContent": "전체 콘텐츠 로딩 중..."
+  },
   "Marketing": {
-    "navbar": { "features": { "title": "기능" }, "pricing": { "title": "요금" }, "blog": { "title": "블로그" }, "docs": { "title": "문서" }, "create": { "title": "만들기", "items": { "imageToVideo": { "title": "이미지 투 비디오", "description": "사진을 멋진 아트 비디오로 변환" }, "textToVideo": { "title": "텍스트 투 비디오", "description": "텍스트 설명으로 비디오 생성" }, "image": { "title": "AI 이미지", "description": "AI로 아름다운 이미지 생성" } } }, "styles": { "title": "스타일" }, "gallery": { "title": "갤러리" } },
+    "navbar": {
+      "features": { "title": "기능" },
+      "pricing": { "title": "요금" },
+      "blog": { "title": "블로그" },
+      "docs": { "title": "문서" },
+      "create": {
+        "title": "만들기",
+        "items": {
+          "imageToVideo": {
+            "title": "이미지 투 비디오",
+            "description": "사진을 멋진 아트 비디오로 변환"
+          },
+          "textToVideo": {
+            "title": "텍스트 투 비디오",
+            "description": "텍스트 설명으로 비디오 생성"
+          },
+          "image": {
+            "title": "AI 이미지",
+            "description": "AI로 아름다운 이미지 생성"
+          }
+        }
+      },
+      "styles": { "title": "스타일" },
+      "gallery": { "title": "갤러리" }
+    },
     "footer": {
       "tagline": "모든 프레임이 아트 - 사진을 멋진 아트 비디오로 변환",
-      "videoModels": { "title": "비디오 모델", "items": { "veo3": "Veo 3", "sora2": "Sora 2", "kling": "Kling AI", "hailuo": "Hailuo AI", "seedance": "Seedance", "wan": "Wan AI", "omnihuman": "OmniHuman", "moreModels": "더 많은 모델" } },
-      "imageModels": { "title": "이미지 모델", "items": { "gptImage": "GPT Image", "seedream": "Seedream", "nanobanana": "Nanobanana Pro", "wanImage": "Wan 2.5 Image", "moreModels": "더 많은 모델" } },
-      "product": { "title": "제품", "items": { "features": "기능", "styles": "아트 스타일", "gallery": "갤러리", "pricing": "요금", "faq": "FAQ" } },
-      "resources": { "title": "리소스", "items": { "blog": "블로그", "docs": "문서", "help": "도움말 센터", "changelog": "변경 로그", "roadmap": "로드맵" } },
-      "companyAndLegal": { "title": "회사", "items": { "about": "소개", "contact": "문의", "waitlist": "대기 목록", "privacyPolicy": "개인정보처리방침", "termsOfService": "이용약관" } }
+      "videoModels": {
+        "title": "비디오 모델",
+        "items": {
+          "veo3": "Veo 3",
+          "sora2": "Sora 2",
+          "kling": "Kling AI",
+          "hailuo": "Hailuo AI",
+          "seedance": "Seedance",
+          "wan": "Wan AI",
+          "omnihuman": "OmniHuman",
+          "moreModels": "더 많은 모델"
+        }
+      },
+      "imageModels": {
+        "title": "이미지 모델",
+        "items": {
+          "gptImage": "GPT Image",
+          "seedream": "Seedream",
+          "nanobanana": "Nanobanana Pro",
+          "wanImage": "Wan 2.5 Image",
+          "moreModels": "더 많은 모델"
+        }
+      },
+      "product": {
+        "title": "제품",
+        "items": {
+          "features": "기능",
+          "styles": "아트 스타일",
+          "gallery": "갤러리",
+          "pricing": "요금",
+          "faq": "FAQ"
+        }
+      },
+      "resources": {
+        "title": "리소스",
+        "items": {
+          "blog": "블로그",
+          "docs": "문서",
+          "help": "도움말 센터",
+          "changelog": "변경 로그",
+          "roadmap": "로드맵"
+        }
+      },
+      "companyAndLegal": {
+        "title": "회사",
+        "items": {
+          "about": "소개",
+          "contact": "문의",
+          "waitlist": "대기 목록",
+          "privacyPolicy": "개인정보처리방침",
+          "termsOfService": "이용약관"
+        }
+      }
     },
-    "avatar": { "dashboard": "대시보드", "billing": "결제", "credits": "크레딧", "settings": "설정" }
+    "avatar": {
+      "dashboard": "대시보드",
+      "billing": "결제",
+      "credits": "크레딧",
+      "settings": "설정"
+    }
   },
   "Dashboard": {
     "dashboard": { "title": "대시보드" },
     "creations": {
-      "title": "내 작품", "videos": { "title": "비디오", "description": "생성된 비디오 보기 및 관리", "empty": "아직 비디오가 없습니다", "emptyHint": "비디오를 만들면 여기에 표시됩니다" }, "images": { "title": "이미지", "description": "생성된 이미지 보기 및 관리", "empty": "아직 이미지가 없습니다", "emptyHint": "이미지를 만들면 여기에 표시됩니다" },
-      "filters": { "all": "전체", "completed": "완료", "generating": "생성 중", "failed": "실패", "favorites": "즐겨찾기" },
-      "actions": { "delete": "삭제", "download": "다운로드", "favorite": "즐겨찾기", "unfavorite": "즐겨찾기 해제", "regenerate": "재생성", "viewDetails": "상세 보기" },
-      "batch": { "selected": "{count}개 선택됨", "deleteSelected": "선택 항목 삭제", "downloadSelected": "선택 항목 다운로드" },
-      "visibility": { "public": "공개", "private": "비공개", "toggleVisibility": "공개 설정 전환", "makePublic": "공개로 전환", "makePrivate": "비공개로 전환", "pendingReview": "검토 대기", "approved": "승인됨", "rejected": "거부됨", "removed": "삭제됨" }
+      "title": "내 작품",
+      "videos": {
+        "title": "비디오",
+        "description": "생성된 비디오 보기 및 관리",
+        "empty": "아직 비디오가 없습니다",
+        "emptyHint": "비디오를 만들면 여기에 표시됩니다"
+      },
+      "images": {
+        "title": "이미지",
+        "description": "생성된 이미지 보기 및 관리",
+        "empty": "아직 이미지가 없습니다",
+        "emptyHint": "이미지를 만들면 여기에 표시됩니다"
+      },
+      "filters": {
+        "all": "전체",
+        "completed": "완료",
+        "generating": "생성 중",
+        "failed": "실패",
+        "favorites": "즐겨찾기"
+      },
+      "actions": {
+        "delete": "삭제",
+        "download": "다운로드",
+        "favorite": "즐겨찾기",
+        "unfavorite": "즐겨찾기 해제",
+        "regenerate": "재생성",
+        "viewDetails": "상세 보기"
+      },
+      "batch": {
+        "selected": "{count}개 선택됨",
+        "deleteSelected": "선택 항목 삭제",
+        "downloadSelected": "선택 항목 다운로드"
+      },
+      "visibility": {
+        "public": "공개",
+        "private": "비공개",
+        "toggleVisibility": "공개 설정 전환",
+        "makePublic": "공개로 전환",
+        "makePrivate": "비공개로 전환",
+        "pendingReview": "검토 대기",
+        "approved": "승인됨",
+        "rejected": "거부됨",
+        "removed": "삭제됨"
+      }
     },
     "settings": {
       "title": "설정",
-      "profile": { "title": "프로필", "description": "계정 정보 관리", "avatar": { "title": "아바타", "description": "사용자 정의 아바타를 업로드하세요", "recommendation": "아바타는 선택 사항이지만 권장됩니다", "uploading": "업로드 중...", "uploadAvatar": "아바타 업로드", "success": "아바타가 업데이트되었습니다", "fail": "아바타 업데이트 실패" }, "name": { "title": "이름", "description": "표시 이름을 입력하세요", "placeholder": "이름 입력", "minLength": "3자 이상 사용하세요", "maxLength": "30자 이내로 사용하세요", "hint": "이름은 3-30자", "success": "이름이 업데이트되었습니다", "fail": "이름 업데이트 실패", "saving": "저장 중...", "save": "저장" } },
-      "billing": { "title": "결제", "description": "구독 및 결제 세부 정보 관리", "status": { "active": "활성", "trial": "체험", "free": "무료" }, "interval": { "month": "월", "year": "년", "oneTime": "일회성" }, "currentPlan": { "title": "현재 플랜", "description": "현재 플랜 세부 정보", "noPlan": "활성 플랜이 없습니다" }, "CustomerPortalButton": { "loading": "로딩 중...", "createCustomerPortalFailed": "Stripe 포털을 열 수 없습니다" }, "price": "가격:", "periodStartDate": "기간 시작:", "periodEndDate": "기간 종료:", "trialEnds": "체험 종료:", "freePlanMessage": "제한된 기능의 무료 플랜을 사용 중입니다", "manageSubscription": "구독 및 결제 관리", "manageBilling": "결제 관리", "upgradePlan": "플랜 업그레이드", "retry": "재시도", "errorMessage": "데이터를 가져오지 못했습니다", "paymentSuccess": "결제 성공" },
-      "payment": { "processing": { "title": "결제 처리 중", "description": "결제를 확인하는 중입니다..." }, "success": { "title": "결제 성공", "description": "자동으로 리디렉션됩니다..." }, "failed": { "title": "결제 실패", "description": "결제 처리 중 문제가 발생했습니다." }, "timeout": { "title": "시간 초과", "description": "결제 처리가 예상보다 오래 걸리고 있습니다." }, "retry": "재시도" },
-      "credits": { "title": "크레딧", "description": "크레딧 거래 관리", "tabs": { "balance": "잔액", "transactions": "거래 내역" }, "balance": { "title": "크레딧 잔액", "description": "현재 크레딧 잔액", "credits": "크레딧", "creditsDescription": "{credits} 크레딧 보유 중", "creditsExpired": "크레딧 만료됨", "creditsAdded": "크레딧이 계정에 추가되었습니다", "viewTransactions": "크레딧 거래 보기", "retry": "재시도", "expiringCredits": "{credits} 크레딧이 {days}일 내에 만료됩니다" }, "packages": { "title": "크레딧 패키지", "description": "서비스 이용을 위한 추가 크레딧 구매", "purchase": "구매", "processing": "처리 중...", "popular": "인기", "completePurchase": "구매 완료", "failedToFetchCredits": "크레딧 가져오기 실패", "failedToCreatePaymentIntent": "결제 인텐트 생성 실패", "failedToInitiatePayment": "결제 시작 실패", "cancel": "취소", "purchaseFailed": "크레딧 구매 실패", "checkoutFailed": "체크아웃 세션 생성 실패", "loading": "로딩 중...", "pay": "결제" },
-        "transactions": { "title": "크레딧 거래", "error": "거래 가져오기 실패", "search": "거래 검색...", "clearSearch": "검색 지우기", "paymentIdCopied": "결제 ID 복사됨", "noResults": "결과 없음", "columns": { "columns": "열", "id": "ID", "type": "유형", "description": "설명", "amount": "수량", "remainingAmount": "남은 수량", "paymentId": "결제 ID", "expirationDate": "만료일", "expirationDateProcessedAt": "처리일", "createdAt": "생성일", "updatedAt": "수정일" }, "types": { "MONTHLY_REFRESH": "월간 충전", "REGISTER_GIFT": "가입 선물", "PURCHASE": "크레딧 구매", "USAGE": "크레딧 사용", "EXPIRE": "크레딧 만료", "SUBSCRIPTION_RENEWAL": "구독 갱신", "REFERRAL_REGISTRATION": "추천 가입 보상", "REFERRAL_PURCHASE": "추천 구매 보상" }, "detailViewer": { "title": "거래 상세", "close": "닫기" }, "expired": "만료됨", "never": "없음" }
+      "profile": {
+        "title": "프로필",
+        "description": "계정 정보 관리",
+        "avatar": {
+          "title": "아바타",
+          "description": "사용자 정의 아바타를 업로드하세요",
+          "recommendation": "아바타는 선택 사항이지만 권장됩니다",
+          "uploading": "업로드 중...",
+          "uploadAvatar": "아바타 업로드",
+          "success": "아바타가 업데이트되었습니다",
+          "fail": "아바타 업데이트 실패"
+        },
+        "name": {
+          "title": "이름",
+          "description": "표시 이름을 입력하세요",
+          "placeholder": "이름 입력",
+          "minLength": "3자 이상 사용하세요",
+          "maxLength": "30자 이내로 사용하세요",
+          "hint": "이름은 3-30자",
+          "success": "이름이 업데이트되었습니다",
+          "fail": "이름 업데이트 실패",
+          "saving": "저장 중...",
+          "save": "저장"
+        }
       },
-      "notification": { "title": "알림", "description": "알림 설정 관리", "newsletter": { "title": "뉴스레터 구독", "description": "뉴스레터 구독 설정 관리", "label": "뉴스레터 구독", "hint": "언제든 설정을 변경할 수 있습니다", "emailRequired": "구독하려면 이메일이 필요합니다", "subscribeSuccess": "뉴스레터 구독 완료", "subscribeFail": "구독 실패", "unsubscribeSuccess": "구독 취소 완료", "unsubscribeFail": "구독 취소 실패", "error": "구독 업데이트 중 오류 발생" } },
-      "security": { "title": "보안", "description": "보안 설정 관리", "updatePassword": { "title": "비밀번호 변경", "description": "현재 비밀번호와 새 비밀번호를 입력하세요", "currentPassword": "현재 비밀번호", "currentRequired": "현재 비밀번호가 필요합니다", "newPassword": "새 비밀번호", "newMinLength": "비밀번호는 8자 이상이어야 합니다", "hint": "비밀번호는 8자 이상", "showPassword": "비밀번호 표시", "hidePassword": "비밀번호 숨기기", "success": "비밀번호가 업데이트되었습니다", "fail": "비밀번호 업데이트 실패", "saving": "저장 중...", "save": "저장" }, "resetPassword": { "title": "비밀번호 재설정", "description": "이메일 로그인을 활성화하기 위해 비밀번호를 재설정하세요", "info": "비밀번호를 재설정하면 소셜 로그인 외에 이메일과 비밀번호로도 로그인할 수 있습니다. 안내 이메일이 발송됩니다.", "button": "비밀번호 재설정" }, "deleteAccount": { "title": "계정 삭제", "description": "계정과 모든 콘텐츠를 영구 삭제", "warning": "이 작업은 되돌릴 수 없습니다. 주의하세요", "button": "계정 삭제", "confirmTitle": "계정 삭제", "confirmDescription": "정말로 계정을 삭제하시겠습니까? 이 작업은 되돌릴 수 없습니다.", "confirm": "삭제", "cancel": "취소", "deleting": "삭제 중...", "success": "계정이 삭제되었습니다", "fail": "계정 삭제 실패" } },
-      "referral": { "title": "추천", "description": "친구를 초대하고 크레딧을 받으세요", "code": { "title": "내 추천", "description": "추천 코드나 링크를 친구와 공유하세요", "yourCode": "추천 코드", "yourLink": "추천 링크" }, "stats": { "title": "통계", "description": "추천 실적", "totalReferrals": "총 추천 수", "registeredReferrals": "가입 완료", "purchasedReferrals": "구매 완료", "totalCredits": "획득 크레딧" }, "history": { "title": "추천 기록", "user": "사용자", "status": "상태", "reward": "보상", "date": "날짜", "empty": "아직 추천이 없습니다. 링크를 공유하고 보상을 받으세요!" }, "status": { "pending": "대기 중", "registered": "가입됨", "purchased": "구매됨" } }
+      "billing": {
+        "title": "결제",
+        "description": "구독 및 결제 세부 정보 관리",
+        "status": { "active": "활성", "trial": "체험", "free": "무료" },
+        "interval": { "month": "월", "year": "년", "oneTime": "일회성" },
+        "currentPlan": {
+          "title": "현재 플랜",
+          "description": "현재 플랜 세부 정보",
+          "noPlan": "활성 플랜이 없습니다"
+        },
+        "CustomerPortalButton": {
+          "loading": "로딩 중...",
+          "createCustomerPortalFailed": "Stripe 포털을 열 수 없습니다"
+        },
+        "price": "가격:",
+        "periodStartDate": "기간 시작:",
+        "periodEndDate": "기간 종료:",
+        "trialEnds": "체험 종료:",
+        "freePlanMessage": "제한된 기능의 무료 플랜을 사용 중입니다",
+        "manageSubscription": "구독 및 결제 관리",
+        "manageBilling": "결제 관리",
+        "upgradePlan": "플랜 업그레이드",
+        "retry": "재시도",
+        "errorMessage": "데이터를 가져오지 못했습니다",
+        "paymentSuccess": "결제 성공"
+      },
+      "payment": {
+        "processing": {
+          "title": "결제 처리 중",
+          "description": "결제를 확인하는 중입니다..."
+        },
+        "success": {
+          "title": "결제 성공",
+          "description": "자동으로 리디렉션됩니다..."
+        },
+        "failed": {
+          "title": "결제 실패",
+          "description": "결제 처리 중 문제가 발생했습니다."
+        },
+        "timeout": {
+          "title": "시간 초과",
+          "description": "결제 처리가 예상보다 오래 걸리고 있습니다."
+        },
+        "retry": "재시도"
+      },
+      "credits": {
+        "title": "크레딧",
+        "description": "크레딧 거래 관리",
+        "tabs": { "balance": "잔액", "transactions": "거래 내역" },
+        "balance": {
+          "title": "크레딧 잔액",
+          "description": "현재 크레딧 잔액",
+          "credits": "크레딧",
+          "creditsDescription": "{credits} 크레딧 보유 중",
+          "creditsExpired": "크레딧 만료됨",
+          "creditsAdded": "크레딧이 계정에 추가되었습니다",
+          "viewTransactions": "크레딧 거래 보기",
+          "retry": "재시도",
+          "expiringCredits": "{credits} 크레딧이 {days}일 내에 만료됩니다"
+        },
+        "packages": {
+          "title": "크레딧 패키지",
+          "description": "서비스 이용을 위한 추가 크레딧 구매",
+          "purchase": "구매",
+          "processing": "처리 중...",
+          "popular": "인기",
+          "completePurchase": "구매 완료",
+          "failedToFetchCredits": "크레딧 가져오기 실패",
+          "failedToCreatePaymentIntent": "결제 인텐트 생성 실패",
+          "failedToInitiatePayment": "결제 시작 실패",
+          "cancel": "취소",
+          "purchaseFailed": "크레딧 구매 실패",
+          "checkoutFailed": "체크아웃 세션 생성 실패",
+          "loading": "로딩 중...",
+          "pay": "결제"
+        },
+        "transactions": {
+          "title": "크레딧 거래",
+          "error": "거래 가져오기 실패",
+          "search": "거래 검색...",
+          "clearSearch": "검색 지우기",
+          "paymentIdCopied": "결제 ID 복사됨",
+          "noResults": "결과 없음",
+          "columns": {
+            "columns": "열",
+            "id": "ID",
+            "type": "유형",
+            "description": "설명",
+            "amount": "수량",
+            "remainingAmount": "남은 수량",
+            "paymentId": "결제 ID",
+            "expirationDate": "만료일",
+            "expirationDateProcessedAt": "처리일",
+            "createdAt": "생성일",
+            "updatedAt": "수정일"
+          },
+          "types": {
+            "MONTHLY_REFRESH": "월간 충전",
+            "REGISTER_GIFT": "가입 선물",
+            "PURCHASE": "크레딧 구매",
+            "USAGE": "크레딧 사용",
+            "EXPIRE": "크레딧 만료",
+            "SUBSCRIPTION_RENEWAL": "구독 갱신",
+            "REFERRAL_REGISTRATION": "추천 가입 보상",
+            "REFERRAL_PURCHASE": "추천 구매 보상"
+          },
+          "detailViewer": { "title": "거래 상세", "close": "닫기" },
+          "expired": "만료됨",
+          "never": "없음"
+        }
+      },
+      "notification": {
+        "title": "알림",
+        "description": "알림 설정 관리",
+        "newsletter": {
+          "title": "뉴스레터 구독",
+          "description": "뉴스레터 구독 설정 관리",
+          "label": "뉴스레터 구독",
+          "hint": "언제든 설정을 변경할 수 있습니다",
+          "emailRequired": "구독하려면 이메일이 필요합니다",
+          "subscribeSuccess": "뉴스레터 구독 완료",
+          "subscribeFail": "구독 실패",
+          "unsubscribeSuccess": "구독 취소 완료",
+          "unsubscribeFail": "구독 취소 실패",
+          "error": "구독 업데이트 중 오류 발생"
+        }
+      },
+      "security": {
+        "title": "보안",
+        "description": "보안 설정 관리",
+        "updatePassword": {
+          "title": "비밀번호 변경",
+          "description": "현재 비밀번호와 새 비밀번호를 입력하세요",
+          "currentPassword": "현재 비밀번호",
+          "currentRequired": "현재 비밀번호가 필요합니다",
+          "newPassword": "새 비밀번호",
+          "newMinLength": "비밀번호는 8자 이상이어야 합니다",
+          "hint": "비밀번호는 8자 이상",
+          "showPassword": "비밀번호 표시",
+          "hidePassword": "비밀번호 숨기기",
+          "success": "비밀번호가 업데이트되었습니다",
+          "fail": "비밀번호 업데이트 실패",
+          "saving": "저장 중...",
+          "save": "저장"
+        },
+        "resetPassword": {
+          "title": "비밀번호 재설정",
+          "description": "이메일 로그인을 활성화하기 위해 비밀번호를 재설정하세요",
+          "info": "비밀번호를 재설정하면 소셜 로그인 외에 이메일과 비밀번호로도 로그인할 수 있습니다. 안내 이메일이 발송됩니다.",
+          "button": "비밀번호 재설정"
+        },
+        "deleteAccount": {
+          "title": "계정 삭제",
+          "description": "계정과 모든 콘텐츠를 영구 삭제",
+          "warning": "이 작업은 되돌릴 수 없습니다. 주의하세요",
+          "button": "계정 삭제",
+          "confirmTitle": "계정 삭제",
+          "confirmDescription": "정말로 계정을 삭제하시겠습니까? 이 작업은 되돌릴 수 없습니다.",
+          "confirm": "삭제",
+          "cancel": "취소",
+          "deleting": "삭제 중...",
+          "success": "계정이 삭제되었습니다",
+          "fail": "계정 삭제 실패"
+        }
+      },
+      "referral": {
+        "title": "추천",
+        "description": "친구를 초대하고 크레딧을 받으세요",
+        "code": {
+          "title": "내 추천",
+          "description": "추천 코드나 링크를 친구와 공유하세요",
+          "yourCode": "추천 코드",
+          "yourLink": "추천 링크"
+        },
+        "stats": {
+          "title": "통계",
+          "description": "추천 실적",
+          "totalReferrals": "총 추천 수",
+          "registeredReferrals": "가입 완료",
+          "purchasedReferrals": "구매 완료",
+          "totalCredits": "획득 크레딧"
+        },
+        "history": {
+          "title": "추천 기록",
+          "user": "사용자",
+          "status": "상태",
+          "reward": "보상",
+          "date": "날짜",
+          "empty": "아직 추천이 없습니다. 링크를 공유하고 보상을 받으세요!"
+        },
+        "status": {
+          "pending": "대기 중",
+          "registered": "가입됨",
+          "purchased": "구매됨"
+        }
+      }
     },
-    "upgrade": { "title": "업그레이드", "description": "Pro로 업그레이드하여 모든 기능에 액세스", "button": "업그레이드" }
+    "upgrade": {
+      "title": "업그레이드",
+      "description": "Pro로 업그레이드하여 모든 기능에 액세스",
+      "button": "업그레이드"
+    }
   },
-  "Mail": { "common": { "team": "{name} 팀", "copyright": "©️ {year} All rights reserved." }, "verifyEmail": { "title": "안녕하세요, {name}님.", "body": "아래 링크를 클릭하여 이메일을 인증해 주세요.", "confirmEmail": "이메일 인증", "subject": "이메일을 인증해 주세요" }, "forgotPassword": { "title": "안녕하세요, {name}님.", "body": "아래 링크를 클릭하여 비밀번호를 재설정해 주세요.", "resetPassword": "비밀번호 재설정", "subject": "비밀번호 재설정" }, "subscribeNewsletter": { "body": "뉴스레터 구독에 감사합니다. 최신 소식을 전해드리겠습니다.", "subject": "구독해 주셔서 감사합니다" }, "contactMessage": { "name": "이름: {name}", "email": "이메일: {email}", "message": "메시지: {message}", "subject": "웹사이트 문의 메시지" } },
+  "Mail": {
+    "common": {
+      "team": "{name} 팀",
+      "copyright": "©️ {year} All rights reserved."
+    },
+    "verifyEmail": {
+      "title": "안녕하세요, {name}님.",
+      "body": "아래 링크를 클릭하여 이메일을 인증해 주세요.",
+      "confirmEmail": "이메일 인증",
+      "subject": "이메일을 인증해 주세요"
+    },
+    "forgotPassword": {
+      "title": "안녕하세요, {name}님.",
+      "body": "아래 링크를 클릭하여 비밀번호를 재설정해 주세요.",
+      "resetPassword": "비밀번호 재설정",
+      "subject": "비밀번호 재설정"
+    },
+    "subscribeNewsletter": {
+      "body": "뉴스레터 구독에 감사합니다. 최신 소식을 전해드리겠습니다.",
+      "subject": "구독해 주셔서 감사합니다"
+    },
+    "contactMessage": {
+      "name": "이름: {name}",
+      "email": "이메일: {email}",
+      "message": "메시지: {message}",
+      "subject": "웹사이트 문의 메시지"
+    }
+  },
   "Landing": {
-    "hero": { "headline": "모든 프레임이 아트", "subheadline": "사진을 업로드하고, 아트 스타일을 선택하면, 30초 만에 멋진 아트 비디오를 받으세요. 기술 불필요. 비싼 소프트웨어 불필요.", "cta": { "primary": "사진 업로드", "secondary": "가능성 보기" }, "socialProof": "아트 비디오 생성", "scrollHint": "스크롤하여 탐색", "switchStyle": "{style} 스타일로 전환" },
-    "painPoints": { "headline": "전하고 싶은 이야기가 있지만, 도구가 걸림돌", "items": { "learning": { "title": "Premiere나 After Effects를 배우는 데 몇 달", "description": "복잡한 소프트웨어의 가파른 학습 곡선이 창의적 아이디어를 가둡니다." }, "cost": { "title": "전문 팀 고용에 수천 달러", "description": "고품질 비디오 제작은 비싸고 대부분의 크리에이터에게는 닿기 어렵습니다." }, "generic": { "title": "템플릿 비디오는 천편일률적", "description": "템플릿은 콘텐츠를 다른 모든 것과 섞이게 합니다." } }, "solution": { "title": "GenX가 모든 것을 바꿉니다", "description": "필요한 건 사진과 아이디어뿐. AI가 평범을 예술로, 일상을 시네마틱으로 변환.", "benefit1": "학습 곡선 없음", "benefit2": "프로 품질 결과", "benefit3": "독특한 아트 스타일" }, "cta": "30초 만에 무료 체험" },
-    "artStyles": { "badge": "5가지 고유 스타일", "headline": "아트 언어를 선택하세요", "subheadline": "5가지 고유한 아트 스타일, 각각 작품을 돋보이게 합니다.", "styles": { "cyberpunk": { "title": "사이버펑크", "description": "깜빡이는 네온, 비행 자동차, 사이버 세계에 내리는 디지털 비", "bestFor": "추천: 테크 콘텐츠, 멋진 트레일러" }, "watercolor": { "title": "수채화", "description": "종이에 스며드는 색채, 보이는 시처럼", "bestFor": "추천: 힐링 콘텐츠, 감정 표현" }, "oilPainting": { "title": "유화", "description": "모든 붓질이 따뜻함을 담아, 사진을 컬렉터블 아트로", "bestFor": "추천: 프리미엄 전시, 파인 아트" }, "anime": { "title": "애니메이션", "description": "애니메이션 세계에 들어가 자신만의 이야기의 주인공이 되세요", "bestFor": "추천: 애니메이션 콘텐츠, 젊은 관객" }, "fluidArt": { "title": "플루이드 아트", "description": "색이 부딪히고 섞이는 움직임, 각 프레임이 유일한 추상 아트", "bestFor": "추천: 크리에이티브 비디오, 배경" } }, "createWith": "이 스타일로 만들기", "exploreAll": "모든 스타일 탐색" },
-    "howItWorks": { "badge": "간단한 과정", "headline": "사진에서 아트까지 3단계", "subheadline": "튜토리얼 불필요. 당신의 창의력, GenX가 실현.", "steps": { "upload": { "title": "사진 업로드", "description": "이미지를 드래그 앤 드롭하거나 클릭하여 선택", "details": "JPG/PNG 지원, 최대 10MB" }, "style": { "title": "아트 스타일 선택", "description": "5가지 고유한 아트 스타일에서 선택", "details": "커서를 올려 미리보기" }, "download": { "title": "마법을 기다리세요", "description": "AI가 30초 만에 아트 비디오를 생성", "details": "HD 비디오 즉시 다운로드" } }, "bottomText": "그게 전부입니다. 학습 곡선 없음. 튜토리얼 불필요.", "cta": "지금 시도 - 무료" },
+    "hero": {
+      "headline": "모든 프레임이 아트",
+      "subheadline": "사진을 업로드하고, 아트 스타일을 선택하면, 30초 만에 멋진 아트 비디오를 받으세요. 기술 불필요. 비싼 소프트웨어 불필요.",
+      "cta": { "primary": "사진 업로드", "secondary": "가능성 보기" },
+      "socialProof": "아트 비디오 생성",
+      "scrollHint": "스크롤하여 탐색",
+      "switchStyle": "{style} 스타일로 전환"
+    },
+    "painPoints": {
+      "headline": "전하고 싶은 이야기가 있지만, 도구가 걸림돌",
+      "items": {
+        "learning": {
+          "title": "Premiere나 After Effects를 배우는 데 몇 달",
+          "description": "복잡한 소프트웨어의 가파른 학습 곡선이 창의적 아이디어를 가둡니다."
+        },
+        "cost": {
+          "title": "전문 팀 고용에 수천 달러",
+          "description": "고품질 비디오 제작은 비싸고 대부분의 크리에이터에게는 닿기 어렵습니다."
+        },
+        "generic": {
+          "title": "템플릿 비디오는 천편일률적",
+          "description": "템플릿은 콘텐츠를 다른 모든 것과 섞이게 합니다."
+        }
+      },
+      "solution": {
+        "title": "GenX가 모든 것을 바꿉니다",
+        "description": "필요한 건 사진과 아이디어뿐. AI가 평범을 예술로, 일상을 시네마틱으로 변환.",
+        "benefit1": "학습 곡선 없음",
+        "benefit2": "프로 품질 결과",
+        "benefit3": "독특한 아트 스타일"
+      },
+      "cta": "30초 만에 무료 체험"
+    },
+    "artStyles": {
+      "badge": "5가지 고유 스타일",
+      "headline": "아트 언어를 선택하세요",
+      "subheadline": "5가지 고유한 아트 스타일, 각각 작품을 돋보이게 합니다.",
+      "styles": {
+        "cyberpunk": {
+          "title": "사이버펑크",
+          "description": "깜빡이는 네온, 비행 자동차, 사이버 세계에 내리는 디지털 비",
+          "bestFor": "추천: 테크 콘텐츠, 멋진 트레일러"
+        },
+        "watercolor": {
+          "title": "수채화",
+          "description": "종이에 스며드는 색채, 보이는 시처럼",
+          "bestFor": "추천: 힐링 콘텐츠, 감정 표현"
+        },
+        "oilPainting": {
+          "title": "유화",
+          "description": "모든 붓질이 따뜻함을 담아, 사진을 컬렉터블 아트로",
+          "bestFor": "추천: 프리미엄 전시, 파인 아트"
+        },
+        "anime": {
+          "title": "애니메이션",
+          "description": "애니메이션 세계에 들어가 자신만의 이야기의 주인공이 되세요",
+          "bestFor": "추천: 애니메이션 콘텐츠, 젊은 관객"
+        },
+        "fluidArt": {
+          "title": "플루이드 아트",
+          "description": "색이 부딪히고 섞이는 움직임, 각 프레임이 유일한 추상 아트",
+          "bestFor": "추천: 크리에이티브 비디오, 배경"
+        }
+      },
+      "createWith": "이 스타일로 만들기",
+      "exploreAll": "모든 스타일 탐색"
+    },
+    "howItWorks": {
+      "badge": "간단한 과정",
+      "headline": "사진에서 아트까지 3단계",
+      "subheadline": "튜토리얼 불필요. 당신의 창의력, GenX가 실현.",
+      "steps": {
+        "upload": {
+          "title": "사진 업로드",
+          "description": "이미지를 드래그 앤 드롭하거나 클릭하여 선택",
+          "details": "JPG/PNG 지원, 최대 10MB"
+        },
+        "style": {
+          "title": "아트 스타일 선택",
+          "description": "5가지 고유한 아트 스타일에서 선택",
+          "details": "커서를 올려 미리보기"
+        },
+        "download": {
+          "title": "마법을 기다리세요",
+          "description": "AI가 30초 만에 아트 비디오를 생성",
+          "details": "HD 비디오 즉시 다운로드"
+        }
+      },
+      "bottomText": "그게 전부입니다. 학습 곡선 없음. 튜토리얼 불필요.",
+      "cta": "지금 시도 - 무료"
+    },
     "gallery": {
       "badge": "크리에이터 갤러리",
       "headline": "크리에이터들의 작품 보기",
@@ -176,7 +827,9 @@
         "2": { "prompt": "일몰의 고요한 산 호수, 부드러운 수채화 효과" },
         "3": { "prompt": "렘브란트 스타일의 고전 초상화, 따뜻한 황금빛 조명" },
         "4": { "prompt": "일본 정원에 떨어지는 벚꽃 잎, 애니메이션 스타일" },
-        "5": { "prompt": "액체 대리석처럼 소용돌이치는 추상 색채, 매혹적인 흐름" },
+        "5": {
+          "prompt": "액체 대리석처럼 소용돌이치는 추상 색채, 매혹적인 흐름"
+        },
         "6": { "prompt": "미래 도시를 나는 자동차, 글리치 효과" }
       }
     },
@@ -340,20 +993,148 @@
         }
       }
     },
-    "finalCta": { "headline": "첫 아트 비디오를 만들 준비가 되셨나요?", "subheadline": "30초 만에 멋진 아트 비디오를 받으세요", "cta": "무료로 만들기 시작", "trust": { "thirtySeconds": "30초 완성", "instantDownload": "즉시 다운로드" } }
+    "finalCta": {
+      "headline": "첫 아트 비디오를 만들 준비가 되셨나요?",
+      "subheadline": "30초 만에 멋진 아트 비디오를 받으세요",
+      "cta": "무료로 만들기 시작",
+      "trust": {
+        "thirtySeconds": "30초 완성",
+        "instantDownload": "즉시 다운로드"
+      }
+    }
   },
   "Generator": {
-    "modes": { "textToVideo": "텍스트 투 비디오", "imageToVideo": "이미지 투 비디오", "textToImage": "텍스트 투 이미지", "imageToImage": "이미지 투 이미지", "referenceToVideo": "참조 투 비디오", "audio": "오디오" },
-    "input": { "placeholder": "만들고 싶은 것을 설명하세요...", "prompt": "프롬프트" },
-    "submit": { "generate": "생성", "generating": "생성 중...", "insufficientCredits": "크레딧 부족", "insufficientCreditsButton": "크레딧 받기", "balance": "잔액", "generationFailed": "생성 실패, 다시 시도해 주세요" },
-    "model": { "selectModel": "모델 선택", "availableModels": "사용 가능한 모델", "models": "모델", "noModels": "사용 가능한 모델이 없습니다", "new": "신규", "credits": "{count}+ 크레딧", "creditsLabel": "{count} 크레딧" },
-    "aspectRatio": { "label": "종횡비" }, "duration": { "label": "길이" }, "quality": { "label": "품질" },
-    "styles": { "default": "기본", "cyberpunk": "사이버펑크", "watercolor": "수채화", "oilPainting": "유화", "anime": "애니메이션", "fluidArt": "플루이드 아트" },
-    "imageUpload": { "uploadImage": "이미지 업로드", "uploadHint": "JPG, PNG, WEBP • 최대 10MB", "fileTooLarge": "파일이 너무 큽니다", "invalidFileType": "잘못된 파일 형식", "imageTooLarge": "이미지 크기가 허용 범위를 초과합니다", "uploadFailed": "업로드 실패, 다시 시도해 주세요" },
-    "result": { "emptyTitle": "아직 결과 없음", "emptyDescription": "프롬프트를 입력하고 생성을 클릭하여 콘텐츠를 만드세요", "generatingTitle": "생성 중...", "generatingDescription": "콘텐츠를 만드는 중입니다. 잠시 기다려 주세요", "actions": { "download": "다운로드", "share": "공유", "favorite": "즐겨찾기", "downloadSuccess": "다운로드 완료", "downloadFailed": "다운로드 실패", "linkCopied": "링크가 복사되었습니다", "favorited": "즐겨찾기에 추가됨", "unfavorited": "즐겨찾기에서 제거됨", "favoriteFailed": "즐겨찾기 전환 실패" } },
-    "history": { "title": "기록", "empty": "아직 기록이 없습니다", "loading": "로딩 중...", "loadMore": "더 보기" },
+    "modes": {
+      "textToVideo": "텍스트 투 비디오",
+      "imageToVideo": "이미지 투 비디오",
+      "textToImage": "텍스트 투 이미지",
+      "imageToImage": "이미지 투 이미지",
+      "referenceToVideo": "참조 투 비디오",
+      "audio": "오디오"
+    },
+    "input": {
+      "placeholder": "만들고 싶은 것을 설명하세요...",
+      "prompt": "프롬프트"
+    },
+    "submit": {
+      "generate": "생성",
+      "generating": "생성 중...",
+      "insufficientCredits": "크레딧 부족",
+      "insufficientCreditsButton": "크레딧 받기",
+      "balance": "잔액",
+      "generationFailed": "생성 실패, 다시 시도해 주세요"
+    },
+    "model": {
+      "selectModel": "모델 선택",
+      "availableModels": "사용 가능한 모델",
+      "models": "모델",
+      "noModels": "사용 가능한 모델이 없습니다",
+      "new": "신규",
+      "credits": "{count}+ 크레딧",
+      "creditsLabel": "{count} 크레딧"
+    },
+    "aspectRatio": { "label": "종횡비" },
+    "duration": { "label": "길이" },
+    "quality": { "label": "품질" },
+    "styles": {
+      "default": "기본",
+      "cyberpunk": "사이버펑크",
+      "watercolor": "수채화",
+      "oilPainting": "유화",
+      "anime": "애니메이션",
+      "fluidArt": "플루이드 아트"
+    },
+    "imageUpload": {
+      "uploadImage": "이미지 업로드",
+      "uploadHint": "JPG, PNG, WEBP • 최대 10MB",
+      "fileTooLarge": "파일이 너무 큽니다",
+      "invalidFileType": "잘못된 파일 형식",
+      "imageTooLarge": "이미지 크기가 허용 범위를 초과합니다",
+      "uploadFailed": "업로드 실패, 다시 시도해 주세요"
+    },
+    "result": {
+      "emptyTitle": "아직 결과 없음",
+      "emptyDescription": "프롬프트를 입력하고 생성을 클릭하여 콘텐츠를 만드세요",
+      "generatingTitle": "생성 중...",
+      "generatingDescription": "콘텐츠를 만드는 중입니다. 잠시 기다려 주세요",
+      "actions": {
+        "download": "다운로드",
+        "share": "공유",
+        "favorite": "즐겨찾기",
+        "downloadSuccess": "다운로드 완료",
+        "downloadFailed": "다운로드 실패",
+        "linkCopied": "링크가 복사되었습니다",
+        "favorited": "즐겨찾기에 추가됨",
+        "unfavorited": "즐겨찾기에서 제거됨",
+        "favoriteFailed": "즐겨찾기 전환 실패"
+      }
+    },
+    "history": {
+      "title": "기록",
+      "empty": "아직 기록이 없습니다",
+      "loading": "로딩 중...",
+      "loadMore": "더 보기"
+    },
     "floating": { "placeholder": "프롬프트 입력..." }
   },
-  "Onboarding": { "welcome": { "title": "GenX에 오신 것을 환영합니다, {name}님!", "defaultName": "크리에이터", "description": "멋진 첫 아트 비디오를 만들기까지 3단계만 남았습니다.", "steps": { "upload": { "title": "사진 업로드", "description": "어떤 사진이든 OK - 초상화, 풍경, 제품" }, "style": { "title": "아트 스타일 선택", "description": "5가지 고유 스타일: 사이버펑크, 수채화, 유화, 애니메이션, 플루이드 아트" }, "generate": { "title": "생성 및 다운로드", "description": "AI가 약 30초 만에 아트 비디오를 생성" } }, "freeCredits": "15 무료 크레딧으로 시작하세요!", "startButton": "만들기 시작", "skipButton": "혼자 탐색하기" } },
-  "UserDashboard": { "stats": { "credits": "크레딧 잔액", "creditsHint": "AI 비디오 생성에 사용", "buyCredits": "크레딧 추가", "videosCreated": "생성된 비디오", "allTime": "전체", "inProgress": "진행 중" }, "quickStart": { "title": "만들 준비가 되셨나요?", "createVideo": "새 비디오 만들기" }, "quickActions": { "title": "빠른 작업", "image-to-video": "이미지 투 비디오", "text-to-video": "텍스트 투 비디오", "reference-to-video": "참조 비디오", "image": "AI 이미지" }, "recentCreations": { "title": "최근 작품", "subtitle": "최근 AI 생성 비디오", "viewAll": "전체 보기", "empty": { "title": "아직 비디오가 없습니다", "description": "AI로 첫 아트 비디오를 만들어 보세요", "cta": "첫 비디오 만들기" }, "status": { "generating": "생성 중", "pending": "대기 중", "failed": "실패" } } }
+  "Onboarding": {
+    "welcome": {
+      "title": "GenX에 오신 것을 환영합니다, {name}님!",
+      "defaultName": "크리에이터",
+      "description": "멋진 첫 아트 비디오를 만들기까지 3단계만 남았습니다.",
+      "steps": {
+        "upload": {
+          "title": "사진 업로드",
+          "description": "어떤 사진이든 OK - 초상화, 풍경, 제품"
+        },
+        "style": {
+          "title": "아트 스타일 선택",
+          "description": "5가지 고유 스타일: 사이버펑크, 수채화, 유화, 애니메이션, 플루이드 아트"
+        },
+        "generate": {
+          "title": "생성 및 다운로드",
+          "description": "AI가 약 30초 만에 아트 비디오를 생성"
+        }
+      },
+      "freeCredits": "15 무료 크레딧으로 시작하세요!",
+      "startButton": "만들기 시작",
+      "skipButton": "혼자 탐색하기"
+    }
+  },
+  "UserDashboard": {
+    "stats": {
+      "credits": "크레딧 잔액",
+      "creditsHint": "AI 비디오 생성에 사용",
+      "buyCredits": "크레딧 추가",
+      "videosCreated": "생성된 비디오",
+      "allTime": "전체",
+      "inProgress": "진행 중"
+    },
+    "quickStart": {
+      "title": "만들 준비가 되셨나요?",
+      "createVideo": "새 비디오 만들기"
+    },
+    "quickActions": {
+      "title": "빠른 작업",
+      "image-to-video": "이미지 투 비디오",
+      "text-to-video": "텍스트 투 비디오",
+      "reference-to-video": "참조 비디오",
+      "image": "AI 이미지"
+    },
+    "recentCreations": {
+      "title": "최근 작품",
+      "subtitle": "최근 AI 생성 비디오",
+      "viewAll": "전체 보기",
+      "empty": {
+        "title": "아직 비디오가 없습니다",
+        "description": "AI로 첫 아트 비디오를 만들어 보세요",
+        "cta": "첫 비디오 만들기"
+      },
+      "status": {
+        "generating": "생성 중",
+        "pending": "대기 중",
+        "failed": "실패"
+      }
+    }
+  }
 }

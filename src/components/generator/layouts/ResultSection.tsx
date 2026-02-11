@@ -75,7 +75,12 @@ interface ResultActionsProps {
   onFavorite?: (result: GenerationResult) => void;
 }
 
-function ResultActions({ result, onDownload, onShare, onFavorite }: ResultActionsProps) {
+function ResultActions({
+  result,
+  onDownload,
+  onShare,
+  onFavorite,
+}: ResultActionsProps) {
   const t = useTranslations('Generator.result.actions');
   const [isDownloading, setIsDownloading] = useState(false);
   const [isFavorited, setIsFavorited] = useState(false);
@@ -190,7 +195,9 @@ function ResultActions({ result, onDownload, onShare, onFavorite }: ResultAction
         onClick={handleFavorite}
         disabled={!result.url}
       >
-        <HeartIcon className={cn('w-4 h-4', isFavorited && 'fill-current text-red-500')} />
+        <HeartIcon
+          className={cn('w-4 h-4', isFavorited && 'fill-current text-red-500')}
+        />
         {t('favorite')}
       </Button>
     </div>

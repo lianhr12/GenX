@@ -4,6 +4,7 @@ import { isDemoWebsite } from '@/lib/demo';
 import { Routes } from '@/routes';
 import type { NestedMenuItem } from '@/types';
 import {
+  BarChart3Icon,
   BellIcon,
   CircleUserRoundIcon,
   CoinsIcon,
@@ -66,6 +67,12 @@ export function useSidebarLinks(): NestedMenuItem[] {
       authorizeOnly: isDemo ? ['admin', 'user'] : ['admin'],
       items: [
         {
+          title: t('admin.dashboard.title'),
+          icon: <LayoutDashboardIcon className="size-4 shrink-0" />,
+          href: Routes.AdminDashboard,
+          external: false,
+        },
+        {
           title: t('admin.users.title'),
           icon: <UsersRoundIcon className="size-4 shrink-0" />,
           href: Routes.AdminUsers,
@@ -81,6 +88,18 @@ export function useSidebarLinks(): NestedMenuItem[] {
           title: t('admin.gallery.title'),
           icon: <GalleryHorizontalEndIcon className="size-4 shrink-0" />,
           href: Routes.AdminGallery,
+          external: false,
+        },
+        {
+          title: t('admin.analytics.title'),
+          icon: <BarChart3Icon className="size-4 shrink-0" />,
+          href: Routes.AdminAnalytics,
+          external: false,
+        },
+        {
+          title: t('admin.adminSettings.title'),
+          icon: <Settings2Icon className="size-4 shrink-0" />,
+          href: Routes.AdminSettings,
           external: false,
         },
       ],

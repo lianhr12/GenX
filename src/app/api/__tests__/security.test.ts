@@ -463,7 +463,9 @@ describe('视频生成 API Schema 安全性', () => {
       });
       expect(result.success).toBe(true);
       if (result.success) {
-        expect((result.data as Record<string, unknown>).maliciousField).toBeUndefined();
+        expect(
+          (result.data as Record<string, unknown>).maliciousField
+        ).toBeUndefined();
       }
     });
   });
@@ -597,7 +599,9 @@ describe('积分消耗安全性（Schema 层）', () => {
   });
 
   it('应该拒绝 Infinity', () => {
-    const result = consumeSchema.safeParse({ amount: Number.POSITIVE_INFINITY });
+    const result = consumeSchema.safeParse({
+      amount: Number.POSITIVE_INFINITY,
+    });
     expect(result.success).toBe(false);
   });
 });

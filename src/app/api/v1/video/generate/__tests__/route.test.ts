@@ -1,4 +1,4 @@
-import { describe, expect, it, vi, beforeEach } from 'vitest';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 /**
  * Video Generation API Route 测试
@@ -67,7 +67,10 @@ describe('POST /api/v1/video/generate', () => {
       user: { id: 'user-1', email: 'test@test.com' },
     });
     const { POST } = await import('../route');
-    const req = createMockRequest({ model: 'wan2.6-text-to-video', duration: 5 });
+    const req = createMockRequest({
+      model: 'wan2.6-text-to-video',
+      duration: 5,
+    });
     const res = await POST(req as any);
     expect(res.status).toBe(400);
   });

@@ -48,12 +48,7 @@ export function QuickStyles({
   if (filteredItems.length === 0) return null;
 
   return (
-    <div
-      className={cn(
-        'flex items-center gap-2 overflow-hidden',
-        className
-      )}
-    >
+    <div className={cn('flex items-center gap-2 overflow-hidden', className)}>
       {/* 刷新按钮 */}
       {filteredItems.length > visibleCount && (
         <button

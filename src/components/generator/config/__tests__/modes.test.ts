@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+import type { CreatorMode } from '../../types';
 import {
   getAvailableModels,
   getDefaultModel,
@@ -11,7 +12,6 @@ import {
   modeConfigs,
   modeRoutes,
 } from '../modes';
-import type { CreatorMode } from '../../types';
 
 // ============================================================================
 // 所有模式列表

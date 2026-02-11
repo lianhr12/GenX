@@ -33,7 +33,10 @@ export async function generateMetadata({
 
   return constructMetadata({
     title: st('seo.detailTitle', { style: styleTitle }) + ' | ' + t('title'),
-    description: st('seo.detailDescription', { style: styleTitle, description: styleDesc }),
+    description: st('seo.detailDescription', {
+      style: styleTitle,
+      description: styleDesc,
+    }),
     locale,
     pathname: `/styles/${slug}`,
     keywords: style.seoKeywords,

@@ -675,6 +675,85 @@
           "success": "画廊项目已删除",
           "error": "删除画廊项目失败"
         }
+      },
+      "dashboard": {
+        "title": "看板",
+        "totalUsers": "总用户数",
+        "totalMedia": "总媒体数",
+        "totalPayments": "总支付数",
+        "successRate": "成功率",
+        "last7Days": "最近 7 天",
+        "videoStatus": "视频状态",
+        "imageStatus": "图片状态",
+        "completed": "已完成",
+        "failed": "失败",
+        "processing": "处理中",
+        "generating": "生成中",
+        "quickActions": "快速操作"
+      },
+      "analytics": {
+        "title": "数据分析",
+        "description": "查看平台分析和用户行为数据",
+        "timeRange": {
+          "1d": "今天",
+          "7d": "最近 7 天",
+          "30d": "最近 30 天",
+          "90d": "最近 90 天",
+          "all": "全部"
+        },
+        "stats": {
+          "totalUsers": "总用户数",
+          "totalPayments": "总支付数",
+          "totalMedia": "总媒体数",
+          "totalVideos": "总视频数",
+          "videos": "视频",
+          "images": "图片",
+          "creationConversion": "创作转化率",
+          "paymentConversion": "付费转化率",
+          "mediaSuccessRate": "媒体成功率",
+          "inactiveUsers": "未创作用户"
+        },
+        "funnel": {
+          "title": "用户激活漏斗",
+          "description": "注册 → 首次创作 → 首次成功",
+          "registered": "已注册",
+          "firstCreation": "首次创作",
+          "firstSuccess": "首次成功"
+        },
+        "trend": {
+          "title": "每日趋势",
+          "description": "注册数、创作数和完成数的变化趋势",
+          "registrations": "注册数",
+          "creations": "创作数",
+          "completions": "完成数"
+        }
+      },
+      "adminSettings": {
+        "title": "设置",
+        "description": "系统配置和环境设置",
+        "pricing": {
+          "title": "定价与积分",
+          "description": "定价和积分系统的配置文件",
+          "priceConfig": "价格配置",
+          "creditsConfig": "积分配置",
+          "videoCredits": "视频积分",
+          "imageCredits": "图片积分"
+        },
+        "admin": {
+          "title": "管理员权限",
+          "description": "通过 Better Auth 进行基于角色的访问控制",
+          "betterAuthNote": "管理员权限通过 Better Auth 的管理员插件管理。拥有 'admin' 角色的用户可以访问所有管理页面。在用户管理页面中设置用户角色。"
+        },
+        "env": {
+          "title": "环境变量",
+          "description": "关键环境变量状态"
+        },
+        "system": {
+          "title": "系统信息",
+          "environment": "运行环境",
+          "database": "数据库",
+          "payments": "支付"
+        }
       }
     },
     "settings": {

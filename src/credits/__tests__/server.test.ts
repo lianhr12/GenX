@@ -1,4 +1,4 @@
-import { describe, expect, it, vi, beforeEach } from 'vitest';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { CREDIT_TRANSACTION_TYPE } from '../types';
 
 /**
@@ -31,9 +31,7 @@ const mockDb: Record<string, any> = {
   from: vi.fn().mockReturnThis(),
   where: vi.fn().mockImplementation(() => ({
     limit: vi.fn().mockImplementation(() => limitReturnValue),
-    orderBy: vi.fn().mockImplementation(
-      () => selectResult
-    ),
+    orderBy: vi.fn().mockImplementation(() => selectResult),
   })),
   limit: vi.fn().mockImplementation(() => limitReturnValue),
   orderBy: vi.fn().mockImplementation(() => selectResult),
@@ -50,9 +48,11 @@ const mockDb: Record<string, any> = {
     set: mockUpdateSet,
   }),
   // Transaction support: execute callback with mockDb as the transaction context
-  transaction: vi.fn().mockImplementation(async (cb: (tx: any) => Promise<any>) => {
-    return await cb(mockDb);
-  }),
+  transaction: vi
+    .fn()
+    .mockImplementation(async (cb: (tx: any) => Promise<any>) => {
+      return await cb(mockDb);
+    }),
 };
 
 vi.mock('@/db', () => ({
@@ -162,9 +162,7 @@ describe('freezeMediaCredits', () => {
   });
 
   it('已存在非 HOLDING 状态的 hold 应该抛出错误', async () => {
-    limitReturnValue = [
-      { id: 42, status: 'SETTLED', mediaUuid: 'vid_123' },
-    ];
+    limitReturnValue = [{ id: 42, status: 'SETTLED', mediaUuid: 'vid_123' }];
     const { freezeMediaCredits } = await import('../server');
     await expect(
       freezeMediaCredits({
@@ -180,9 +178,7 @@ describe('freezeMediaCredits', () => {
     // 第一次查询 existingHold → 无
     // 第二次查询 transactions → 余额不足
     limitReturnValue = [];
-    selectResult = [
-      { id: 'tx-1', remainingAmount: 30, expirationDate: null },
-    ];
+    selectResult = [{ id: 'tx-1', remainingAmount: 30, expirationDate: null }];
     const { freezeMediaCredits } = await import('../server');
     await expect(
       freezeMediaCredits({
@@ -212,9 +208,9 @@ describe('freezeMediaCredits', () => {
       }
       // transactions / userCredit queries
       return {
-        limit: vi.fn().mockReturnValue([
-          { userId: 'user-1', currentCredits: 200 },
-        ]),
+        limit: vi
+          .fn()
+          .mockReturnValue([{ userId: 'user-1', currentCredits: 200 }]),
         orderBy: vi.fn().mockReturnValue(selectResult),
       };
     });
@@ -237,9 +233,7 @@ describe('freezeMediaCredits', () => {
 
   it('insert hold 失败时应该抛出错误', async () => {
     limitReturnValue = [];
-    selectResult = [
-      { id: 'tx-1', remainingAmount: 200, expirationDate: null },
-    ];
+    selectResult = [{ id: 'tx-1', remainingAmount: 200, expirationDate: null }];
     const originalWhere = mockDb.where;
     let callCount = 0;
     mockDb.where = vi.fn().mockImplementation(() => {
@@ -248,9 +242,9 @@ describe('freezeMediaCredits', () => {
         return { limit: vi.fn().mockReturnValue([]) };
       }
       return {
-        limit: vi.fn().mockReturnValue([
-          { userId: 'user-1', currentCredits: 500 },
-        ]),
+        limit: vi
+          .fn()
+          .mockReturnValue([{ userId: 'user-1', currentCredits: 500 }]),
         orderBy: vi.fn().mockReturnValue(selectResult),
       };
     });
@@ -284,9 +278,9 @@ describe('settleMediaCredits', () => {
   it('hold 不存在时应该抛出错误', async () => {
     limitReturnValue = [];
     const { settleMediaCredits } = await import('../server');
-    await expect(
-      settleMediaCredits('vid_missing', 'video')
-    ).rejects.toThrow('Hold not found for video: vid_missing');
+    await expect(settleMediaCredits('vid_missing', 'video')).rejects.toThrow(
+      'Hold not found for video: vid_missing'
+    );
   });
 
   it('已 SETTLED 的 hold 应该幂等返回', async () => {
@@ -317,9 +311,9 @@ describe('settleMediaCredits', () => {
       },
     ];
     const { settleMediaCredits } = await import('../server');
-    await expect(
-      settleMediaCredits('vid_released', 'video')
-    ).rejects.toThrow('Invalid hold status: RELEASED');
+    await expect(settleMediaCredits('vid_released', 'video')).rejects.toThrow(
+      'Invalid hold status: RELEASED'
+    );
   });
 
   it('HOLDING 状态的 hold 应该成功结算', async () => {
@@ -401,9 +395,9 @@ describe('releaseMediaCredits', () => {
       },
     ];
     const { releaseMediaCredits } = await import('../server');
-    await expect(
-      releaseMediaCredits('vid_settled', 'video')
-    ).rejects.toThrow('Invalid hold status: SETTLED');
+    await expect(releaseMediaCredits('vid_settled', 'video')).rejects.toThrow(
+      'Invalid hold status: SETTLED'
+    );
   });
 
   it('HOLDING 状态应该释放积分并恢复余额', async () => {
@@ -431,9 +425,11 @@ describe('releaseMediaCredits', () => {
       }
       // subsequent queries for transactions and userCredit
       return {
-        limit: vi.fn().mockReturnValue([
-          { id: 'tx-1', remainingAmount: 10, currentCredits: 200 },
-        ]),
+        limit: vi
+          .fn()
+          .mockReturnValue([
+            { id: 'tx-1', remainingAmount: 10, currentCredits: 200 },
+          ]),
       };
     });
 
@@ -625,9 +621,7 @@ describe('事务保护', () => {
   it('freezeMediaCredits 应使用 db.transaction', async () => {
     // 设置余额不足以触发事务内的 throw
     limitReturnValue = [];
-    selectResult = [
-      { id: 'tx-1', remainingAmount: 5, expirationDate: null },
-    ];
+    selectResult = [{ id: 'tx-1', remainingAmount: 5, expirationDate: null }];
     const { freezeMediaCredits } = await import('../server');
     await expect(
       freezeMediaCredits({
@@ -671,17 +665,17 @@ describe('事务保护', () => {
               mediaUuid: 'vid_tx_release',
               credits: 80,
               status: 'HOLDING',
-              packageAllocation: [
-                { transactionId: 'tx-1', credits: 80 },
-              ],
+              packageAllocation: [{ transactionId: 'tx-1', credits: 80 }],
             },
           ]),
         };
       }
       return {
-        limit: vi.fn().mockReturnValue([
-          { id: 'tx-1', remainingAmount: 0, currentCredits: 100 },
-        ]),
+        limit: vi
+          .fn()
+          .mockReturnValue([
+            { id: 'tx-1', remainingAmount: 0, currentCredits: 100 },
+          ]),
       };
     });
 

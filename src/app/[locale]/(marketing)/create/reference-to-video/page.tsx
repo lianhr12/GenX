@@ -15,7 +15,10 @@ export async function generateMetadata({
 }): Promise<Metadata | undefined> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'Metadata' });
-  const tp = await getTranslations({ locale, namespace: config.i18nPrefix as never });
+  const tp = await getTranslations({
+    locale,
+    namespace: config.i18nPrefix as never,
+  });
 
   return constructMetadata({
     title: tp('seo.title' as never) + ' | ' + t('title'),

@@ -675,6 +675,85 @@
           "success": "Gallery item deleted",
           "error": "Failed to delete gallery item"
         }
+      },
+      "dashboard": {
+        "title": "Dashboard",
+        "totalUsers": "Total Users",
+        "totalMedia": "Total Media",
+        "totalPayments": "Total Payments",
+        "successRate": "Success Rate",
+        "last7Days": "last 7 days",
+        "videoStatus": "Video Status",
+        "imageStatus": "Image Status",
+        "completed": "Completed",
+        "failed": "Failed",
+        "processing": "Processing",
+        "generating": "Generating",
+        "quickActions": "Quick Actions"
+      },
+      "analytics": {
+        "title": "Analytics",
+        "description": "View platform analytics and user behavior data",
+        "timeRange": {
+          "1d": "Today",
+          "7d": "Last 7 Days",
+          "30d": "Last 30 Days",
+          "90d": "Last 90 Days",
+          "all": "All Time"
+        },
+        "stats": {
+          "totalUsers": "Total Users",
+          "totalPayments": "Total Payments",
+          "totalMedia": "Total Media",
+          "totalVideos": "Total Videos",
+          "videos": "Videos",
+          "images": "Images",
+          "creationConversion": "Creation Conversion",
+          "paymentConversion": "Payment Conversion",
+          "mediaSuccessRate": "Media Success Rate",
+          "inactiveUsers": "Inactive Users"
+        },
+        "funnel": {
+          "title": "User Activation Funnel",
+          "description": "Registration → First Creation → First Success",
+          "registered": "Registered",
+          "firstCreation": "First Creation",
+          "firstSuccess": "First Success"
+        },
+        "trend": {
+          "title": "Daily Trends",
+          "description": "Registrations, creations, and completions over time",
+          "registrations": "Registrations",
+          "creations": "Creations",
+          "completions": "Completions"
+        }
+      },
+      "adminSettings": {
+        "title": "Settings",
+        "description": "System configuration and environment settings",
+        "pricing": {
+          "title": "Pricing & Credits",
+          "description": "Configuration files for pricing and credit system",
+          "priceConfig": "Price Configuration",
+          "creditsConfig": "Credits Configuration",
+          "videoCredits": "Video Credits",
+          "imageCredits": "Image Credits"
+        },
+        "admin": {
+          "title": "Admin Permissions",
+          "description": "Role-based access control via Better Auth",
+          "betterAuthNote": "Admin permissions are managed through Better Auth's admin plugin. Users with the 'admin' role can access all admin pages. Set user roles in the Users management page."
+        },
+        "env": {
+          "title": "Environment Variables",
+          "description": "Key environment variables status"
+        },
+        "system": {
+          "title": "System Information",
+          "environment": "Environment",
+          "database": "Database",
+          "payments": "Payments"
+        }
       }
     },
     "settings": {

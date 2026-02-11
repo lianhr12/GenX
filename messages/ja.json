@@ -11,7 +11,12 @@
     "logout": "ログアウト",
     "signUp": "サインアップ",
     "language": "言語を変更",
-    "mode": { "label": "モード切替", "light": "ライト", "dark": "ダーク", "system": "システム" },
+    "mode": {
+      "label": "モード切替",
+      "light": "ライト",
+      "dark": "ダーク",
+      "system": "システム"
+    },
     "copy": "コピー",
     "saving": "保存中...",
     "save": "保存",
@@ -61,28 +66,61 @@
       "notAvailable": "利用不可",
       "daysTrial": "{days}日間のトライアル"
     },
-    "CheckoutButton": { "loading": "読み込み中...", "checkoutFailed": "決済ページを開けませんでした" }
+    "CheckoutButton": {
+      "loading": "読み込み中...",
+      "checkoutFailed": "決済ページを開けませんでした"
+    }
   },
   "PricePlans": {
     "free": {
       "name": "無料",
       "description": "GenXを試すのに最適",
-      "features": { "feature-1": "登録で15クレジット", "feature-2": "5つのアートスタイル", "feature-3": "1080p出力品質", "feature-4": "スタンダードサポート" },
-      "limits": { "limit-1": "クレジットは30日で期限切れ", "limit-2": "ウォーターマーク付き", "limit-3": "個人利用のみ" }
+      "features": {
+        "feature-1": "登録で15クレジット",
+        "feature-2": "5つのアートスタイル",
+        "feature-3": "1080p出力品質",
+        "feature-4": "スタンダードサポート"
+      },
+      "limits": {
+        "limit-1": "クレジットは30日で期限切れ",
+        "limit-2": "ウォーターマーク付き",
+        "limit-3": "個人利用のみ"
+      }
     },
     "pro": {
       "name": "Pro",
       "description": "本格的なクリエイター向け",
-      "features": { "feature-1": "800クレジット/月", "feature-2": "5つのアートスタイル", "feature-3": "HD 1080p出力", "feature-4": "優先サポート", "feature-5": "ウォーターマークなし" },
-      "limits": { "limit-1": "月間クレジットは繰り越し不可", "limit-2": "商用ライセンス付き" }
+      "features": {
+        "feature-1": "800クレジット/月",
+        "feature-2": "5つのアートスタイル",
+        "feature-3": "HD 1080p出力",
+        "feature-4": "優先サポート",
+        "feature-5": "ウォーターマークなし"
+      },
+      "limits": {
+        "limit-1": "月間クレジットは繰り越し不可",
+        "limit-2": "商用ライセンス付き"
+      }
     }
   },
   "CreditPackages": {
     "starter": { "name": "スターター", "description": "AI生成を試すのに最適" },
-    "basic": { "name": "ベーシック", "description": "カジュアルクリエイターに最適" },
-    "standard": { "name": "スタンダード", "description": "レギュラーユーザーに最適な価値" },
-    "premium": { "name": "プレミアム", "description": "上級ユーザーとプロフェッショナル向け" },
-    "enterprise": { "name": "エンタープライズ", "description": "ヘビーユーザー向け最大クレジット" }
+    "basic": {
+      "name": "ベーシック",
+      "description": "カジュアルクリエイターに最適"
+    },
+    "standard": {
+      "name": "スタンダード",
+      "description": "レギュラーユーザーに最適な価値"
+    },
+    "premium": {
+      "name": "プレミアム",
+      "description": "上級ユーザーとプロフェッショナル向け"
+    },
+    "enterprise": {
+      "name": "エンタープライズ",
+      "description": "ヘビーユーザー向け最大クレジット"
+    }
   },
   "NotFoundPage": {
     "title": "404",
@@ -91,9 +129,18 @@
     "backToHome": "ホームに戻る",
     "searchHelp": "ヘルプを見る",
     "popularPages": "人気ページ",
-    "links": { "imageToVideo": "画像からビデオ", "gallery": "ギャラリー", "docs": "ドキュメント", "contact": "お問い合わせ" }
+    "links": {
+      "imageToVideo": "画像からビデオ",
+      "gallery": "ギャラリー",
+      "docs": "ドキュメント",
+      "contact": "お問い合わせ"
+    }
   },
-  "ErrorPage": { "title": "エラーが発生しました！", "tryAgain": "再試行", "backToHome": "ホームに戻る" },
+  "ErrorPage": {
+    "title": "エラーが発生しました！",
+    "tryAgain": "再試行",
+    "backToHome": "ホームに戻る"
+  },
   "AboutPage": {
     "title": "GenX.artについて",
     "description": "GenX.artは、AIを活用した動画作成プラットフォームで、あなたの写真を数秒で素晴らしいシネマティック作品に変換します。",
@@ -103,176 +150,657 @@
     "talkWithMe": "お問い合わせ",
     "followMe": "Xでフォロー"
   },
-  "ChangelogPage": { "title": "変更履歴", "description": "GenX.artの最新情報をご覧ください。", "keywords": "GenXアップデート、変更履歴、新機能", "subtitle": "製品の最新の変更点をチェック" },
-  "RoadmapPage": { "title": "ロードマップ", "description": "GenX.artの将来の計画をご覧ください。", "keywords": "GenXロードマップ、今後の機能、将来の計画", "subtitle": "将来の計画と今後の機能をご覧ください" },
+  "ChangelogPage": {
+    "title": "変更履歴",
+    "description": "GenX.artの最新情報をご覧ください。",
+    "keywords": "GenXアップデート、変更履歴、新機能",
+    "subtitle": "製品の最新の変更点をチェック"
+  },
+  "RoadmapPage": {
+    "title": "ロードマップ",
+    "description": "GenX.artの将来の計画をご覧ください。",
+    "keywords": "GenXロードマップ、今後の機能、将来の計画",
+    "subtitle": "将来の計画と今後の機能をご覧ください"
+  },
   "ContactPage": {
     "title": "お問い合わせ",
     "description": "GenX.artチームにお問い合わせください。",
     "keywords": "GenXお問い合わせ、サポート、ヘルプ",
     "subtitle": "あなたのビジネスに最適なプランを見つけるお手伝いをします",
     "form": {
-      "title": "お問い合わせ", "description": "ご質問やご意見がございましたら、お気軽にお問い合わせください",
-      "name": "お名前", "email": "メールアドレス", "message": "メッセージ",
-      "submit": "送信", "submitting": "送信中...", "success": "メッセージが送信されました", "fail": "メッセージの送信に失敗しました",
-      "nameMinLength": "名前は3文字以上にしてください", "nameMaxLength": "名前は30文字以内にしてください",
+      "title": "お問い合わせ",
+      "description": "ご質問やご意見がございましたら、お気軽にお問い合わせください",
+      "name": "お名前",
+      "email": "メールアドレス",
+      "message": "メッセージ",
+      "submit": "送信",
+      "submitting": "送信中...",
+      "success": "メッセージが送信されました",
+      "fail": "メッセージの送信に失敗しました",
+      "nameMinLength": "名前は3文字以上にしてください",
+      "nameMaxLength": "名前は30文字以内にしてください",
       "emailValidation": "有効なメールアドレスを入力してください",
-      "messageMinLength": "メッセージは10文字以上にしてください", "messageMaxLength": "メッセージは500文字以内にしてください"
+      "messageMinLength": "メッセージは10文字以上にしてください",
+      "messageMaxLength": "メッセージは500文字以内にしてください"
     }
   },
   "WaitlistPage": {
-    "title": "ウェイティングリスト", "description": "GenX.artの新機能をいち早く体験しましょう。", "keywords": "GenXウェイティングリスト、早期アクセス", "subtitle": "ローンチのウェイティングリストに参加",
-    "form": { "title": "ウェイティングリストに参加", "description": "製品ローンチ時にお知らせします", "email": "メールアドレス", "subscribe": "登録する", "subscribing": "登録中...", "success": "登録が完了しました", "fail": "登録に失敗しました", "emailValidation": "有効なメールアドレスを入力してください" }
+    "title": "ウェイティングリスト",
+    "description": "GenX.artの新機能をいち早く体験しましょう。",
+    "keywords": "GenXウェイティングリスト、早期アクセス",
+    "subtitle": "ローンチのウェイティングリストに参加",
+    "form": {
+      "title": "ウェイティングリストに参加",
+      "description": "製品ローンチ時にお知らせします",
+      "email": "メールアドレス",
+      "subscribe": "登録する",
+      "subscribing": "登録中...",
+      "success": "登録が完了しました",
+      "fail": "登録に失敗しました",
+      "emailValidation": "有効なメールアドレスを入力してください"
+    }
   },
   "Newsletter": {
-    "title": "ニュースレター", "subtitle": "コミュニティに参加", "description": "最新ニュースやアップデートのためにニュースレターを購読",
-    "form": { "email": "メールアドレス", "subscribe": "購読する", "subscribing": "購読中...", "success": "購読が完了しました", "fail": "購読に失敗しました", "emailValidation": "有効なメールアドレスを入力してください" }
+    "title": "ニュースレター",
+    "subtitle": "コミュニティに参加",
+    "description": "最新ニュースやアップデートのためにニュースレターを購読",
+    "form": {
+      "email": "メールアドレス",
+      "subscribe": "購読する",
+      "subscribing": "購読中...",
+      "success": "購読が完了しました",
+      "fail": "購読に失敗しました",
+      "emailValidation": "有効なメールアドレスを入力してください"
+    }
   },
   "AuthPage": {
     "login": {
-      "title": "ログイン", "welcomeBack": "おかえりなさい", "email": "メールアドレス", "password": "パスワード",
-      "signIn": "ログイン", "signUpHint": "アカウントをお持ちでない方はこちら", "forgotPassword": "パスワードをお忘れですか？",
-      "signInWithGoogle": "Googleでログイン", "signInWithGitHub": "GitHubでログイン", "signInWithFacebook": "Facebookでログイン",
-      "showPassword": "パスワードを表示", "hidePassword": "パスワードを非表示", "or": "または以下で続行",
-      "emailRequired": "メールアドレスを入力してください", "passwordRequired": "パスワードを入力してください",
-      "captchaInvalid": "キャプチャ認証に失敗しました", "captchaError": "キャプチャ認証エラー"
+      "title": "ログイン",
+      "welcomeBack": "おかえりなさい",
+      "email": "メールアドレス",
+      "password": "パスワード",
+      "signIn": "ログイン",
+      "signUpHint": "アカウントをお持ちでない方はこちら",
+      "forgotPassword": "パスワードをお忘れですか？",
+      "signInWithGoogle": "Googleでログイン",
+      "signInWithGitHub": "GitHubでログイン",
+      "signInWithFacebook": "Facebookでログイン",
+      "showPassword": "パスワードを表示",
+      "hidePassword": "パスワードを非表示",
+      "or": "または以下で続行",
+      "emailRequired": "メールアドレスを入力してください",
+      "passwordRequired": "パスワードを入力してください",
+      "captchaInvalid": "キャプチャ認証に失敗しました",
+      "captchaError": "キャプチャ認証エラー"
     },
     "register": {
-      "title": "サインアップ", "createAccount": "アカウントを作成", "name": "お名前", "email": "メールアドレス", "password": "パスワード",
-      "signUp": "サインアップ", "signInHint": "既にアカウントをお持ちの方はこちら", "checkEmail": "受信トレイをご確認ください",
-      "showPassword": "パスワードを表示", "hidePassword": "パスワードを非表示",
-      "nameRequired": "お名前を入力してください", "emailRequired": "メールアドレスを入力してください", "passwordRequired": "パスワードを入力してください",
-      "captchaInvalid": "キャプチャ認証に失敗しました", "captchaError": "キャプチャ認証エラー"
+      "title": "サインアップ",
+      "createAccount": "アカウントを作成",
+      "name": "お名前",
+      "email": "メールアドレス",
+      "password": "パスワード",
+      "signUp": "サインアップ",
+      "signInHint": "既にアカウントをお持ちの方はこちら",
+      "checkEmail": "受信トレイをご確認ください",
+      "showPassword": "パスワードを表示",
+      "hidePassword": "パスワードを非表示",
+      "nameRequired": "お名前を入力してください",
+      "emailRequired": "メールアドレスを入力してください",
+      "passwordRequired": "パスワードを入力してください",
+      "captchaInvalid": "キャプチャ認証に失敗しました",
+      "captchaError": "キャプチャ認証エラー"
     },
-    "forgotPassword": { "title": "パスワードを忘れた", "email": "メールアドレス", "send": "リセットリンクを送信", "backToLogin": "ログインに戻る", "checkEmail": "受信トレイをご確認ください", "emailRequired": "メールアドレスを入力してください" },
-    "resetPassword": { "title": "パスワードをリセット", "password": "パスワード", "reset": "パスワードをリセット", "backToLogin": "ログインに戻る", "showPassword": "パスワードを表示", "hidePassword": "パスワードを非表示", "minLength": "パスワードは8文字以上にしてください" },
-    "error": { "title": "エラーが発生しました！", "tryAgain": "再度お試しください。", "backToLogin": "ログインに戻る", "checkEmail": "受信トレイをご確認ください" },
-    "common": { "termsOfService": "利用規約", "privacyPolicy": "プライバシーポリシー", "byClickingContinue": "続行することで、当社の", "and": "および" }
+    "forgotPassword": {
+      "title": "パスワードを忘れた",
+      "email": "メールアドレス",
+      "send": "リセットリンクを送信",
+      "backToLogin": "ログインに戻る",
+      "checkEmail": "受信トレイをご確認ください",
+      "emailRequired": "メールアドレスを入力してください"
+    },
+    "resetPassword": {
+      "title": "パスワードをリセット",
+      "password": "パスワード",
+      "reset": "パスワードをリセット",
+      "backToLogin": "ログインに戻る",
+      "showPassword": "パスワードを表示",
+      "hidePassword": "パスワードを非表示",
+      "minLength": "パスワードは8文字以上にしてください"
+    },
+    "error": {
+      "title": "エラーが発生しました！",
+      "tryAgain": "再度お試しください。",
+      "backToLogin": "ログインに戻る",
+      "checkEmail": "受信トレイをご確認ください"
+    },
+    "common": {
+      "termsOfService": "利用規約",
+      "privacyPolicy": "プライバシーポリシー",
+      "byClickingContinue": "続行することで、当社の",
+      "and": "および"
+    }
   },
-  "BlogPage": { "title": "ブログ", "description": "AIビデオ制作のヒント、チュートリアル、GenX.artの最新ニュース。", "keywords": "AIビデオブログ、制作ヒント、GenXチュートリアル", "subtitle": "チームからの最新ニュースとアップデート", "author": "著者", "categories": "カテゴリ", "tableOfContents": "目次", "readTime": "{minutes}分で読める", "all": "すべて", "noPostsFound": "記事が見つかりません", "allPosts": "すべての記事", "morePosts": "その他の記事" },
-  "DocsPage": { "toc": "目次", "search": "ドキュメントを検索", "lastUpdate": "最終更新日", "searchNoResult": "結果なし", "previousPage": "前へ", "nextPage": "次へ", "chooseLanguage": "言語を選択", "title": "GenX.artドキュメント", "homepage": "ホーム" },
-  "PremiumContent": { "title": "プレミアムコンテンツをアンロック", "description": "Proプランに登録して、すべてのプレミアムコンテンツにアクセスしましょう。", "upgradeCta": "今すぐアップグレード", "benefit1": "すべてのプレミアムコンテンツ", "benefit2": "限定コンテンツ", "benefit3": "いつでもキャンセル可能", "signIn": "ログイン", "loginRequired": "続きを読むにはログインしてください", "loginDescription": "これはプレミアムコンテンツです。全文にアクセスするにはアカウントにログインしてください。", "checkingAccess": "アクセスを確認中...", "loadingContent": "全文を読み込み中..." },
+  "BlogPage": {
+    "title": "ブログ",
+    "description": "AIビデオ制作のヒント、チュートリアル、GenX.artの最新ニュース。",
+    "keywords": "AIビデオブログ、制作ヒント、GenXチュートリアル",
+    "subtitle": "チームからの最新ニュースとアップデート",
+    "author": "著者",
+    "categories": "カテゴリ",
+    "tableOfContents": "目次",
+    "readTime": "{minutes}分で読める",
+    "all": "すべて",
+    "noPostsFound": "記事が見つかりません",
+    "allPosts": "すべての記事",
+    "morePosts": "その他の記事"
+  },
+  "DocsPage": {
+    "toc": "目次",
+    "search": "ドキュメントを検索",
+    "lastUpdate": "最終更新日",
+    "searchNoResult": "結果なし",
+    "previousPage": "前へ",
+    "nextPage": "次へ",
+    "chooseLanguage": "言語を選択",
+    "title": "GenX.artドキュメント",
+    "homepage": "ホーム"
+  },
+  "PremiumContent": {
+    "title": "プレミアムコンテンツをアンロック",
+    "description": "Proプランに登録して、すべてのプレミアムコンテンツにアクセスしましょう。",
+    "upgradeCta": "今すぐアップグレード",
+    "benefit1": "すべてのプレミアムコンテンツ",
+    "benefit2": "限定コンテンツ",
+    "benefit3": "いつでもキャンセル可能",
+    "signIn": "ログイン",
+    "loginRequired": "続きを読むにはログインしてください",
+    "loginDescription": "これはプレミアムコンテンツです。全文にアクセスするにはアカウントにログインしてください。",
+    "checkingAccess": "アクセスを確認中...",
+    "loadingContent": "全文を読み込み中..."
+  },
   "Marketing": {
     "navbar": {
-      "features": { "title": "機能" }, "pricing": { "title": "料金" }, "blog": { "title": "ブログ" }, "docs": { "title": "ドキュメント" },
-      "create": { "title": "作成", "items": { "imageToVideo": { "title": "画像からビデオ", "description": "写真を素晴らしいアートビデオに変換" }, "textToVideo": { "title": "テキストからビデオ", "description": "テキストの説明からビデオを生成" }, "image": { "title": "AI画像", "description": "AIで美しい画像を生成" } } },
-      "styles": { "title": "スタイル" }, "gallery": { "title": "ギャラリー" }
+      "features": { "title": "機能" },
+      "pricing": { "title": "料金" },
+      "blog": { "title": "ブログ" },
+      "docs": { "title": "ドキュメント" },
+      "create": {
+        "title": "作成",
+        "items": {
+          "imageToVideo": {
+            "title": "画像からビデオ",
+            "description": "写真を素晴らしいアートビデオに変換"
+          },
+          "textToVideo": {
+            "title": "テキストからビデオ",
+            "description": "テキストの説明からビデオを生成"
+          },
+          "image": { "title": "AI画像", "description": "AIで美しい画像を生成" }
+        }
+      },
+      "styles": { "title": "スタイル" },
+      "gallery": { "title": "ギャラリー" }
     },
     "footer": {
       "tagline": "すべてのフレームがアート - 写真を素晴らしいアートビデオに変換",
-      "videoModels": { "title": "ビデオモデル", "items": { "veo3": "Veo 3", "sora2": "Sora 2", "kling": "Kling AI", "hailuo": "Hailuo AI", "seedance": "Seedance", "wan": "Wan AI", "omnihuman": "OmniHuman", "moreModels": "その他のモデル" } },
-      "imageModels": { "title": "画像モデル", "items": { "gptImage": "GPT Image", "seedream": "Seedream", "nanobanana": "Nanobanana Pro", "wanImage": "Wan 2.5 Image", "moreModels": "その他のモデル" } },
-      "product": { "title": "製品", "items": { "features": "機能", "styles": "アートスタイル", "gallery": "ギャラリー", "pricing": "料金", "faq": "FAQ" } },
-      "resources": { "title": "リソース", "items": { "blog": "ブログ", "docs": "ドキュメント", "help": "ヘルプセンター", "changelog": "変更履歴", "roadmap": "ロードマップ" } },
-      "companyAndLegal": { "title": "会社", "items": { "about": "概要", "contact": "お問い合わせ", "waitlist": "ウェイティングリスト", "privacyPolicy": "プライバシーポリシー", "termsOfService": "利用規約" } }
+      "videoModels": {
+        "title": "ビデオモデル",
+        "items": {
+          "veo3": "Veo 3",
+          "sora2": "Sora 2",
+          "kling": "Kling AI",
+          "hailuo": "Hailuo AI",
+          "seedance": "Seedance",
+          "wan": "Wan AI",
+          "omnihuman": "OmniHuman",
+          "moreModels": "その他のモデル"
+        }
+      },
+      "imageModels": {
+        "title": "画像モデル",
+        "items": {
+          "gptImage": "GPT Image",
+          "seedream": "Seedream",
+          "nanobanana": "Nanobanana Pro",
+          "wanImage": "Wan 2.5 Image",
+          "moreModels": "その他のモデル"
+        }
+      },
+      "product": {
+        "title": "製品",
+        "items": {
+          "features": "機能",
+          "styles": "アートスタイル",
+          "gallery": "ギャラリー",
+          "pricing": "料金",
+          "faq": "FAQ"
+        }
+      },
+      "resources": {
+        "title": "リソース",
+        "items": {
+          "blog": "ブログ",
+          "docs": "ドキュメント",
+          "help": "ヘルプセンター",
+          "changelog": "変更履歴",
+          "roadmap": "ロードマップ"
+        }
+      },
+      "companyAndLegal": {
+        "title": "会社",
+        "items": {
+          "about": "概要",
+          "contact": "お問い合わせ",
+          "waitlist": "ウェイティングリスト",
+          "privacyPolicy": "プライバシーポリシー",
+          "termsOfService": "利用規約"
+        }
+      }
     },
-    "avatar": { "dashboard": "ダッシュボード", "billing": "請求", "credits": "クレジット", "settings": "設定" }
+    "avatar": {
+      "dashboard": "ダッシュボード",
+      "billing": "請求",
+      "credits": "クレジット",
+      "settings": "設定"
+    }
   },
   "Dashboard": {
     "dashboard": { "title": "ダッシュボード" },
     "creations": {
       "title": "マイ作品",
-      "videos": { "title": "ビデオ", "description": "生成されたビデオの表示と管理", "empty": "ビデオはまだありません", "emptyHint": "ビデオの作成を開始すると、ここに表示されます" },
-      "images": { "title": "画像", "description": "生成された画像の表示と管理", "empty": "画像はまだありません", "emptyHint": "画像の作成を開始すると、ここに表示されます" },
-      "filters": { "all": "すべて", "completed": "完了", "generating": "生成中", "failed": "失敗", "favorites": "お気に入り" },
-      "actions": { "delete": "削除", "download": "ダウンロード", "favorite": "お気に入り", "unfavorite": "お気に入り解除", "regenerate": "再生成", "viewDetails": "詳細を見る" },
-      "batch": { "selected": "{count}件選択中", "deleteSelected": "選択を削除", "downloadSelected": "選択をダウンロード" },
-      "visibility": { "public": "公開", "private": "非公開", "toggleVisibility": "公開設定を切替", "makePublic": "公開にする", "makePrivate": "非公開にする", "pendingReview": "審査待ち", "approved": "承認済み", "rejected": "却下", "removed": "削除済み" }
+      "videos": {
+        "title": "ビデオ",
+        "description": "生成されたビデオの表示と管理",
+        "empty": "ビデオはまだありません",
+        "emptyHint": "ビデオの作成を開始すると、ここに表示されます"
+      },
+      "images": {
+        "title": "画像",
+        "description": "生成された画像の表示と管理",
+        "empty": "画像はまだありません",
+        "emptyHint": "画像の作成を開始すると、ここに表示されます"
+      },
+      "filters": {
+        "all": "すべて",
+        "completed": "完了",
+        "generating": "生成中",
+        "failed": "失敗",
+        "favorites": "お気に入り"
+      },
+      "actions": {
+        "delete": "削除",
+        "download": "ダウンロード",
+        "favorite": "お気に入り",
+        "unfavorite": "お気に入り解除",
+        "regenerate": "再生成",
+        "viewDetails": "詳細を見る"
+      },
+      "batch": {
+        "selected": "{count}件選択中",
+        "deleteSelected": "選択を削除",
+        "downloadSelected": "選択をダウンロード"
+      },
+      "visibility": {
+        "public": "公開",
+        "private": "非公開",
+        "toggleVisibility": "公開設定を切替",
+        "makePublic": "公開にする",
+        "makePrivate": "非公開にする",
+        "pendingReview": "審査待ち",
+        "approved": "承認済み",
+        "rejected": "却下",
+        "removed": "削除済み"
+      }
     },
     "settings": {
       "title": "設定",
       "profile": {
-        "title": "プロフィール", "description": "アカウント情報を管理",
-        "avatar": { "title": "アバター", "description": "カスタムアバターをアップロード", "recommendation": "アバターは任意ですが、推奨されます", "uploading": "アップロード中...", "uploadAvatar": "アバターをアップロード", "success": "アバターが更新されました", "fail": "アバターの更新に失敗しました" },
-        "name": { "title": "名前", "description": "表示名を入力", "placeholder": "名前を入力", "minLength": "3文字以上にしてください", "maxLength": "30文字以内にしてください", "hint": "名前は3〜30文字で入力", "success": "名前が更新されました", "fail": "名前の更新に失敗しました", "saving": "保存中...", "save": "保存" }
+        "title": "プロフィール",
+        "description": "アカウント情報を管理",
+        "avatar": {
+          "title": "アバター",
+          "description": "カスタムアバターをアップロード",
+          "recommendation": "アバターは任意ですが、推奨されます",
+          "uploading": "アップロード中...",
+          "uploadAvatar": "アバターをアップロード",
+          "success": "アバターが更新されました",
+          "fail": "アバターの更新に失敗しました"
+        },
+        "name": {
+          "title": "名前",
+          "description": "表示名を入力",
+          "placeholder": "名前を入力",
+          "minLength": "3文字以上にしてください",
+          "maxLength": "30文字以内にしてください",
+          "hint": "名前は3〜30文字で入力",
+          "success": "名前が更新されました",
+          "fail": "名前の更新に失敗しました",
+          "saving": "保存中...",
+          "save": "保存"
+        }
       },
       "billing": {
-        "title": "請求", "description": "サブスクリプションと請求の詳細を管理",
+        "title": "請求",
+        "description": "サブスクリプションと請求の詳細を管理",
         "status": { "active": "有効", "trial": "トライアル", "free": "無料" },
         "interval": { "month": "月", "year": "年", "oneTime": "一回限り" },
-        "currentPlan": { "title": "現在のプラン", "description": "現在のプランの詳細", "noPlan": "有効なプランがありません" },
-        "CustomerPortalButton": { "loading": "読み込み中...", "createCustomerPortalFailed": "Stripeポータルを開けませんでした" },
-        "price": "価格：", "periodStartDate": "期間開始日：", "periodEndDate": "期間終了日：", "trialEnds": "トライアル終了日：",
-        "freePlanMessage": "制限付きの無料プランをご利用中です", "manageSubscription": "サブスクリプションと請求を管理", "manageBilling": "請求を管理", "upgradePlan": "プランをアップグレード", "retry": "再試行", "errorMessage": "データの取得に失敗しました", "paymentSuccess": "お支払い完了"
+        "currentPlan": {
+          "title": "現在のプラン",
+          "description": "現在のプランの詳細",
+          "noPlan": "有効なプランがありません"
+        },
+        "CustomerPortalButton": {
+          "loading": "読み込み中...",
+          "createCustomerPortalFailed": "Stripeポータルを開けませんでした"
+        },
+        "price": "価格：",
+        "periodStartDate": "期間開始日：",
+        "periodEndDate": "期間終了日：",
+        "trialEnds": "トライアル終了日：",
+        "freePlanMessage": "制限付きの無料プランをご利用中です",
+        "manageSubscription": "サブスクリプションと請求を管理",
+        "manageBilling": "請求を管理",
+        "upgradePlan": "プランをアップグレード",
+        "retry": "再試行",
+        "errorMessage": "データの取得に失敗しました",
+        "paymentSuccess": "お支払い完了"
       },
       "payment": {
-        "processing": { "title": "お支払い処理中", "description": "お支払いを確認しています..." },
-        "success": { "title": "お支払い完了", "description": "自動的にリダイレクトされます..." },
-        "failed": { "title": "お支払いに失敗しました", "description": "お支払いの処理中に問題が発生しました。" },
-        "timeout": { "title": "タイムアウト", "description": "お支払いの処理に予想以上の時間がかかっています。" },
+        "processing": {
+          "title": "お支払い処理中",
+          "description": "お支払いを確認しています..."
+        },
+        "success": {
+          "title": "お支払い完了",
+          "description": "自動的にリダイレクトされます..."
+        },
+        "failed": {
+          "title": "お支払いに失敗しました",
+          "description": "お支払いの処理中に問題が発生しました。"
+        },
+        "timeout": {
+          "title": "タイムアウト",
+          "description": "お支払いの処理に予想以上の時間がかかっています。"
+        },
         "retry": "再試行"
       },
       "credits": {
-        "title": "クレジット", "description": "クレジット取引を管理",
+        "title": "クレジット",
+        "description": "クレジット取引を管理",
         "tabs": { "balance": "残高", "transactions": "取引履歴" },
-        "balance": { "title": "クレジット残高", "description": "あなたのクレジット残高", "credits": "クレジット", "creditsDescription": "{credits}クレジットお持ちです", "creditsExpired": "クレジット期限切れ", "creditsAdded": "クレジットがアカウントに追加されました", "viewTransactions": "クレジット取引を見る", "retry": "再試行", "expiringCredits": "{credits}クレジットが{days}日以内に期限切れ" },
-        "packages": { "title": "クレジットパッケージ", "description": "追加クレジットを購入", "purchase": "購入", "processing": "処理中...", "popular": "人気", "completePurchase": "購入を完了", "failedToFetchCredits": "クレジットの取得に失敗", "failedToCreatePaymentIntent": "支払いインテントの作成に失敗", "failedToInitiatePayment": "支払いの開始に失敗", "cancel": "キャンセル", "purchaseFailed": "クレジットの購入に失敗", "checkoutFailed": "チェックアウトセッションの作成に失敗", "loading": "読み込み中...", "pay": "支払う" },
+        "balance": {
+          "title": "クレジット残高",
+          "description": "あなたのクレジット残高",
+          "credits": "クレジット",
+          "creditsDescription": "{credits}クレジットお持ちです",
+          "creditsExpired": "クレジット期限切れ",
+          "creditsAdded": "クレジットがアカウントに追加されました",
+          "viewTransactions": "クレジット取引を見る",
+          "retry": "再試行",
+          "expiringCredits": "{credits}クレジットが{days}日以内に期限切れ"
+        },
+        "packages": {
+          "title": "クレジットパッケージ",
+          "description": "追加クレジットを購入",
+          "purchase": "購入",
+          "processing": "処理中...",
+          "popular": "人気",
+          "completePurchase": "購入を完了",
+          "failedToFetchCredits": "クレジットの取得に失敗",
+          "failedToCreatePaymentIntent": "支払いインテントの作成に失敗",
+          "failedToInitiatePayment": "支払いの開始に失敗",
+          "cancel": "キャンセル",
+          "purchaseFailed": "クレジットの購入に失敗",
+          "checkoutFailed": "チェックアウトセッションの作成に失敗",
+          "loading": "読み込み中...",
+          "pay": "支払う"
+        },
         "transactions": {
-          "title": "クレジット取引", "error": "取引の取得に失敗", "search": "取引を検索...", "clearSearch": "検索をクリア", "paymentIdCopied": "支払いIDをコピーしました", "noResults": "結果なし",
-          "columns": { "columns": "列", "id": "ID", "type": "タイプ", "description": "説明", "amount": "数量", "remainingAmount": "残量", "paymentId": "支払いID", "expirationDate": "有効期限", "expirationDateProcessedAt": "処理日", "createdAt": "作成日", "updatedAt": "更新日" },
-          "types": { "MONTHLY_REFRESH": "月次リチャージ", "REGISTER_GIFT": "登録ギフト", "PURCHASE": "クレジット購入", "USAGE": "クレジット消費", "EXPIRE": "クレジット期限切れ", "SUBSCRIPTION_RENEWAL": "サブスクリプション更新", "REFERRAL_REGISTRATION": "紹介登録報酬", "REFERRAL_PURCHASE": "紹介購入報酬" },
-          "detailViewer": { "title": "取引詳細", "close": "閉じる" }, "expired": "期限切れ", "never": "なし"
+          "title": "クレジット取引",
+          "error": "取引の取得に失敗",
+          "search": "取引を検索...",
+          "clearSearch": "検索をクリア",
+          "paymentIdCopied": "支払いIDをコピーしました",
+          "noResults": "結果なし",
+          "columns": {
+            "columns": "列",
+            "id": "ID",
+            "type": "タイプ",
+            "description": "説明",
+            "amount": "数量",
+            "remainingAmount": "残量",
+            "paymentId": "支払いID",
+            "expirationDate": "有効期限",
+            "expirationDateProcessedAt": "処理日",
+            "createdAt": "作成日",
+            "updatedAt": "更新日"
+          },
+          "types": {
+            "MONTHLY_REFRESH": "月次リチャージ",
+            "REGISTER_GIFT": "登録ギフト",
+            "PURCHASE": "クレジット購入",
+            "USAGE": "クレジット消費",
+            "EXPIRE": "クレジット期限切れ",
+            "SUBSCRIPTION_RENEWAL": "サブスクリプション更新",
+            "REFERRAL_REGISTRATION": "紹介登録報酬",
+            "REFERRAL_PURCHASE": "紹介購入報酬"
+          },
+          "detailViewer": { "title": "取引詳細", "close": "閉じる" },
+          "expired": "期限切れ",
+          "never": "なし"
         }
       },
-      "notification": { "title": "通知", "description": "通知設定を管理", "newsletter": { "title": "ニュースレター購読", "description": "ニュースレター購読設定を管理", "label": "ニュースレターを購読", "hint": "いつでも設定を変更できます", "emailRequired": "購読にはメールアドレスが必要です", "subscribeSuccess": "ニュースレターの購読が完了しました", "subscribeFail": "購読に失敗しました", "unsubscribeSuccess": "購読解除が完了しました", "unsubscribeFail": "購読解除に失敗しました", "error": "購読の更新中にエラーが発生しました" } },
+      "notification": {
+        "title": "通知",
+        "description": "通知設定を管理",
+        "newsletter": {
+          "title": "ニュースレター購読",
+          "description": "ニュースレター購読設定を管理",
+          "label": "ニュースレターを購読",
+          "hint": "いつでも設定を変更できます",
+          "emailRequired": "購読にはメールアドレスが必要です",
+          "subscribeSuccess": "ニュースレターの購読が完了しました",
+          "subscribeFail": "購読に失敗しました",
+          "unsubscribeSuccess": "購読解除が完了しました",
+          "unsubscribeFail": "購読解除に失敗しました",
+          "error": "購読の更新中にエラーが発生しました"
+        }
+      },
       "security": {
-        "title": "セキュリティ", "description": "セキュリティ設定を管理",
-        "updatePassword": { "title": "パスワードを変更", "description": "現在のパスワードと新しいパスワードを入力", "currentPassword": "現在のパスワード", "currentRequired": "現在のパスワードは必須です", "newPassword": "新しいパスワード", "newMinLength": "パスワードは8文字以上にしてください", "hint": "パスワードは8文字以上", "showPassword": "パスワードを表示", "hidePassword": "パスワードを非表示", "success": "パスワードが更新されました", "fail": "パスワードの更新に失敗しました", "saving": "保存中...", "save": "保存" },
-        "resetPassword": { "title": "パスワードをリセット", "description": "メールログインを有効にするためパスワードをリセット", "info": "パスワードをリセットすると、ソーシャルログインに加えてメールとパスワードでもログインできるようになります。手順が記載されたメールが届きます。", "button": "パスワードをリセット" },
-        "deleteAccount": { "title": "アカウント削除", "description": "アカウントとすべてのコンテンツを完全に削除", "warning": "この操作は取り消せません。慎重に進めてください", "button": "アカウントを削除", "confirmTitle": "アカウント削除", "confirmDescription": "本当にアカウントを削除しますか？この操作は取り消せません。", "confirm": "削除", "cancel": "キャンセル", "deleting": "削除中...", "success": "アカウントが削除されました", "fail": "アカウントの削除に失敗しました" }
+        "title": "セキュリティ",
+        "description": "セキュリティ設定を管理",
+        "updatePassword": {
+          "title": "パスワードを変更",
+          "description": "現在のパスワードと新しいパスワードを入力",
+          "currentPassword": "現在のパスワード",
+          "currentRequired": "現在のパスワードは必須です",
+          "newPassword": "新しいパスワード",
+          "newMinLength": "パスワードは8文字以上にしてください",
+          "hint": "パスワードは8文字以上",
+          "showPassword": "パスワードを表示",
+          "hidePassword": "パスワードを非表示",
+          "success": "パスワードが更新されました",
+          "fail": "パスワードの更新に失敗しました",
+          "saving": "保存中...",
+          "save": "保存"
+        },
+        "resetPassword": {
+          "title": "パスワードをリセット",
+          "description": "メールログインを有効にするためパスワードをリセット",
+          "info": "パスワードをリセットすると、ソーシャルログインに加えてメールとパスワードでもログインできるようになります。手順が記載されたメールが届きます。",
+          "button": "パスワードをリセット"
+        },
+        "deleteAccount": {
+          "title": "アカウント削除",
+          "description": "アカウントとすべてのコンテンツを完全に削除",
+          "warning": "この操作は取り消せません。慎重に進めてください",
+          "button": "アカウントを削除",
+          "confirmTitle": "アカウント削除",
+          "confirmDescription": "本当にアカウントを削除しますか？この操作は取り消せません。",
+          "confirm": "削除",
+          "cancel": "キャンセル",
+          "deleting": "削除中...",
+          "success": "アカウントが削除されました",
+          "fail": "アカウントの削除に失敗しました"
+        }
       },
       "referral": {
-        "title": "紹介", "description": "友達を招待してクレジットを獲得",
-        "code": { "title": "あなたの紹介", "description": "紹介コードやリンクを友達と共有", "yourCode": "紹介コード", "yourLink": "紹介リンク" },
-        "stats": { "title": "統計", "description": "あなたの紹介実績", "totalReferrals": "紹介合計", "registeredReferrals": "登録済み", "purchasedReferrals": "購入者", "totalCredits": "獲得クレジット" },
-        "history": { "title": "紹介履歴", "user": "ユーザー", "status": "ステータス", "reward": "報酬", "date": "日付", "empty": "まだ紹介がありません。リンクを共有して獲得を始めましょう！" },
-        "status": { "pending": "保留中", "registered": "登録済み", "purchased": "購入済み" }
+        "title": "紹介",
+        "description": "友達を招待してクレジットを獲得",
+        "code": {
+          "title": "あなたの紹介",
+          "description": "紹介コードやリンクを友達と共有",
+          "yourCode": "紹介コード",
+          "yourLink": "紹介リンク"
+        },
+        "stats": {
+          "title": "統計",
+          "description": "あなたの紹介実績",
+          "totalReferrals": "紹介合計",
+          "registeredReferrals": "登録済み",
+          "purchasedReferrals": "購入者",
+          "totalCredits": "獲得クレジット"
+        },
+        "history": {
+          "title": "紹介履歴",
+          "user": "ユーザー",
+          "status": "ステータス",
+          "reward": "報酬",
+          "date": "日付",
+          "empty": "まだ紹介がありません。リンクを共有して獲得を始めましょう！"
+        },
+        "status": {
+          "pending": "保留中",
+          "registered": "登録済み",
+          "purchased": "購入済み"
+        }
       }
     },
-    "upgrade": { "title": "アップグレード", "description": "Proにアップグレードしてすべての機能にアクセス", "button": "アップグレード" }
+    "upgrade": {
+      "title": "アップグレード",
+      "description": "Proにアップグレードしてすべての機能にアクセス",
+      "button": "アップグレード"
+    }
   },
   "Mail": {
-    "common": { "team": "{name}チーム", "copyright": "©️ {year} All rights reserved." },
-    "verifyEmail": { "title": "こんにちは、{name}さん。", "body": "以下のリンクをクリックしてメールアドレスを確認してください。", "confirmEmail": "メールを確認", "subject": "メールアドレスを確認してください" },
-    "forgotPassword": { "title": "こんにちは、{name}さん。", "body": "以下のリンクをクリックしてパスワードをリセットしてください。", "resetPassword": "パスワードをリセット", "subject": "パスワードをリセット" },
-    "subscribeNewsletter": { "body": "ニュースレターの購読ありがとうございます。最新情報をお届けします。", "subject": "購読ありがとうございます" },
-    "contactMessage": { "name": "名前：{name}", "email": "メール：{email}", "message": "メッセージ：{message}", "subject": "ウェブサイトからのお問い合わせ" }
+    "common": {
+      "team": "{name}チーム",
+      "copyright": "©️ {year} All rights reserved."
+    },
+    "verifyEmail": {
+      "title": "こんにちは、{name}さん。",
+      "body": "以下のリンクをクリックしてメールアドレスを確認してください。",
+      "confirmEmail": "メールを確認",
+      "subject": "メールアドレスを確認してください"
+    },
+    "forgotPassword": {
+      "title": "こんにちは、{name}さん。",
+      "body": "以下のリンクをクリックしてパスワードをリセットしてください。",
+      "resetPassword": "パスワードをリセット",
+      "subject": "パスワードをリセット"
+    },
+    "subscribeNewsletter": {
+      "body": "ニュースレターの購読ありがとうございます。最新情報をお届けします。",
+      "subject": "購読ありがとうございます"
+    },
+    "contactMessage": {
+      "name": "名前：{name}",
+      "email": "メール：{email}",
+      "message": "メッセージ：{message}",
+      "subject": "ウェブサイトからのお問い合わせ"
+    }
   },
   "Landing": {
     "hero": {
       "headline": "すべてのフレームがアート",
       "subheadline": "写真をアップロードし、アートスタイルを選び、30秒で素晴らしいアートビデオを入手。スキル不要。高価なソフト不要。",
       "cta": { "primary": "写真をアップロード", "secondary": "可能性を見る" },
-      "socialProof": "アートビデオ作成数", "scrollHint": "スクロールして探索", "switchStyle": "{style}スタイルに切替"
+      "socialProof": "アートビデオ作成数",
+      "scrollHint": "スクロールして探索",
+      "switchStyle": "{style}スタイルに切替"
     },
     "painPoints": {
       "headline": "伝えたい物語があるのに、ツールが足かせに",
       "items": {
-        "learning": { "title": "PremiereやAfter Effectsの習得には数ヶ月", "description": "複雑なソフトウェアの急な学習曲線がクリエイティブなアイデアを閉じ込めます。" },
-        "cost": { "title": "プロチームの雇用には何千ドルも", "description": "質の高いビデオ制作は高価で、ほとんどのクリエイターには手が届きません。" },
-        "generic": { "title": "テンプレートビデオは汎用的で個性がない", "description": "テンプレートはあなたのコンテンツを他と区別できなくします。" }
+        "learning": {
+          "title": "PremiereやAfter Effectsの習得には数ヶ月",
+          "description": "複雑なソフトウェアの急な学習曲線がクリエイティブなアイデアを閉じ込めます。"
+        },
+        "cost": {
+          "title": "プロチームの雇用には何千ドルも",
+          "description": "質の高いビデオ制作は高価で、ほとんどのクリエイターには手が届きません。"
+        },
+        "generic": {
+          "title": "テンプレートビデオは汎用的で個性がない",
+          "description": "テンプレートはあなたのコンテンツを他と区別できなくします。"
+        }
       },
-      "solution": { "title": "GenXがすべてを変える", "description": "必要なのは写真とアイデアだけ。AIが普通をアートに、日常をシネマティックに変換。", "benefit1": "学習曲線なし", "benefit2": "プロ品質の結果", "benefit3": "ユニークなアートスタイル" },
+      "solution": {
+        "title": "GenXがすべてを変える",
+        "description": "必要なのは写真とアイデアだけ。AIが普通をアートに、日常をシネマティックに変換。",
+        "benefit1": "学習曲線なし",
+        "benefit2": "プロ品質の結果",
+        "benefit3": "ユニークなアートスタイル"
+      },
       "cta": "30秒で無料体験"
     },
     "artStyles": {
-      "badge": "5つのユニークスタイル", "headline": "あなたのアート言語を選ぶ", "subheadline": "5つのユニークなアートスタイル、それぞれがあなたの作品を際立たせるために丁寧に調整されています。",
+      "badge": "5つのユニークスタイル",
+      "headline": "あなたのアート言語を選ぶ",
+      "subheadline": "5つのユニークなアートスタイル、それぞれがあなたの作品を際立たせるために丁寧に調整されています。",
       "styles": {
-        "cyberpunk": { "title": "サイバーパンク", "description": "点滅するネオンライト、空飛ぶ車、サイバー世界に降る電子の雨", "bestFor": "最適：テックコンテンツ、クールなトレーラー" },
-        "watercolor": { "title": "水彩画", "description": "紙に滲む色彩、見える詩のように", "bestFor": "最適：ヒーリングコンテンツ、感情表現" },
-        "oilPainting": { "title": "油絵", "description": "すべての筆致が温もりを運び、写真をコレクタブルアートに変える", "bestFor": "最適：プレミアム展示、ファインアート" },
-        "anime": { "title": "アニメ", "description": "アニメの世界に入り、自分だけのストーリーのヒーローになる", "bestFor": "最適：アニメコンテンツ、若年層向け" },
-        "fluidArt": { "title": "フルイドアート", "description": "色がぶつかり混ざり合う動き、各フレームがユニークな抽象アート", "bestFor": "最適：クリエイティブビデオ、背景" }
+        "cyberpunk": {
+          "title": "サイバーパンク",
+          "description": "点滅するネオンライト、空飛ぶ車、サイバー世界に降る電子の雨",
+          "bestFor": "最適：テックコンテンツ、クールなトレーラー"
+        },
+        "watercolor": {
+          "title": "水彩画",
+          "description": "紙に滲む色彩、見える詩のように",
+          "bestFor": "最適：ヒーリングコンテンツ、感情表現"
+        },
+        "oilPainting": {
+          "title": "油絵",
+          "description": "すべての筆致が温もりを運び、写真をコレクタブルアートに変える",
+          "bestFor": "最適：プレミアム展示、ファインアート"
+        },
+        "anime": {
+          "title": "アニメ",
+          "description": "アニメの世界に入り、自分だけのストーリーのヒーローになる",
+          "bestFor": "最適：アニメコンテンツ、若年層向け"
+        },
+        "fluidArt": {
+          "title": "フルイドアート",
+          "description": "色がぶつかり混ざり合う動き、各フレームがユニークな抽象アート",
+          "bestFor": "最適：クリエイティブビデオ、背景"
+        }
       },
-      "createWith": "このスタイルで作成", "exploreAll": "すべてのスタイルを探索"
+      "createWith": "このスタイルで作成",
+      "exploreAll": "すべてのスタイルを探索"
     },
     "howItWorks": {
-      "badge": "シンプルなプロセス", "headline": "写真からアートまで3つの簡単なステップ", "subheadline": "チュートリアル不要。あなたのクリエイティビティ、GenXが実現。",
+      "badge": "シンプルなプロセス",
+      "headline": "写真からアートまで3つの簡単なステップ",
+      "subheadline": "チュートリアル不要。あなたのクリエイティビティ、GenXが実現。",
       "steps": {
-        "upload": { "title": "写真をアップロード", "description": "画像をドラッグ＆ドロップまたはクリックして選択", "details": "JPG/PNG対応、最大10MB" },
-        "style": { "title": "アートスタイルを選択", "description": "5つのユニークなアートスタイルから選択", "details": "カーソルを合わせてプレビュー" },
-        "download": { "title": "魔法を待つ", "description": "AIが30秒でアートビデオを作成", "details": "HDビデオを即座にダウンロード" }
+        "upload": {
+          "title": "写真をアップロード",
+          "description": "画像をドラッグ＆ドロップまたはクリックして選択",
+          "details": "JPG/PNG対応、最大10MB"
+        },
+        "style": {
+          "title": "アートスタイルを選択",
+          "description": "5つのユニークなアートスタイルから選択",
+          "details": "カーソルを合わせてプレビュー"
+        },
+        "download": {
+          "title": "魔法を待つ",
+          "description": "AIが30秒でアートビデオを作成",
+          "details": "HDビデオを即座にダウンロード"
+        }
       },
-      "bottomText": "それだけです。学習曲線なし。チュートリアル不要。", "cta": "今すぐ試す - 無料"
+      "bottomText": "それだけです。学習曲線なし。チュートリアル不要。",
+      "cta": "今すぐ試す - 無料"
     },
     "gallery": {
       "badge": "クリエイターギャラリー",
@@ -460,33 +988,167 @@
         }
       }
     },
-    "finalCta": { "headline": "初めてのアートビデオを作る準備はできましたか？", "subheadline": "30秒で素晴らしいアートビデオが完成", "cta": "無料で作成開始", "trust": { "thirtySeconds": "30秒で完成", "instantDownload": "即時ダウンロード" } }
+    "finalCta": {
+      "headline": "初めてのアートビデオを作る準備はできましたか？",
+      "subheadline": "30秒で素晴らしいアートビデオが完成",
+      "cta": "無料で作成開始",
+      "trust": {
+        "thirtySeconds": "30秒で完成",
+        "instantDownload": "即時ダウンロード"
+      }
+    }
   },
   "Generator": {
-    "modes": { "textToVideo": "テキストからビデオ", "imageToVideo": "画像からビデオ", "textToImage": "テキストから画像", "imageToImage": "画像から画像", "referenceToVideo": "参照からビデオ", "audio": "オーディオ" },
-    "input": { "placeholder": "作りたいものを説明してください...", "prompt": "プロンプト" },
-    "parameters": { "selectModel": "モデルを選択", "audio": "オーディオ", "addAudio": "オーディオを追加", "audioGenerate": "オーディオを自動生成", "audioUpload": "オーディオをアップロード", "audioUploading": "アップロード中...", "audioUploaded": "オーディオアップロード完了", "audioReplace": "クリックしてオーディオを差替え", "audioUploadAction": "クリックしてオーディオファイルを選択", "audioUploadHint": "MP3、WAV、AAC対応、最大10MB", "audioUploadError": "オーディオのアップロードに失敗しました。再試行してください", "audioNone": "オーディオなし", "moreOptions": "その他のオプション", "publicVisibility": "公開設定", "publicVisibilityDesc": "有効にすると、作品が探索ページに表示される場合があります。", "copyrightProtection": "著作権保護", "copyrightProtectionDesc": "有効にすると、アップロードした画像やプロンプトがコミュニティから非表示になります。" },
-    "submit": { "generate": "生成", "generating": "生成中...", "insufficientCredits": "クレジット不足", "insufficientCreditsButton": "クレジットを取得", "balance": "残高", "generationFailed": "生成に失敗しました。再試行してください" },
-    "model": { "selectModel": "モデルを選択", "availableModels": "利用可能なモデル", "models": "モデル", "noModels": "利用可能なモデルがありません", "new": "新着", "credits": "{count}+クレジット", "creditsLabel": "{count}クレジット" },
-    "aspectRatio": { "label": "アスペクト比" }, "duration": { "label": "長さ" }, "quality": { "label": "品質" },
-    "styles": { "default": "デフォルト", "cyberpunk": "サイバーパンク", "watercolor": "水彩画", "oilPainting": "油絵", "anime": "アニメ", "fluidArt": "フルイドアート" },
-    "imageUpload": { "uploadImage": "画像をアップロード", "uploadHint": "JPG、PNG、WEBP・最大10MB", "fileTooLarge": "ファイルが大きすぎます", "invalidFileType": "無効なファイル形式", "imageTooLarge": "画像サイズが上限を超えています", "uploadFailed": "アップロードに失敗しました。再試行してください" },
-    "result": { "emptyTitle": "まだ結果がありません", "emptyDescription": "プロンプトを入力して生成をクリックしてコンテンツを作成", "generatingTitle": "生成中...", "generatingDescription": "コンテンツを作成中です。お待ちください", "actions": { "download": "ダウンロード", "share": "共有", "favorite": "お気に入り", "downloadSuccess": "ダウンロード完了", "downloadFailed": "ダウンロード失敗", "linkCopied": "リンクをコピーしました", "favorited": "お気に入りに追加", "unfavorited": "お気に入りから削除", "favoriteFailed": "お気に入りの切替に失敗" } },
-    "history": { "title": "履歴", "empty": "まだ履歴がありません", "loading": "読み込み中...", "loadMore": "もっと見る" },
+    "modes": {
+      "textToVideo": "テキストからビデオ",
+      "imageToVideo": "画像からビデオ",
+      "textToImage": "テキストから画像",
+      "imageToImage": "画像から画像",
+      "referenceToVideo": "参照からビデオ",
+      "audio": "オーディオ"
+    },
+    "input": {
+      "placeholder": "作りたいものを説明してください...",
+      "prompt": "プロンプト"
+    },
+    "parameters": {
+      "selectModel": "モデルを選択",
+      "audio": "オーディオ",
+      "addAudio": "オーディオを追加",
+      "audioGenerate": "オーディオを自動生成",
+      "audioUpload": "オーディオをアップロード",
+      "audioUploading": "アップロード中...",
+      "audioUploaded": "オーディオアップロード完了",
+      "audioReplace": "クリックしてオーディオを差替え",
+      "audioUploadAction": "クリックしてオーディオファイルを選択",
+      "audioUploadHint": "MP3、WAV、AAC対応、最大10MB",
+      "audioUploadError": "オーディオのアップロードに失敗しました。再試行してください",
+      "audioNone": "オーディオなし",
+      "moreOptions": "その他のオプション",
+      "publicVisibility": "公開設定",
+      "publicVisibilityDesc": "有効にすると、作品が探索ページに表示される場合があります。",
+      "copyrightProtection": "著作権保護",
+      "copyrightProtectionDesc": "有効にすると、アップロードした画像やプロンプトがコミュニティから非表示になります。"
+    },
+    "submit": {
+      "generate": "生成",
+      "generating": "生成中...",
+      "insufficientCredits": "クレジット不足",
+      "insufficientCreditsButton": "クレジットを取得",
+      "balance": "残高",
+      "generationFailed": "生成に失敗しました。再試行してください"
+    },
+    "model": {
+      "selectModel": "モデルを選択",
+      "availableModels": "利用可能なモデル",
+      "models": "モデル",
+      "noModels": "利用可能なモデルがありません",
+      "new": "新着",
+      "credits": "{count}+クレジット",
+      "creditsLabel": "{count}クレジット"
+    },
+    "aspectRatio": { "label": "アスペクト比" },
+    "duration": { "label": "長さ" },
+    "quality": { "label": "品質" },
+    "styles": {
+      "default": "デフォルト",
+      "cyberpunk": "サイバーパンク",
+      "watercolor": "水彩画",
+      "oilPainting": "油絵",
+      "anime": "アニメ",
+      "fluidArt": "フルイドアート"
+    },
+    "imageUpload": {
+      "uploadImage": "画像をアップロード",
+      "uploadHint": "JPG、PNG、WEBP・最大10MB",
+      "fileTooLarge": "ファイルが大きすぎます",
+      "invalidFileType": "無効なファイル形式",
+      "imageTooLarge": "画像サイズが上限を超えています",
+      "uploadFailed": "アップロードに失敗しました。再試行してください"
+    },
+    "result": {
+      "emptyTitle": "まだ結果がありません",
+      "emptyDescription": "プロンプトを入力して生成をクリックしてコンテンツを作成",
+      "generatingTitle": "生成中...",
+      "generatingDescription": "コンテンツを作成中です。お待ちください",
+      "actions": {
+        "download": "ダウンロード",
+        "share": "共有",
+        "favorite": "お気に入り",
+        "downloadSuccess": "ダウンロード完了",
+        "downloadFailed": "ダウンロード失敗",
+        "linkCopied": "リンクをコピーしました",
+        "favorited": "お気に入りに追加",
+        "unfavorited": "お気に入りから削除",
+        "favoriteFailed": "お気に入りの切替に失敗"
+      }
+    },
+    "history": {
+      "title": "履歴",
+      "empty": "まだ履歴がありません",
+      "loading": "読み込み中...",
+      "loadMore": "もっと見る"
+    },
     "floating": { "placeholder": "プロンプトを入力..." }
   },
   "Onboarding": {
     "welcome": {
-      "title": "GenXへようこそ、{name}さん！", "defaultName": "クリエイター",
+      "title": "GenXへようこそ、{name}さん！",
+      "defaultName": "クリエイター",
       "description": "初めての素晴らしいアートビデオを作るまで、たった3ステップです。",
-      "steps": { "upload": { "title": "写真をアップロード", "description": "どんな写真でもOK - ポートレート、風景、製品" }, "style": { "title": "アートスタイルを選択", "description": "5つのユニークなスタイル：サイバーパンク、水彩画、油絵、アニメ、フルイドアート" }, "generate": { "title": "生成してダウンロード", "description": "AIが約30秒でアートビデオを作成" } },
-      "freeCredits": "15クレジットが無料で使えます！", "startButton": "作成を開始", "skipButton": "自分で探索する"
+      "steps": {
+        "upload": {
+          "title": "写真をアップロード",
+          "description": "どんな写真でもOK - ポートレート、風景、製品"
+        },
+        "style": {
+          "title": "アートスタイルを選択",
+          "description": "5つのユニークなスタイル：サイバーパンク、水彩画、油絵、アニメ、フルイドアート"
+        },
+        "generate": {
+          "title": "生成してダウンロード",
+          "description": "AIが約30秒でアートビデオを作成"
+        }
+      },
+      "freeCredits": "15クレジットが無料で使えます！",
+      "startButton": "作成を開始",
+      "skipButton": "自分で探索する"
     }
   },
   "UserDashboard": {
-    "stats": { "credits": "クレジット残高", "creditsHint": "AIビデオ生成に使用", "buyCredits": "クレジットを追加", "videosCreated": "作成したビデオ", "allTime": "累計", "inProgress": "進行中" },
-    "quickStart": { "title": "作成する準備はできましたか？", "createVideo": "新しいビデオを作成" },
-    "quickActions": { "title": "クイックアクション", "image-to-video": "画像からビデオ", "text-to-video": "テキストからビデオ", "reference-to-video": "参照ビデオ", "image": "AI画像" },
-    "recentCreations": { "title": "最近の作品", "subtitle": "最近のAI生成ビデオ", "viewAll": "すべて見る", "empty": { "title": "まだビデオがありません", "description": "AIで初めてのアートビデオを作りましょう", "cta": "最初のビデオを作成" }, "status": { "generating": "生成中", "pending": "保留中", "failed": "失敗" } }
+    "stats": {
+      "credits": "クレジット残高",
+      "creditsHint": "AIビデオ生成に使用",
+      "buyCredits": "クレジットを追加",
+      "videosCreated": "作成したビデオ",
+      "allTime": "累計",
+      "inProgress": "進行中"
+    },
+    "quickStart": {
+      "title": "作成する準備はできましたか？",
+      "createVideo": "新しいビデオを作成"
+    },
+    "quickActions": {
+      "title": "クイックアクション",
+      "image-to-video": "画像からビデオ",
+      "text-to-video": "テキストからビデオ",
+      "reference-to-video": "参照ビデオ",
+      "image": "AI画像"
+    },
+    "recentCreations": {
+      "title": "最近の作品",
+      "subtitle": "最近のAI生成ビデオ",
+      "viewAll": "すべて見る",
+      "empty": {
+        "title": "まだビデオがありません",
+        "description": "AIで初めてのアートビデオを作りましょう",
+        "cta": "最初のビデオを作成"
+      },
+      "status": {
+        "generating": "生成中",
+        "pending": "保留中",
+        "failed": "失敗"
+      }
+    }
   }
 }

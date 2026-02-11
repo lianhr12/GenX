@@ -490,15 +490,12 @@ function ToolPageLayoutInner({ mode, children }: ToolPageLayoutProps) {
     [mode, pollImageStatus, pollVideoStatus, t]
   );
 
-  const handleSelectHistoryItem = useCallback(
-    (item: GenerationResult) => {
-      setCurrentResult(item);
-      setIsGenerating(false);
-      // Scroll to top to show the selected result
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    },
-    []
-  );
+  const handleSelectHistoryItem = useCallback((item: GenerationResult) => {
+    setCurrentResult(item);
+    setIsGenerating(false);
+    // Scroll to top to show the selected result
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, []);
 
   return (
     <div className="min-h-screen">

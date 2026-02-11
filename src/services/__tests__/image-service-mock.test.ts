@@ -1,4 +1,4 @@
-import { describe, expect, it, vi, beforeEach } from 'vitest';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 /**
  * ImageService 完整 mock 测试
@@ -52,7 +52,9 @@ function makeWhereResult() {
   return arr;
 }
 
-const mockReturning = vi.fn().mockImplementation(() => [{ uuid: 'img_test', id: 1 }]);
+const mockReturning = vi
+  .fn()
+  .mockImplementation(() => [{ uuid: 'img_test', id: 1 }]);
 
 const mockDb: Record<string, any> = {
   select: vi.fn().mockReturnThis(),
@@ -91,13 +93,27 @@ function resetQueues() {
 vi.mock('@/db', () => ({
   getDb: vi.fn().mockResolvedValue(mockDb),
   images: {
-    uuid: 'uuid', id: 'id', userId: 'userId', prompt: 'prompt',
-    model: 'model', provider: 'provider', parameters: 'parameters',
-    status: 'status', creditsUsed: 'creditsUsed', isPublic: 'isPublic',
-    hidePrompt: 'hidePrompt', updatedAt: 'updatedAt', externalTaskId: 'externalTaskId',
-    errorMessage: 'errorMessage', generationTime: 'generationTime',
-    imageUrls: 'imageUrls', thumbnailUrl: 'thumbnailUrl', completedAt: 'completedAt',
-    isFavorite: 'isFavorite', tags: 'tags', isDeleted: 'isDeleted',
+    uuid: 'uuid',
+    id: 'id',
+    userId: 'userId',
+    prompt: 'prompt',
+    model: 'model',
+    provider: 'provider',
+    parameters: 'parameters',
+    status: 'status',
+    creditsUsed: 'creditsUsed',
+    isPublic: 'isPublic',
+    hidePrompt: 'hidePrompt',
+    updatedAt: 'updatedAt',
+    externalTaskId: 'externalTaskId',
+    errorMessage: 'errorMessage',
+    generationTime: 'generationTime',
+    imageUrls: 'imageUrls',
+    thumbnailUrl: 'thumbnailUrl',
+    completedAt: 'completedAt',
+    isFavorite: 'isFavorite',
+    tags: 'tags',
+    isDeleted: 'isDeleted',
     createdAt: 'createdAt',
   },
   user: { id: 'id', name: 'name', image: 'image' },
@@ -124,14 +140,18 @@ vi.mock('@/ai/image/providers/evolink', () => ({
 }));
 
 vi.mock('@/ai/image/utils/callback-signature', () => ({
-  generateSignedImageCallbackUrl: vi.fn().mockReturnValue('https://cb.example.com/signed'),
+  generateSignedImageCallbackUrl: vi
+    .fn()
+    .mockReturnValue('https://cb.example.com/signed'),
 }));
 
 vi.mock('@/config/image-credits', () => ({
   calculateImageCredits: vi.fn().mockReturnValue(8),
 }));
 
-const mockFreezeImageCredits = vi.fn().mockResolvedValue({ success: true, holdId: 1 });
+const mockFreezeImageCredits = vi
+  .fn()
+  .mockResolvedValue({ success: true, holdId: 1 });
 const mockReleaseImageCredits = vi.fn().mockResolvedValue(undefined);
 const mockSettleImageCredits = vi.fn().mockResolvedValue(undefined);
 
@@ -143,7 +163,9 @@ vi.mock('@/credits/server', () => ({
 
 vi.mock('@/storage', () => ({
   getStorage: () => ({
-    downloadAndUpload: vi.fn().mockResolvedValue({ url: 'https://cdn.example.com/img.png' }),
+    downloadAndUpload: vi
+      .fn()
+      .mockResolvedValue({ url: 'https://cdn.example.com/img.png' }),
   }),
 }));
 
@@ -242,19 +264,34 @@ describe('ImageService.handleCallback', () => {
 
   it('图像不存在应直接返回', async () => {
     limitQueue = [[]]; // image query
-    mockParseCallback.mockReturnValue({ taskId: 'task_1', status: 'completed', imageUrls: [] });
+    mockParseCallback.mockReturnValue({
+      taskId: 'task_1',
+      status: 'completed',
+      imageUrls: [],
+    });
     const { ImageService } = await import('../image');
     const service = new ImageService();
     await service.handleCallback('evolink', {}, 'img_missing');
   });
 
   it('task ID 不匹配应直接返回', async () => {
-    limitQueue = [[
-      { uuid: 'img_1', externalTaskId: 'task_original', status: 'GENERATING',
-        createdAt: new Date(), isPublic: true, userId: 'user-1', id: 1 },
-    ]];
+    limitQueue = [
+      [
+        {
+          uuid: 'img_1',
+          externalTaskId: 'task_original',
+          status: 'GENERATING',
+          createdAt: new Date(),
+          isPublic: true,
+          userId: 'user-1',
+          id: 1,
+        },
+      ],
+    ];
     mockParseCallback.mockReturnValue({
-      taskId: 'task_different', status: 'completed', imageUrls: ['https://img.com/1.png'],
+      taskId: 'task_different',
+      status: 'completed',
+      imageUrls: ['https://img.com/1.png'],
     });
     const { ImageService } = await import('../image');
     const service = new ImageService();
@@ -265,15 +302,33 @@ describe('ImageService.handleCallback', () => {
     const createdAt = new Date('2025-01-01');
     limitQueue = [
       // handleCallback: find image
-      [{ uuid: 'img_cb', externalTaskId: 'task_cb', status: 'GENERATING',
-         createdAt, isPublic: true, userId: 'user-1', id: 1 }],
+      [
+        {
+          uuid: 'img_cb',
+          externalTaskId: 'task_cb',
+          status: 'GENERATING',
+          createdAt,
+          isPublic: true,
+          userId: 'user-1',
+          id: 1,
+        },
+      ],
       // tryCompleteGeneration: find image again
-      [{ uuid: 'img_cb', status: 'GENERATING', isPublic: true, userId: 'user-1', id: 1 }],
+      [
+        {
+          uuid: 'img_cb',
+          status: 'GENERATING',
+          isPublic: true,
+          userId: 'user-1',
+          id: 1,
+        },
+      ],
       // tryCompleteGeneration: get user info for gallery
       [{ name: 'Test User', image: 'https://avatar.com/u.png' }],
     ];
     mockParseCallback.mockReturnValue({
-      taskId: 'task_cb', status: 'completed',
+      taskId: 'task_cb',
+      status: 'completed',
       imageUrls: ['https://provider.com/img1.png'],
     });
     const { ImageService } = await import('../image');
@@ -285,13 +340,32 @@ describe('ImageService.handleCallback', () => {
   it('failed callback 应触发 tryFailGeneration', async () => {
     limitQueue = [
       // handleCallback: find image
-      [{ uuid: 'img_fail', externalTaskId: 'task_fail', status: 'GENERATING',
-         createdAt: new Date(), isPublic: false, userId: 'user-1', id: 2 }],
+      [
+        {
+          uuid: 'img_fail',
+          externalTaskId: 'task_fail',
+          status: 'GENERATING',
+          createdAt: new Date(),
+          isPublic: false,
+          userId: 'user-1',
+          id: 2,
+        },
+      ],
       // tryFailGeneration: find image
-      [{ uuid: 'img_fail', status: 'GENERATING', isPublic: false, userId: 'user-1', id: 2 }],
+      [
+        {
+          uuid: 'img_fail',
+          status: 'GENERATING',
+          isPublic: false,
+          userId: 'user-1',
+          id: 2,
+        },
+      ],
     ];
     mockParseCallback.mockReturnValue({
-      taskId: 'task_fail', status: 'failed', error: { message: 'GPU OOM' },
+      taskId: 'task_fail',
+      status: 'failed',
+      error: { message: 'GPU OOM' },
     });
     const { ImageService } = await import('../image');
     const service = new ImageService();
@@ -301,13 +375,24 @@ describe('ImageService.handleCallback', () => {
 
   it('已完成图像的 callback 应提前返回', async () => {
     limitQueue = [
-      [{ uuid: 'img_done', externalTaskId: 'task_done', status: 'GENERATING',
-         createdAt: new Date(), isPublic: false, userId: 'user-1', id: 3 }],
+      [
+        {
+          uuid: 'img_done',
+          externalTaskId: 'task_done',
+          status: 'GENERATING',
+          createdAt: new Date(),
+          isPublic: false,
+          userId: 'user-1',
+          id: 3,
+        },
+      ],
       // tryCompleteGeneration: image already completed
       [{ uuid: 'img_done', status: 'COMPLETED', imageUrls: ['u.png'] }],
     ];
     mockParseCallback.mockReturnValue({
-      taskId: 'task_done', status: 'completed', imageUrls: ['https://p.com/1.png'],
+      taskId: 'task_done',
+      status: 'completed',
+      imageUrls: ['https://p.com/1.png'],
     });
     const { ImageService } = await import('../image');
     const service = new ImageService();
@@ -326,14 +411,22 @@ describe('ImageService.refreshStatus', () => {
     limitQueue = [[]];
     const { ImageService } = await import('../image');
     const service = new ImageService();
-    await expect(service.refreshStatus('img_missing', 'user-1')).rejects.toThrow('Image not found');
+    await expect(
+      service.refreshStatus('img_missing', 'user-1')
+    ).rejects.toThrow('Image not found');
   });
 
   it('已完成的图像应直接返回状态', async () => {
-    limitQueue = [[{
-      uuid: 'img_done', status: 'COMPLETED',
-      imageUrls: ['https://cdn.com/1.png'], errorMessage: null,
-    }]];
+    limitQueue = [
+      [
+        {
+          uuid: 'img_done',
+          status: 'COMPLETED',
+          imageUrls: ['https://cdn.com/1.png'],
+          errorMessage: null,
+        },
+      ],
+    ];
     const { ImageService } = await import('../image');
     const service = new ImageService();
     const result = await service.refreshStatus('img_done', 'user-1');
@@ -342,10 +435,16 @@ describe('ImageService.refreshStatus', () => {
   });
 
   it('已失败的图像应直接返回状态和错误', async () => {
-    limitQueue = [[{
-      uuid: 'img_fail', status: 'FAILED',
-      imageUrls: null, errorMessage: 'Provider timeout',
-    }]];
+    limitQueue = [
+      [
+        {
+          uuid: 'img_fail',
+          status: 'FAILED',
+          imageUrls: null,
+          errorMessage: 'Provider timeout',
+        },
+      ],
+    ];
     const { ImageService } = await import('../image');
     const service = new ImageService();
     const result = await service.refreshStatus('img_fail', 'user-1');
@@ -354,10 +453,17 @@ describe('ImageService.refreshStatus', () => {
   });
 
   it('无 externalTaskId 的 GENERATING 图像应返回当前状态', async () => {
-    limitQueue = [[{
-      uuid: 'img_no_task', status: 'GENERATING',
-      externalTaskId: null, imageUrls: null, errorMessage: null,
-    }]];
+    limitQueue = [
+      [
+        {
+          uuid: 'img_no_task',
+          status: 'GENERATING',
+          externalTaskId: null,
+          imageUrls: null,
+          errorMessage: null,
+        },
+      ],
+    ];
     const { ImageService } = await import('../image');
     const service = new ImageService();
     const result = await service.refreshStatus('img_no_task', 'user-1');
@@ -367,14 +473,33 @@ describe('ImageService.refreshStatus', () => {
   it('GENERATING + provider 返回 completed 应触发 tryComplete', async () => {
     limitQueue = [
       // refreshStatus: find image
-      [{ uuid: 'img_gen', status: 'GENERATING', externalTaskId: 'task_gen',
-         imageUrls: null, errorMessage: null, createdAt: new Date('2025-01-01'),
-         isPublic: false, userId: 'user-1', id: 10 }],
+      [
+        {
+          uuid: 'img_gen',
+          status: 'GENERATING',
+          externalTaskId: 'task_gen',
+          imageUrls: null,
+          errorMessage: null,
+          createdAt: new Date('2025-01-01'),
+          isPublic: false,
+          userId: 'user-1',
+          id: 10,
+        },
+      ],
       // tryCompleteGeneration: find image again
-      [{ uuid: 'img_gen', status: 'GENERATING', isPublic: false, userId: 'user-1', id: 10 }],
+      [
+        {
+          uuid: 'img_gen',
+          status: 'GENERATING',
+          isPublic: false,
+          userId: 'user-1',
+          id: 10,
+        },
+      ],
     ];
     mockGetTaskStatus.mockResolvedValue({
-      status: 'completed', imageUrls: ['https://p.com/1.png'],
+      status: 'completed',
+      imageUrls: ['https://p.com/1.png'],
     });
     const { ImageService } = await import('../image');
     const service = new ImageService();
@@ -384,14 +509,33 @@ describe('ImageService.refreshStatus', () => {
 
   it('GENERATING + provider 返回 failed 应触发 tryFail', async () => {
     limitQueue = [
-      [{ uuid: 'img_gen2', status: 'GENERATING', externalTaskId: 'task_gen2',
-         imageUrls: null, errorMessage: null, createdAt: new Date('2025-01-01'),
-         isPublic: false, userId: 'user-1', id: 11 }],
+      [
+        {
+          uuid: 'img_gen2',
+          status: 'GENERATING',
+          externalTaskId: 'task_gen2',
+          imageUrls: null,
+          errorMessage: null,
+          createdAt: new Date('2025-01-01'),
+          isPublic: false,
+          userId: 'user-1',
+          id: 11,
+        },
+      ],
       // tryFailGeneration: find image
-      [{ uuid: 'img_gen2', status: 'GENERATING', isPublic: false, userId: 'user-1', id: 11 }],
+      [
+        {
+          uuid: 'img_gen2',
+          status: 'GENERATING',
+          isPublic: false,
+          userId: 'user-1',
+          id: 11,
+        },
+      ],
     ];
     mockGetTaskStatus.mockResolvedValue({
-      status: 'failed', error: { message: 'Timeout' },
+      status: 'failed',
+      error: { message: 'Timeout' },
     });
     const { ImageService } = await import('../image');
     const service = new ImageService();
@@ -402,8 +546,15 @@ describe('ImageService.refreshStatus', () => {
 
   it('GENERATING + provider 返回 processing 应返回进度', async () => {
     limitQueue = [
-      [{ uuid: 'img_prog', status: 'GENERATING', externalTaskId: 'task_prog',
-         imageUrls: null, errorMessage: null }],
+      [
+        {
+          uuid: 'img_prog',
+          status: 'GENERATING',
+          externalTaskId: 'task_prog',
+          imageUrls: null,
+          errorMessage: null,
+        },
+      ],
     ];
     mockGetTaskStatus.mockResolvedValue({ status: 'processing', progress: 50 });
     const { ImageService } = await import('../image');
@@ -415,8 +566,15 @@ describe('ImageService.refreshStatus', () => {
 
   it('provider 查询异常应 fallback 返回当前状态', async () => {
     limitQueue = [
-      [{ uuid: 'img_err', status: 'GENERATING', externalTaskId: 'task_err',
-         imageUrls: null, errorMessage: null }],
+      [
+        {
+          uuid: 'img_err',
+          status: 'GENERATING',
+          externalTaskId: 'task_err',
+          imageUrls: null,
+          errorMessage: null,
+        },
+      ],
     ];
     mockGetTaskStatus.mockRejectedValue(new Error('network error'));
     const { ImageService } = await import('../image');
@@ -469,7 +627,9 @@ describe('ImageService.toggleFavorite', () => {
     limitQueue = [[]];
     const { ImageService } = await import('../image');
     const service = new ImageService();
-    await expect(service.toggleFavorite('img_missing', 'user-1')).rejects.toThrow('Image not found');
+    await expect(
+      service.toggleFavorite('img_missing', 'user-1')
+    ).rejects.toThrow('Image not found');
   });
 
   it('图像存在应切换收藏状态', async () => {
@@ -493,7 +653,9 @@ describe('ImageService.updateTags', () => {
     });
     const { ImageService } = await import('../image');
     const service = new ImageService();
-    await expect(service.updateTags('img_missing', 'user-1', ['tag1'])).rejects.toThrow('Image not found');
+    await expect(
+      service.updateTags('img_missing', 'user-1', ['tag1'])
+    ).rejects.toThrow('Image not found');
     mockDb.update = originalUpdate;
   });
 
@@ -508,7 +670,10 @@ describe('ImageService.updateTags', () => {
     });
     const { ImageService } = await import('../image');
     const service = new ImageService();
-    const result = await service.updateTags('img_1', 'user-1', ['tag1', 'tag2']);
+    const result = await service.updateTags('img_1', 'user-1', [
+      'tag1',
+      'tag2',
+    ]);
     expect(result).toEqual(['tag1', 'tag2']);
     mockDb.update = originalUpdate;
   });
@@ -520,9 +685,9 @@ describe('ImageService.batchDelete', () => {
     mockDb.update = vi.fn().mockReturnValue({
       set: vi.fn().mockReturnValue({
         where: vi.fn().mockReturnValue({
-          returning: vi.fn().mockReturnValue([
-            { uuid: 'img_1' }, { uuid: 'img_2' },
-          ]),
+          returning: vi
+            .fn()
+            .mockReturnValue([{ uuid: 'img_1' }, { uuid: 'img_2' }]),
         }),
       }),
     });
@@ -581,10 +746,12 @@ describe('ImageService.listImages', () => {
     // count query → where() 直接解构
     whereQueue = [[{ count: 5 }]];
     // images query → where().orderBy().limit().offset()
-    offsetQueue = [[
-      { uuid: 'img_1', prompt: 'test' },
-      { uuid: 'img_2', prompt: 'test2' },
-    ]];
+    offsetQueue = [
+      [
+        { uuid: 'img_1', prompt: 'test' },
+        { uuid: 'img_2', prompt: 'test2' },
+      ],
+    ];
     const { ImageService } = await import('../image');
     const service = new ImageService();
     const result = await service.listImages('user-1', { limit: 10, page: 1 });
@@ -601,9 +768,12 @@ describe('ImageService.listImages', () => {
     const { ImageService } = await import('../image');
     const service = new ImageService();
     const result = await service.listImages('user-1', {
-      status: 'COMPLETED', model: 'gpt-image-1.5',
-      isFavorite: true, search: 'cat',
-      startDate: new Date('2025-01-01'), endDate: new Date('2025-12-31'),
+      status: 'COMPLETED',
+      model: 'gpt-image-1.5',
+      isFavorite: true,
+      search: 'cat',
+      startDate: new Date('2025-01-01'),
+      endDate: new Date('2025-12-31'),
     });
     expect(result.total).toBe(1);
   });
@@ -626,13 +796,14 @@ describe('ImageService.adminListImages', () => {
 
   it('带 filter 参数应通过', async () => {
     whereQueue = [[{ count: 2 }]];
-    offsetQueue = [[
-      { uuid: 'img_a1' }, { uuid: 'img_a2' },
-    ]];
+    offsetQueue = [[{ uuid: 'img_a1' }, { uuid: 'img_a2' }]];
     const { ImageService } = await import('../image');
     const service = new ImageService();
     const result = await service.adminListImages({
-      userId: 'user-2', status: 'FAILED', model: 'gpt-image-1.5', search: 'dog',
+      userId: 'user-2',
+      status: 'FAILED',
+      model: 'gpt-image-1.5',
+      search: 'dog',
     });
     expect(result.total).toBe(2);
   });
@@ -651,10 +822,10 @@ describe('ImageService.getStats', () => {
     // 3. model counts → .groupBy()
     // 4. today count → 直接解构
     whereQueue = [
-      [{ count: 500 }],   // total
-      [],                 // status (会链式 .groupBy)
-      [],                 // model (会链式 .groupBy)
-      [{ count: 15 }],    // today
+      [{ count: 500 }], // total
+      [], // status (会链式 .groupBy)
+      [], // model (会链式 .groupBy)
+      [{ count: 15 }], // today
     ];
     groupByQueue = [
       [
@@ -700,8 +871,11 @@ describe('ImageService helper methods', () => {
 
   it('getContentType 应该正确映射', () => {
     const types: Record<string, string> = {
-      jpg: 'image/jpeg', jpeg: 'image/jpeg',
-      png: 'image/png', webp: 'image/webp', gif: 'image/gif',
+      jpg: 'image/jpeg',
+      jpeg: 'image/jpeg',
+      png: 'image/png',
+      webp: 'image/webp',
+      gif: 'image/gif',
     };
     expect(types.jpg).toBe('image/jpeg');
     expect(types.png).toBe('image/png');

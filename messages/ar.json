@@ -6,74 +6,519 @@
     "keywords": "AI صورة إلى فيديو، صورة إلى فيديو، مولد فيديو فني، صانع فيديو AI، نص إلى فيديو"
   },
   "Common": {
-    "premium": "بريميوم", "login": "تسجيل الدخول", "logout": "تسجيل الخروج", "signUp": "إنشاء حساب", "language": "تغيير اللغة",
-    "mode": { "label": "تبديل الوضع", "light": "فاتح", "dark": "داكن", "system": "النظام" },
-    "copy": "نسخ", "saving": "جاري الحفظ...", "save": "حفظ", "loading": "جاري التحميل...", "cancel": "إلغاء", "logoutFailed": "فشل تسجيل الخروج", "home": "الرئيسية", "replicate": "تكرار التأثير",
-    "table": { "totalRecords": "إجمالي {count} سجل", "noResults": "لا توجد نتائج", "loading": "جاري التحميل...", "columns": "أعمدة", "rowsPerPage": "صفوف لكل صفحة", "page": "صفحة", "firstPage": "الصفحة الأولى", "lastPage": "الصفحة الأخيرة", "nextPage": "التالي", "previousPage": "السابق", "ascending": "تصاعدي", "descending": "تنازلي", "resetSorting": "إعادة تعيين", "hideColumn": "إخفاء", "viewOptions": "عرض", "toggleColumns": "تبديل الأعمدة", "searchColumns": "بحث في الأعمدة...", "noColumns": "لم يتم العثور على أعمدة.", "clearFilters": "مسح الفلاتر" }
+    "premium": "بريميوم",
+    "login": "تسجيل الدخول",
+    "logout": "تسجيل الخروج",
+    "signUp": "إنشاء حساب",
+    "language": "تغيير اللغة",
+    "mode": {
+      "label": "تبديل الوضع",
+      "light": "فاتح",
+      "dark": "داكن",
+      "system": "النظام"
+    },
+    "copy": "نسخ",
+    "saving": "جاري الحفظ...",
+    "save": "حفظ",
+    "loading": "جاري التحميل...",
+    "cancel": "إلغاء",
+    "logoutFailed": "فشل تسجيل الخروج",
+    "home": "الرئيسية",
+    "replicate": "تكرار التأثير",
+    "table": {
+      "totalRecords": "إجمالي {count} سجل",
+      "noResults": "لا توجد نتائج",
+      "loading": "جاري التحميل...",
+      "columns": "أعمدة",
+      "rowsPerPage": "صفوف لكل صفحة",
+      "page": "صفحة",
+      "firstPage": "الصفحة الأولى",
+      "lastPage": "الصفحة الأخيرة",
+      "nextPage": "التالي",
+      "previousPage": "السابق",
+      "ascending": "تصاعدي",
+      "descending": "تنازلي",
+      "resetSorting": "إعادة تعيين",
+      "hideColumn": "إخفاء",
+      "viewOptions": "عرض",
+      "toggleColumns": "تبديل الأعمدة",
+      "searchColumns": "بحث في الأعمدة...",
+      "noColumns": "لم يتم العثور على أعمدة.",
+      "clearFilters": "مسح الفلاتر"
+    }
   },
   "PricingPage": {
-    "title": "خطط الأسعار", "description": "اختر الخطة المثالية لاحتياجاتك الإبداعية.", "keywords": "أسعار GenX، أسعار فيديو AI، خطط الاشتراك", "subtitle": "اختر الخطة الأنسب لك", "monthly": "شهري", "yearly": "سنوي",
-    "PricingCard": { "freePrice": "$0", "perMonth": "/شهر", "perYear": "/سنة", "popular": "شائع", "currentPlan": "الخطة الحالية", "yourCurrentPlan": "خطتك الحالية", "getStartedForFree": "ابدأ مجاناً", "getStarted": "ابدأ", "notAvailable": "غير متاح", "daysTrial": "تجربة {days} أيام" },
-    "CheckoutButton": { "loading": "جاري التحميل...", "checkoutFailed": "فشل فتح صفحة الدفع" }
+    "title": "خطط الأسعار",
+    "description": "اختر الخطة المثالية لاحتياجاتك الإبداعية.",
+    "keywords": "أسعار GenX، أسعار فيديو AI، خطط الاشتراك",
+    "subtitle": "اختر الخطة الأنسب لك",
+    "monthly": "شهري",
+    "yearly": "سنوي",
+    "PricingCard": {
+      "freePrice": "$0",
+      "perMonth": "/شهر",
+      "perYear": "/سنة",
+      "popular": "شائع",
+      "currentPlan": "الخطة الحالية",
+      "yourCurrentPlan": "خطتك الحالية",
+      "getStartedForFree": "ابدأ مجاناً",
+      "getStarted": "ابدأ",
+      "notAvailable": "غير متاح",
+      "daysTrial": "تجربة {days} أيام"
+    },
+    "CheckoutButton": {
+      "loading": "جاري التحميل...",
+      "checkoutFailed": "فشل فتح صفحة الدفع"
+    }
   },
   "PricePlans": {
-    "free": { "name": "مجاني", "description": "مثالي لتجربة GenX", "features": { "feature-1": "15 رصيد عند التسجيل", "feature-2": "جميع الأنماط الفنية الـ 5", "feature-3": "جودة إخراج 1080p", "feature-4": "دعم قياسي" }, "limits": { "limit-1": "الأرصدة تنتهي خلال 30 يوماً", "limit-2": "يتضمن علامة مائية", "limit-3": "للاستخدام الشخصي فقط" } },
-    "pro": { "name": "برو", "description": "للمبدعين الجادين", "features": { "feature-1": "800 رصيد/شهر", "feature-2": "جميع الأنماط الفنية الـ 5", "feature-3": "إخراج HD 1080p", "feature-4": "دعم أولوية", "feature-5": "بدون علامة مائية" }, "limits": { "limit-1": "الأرصدة الشهرية لا تتراكم", "limit-2": "ترخيص تجاري مضمن" } }
+    "free": {
+      "name": "مجاني",
+      "description": "مثالي لتجربة GenX",
+      "features": {
+        "feature-1": "15 رصيد عند التسجيل",
+        "feature-2": "جميع الأنماط الفنية الـ 5",
+        "feature-3": "جودة إخراج 1080p",
+        "feature-4": "دعم قياسي"
+      },
+      "limits": {
+        "limit-1": "الأرصدة تنتهي خلال 30 يوماً",
+        "limit-2": "يتضمن علامة مائية",
+        "limit-3": "للاستخدام الشخصي فقط"
+      }
+    },
+    "pro": {
+      "name": "برو",
+      "description": "للمبدعين الجادين",
+      "features": {
+        "feature-1": "800 رصيد/شهر",
+        "feature-2": "جميع الأنماط الفنية الـ 5",
+        "feature-3": "إخراج HD 1080p",
+        "feature-4": "دعم أولوية",
+        "feature-5": "بدون علامة مائية"
+      },
+      "limits": {
+        "limit-1": "الأرصدة الشهرية لا تتراكم",
+        "limit-2": "ترخيص تجاري مضمن"
+      }
+    }
   },
-  "CreditPackages": { "starter": { "name": "مبتدئ", "description": "مثالي لتجربة توليد AI" }, "basic": { "name": "أساسي", "description": "مثالي للمبدعين العرضيين" }, "standard": { "name": "قياسي", "description": "أفضل قيمة للمستخدمين المنتظمين" }, "premium": { "name": "بريميوم", "description": "للمستخدمين المتقدمين والمحترفين" }, "enterprise": { "name": "مؤسسي", "description": "أقصى حد من الأرصدة للاستخدام المكثف" } },
-  "NotFoundPage": { "title": "404", "headline": "الصفحة غير موجودة", "message": "عذراً، الصفحة التي تبحث عنها غير موجودة أو تم نقلها.", "backToHome": "العودة للرئيسية", "searchHelp": "احصل على مساعدة", "popularPages": "صفحات شائعة", "links": { "imageToVideo": "صورة إلى فيديو", "gallery": "المعرض", "docs": "التوثيق", "contact": "اتصل بنا" } },
-  "ErrorPage": { "title": "عذراً! حدث خطأ ما!", "tryAgain": "حاول مرة أخرى", "backToHome": "العودة للرئيسية" },
-  "AboutPage": { "title": "عن GenX.art", "description": "GenX.art منصة لإنشاء فيديوهات فنية بالذكاء الاصطناعي.", "authorName": "GenX.art", "authorBio": "منصة فيديو فني AI", "introduction": "GenX.art يمكّن المبدعين من تحويل الصور العادية إلى فيديوهات فنية استثنائية. بتقنية AI متقدمة، نجعل إنتاج الفيديو الاحترافي في متناول الجميع.", "talkWithMe": "تواصل معنا", "followMe": "تابعنا على X" },
-  "ChangelogPage": { "title": "سجل التغييرات", "description": "اكتشف الجديد في GenX.art.", "keywords": "تحديثات GenX، سجل التغييرات، ميزات جديدة", "subtitle": "ابق على اطلاع بآخر التغييرات" },
-  "RoadmapPage": { "title": "خارطة الطريق", "description": "استكشف خطط GenX.art المستقبلية.", "keywords": "خارطة طريق GenX، ميزات قادمة", "subtitle": "استكشف خططنا المستقبلية" },
-  "ContactPage": { "title": "اتصل بنا", "description": "تواصل مع فريق GenX.art.", "keywords": "اتصال GenX، دعم، مساعدة", "subtitle": "سنساعدك في العثور على الخطة المناسبة",
-    "form": { "title": "اتصل بنا", "description": "إذا كانت لديك أسئلة أو ملاحظات، تواصل مع فريقنا", "name": "الاسم", "email": "البريد الإلكتروني", "message": "الرسالة", "submit": "إرسال", "submitting": "جاري الإرسال...", "success": "تم إرسال الرسالة بنجاح", "fail": "فشل إرسال الرسالة", "nameMinLength": "الاسم يجب أن يكون 3 أحرف على الأقل", "nameMaxLength": "الاسم يجب ألا يتجاوز 30 حرفاً", "emailValidation": "أدخل بريداً إلكترونياً صالحاً", "messageMinLength": "الرسالة يجب أن تكون 10 أحرف على الأقل", "messageMaxLength": "الرسالة يجب ألا تتجاوز 500 حرف" }
+  "CreditPackages": {
+    "starter": { "name": "مبتدئ", "description": "مثالي لتجربة توليد AI" },
+    "basic": { "name": "أساسي", "description": "مثالي للمبدعين العرضيين" },
+    "standard": {
+      "name": "قياسي",
+      "description": "أفضل قيمة للمستخدمين المنتظمين"
+    },
+    "premium": {
+      "name": "بريميوم",
+      "description": "للمستخدمين المتقدمين والمحترفين"
+    },
+    "enterprise": {
+      "name": "مؤسسي",
+      "description": "أقصى حد من الأرصدة للاستخدام المكثف"
+    }
   },
-  "WaitlistPage": { "title": "قائمة الانتظار", "description": "كن أول من يجرب ميزات GenX.art الجديدة.", "keywords": "قائمة انتظار GenX، وصول مبكر", "subtitle": "انضم إلى قائمة الانتظار",
-    "form": { "title": "انضم لقائمة الانتظار", "description": "سنخبرك عند الإطلاق", "email": "البريد الإلكتروني", "subscribe": "اشترك", "subscribing": "جاري الاشتراك...", "success": "تم الاشتراك بنجاح", "fail": "فشل الاشتراك", "emailValidation": "أدخل بريداً إلكترونياً صالحاً" }
+  "NotFoundPage": {
+    "title": "404",
+    "headline": "الصفحة غير موجودة",
+    "message": "عذراً، الصفحة التي تبحث عنها غير موجودة أو تم نقلها.",
+    "backToHome": "العودة للرئيسية",
+    "searchHelp": "احصل على مساعدة",
+    "popularPages": "صفحات شائعة",
+    "links": {
+      "imageToVideo": "صورة إلى فيديو",
+      "gallery": "المعرض",
+      "docs": "التوثيق",
+      "contact": "اتصل بنا"
+    }
   },
-  "Newsletter": { "title": "النشرة الإخبارية", "subtitle": "انضم للمجتمع", "description": "اشترك في نشرتنا الإخبارية لآخر الأخبار", "form": { "email": "البريد الإلكتروني", "subscribe": "اشترك", "subscribing": "جاري الاشتراك...", "success": "تم الاشتراك", "fail": "فشل الاشتراك", "emailValidation": "أدخل بريداً إلكترونياً صالحاً" } },
+  "ErrorPage": {
+    "title": "عذراً! حدث خطأ ما!",
+    "tryAgain": "حاول مرة أخرى",
+    "backToHome": "العودة للرئيسية"
+  },
+  "AboutPage": {
+    "title": "عن GenX.art",
+    "description": "GenX.art منصة لإنشاء فيديوهات فنية بالذكاء الاصطناعي.",
+    "authorName": "GenX.art",
+    "authorBio": "منصة فيديو فني AI",
+    "introduction": "GenX.art يمكّن المبدعين من تحويل الصور العادية إلى فيديوهات فنية استثنائية. بتقنية AI متقدمة، نجعل إنتاج الفيديو الاحترافي في متناول الجميع.",
+    "talkWithMe": "تواصل معنا",
+    "followMe": "تابعنا على X"
+  },
+  "ChangelogPage": {
+    "title": "سجل التغييرات",
+    "description": "اكتشف الجديد في GenX.art.",
+    "keywords": "تحديثات GenX، سجل التغييرات، ميزات جديدة",
+    "subtitle": "ابق على اطلاع بآخر التغييرات"
+  },
+  "RoadmapPage": {
+    "title": "خارطة الطريق",
+    "description": "استكشف خطط GenX.art المستقبلية.",
+    "keywords": "خارطة طريق GenX، ميزات قادمة",
+    "subtitle": "استكشف خططنا المستقبلية"
+  },
+  "ContactPage": {
+    "title": "اتصل بنا",
+    "description": "تواصل مع فريق GenX.art.",
+    "keywords": "اتصال GenX، دعم، مساعدة",
+    "subtitle": "سنساعدك في العثور على الخطة المناسبة",
+    "form": {
+      "title": "اتصل بنا",
+      "description": "إذا كانت لديك أسئلة أو ملاحظات، تواصل مع فريقنا",
+      "name": "الاسم",
+      "email": "البريد الإلكتروني",
+      "message": "الرسالة",
+      "submit": "إرسال",
+      "submitting": "جاري الإرسال...",
+      "success": "تم إرسال الرسالة بنجاح",
+      "fail": "فشل إرسال الرسالة",
+      "nameMinLength": "الاسم يجب أن يكون 3 أحرف على الأقل",
+      "nameMaxLength": "الاسم يجب ألا يتجاوز 30 حرفاً",
+      "emailValidation": "أدخل بريداً إلكترونياً صالحاً",
+      "messageMinLength": "الرسالة يجب أن تكون 10 أحرف على الأقل",
+      "messageMaxLength": "الرسالة يجب ألا تتجاوز 500 حرف"
+    }
+  },
+  "WaitlistPage": {
+    "title": "قائمة الانتظار",
+    "description": "كن أول من يجرب ميزات GenX.art الجديدة.",
+    "keywords": "قائمة انتظار GenX، وصول مبكر",
+    "subtitle": "انضم إلى قائمة الانتظار",
+    "form": {
+      "title": "انضم لقائمة الانتظار",
+      "description": "سنخبرك عند الإطلاق",
+      "email": "البريد الإلكتروني",
+      "subscribe": "اشترك",
+      "subscribing": "جاري الاشتراك...",
+      "success": "تم الاشتراك بنجاح",
+      "fail": "فشل الاشتراك",
+      "emailValidation": "أدخل بريداً إلكترونياً صالحاً"
+    }
+  },
+  "Newsletter": {
+    "title": "النشرة الإخبارية",
+    "subtitle": "انضم للمجتمع",
+    "description": "اشترك في نشرتنا الإخبارية لآخر الأخبار",
+    "form": {
+      "email": "البريد الإلكتروني",
+      "subscribe": "اشترك",
+      "subscribing": "جاري الاشتراك...",
+      "success": "تم الاشتراك",
+      "fail": "فشل الاشتراك",
+      "emailValidation": "أدخل بريداً إلكترونياً صالحاً"
+    }
+  },
   "AuthPage": {
-    "login": { "title": "تسجيل الدخول", "welcomeBack": "مرحباً بعودتك", "email": "البريد الإلكتروني", "password": "كلمة المرور", "signIn": "تسجيل الدخول", "signUpHint": "ليس لديك حساب؟ سجل الآن", "forgotPassword": "نسيت كلمة المرور؟", "signInWithGoogle": "تسجيل الدخول بـ Google", "signInWithGitHub": "تسجيل الدخول بـ GitHub", "signInWithFacebook": "تسجيل الدخول بـ Facebook", "showPassword": "إظهار كلمة المرور", "hidePassword": "إخفاء كلمة المرور", "or": "أو المتابعة بـ", "emailRequired": "أدخل بريدك الإلكتروني", "passwordRequired": "أدخل كلمة المرور", "captchaInvalid": "فشل التحقق من captcha", "captchaError": "خطأ في captcha" },
-    "register": { "title": "إنشاء حساب", "createAccount": "إنشاء حساب", "name": "الاسم", "email": "البريد الإلكتروني", "password": "كلمة المرور", "signUp": "إنشاء حساب", "signInHint": "لديك حساب بالفعل؟ سجل الدخول", "checkEmail": "تحقق من بريدك الوارد", "showPassword": "إظهار كلمة المرور", "hidePassword": "إخفاء كلمة المرور", "nameRequired": "أدخل اسمك", "emailRequired": "أدخل بريدك الإلكتروني", "passwordRequired": "أدخل كلمة المرور", "captchaInvalid": "فشل التحقق من captcha", "captchaError": "خطأ في captcha" },
-    "forgotPassword": { "title": "نسيت كلمة المرور", "email": "البريد الإلكتروني", "send": "إرسال رابط إعادة التعيين", "backToLogin": "العودة لتسجيل الدخول", "checkEmail": "تحقق من بريدك الوارد", "emailRequired": "أدخل بريدك الإلكتروني" },
-    "resetPassword": { "title": "إعادة تعيين كلمة المرور", "password": "كلمة المرور", "reset": "إعادة تعيين كلمة المرور", "backToLogin": "العودة لتسجيل الدخول", "showPassword": "إظهار كلمة المرور", "hidePassword": "إخفاء كلمة المرور", "minLength": "كلمة المرور يجب أن تكون 8 أحرف على الأقل" },
-    "error": { "title": "عذراً! حدث خطأ ما!", "tryAgain": "حاول مرة أخرى.", "backToLogin": "العودة لتسجيل الدخول", "checkEmail": "تحقق من بريدك الوارد" },
-    "common": { "termsOfService": "شروط الخدمة", "privacyPolicy": "سياسة الخصوصية", "byClickingContinue": "بالمتابعة، أنت توافق على ", "and": " و " }
+    "login": {
+      "title": "تسجيل الدخول",
+      "welcomeBack": "مرحباً بعودتك",
+      "email": "البريد الإلكتروني",
+      "password": "كلمة المرور",
+      "signIn": "تسجيل الدخول",
+      "signUpHint": "ليس لديك حساب؟ سجل الآن",
+      "forgotPassword": "نسيت كلمة المرور؟",
+      "signInWithGoogle": "تسجيل الدخول بـ Google",
+      "signInWithGitHub": "تسجيل الدخول بـ GitHub",
+      "signInWithFacebook": "تسجيل الدخول بـ Facebook",
+      "showPassword": "إظهار كلمة المرور",
+      "hidePassword": "إخفاء كلمة المرور",
+      "or": "أو المتابعة بـ",
+      "emailRequired": "أدخل بريدك الإلكتروني",
+      "passwordRequired": "أدخل كلمة المرور",
+      "captchaInvalid": "فشل التحقق من captcha",
+      "captchaError": "خطأ في captcha"
+    },
+    "register": {
+      "title": "إنشاء حساب",
+      "createAccount": "إنشاء حساب",
+      "name": "الاسم",
+      "email": "البريد الإلكتروني",
+      "password": "كلمة المرور",
+      "signUp": "إنشاء حساب",
+      "signInHint": "لديك حساب بالفعل؟ سجل الدخول",
+      "checkEmail": "تحقق من بريدك الوارد",
+      "showPassword": "إظهار كلمة المرور",
+      "hidePassword": "إخفاء كلمة المرور",
+      "nameRequired": "أدخل اسمك",
+      "emailRequired": "أدخل بريدك الإلكتروني",
+      "passwordRequired": "أدخل كلمة المرور",
+      "captchaInvalid": "فشل التحقق من captcha",
+      "captchaError": "خطأ في captcha"
+    },
+    "forgotPassword": {
+      "title": "نسيت كلمة المرور",
+      "email": "البريد الإلكتروني",
+      "send": "إرسال رابط إعادة التعيين",
+      "backToLogin": "العودة لتسجيل الدخول",
+      "checkEmail": "تحقق من بريدك الوارد",
+      "emailRequired": "أدخل بريدك الإلكتروني"
+    },
+    "resetPassword": {
+      "title": "إعادة تعيين كلمة المرور",
+      "password": "كلمة المرور",
+      "reset": "إعادة تعيين كلمة المرور",
+      "backToLogin": "العودة لتسجيل الدخول",
+      "showPassword": "إظهار كلمة المرور",
+      "hidePassword": "إخفاء كلمة المرور",
+      "minLength": "كلمة المرور يجب أن تكون 8 أحرف على الأقل"
+    },
+    "error": {
+      "title": "عذراً! حدث خطأ ما!",
+      "tryAgain": "حاول مرة أخرى.",
+      "backToLogin": "العودة لتسجيل الدخول",
+      "checkEmail": "تحقق من بريدك الوارد"
+    },
+    "common": {
+      "termsOfService": "شروط الخدمة",
+      "privacyPolicy": "سياسة الخصوصية",
+      "byClickingContinue": "بالمتابعة، أنت توافق على ",
+      "and": " و "
+    }
   },
-  "BlogPage": { "title": "المدونة", "description": "نصائح إنشاء فيديو AI ودروس وأخبار من GenX.art.", "subtitle": "آخر الأخبار من فريقنا", "author": "الكاتب", "categories": "التصنيفات", "tableOfContents": "جدول المحتويات", "readTime": "{minutes} دقيقة قراءة", "all": "الكل", "noPostsFound": "لم يتم العثور على مقالات", "allPosts": "جميع المقالات", "morePosts": "مقالات أخرى" },
-  "DocsPage": { "toc": "جدول المحتويات", "search": "بحث في التوثيق", "lastUpdate": "آخر تحديث", "searchNoResult": "لا توجد نتائج", "previousPage": "السابق", "nextPage": "التالي", "chooseLanguage": "اختر اللغة", "title": "توثيق GenX.art", "homepage": "الرئيسية" },
-  "PremiumContent": { "title": "فتح المحتوى المميز", "description": "اشترك في خطة برو للوصول لجميع المحتوى المميز.", "upgradeCta": "ترقية الآن", "benefit1": "جميع المحتوى المميز", "benefit2": "محتوى حصري", "benefit3": "إلغاء في أي وقت", "signIn": "تسجيل الدخول", "loginRequired": "سجل الدخول لمتابعة القراءة", "loginDescription": "هذا محتوى مميز. سجل الدخول للوصول الكامل.", "checkingAccess": "جاري التحقق من الوصول...", "loadingContent": "جاري تحميل المحتوى..." },
+  "BlogPage": {
+    "title": "المدونة",
+    "description": "نصائح إنشاء فيديو AI ودروس وأخبار من GenX.art.",
+    "subtitle": "آخر الأخبار من فريقنا",
+    "author": "الكاتب",
+    "categories": "التصنيفات",
+    "tableOfContents": "جدول المحتويات",
+    "readTime": "{minutes} دقيقة قراءة",
+    "all": "الكل",
+    "noPostsFound": "لم يتم العثور على مقالات",
+    "allPosts": "جميع المقالات",
+    "morePosts": "مقالات أخرى"
+  },
+  "DocsPage": {
+    "toc": "جدول المحتويات",
+    "search": "بحث في التوثيق",
+    "lastUpdate": "آخر تحديث",
+    "searchNoResult": "لا توجد نتائج",
+    "previousPage": "السابق",
+    "nextPage": "التالي",
+    "chooseLanguage": "اختر اللغة",
+    "title": "توثيق GenX.art",
+    "homepage": "الرئيسية"
+  },
+  "PremiumContent": {
+    "title": "فتح المحتوى المميز",
+    "description": "اشترك في خطة برو للوصول لجميع المحتوى المميز.",
+    "upgradeCta": "ترقية الآن",
+    "benefit1": "جميع المحتوى المميز",
+    "benefit2": "محتوى حصري",
+    "benefit3": "إلغاء في أي وقت",
+    "signIn": "تسجيل الدخول",
+    "loginRequired": "سجل الدخول لمتابعة القراءة",
+    "loginDescription": "هذا محتوى مميز. سجل الدخول للوصول الكامل.",
+    "checkingAccess": "جاري التحقق من الوصول...",
+    "loadingContent": "جاري تحميل المحتوى..."
+  },
   "Marketing": {
-    "navbar": { "features": { "title": "المميزات" }, "pricing": { "title": "الأسعار" }, "blog": { "title": "المدونة" }, "docs": { "title": "التوثيق" }, "create": { "title": "إنشاء", "items": { "imageToVideo": { "title": "صورة إلى فيديو", "description": "حوّل صورك إلى فيديوهات فنية مذهلة" }, "textToVideo": { "title": "نص إلى فيديو", "description": "أنشئ فيديوهات من وصف نصي" }, "image": { "title": "صورة AI", "description": "أنشئ صور جميلة بالذكاء الاصطناعي" } } }, "styles": { "title": "الأنماط" }, "gallery": { "title": "المعرض" } },
+    "navbar": {
+      "features": { "title": "المميزات" },
+      "pricing": { "title": "الأسعار" },
+      "blog": { "title": "المدونة" },
+      "docs": { "title": "التوثيق" },
+      "create": {
+        "title": "إنشاء",
+        "items": {
+          "imageToVideo": {
+            "title": "صورة إلى فيديو",
+            "description": "حوّل صورك إلى فيديوهات فنية مذهلة"
+          },
+          "textToVideo": {
+            "title": "نص إلى فيديو",
+            "description": "أنشئ فيديوهات من وصف نصي"
+          },
+          "image": {
+            "title": "صورة AI",
+            "description": "أنشئ صور جميلة بالذكاء الاصطناعي"
+          }
+        }
+      },
+      "styles": { "title": "الأنماط" },
+      "gallery": { "title": "المعرض" }
+    },
     "footer": {
       "tagline": "كل إطار هو فن - حوّل صورك إلى فيديوهات فنية مذهلة",
-      "videoModels": { "title": "نماذج الفيديو", "items": { "veo3": "Veo 3", "sora2": "Sora 2", "kling": "Kling AI", "hailuo": "Hailuo AI", "seedance": "Seedance", "wan": "Wan AI", "omnihuman": "OmniHuman", "moreModels": "نماذج أخرى" } },
-      "imageModels": { "title": "نماذج الصور", "items": { "gptImage": "GPT Image", "seedream": "Seedream", "nanobanana": "Nanobanana Pro", "wanImage": "Wan 2.5 Image", "moreModels": "نماذج أخرى" } },
-      "product": { "title": "المنتج", "items": { "features": "المميزات", "styles": "الأنماط الفنية", "gallery": "المعرض", "pricing": "الأسعار", "faq": "الأسئلة الشائعة" } },
-      "resources": { "title": "الموارد", "items": { "blog": "المدونة", "docs": "التوثيق", "help": "مركز المساعدة", "changelog": "سجل التغييرات", "roadmap": "خارطة الطريق" } },
-      "companyAndLegal": { "title": "الشركة", "items": { "about": "من نحن", "contact": "اتصل بنا", "waitlist": "قائمة الانتظار", "privacyPolicy": "سياسة الخصوصية", "termsOfService": "شروط الخدمة" } }
+      "videoModels": {
+        "title": "نماذج الفيديو",
+        "items": {
+          "veo3": "Veo 3",
+          "sora2": "Sora 2",
+          "kling": "Kling AI",
+          "hailuo": "Hailuo AI",
+          "seedance": "Seedance",
+          "wan": "Wan AI",
+          "omnihuman": "OmniHuman",
+          "moreModels": "نماذج أخرى"
+        }
+      },
+      "imageModels": {
+        "title": "نماذج الصور",
+        "items": {
+          "gptImage": "GPT Image",
+          "seedream": "Seedream",
+          "nanobanana": "Nanobanana Pro",
+          "wanImage": "Wan 2.5 Image",
+          "moreModels": "نماذج أخرى"
+        }
+      },
+      "product": {
+        "title": "المنتج",
+        "items": {
+          "features": "المميزات",
+          "styles": "الأنماط الفنية",
+          "gallery": "المعرض",
+          "pricing": "الأسعار",
+          "faq": "الأسئلة الشائعة"
+        }
+      },
+      "resources": {
+        "title": "الموارد",
+        "items": {
+          "blog": "المدونة",
+          "docs": "التوثيق",
+          "help": "مركز المساعدة",
+          "changelog": "سجل التغييرات",
+          "roadmap": "خارطة الطريق"
+        }
+      },
+      "companyAndLegal": {
+        "title": "الشركة",
+        "items": {
+          "about": "من نحن",
+          "contact": "اتصل بنا",
+          "waitlist": "قائمة الانتظار",
+          "privacyPolicy": "سياسة الخصوصية",
+          "termsOfService": "شروط الخدمة"
+        }
+      }
     },
-    "avatar": { "dashboard": "لوحة التحكم", "billing": "الفوترة", "credits": "الأرصدة", "settings": "الإعدادات" }
+    "avatar": {
+      "dashboard": "لوحة التحكم",
+      "billing": "الفوترة",
+      "credits": "الأرصدة",
+      "settings": "الإعدادات"
+    }
   },
   "Landing": {
-    "hero": { "headline": "كل إطار هو فن", "subheadline": "ارفع صورة، اختر نمط فني، احصل على فيديو فني مذهل في 30 ثانية. لا تحتاج لمهارات. لا تحتاج لبرامج مكلفة.", "cta": { "primary": "ارفع صورة", "secondary": "شاهد الإمكانيات" }, "socialProof": "فيديو فني تم إنشاؤه", "scrollHint": "مرر للاستكشاف", "switchStyle": "التبديل إلى نمط {style}" },
-    "painPoints": { "headline": "لديك قصص ترويها، لكن الأدوات تعيقك", "items": { "learning": { "title": "تعلم Premiere أو After Effects يستغرق أشهراً", "description": "البرامج المعقدة بمنحنيات تعلم حادة تحبس أفكارك الإبداعية." }, "cost": { "title": "توظيف فريق محترف يكلف آلاف", "description": "إنتاج الفيديو عالي الجودة مكلف وبعيد المنال لمعظم المبدعين." }, "generic": { "title": "فيديوهات القوالب عامة وبلا روح", "description": "القوالب تجعل محتواك يذوب مع البقية." } }, "solution": { "title": "GenX يغير كل شيء", "description": "كل ما تحتاجه هو صورة وفكرة. الذكاء الاصطناعي يحول العادي إلى فن.", "benefit1": "بدون منحنى تعلم", "benefit2": "نتائج احترافية", "benefit3": "أنماط فنية فريدة" }, "cta": "جرب مجاناً في 30 ثانية" },
-    "artStyles": { "badge": "5 أنماط فريدة", "headline": "اختر لغتك الفنية", "subheadline": "5 أنماط فنية فريدة، كل منها مُعد بعناية.", "styles": { "cyberpunk": { "title": "سايبربانك", "description": "أضواء نيون وامضة، سيارات طائرة، مطر رقمي في عالم سيبراني", "bestFor": "مثالي لـ: محتوى تقني، إعلانات" }, "watercolor": { "title": "ألوان مائية", "description": "ألوان تسيل على الورق، كقصيدة مرئية", "bestFor": "مثالي لـ: محتوى مهدئ، تعبير عاطفي" }, "oilPainting": { "title": "زيتي", "description": "كل ضربة فرشاة تحمل دفئاً، تحول الصور لفن يستحق الجمع", "bestFor": "مثالي لـ: عروض فاخرة، فنون جميلة" }, "anime": { "title": "أنيمي", "description": "ادخل عالم الأنيمي، كن بطل قصتك الخاصة", "bestFor": "مثالي لـ: محتوى أنيمي، جمهور شاب" }, "fluidArt": { "title": "فن سائل", "description": "ألوان تتصادم وتندمج في حركة، كل إطار فن تجريدي فريد", "bestFor": "مثالي لـ: فيديوهات إبداعية، خلفيات" } }, "createWith": "أنشئ بهذا النمط", "exploreAll": "استكشف جميع الأنماط" },
-    "howItWorks": { "badge": "عملية بسيطة", "headline": "من صورة إلى فن في 3 خطوات بسيطة", "subheadline": "لا حاجة لدروس. إبداعك، GenX ينفذه.", "steps": { "upload": { "title": "ارفع صورتك", "description": "اسحب وأفلت أو انقر للاختيار", "details": "يدعم JPG/PNG، حد أقصى 10 ميجا" }, "style": { "title": "اختر نمط فني", "description": "اختر من 5 أنماط فريدة", "details": "مرر لمعاينة كل نمط" }, "download": { "title": "انتظر السحر", "description": "AI يصنع فيديوك الفني في 30 ثانية", "details": "حمّل فيديو HD فوراً" } }, "bottomText": "هذا كل شيء. بدون تعلم. بدون دروس.", "cta": "جرب الآن - مجاناً" },
+    "hero": {
+      "headline": "كل إطار هو فن",
+      "subheadline": "ارفع صورة، اختر نمط فني، احصل على فيديو فني مذهل في 30 ثانية. لا تحتاج لمهارات. لا تحتاج لبرامج مكلفة.",
+      "cta": { "primary": "ارفع صورة", "secondary": "شاهد الإمكانيات" },
+      "socialProof": "فيديو فني تم إنشاؤه",
+      "scrollHint": "مرر للاستكشاف",
+      "switchStyle": "التبديل إلى نمط {style}"
+    },
+    "painPoints": {
+      "headline": "لديك قصص ترويها، لكن الأدوات تعيقك",
+      "items": {
+        "learning": {
+          "title": "تعلم Premiere أو After Effects يستغرق أشهراً",
+          "description": "البرامج المعقدة بمنحنيات تعلم حادة تحبس أفكارك الإبداعية."
+        },
+        "cost": {
+          "title": "توظيف فريق محترف يكلف آلاف",
+          "description": "إنتاج الفيديو عالي الجودة مكلف وبعيد المنال لمعظم المبدعين."
+        },
+        "generic": {
+          "title": "فيديوهات القوالب عامة وبلا روح",
+          "description": "القوالب تجعل محتواك يذوب مع البقية."
+        }
+      },
+      "solution": {
+        "title": "GenX يغير كل شيء",
+        "description": "كل ما تحتاجه هو صورة وفكرة. الذكاء الاصطناعي يحول العادي إلى فن.",
+        "benefit1": "بدون منحنى تعلم",
+        "benefit2": "نتائج احترافية",
+        "benefit3": "أنماط فنية فريدة"
+      },
+      "cta": "جرب مجاناً في 30 ثانية"
+    },
+    "artStyles": {
+      "badge": "5 أنماط فريدة",
+      "headline": "اختر لغتك الفنية",
+      "subheadline": "5 أنماط فنية فريدة، كل منها مُعد بعناية.",
+      "styles": {
+        "cyberpunk": {
+          "title": "سايبربانك",
+          "description": "أضواء نيون وامضة، سيارات طائرة، مطر رقمي في عالم سيبراني",
+          "bestFor": "مثالي لـ: محتوى تقني، إعلانات"
+        },
+        "watercolor": {
+          "title": "ألوان مائية",
+          "description": "ألوان تسيل على الورق، كقصيدة مرئية",
+          "bestFor": "مثالي لـ: محتوى مهدئ، تعبير عاطفي"
+        },
+        "oilPainting": {
+          "title": "زيتي",
+          "description": "كل ضربة فرشاة تحمل دفئاً، تحول الصور لفن يستحق الجمع",
+          "bestFor": "مثالي لـ: عروض فاخرة، فنون جميلة"
+        },
+        "anime": {
+          "title": "أنيمي",
+          "description": "ادخل عالم الأنيمي، كن بطل قصتك الخاصة",
+          "bestFor": "مثالي لـ: محتوى أنيمي، جمهور شاب"
+        },
+        "fluidArt": {
+          "title": "فن سائل",
+          "description": "ألوان تتصادم وتندمج في حركة، كل إطار فن تجريدي فريد",
+          "bestFor": "مثالي لـ: فيديوهات إبداعية، خلفيات"
+        }
+      },
+      "createWith": "أنشئ بهذا النمط",
+      "exploreAll": "استكشف جميع الأنماط"
+    },
+    "howItWorks": {
+      "badge": "عملية بسيطة",
+      "headline": "من صورة إلى فن في 3 خطوات بسيطة",
+      "subheadline": "لا حاجة لدروس. إبداعك، GenX ينفذه.",
+      "steps": {
+        "upload": {
+          "title": "ارفع صورتك",
+          "description": "اسحب وأفلت أو انقر للاختيار",
+          "details": "يدعم JPG/PNG، حد أقصى 10 ميجا"
+        },
+        "style": {
+          "title": "اختر نمط فني",
+          "description": "اختر من 5 أنماط فريدة",
+          "details": "مرر لمعاينة كل نمط"
+        },
+        "download": {
+          "title": "انتظر السحر",
+          "description": "AI يصنع فيديوك الفني في 30 ثانية",
+          "details": "حمّل فيديو HD فوراً"
+        }
+      },
+      "bottomText": "هذا كل شيء. بدون تعلم. بدون دروس.",
+      "cta": "جرب الآن - مجاناً"
+    },
     "gallery": {
       "badge": "معرض المبدعين",
       "headline": "شاهد ما يصنعه المبدعون",
       "subheadline": "فيديوهات فنية من مبدعين حول العالم باستخدام GenX. انقر على أي عمل لمشاهدة النمط والتعليمات.",
-      "styles": { "all": "الكل", "cyberpunk": "سايبربانك", "watercolor": "ألوان مائية", "oilPainting": "زيتي", "anime": "أنيمي", "fluidArt": "فن سائل" },
+      "styles": {
+        "all": "الكل",
+        "cyberpunk": "سايبربانك",
+        "watercolor": "ألوان مائية",
+        "oilPainting": "زيتي",
+        "anime": "أنيمي",
+        "fluidArt": "فن سائل"
+      },
       "videoTitle": "فيديو {style}",
       "promptLabel": "التعليمات المستخدمة:",
       "createSimilar": "إنشاء مشابه",
       "loadMore": "تحميل المزيد",
       "createOwn": "أنشئ عملك الخاص",
       "items": {
-        "1": { "prompt": "شارع مدينة مضاء بالنيون ليلاً، مطر يسقط عبر إعلانات هولوغرافية" },
-        "2": { "prompt": "بحيرة جبلية هادئة عند الغروب مع تأثيرات ألوان مائية ناعمة" },
+        "1": {
+          "prompt": "شارع مدينة مضاء بالنيون ليلاً، مطر يسقط عبر إعلانات هولوغرافية"
+        },
+        "2": {
+          "prompt": "بحيرة جبلية هادئة عند الغروب مع تأثيرات ألوان مائية ناعمة"
+        },
         "3": { "prompt": "صورة كلاسيكية بأسلوب رامبرانت مع إضاءة ذهبية دافئة" },
         "4": { "prompt": "بتلات الكرز تتساقط في حديقة يابانية، أسلوب أنيمي" },
         "5": { "prompt": "ألوان مجردة تدور كالرخام السائل، تدفق ساحر" },
@@ -84,10 +529,26 @@
       "badge": "حالات الاستخدام",
       "headline": "المبدعون يستخدمون GenX لـ",
       "cases": {
-        "social": { "title": "وسائل التواصل", "description": "تميّز على TikTok وInstagram وYouTube. نفس المحتوى، تأثير بصري مختلف.", "example": "آلة الفيديوهات الفيروسية للمبدعين" },
-        "product": { "title": "عروض المنتجات", "description": "صور المنتجات الثابتة مملة. اجعلها تتدفق بأنماط فنية.", "example": "أحيِ منتجاتك" },
-        "art": { "title": "الإبداع الفني", "description": "لا حاجة لمهارات فنية. عبّر عن أفكارك الفنية بالذكاء الاصطناعي.", "example": "الآن الجميع فنان" },
-        "content": { "title": "صناعة المحتوى", "description": "دروس، فلوجات، قصص — كل إطار يبقي المشاهدين مشدودين.", "example": "القصص تستحق مرئيات أفضل" }
+        "social": {
+          "title": "وسائل التواصل",
+          "description": "تميّز على TikTok وInstagram وYouTube. نفس المحتوى، تأثير بصري مختلف.",
+          "example": "آلة الفيديوهات الفيروسية للمبدعين"
+        },
+        "product": {
+          "title": "عروض المنتجات",
+          "description": "صور المنتجات الثابتة مملة. اجعلها تتدفق بأنماط فنية.",
+          "example": "أحيِ منتجاتك"
+        },
+        "art": {
+          "title": "الإبداع الفني",
+          "description": "لا حاجة لمهارات فنية. عبّر عن أفكارك الفنية بالذكاء الاصطناعي.",
+          "example": "الآن الجميع فنان"
+        },
+        "content": {
+          "title": "صناعة المحتوى",
+          "description": "دروس، فلوجات، قصص — كل إطار يبقي المشاهدين مشدودين.",
+          "example": "القصص تستحق مرئيات أفضل"
+        }
       },
       "cta": "ابدأ الإنشاء"
     },
@@ -95,10 +556,22 @@
       "badge": "لماذا GenX",
       "headline": "لماذا يختار المبدعون GenX",
       "features": {
-        "quality": { "title": "جودة فنية", "description": "ليست مجرد فلاتر — تقنية حقيقية لنقل الأسلوب. كل إطار مصنوع بالذكاء الاصطناعي." },
-        "speed": { "title": "30 ثانية", "description": "معالجة سحابية محسّنة تقدم فيديوك الفني في أقل من 30 ثانية." },
-        "free": { "title": "ابدأ مجاناً", "description": "3 إنشاءات مجانية يومياً. كافية للتجربة والإعجاب." },
-        "anywhere": { "title": "في أي مكان", "description": "لا حاجة للتحميل. عبر المتصفح، أي جهاز، في أي وقت." }
+        "quality": {
+          "title": "جودة فنية",
+          "description": "ليست مجرد فلاتر — تقنية حقيقية لنقل الأسلوب. كل إطار مصنوع بالذكاء الاصطناعي."
+        },
+        "speed": {
+          "title": "30 ثانية",
+          "description": "معالجة سحابية محسّنة تقدم فيديوك الفني في أقل من 30 ثانية."
+        },
+        "free": {
+          "title": "ابدأ مجاناً",
+          "description": "3 إنشاءات مجانية يومياً. كافية للتجربة والإعجاب."
+        },
+        "anywhere": {
+          "title": "في أي مكان",
+          "description": "لا حاجة للتحميل. عبر المتصفح، أي جهاز، في أي وقت."
+        }
       },
       "trust": { "noWatermark": "بدون علامة مائية مخفية (Pro)" }
     },
@@ -106,12 +579,31 @@
       "badge": "آراء المستخدمين",
       "headline": "ماذا يقول المبدعون",
       "items": {
-        "1": { "name": "سارة تشن", "role": "صانعة محتوى TikTok", "content": "أخيراً لست بحاجة لتعلم After Effects! أرفع صورة وأحصل على فيديو. زملائي يسألون دائماً عن البرنامج الذي أستخدمه." },
-        "2": { "name": "مايك جونسون", "role": "مطور مستقل", "content": "لأول مرة شعرت أنني أستطيع فعلاً صنع فيديوهات فنية. رائع!" },
-        "3": { "name": "إيما ديفيس", "role": "مديرة تسويق", "content": "خفضنا تكاليف فيديوهات المنتجات بنسبة 80% والنتائج أفضل." },
-        "4": { "name": "أليكس كيم", "role": "صانع محتوى", "content": "نمط الأنيمي مذهل. تفاعل TikTok الخاص بي ارتفع بشكل صاروخي!" }
+        "1": {
+          "name": "سارة تشن",
+          "role": "صانعة محتوى TikTok",
+          "content": "أخيراً لست بحاجة لتعلم After Effects! أرفع صورة وأحصل على فيديو. زملائي يسألون دائماً عن البرنامج الذي أستخدمه."
+        },
+        "2": {
+          "name": "مايك جونسون",
+          "role": "مطور مستقل",
+          "content": "لأول مرة شعرت أنني أستطيع فعلاً صنع فيديوهات فنية. رائع!"
+        },
+        "3": {
+          "name": "إيما ديفيس",
+          "role": "مديرة تسويق",
+          "content": "خفضنا تكاليف فيديوهات المنتجات بنسبة 80% والنتائج أفضل."
+        },
+        "4": {
+          "name": "أليكس كيم",
+          "role": "صانع محتوى",
+          "content": "نمط الأنيمي مذهل. تفاعل TikTok الخاص بي ارتفع بشكل صاروخي!"
+        }
       },
-      "trustBadges": { "comingSoon": "التقييمات قريباً", "securePayment": "دفع آمن عبر Stripe" }
+      "trustBadges": {
+        "comingSoon": "التقييمات قريباً",
+        "securePayment": "دفع آمن عبر Stripe"
+      }
     },
     "pricing": {
       "badge": "الأسعار",
@@ -122,8 +614,25 @@
       "oneTime": "مرة واحدة",
       "yearlyOption": "أو ${price}/سنة (وفّر {discount}%)",
       "plans": {
-        "free": { "name": "مجاني", "description": "مثالي لتجربة GenX", "feature1": "3 إنشاءات يومياً", "feature2": "جميع الأنماط الخمسة", "feature3": "دقة 720p", "feature4": "ترخيص شخصي", "limit": "علامة GenX المائية", "cta": "ابدأ مجاناً" },
-        "pro": { "name": "Pro", "description": "للمبدعين الجادين", "feature1": "إنشاءات غير محدودة", "feature2": "دقة 1080p HD", "feature3": "بدون علامة مائية", "feature4": "ترخيص تجاري", "cta": "ترقية إلى Pro" }
+        "free": {
+          "name": "مجاني",
+          "description": "مثالي لتجربة GenX",
+          "feature1": "3 إنشاءات يومياً",
+          "feature2": "جميع الأنماط الخمسة",
+          "feature3": "دقة 720p",
+          "feature4": "ترخيص شخصي",
+          "limit": "علامة GenX المائية",
+          "cta": "ابدأ مجاناً"
+        },
+        "pro": {
+          "name": "Pro",
+          "description": "للمبدعين الجادين",
+          "feature1": "إنشاءات غير محدودة",
+          "feature2": "دقة 1080p HD",
+          "feature3": "بدون علامة مائية",
+          "feature4": "ترخيص تجاري",
+          "cta": "ترقية إلى Pro"
+        }
       },
       "paymentNote": "دفع آمن عبر Stripe",
       "seeFullPricing": "عرض مقارنة الأسعار الكاملة"
@@ -132,32 +641,209 @@
       "badge": "الأسئلة الشائعة",
       "headline": "الأسئلة المتكررة",
       "items": {
-        "free": { "question": "هل GenX مجاني؟", "answer": "نعم! الزوار يمكنهم إنشاء 3 فيديوهات يومياً مجاناً. المسجلون يحصلون على المزيد. تحتاج أكثر؟ اطلع على خطة Pro." },
-        "skills": { "question": "هل أحتاج مهارات تقنية؟", "answer": "أبداً! إذا استطعت رفع صورة والنقر على زر، يمكنك استخدام GenX." },
-        "commercial": { "question": "هل يمكنني استخدام الفيديوهات تجارياً؟", "answer": "فيديوهات النسخة المجانية للاستخدام الشخصي فقط. مستخدمو Pro يحصلون على ترخيص تجاري كامل." },
-        "watermark": { "question": "هل الفيديوهات تحتوي على علامة مائية؟", "answer": "فيديوهات النسخة المجانية تتضمن علامة GenX صغيرة. مستخدمو Pro يحمّلون فيديوهات HD بدون علامة." },
-        "formats": { "question": "ما صيغ الصور المدعومة؟", "answer": "ندعم JPG وPNG، حتى 10 ميجابايت. الصور الأصلية عالية الدقة تعطي نتائج أفضل." },
-        "time": { "question": "كم يستغرق الإنشاء؟", "answer": "عادة 15-45 ثانية. سترى التقدم مباشرة على الشاشة." },
-        "data": { "question": "أين تُخزّن بياناتي؟ (GDPR)", "answer": "بياناتك على خوادم AWS آمنة في الولايات المتحدة والاتحاد الأوروبي. نلتزم بـ GDPR ويمكنك طلب حذف بياناتك." },
-        "payment": { "question": "ما طرق الدفع المقبولة؟", "answer": "نقبل Visa وMastercard وAmerican Express وPayPal عبر Stripe. جميع المدفوعات مشفرة وآمنة." },
-        "refund": { "question": "ما سياسة الاسترجاع؟", "answer": "ضمان استرجاع لمدة 7 أيام لاشتراكات Pro. تواصل مع support@genx.art خلال فترة الضمان." },
-        "cancel": { "question": "كيف ألغي اشتراكي؟", "answer": "يمكنك الإلغاء في أي وقت من لوحة حسابك أو بمراسلة support@genx.art. يستمر وصولك حتى نهاية فترة الفوترة." }
+        "free": {
+          "question": "هل GenX مجاني؟",
+          "answer": "نعم! الزوار يمكنهم إنشاء 3 فيديوهات يومياً مجاناً. المسجلون يحصلون على المزيد. تحتاج أكثر؟ اطلع على خطة Pro."
+        },
+        "skills": {
+          "question": "هل أحتاج مهارات تقنية؟",
+          "answer": "أبداً! إذا استطعت رفع صورة والنقر على زر، يمكنك استخدام GenX."
+        },
+        "commercial": {
+          "question": "هل يمكنني استخدام الفيديوهات تجارياً؟",
+          "answer": "فيديوهات النسخة المجانية للاستخدام الشخصي فقط. مستخدمو Pro يحصلون على ترخيص تجاري كامل."
+        },
+        "watermark": {
+          "question": "هل الفيديوهات تحتوي على علامة مائية؟",
+          "answer": "فيديوهات النسخة المجانية تتضمن علامة GenX صغيرة. مستخدمو Pro يحمّلون فيديوهات HD بدون علامة."
+        },
+        "formats": {
+          "question": "ما صيغ الصور المدعومة؟",
+          "answer": "ندعم JPG وPNG، حتى 10 ميجابايت. الصور الأصلية عالية الدقة تعطي نتائج أفضل."
+        },
+        "time": {
+          "question": "كم يستغرق الإنشاء؟",
+          "answer": "عادة 15-45 ثانية. سترى التقدم مباشرة على الشاشة."
+        },
+        "data": {
+          "question": "أين تُخزّن بياناتي؟ (GDPR)",
+          "answer": "بياناتك على خوادم AWS آمنة في الولايات المتحدة والاتحاد الأوروبي. نلتزم بـ GDPR ويمكنك طلب حذف بياناتك."
+        },
+        "payment": {
+          "question": "ما طرق الدفع المقبولة؟",
+          "answer": "نقبل Visa وMastercard وAmerican Express وPayPal عبر Stripe. جميع المدفوعات مشفرة وآمنة."
+        },
+        "refund": {
+          "question": "ما سياسة الاسترجاع؟",
+          "answer": "ضمان استرجاع لمدة 7 أيام لاشتراكات Pro. تواصل مع support@genx.art خلال فترة الضمان."
+        },
+        "cancel": {
+          "question": "كيف ألغي اشتراكي؟",
+          "answer": "يمكنك الإلغاء في أي وقت من لوحة حسابك أو بمراسلة support@genx.art. يستمر وصولك حتى نهاية فترة الفوترة."
+        }
       }
     },
-    "finalCta": { "headline": "مستعد لإنشاء أول فيديو فني لك؟", "subheadline": "في 30 ثانية ستحصل على فيديو فني مذهل", "cta": "ابدأ الإنشاء مجاناً", "trust": { "thirtySeconds": "جاهز في 30 ثانية", "instantDownload": "تحميل فوري" } }
+    "finalCta": {
+      "headline": "مستعد لإنشاء أول فيديو فني لك؟",
+      "subheadline": "في 30 ثانية ستحصل على فيديو فني مذهل",
+      "cta": "ابدأ الإنشاء مجاناً",
+      "trust": {
+        "thirtySeconds": "جاهز في 30 ثانية",
+        "instantDownload": "تحميل فوري"
+      }
+    }
   },
   "Generator": {
-    "modes": { "textToVideo": "نص إلى فيديو", "imageToVideo": "صورة إلى فيديو", "textToImage": "نص إلى صورة", "imageToImage": "صورة إلى صورة", "referenceToVideo": "مرجع إلى فيديو", "audio": "صوت" },
+    "modes": {
+      "textToVideo": "نص إلى فيديو",
+      "imageToVideo": "صورة إلى فيديو",
+      "textToImage": "نص إلى صورة",
+      "imageToImage": "صورة إلى صورة",
+      "referenceToVideo": "مرجع إلى فيديو",
+      "audio": "صوت"
+    },
     "input": { "placeholder": "صِف ما تريد إنشاءه...", "prompt": "الأمر" },
-    "submit": { "generate": "إنشاء", "generating": "جاري الإنشاء...", "insufficientCredits": "أرصدة غير كافية", "insufficientCreditsButton": "احصل على أرصدة", "balance": "الرصيد", "generationFailed": "فشل الإنشاء، حاول مرة أخرى" },
-    "model": { "selectModel": "اختر نموذج", "availableModels": "النماذج المتاحة", "models": "النماذج", "noModels": "لا توجد نماذج متاحة", "new": "جديد", "credits": "{count}+ رصيد", "creditsLabel": "{count} رصيد" },
-    "styles": { "default": "افتراضي", "cyberpunk": "سايبربانك", "watercolor": "ألوان مائية", "oilPainting": "زيتي", "anime": "أنيمي", "fluidArt": "فن سائل" },
-    "imageUpload": { "uploadImage": "رفع صورة", "uploadHint": "JPG، PNG، WEBP • حد أقصى 10 ميجا", "fileTooLarge": "الملف كبير جداً", "invalidFileType": "نوع ملف غير صالح", "imageTooLarge": "أبعاد الصورة تتجاوز الحد الأقصى", "uploadFailed": "فشل الرفع، حاول مرة أخرى" },
-    "result": { "emptyTitle": "لا توجد نتائج بعد", "emptyDescription": "أدخل أمراً وانقر إنشاء", "generatingTitle": "جاري الإنشاء...", "generatingDescription": "يرجى الانتظار", "actions": { "download": "تحميل", "share": "مشاركة", "favorite": "مفضلة", "downloadSuccess": "تم التحميل بنجاح", "downloadFailed": "فشل التحميل", "linkCopied": "تم نسخ الرابط", "favorited": "أضيف للمفضلة", "unfavorited": "أزيل من المفضلة", "favoriteFailed": "فشل تبديل المفضلة" } },
-    "history": { "title": "السجل", "empty": "لا يوجد سجل", "loading": "جاري التحميل...", "loadMore": "تحميل المزيد" },
+    "submit": {
+      "generate": "إنشاء",
+      "generating": "جاري الإنشاء...",
+      "insufficientCredits": "أرصدة غير كافية",
+      "insufficientCreditsButton": "احصل على أرصدة",
+      "balance": "الرصيد",
+      "generationFailed": "فشل الإنشاء، حاول مرة أخرى"
+    },
+    "model": {
+      "selectModel": "اختر نموذج",
+      "availableModels": "النماذج المتاحة",
+      "models": "النماذج",
+      "noModels": "لا توجد نماذج متاحة",
+      "new": "جديد",
+      "credits": "{count}+ رصيد",
+      "creditsLabel": "{count} رصيد"
+    },
+    "styles": {
+      "default": "افتراضي",
+      "cyberpunk": "سايبربانك",
+      "watercolor": "ألوان مائية",
+      "oilPainting": "زيتي",
+      "anime": "أنيمي",
+      "fluidArt": "فن سائل"
+    },
+    "imageUpload": {
+      "uploadImage": "رفع صورة",
+      "uploadHint": "JPG، PNG، WEBP • حد أقصى 10 ميجا",
+      "fileTooLarge": "الملف كبير جداً",
+      "invalidFileType": "نوع ملف غير صالح",
+      "imageTooLarge": "أبعاد الصورة تتجاوز الحد الأقصى",
+      "uploadFailed": "فشل الرفع، حاول مرة أخرى"
+    },
+    "result": {
+      "emptyTitle": "لا توجد نتائج بعد",
+      "emptyDescription": "أدخل أمراً وانقر إنشاء",
+      "generatingTitle": "جاري الإنشاء...",
+      "generatingDescription": "يرجى الانتظار",
+      "actions": {
+        "download": "تحميل",
+        "share": "مشاركة",
+        "favorite": "مفضلة",
+        "downloadSuccess": "تم التحميل بنجاح",
+        "downloadFailed": "فشل التحميل",
+        "linkCopied": "تم نسخ الرابط",
+        "favorited": "أضيف للمفضلة",
+        "unfavorited": "أزيل من المفضلة",
+        "favoriteFailed": "فشل تبديل المفضلة"
+      }
+    },
+    "history": {
+      "title": "السجل",
+      "empty": "لا يوجد سجل",
+      "loading": "جاري التحميل...",
+      "loadMore": "تحميل المزيد"
+    },
     "floating": { "placeholder": "أدخل أمراً..." }
   },
-  "Onboarding": { "welcome": { "title": "مرحباً بك في GenX، {name}!", "defaultName": "مبدع", "description": "3 خطوات بسيطة فقط لإنشاء أول فيديو فني مذهل.", "steps": { "upload": { "title": "ارفع صورتك", "description": "أي صورة تعمل - صور شخصية، مناظر طبيعية، منتجات" }, "style": { "title": "اختر نمط فني", "description": "5 أنماط: سايبربانك، ألوان مائية، زيتي، أنيمي، فن سائل" }, "generate": { "title": "أنشئ وحمّل", "description": "AI يصنع فيديوك الفني في حوالي 30 ثانية" } }, "freeCredits": "لديك 15 رصيد مجاني للبدء!", "startButton": "ابدأ الإنشاء", "skipButton": "سأستكشف بنفسي" } },
-  "UserDashboard": { "stats": { "credits": "رصيد الأرصدة", "creditsHint": "لتوليد فيديو AI", "buyCredits": "احصل على المزيد", "videosCreated": "فيديوهات منشأة", "allTime": "الإجمالي", "inProgress": "قيد التنفيذ" }, "quickStart": { "title": "مستعد للإنشاء؟", "createVideo": "فيديو جديد" }, "quickActions": { "title": "إجراءات سريعة", "image-to-video": "صورة إلى فيديو", "text-to-video": "نص إلى فيديو", "reference-to-video": "فيديو مرجعي", "image": "صورة AI" }, "recentCreations": { "title": "الأعمال الأخيرة", "subtitle": "أحدث فيديوهات AI الخاصة بك", "viewAll": "عرض الكل", "empty": { "title": "لا توجد فيديوهات بعد", "description": "أنشئ أول فيديو فني بالذكاء الاصطناعي", "cta": "أنشئ أول فيديو" }, "status": { "generating": "جاري الإنشاء", "pending": "قيد الانتظار", "failed": "فشل" } } },
-  "Mail": { "common": { "team": "فريق {name}", "copyright": "©️ {year} جميع الحقوق محفوظة." }, "verifyEmail": { "title": "مرحباً، {name}.", "body": "انقر على الرابط أدناه للتحقق من بريدك الإلكتروني.", "confirmEmail": "تأكيد البريد", "subject": "تحقق من بريدك الإلكتروني" }, "forgotPassword": { "title": "مرحباً، {name}.", "body": "انقر على الرابط أدناه لإعادة تعيين كلمة المرور.", "resetPassword": "إعادة تعيين كلمة المرور", "subject": "إعادة تعيين كلمة المرور" }, "subscribeNewsletter": { "body": "شكراً لاشتراكك في النشرة الإخبارية. سنبقيك على اطلاع.", "subject": "شكراً لاشتراكك" }, "contactMessage": { "name": "الاسم: {name}", "email": "البريد: {email}", "message": "الرسالة: {message}", "subject": "رسالة اتصال من الموقع" } }
+  "Onboarding": {
+    "welcome": {
+      "title": "مرحباً بك في GenX، {name}!",
+      "defaultName": "مبدع",
+      "description": "3 خطوات بسيطة فقط لإنشاء أول فيديو فني مذهل.",
+      "steps": {
+        "upload": {
+          "title": "ارفع صورتك",
+          "description": "أي صورة تعمل - صور شخصية، مناظر طبيعية، منتجات"
+        },
+        "style": {
+          "title": "اختر نمط فني",
+          "description": "5 أنماط: سايبربانك، ألوان مائية، زيتي، أنيمي، فن سائل"
+        },
+        "generate": {
+          "title": "أنشئ وحمّل",
+          "description": "AI يصنع فيديوك الفني في حوالي 30 ثانية"
+        }
+      },
+      "freeCredits": "لديك 15 رصيد مجاني للبدء!",
+      "startButton": "ابدأ الإنشاء",
+      "skipButton": "سأستكشف بنفسي"
+    }
+  },
+  "UserDashboard": {
+    "stats": {
+      "credits": "رصيد الأرصدة",
+      "creditsHint": "لتوليد فيديو AI",
+      "buyCredits": "احصل على المزيد",
+      "videosCreated": "فيديوهات منشأة",
+      "allTime": "الإجمالي",
+      "inProgress": "قيد التنفيذ"
+    },
+    "quickStart": { "title": "مستعد للإنشاء؟", "createVideo": "فيديو جديد" },
+    "quickActions": {
+      "title": "إجراءات سريعة",
+      "image-to-video": "صورة إلى فيديو",
+      "text-to-video": "نص إلى فيديو",
+      "reference-to-video": "فيديو مرجعي",
+      "image": "صورة AI"
+    },
+    "recentCreations": {
+      "title": "الأعمال الأخيرة",
+      "subtitle": "أحدث فيديوهات AI الخاصة بك",
+      "viewAll": "عرض الكل",
+      "empty": {
+        "title": "لا توجد فيديوهات بعد",
+        "description": "أنشئ أول فيديو فني بالذكاء الاصطناعي",
+        "cta": "أنشئ أول فيديو"
+      },
+      "status": {
+        "generating": "جاري الإنشاء",
+        "pending": "قيد الانتظار",
+        "failed": "فشل"
+      }
+    }
+  },
+  "Mail": {
+    "common": {
+      "team": "فريق {name}",
+      "copyright": "©️ {year} جميع الحقوق محفوظة."
+    },
+    "verifyEmail": {
+      "title": "مرحباً، {name}.",
+      "body": "انقر على الرابط أدناه للتحقق من بريدك الإلكتروني.",
+      "confirmEmail": "تأكيد البريد",
+      "subject": "تحقق من بريدك الإلكتروني"
+    },
+    "forgotPassword": {
+      "title": "مرحباً، {name}.",
+      "body": "انقر على الرابط أدناه لإعادة تعيين كلمة المرور.",
+      "resetPassword": "إعادة تعيين كلمة المرور",
+      "subject": "إعادة تعيين كلمة المرور"
+    },
+    "subscribeNewsletter": {
+      "body": "شكراً لاشتراكك في النشرة الإخبارية. سنبقيك على اطلاع.",
+      "subject": "شكراً لاشتراكك"
+    },
+    "contactMessage": {
+      "name": "الاسم: {name}",
+      "email": "البريد: {email}",
+      "message": "الرسالة: {message}",
+      "subject": "رسالة اتصال من الموقع"
+    }
+  }
 }

@@ -26,7 +26,7 @@ export const HOME_PROMPTS: HomePrompt[] = [
     id: 'epic-fantasy',
     title: 'Epic Fantasy',
     prompt:
-      'Cinematic wide-angle low-angle shot of a lone warrior standing at the edge of a cliff, silhouetted against a massive glowing sunset. A towering dragon circles in the distance, wings outstretched, casting a vast shadow over ancient ruins below. Wind gently moves the warrior\'s cloak, sword held steady. Dramatic lighting with warm oranges and deep purples. Mystical atmosphere, fantasy landscape, high detail in armor and dragon scales. Mist rolling through the valley. Heroic, epic tone.',
+      "Cinematic wide-angle low-angle shot of a lone warrior standing at the edge of a cliff, silhouetted against a massive glowing sunset. A towering dragon circles in the distance, wings outstretched, casting a vast shadow over ancient ruins below. Wind gently moves the warrior's cloak, sword held steady. Dramatic lighting with warm oranges and deep purples. Mystical atmosphere, fantasy landscape, high detail in armor and dragon scales. Mist rolling through the valley. Heroic, epic tone.",
     category: 'video',
   },
   {
@@ -54,14 +54,14 @@ export const HOME_PROMPTS: HomePrompt[] = [
     id: 'crowning',
     title: '👑 Crowning',
     prompt:
-      'A royal ceremony captured in a grand hall. A figure draped in elegant robes kneels before an ornate throne. Above them, a golden crown slowly descends, held by an unseen hand or floating in mid-air, radiating soft divine light. The crown gently settles onto the figure\'s head. Camera slowly zooms in. Torches flicker on stone walls, casting warm amber light. Majestic, cinematic atmosphere. Rich textures in fabric, metal, and stone. Slow, deliberate motion, reverent tone. Medieval or fantasy setting, regal and ceremonial.',
+      "A royal ceremony captured in a grand hall. A figure draped in elegant robes kneels before an ornate throne. Above them, a golden crown slowly descends, held by an unseen hand or floating in mid-air, radiating soft divine light. The crown gently settles onto the figure's head. Camera slowly zooms in. Torches flicker on stone walls, casting warm amber light. Majestic, cinematic atmosphere. Rich textures in fabric, metal, and stone. Slow, deliberate motion, reverent tone. Medieval or fantasy setting, regal and ceremonial.",
     category: 'video',
   },
   {
     id: 'hat4pet',
     title: 'Hat4Pet',
     prompt:
-      'Playful close-up of a small pet (cat or dog) sitting calmly on a soft surface. A tiny novelty hat—such as a sombrero, wizard hat, or party hat—gently descends from above and lands perfectly on the pet\'s head. The pet blinks, tilts its head slightly, or twitches its ears in mild confusion, but remains still. Bright, soft natural lighting. Clean background, warm and cozy indoor setting. Cute, lighthearted tone. Realistic fur texture, shallow depth of field, charming and endearing.',
+      "Playful close-up of a small pet (cat or dog) sitting calmly on a soft surface. A tiny novelty hat—such as a sombrero, wizard hat, or party hat—gently descends from above and lands perfectly on the pet's head. The pet blinks, tilts its head slightly, or twitches its ears in mild confusion, but remains still. Bright, soft natural lighting. Clean background, warm and cozy indoor setting. Cute, lighthearted tone. Realistic fur texture, shallow depth of field, charming and endearing.",
     category: 'video',
   },
   {
@@ -89,14 +89,14 @@ export const HOME_PROMPTS: HomePrompt[] = [
     id: 'pet-weightlift',
     title: 'Pet Weightlift',
     prompt:
-      'Humorous close-up of a small pet (cat or hamster) positioned next to a tiny toy barbell. The pet\'s paws rest on the bar as if gripping it. The barbell slowly lifts a few inches off the surface, held by an invisible string or the pet\'s slight movement. The animal looks directly at the camera with a serious or determined expression. Bright, playful lighting. Clean, simple background. Fun, comedic tone with realistic pet behavior and expressions. Cute, internet-style pet content.',
+      "Humorous close-up of a small pet (cat or hamster) positioned next to a tiny toy barbell. The pet's paws rest on the bar as if gripping it. The barbell slowly lifts a few inches off the surface, held by an invisible string or the pet's slight movement. The animal looks directly at the camera with a serious or determined expression. Bright, playful lighting. Clean, simple background. Fun, comedic tone with realistic pet behavior and expressions. Cute, internet-style pet content.",
     category: 'video',
   },
   {
     id: 'playhouse-builder',
     title: 'Playhouse Builder 🎈',
     prompt:
-      'Time-lapse or sped-up footage of a cardboard fort being assembled in a living room. Hands quickly fold, tape, and stack colorful boxes and sheets. Windows and doors are cut out. Markers draw decorations. A child\'s toys and blankets are added inside. The camera stays stationary, capturing the entire process from overhead or corner angle. Bright indoor lighting, warm homey atmosphere. Playful, wholesome family activity vibe. Creative, DIY aesthetic. No background music, just ambient sounds of tape and movement.',
+      "Time-lapse or sped-up footage of a cardboard fort being assembled in a living room. Hands quickly fold, tape, and stack colorful boxes and sheets. Windows and doors are cut out. Markers draw decorations. A child's toys and blankets are added inside. The camera stays stationary, capturing the entire process from overhead or corner angle. Bright indoor lighting, warm homey atmosphere. Playful, wholesome family activity vibe. Creative, DIY aesthetic. No background music, just ambient sounds of tape and movement.",
     category: 'video',
   },
   {
@@ -145,7 +145,7 @@ export const HOME_PROMPTS: HomePrompt[] = [
     id: 'upset',
     title: 'UPSET 😤',
     prompt:
-      'Extreme close-up of a person\'s face showing frustration. Eyebrows furrow tightly, nostrils flare, jaw clenches. They exhale sharply and look away from the camera, shaking their head slightly. Shallow depth of field focuses sharply on the eyes and expression. Harsh or neutral lighting emphasizes tension. Muted or cool color grading. Minimal movement, maximum emotion in facial micro-expressions. Relatable, emotional, short-form content style. No dialogue, just visible emotion and breath.',
+      "Extreme close-up of a person's face showing frustration. Eyebrows furrow tightly, nostrils flare, jaw clenches. They exhale sharply and look away from the camera, shaking their head slightly. Shallow depth of field focuses sharply on the eyes and expression. Harsh or neutral lighting emphasizes tension. Muted or cool color grading. Minimal movement, maximum emotion in facial micro-expressions. Relatable, emotional, short-form content style. No dialogue, just visible emotion and breath.",
     category: 'video',
   },
   {
@@ -159,7 +159,7 @@ export const HOME_PROMPTS: HomePrompt[] = [
     id: 'frozen-air-ride',
     title: 'Frozen Air Ride 🥶',
     prompt:
-      'Steady pace with near buildings, streetlights, and utility poles providing layered parallax and occasional near foreground occluders. Using a 35mm lens with shallow depth of field, the rider and bike remain sharply isolated against the gently blurred street and sky backdrop. Evening light blends with subtle streetlamp glows that cast soft highlights on the bike frame and rider\'s clothes. The shot finishes on a dynamic three-quarter angle emphasizing both the action and environment, anchored by floating dust particles that read cleanly in the ultra-slow frozen scene.',
+      "Steady pace with near buildings, streetlights, and utility poles providing layered parallax and occasional near foreground occluders. Using a 35mm lens with shallow depth of field, the rider and bike remain sharply isolated against the gently blurred street and sky backdrop. Evening light blends with subtle streetlamp glows that cast soft highlights on the bike frame and rider's clothes. The shot finishes on a dynamic three-quarter angle emphasizing both the action and environment, anchored by floating dust particles that read cleanly in the ultra-slow frozen scene.",
     category: 'video',
   },
   {
@@ -231,7 +231,7 @@ export const HOME_PROMPTS: HomePrompt[] = [
     id: 'album-cover',
     title: 'Album Cover 🎸🎤',
     prompt:
-      'Transform the image into a retro-style cassette album set displayed on a full wooden tabletop. The scene must include three key objects arranged naturally: Cassette tape case featuring the subject\'s portrait from the neck up, printed as an album-style headshot. The cover should include realistic album details such as: album title, artist name, track label, release date, and other small printed text typical of cassette packaging. The subject\'s facial features, hairstyle, and accessories must remain identical to the input photo. A transparent cassette tape deck/player, placed beside the case, with visible reels and mechanical details. Wired earphones, casually placed on the wooden table to reinforce the retro music aesthetic. Use realistic lighting and shadows, warm tones, and a nostalgic analogue mood. The wooden tabletop background must be fully visible across the entire image, not cropped or partial. Output image only, no additional text.',
+      "Transform the image into a retro-style cassette album set displayed on a full wooden tabletop. The scene must include three key objects arranged naturally: Cassette tape case featuring the subject's portrait from the neck up, printed as an album-style headshot. The cover should include realistic album details such as: album title, artist name, track label, release date, and other small printed text typical of cassette packaging. The subject's facial features, hairstyle, and accessories must remain identical to the input photo. A transparent cassette tape deck/player, placed beside the case, with visible reels and mechanical details. Wired earphones, casually placed on the wooden table to reinforce the retro music aesthetic. Use realistic lighting and shadows, warm tones, and a nostalgic analogue mood. The wooden tabletop background must be fully visible across the entire image, not cropped or partial. Output image only, no additional text.",
     category: 'image',
   },
   {

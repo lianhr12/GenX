@@ -1,4 +1,4 @@
-import { describe, expect, it, vi, beforeEach } from 'vitest';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 /**
  * VideoService 完整 mock 测试
@@ -38,9 +38,12 @@ function makeWhereResult() {
 }
 
 function resetQueues() {
-  limitQueue = []; limitIdx = 0;
-  whereQueue = []; whereIdx = 0;
-  orderByLimitQueue = []; orderByLimitIdx = 0;
+  limitQueue = [];
+  limitIdx = 0;
+  whereQueue = [];
+  whereIdx = 0;
+  orderByLimitQueue = [];
+  orderByLimitIdx = 0;
 }
 
 const mockReturning = vi.fn().mockReturnValue([{ uuid: 'vid_test', id: 1 }]);
@@ -66,14 +69,29 @@ const mockDb: Record<string, any> = {
 vi.mock('@/db', () => ({
   getDb: vi.fn().mockResolvedValue(mockDb),
   videos: {
-    uuid: 'uuid', id: 'id', userId: 'userId', prompt: 'prompt',
-    model: 'model', parameters: 'parameters', status: 'status',
-    creditsUsed: 'creditsUsed', isPublic: 'isPublic', hidePrompt: 'hidePrompt',
-    updatedAt: 'updatedAt', externalTaskId: 'externalTaskId',
-    errorMessage: 'errorMessage', videoUrl: 'videoUrl', thumbnailUrl: 'thumbnailUrl',
-    originalVideoUrl: 'originalVideoUrl', completedAt: 'completedAt',
-    isFavorite: 'isFavorite', isDeleted: 'isDeleted', createdAt: 'createdAt',
-    startImageUrl: 'startImageUrl', duration: 'duration', aspectRatio: 'aspectRatio',
+    uuid: 'uuid',
+    id: 'id',
+    userId: 'userId',
+    prompt: 'prompt',
+    model: 'model',
+    parameters: 'parameters',
+    status: 'status',
+    creditsUsed: 'creditsUsed',
+    isPublic: 'isPublic',
+    hidePrompt: 'hidePrompt',
+    updatedAt: 'updatedAt',
+    externalTaskId: 'externalTaskId',
+    errorMessage: 'errorMessage',
+    videoUrl: 'videoUrl',
+    thumbnailUrl: 'thumbnailUrl',
+    originalVideoUrl: 'originalVideoUrl',
+    completedAt: 'completedAt',
+    isFavorite: 'isFavorite',
+    isDeleted: 'isDeleted',
+    createdAt: 'createdAt',
+    startImageUrl: 'startImageUrl',
+    duration: 'duration',
+    aspectRatio: 'aspectRatio',
     provider: 'provider',
   },
   user: { id: 'id', name: 'name', image: 'image' },
@@ -101,31 +119,43 @@ vi.mock('@/ai/video', () => ({
 }));
 
 vi.mock('@/ai/video/utils/callback-signature', () => ({
-  generateSignedCallbackUrl: vi.fn().mockReturnValue('https://cb.example.com/signed'),
+  generateSignedCallbackUrl: vi
+    .fn()
+    .mockReturnValue('https://cb.example.com/signed'),
 }));
 
 vi.mock('@/config/video-credits', () => ({
   calculateModelCredits: vi.fn().mockReturnValue(20),
   getModelConfig: vi.fn().mockImplementation((model: string) => {
     if (model === 'unsupported') return null;
-    if (model === 'no-i2v') return {
-      provider: 'evolink', durations: [5, 10], supportImageToVideo: false,
-    };
-    if (model === 'exact-dims') return {
-      provider: 'evolink', durations: [5], supportImageToVideo: true,
-      imageRequirements: {
-        exactDimensions: true,
-        dimensions: { '16:9': { width: 1280, height: 720 } },
-      },
-    };
+    if (model === 'no-i2v')
+      return {
+        provider: 'evolink',
+        durations: [5, 10],
+        supportImageToVideo: false,
+      };
+    if (model === 'exact-dims')
+      return {
+        provider: 'evolink',
+        durations: [5],
+        supportImageToVideo: true,
+        imageRequirements: {
+          exactDimensions: true,
+          dimensions: { '16:9': { width: 1280, height: 720 } },
+        },
+      };
     return {
-      provider: 'evolink', durations: [5, 10, 15], supportImageToVideo: true,
+      provider: 'evolink',
+      durations: [5, 10, 15],
+      supportImageToVideo: true,
     };
   }),
   getAvailableModels: vi.fn().mockReturnValue([]),
 }));
 
-const mockFreezeCredits = vi.fn().mockResolvedValue({ success: true, holdId: 1 });
+const mockFreezeCredits = vi
+  .fn()
+  .mockResolvedValue({ success: true, holdId: 1 });
 const mockReleaseCredits = vi.fn().mockResolvedValue(undefined);
 const mockSettleCredits = vi.fn().mockResolvedValue(undefined);
 
@@ -137,7 +167,9 @@ vi.mock('@/credits/server', () => ({
 
 vi.mock('@/storage', () => ({
   getStorage: () => ({
-    downloadAndUpload: vi.fn().mockResolvedValue({ url: 'https://cdn.example.com/vid.mp4' }),
+    downloadAndUpload: vi
+      .fn()
+      .mockResolvedValue({ url: 'https://cdn.example.com/vid.mp4' }),
   }),
 }));
 
@@ -155,7 +187,10 @@ describe('VideoService.generate', () => {
     resetQueues();
     mockReturning.mockReturnValue([{ uuid: 'vid_test', id: 1 }]);
     mockFreezeCredits.mockResolvedValue({ success: true, holdId: 1 });
-    mockCreateTask.mockResolvedValue({ taskId: 'task_v_123', estimatedTime: 60 });
+    mockCreateTask.mockResolvedValue({
+      taskId: 'task_v_123',
+      estimatedTime: 60,
+    });
   });
 
   it('成功生成视频应返回完整结果', async () => {
@@ -179,7 +214,10 @@ describe('VideoService.generate', () => {
     const service = new VideoService();
     await expect(
       service.generate({
-        userId: 'user-1', prompt: 'test', model: 'unsupported', duration: 5,
+        userId: 'user-1',
+        prompt: 'test',
+        model: 'unsupported',
+        duration: 5,
       })
     ).rejects.toThrow('Unsupported model: unsupported');
   });
@@ -189,7 +227,10 @@ describe('VideoService.generate', () => {
     const service = new VideoService();
     await expect(
       service.generate({
-        userId: 'user-1', prompt: 'test', model: 'wan2.6-text-to-video', duration: 99,
+        userId: 'user-1',
+        prompt: 'test',
+        model: 'wan2.6-text-to-video',
+        duration: 99,
       })
     ).rejects.toThrow('only supports duration');
   });
@@ -199,7 +240,10 @@ describe('VideoService.generate', () => {
     const service = new VideoService();
     await expect(
       service.generate({
-        userId: 'user-1', prompt: 'test', model: 'no-i2v', duration: 5,
+        userId: 'user-1',
+        prompt: 'test',
+        model: 'no-i2v',
+        duration: 5,
         imageUrl: 'https://example.com/img.png',
       })
     ).rejects.toThrow('does not support image-to-video');
@@ -210,8 +254,12 @@ describe('VideoService.generate', () => {
     const service = new VideoService();
     await expect(
       service.generate({
-        userId: 'user-1', prompt: 'test', model: 'exact-dims', duration: 5,
-        imageUrl: 'https://example.com/img.png', aspectRatio: '16:9',
+        userId: 'user-1',
+        prompt: 'test',
+        model: 'exact-dims',
+        duration: 5,
+        imageUrl: 'https://example.com/img.png',
+        aspectRatio: '16:9',
       })
     ).rejects.toThrow('Image dimensions must match');
   });
@@ -222,7 +270,10 @@ describe('VideoService.generate', () => {
     const service = new VideoService();
     await expect(
       service.generate({
-        userId: 'user-1', prompt: 'test', model: 'wan2.6-text-to-video', duration: 5,
+        userId: 'user-1',
+        prompt: 'test',
+        model: 'wan2.6-text-to-video',
+        duration: 5,
       })
     ).rejects.toThrow('Failed to create video record');
   });
@@ -233,7 +284,10 @@ describe('VideoService.generate', () => {
     const service = new VideoService();
     await expect(
       service.generate({
-        userId: 'user-1', prompt: 'test', model: 'wan2.6-text-to-video', duration: 5,
+        userId: 'user-1',
+        prompt: 'test',
+        model: 'wan2.6-text-to-video',
+        duration: 5,
       })
     ).rejects.toThrow('Insufficient credits');
     expect(mockDb.update).toHaveBeenCalled();
@@ -245,7 +299,10 @@ describe('VideoService.generate', () => {
     const service = new VideoService();
     await expect(
       service.generate({
-        userId: 'user-1', prompt: 'test', model: 'wan2.6-text-to-video', duration: 5,
+        userId: 'user-1',
+        prompt: 'test',
+        model: 'wan2.6-text-to-video',
+        duration: 5,
       })
     ).rejects.toThrow('Insufficient credits');
   });
@@ -256,7 +313,10 @@ describe('VideoService.generate', () => {
     const service = new VideoService();
     await expect(
       service.generate({
-        userId: 'user-1', prompt: 'test', model: 'wan2.6-text-to-video', duration: 5,
+        userId: 'user-1',
+        prompt: 'test',
+        model: 'wan2.6-text-to-video',
+        duration: 5,
       })
     ).rejects.toThrow('Provider down');
     expect(mockReleaseCredits).toHaveBeenCalled();
@@ -275,18 +335,35 @@ describe('VideoService.handleCallback', () => {
 
   it('视频不存在应直接返回', async () => {
     limitQueue = [[]];
-    mockParseCallback.mockReturnValue({ taskId: 'task_1', status: 'completed', videoUrl: 'x' });
+    mockParseCallback.mockReturnValue({
+      taskId: 'task_1',
+      status: 'completed',
+      videoUrl: 'x',
+    });
     const { VideoService } = await import('../video');
     const service = new VideoService();
     await service.handleCallback('evolink' as any, {}, 'vid_missing');
   });
 
   it('task ID 不匹配应直接返回', async () => {
-    limitQueue = [[{
-      uuid: 'vid_1', externalTaskId: 'task_original', status: 'GENERATING',
-      userId: 'user-1', id: 1, isPublic: true, provider: 'evolink',
-    }]];
-    mockParseCallback.mockReturnValue({ taskId: 'task_different', status: 'completed', videoUrl: 'x' });
+    limitQueue = [
+      [
+        {
+          uuid: 'vid_1',
+          externalTaskId: 'task_original',
+          status: 'GENERATING',
+          userId: 'user-1',
+          id: 1,
+          isPublic: true,
+          provider: 'evolink',
+        },
+      ],
+    ];
+    mockParseCallback.mockReturnValue({
+      taskId: 'task_different',
+      status: 'completed',
+      videoUrl: 'x',
+    });
     const { VideoService } = await import('../video');
     const service = new VideoService();
     await service.handleCallback('evolink' as any, {}, 'vid_1');
@@ -295,15 +372,34 @@ describe('VideoService.handleCallback', () => {
   it('completed callback 应触发 tryCompleteGeneration', async () => {
     limitQueue = [
       // handleCallback: find video
-      [{ uuid: 'vid_cb', externalTaskId: 'task_cb', status: 'GENERATING',
-         userId: 'user-1', id: 1, isPublic: true, provider: 'evolink' }],
+      [
+        {
+          uuid: 'vid_cb',
+          externalTaskId: 'task_cb',
+          status: 'GENERATING',
+          userId: 'user-1',
+          id: 1,
+          isPublic: true,
+          provider: 'evolink',
+        },
+      ],
       // tryCompleteGeneration: find video again
-      [{ uuid: 'vid_cb', status: 'GENERATING', isPublic: true, userId: 'user-1', id: 1 }],
+      [
+        {
+          uuid: 'vid_cb',
+          status: 'GENERATING',
+          isPublic: true,
+          userId: 'user-1',
+          id: 1,
+        },
+      ],
       // tryCompleteGeneration: get user info for gallery
       [{ name: 'Test User', image: 'https://avatar.com/u.png' }],
     ];
     mockParseCallback.mockReturnValue({
-      taskId: 'task_cb', status: 'completed', videoUrl: 'https://provider.com/vid.mp4',
+      taskId: 'task_cb',
+      status: 'completed',
+      videoUrl: 'https://provider.com/vid.mp4',
     });
     const { VideoService } = await import('../video');
     const service = new VideoService();
@@ -313,13 +409,32 @@ describe('VideoService.handleCallback', () => {
 
   it('failed callback 应触发 tryFailGeneration', async () => {
     limitQueue = [
-      [{ uuid: 'vid_fail', externalTaskId: 'task_fail', status: 'GENERATING',
-         userId: 'user-1', id: 2, isPublic: false, provider: 'evolink' }],
+      [
+        {
+          uuid: 'vid_fail',
+          externalTaskId: 'task_fail',
+          status: 'GENERATING',
+          userId: 'user-1',
+          id: 2,
+          isPublic: false,
+          provider: 'evolink',
+        },
+      ],
       // tryFailGeneration: find video
-      [{ uuid: 'vid_fail', status: 'GENERATING', isPublic: false, userId: 'user-1', id: 2 }],
+      [
+        {
+          uuid: 'vid_fail',
+          status: 'GENERATING',
+          isPublic: false,
+          userId: 'user-1',
+          id: 2,
+        },
+      ],
     ];
     mockParseCallback.mockReturnValue({
-      taskId: 'task_fail', status: 'failed', error: { message: 'GPU OOM' },
+      taskId: 'task_fail',
+      status: 'failed',
+      error: { message: 'GPU OOM' },
     });
     const { VideoService } = await import('../video');
     const service = new VideoService();
@@ -329,13 +444,24 @@ describe('VideoService.handleCallback', () => {
 
   it('已完成视频的 callback 应提前返回', async () => {
     limitQueue = [
-      [{ uuid: 'vid_done', externalTaskId: 'task_done', status: 'GENERATING',
-         userId: 'user-1', id: 3, isPublic: false, provider: 'evolink' }],
+      [
+        {
+          uuid: 'vid_done',
+          externalTaskId: 'task_done',
+          status: 'GENERATING',
+          userId: 'user-1',
+          id: 3,
+          isPublic: false,
+          provider: 'evolink',
+        },
+      ],
       // tryCompleteGeneration: video already completed
       [{ uuid: 'vid_done', status: 'COMPLETED', videoUrl: 'u.mp4' }],
     ];
     mockParseCallback.mockReturnValue({
-      taskId: 'task_done', status: 'completed', videoUrl: 'https://p.com/v.mp4',
+      taskId: 'task_done',
+      status: 'completed',
+      videoUrl: 'https://p.com/v.mp4',
     });
     const { VideoService } = await import('../video');
     const service = new VideoService();
@@ -358,14 +484,24 @@ describe('VideoService.refreshStatus', () => {
     limitQueue = [[]];
     const { VideoService } = await import('../video');
     const service = new VideoService();
-    await expect(service.refreshStatus('vid_missing', 'user-1')).rejects.toThrow('Video not found');
+    await expect(
+      service.refreshStatus('vid_missing', 'user-1')
+    ).rejects.toThrow('Video not found');
   });
 
   it('已完成的视频应直接返回', async () => {
-    limitQueue = [[{
-      uuid: 'vid_done', status: 'COMPLETED', videoUrl: 'https://cdn.com/vid.mp4',
-      errorMessage: null, externalTaskId: 'task_1', provider: 'evolink',
-    }]];
+    limitQueue = [
+      [
+        {
+          uuid: 'vid_done',
+          status: 'COMPLETED',
+          videoUrl: 'https://cdn.com/vid.mp4',
+          errorMessage: null,
+          externalTaskId: 'task_1',
+          provider: 'evolink',
+        },
+      ],
+    ];
     const { VideoService } = await import('../video');
     const service = new VideoService();
     const result = await service.refreshStatus('vid_done', 'user-1');
@@ -374,10 +510,18 @@ describe('VideoService.refreshStatus', () => {
   });
 
   it('已失败的视频应直接返回', async () => {
-    limitQueue = [[{
-      uuid: 'vid_fail', status: 'FAILED', videoUrl: null,
-      errorMessage: 'Timeout', externalTaskId: 'task_1', provider: 'evolink',
-    }]];
+    limitQueue = [
+      [
+        {
+          uuid: 'vid_fail',
+          status: 'FAILED',
+          videoUrl: null,
+          errorMessage: 'Timeout',
+          externalTaskId: 'task_1',
+          provider: 'evolink',
+        },
+      ],
+    ];
     const { VideoService } = await import('../video');
     const service = new VideoService();
     const result = await service.refreshStatus('vid_fail', 'user-1');
@@ -386,10 +530,18 @@ describe('VideoService.refreshStatus', () => {
   });
 
   it('无 externalTaskId 的 GENERATING 视频应返回当前状态', async () => {
-    limitQueue = [[{
-      uuid: 'vid_no_task', status: 'GENERATING', videoUrl: null,
-      errorMessage: null, externalTaskId: null, provider: null,
-    }]];
+    limitQueue = [
+      [
+        {
+          uuid: 'vid_no_task',
+          status: 'GENERATING',
+          videoUrl: null,
+          errorMessage: null,
+          externalTaskId: null,
+          provider: null,
+        },
+      ],
+    ];
     const { VideoService } = await import('../video');
     const service = new VideoService();
     const result = await service.refreshStatus('vid_no_task', 'user-1');
@@ -398,14 +550,33 @@ describe('VideoService.refreshStatus', () => {
 
   it('GENERATING + provider 返回 completed 应触发 tryComplete', async () => {
     limitQueue = [
-      [{ uuid: 'vid_gen', status: 'GENERATING', externalTaskId: 'task_gen',
-         videoUrl: null, errorMessage: null, provider: 'evolink',
-         isPublic: false, userId: 'user-1', id: 10 }],
+      [
+        {
+          uuid: 'vid_gen',
+          status: 'GENERATING',
+          externalTaskId: 'task_gen',
+          videoUrl: null,
+          errorMessage: null,
+          provider: 'evolink',
+          isPublic: false,
+          userId: 'user-1',
+          id: 10,
+        },
+      ],
       // tryCompleteGeneration: find video
-      [{ uuid: 'vid_gen', status: 'GENERATING', isPublic: false, userId: 'user-1', id: 10 }],
+      [
+        {
+          uuid: 'vid_gen',
+          status: 'GENERATING',
+          isPublic: false,
+          userId: 'user-1',
+          id: 10,
+        },
+      ],
     ];
     mockGetTaskStatus.mockResolvedValue({
-      status: 'completed', videoUrl: 'https://p.com/v.mp4',
+      status: 'completed',
+      videoUrl: 'https://p.com/v.mp4',
     });
     const { VideoService } = await import('../video');
     const service = new VideoService();
@@ -415,13 +586,32 @@ describe('VideoService.refreshStatus', () => {
 
   it('GENERATING + provider 返回 failed 应触发 tryFail', async () => {
     limitQueue = [
-      [{ uuid: 'vid_gen2', status: 'GENERATING', externalTaskId: 'task_gen2',
-         videoUrl: null, errorMessage: null, provider: 'evolink',
-         isPublic: false, userId: 'user-1', id: 11 }],
-      [{ uuid: 'vid_gen2', status: 'GENERATING', isPublic: false, userId: 'user-1', id: 11 }],
+      [
+        {
+          uuid: 'vid_gen2',
+          status: 'GENERATING',
+          externalTaskId: 'task_gen2',
+          videoUrl: null,
+          errorMessage: null,
+          provider: 'evolink',
+          isPublic: false,
+          userId: 'user-1',
+          id: 11,
+        },
+      ],
+      [
+        {
+          uuid: 'vid_gen2',
+          status: 'GENERATING',
+          isPublic: false,
+          userId: 'user-1',
+          id: 11,
+        },
+      ],
     ];
     mockGetTaskStatus.mockResolvedValue({
-      status: 'failed', error: { message: 'Timeout' },
+      status: 'failed',
+      error: { message: 'Timeout' },
     });
     const { VideoService } = await import('../video');
     const service = new VideoService();
@@ -432,8 +622,16 @@ describe('VideoService.refreshStatus', () => {
 
   it('provider 查询异常应 fallback 返回当前状态', async () => {
     limitQueue = [
-      [{ uuid: 'vid_err', status: 'GENERATING', externalTaskId: 'task_err',
-         videoUrl: null, errorMessage: null, provider: 'evolink' }],
+      [
+        {
+          uuid: 'vid_err',
+          status: 'GENERATING',
+          externalTaskId: 'task_err',
+          videoUrl: null,
+          errorMessage: null,
+          provider: 'evolink',
+        },
+      ],
     ];
     mockGetTaskStatus.mockRejectedValue(new Error('network error'));
     const { VideoService } = await import('../video');
@@ -448,7 +646,10 @@ describe('VideoService.refreshStatus', () => {
 // ============================================================================
 
 describe('VideoService.getVideo', () => {
-  beforeEach(() => { vi.clearAllMocks(); resetQueues(); });
+  beforeEach(() => {
+    vi.clearAllMocks();
+    resetQueues();
+  });
 
   it('存在的视频应返回记录', async () => {
     limitQueue = [[{ uuid: 'vid_1', userId: 'user-1' }]];
@@ -485,13 +686,18 @@ describe('VideoService.deleteVideo', () => {
 // ============================================================================
 
 describe('VideoService.toggleFavorite', () => {
-  beforeEach(() => { vi.clearAllMocks(); resetQueues(); });
+  beforeEach(() => {
+    vi.clearAllMocks();
+    resetQueues();
+  });
 
   it('视频不存在应抛出错误', async () => {
     limitQueue = [[]];
     const { VideoService } = await import('../video');
     const service = new VideoService();
-    await expect(service.toggleFavorite('vid_missing', 'user-1')).rejects.toThrow('Video not found');
+    await expect(
+      service.toggleFavorite('vid_missing', 'user-1')
+    ).rejects.toThrow('Video not found');
   });
 
   it('视频存在应切换收藏状态', async () => {
@@ -508,16 +714,21 @@ describe('VideoService.toggleFavorite', () => {
 // ============================================================================
 
 describe('VideoService.listVideos', () => {
-  beforeEach(() => { vi.clearAllMocks(); resetQueues(); });
+  beforeEach(() => {
+    vi.clearAllMocks();
+    resetQueues();
+  });
 
   it('基本查询应返回正确结构', async () => {
     // count query → where() 直接解构
     whereQueue = [[{ count: 10 }]];
     // videos query → where().orderBy().limit()
-    orderByLimitQueue = [[
-      { uuid: 'v1', createdAt: new Date() },
-      { uuid: 'v2', createdAt: new Date() },
-    ]];
+    orderByLimitQueue = [
+      [
+        { uuid: 'v1', createdAt: new Date() },
+        { uuid: 'v2', createdAt: new Date() },
+      ],
+    ];
     const { VideoService } = await import('../video');
     const service = new VideoService();
     const result = await service.listVideos('user-1', { limit: 20 });
@@ -531,7 +742,9 @@ describe('VideoService.listVideos', () => {
     const { VideoService } = await import('../video');
     const service = new VideoService();
     const result = await service.listVideos('user-1', {
-      status: 'COMPLETED', isFavorite: true, search: 'cat',
+      status: 'COMPLETED',
+      isFavorite: true,
+      search: 'cat',
     });
     expect(result.total).toBe(1);
   });
@@ -552,7 +765,8 @@ describe('VideoService.listVideos', () => {
     whereQueue = [[{ count: 100 }]];
     // 返回 limit+1 条 → hasMore=true
     const items = Array.from({ length: 21 }, (_, i) => ({
-      uuid: `v_${i}`, createdAt: new Date(),
+      uuid: `v_${i}`,
+      createdAt: new Date(),
     }));
     orderByLimitQueue = [items];
     const { VideoService } = await import('../video');

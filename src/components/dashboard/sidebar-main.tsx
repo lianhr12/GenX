@@ -20,9 +20,9 @@ export function SidebarMain({ items }: { items: NestedMenuItem[] }) {
   // Function to check if a path is active
   const isActive = (href: string | undefined): boolean => {
     if (!href) return false;
-    // Exact match for dashboard root to prevent it from highlighting on child routes
-    if (href === '/dashboard') {
-      return pathname === '/dashboard';
+    // Exact match for root pages to prevent highlighting on child routes
+    if (href === '/dashboard' || href === '/admin') {
+      return pathname === href;
     }
     return pathname === href || pathname.startsWith(href + '/');
   };

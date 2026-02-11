@@ -76,7 +76,12 @@ function HistoryCard({ item, onClick }: HistoryCardProps) {
   );
 }
 
-export function HistorySection({ mode, className, onSelectItem, refreshKey }: HistorySectionProps) {
+export function HistorySection({
+  mode,
+  className,
+  onSelectItem,
+  refreshKey,
+}: HistorySectionProps) {
   const t = useTranslations('Generator.history');
   const [items, setItems] = useState<GenerationResult[]>([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -107,7 +112,8 @@ export function HistorySection({ mode, className, onSelectItem, refreshKey }: Hi
               id: img.uuid,
               type: 'image' as const,
               url: (img.imageUrls as string[])?.[0] || '',
-              thumbnailUrl: img.thumbnailUrl || (img.imageUrls as string[])?.[0],
+              thumbnailUrl:
+                img.thumbnailUrl || (img.imageUrls as string[])?.[0],
               prompt: img.prompt,
               model: img.model,
               creditsUsed: img.creditsUsed,
@@ -139,7 +145,9 @@ export function HistorySection({ mode, className, onSelectItem, refreshKey }: Hi
             params.set('cursor', nextCursorRef.current);
           }
 
-          const response = await fetch(`/api/v1/video/list?${params.toString()}`);
+          const response = await fetch(
+            `/api/v1/video/list?${params.toString()}`
+          );
           if (response.ok) {
             const result = await response.json();
             if (result.success && result.data) {

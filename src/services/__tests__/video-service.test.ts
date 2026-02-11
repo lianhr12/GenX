@@ -1,9 +1,9 @@
-import { describe, expect, it } from 'vitest';
 import {
   VIDEO_MODELS,
   calculateModelCredits,
   getModelConfig,
 } from '@/config/video-credits';
+import { describe, expect, it } from 'vitest';
 
 /**
  * VideoService 业务逻辑测试
@@ -259,7 +259,11 @@ describe('VideoService 积分计算一致性', () => {
 
 describe('VideoService 音频支持', () => {
   it('支持 generateAudio 的模型', () => {
-    const audioModels = ['veo-3.1-fast-generate-preview', 'veo-3.1-pro', 'seedance-1.5-pro'];
+    const audioModels = [
+      'veo-3.1-fast-generate-preview',
+      'veo-3.1-pro',
+      'seedance-1.5-pro',
+    ];
     for (const modelId of audioModels) {
       const config = getModelConfig(modelId)!;
       expect(config.supportsAudioGeneration).toBe(true);
